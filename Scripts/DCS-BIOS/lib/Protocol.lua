@@ -24,22 +24,40 @@ end
 
 local nextLowFreqStepTime = 0
 local nextHighFreqStepTime = 0
+local lastAcftName = ""
+local aircraftNameToModule = {
+	["A-10C"] = BIOS.a10c
+}
 function BIOS.protocol.step()
 	
 	local curTime = LoGetModelTime()
+	
+	local acftName = "NONE"
+	local selfData = LoGetSelfData()
+	if selfData then
+		acftName = selfData["Name"]
+	end
+	if lastAcftName ~= acftName then
+		argumentCache = {}
+		BIOS.protocol.setMsgArg("AIRCRAFT", acftName)
+		lastAcftName = acftName
+	end
+	local acftModule = aircraftNameToModule[acftName]
+	
+	
 
 	if curTime >= nextHighFreqStepTime then
 		-- runs 100 times per second
 		nextHighFreqStepTime = curTime + .01
 		
-		BIOS.a10c.exportHighFrequency()
+		if acftModule then acftModule.exportHighFrequency() end
 	end
 	
 	if curTime >= nextLowFreqStepTime then
 		-- runs 10 times per second
 		nextLowFreqStepTime = curTime + .1
 		
-		BIOS.a10c.exportLowFrequency()
+		if acftModule then acftModule.exportLowFrequency() end		
 	end
 
 end
