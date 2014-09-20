@@ -9,11 +9,21 @@ BIOS.a10c.lowFrequencyMap = lowFrequencyMap
 local highFrequencyMap = {}
 BIOS.a10c.highFrequencyMap = highFrequencyMap
 
+local documentation = {}
+BIOS.a10c.documentation = documentation
+local function document(args)
+	if not args.category then args.category = "No Category" end
+	if not documentation[args.category] then documentation[args.category] = {} end
+	documentation[args.category][args.msg] = args
+end
+
 local function defineIndicatorLight(msg, arg_number, category, description)
+	document { msg = msg, category = category, description = description, msg_type = "indicator", value_type = "enum", value_enum = {"0", "1"}, can_set = false, actions = {} }
 	highFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
 end
 
 local function definePushButton(msg, device_id, device_command, arg_number, category, description)
+	document { msg = msg, category = category, description = description, msg_type = "button", value_type = "enum", value_enum = {"0", "1"}, can_set = true, actions = {} }
 	highFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
 	BIOS.a10c.inputProcessors[msg] = function(state)
 		if type(state) == "string" then state = tonumber(state) end
@@ -31,6 +41,7 @@ end
 ]]--
 
 local function definePotentiometer(msg, device_id, command, arg_number, limits, category, description)
+	document { msg = msg, category = category, description = description, msg_type = "potentiometer", value_type = "float", value_range = limits, can_set = true, actions = {} }
 	lowFrequencyMap[msg] = function(dev0) return string.format("%.4f", dev0:get_argument_value(arg_number)) end
 	if limits == nil then limits = {0.0, 1.0} end
 	BIOS.a10c.inputProcessors[msg] = function(value)
@@ -42,10 +53,14 @@ local function definePotentiometer(msg, device_id, command, arg_number, limits, 
 end
 
 local function defineRotary(msg, device_id, command, arg_number, category, description)
+	document { msg = msg, category = category, description = description, msg_type = "rotary", value_type = "float", value_range = {0, 1}, can_set = false, actions = {"DEC", "INC"} }
 	lowFrequencyMap[msg] = function(dev0) return string.format("%.4f", dev0:get_argument_value(arg_number)) end
-	BIOS.a10c.inputProcessors[msg] = function(delta)
-		delta = tonumber(delta)
-		GetDevice(device_id):performClickableAction(command, delta)
+	BIOS.a10c.inputProcessors[msg] = function(state)
+		if state == "INC" then
+			GetDevice(device_id):performClickableAction(command, 0.1)
+		elseif state == "DEC" then
+			GetDevice(device_id):performClickableAction(command, -0.1)
+		end
 	end
 end
 
@@ -65,6 +80,17 @@ local function defineSetCommandTumb(msg, device_id, command, arg_number, step, l
 	-- uses SetCommand and set_argument_value instead of performClickableAction()
 	local span = limits[2] - limits[1]
 	local last_n = tonumber(string.format("%.0f", span / step))
+
+	local value_enum = output_map
+	if not value_enum then
+		value_enum = {}
+		local n = 0
+		while n <= last_n do
+			value_enum[#value_enum+1] = tostring(n)
+			n = n + 1
+		end
+	end
+	document { msg = msg, category = category, description = description, msg_type = "tumb", value_type = "enum", value_enum = value_enum, can_set = true, actions = {"DEC", "INC"} }
 	
 	lowFrequencyMap[msg] = function(dev0)
 		local value = dev0:get_argument_value(arg_number)		
@@ -117,6 +143,17 @@ local function defineTumb(msg, device_id, command, arg_number, step, limits, out
 	local span = limits[2] - limits[1]
 	local last_n = tonumber(string.format("%.0f", span / step))
 	
+	local value_enum = output_map
+	if not value_enum then
+		value_enum = {}
+		local n = 0
+		while n <= last_n do
+			value_enum[#value_enum+1] = tostring(n)
+			n = n + 1
+		end
+	end
+	
+	document { msg = msg, category = category, description = description, msg_type = "tumb", value_type = "enum", value_enum = value_enum, can_set = true, actions = {"DEC", "INC"} }
 	lowFrequencyMap[msg] = function(dev0)
 		local value = dev0:get_argument_value(arg_number)		
 		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
@@ -161,6 +198,8 @@ local function defineTumb(msg, device_id, command, arg_number, step, limits, out
 end
 local function defineRadioWheel(msg, device_id, command1, command2, command_args, arg_number, step, limits, output_map, category, description)
 	defineTumb(msg, device_id, command1, arg_number, step, limits, output_map, true, category, description)
+	documentation[category][msg].can_set = false
+	documentation[category][msg].msg_type = "radiowheel"
 	inputProcessors[msg] = function(state)
 		if state == "INC" then
 			GetDevice(device_id):performClickableAction(command2, command_args[2])
@@ -177,19 +216,9 @@ local function define3PosTumb(msg, device_id, command, arg_number, category, des
 	defineTumb(msg, device_id, command, arg_number, 0.1, {0.0, 0.2}, nil, false, category, description)
 end
 local function defineRelativeTumb(msg, device_id, command, arg_number, step, limits, rel_args, output_map, category, description)
-	local span = limits[2] - limits[1]
-	local last_n = tonumber(string.format("%.0f", span / step))
-	
-	lowFrequencyMap[msg] = function(dev0)
-		local value = dev0:get_argument_value(arg_number)		
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
-		
-		if not output_map then
-			return tostring(n)
-		else
-			return output_map[n+1]
-		end
-	end
+	defineTumb(msg, device_id, command, arg_number, step, limits, output_map, true, category, description)
+	documentation[category][msg].msg_type = "relativetumb"
+	documentation[category][msg].can_set = false
 	
 	inputProcessors[msg] = function(state)
 		if state == "DEC" then
@@ -203,9 +232,11 @@ end
 
 local function defineString(msg, getter, category, description)
 	lowFrequencyMap[msg] = getter
+	document { msg = msg, category = category, description = description, msg_type = "string", value_type = "string", can_set = false, actions = {} }
 end
 
 local function defineElectricallyHeldSwitch(msg, device_id, pos_command, neg_command, arg_number, category, description)
+	document { msg = msg, category = category, description = description, msg_type = "electrically_held_switch", value_type = "enum", value_enum = {"0", "1"}, can_set = false, actions = {"PUSH", "RELEASE", "OFF"} }
 	lowFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
 	BIOS.a10c.inputProcessors[msg] = function(action)
 		if action == "PUSH" then GetDevice(device_id):performClickableAction(pos_command, 1) end
@@ -215,6 +246,7 @@ local function defineElectricallyHeldSwitch(msg, device_id, pos_command, neg_com
 end
 
 local function defineRockerSwitch(msg, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)
+	document { msg = msg, category = category, description = description, msg_type = "rocker", value_type = "enum", value_enum = {"-1", "0", "1"}, can_set = true, actions = {} }
 	lowFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
 	BIOS.a10c.inputProcessors[msg] = function(toState)
 		if type(toState) == "string" then toState = tonumber(toState) end
@@ -700,7 +732,7 @@ defineRockerSwitch("CDU_SCROLL", 9, 3064, 3064, 3065, 3065, 469, "CDU", "Scroll 
 defineRockerSwitch("CDU_DATA", 9, 3066, 3066, 3077, 3077, 472, "CDU", "+/- Rocker")
 
 defineTumb("AAP_STEERPT", 22, 3001, 473, 0.1, {0.0, 0.2}, nil, false, "AAP", "STEERPT FLTPLAN - MARK - MISSION")
-defineRockerSwitch("AAP_STEER", 22, 3003, 3003, 3002, 3002, 474, 3, 0.1, "AAP", "Toggle Steerpoint")
+defineRockerSwitch("AAP_STEER", 22, 3003, 3003, 3002, 3002, 474, "AAP", "Toggle Steerpoint")
 defineTumb("AAP_PAGE", 22, 3004, 475, 0.1, {0.0, 0.3}, nil, false, "AAP", "PAGE OTHER - POSITION - STEER - WAYPT")
 defineToggleSwitch("AAP_CDUPWR", 22, 3005, 476, "AAP", "CDU Power")
 defineToggleSwitch("AAP_EGIPWR", 22, 3006, 477, "AAP", "EGI Power")
@@ -818,7 +850,7 @@ defineTumb("IFF_TEST_M3", 43, 3012, 204, 1, {-1, 1}, nil, true, "IFF", "Test M-3
 defineTumb("IFF_TEST_M4", 43, 3013, 205, 1, {-1, 1}, nil, true, "IFF", "Test M-4")
 defineTumb("IFF_RADTEST", 43, 3014, 206, 1, {-1, 1}, nil, true, "IFF", "RAD Test/Mon")
 defineTumb("IFF_MIC_IDENT", 43, 3015, 207, 1, {-1, 1}, nil, true, "IFF", "RAD Test/Mon")
-defineToggleSwitch("IFF_ON_OUT", 43, 3016, 208, 1, "IFF", "IFF On/Out")
+defineToggleSwitch("IFF_ON_OUT", 43, 3016, 208, "IFF", "IFF On/Out")
 defineTumb("IFF_MODE1_WHEEL1", 43, 3001, 209, 0.1, {0.0, 0.7}, nil, true, "IFF", "Mode-1 Wheel 1")
 defineTumb("IFF_MODE1_WHEEL2", 43, 3002, 210, 0.1, {0.0, 0.3}, nil, true, "IFF", "Mode-1 Wheel 2")
 defineTumb("IFF_MODE3A_WHEEL1", 43, 3003, 211, 0.1, {0.0, 0.7}, nil, true, "IFF", "Mode-3A Wheel 1")
@@ -1053,7 +1085,7 @@ defineToggleSwitch("AUX_GEAR_LOCK", 39, 3009, 722, "Misc", "Auxiliary Landing Ge
 defineTumb("SEAT_ARM", 39, 3010, 733, 1, {0, 1}, {"1", "0"}, false, "Misc", "Seat Arm Handle")
 
 defineToggleSwitch("LADDER_EXTEND_COVER", 39, 3011, 787, "Misc", "Extend Boarding Ladder Button Cover")
-definePushButton("LADDER_EXTEND", 39, 39, 3012, 788, "Misc", "Extend Boarding Ladder Button")
+definePushButton("LADDER_EXTEND", 39, 3012, 788, "Misc", "Extend Boarding Ladder Button")
 
 definePushButton("ACCEL_PTS", 72, 3001, 904, "Accelerometer", "Push to Set")
 
