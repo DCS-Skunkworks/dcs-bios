@@ -34,8 +34,8 @@ Both streams are a sequence of messages.
 
 A message consists of the message type, an optional payload, and a line break.
 
-The *message type* can only contain upper case characters, numbers and dashes and must start with a letter, i.e. it must match the following regular expression:
-`[A-Z][A-Z0-9-]*`
+The *message type* can only contain upper case characters, numbers and underscores and must start with a letter, i.e. it must match the following regular expression:
+`[A-Z][A-Z0-9_]*`
 
 In a text payload, any byte except a line break is allowed, but it is
 recommended to stick to characters that can be typed on a keyboard to
@@ -85,7 +85,9 @@ While it is possible to define a message type that maps to a
 cockpit argument, this would leak DCS implementation details into the
 protocol and should be avoided.
 
-This specification defines a single message type, `SYNC`, in the next section.
+This specification defines two message types: `AIRCRAFT` and `SYNC`.
+The `AIRCRAFT` message specifies the currently active aircraft (e.g. `A-10C` or `UH-1H`). If the player is not in an aircraft, the value is `NONE`.
+For the `SYNC` message, see the next section.
 
 # Caching
 
@@ -98,10 +100,6 @@ state change, except after receiving a `SYNC` message.
 To implement this, cache the payload of the last message sent for each
 message type. When sending a message, only send it if its cache entry
 is empty or the payload differs from the cached payload.
-
-To eventually recover from missed messages, entries can be purged from
-the cache at a slow rate (e.g. every few seconds, remove the oldest
-cache entry).
 
 ## `SYNC` message
 

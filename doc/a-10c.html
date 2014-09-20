@@ -8,7 +8,7 @@
 		<script>
 			var app = angular.module("docApp", []);
 			app.controller("DocController", function($scope) {
-				$scope.categories = {
+				docdata = {
     "AAP": {
         "AAP_CDUPWR": {
             "actions": [
@@ -7804,6 +7804,7 @@
         }
     }
 };
+				$scope.categories = docdata;
 			});
 		</script>
 	</head>
