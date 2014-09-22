@@ -33,6 +33,11 @@ To send a message to DCS-BIOS, you can:
 * send UDP packets to port 7778 (on the computer that DCS is running on)
 * use `socat` to connect a serial port to DCS-BIOS (see below)
 
+For messages that are marked "settable" in the documentation, you can set the value directly. For example, to set the A-10C's Master Arm switch to its SAFE position, send:
+`AHCP_MASTER_ARM 1\n`
+
+Since the `AHCP_MASTER_ARM` message supports the `DEC` and `INC` actions, you can also send `AHCP_MASTER_ARM INC` to advance the switch towards the top and `AHCP_MASTER_ARM DEC` to advance it toward the bottom.
+
 Connect a serial port to DCS-BIOS
 =================================
 
