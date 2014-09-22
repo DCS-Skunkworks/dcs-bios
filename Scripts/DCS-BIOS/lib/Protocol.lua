@@ -1,5 +1,7 @@
 BIOS.protocol = {}
 
+local acftModule = nil
+
 local argumentCache = {}
 function BIOS.protocol.setMsgArg(msg, arg)
 	local oldArg = argumentCache[msg]
@@ -17,8 +19,10 @@ function BIOS.protocol.processInputLine(line)
 	if cmd == "SYNC" and args == "E" then
 		argumentCache = {}
 	end
-	if BIOS.a10c.inputProcessors[cmd] then
-		BIOS.a10c.inputProcessors[cmd](args)
+	if acftModule then
+		if acftModule.inputProcessors[cmd] then
+			acftModule.inputProcessors[cmd](args)
+		end
 	end
 end
 
@@ -26,7 +30,8 @@ local nextLowFreqStepTime = 0
 local nextHighFreqStepTime = 0
 local lastAcftName = ""
 local aircraftNameToModule = {
-	["A-10C"] = BIOS.a10c
+	["A-10C"] = BIOS.a10c,
+	["UH-1H"] = BIOS.uh1h
 }
 function BIOS.protocol.step()
 	
@@ -37,12 +42,12 @@ function BIOS.protocol.step()
 	if selfData then
 		acftName = selfData["Name"]
 	end
+	BIOS.protocol.setMsgArg("AIRCRAFT", acftName)
 	if lastAcftName ~= acftName then
 		argumentCache = {}
-		BIOS.protocol.setMsgArg("AIRCRAFT", acftName)
 		lastAcftName = acftName
 	end
-	local acftModule = aircraftNameToModule[acftName]
+	acftModule = aircraftNameToModule[acftName]
 	
 	
 
