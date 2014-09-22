@@ -6,7 +6,9 @@ software and hardware with the cockpit of a DCS: World aircraft.
 
 For a first draft of the protocol specification, see [protocol-spec.md](protocol-spec.md).
 
-Currently, most of the A-10C module is supported.
+For a list of defined messages (values that can be exported or influenced, such as the state of a toggle switch), see `doc/documentation.html`.
+
+Currently, most of the A-10C and UH-1H is supported.
 
 Setup
 =====

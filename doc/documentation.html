@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="docApp">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="doc.css">
+		<title>DCS-BIOS A-10C Module Documentation</title>
+		<script>var docdata = {};</script>
+		<script src="A-10C.jsonp"></script>
+		<script src="UH-1H.jsonp"></script>
+		<script src="angular.min.js"></script>
+		<script>
+			var app = angular.module("docApp", []);
+			app.controller("DocController", function($scope) {
+				$scope.modules = {}
+				$scope.moduleNames = Object.keys(docdata);
+				$scope.moduleNames.forEach(function(moduleName) {
+					$scope.modules[moduleName] = {
+						name: moduleName,
+						categories: []
+					};
+					Object.keys(docdata[moduleName]).forEach(function(cat_name) {
+						cat = {
+							name: cat_name,
+							messages: []
+						};
+						$scope.modules[moduleName].categories.push(cat);
+						Object.keys(docdata[moduleName][cat_name]).forEach(function(msg) {
+							cat.messages.push(docdata[moduleName][cat_name][msg]);
+						});
+					});
+				});
+				$scope.selectedModule = $scope.moduleNames[0];
+			});
+		</script>
+	</head>
+	<body ng-controller="DocController">
+		<noscript>
+			<h2 style="color: red;">This page requires JavaScript to be enabled.</h2>
+		</noscript>
+		
+		<h1>{{ selectedModule }}</h1>
+		Change Module: <select ng-model="selectedModule"><option ng-repeat="moduleName in moduleNames" value="{{ moduleName }}">{{ moduleName }}</option></select>
+		Category Filter: <input type="text" ng-model="categoryFilter">
+		Description Filter: <input type="text" ng-model="descriptionFilter">
+		Message Filter: <input type="text" ng-model="messageFilter">
+		<hr>
+		
+		<div ng-repeat="category in modules[selectedModule].categories | filter:{ name: categoryFilter }" ng-show="(category.messages | filter: { description: descriptionFilter, msg: messageFilter }).length">
+			<h2>{{ category.name }}</h2>
+			<table>
+				<tr>
+					<th>Message</th>
+					<th>Description</th>
+					<th>Value Type</th>
+					<th>Values</th>
+					<th>Settable?</th>
+					<th>Actions</th>
+				</tr>
+				<tr ng-repeat="msg in category.messages | filter: { description: descriptionFilter, msg:messageFilter }">
+					<td><b>{{ msg.msg }}</b></td>
+					<td>{{ msg.description }}</td>
+					<td>{{ msg.value_type }}</td>
+					<td>
+						<span ng-show="msg.value_type=='float'">{{ msg.value_range[0] }} to {{ msg.value_range[1] }}</span>
+						<span ng-show="msg.value_type=='enum'">{{ msg.value_enum }}</span>
+					<td>{{ msg.can_set && 'yes' || 'no' }}</td>
+					<td><span ng-show="msg.actions">{{ msg.actions }}</span></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
