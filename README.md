@@ -22,7 +22,7 @@ Listening to the Export Stream
 ==============================
 
 Start `multicast-console.cmd` to view the export stream. To access this data, you have several options:
-* listen for UDP packets on multicast address 29.255.50.10, port 5010 (specify the `reuseaddr` option to avoid blocking this method for other programs)
+* listen for UDP packets on multicast address 239.255.50.10, port 5010 (specify the `reuseaddr` option to avoid blocking this method for other programs)
 * edit `BIOSConfig.lua` to make DCS-BIOS send a copy of the export data stream via UDP to an IP address and port of your choice
 * use `socat` to connect a serial port to DCS-BIOS (see below)
 
