@@ -841,7 +841,7 @@ definePushButton("LAMP_TEST_BTN", 24, 3002, 197, "Aux Lights Panel", "Signal Lig
 defineToggleSwitch("GND_SAFE_OVERRIDE_COVER", 12, 3002, 709, "Misc", "Ground Safety Override Switch Cover")
 defineToggleSwitch("GND_SAFE_OVERRIDE", 12, 3003, 710, "Misc", "Ground Safety Override")
 
-defineRelativeTumb("IFF_CODE", 43, 3007, 199, 0.1, {0.0, 0.4}, {1, -1}, nil, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
+defineRelativeTumb("IFF_CODE", 43, 3007, 199, 0.1, {0.0, 0.3}, {1, -1}, nil, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
 defineTumb("IFF_MASTER", 43, 3008, 200, 0.1, {0, 0.4}, nil, true, "IFF", "IFF Master: OFF - STBY - LOW - NORM - EMER")
 define3PosTumb("IFF_OUT_AUDIO_LIGHT", 43, 3009, 301, "IFF", "IFF Out: LIGHT - OFF - AUDIO")
 defineTumb("IFF_TEST_M1", 43, 3010, 202, 1, {-1, 1}, nil, true, "IFF", "Test M-1")
