@@ -1,201 +1,38 @@
-BIOS.a10c = {}
-local inputProcessors = {}
-BIOS.a10c.inputProcessors = inputProcessors
+BIOS.protocol.beginModule("A-10C")
+
+local inputProcessors = moduleBeingDefined.inputProcessors
+local lowFrequencyMap = moduleBeingDefined.lowFrequencyMap
+local highFrequencyMap = moduleBeingDefined.highFrequencyMap
+local documentation = moduleBeingDefined.documentation
+
+local document = BIOS.util.document
 
 local parse_indication = BIOS.util.parse_indication
 
-local lowFrequencyMap = {}
-BIOS.a10c.lowFrequencyMap = lowFrequencyMap
-local highFrequencyMap = {}
-BIOS.a10c.highFrequencyMap = highFrequencyMap
 
-local documentation = {}
-BIOS.a10c.documentation = documentation
-local function document(args)
-	if not args.category then args.category = "No Category" end
-	if not documentation[args.category] then documentation[args.category] = {} end
-	documentation[args.category][args.msg] = args
-end
+local defineIndicatorLight = BIOS.util.defineIndicatorLight
+local definePushButton = BIOS.util.definePushButton
+local definePotentiometer = BIOS.util.definePotentiometer
+local defineRotary = BIOS.util.defineRotary
+local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
+local defineTumb = BIOS.util.defineTumb
+local defineToggleSwitch = BIOS.util.defineToggleSwitch
+local defineToggleSwitchToggleOnly = BIOS.util.defineToggleSwitchToggleOnly
+local defineRelativeTumb = BIOS.util.defineRelativeTumb
+local defineString = BIOS.util.defineString
+local defineRockerSwitch = BIOS.util.defineRockerSwitch
+local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 
-local function defineIndicatorLight(msg, arg_number, category, description)
-	document { msg = msg, category = category, description = description, msg_type = "indicator", value_type = "enum", value_enum = {"0", "1"}, can_set = false, actions = {} }
-	highFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
-end
-
-local function definePushButton(msg, device_id, device_command, arg_number, category, description)
-	document { msg = msg, category = category, description = description, msg_type = "button", value_type = "enum", value_enum = {"0", "1"}, can_set = true, actions = {} }
-	highFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
-	BIOS.a10c.inputProcessors[msg] = function(state)
-		if type(state) == "string" then state = tonumber(state) end
-		GetDevice(device_id):performClickableAction(device_command, state)
-	end
-end
---[[
-local function defineToggleSwitch(msg, device_id, device_command, arg_number, category, description)
-	lowFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
-	BIOS.a10c.inputProcessors[msg] = function(state)
-		if type(state) == "string" then state = tonumber(state) end
-		GetDevice(device_id):performClickableAction(device_command, state)
-	end
-end
-]]--
-
-local function definePotentiometer(msg, device_id, command, arg_number, limits, category, description)
-	document { msg = msg, category = category, description = description, msg_type = "potentiometer", value_type = "float", value_range = limits, can_set = true, actions = {} }
-	lowFrequencyMap[msg] = function(dev0) return string.format("%.4f", dev0:get_argument_value(arg_number)) end
-	if limits == nil then limits = {0.0, 1.0} end
-	BIOS.a10c.inputProcessors[msg] = function(value)
-		if type(value) == "string" then value = tonumber(value) end
-		if value < limits[1] then value = limits[1] end
-		if value > limits[2] then value = limits[2] end
-		GetDevice(device_id):performClickableAction(command, value)
+local function defineElectricallyHeldSwitch(msg, device_id, pos_command, neg_command, arg_number, category, description)
+	document { msg = msg, category = category, description = description, msg_type = "electrically_held_switch", value_type = "enum", value_enum = {"0", "1"}, can_set = false, actions = {"PUSH", "RELEASE", "OFF"} }
+	moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
+	moduleBeingDefined.inputProcessors[msg] = function(action)
+		if action == "PUSH" then GetDevice(device_id):performClickableAction(pos_command, 1) end
+		if action == "RELEASE" then GetDevice(device_id):performClickableAction(neg_command, 0) end
+		if action == "OFF" then GetDevice(device_id):performClickableAction(pos_command, 0) end
 	end
 end
 
-local function defineRotary(msg, device_id, command, arg_number, category, description)
-	document { msg = msg, category = category, description = description, msg_type = "rotary", value_type = "float", value_range = {0, 1}, can_set = false, actions = {"DEC", "INC"} }
-	lowFrequencyMap[msg] = function(dev0) return string.format("%.4f", dev0:get_argument_value(arg_number)) end
-	BIOS.a10c.inputProcessors[msg] = function(state)
-		if state == "INC" then
-			GetDevice(device_id):performClickableAction(command, 0.1)
-		elseif state == "DEC" then
-			GetDevice(device_id):performClickableAction(command, -0.1)
-		end
-	end
-end
-
-local function cap(value, limits, cycle)
-	if cycle then
-		if value < limits[1] then return limits[2] end
-		if value > limits[2] then return limits[1] end
-	else
-		if value <= limits[1] then return limits[1] end
-		if value >= limits[2] then return limits[2] end
-	end
-	return value
-end
-
-
-local function defineSetCommandTumb(msg, device_id, command, arg_number, step, limits, output_map, cycle, category, description)
-	-- uses SetCommand and set_argument_value instead of performClickableAction()
-	local span = limits[2] - limits[1]
-	local last_n = tonumber(string.format("%.0f", span / step))
-
-	local value_enum = output_map
-	if not value_enum then
-		value_enum = {}
-		local n = 0
-		while n <= last_n do
-			value_enum[#value_enum+1] = tostring(n)
-			n = n + 1
-		end
-	end
-	document { msg = msg, category = category, description = description, msg_type = "tumb", value_type = "enum", value_enum = value_enum, can_set = true, actions = {"DEC", "INC"} }
-	
-	lowFrequencyMap[msg] = function(dev0)
-		local value = dev0:get_argument_value(arg_number)		
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
-		
-		if n > last_n then n = last_n end
-		if not output_map then
-			return tostring(n)
-		else
-			return output_map[n+1]
-		end
-	end
-	
-	inputProcessors[msg] = function(state)
-		local value = GetDevice(0):get_argument_value(arg_number)		
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
-		local new_n = n
-		if state == "INC" then
-			new_n = cap(n+1, {0, last_n}, cycle)
-			if cycle == "skiplast" and new_n == last_n then new_n = 0 end
-		
-			GetDevice(device_id):SetCommand(command, limits[1] + step*new_n)
-			GetDevice(0):set_argument_value(arg_number, limits[1] + step*new_n)
-		elseif state == "DEC" then
-			new_n = cap(n-1, {0, last_n}, cycle)
-			if cycle == "skiplast" and new_n == last_n then new_n = last_n - 1 end
-			
-			GetDevice(device_id):SetCommand(command, limits[1] + step*new_n)
-			GetDevice(0):set_argument_value(arg_number, limits[1] + step*new_n)
-		else
-			if not output_map then
-				n = tonumber(string.format("%.0f", tonumber(state)))
-			else
-				n = nil
-				for i, v in ipairs(output_map) do
-					if state == v then
-						n = i - 1
-					end
-				end
-			end
-			if n == nil then return end
-			GetDevice(device_id):SetCommand(command, limits[1] + step*cap(n, {0, last_n}, cycle))
-			GetDevice(0):set_argument_value(arg_number, limits[1] + step*cap(n, {0, last_n}, cycle))
-		end
-	end
-end
-
-
-local function defineTumb(msg, device_id, command, arg_number, step, limits, output_map, cycle, category, description)
-	local span = limits[2] - limits[1]
-	local last_n = tonumber(string.format("%.0f", span / step))
-	
-	local value_enum = output_map
-	if not value_enum then
-		value_enum = {}
-		local n = 0
-		while n <= last_n do
-			value_enum[#value_enum+1] = tostring(n)
-			n = n + 1
-		end
-	end
-	
-	document { msg = msg, category = category, description = description, msg_type = "tumb", value_type = "enum", value_enum = value_enum, can_set = true, actions = {"DEC", "INC"} }
-	lowFrequencyMap[msg] = function(dev0)
-		local value = dev0:get_argument_value(arg_number)		
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
-		
-		if n > last_n then n = last_n end
-		if not output_map then
-			return tostring(n)
-		else
-			return output_map[n+1]
-		end
-	end
-	
-	inputProcessors[msg] = function(state)
-		local value = GetDevice(0):get_argument_value(arg_number)		
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
-		local new_n = n
-		if state == "INC" then
-			new_n = cap(n+1, {0, last_n}, cycle)
-			if cycle == "skiplast" and new_n == last_n then new_n = 0 end
-		
-			GetDevice(device_id):performClickableAction(command, limits[1] + step*new_n)
-		elseif state == "DEC" then
-			new_n = cap(n-1, {0, last_n}, cycle)
-			if cycle == "skiplast" and new_n == last_n then new_n = last_n - 1 end
-			
-			GetDevice(device_id):performClickableAction(command, limits[1] + step*new_n)
-		else
-			if not output_map then
-				n = tonumber(string.format("%.0f", tonumber(state)))
-			else
-				n = nil
-				for i, v in ipairs(output_map) do
-					if state == v then
-						n = i - 1
-					end
-				end
-			end
-			if n == nil then return end
-			GetDevice(device_id):performClickableAction(command, limits[1] + step*cap(n, {0, last_n}, cycle))
-		end
-	end
-end
 local function defineRadioWheel(msg, device_id, command1, command2, command_args, arg_number, step, limits, output_map, category, description)
 	defineTumb(msg, device_id, command1, arg_number, step, limits, output_map, true, category, description)
 	documentation[category][msg].can_set = false
@@ -209,63 +46,9 @@ local function defineRadioWheel(msg, device_id, command1, command2, command_args
 		end
 	end
 end
-local function defineToggleSwitch(msg, device_id, command, arg_number, category, description)
-	defineTumb(msg, device_id, command, arg_number, 1, {0, 1}, nil, false, category, description)
-end
+
 local function define3PosTumb(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 0.1, {0.0, 0.2}, nil, false, category, description)
-end
-local function defineRelativeTumb(msg, device_id, command, arg_number, step, limits, rel_args, output_map, category, description)
-	defineTumb(msg, device_id, command, arg_number, step, limits, output_map, true, category, description)
-	documentation[category][msg].msg_type = "relativetumb"
-	documentation[category][msg].can_set = false
-	
-	inputProcessors[msg] = function(state)
-		if state == "DEC" then
-			GetDevice(device_id):performClickableAction(command, rel_args[1])
-		elseif state == "INC" then
-			GetDevice(device_id):performClickableAction(command, rel_args[2])
-		end
-	end
-end
-
-
-local function defineString(msg, getter, category, description)
-	lowFrequencyMap[msg] = getter
-	document { msg = msg, category = category, description = description, msg_type = "string", value_type = "string", can_set = false, actions = {} }
-end
-
-local function defineElectricallyHeldSwitch(msg, device_id, pos_command, neg_command, arg_number, category, description)
-	document { msg = msg, category = category, description = description, msg_type = "electrically_held_switch", value_type = "enum", value_enum = {"0", "1"}, can_set = false, actions = {"PUSH", "RELEASE", "OFF"} }
-	lowFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
-	BIOS.a10c.inputProcessors[msg] = function(action)
-		if action == "PUSH" then GetDevice(device_id):performClickableAction(pos_command, 1) end
-		if action == "RELEASE" then GetDevice(device_id):performClickableAction(neg_command, 0) end
-		if action == "OFF" then GetDevice(device_id):performClickableAction(pos_command, 0) end
-	end
-end
-
-local function defineRockerSwitch(msg, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)
-	document { msg = msg, category = category, description = description, msg_type = "rocker", value_type = "enum", value_enum = {"-1", "0", "1"}, can_set = true, actions = {} }
-	lowFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
-	BIOS.a10c.inputProcessors[msg] = function(toState)
-		if type(toState) == "string" then toState = tonumber(toState) end
-		local fromState = GetDevice(0):get_argument_value(arg_number)
-		local dev = GetDevice(device_id)
-		if fromState == 0 and toState == 1 then dev:performClickableAction(pos_command, 1) end
-		if fromState == 1 and toState == 0 then dev:performClickableAction(pos_stop_command, 0) end
-		if fromState == 0 and toState == -1 then dev:performClickableAction(neg_command, -1) end
-		if fromState == -1 and toState == 0 then dev:performClickableAction(neg_stop_command, 0) end
-	end
-end
-
-
-local function defineMultipositionSwitch(msg, device_id, device_command, arg_number, num_positions, increment, category, description)
-	lowFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number) / increment) end
-	BIOS.a10c.inputProcessors[msg] = function(state)
-		if type(state) == "string" then state = tonumber(state) end
-		GetDevice(device_id):performClickableAction(device_command, state * increment)
-	end
 end
 
 
@@ -287,14 +70,12 @@ local function getCMSPDisplayLines(dev0)
 		return line1, line2
 	end
 end
-BIOS.a10c.getCMSPDisplayLines = getCMSPDisplayLines
 
 local function getUHFPreset()
     local ind = parse_indication(10)
     if ind == nil then return " " end
     return ind["txtPresetChannel"]
 end
-BIOS.a10c.getUHFPreset = getUHFPreset
 
 local function getUHFFrequency()
     local ind = parse_indication(11)
@@ -302,7 +83,6 @@ local function getUHFFrequency()
     local freqStatus = ind["txtFreqStatus"] -- e.g. "251000"
     return freqStatus:sub(0,3) .. "." .. freqStatus:sub(4,6)
 end
-BIOS.a10c.getUHFFrequency = getUHFFrequency
 
 
 
@@ -330,7 +110,6 @@ function getVhfAmFreqency()
 
     return freq1 .. freq2 .. "." .. freq3 .. freq4
 end
-BIOS.a10c.getVhfAmFreqency = getVhfAmFreqency
 
 function getVhfFmFreqency()
     local freq1 = vhf_lut1[string.format("%.2f",GetDevice(0):get_argument_value(157))]
@@ -340,7 +119,6 @@ function getVhfFmFreqency()
 
     return freq1 .. freq2 .. "." .. freq3 .. freq4
 end
-BIOS.a10c.getVhfFmFreqency = getVhfFmFreqency
 
 
 
@@ -360,7 +138,6 @@ local function getTacanChannel()
 
     return tcn_2 .. tcn_1 .. tcn_0 .. tcn_xy
 end
-BIOS.a10c.getTacanChannel = getTacanChannel
 
 local function modTacanChannel(arg)
 	if arg == "-10" then GetDevice(51):performClickableAction(3001, -0.1) end
@@ -399,64 +176,18 @@ local function getILSFrequency()
     local khz = ils_khz_lut[string.format("%.01f", GetDevice(0):get_argument_value(252))]
     return mhz .. khz
 end
-BIOS.a10c.getILSFrequency = getILSFrequency
 
 
 
-
-BIOS.a10c.inputProcessors["MASTER-CAUTION-BTN"] = function(args)
-	local sys_controller = GetDevice(24)
-	if args == "1" then
-		sys_controller:performClickableAction(3001, 1.0)
-	end
-	if args == "0" then
-		sys_controller:performClickableAction(3001, 0.0)
-	end
-end
-function BIOS.a10c.exportHighFrequency()
-	local dev0 = GetDevice(0)
-	dev0:update_arguments()
-	local setMsgArg = BIOS.protocol.setMsgArg
-	
-	for k, v in pairs(BIOS.a10c.highFrequencyMap) do
-		setMsgArg(k, v(dev0))
-	end
-	
-	--setMsgArg("R_ENG_LEFT_SPD", string.format("%.4f", dev0:get_argument_value(76)))
-	--setMsgArg("L_ENG_LEFT_SPD", string.format("%.4f", dev0:get_argument_value(77)))
-end
-local function exportLowFrequency()
-	local dev0 = GetDevice(0)
-	dev0:update_arguments()
-	local setMsgArg = BIOS.protocol.setMsgArg
-	
-	for k, v in pairs(BIOS.a10c.lowFrequencyMap) do
-		setMsgArg(k, v(dev0))
-	end
+document { msg = "CMSP1", category = "CMSP", description = "Display Line 1", msg_type = "string", value_type = "string", can_set = false, actions = {} }
+document { msg = "CMSP2", category = "CMSP", description = "Display Line 2", msg_type = "string", value_type = "string", can_set = false, actions = {} }
+function moduleBeingDefined.exportLowFrequency()
 	
 	local line1, line2 = getCMSPDisplayLines(dev0)
-	setMsgArg("CMSP1", line1)
-	setMsgArg("CMSP2", line2)
-
-	--setMsgArg("TACAN-MODE", getTacanMode(dev0))
-	--setMsgArg("TACAN-TEST-BTN", getTacanTestBtn(dev0))
-	--setMsgArg("TACAN-VOLUME", getTacanVolume(dev0))
-
+	BIOS.protocol.setMsgArg("CMSP_LINE1", line1)
+	BIOS.protocol.setMsgArg("CMSP_LINE2", line2)
 	
 end
-BIOS.a10c.exportLowFrequency = exportLowFrequency
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -972,7 +703,7 @@ defineRotary("SAI_PITCH_TRIM", 48, 3003, 66, "SAI", "SAI Pitch Trim")
 defineString("TACAN_CHANNEL", getTacanChannel, "TACAN Panel", "TACAN Channel")
 definePushButton("TACAN_TEST_BTN", 51, 3006, 259, "TACAN Panel", "TACAN Test Button")
 definePotentiometer("TACAN_VOL", 51, 3007, 261, "TACAN Panel", "TACAN Signal Volume")
-BIOS.a10c.inputProcessors["TACAN"] = modTacanChannel
+moduleBeingDefined.inputProcessors["TACAN"] = modTacanChannel
 defineTumb("TACAN_MODE", 51, 3008, 262, 0.1, {0.0, 0.4}, nil, false, "TACAN Mode Dial")
 
 
@@ -1106,3 +837,5 @@ defineToggleSwitch("ANT_EGIHQTOD", 54, 3017, 708, "Antenna Panel", "EGI HQ TOD S
 
 definePotentiometer("RWR_BRT", 29, 3001, 16, {0.15, 0.85}, "RWR", "Display Brightness")
 
+
+BIOS.protocol.endModule()

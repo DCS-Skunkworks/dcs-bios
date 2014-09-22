@@ -6,12 +6,10 @@ package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
 socket = require("socket")
 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Util.lua]])
-
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A10C.lua]])
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH1H.lua]])
-
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\ProtocolIO.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Protocol.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A10C.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH1H.lua]])
 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 
