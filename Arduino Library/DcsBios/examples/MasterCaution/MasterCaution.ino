@@ -19,9 +19,6 @@ IPAddress ip(192, 168, 1, 177);
 
 unsigned int localPort = 7777;      // local port to listen on
 
-// buffers for receiving and sending data
-char packetBuffer[UDP_TX_PACKET_MAX_SIZE]; //buffer to hold incoming packet,
-
 // An EthernetUDP instance to let us send and receive packets over UDP
 EthernetUDP Udp;
 
@@ -47,7 +44,7 @@ void loop() {
 }
 
 void onDcsBiosMessage(char* msg, char* arg) {
-  if (strcmp(msg, "MASTER-CAUTION") == 0) {
+  if (strcmp(msg, "MASTER_CAUTION") == 0) {
     if (arg[0] == '1') {
       digitalWrite(13, 1);
     } else {
