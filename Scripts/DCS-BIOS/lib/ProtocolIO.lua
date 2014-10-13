@@ -51,7 +51,7 @@ function BIOS.protocol_io.UDPListener:step()
 	end
 	
 	while true do
-		local line, rest = self.rxbuf:match("^([^\n]+)\n(.*)")
+		local line, rest = self.rxbuf:match("^([^\n]*)\n(.*)")
 		if line then
 			self.rxbuf = rest
 			BIOS.protocol.processInputLine(line)

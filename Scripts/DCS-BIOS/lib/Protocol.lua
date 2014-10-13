@@ -52,9 +52,11 @@ function BIOS.protocol.processInputLine(line)
 	if cmd == "SYNC" and args == "E" then
 		argumentCache = {}
 	end
-	if acftModule then
-		if acftModule.inputProcessors[cmd] then
-			acftModule.inputProcessors[cmd](args)
+	if cmd then
+		if acftModule then
+			if acftModule.inputProcessors[cmd] then
+				acftModule.inputProcessors[cmd](args)
+			end
 		end
 	end
 end
