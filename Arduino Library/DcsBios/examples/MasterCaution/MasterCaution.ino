@@ -1,55 +1,63 @@
-
-/*
- DCS BIOS Example: Master Caution Light
- 
- This turns the LED on digital pin 13 into an A-10C master caution light.
- Adapted from the EthernetUDP example shipped with the Arduino distribution.
- */
-
-#include <SPI.h>         // needed for Arduino versions later than 0018
-#include <Ethernet.h>
-#include <EthernetUdp.h>
 #include <DcsBios.h>
 
-// Enter a MAC address and IP address for your controller below.
-// The IP address will be dependent on your local network:
-byte mac[] = {  
-  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xEF };
-IPAddress ip(192, 168, 1, 177);
+/* Instantiate a ProtocolParser object to parse the DCS-BIOS export stream */
+DcsBios::ProtocolParser parser;
 
-unsigned int localPort = 7777;      // local port to listen on
-
-// An EthernetUDP instance to let us send and receive packets over UDP
-EthernetUDP Udp;
-
-DcsBios bios;
+/* Declare a Master Caution Reset button on pin 10 */
+DcsBios::Switch2 masterCautionBtn("UFC_MASTER_CAUTION", 10);
+/* Make the LED connected to pin 13 into a Master Caution Light */
+DcsBios::LED masterCautionLED("MASTER_CAUTION", 13);
 
 void setup() {
-  pinMode(13, OUTPUT);
-  
-  // start the Ethernet and UDP:
-  Ethernet.begin(mac,ip);
-  Udp.begin(localPort);
+  Serial.begin(500000);
 }
 
+/*
+Your main loop needs to pass data from the DCS-BIOS export
+stream to the parser object you instantiated above.
+
+It also needs to call DcsBios::PollingInput::pollInputs()
+to detect changes in the state of connected controls and
+pass them on to DCS.
+*/
 void loop() {
-  // if there's data available, read a packet
-  int packetSize = Udp.parsePacket();
-  if(packetSize)
-  {   
-    for (int i=0; i<packetSize; i++) {
-      bios.processChar(Udp.read());
-    }
+  // feed incoming data to the parser
+  while (Serial.available()) {
+      parser.processChar(Serial.read());
   }
+  
+  // poll inputs
+  DcsBios::PollingInput::pollInputs();
 }
 
-void onDcsBiosMessage(char* msg, char* arg) {
-  if (strcmp(msg, "MASTER_CAUTION") == 0) {
-    if (arg[0] == '1') {
-      digitalWrite(13, 1);
-    } else {
-      digitalWrite(13, 0); 
-    }
-  }
+/*
+You need to define
+void sendDcsBiosMessage(const char* msg, const char* arg)
+so that the string msg, followed by a space, the string arg
+and a newline gets sent to the DCS-BIOS import stream.
+
+In this example we send it to the serial port, so you need to
+run socat to read the data from the serial port and send it
+over UDP to DCS-BIOS.
+
+If you are using an Ethernet Shield, you would probably want
+to send a UDP packet from this subroutine.
+*/
+void sendDcsBiosMessage(const char* msg, const char* arg) {
+  Serial.write(msg);
+  Serial.write(' ');
+  Serial.write(arg);
+  Serial.write('\n');
 }
 
+/*
+This subroutine gets called every time a message is received
+from the export stream (you need to define it even if it
+does nothing).
+
+Use this to handle outputs which are not covered by the
+DcsBios Arduino library (e.g. displays).
+*/
+void onDcsBiosMessage(const char* msg, const char* arg) {
+  
+}
