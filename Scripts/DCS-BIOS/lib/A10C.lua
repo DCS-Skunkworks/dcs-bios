@@ -702,13 +702,14 @@ defineRotary("SAI_PITCH_TRIM", 48, 3003, 66, "SAI", "SAI Pitch Trim")
 
 defineString("TACAN_CHANNEL", getTacanChannel, "TACAN Panel", "TACAN Channel")
 definePushButton("TACAN_TEST_BTN", 51, 3006, 259, "TACAN Panel", "TACAN Test Button")
-definePotentiometer("TACAN_VOL", 51, 3007, 261, "TACAN Panel", "TACAN Signal Volume")
+definePotentiometer("TACAN_VOL", 51, 3007, 261, {0, 1}, "TACAN Panel", "TACAN Signal Volume")
 moduleBeingDefined.inputProcessors["TACAN"] = modTacanChannel
-defineTumb("TACAN_MODE", 51, 3008, 262, 0.1, {0.0, 0.4}, nil, false, "TACAN Mode Dial")
+document { msg = "TACAN", category = "TACAN Panel", description = "Modify TACAN Channel", msg_type = "action", value_type = "enum", value_enum = {}, can_set = false, actions = {"+10", "-10", "+1", "-1", "XY"} }
+defineTumb("TACAN_MODE", 51, 3008, 262, 0.1, {0.0, 0.4}, nil, false, "TACAN Panel", "TACAN Mode Dial")
 
 
-definePotentiometer("STALL_VOL", 52, 3001, 704, "Stall System Volume Controls", "Stall Volume")
-definePotentiometer("STALL_PEAK_VOL", 52, 3002, 705, "Stall System Volume Controls", "Peak Volume")
+definePotentiometer("STALL_VOL", 52, 3001, 704, nil, "Stall System Volume Controls", "Stall Volume")
+definePotentiometer("STALL_PEAK_VOL", 52, 3002, 705, nil, "Stall System Volume Controls", "Peak Volume")
 
 
 defineToggleSwitch("ILS_PWR", 53, 3001, 247, "ILS Panel", "ILS Power")
@@ -789,7 +790,7 @@ definePotentiometer("INT_TCN_VOL", 58, 3015, 235, {0, 1}, "Intercom Panel", "TCN
 defineTumb("INT_TCN_MUTE", 58, 3016, 236, 1, {0, 1}, {"1", "0"}, false, "Intercom Panel", "TCN Mute")
 
 defineToggleSwitch("INT_HM", 58, 3017, 237, "Intercom Panel", "HM Switch")
-definePotentiometer("INT_VOL", 58, 3018, 238, "Intercom Panel", "Intercom Volume")
+definePotentiometer("INT_VOL", 58, 3018, 238, {0, 1}, "Intercom Panel", "Intercom Volume")
 defineTumb("INT_MODE", 58, 3019, 239, 0.1, {0.0, 0.4}, nil, false, "Intercom Panel", "Intercom Selector Switch: INT / FM / VHF / HF / Blank")
 definePushButton("INT_CALL", 58, 3020, 240, "Intercom Panel", "Call Button")
 
