@@ -247,16 +247,19 @@ function BIOS.util.defineElectricallyHeldSwitch(msg, device_id, pos_command, neg
 end
 
 function BIOS.util.defineRockerSwitch(msg, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)
-	document { msg = msg, category = category, description = description, msg_type = "rocker", value_type = "enum", value_enum = {"-1", "0", "1"}, can_set = true, actions = {} }
-	moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
+	document { msg = msg, category = category, description = description, msg_type = "rocker", value_type = "enum", value_enum = {"0", "1", "2"}, can_set = true, actions = {} }
+	moduleBeingDefined.lowFrequencyMap[msg] = function(dev0)
+		local lut = {["-1"] = "0", ["0"] = "1", ["1"] = "2"}
+		return lut[string.format("%.0f", dev0:get_argument_value(arg_number))]
+	end
 	moduleBeingDefined.inputProcessors[msg] = function(toState)
 		if type(toState) == "string" then toState = tonumber(toState) end
 		local fromState = GetDevice(0):get_argument_value(arg_number)
 		local dev = GetDevice(device_id)
-		if fromState == 0 and toState == 1 then dev:performClickableAction(pos_command, 1) end
-		if fromState == 1 and toState == 0 then dev:performClickableAction(pos_stop_command, 0) end
-		if fromState == 0 and toState == -1 then dev:performClickableAction(neg_command, -1) end
-		if fromState == -1 and toState == 0 then dev:performClickableAction(neg_stop_command, 0) end
+		if fromState == 1 and toState == 2 then dev:performClickableAction(pos_command, 1) end
+		if fromState == 2 and toState == 1 then dev:performClickableAction(pos_stop_command, 0) end
+		if fromState == 1 and toState == 0 then dev:performClickableAction(neg_command, -1) end
+		if fromState == 0 and toState == 1 then dev:performClickableAction(neg_stop_command, 0) end
 	end
 end
 

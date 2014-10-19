@@ -61,7 +61,7 @@ defineToggleSwitch("STARTER_GEN_SW", 1, 3003, 220, "Electrical System", "Starter
 defineMultipositionSwitch("DC_VM_SRC", 1, 3004, 218, 5, 0.1, "Electrical System", "DC Voltmeter Source")
 defineToggleSwitch("NON_ESS_BUS_SW", 1, 3005, 221, "Electrical System", "NON ESS BUS Switch")
 defineMultipositionSwitch("AC_VM_SRC", 1, 3007, 214, 3, 0.1, "Electrical System", "AC Voltmeter Source")
-defineTumb("INVERTER_SW", 1, 3008, 215, 1, {-1, 1}, nil, false, "Electrical System", "Inverter Switch")
+defineTumb("INVERTER_SW", 1, 3008, 215, 1, {-1, 1}, {"0", "1", "2"}, false, "Electrical System", "Inverter Switch")
 
 local cb_start_cmd = 3021
 defineToggleSwitch("CB_IFF_APX1", 1, cb_start_cmd, 285, "Circuit Breakers", "IFF APX 1 (No Function)")
@@ -148,7 +148,7 @@ defineToggleSwitch("CB_CRSIND", 1, cb_start_cmd + 77, 435, "Circuit Breakers", "
 
 
 defineToggleSwitch("PITOT_HEAT", 1, 3016, 238, "Overhead Panel", "Pitot Heater")
-defineTumb("MAIN_GEN_SW", 1, 3002, 216, 1, {-1, 1}, nil, false, "Overhead Panel", "Main Generator RESET/OFF/ON")
+defineTumb("MAIN_GEN_SW", 1, 3002, 216, 1, {-1, 1}, {"0", "1", "2"}, false, "Overhead Panel", "Main Generator RESET/OFF/ON")
 defineToggleSwitch("MAIN_GEN_COVER", 1, 3019, 217, "Overhead Panel", "Main Generator Switch Cover")
 
 defineRockerSwitch("CLP_RESET_TEST_SW", 16, 3001, 3001, 3001, 3001, 111, "Caution Lights Panel", "Test/Reset Rocker Switch")
@@ -159,13 +159,13 @@ definePushButton("TEST_FUEL_GAUGE_BTN", 2, 3002, 240, "Fuel System", "Test Fuel 
 
 defineRelativeTumb("IFF_CODE", 17, 3007, 58, 0.1, {0.0, 0.3}, {1, -1}, nil, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
 defineMultipositionSwitch("IFF_MASTER", 17, 3008, 59, 5, 0.1, "IFF", "IFF Master")
-defineTumb("IFF_OUT_AUDIO_LIGHT", 17, 3009, 60, 1, {-1, 1}, nil, false, "IFF", "IFF Out: LIGHT - OFF - AUDIO")
-defineTumb("IFF_TEST_M1", 17, 3010, 61, 1, {-1, 1}, nil, true, "IFF", "Test M-1")
-defineTumb("IFF_TEST_M2", 17, 3011, 62, 1, {-1, 1}, nil, true, "IFF", "Test M-2")
-defineTumb("IFF_TEST_M3", 17, 3012, 63, 1, {-1, 1}, nil, true, "IFF", "Test M-3")
-defineTumb("IFF_TEST_M4", 17, 3013, 64, 1, {-1, 1}, nil, true, "IFF", "Test M-4")
-defineTumb("IFF_RADTEST", 17, 3014, 65, 1, {-1, 1}, nil, true, "IFF", "RAD Test/Mon")
-defineTumb("IFF_MIC_IDENT", 17, 3015, 66, 1, {-1, 1}, nil, true, "IFF", "RAD Test/Mon")
+defineTumb("IFF_OUT_AUDIO_LIGHT", 17, 3009, 60, 1, {-1, 1}, {"0", "1", "2"}, false, "IFF", "IFF Out: LIGHT - OFF - AUDIO")
+defineTumb("IFF_TEST_M1", 17, 3010, 61, 1, {-1, 1}, {"0", "1", "2"}, true, "IFF", "Test M-1")
+defineTumb("IFF_TEST_M2", 17, 3011, 62, 1, {-1, 1}, {"0", "1", "2"}, true, "IFF", "Test M-2")
+defineTumb("IFF_TEST_M3", 17, 3012, 63, 1, {-1, 1}, {"0", "1", "2"}, true, "IFF", "Test M-3")
+defineTumb("IFF_TEST_M4", 17, 3013, 64, 1, {-1, 1}, {"0", "1", "2"}, true, "IFF", "Test M-4")
+defineTumb("IFF_RADTEST", 17, 3014, 65, 1, {-1, 1}, {"0", "1", "2"}, true, "IFF", "RAD Test/Mon")
+defineTumb("IFF_MIC_IDENT", 17, 3015, 66, 1, {-1, 1}, {"0", "1", "2"}, true, "IFF", "RAD Test/Mon")
 defineToggleSwitch("IFF_ON_OUT", 17, 3016, 67, "IFF", "IFF On/Out")
 defineTumb("IFF_MODE1_WHEEL1", 17, 3001, 68, 0.1, {0.0, 0.7}, nil, true, "IFF", "Mode-1 Wheel 1")
 defineTumb("IFF_MODE1_WHEEL2", 17, 3002, 69, 0.1, {0.0, 0.3}, nil, true, "IFF", "Mode-1 Wheel 2")
@@ -355,17 +355,17 @@ defineToggleSwitch("ADF_BFO_SW", 27, 3006, 41, "ADF", "BFO Switch")
 defineMultipositionSwitch("ADF_MODE", 27, 3001, 43, 3, 0.1, "ADF", "ADF Mode OFF / ADF / ANT / LOOP")
 definePotentiometer("ADF_GAIN", 27, 3004, 44, {0, 1}, "ADF", "ADF Frequency")
 
-defineTumb("ADF_BAND", 27, 3002, 38, 1, {-1, 1}, nil, false, "ADF", "ADF Band")
+defineTumb("ADF_BAND", 27, 3002, 38, 1, {-1, 1}, {"0", "1", "2"}, false, "ADF", "ADF Band")
 defineRotary("ADF_TUNE", 27, 3003, 39, "ADF", "ADF Tune")
 
 
 defineMultipositionSwitch("NVG_POS_LTS", 7, 3001, 222, 6, 0.1, "Overhead Panel", "NVG Position Lights")
-defineTumb("NAV_LTS_SW", 7, 3002, 223, 1, {-1, 1}, nil, false, "Overhead Panel", "Navigation Lights STEADY - OFF - FLASH")
+defineTumb("NAV_LTS_SW", 7, 3002, 223, 1, {-1, 1}, {"0", "1", "2"}, false, "Overhead Panel", "Navigation Lights STEADY - OFF - FLASH")
 defineToggleSwitch("POS_LTS_SW", 7, 3003, 224, "Overhead Panel", "Position LIghts DIM / BRT")
 defineToggleSwitch("ANTICOLL_LTS_SW", 7, 3004, 225, "Overhead Panel", "Anticollision Lights OFF / ON")
 defineToggleSwitch("LDG_LIGHT_SW", 7, 3005, 202, "Collective", "Landing Lights Switch")
-defineTumb("SEARCH_LIGHT_SW", 7, 3006, 201, 1, {-1, 1}, nil, false, "Collective", "Search Light STOW / OFF / ON")
-defineTumb("LDG_LT_CTRL", 7, 3007, 205, 1, {-1, 1}, nil, false, "Collective", "Landing Lights Control Switch")
+defineTumb("SEARCH_LIGHT_SW", 7, 3006, 201, 1, {-1, 1}, {"0", "1", "2"}, false, "Collective", "Search Light STOW / OFF / ON")
+defineTumb("LDG_LT_CTRL", 7, 3007, 205, 1, {-1, 1}, {"0", "1", "2"}, false, "Collective", "Landing Lights Control Switch")
 
 definePotentiometer("BRT_CONSOLE", 7, 3015, 230, {0, 1}, "Overhead Panel", "Overhead Console Panel Lights Brightness")
 definePotentiometer("BRT_PED", 7, 3016, 231, {0, 1}, "Overhead Panel", "Pedestal Lights Brightness")
@@ -373,7 +373,7 @@ definePotentiometer("BRT_SEC", 7, 3017, 232, {0, 1}, "Overhead Panel", "Secondar
 definePotentiometer("BRT_ENGINE", 7, 3018, 233, {0, 1}, "Overhead Panel", "Engine Instrument Lights Brightness")
 definePotentiometer("BRT_COPILOT", 7, 3019, 234, {0, 1}, "Overhead Panel", "Copilot Instrument Lights Brightness")
 definePotentiometer("BRT_PILOT", 7, 3020, 235, {0, 1}, "Overhead Panel", "Pilot Instrument Lights Brightness")
-defineTumb("DOME_LIGHT_SW", 7, 3021, 226, 1, {-1, 1}, nil, false, "Overhead Panel", "Dome Light Switch WHITE / OFF / GREEN")
+defineTumb("DOME_LIGHT_SW", 7, 3021, 226, 1, {-1, 1}, {"0", "1", "2"}, false, "Overhead Panel", "Dome Light Switch WHITE / OFF / GREEN")
 
 defineMultipositionSwitch("BLEED_AIR_SW", 47, 3001, 236, 5, 0.1, "Overhead Panel", "Bleed Air Dial")
 
@@ -384,16 +384,16 @@ defineToggleSwitch("GYRO_MODE_SW", 10, 3002, 241, "Front Dash", "DG / Slave Gyro
 
 defineRotary("CRS_KNOB", 29, 3001, 155, "Front Dash", "CDI CRS Selector Knob")
 
-defineTumb("MASTER_ARM_SW", 9, 3008, 252, 1, {-1, 1}, nil, false, "Armament Panel", "Master Arm OFF - SAFE - ARMED")
-defineTumb("GUN_SEL", 9, 3009, 253, 1, {-1, 1}, nil, false, "Armament Panel", "Gun Selector LEFT / BOTH / RIGHT")
-defineTumb("ROCKET_SEL", 9, 3010, 256, 1, {-1, 1}, nil, false, "Armament Panel", "7.62 / 2.75 / 40")
+defineTumb("MASTER_ARM_SW", 9, 3008, 252, 1, {-1, 1}, {"0", "1", "2"}, false, "Armament Panel", "Master Arm OFF - SAFE - ARMED")
+defineTumb("GUN_SEL", 9, 3009, 253, 1, {-1, 1}, {"0", "1", "2"}, false, "Armament Panel", "Gun Selector LEFT / BOTH / RIGHT")
+defineTumb("ROCKET_SEL", 9, 3010, 256, 1, {-1, 1}, {"0", "1", "2"}, false, "Armament Panel", "7.62 / 2.75 / 40")
 defineMultipositionSwitch("ROCKET_PAIR", 9, 3011, 257, 8, 0.1, "Armament Panel", "Rocket Pair")
 definePushButton("ROCKET_RESET", 9, 3012, 258, "Armament Panel", "Rocket Reset")
-defineTumb("JTSN_COVER", 9, 3013, 259, 1, {-1, 1}, nil, false, "Armament Panel", "Jettison Switch Cover")
+defineTumb("JTSN_COVER", 9, 3013, 259, 1, {-1, 1}, {"0", "1", "2"}, false, "Armament Panel", "Jettison Switch Cover")
 definePushButton("JTSN_BTN", 9, 3014, 260, "Armament Panel", "Jettison Switch")
 
 definePotentiometer("SIGHT_INTEN_CPLT", 32, 3001, 281, {0, 1}, "Flex Sight", "Copilot Sighting System Intensity Knob")
-defineTumb("SIGHT_LAMP_SW", 32, 3003, 408, 1, {-1, 1}, nil, false, "Flex Sight", "Sighting Station Lamp Switch BACKUP / OFF / MAIN")
+defineTumb("SIGHT_LAMP_SW", 32, 3003, 408, 1, {-1, 1}, {"0", "1", "2"}, false, "Flex Sight", "Sighting Station Lamp Switch BACKUP / OFF / MAIN")
 
 defineToggleSwitch("SIGHT_ARM_PLT", 49, 3005, 0, "Flex Sight", "Pilot Sight Armed / Safe")
 defineToggleSwitch("SIGHT_PWR_PLT", 49, 3006, 439, "Flex Sight", "Pilot Sight Off / On")
@@ -401,7 +401,7 @@ definePotentiometer("SIGHT_INTEN_PLT", 49, 3001, 440, {0, 1}, "Flex Sight", "Pil
 definePotentiometer("SIGHT_ELEV_PLT", 49, 3003, 441, {-1, 1}, "Flex Sight", "Pilot Sight Elevation")
 
 
-defineTumb("WIPER_SEL", 12, 3002, 227, 1, {-1, 1}, nil, false, "Overhead Panel", "Wiper PILOT / BOTH / OPERATOR")
+defineTumb("WIPER_SEL", 12, 3002, 227, 1, {-1, 1}, {"0", "1", "2"}, false, "Overhead Panel", "Wiper PILOT / BOTH / OPERATOR")
 defineRelativeTumb("WIPER_SPD", 12, 3001, 229, 0.1, {0.0, 0.4}, {1, -1}, nil, "Overhead Panel", "Wiper Speed PARK - STOP - SLOW - MED - HIGH")
 
 
