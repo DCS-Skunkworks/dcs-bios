@@ -22,6 +22,7 @@ local defineRelativeTumb = BIOS.util.defineRelativeTumb
 local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
+local defineFloat = BIOS.util.defineFloat
 
 local function defineElectricallyHeldSwitch(msg, device_id, pos_command, neg_command, arg_number, category, description)
 	document { msg = msg, category = category, description = description, msg_type = "electrically_held_switch", value_type = "enum", value_enum = {"0", "1"}, can_set = false, actions = {"PUSH", "RELEASE", "OFF"} }
@@ -189,7 +190,101 @@ function moduleBeingDefined.exportLowFrequency()
 	
 end
 
+defineFloat("SAI_PITCH", 63, {-1, 1}, "Standby Attitude Indicator", "SAI Pitch")
+defineFloat("SAI_BANK", 64, {-1, 1}, "Standby Attitude Indicator", "SAI Bank")
+defineFloat("SAI_WARNING_FLAG", 65, {0, 1}, "Standby Attitude Indicator", "SAI Warning Flag")
+defineFloat("SAI_PITCH_ADJ", 715, {-1, 1}, "Standby Attitude Indicator", "SAI Manual Pitch Adjustment")
+defineFloat("SAI_KNOB_ARROW", 717, {-1, 1}, "Standby Attitude Indicator", "SAI Knob Arrow")
 
+defineFloat("ADI_PITCH", 17, {-1, 1}, "ADI", "ADI Pitch")
+defineFloat("ADI_BANK", 18, {-1, 1}, "ADI", "ADI Bank")
+defineFloat("ADI_SLIP", 24, {-1, 1}, "ADI", "ADI Slipball Position")
+defineFloat("ADI_TURN", 23, {-1, 1}, "ADI", "ADI Turn Needle")
+defineFloat("ADI_ATTWARN_FLAG", 25, {0, 1}, "ADI", "ADI Attitude Warning Flag")
+defineFloat("ADI_CRSWARN_FLAG", 19, {0, 1}, "ADI", "ADI Course Warning Flag")
+defineFloat("ADI_GSWARN_FLAG", 26, {0, 1}, "ADI", "ADI Glide Slope Warning Flag")
+defineFloat("ADI_STEER_BANK", 20, {-1, 1}, "ADI", "ADI Bank Steering Bar")
+defineFloat("ADI_STEER_PITCH", 21, {-1, 1}, "ADI", "ADI Pitch Steering Bar")
+defineFloat("ADI_GS", 27, {-1, 1}, "ADI", "ADI Glide Slope Indicator")
+
+defineFloat("HSI_PWROFF_FLAG", 40, {0, 1}, "HSI", "HSI Poweroff Flag")
+defineFloat("HSI_RANGE_FLAG", 32, {0, 1}, "HSI", "HSI Range Flag")
+defineFloat("HSI_BEARING_FLAG", 46, {0, 1}, "HSI", "HSI Bearing Flag")
+defineFloat("HSI_HDG", 34, {0, 1}, "HSI", "HSI Heading")
+defineFloat("HSI_BEARING1", 33, {0, 1}, "HSI", "HSI Bearing Pointer 1")
+defineFloat("HSI_BEARING2", 35, {0, 1}, "HSI", "HSI Bearing Pointer 2")
+defineFloat("HSI_HDG_BUG", 36, {0, 1}, "HSI", "HSI Heading Bug")
+defineFloat("HSI_CRS_BUG", 47, {0, 1}, "HSI", "HSI Course")
+defineFloat("HSI_CC_A", 37, {0, 1}, "HSI", "HSI Course Counter A")
+defineFloat("HSI_CC_B", 39, {0, 1}, "HSI", "HSI Course Counter B")
+defineFloat("HSI_RC_A", 28, {0, 1}, "HSI", "HSI Range Counter A")
+defineFloat("HSI_RC_B", 29, {0, 1}, "HSI", "HSI Range Counter B")
+defineFloat("HSI_RC_C", 30, {0, 1}, "HSI", "HSI Range Counter C")
+defineFloat("HSI_RC_D", 31, {0, 1}, "HSI", "HSI Range Counter D")
+defineFloat("HSI_DEVIATION", 41, {-1, 1}, "HSI", "HSI Deviation")
+defineFloat("HSI_TOFROM1", 42, {0, 1}, "HSI", "HSI TO/FROM 1")
+defineFloat("HSI_TOFROM2", 43, {0, 1}, "HSI", "HSI TO/FROM 2")
+defineFloat("HSI_HDG_KNOB", 45, {0, 1}, "HSI", "HSI Heading Knob")
+defineFloat("HSI_CRS_KNOB", 44, {0, 1}, "HSI", "HSI Course Knob")
+
+defineFloat("HARS_SYNC", 269, {-1, 1}, "HARS", "HARS Sync")
+
+defineFloat("VVI", 12, {-1, 1}, "VVI", "Vertical Velocity Indicator")
+
+defineFloat("ACCEL_G", 15, {0, 1}, "Accelerometer", "G Load")
+defineFloat("ACCEL_MIN", 902, {0, 1}, "Accelerometer", "Accelerometer Min Pointer")
+defineFloat("ACCEL_MAX", 903, {0, 1}, "Accelerometer", "Accelerometer Max Pointer")
+
+defineFloat("AOA_PWROFF", 55, {0, 1}, "AOA Indicator", "AOA Poweroff Flag")
+defineFloat("AOA_UNITS", 4, {0, 1}, "AOA Indicator", "AOA Units")
+
+defineFloat("AIRSPEED_NEEDLE", 48, {0, 1}, "Airspeed Indicator", "Airspeed Needle")
+defineFloat("AIRSPEED_DIAL", 49, {0, 1}, "Airspeed Indicator", "Airspeed Dial")
+
+defineFloat("ALT_100FT", 51, {0, 1}, "Altimeter", "100 ft Pointer")
+defineFloat("ALT_10000FT_CNT", 52, {0, 1}, "Altimeter", "10000 FT Counter")
+defineFloat("ALT_1000FT_CNT", 53, {0, 1}, "Altimeter", "1000 FT Counter")
+defineFloat("ALT_100FT_CNT", 54, {0, 1}, "Altimeter", "100 FT Counter")
+defineFloat("ALT_PRESSURE0", 59, {0, 1}, "Altimeter", "Barometric Pressure Digit 0")
+defineFloat("ALT_PRESSURE0", 58, {0, 1}, "Altimeter", "Barometric Pressure Digit 1")
+defineFloat("ALT_PRESSURE0", 57, {0, 1}, "Altimeter", "Barometric Pressure Digit 2")
+defineFloat("ALT_PRESSURE0", 56, {0, 1}, "Altimeter", "Barometric Pressure Digit 3")
+
+defineIndicatorLight("CMSC_LAUNCH", 372, "CMSC", "Missile Launch Indicator")
+defineIndicatorLight("CMSC_PRIO", 373, "CMSC", "Priority Status Indicator")
+defineIndicatorLight("CMSC_UNKN", 374, "CMSC", "Unknown Status Indicator")
+
+defineFloat("FLAP_POS", 653, {0, 2/3}, "Flaps", "Flap Position Indicator")
+
+defineFloat("L_ENG_FAN", 76, {0, 1}, "Engine Instruments", "Left Engine Fan Speed")
+defineFloat("R_ENG_FAN", 77, {0, 1}, "Engine Instruments", "Right Engine Fan Speed")
+defineFloat("L_ENG_CORE_T", 78, {0, 1}, "Engine Instruments", "Left Engine Core Speed Tenth")
+defineFloat("L_ENG_CORE", 79, {0, 1}, "Engine Instruments", "Left Engine Core Speed")
+defineFloat("R_ENG_CORE_T", 80, {0, 1}, "Engine Instruments", "Right Engine Core Speed Tenth")
+defineFloat("R_ENG_CORE", 81, {0, 1}, "Engine Instruments", "Right Engine Core Speed")
+defineFloat("L_ENG_FUEL_FLOW", 84, {0, 1}, "Engine Instruments", "Left Engine Fuel Flow")
+defineFloat("R_ENG_FUEL_FLOW", 85, {0, 1}, "Engine Instruments", "Right Engine Fuel Flow")
+defineFloat("L_ENG_TEMP_T", 70, {0, 1}, "Engine Instruments", "Left Engine Temperature Tenth")
+defineFloat("L_ENG_TEMP", 71, {0, 1}, "Engine Instruments", "Left Engine Temperature")
+defineFloat("R_ENG_TEMP_T", 73, {0, 1}, "Engine Instruments", "Right Engine Temperature Tenth")
+defineFloat("R_ENG_TEMP", 74, {0, 1}, "Engine Instruments", "Right Engine Temperature")
+defineFloat("L_ENG_TEMP_OFF", 72, {0, 1}, "Engine Instruments", "Left Engine Temperature Off")
+defineFloat("R_ENG_TEMP_OFF", 75, {0, 1}, "Engine Instruments", "Right Engine Temperature Off")
+
+defineFloat("APU_RPM", 13, {0, 1}, "Engine Instruments", "APU RPM Gauge")
+defineFloat("APU_TEMP", 14, {0, 1}, "Engine Instruments", "APU Temperature Gauge")
+
+defineFloat("L_HYD_PRESS", 647, {0, 1}, "Engine Instruments", "Left Hydraulic Pressure")
+defineFloat("R_HYD_PRESS", 648, {0, 1}, "Engine Instruments", "Right Hydraulic Pressure")
+
+defineFloat("L_OIL_PRESS", 82, {0, 1}, "Engine Instruments", "Left Oil Pressure")
+defineFloat("R_OIL_PRESS", 83, {0, 1}, "Engine Instruments", "Right Oil Pressure")
+
+defineFloat("FUEL_QTY_L", 88, {0, 1}, "Fuel Panel", "Fuel Qty Left")
+defineFloat("FUEL_QTY_R", 89, {0, 1}, "Fuel Panel", "Fuel Qty Right")
+defineFloat("FUEL_QTY_10000", 90, {0, 1}, "Fuel Panel", "Fuel Quantity Counter 10000")
+defineFloat("FUEL_QTY_1000", 91, {0, 1}, "Fuel Panel", "Fuel Quantity Counter 1000")
+defineFloat("FUEL_QTY_100", 92, {0, 1}, "Fuel Panel", "Fuel Quantity Counter 100")
 
 defineIndicatorLight("MASTER_CAUTION", 404, "UFC", "Master Caution Light")
 

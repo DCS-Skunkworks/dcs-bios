@@ -102,7 +102,7 @@ function BIOS.protocol.step()
 	
 	if curTime >= nextLowFreqStepTime then
 		-- runs 10 times per second
-		nextLowFreqStepTime = curTime + .1
+		nextLowFreqStepTime = curTime + .033
 		
 		if acftModule then
 			local dev0 = GetDevice(0)

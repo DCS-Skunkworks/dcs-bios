@@ -270,3 +270,8 @@ function BIOS.util.defineMultipositionSwitch(msg, device_id, device_command, arg
 		GetDevice(device_id):performClickableAction(device_command, state * increment)
 	end
 end
+
+function BIOS.util.defineFloat(msg, arg_number, limits, category, description)
+	document { msg = msg, category = category, description = description, msg_type = "float", value_type = "float", value_range = limits, can_set = false, actions = {} }
+	moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return string.format("%.4f", dev0:get_argument_value(arg_number)) end
+end
