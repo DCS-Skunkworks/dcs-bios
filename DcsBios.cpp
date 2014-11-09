@@ -1,5 +1,6 @@
 #include "DcsBios.h"
 #include <stdlib.h>
+#include <Servo.h>
 
 namespace DcsBios {
 
@@ -200,5 +201,20 @@ void LED::onDcsBiosMessage(const char* msg, const char* arg) {
 	}
 }
 
+ServoOutput::ServoOutput(char* msg, char pin, int minPulseWidth, int maxPulseWidth) {
+	msg_ = msg;
+	pin_ = pin;
+	minPulseWidth_ = minPulseWidth;
+	maxPulseWidth_ = maxPulseWidth;
+}
+void ServoOutput::setup() {
+	servo_.attach(pin_, minPulseWidth_, maxPulseWidth_);
+}
+void ServoOutput::onDcsBiosMessage(const char* msg, const char* arg) {
+	if (strcmp(msg, msg_) == 0) {
+		float value = atof(arg);
+		servo_.writeMicroseconds(map(value*65535, 0, 65535, minPulseWidth_, maxPulseWidth_));
+	}
+}
 
 }

@@ -1,4 +1,5 @@
 #include <DcsBios.h>
+#include <Servo.h>
 #include <Wire.h>
 #include <LedControl.h>
 

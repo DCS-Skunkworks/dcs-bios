@@ -1,4 +1,5 @@
 #include <DcsBios.h>
+#include <Servo.h>
 
 /* Instantiate a ProtocolParser object to parse the DCS-BIOS export stream */
 DcsBios::ProtocolParser parser;

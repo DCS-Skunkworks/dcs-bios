@@ -2,6 +2,7 @@
 #define __DCSBIOS_H
 
 #include "Arduino.h"
+#include <Servo.h>
 
 void onDcsBiosMessage(const char* msg, const char* args);
 void sendDcsBiosMessage(const char* msg, const char* args);
@@ -131,6 +132,20 @@ class LED : ExportStreamListener {
 		char pin_;
 	public:
 		LED(char* msg, char pin);
+};
+
+class ServoOutput : ExportStreamListener {
+	private:
+		void onDcsBiosMessage(const char* msg, const char* args);
+		Servo servo_;
+		const char* msg_;
+		char pin_;
+		int minPulseWidth_;
+		int maxPulseWidth_;
+	public:
+		void setup();
+		ServoOutput(char* msg, char pin, int minPulseWidth, int maxPulseWidth);
+		ServoOutput(char* msg, char pin) { ServoOutput(msg, pin, 544, 2400); }
 };
 
 }
