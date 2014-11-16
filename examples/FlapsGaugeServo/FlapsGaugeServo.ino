@@ -5,7 +5,7 @@
 DcsBios::ProtocolParser parser;
 
 // display flaps gauge position on a servo attached to pin 5
-DcsBios::ServoOutput flapsServo("FLAP_POS", 5);
+DcsBios::ServoOutput flapsServo(52, 5);
 
 void setup() {
   Serial.begin(500000);
