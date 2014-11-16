@@ -57,7 +57,7 @@
 					<th>Actions</th>
 				</tr>
 				<tr ng-repeat="msg in category.messages | filter: { description: descriptionFilter, msg:messageFilter }">
-					<td><b>{{ msg.msg }}</b></td>
+					<td><b>{{ msg.msg }}<span ng-show="msg.int_index" style="color: red;"> ({{ msg.int_index }})</span></b></td>
 					<td>{{ msg.description }}</td>
 					<td>{{ msg.value_type }}</td>
 					<td>

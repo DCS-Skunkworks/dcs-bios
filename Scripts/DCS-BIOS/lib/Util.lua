@@ -271,7 +271,20 @@ function BIOS.util.defineMultipositionSwitch(msg, device_id, device_command, arg
 	end
 end
 
+function BIOS.util.encodeInt(intval)
+	-- convert value (a float from 0.0 to 1.0) to a 16-bit signed integer from 0 to 65535
+	local lowbyte = intval % 256
+	local highbyte = (intval - lowbyte) / 256
+	return string.char(lowbyte, highbyte)
+end
+
 function BIOS.util.defineFloat(msg, arg_number, limits, category, description)
-	document { msg = msg, category = category, description = description, msg_type = "float", value_type = "float", value_range = limits, can_set = false, actions = {} }
-	moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return string.format("%.4f", dev0:get_argument_value(arg_number)) end
+	moduleBeingDefined.maxIntIdx = moduleBeingDefined.maxIntIdx + 1
+	document { msg = msg, category = category, description = description, msg_type = "int", value_type = "int", value_range = limits, can_set = false, actions = {}, int_index = moduleBeingDefined.maxIntIdx }
+	moduleBeingDefined.nextIntIdx = 1
+	local intervalLength = limits[2] - limits[1]
+	moduleBeingDefined.intMap[moduleBeingDefined.maxIntIdx] = function(dev0)
+		return ((dev0:get_argument_value(arg_number) - limits[1]) / intervalLength) * 65535
+	end
+	--moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return encode01Float(dev0:get_argument_value(arg_number)) end--string.format("%.4f", dev0:get_argument_value(arg_number)) end
 end
