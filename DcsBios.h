@@ -13,6 +13,10 @@ void sendDcsBiosMessage(const char* msg, const char* args);
 #define DCSBIOS_STATE_READ_CMD 0
 #define DCSBIOS_STATE_WAIT_FOR_NEWLINE 1
 #define DCSBIOS_STATE_READ_ARG 2
+#define DCSBIOS_STATE_READ_INT_STARTIDX 3
+#define DCSBIOS_STATE_READ_INT_COUNT 4
+#define DCSBIOS_STATE_READ_INT_LOWBYTE 5
+#define DCSBIOS_STATE_READ_INT_HIGHBYTE 6
 
 namespace DcsBios {
 
@@ -31,7 +35,8 @@ class ProtocolParser {
 
 class ExportStreamListener {
 	private:
-		virtual void onDcsBiosMessage(const char* msg, const char* args);
+		virtual void onDcsBiosMessage(const char* msg, const char* args) {}
+		virtual void onDcsBiosInt(unsigned char index, unsigned int value) {}
 		ExportStreamListener* nextExportStreamListener;
 	public:
 		static ExportStreamListener* firstExportStreamListener;
@@ -43,6 +48,13 @@ class ExportStreamListener {
 			ExportStreamListener* el = firstExportStreamListener;
 			while (el) {
 				el->onDcsBiosMessage(cmd, args);
+				el = el->nextExportStreamListener;
+			}
+		}
+		static void handleDcsBiosInt(char index, unsigned int value) {
+			ExportStreamListener* el = firstExportStreamListener;
+			while (el) {
+				el->onDcsBiosInt(index, value);
 				el = el->nextExportStreamListener;
 			}
 		}
@@ -136,16 +148,16 @@ class LED : ExportStreamListener {
 
 class ServoOutput : ExportStreamListener {
 	private:
-		void onDcsBiosMessage(const char* msg, const char* args);
+		void onDcsBiosInt(unsigned char index, unsigned int value);
 		Servo servo_;
-		const char* msg_;
+		unsigned char index_;
 		char pin_;
 		int minPulseWidth_;
 		int maxPulseWidth_;
 	public:
 		void setup();
-		ServoOutput(char* msg, char pin, int minPulseWidth, int maxPulseWidth);
-		ServoOutput(char* msg, char pin) { ServoOutput(msg, pin, 544, 2400); }
+		ServoOutput(unsigned char index, char pin, int minPulseWidth, int maxPulseWidth);
+		ServoOutput(unsigned char index, char pin) { ServoOutput(index, pin, 544, 2400); }
 };
 
 }

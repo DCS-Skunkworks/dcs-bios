@@ -17,7 +17,9 @@ void ProtocolParser::processChar(char c) {
   
   switch(state) {
      case DCSBIOS_STATE_READ_CMD:
-       if (cmd_pos == DCSBIOS_CMD_BUFFER_SIZE) {
+	   if (cmd_pos == 0 && c == 'i') {
+	     state = DCSBIOS_STATE_READ_INT_STARTIDX;
+       } else if (cmd_pos == DCSBIOS_CMD_BUFFER_SIZE) {
          cmd_pos = 0;
          state = DCSBIOS_STATE_WAIT_FOR_NEWLINE;
        } else {
@@ -54,6 +56,42 @@ void ProtocolParser::processChar(char c) {
          }
        }
        break;
+	   
+	 case DCSBIOS_STATE_READ_INT_STARTIDX:
+	   arg[0] = c;
+	   state = DCSBIOS_STATE_READ_INT_COUNT;
+	   break;
+	   
+	 case DCSBIOS_STATE_READ_INT_COUNT:
+	   arg[1] = c;
+	   state = DCSBIOS_STATE_READ_INT_LOWBYTE;
+	   break;
+	   
+	 case DCSBIOS_STATE_READ_INT_LOWBYTE:
+	   arg[2] = c;
+	   state = DCSBIOS_STATE_READ_INT_HIGHBYTE;
+	   break;
+	   
+	 case DCSBIOS_STATE_READ_INT_HIGHBYTE:
+	   unsigned int value = arg[2] + 256*(unsigned int)c;
+	   ExportStreamListener::handleDcsBiosInt(arg[0], value);
+	   /*
+	   if (arg[0] == 52) {
+	   Serial.print((unsigned int)arg[0]);
+	   Serial.print(" ");
+	   Serial.print(value);
+	   Serial.print("\n");
+	   }
+	   */
+	   arg[0]++;
+	   arg[1]--;
+	   if (arg[1] == 0) {
+	     state = DCSBIOS_STATE_WAIT_FOR_NEWLINE;
+	   } else {
+	     state = DCSBIOS_STATE_READ_INT_LOWBYTE;
+		 //state = DCSBIOS_STATE_WAIT_FOR_NEWLINE;
+	   }
+	   break;
   }
 }
 
@@ -201,8 +239,8 @@ void LED::onDcsBiosMessage(const char* msg, const char* arg) {
 	}
 }
 
-ServoOutput::ServoOutput(char* msg, char pin, int minPulseWidth, int maxPulseWidth) {
-	msg_ = msg;
+ServoOutput::ServoOutput(unsigned char index, char pin, int minPulseWidth, int maxPulseWidth) {
+	index_ = index;
 	pin_ = pin;
 	minPulseWidth_ = minPulseWidth;
 	maxPulseWidth_ = maxPulseWidth;
@@ -210,10 +248,9 @@ ServoOutput::ServoOutput(char* msg, char pin, int minPulseWidth, int maxPulseWid
 void ServoOutput::setup() {
 	servo_.attach(pin_, minPulseWidth_, maxPulseWidth_);
 }
-void ServoOutput::onDcsBiosMessage(const char* msg, const char* arg) {
-	if (strcmp(msg, msg_) == 0) {
-		float value = atof(arg);
-		servo_.writeMicroseconds(map(value*65535, 0, 65535, minPulseWidth_, maxPulseWidth_));
+void ServoOutput::onDcsBiosInt(unsigned char index, unsigned int value) {
+	if (index == index_) {
+		servo_.writeMicroseconds(map(value, 0, 65535, minPulseWidth_, maxPulseWidth_));
 	}
 }
 
