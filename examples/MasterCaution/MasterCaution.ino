@@ -7,7 +7,7 @@ DcsBios::ProtocolParser parser;
 /* Declare a Master Caution Reset button on pin 10 */
 DcsBios::Switch2 masterCautionBtn("UFC_MASTER_CAUTION", 10);
 /* Make the LED connected to pin 13 into a Master Caution Light */
-DcsBios::LED masterCautionLED("MASTER_CAUTION", 13);
+DcsBios::LED mcLed(0x108e, 0x0008, 13);
 
 void setup() {
   Serial.begin(500000);
@@ -52,13 +52,13 @@ void sendDcsBiosMessage(const char* msg, const char* arg) {
 }
 
 /*
-This subroutine gets called every time a message is received
+This subroutine gets called every time a write access is received
 from the export stream (you need to define it even if it
 does nothing).
 
 Use this to handle outputs which are not covered by the
 DcsBios Arduino library (e.g. displays).
 */
-void onDcsBiosMessage(const char* msg, const char* arg) {
+void onDcsBiosWrite(unsigned int address, unsigned int value) {
   
 }

@@ -8,91 +8,70 @@ PollingInput* PollingInput::firstPollingInput = NULL;
 ExportStreamListener* ExportStreamListener::firstExportStreamListener = NULL;
 
 ProtocolParser::ProtocolParser() {
-	state = 0;
-	cmd_pos = 0;
-	arg_pos = 0;
+	state = DCSBIOS_STATE_WAIT_FOR_SYNC;
+	sync_byte_count = 0;
 }
 
-void ProtocolParser::processChar(char c) {
+void ProtocolParser::processChar(unsigned char c) {
   
   switch(state) {
-     case DCSBIOS_STATE_READ_CMD:
-	   if (cmd_pos == 0 && c == 'i') {
-	     state = DCSBIOS_STATE_READ_INT_STARTIDX;
-       } else if (cmd_pos == DCSBIOS_CMD_BUFFER_SIZE) {
-         cmd_pos = 0;
-         state = DCSBIOS_STATE_WAIT_FOR_NEWLINE;
-       } else {
-         if (c == ' ') {
-           cmd[cmd_pos++] = '\0';
-           state = DCSBIOS_STATE_READ_ARG;
-           arg_pos = 0;
-         } else {
-           cmd[cmd_pos++] = c;
-         }
-       }
-       break;
-       
-     case DCSBIOS_STATE_WAIT_FOR_NEWLINE:
-       if (c == '\n') {
-         state = DCSBIOS_STATE_READ_CMD;
-         cmd_pos = 0;
-       }
-       break;
-      
-     case DCSBIOS_STATE_READ_ARG:
-       if (arg_pos == DCSBIOS_ARG_BUFFER_SIZE) {
-         arg_pos = 0;
-         state = DCSBIOS_STATE_WAIT_FOR_NEWLINE;
-       } else {
-         if (c == '\n') {
-           arg[arg_pos++] = '\0';
-           cmd_pos = 0;
-           state = DCSBIOS_STATE_READ_CMD;
-           onDcsBiosMessage(cmd, arg);
-		   ExportStreamListener::handleDcsBiosMessage(cmd, arg);
-         } else {
-           arg[arg_pos++] = c;
-         }
-       }
-       break;
-	   
-	 case DCSBIOS_STATE_READ_INT_STARTIDX:
-	   arg[0] = c;
-	   state = DCSBIOS_STATE_READ_INT_COUNT;
-	   break;
-	   
-	 case DCSBIOS_STATE_READ_INT_COUNT:
-	   arg[1] = c;
-	   state = DCSBIOS_STATE_READ_INT_LOWBYTE;
-	   break;
-	   
-	 case DCSBIOS_STATE_READ_INT_LOWBYTE:
-	   arg[2] = c;
-	   state = DCSBIOS_STATE_READ_INT_HIGHBYTE;
-	   break;
-	   
-	 case DCSBIOS_STATE_READ_INT_HIGHBYTE:
-	   unsigned int value = arg[2] + 256*(unsigned int)c;
-	   ExportStreamListener::handleDcsBiosInt(arg[0], value);
-	   /*
-	   if (arg[0] == 52) {
-	   Serial.print((unsigned int)arg[0]);
-	   Serial.print(" ");
-	   Serial.print(value);
-	   Serial.print("\n");
-	   }
-	   */
-	   arg[0]++;
-	   arg[1]--;
-	   if (arg[1] == 0) {
-	     state = DCSBIOS_STATE_WAIT_FOR_NEWLINE;
-	   } else {
-	     state = DCSBIOS_STATE_READ_INT_LOWBYTE;
-		 //state = DCSBIOS_STATE_WAIT_FOR_NEWLINE;
-	   }
-	   break;
+    case DCSBIOS_STATE_WAIT_FOR_SYNC:
+		/* do nothing */
+		break;
+		
+	case DCSBIOS_STATE_ADDRESS_LOW:
+		address = (unsigned int)c;
+		state = DCSBIOS_STATE_ADDRESS_HIGH;
+		break;
+		
+	case DCSBIOS_STATE_ADDRESS_HIGH:
+		address = (c << 8) | address;
+		if (address != 0x5555) {
+			state = DCSBIOS_STATE_COUNT_LOW;
+		} else {
+			state = DCSBIOS_STATE_WAIT_FOR_SYNC;
+		}
+		break;
+		
+	case DCSBIOS_STATE_COUNT_LOW:
+		count = (unsigned int)c;
+		state = DCSBIOS_STATE_COUNT_HIGH;
+		break;
+		
+	case DCSBIOS_STATE_COUNT_HIGH:
+		count = (c << 8) | count;
+		state = DCSBIOS_STATE_DATA_LOW;
+		break;
+		
+	case DCSBIOS_STATE_DATA_LOW:
+		data = (unsigned int)c;
+		count--;
+		state = DCSBIOS_STATE_DATA_HIGH;
+		break;
+		
+	case DCSBIOS_STATE_DATA_HIGH:
+		data = (c << 8) | data;
+		count--;
+		onDcsBiosWrite(address, data);
+		ExportStreamListener::handleDcsBiosWrite(address, data);
+		address += 2;
+		if (count == 0)
+			state = DCSBIOS_STATE_ADDRESS_LOW;
+		else
+			state = DCSBIOS_STATE_DATA_LOW;
+		break;
   }
+
+  if (c == 0x55)
+	sync_byte_count++;
+  else
+	sync_byte_count = 0;
+  
+  if (sync_byte_count == 4) {
+	state = DCSBIOS_STATE_ADDRESS_LOW;
+	sync_byte_count = 0;
+  }
+  
 }
 
 ActionButton::ActionButton(char* msg, char* arg, char pin) {
@@ -223,15 +202,16 @@ void RotaryEncoder::pollInput() {
 	}
 }
 
-LED::LED(char* msg, char pin) {
-	msg_ = msg;
+LED::LED(unsigned int address, unsigned int mask, char pin) {
+	address_ = address;
+	mask_ = mask;
 	pin_ = pin;
 	pinMode(pin_, OUTPUT);
 	digitalWrite(pin_, LOW);
 }
-void LED::onDcsBiosMessage(const char* msg, const char* arg) {
-	if (strcmp(msg, msg_) == 0) {
-		if (arg[0] == '1') {
+void LED::onDcsBiosWrite(unsigned int address, unsigned int value) {
+	if (address_ == address) {
+		if (value & mask_) {
 			digitalWrite(pin_, HIGH);
 		} else {
 			digitalWrite(pin_, LOW);
@@ -239,8 +219,8 @@ void LED::onDcsBiosMessage(const char* msg, const char* arg) {
 	}
 }
 
-ServoOutput::ServoOutput(unsigned char index, char pin, int minPulseWidth, int maxPulseWidth) {
-	index_ = index;
+ServoOutput::ServoOutput(unsigned int address, char pin, int minPulseWidth, int maxPulseWidth) {
+	address_ = address;
 	pin_ = pin;
 	minPulseWidth_ = minPulseWidth;
 	maxPulseWidth_ = maxPulseWidth;
@@ -248,8 +228,8 @@ ServoOutput::ServoOutput(unsigned char index, char pin, int minPulseWidth, int m
 void ServoOutput::setup() {
 	servo_.attach(pin_, minPulseWidth_, maxPulseWidth_);
 }
-void ServoOutput::onDcsBiosInt(unsigned char index, unsigned int value) {
-	if (index == index_) {
+void ServoOutput::onDcsBiosWrite(unsigned int address, unsigned int value) {
+	if (address_ == address) {
 		servo_.writeMicroseconds(map(value, 0, 65535, minPulseWidth_, maxPulseWidth_));
 	}
 }

@@ -5,7 +5,7 @@
 DcsBios::ProtocolParser parser;
 
 // display flaps gauge position on a servo attached to pin 5
-DcsBios::ServoOutput flapsServo(52, 5);
+DcsBios::ServoOutput flapsServo(0x1090, 5);
 
 void setup() {
   Serial.begin(500000);
@@ -52,13 +52,13 @@ void sendDcsBiosMessage(const char* msg, const char* arg) {
 }
 
 /*
-This subroutine gets called every time a message is received
+This subroutine gets called every time a write access is received
 from the export stream (you need to define it even if it
 does nothing).
 
 Use this to handle outputs which are not covered by the
 DcsBios Arduino library (e.g. displays).
 */
-void onDcsBiosMessage(const char* msg, const char* arg) {
+void onDcsBiosWrite(unsigned int address, unsigned int value) {
   
 }

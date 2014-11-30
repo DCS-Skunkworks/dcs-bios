@@ -4,39 +4,35 @@
 #include "Arduino.h"
 #include <Servo.h>
 
-void onDcsBiosMessage(const char* msg, const char* args);
+void onDcsBiosWrite(unsigned int address, unsigned int value);
 void sendDcsBiosMessage(const char* msg, const char* args);
 
-#define DCSBIOS_CMD_BUFFER_SIZE 64
-#define DCSBIOS_ARG_BUFFER_SIZE 64
-
-#define DCSBIOS_STATE_READ_CMD 0
-#define DCSBIOS_STATE_WAIT_FOR_NEWLINE 1
-#define DCSBIOS_STATE_READ_ARG 2
-#define DCSBIOS_STATE_READ_INT_STARTIDX 3
-#define DCSBIOS_STATE_READ_INT_COUNT 4
-#define DCSBIOS_STATE_READ_INT_LOWBYTE 5
-#define DCSBIOS_STATE_READ_INT_HIGHBYTE 6
+#define DCSBIOS_STATE_WAIT_FOR_SYNC 0
+#define DCSBIOS_STATE_ADDRESS_LOW 1
+#define DCSBIOS_STATE_ADDRESS_HIGH 2
+#define DCSBIOS_STATE_COUNT_LOW 3
+#define DCSBIOS_STATE_COUNT_HIGH 4
+#define DCSBIOS_STATE_DATA_LOW 5
+#define DCSBIOS_STATE_DATA_HIGH 6
 
 namespace DcsBios {
 
 class ProtocolParser {
 	private:
 		unsigned char state;
-		char cmd[DCSBIOS_CMD_BUFFER_SIZE];
-		char arg[DCSBIOS_ARG_BUFFER_SIZE];
-		unsigned char cmd_pos;
-		unsigned char arg_pos;
+		unsigned int address;
+		unsigned int count;
+		unsigned int data;
+		unsigned char sync_byte_count;
 	public:
-		void processChar(char c);
+		void processChar(unsigned char c);
 		ProtocolParser();
 
 };
 
 class ExportStreamListener {
 	private:
-		virtual void onDcsBiosMessage(const char* msg, const char* args) {}
-		virtual void onDcsBiosInt(unsigned char index, unsigned int value) {}
+		virtual void onDcsBiosWrite(unsigned int address, unsigned int value) {}
 		ExportStreamListener* nextExportStreamListener;
 	public:
 		static ExportStreamListener* firstExportStreamListener;
@@ -44,17 +40,10 @@ class ExportStreamListener {
 			this->nextExportStreamListener = firstExportStreamListener;
 			firstExportStreamListener = this;
 		}
-		static void handleDcsBiosMessage(const char* cmd, const char* args) {
+		static void handleDcsBiosWrite(unsigned int address, unsigned int value) {
 			ExportStreamListener* el = firstExportStreamListener;
 			while (el) {
-				el->onDcsBiosMessage(cmd, args);
-				el = el->nextExportStreamListener;
-			}
-		}
-		static void handleDcsBiosInt(char index, unsigned int value) {
-			ExportStreamListener* el = firstExportStreamListener;
-			while (el) {
-				el->onDcsBiosInt(index, value);
+				el->onDcsBiosWrite(address, value);
 				el = el->nextExportStreamListener;
 			}
 		}
@@ -139,25 +128,26 @@ class RotaryEncoder : PollingInput {
 
 class LED : ExportStreamListener {
 	private:
-		void onDcsBiosMessage(const char* msg, const char* args);
-		char* msg_;
-		char pin_;
+		void onDcsBiosWrite(unsigned int address, unsigned int value);
+		unsigned char pin_;
+		unsigned int address_;
+		unsigned int mask_;
 	public:
-		LED(char* msg, char pin);
+		LED(unsigned int address, unsigned int mask, char pin);
 };
 
 class ServoOutput : ExportStreamListener {
 	private:
-		void onDcsBiosInt(unsigned char index, unsigned int value);
+		void onDcsBiosWrite(unsigned int address, unsigned int value);
 		Servo servo_;
-		unsigned char index_;
+		unsigned int address_;
 		char pin_;
 		int minPulseWidth_;
 		int maxPulseWidth_;
 	public:
 		void setup();
-		ServoOutput(unsigned char index, char pin, int minPulseWidth, int maxPulseWidth);
-		ServoOutput(unsigned char index, char pin) { ServoOutput(index, pin, 544, 2400); }
+		ServoOutput(unsigned int address, char pin, int minPulseWidth, int maxPulseWidth);
+		ServoOutput(unsigned int address, char pin) { ServoOutput(address, pin, 544, 2400); }
 };
 
 }
