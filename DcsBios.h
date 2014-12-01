@@ -33,6 +33,7 @@ class ProtocolParser {
 class ExportStreamListener {
 	private:
 		virtual void onDcsBiosWrite(unsigned int address, unsigned int value) {}
+		virtual void onDcsBiosFrameSync() {}
 		ExportStreamListener* nextExportStreamListener;
 	public:
 		static ExportStreamListener* firstExportStreamListener;
@@ -44,6 +45,13 @@ class ExportStreamListener {
 			ExportStreamListener* el = firstExportStreamListener;
 			while (el) {
 				el->onDcsBiosWrite(address, value);
+				el = el->nextExportStreamListener;
+			}
+		}
+		static void handleDcsBiosFrameSync() {
+			ExportStreamListener* el = firstExportStreamListener;
+			while (el) {
+				el->onDcsBiosFrameSync();
 				el = el->nextExportStreamListener;
 			}
 		}

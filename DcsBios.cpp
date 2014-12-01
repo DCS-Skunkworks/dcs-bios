@@ -70,6 +70,7 @@ void ProtocolParser::processChar(unsigned char c) {
   if (sync_byte_count == 4) {
 	state = DCSBIOS_STATE_ADDRESS_LOW;
 	sync_byte_count = 0;
+	ExportStreamListener::handleDcsBiosFrameSync();
   }
   
 }
