@@ -145,7 +145,6 @@ class ServoOutput : ExportStreamListener {
 		int minPulseWidth_;
 		int maxPulseWidth_;
 	public:
-		void setup();
 		ServoOutput(unsigned int address, char pin, int minPulseWidth, int maxPulseWidth);
 		ServoOutput(unsigned int address, char pin) { ServoOutput(address, pin, 544, 2400); }
 };

@@ -225,11 +225,10 @@ ServoOutput::ServoOutput(unsigned int address, char pin, int minPulseWidth, int 
 	minPulseWidth_ = minPulseWidth;
 	maxPulseWidth_ = maxPulseWidth;
 }
-void ServoOutput::setup() {
-	servo_.attach(pin_, minPulseWidth_, maxPulseWidth_);
-}
 void ServoOutput::onDcsBiosWrite(unsigned int address, unsigned int value) {
 	if (address_ == address) {
+		if (!servo_.attached())
+			servo_.attach(pin_, minPulseWidth_, maxPulseWidth_);
 		servo_.writeMicroseconds(map(value, 0, 65535, minPulseWidth_, maxPulseWidth_));
 	}
 }
