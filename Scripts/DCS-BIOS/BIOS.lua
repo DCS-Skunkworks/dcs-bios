@@ -1,4 +1,11 @@
 BIOS = {}
+BIOS.logfile = io.open(lfs.writedir()..[[Logs\dcs-bios.log]], "w")
+function BIOS.log(str)
+	if BIOS.logfile then
+		BIOS.logfile:write(str.."\n")
+		BIOS.logfile:flush()
+	end
+end
 
 package.path  = package.path..";.\\LuaSocket\\?.lua"
 package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
@@ -9,7 +16,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Util.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\ProtocolIO.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Protocol.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A10C.lua]])
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH1H.lua]])
+--dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH1H.lua]])
 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 

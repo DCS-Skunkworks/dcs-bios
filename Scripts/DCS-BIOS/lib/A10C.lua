@@ -1,8 +1,6 @@
-BIOS.protocol.beginModule("A-10C")
+BIOS.protocol.beginModule("A-10C", 0x1000)
 
 local inputProcessors = moduleBeingDefined.inputProcessors
-local lowFrequencyMap = moduleBeingDefined.lowFrequencyMap
-local highFrequencyMap = moduleBeingDefined.highFrequencyMap
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -22,17 +20,18 @@ local defineRelativeTumb = BIOS.util.defineRelativeTumb
 local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
+local defineElectricallyHeldSwitch = BIOS.util.defineElectricallyHeldSwitch
 local defineFloat = BIOS.util.defineFloat
 
-local function defineElectricallyHeldSwitch(msg, device_id, pos_command, neg_command, arg_number, category, description)
-	document { msg = msg, category = category, description = description, msg_type = "electrically_held_switch", value_type = "enum", value_enum = {"0", "1"}, can_set = false, actions = {"PUSH", "RELEASE", "OFF"} }
-	moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
-	moduleBeingDefined.inputProcessors[msg] = function(action)
-		if action == "PUSH" then GetDevice(device_id):performClickableAction(pos_command, 1) end
-		if action == "RELEASE" then GetDevice(device_id):performClickableAction(neg_command, 0) end
-		if action == "OFF" then GetDevice(device_id):performClickableAction(pos_command, 0) end
-	end
-end
+--local function defineElectricallyHeldSwitch(msg, device_id, pos_command, neg_command, arg_number, category, description)
+--	document { identifier = msg, category = category, description = description, control_type = "electrically_held_switch", value_type = "enum", value_enum = {"0", "1"}, can_set = false, actions = {"PUSH", "RELEASE", "OFF"} }
+--	--moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
+--	moduleBeingDefined.inputProcessors[msg] = function(action)
+--		if action == "PUSH" then GetDevice(device_id):performClickableAction(pos_command, 1) end
+--		if action == "RELEASE" then GetDevice(device_id):performClickableAction(neg_command, 0) end
+--		if action == "OFF" then GetDevice(device_id):performClickableAction(pos_command, 0) end
+--	end
+--end
 
 local function defineRadioWheel(msg, device_id, command1, command2, command_args, arg_number, step, limits, output_map, category, description)
 	defineTumb(msg, device_id, command1, arg_number, step, limits, output_map, true, category, description)
@@ -140,21 +139,6 @@ local function getTacanChannel()
     return tcn_2 .. tcn_1 .. tcn_0 .. tcn_xy
 end
 
-local function modTacanChannel(arg)
-	if arg == "-10" then GetDevice(51):performClickableAction(3001, -0.1) end
-	if arg == "+10" then GetDevice(51):performClickableAction(3001, 0.1) end
-	if arg == "-1" then GetDevice(51):performClickableAction(3003, -0.1) end
-	if arg == "+1" then GetDevice(51):performClickableAction(3003, 0.1) end
-	if arg == "XY" then GetDevice(51):performClickableAction(3005, 0.1) end
-end
-
-local function decTacanChannelTens()
-	GetDevice(51):performClickableAction(3001, -0.1)
-end
-local function incTacanChannelTens()
-	GetDevice(51):performClickableAction(3001, 0.1)
-end
-
 local function getILSFrequency()
     local ils_mhz_lut = {
         ["0.0"] = "108",
@@ -180,13 +164,15 @@ end
 
 
 
-document { msg = "CMSP1", category = "CMSP", description = "Display Line 1", msg_type = "string", value_type = "string", can_set = false, actions = {} }
-document { msg = "CMSP2", category = "CMSP", description = "Display Line 2", msg_type = "string", value_type = "string", can_set = false, actions = {} }
-function moduleBeingDefined.exportLowFrequency()
+local cmsp1Alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = 20 }
+local cmsp2Alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = 20 }
+document { identifier = "CMSP1", category = "CMSP", description = "Display Line 1", msg_type = "string", value_type = "string", can_set = false, actions = {}, address = cmsp1Alloc.address, maxLength = 20 }
+document { identifier = "CMSP2", category = "CMSP", description = "Display Line 2", msg_type = "string", value_type = "string", can_set = false, actions = {}, address = cmsp2Alloc.address, maxLength = 20 }
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 	
 	local line1, line2 = getCMSPDisplayLines(dev0)
-	BIOS.protocol.setMsgArg("CMSP_LINE1", line1)
-	BIOS.protocol.setMsgArg("CMSP_LINE2", line2)
+	cmsp1Alloc:setValue(line1)
+	cmsp2Alloc:setValue(line2)
 	
 end
 
@@ -699,7 +685,8 @@ definePotentiometer("ENVCP_CANOPY_DEFOG", 41, 3003, 277, {0.0, 1.0}, "Environmen
 define3PosTumb("ENVCP_WRRW", 41, 3004, 278, "Environment Control Panel", "Windshield Rain Removal/Wash")
 defineToggleSwitch("ENVCP_PITOT_HEAT", 41, 3005, 279, "Environment Control Panel", "Pitot Heat")
 defineToggleSwitch("ENVCP_BLEED_AIR", 41, 3006, 280, "Environment Control Panel", "Bleed Air")
-define3PosTumb("ENVCP_TEMP_PRESS", 41, 3007, 282, "Environment Control Panel", "Temperature/Pressure Control")
+--define3PosTumb("ENVCP_TEMP_PRESS", 41, 3007, 282, "Environment Control Panel", "Temperature/Pressure Control")
+defineTumb("ENVCP_TEMP_PRESS", 41, 3007, 282, 0.1, {-1, 1}, nil, false, "Environment Control Panel", "Temperature/Pressure Control")
 defineToggleSwitch("ENVCP_AIR_SUPPLY", 41, 3008, 283, "Environment Control Panel", "Main Air Supply")
 definePotentiometer("ENVCP_FLOW_LEVEL", 41, 3009, 284, {0.0, 1.0}, "Environment Control Panel", "Flow Level")
 definePotentiometer("ENVCP_TEMP_LEVEL", 41, 3013, 286, {0.0, 1.0}, "Environment Control Panel", "Temp Level Control")
@@ -759,7 +746,7 @@ defineRotary("ALT_SET_PRESSURE", 35, 3001, 62, "Altimeter", "Set Pressure")
 defineRockerSwitch("ALT_ELECT_PNEU", 62, 3002, 3002, 3001, 3001, 60, "Altimeter", "ELECT / PNEU")
 
 
-define3PosTumb("LCP_POSITION", 49, 3008, 287, "Light System Control Panel", "Position Lights FLASH/OFF/STEADY")
+defineTumb("LCP_POSITION", 49, 3008, 287, 0.1, {-1, 1}, nil, false, "Light System Control Panel", "Position Lights FLASH/OFF/STEADY")
 definePotentiometer("LCP_FORMATION", 49, 3009, 288, {0, 1}, "Light System Control Panel", "Formation Lights")
 defineElectricallyHeldSwitch("LCP_ANTICOLLISION", 49, 3010, 3011, 289, "Light System Control Panel", "Anticollision Lights")
 definePotentiometer("LCP_ENG_INST", 49, 3001, 290, {0, 1}, "Light System Control Panel", "Engine Instrument Lights")
@@ -795,11 +782,28 @@ definePotentiometer("ADI_PITCH_TRIM", 47, 3001, 22, {0, 1}, "ADI", "ADI Pitch Tr
 definePushButton("SAI_CAGE", 48, 3002, 67, "SAI", "Cage SAI")
 defineRotary("SAI_PITCH_TRIM", 48, 3003, 66, "SAI", "SAI Pitch Trim")
 
-defineString("TACAN_CHANNEL", getTacanChannel, "TACAN Panel", "TACAN Channel")
+defineString("TACAN_CHANNEL", getTacanChannel, 4, "TACAN Panel", "TACAN Channel")
 definePushButton("TACAN_TEST_BTN", 51, 3006, 259, "TACAN Panel", "TACAN Test Button")
 definePotentiometer("TACAN_VOL", 51, 3007, 261, {0, 1}, "TACAN Panel", "TACAN Signal Volume")
-moduleBeingDefined.inputProcessors["TACAN"] = modTacanChannel
-document { msg = "TACAN", category = "TACAN Panel", description = "Modify TACAN Channel", msg_type = "action", value_type = "enum", value_enum = {}, can_set = false, actions = {"+10", "-10", "+1", "-1", "XY"} }
+
+defineRelativeTumb("TACAN_10", 51, 3001, 256, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Left Channel Selector")
+defineRelativeTumb("TACAN_1", 51, 3003, 257, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Right Channel Selector")
+moduleBeingDefined.inputProcessors["TACAN_XY"] = function(action)
+	if action == "TOGGLE" then
+		GetDevice(51):performClickableAction(3005, 0.1)
+	end
+end
+local docentry = moduleBeingDefined.documentation["TACAN Panel"]["TACAN_1"]
+docentry.inputs[#docentry.inputs+1] = { interface = "action", argument = "TOGGLE_XY", description = "Toggle TACAN Channel X/Y" }
+local oldInputHandler = moduleBeingDefined.inputProcessors["TACAN_1"]
+moduleBeingDefined.inputProcessors["TACAN_1"] = function(args)
+	if args == "TOGGLE_XY" then
+		GetDevice(51):performClickableAction(3005, 0.1)
+	else
+		oldInputHandler(args)
+	end
+end
+
 defineTumb("TACAN_MODE", 51, 3008, 262, 0.1, {0.0, 0.4}, nil, false, "TACAN Panel", "TACAN Mode Dial")
 
 
@@ -829,8 +833,8 @@ definePushButton("UHF_TEST", 54, 3012, 172, "UHF Radio", "Display Test Button")
 definePushButton("UHF_STATUS", 54, 3013, 173, "UHF Radio", "Status Button")
 definePushButton("UHF_LOAD", 54, 3015, 735, "UHF Radio", "Load Button")
 defineToggleSwitch("UHF_COVER", 54, 3014, 734, "UHF Radio", "Load Button Cover")
-defineString("UHF_FREQUENCY", getUHFFrequency, "UHF Radio", "UHF Frequency Display")
-defineString("UHF_PRESET", getUHFPreset, "UHF Radio", "UHF Preset Display")
+defineString("UHF_FREQUENCY", getUHFFrequency, 7, "UHF Radio", "UHF Frequency Display")
+defineString("UHF_PRESET", getUHFPreset, 2, "UHF Radio", "UHF Preset Display")
 
 
 defineSetCommandTumb("VHFAM_PRESET", 55, 3001, 137, 0.01, {0.0, 0.19}, {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "VHF AM Radio", "Preset Channel Selector")
@@ -862,7 +866,7 @@ defineRadioWheel("VHFFM_FREQ4", 56, 3015, 3016, {-0.25, 0.25}, 160, 0.25, {0, 0.
 
 
 defineRockerSwitch("SEAT_ADJUST", 39, 3004, 3004, 3005, 3005, 770, "Misc", "Seat Adjust")
-defineString("T", function(d) return string.format("%f", d:get_argument_value(712)) end)
+--defineString("T", function(d) return string.format("%f", d:get_argument_value(712)) end)
 defineTumb("CANOPY_OPEN", 39, 3007, 712, 0.5, {0.0, 1.0}, nil, false, "Misc", "Canopy Open Switch")
 
 defineToggleSwitch("EMER_BRAKE", 38, 3030, 772, "Misc", "Emergency Brake")

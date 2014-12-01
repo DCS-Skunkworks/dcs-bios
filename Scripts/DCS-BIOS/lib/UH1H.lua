@@ -1,4 +1,4 @@
-BIOS.protocol.beginModule("UH-1H")
+BIOS.protocol.beginModule("UH-1H", 0x1400)
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local lowFrequencyMap = moduleBeingDefined.lowFrequencyMap

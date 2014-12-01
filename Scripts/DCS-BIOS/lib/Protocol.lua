@@ -4,18 +4,26 @@ BIOS.protocol.maxBytesInTransit = 4000
 
 local aircraftNameToModule = {}
 BIOS.protocol.aircraftNameToModule = aircraftNameToModule
-function BIOS.protocol.beginModule(name)
+
+local globalMemoryMap = BIOS.util.MemoryMap:create{ baseAddress = 0x0000 }
+BIOS.protocol.globalMemoryMap = globalMemoryMap
+local currentAircraftStringExport = globalMemoryMap:allocateString{ maxLength = 16 }
+local frameCounterExport = globalMemoryMap:allocateInt{ maxValue = 255 }
+local frameCounter = 0
+local frameSkipCounterExport = globalMemoryMap:allocateInt{ maxValue = 255 }
+local frameSkipCounter = 0
+
+function BIOS.protocol.beginModule(name, baseAddress)
 	moduleBeingDefined = {}
 	moduleBeingDefined.name = name
 	moduleBeingDefined.documentation = {}
 	moduleBeingDefined.inputProcessors = {}
-	moduleBeingDefined.lowFrequencyMap = {}
-	moduleBeingDefined.highFrequencyMap = {}
-	moduleBeingDefined.intMap = {} -- list of getter functions for int values
-	moduleBeingDefined.nextIntIdx = nil -- index of next int value to be exported
-	moduleBeingDefined.maxIntIdx = 0 -- length of intMap
-	moduleBeingDefined.exportLowFrequency = function() return end
-	moduleBeingDefined.exportHighFrequency = function() return end
+	--moduleBeingDefined.lowFrequencyMap = {}
+	--moduleBeingDefined.highFrequencyMap = {}
+	--moduleBeingDefined.exportLowFrequency = function() return end
+	--moduleBeingDefined.exportHighFrequency = function() return end
+	moduleBeingDefined.memoryMap = BIOS.util.MemoryMap:create { baseAddress = baseAddress }
+	moduleBeingDefined.exportHooks = {}
 	aircraftNameToModule[name] = moduleBeingDefined
 end
 function BIOS.protocol.endModule()
@@ -41,20 +49,6 @@ end
 local acftModule = nil
 bytesInTransit = 0
 
-local argumentCache = {}
-function BIOS.protocol.setMsgArg(msg, arg)
-	local oldArg = argumentCache[msg]
-	if oldArg == arg then return end
-	argumentCache[msg] = arg
-	local txstr = nil
-	if arg == nil then
-		txstr = msg.."\n"
-	else
-		txstr = msg.." "..arg.."\n"
-	end
-	bytesInTransit = bytesInTransit + txstr:len()
-	BIOS.protocol_io.queue(txstr)
-end
 
 function BIOS.protocol.processInputLine(line)
 	local cmd, args = line:match("^([^ ]+) (.*)")
@@ -80,6 +74,7 @@ function BIOS.protocol.step()
 	-- rate limiting
 	local curTime = LoGetModelTime()
 	bytesInTransit = bytesInTransit - ((curTime - lastFrameTime) * BIOS.protocol.maxBytesPerSecond)
+	lastFrameTime = curTime
 	if bytesInTransit < 0 then bytesInTransit = 0 end
 	
 	-- determine active aircraft
@@ -88,81 +83,50 @@ function BIOS.protocol.step()
 	if selfData then
 		acftName = selfData["Name"]
 	end
-	BIOS.protocol.setMsgArg("AIRCRAFT", acftName)
-	if lastAcftName ~= acftName then
-		argumentCache = {}
-		lastAcftName = acftName
-	end
 	acftModule = aircraftNameToModule[acftName]
-
-	-- export high frequency messages
-	if curTime >= nextHighFreqStepTime then
-		-- runs 100 times per second
-		nextHighFreqStepTime = curTime + .01
-					
-		if acftModule then
-			local dev0 = GetDevice(0)
-			dev0:update_arguments()
-			local setMsgArg = BIOS.protocol.setMsgArg
-			
-			for k, v in pairs(acftModule.highFrequencyMap) do
-				setMsgArg(k, v(dev0))
-			end
-		
-			acftModule.exportHighFrequency()
-		end
+	if lastAcftName ~= acftName then
+		if acftModule then acftModule.memoryMap:clearValues() end
+		lastAcftName = acftName
+		BIOS.mmap = acftModule.memoryMap
 	end
+	currentAircraftStringExport:setValue(acftName)
 	
-	-- export low frequency messages
+	-- export data
 	if curTime >= nextLowFreqStepTime then
 		-- runs 30 times per second
+		frameCounter = (frameCounter + 1) % 256
+		frameCounterExport:setValue(frameCounter)
+		
+		-- if the last frame update has not been completely transmitted, skip a frame
+		if bytesInTransit > 0 then
+			-- TODO: increase a frame skip counter for logging purposes
+			frameSkipCounter = (frameSkipCounter + 1) % 256
+			return
+		end
 		nextLowFreqStepTime = curTime + .033
+		frameSkipCounterExport:setValue(frameSkipCounter)
+		
+		-- send frame sync sequence
+		bytesInTransit = bytesInTransit + 4
+		BIOS.protocol_io.queue(string.char(0x55, 0x55, 0x55, 0x55))
+		
+		-- export global / system data
+		local data = globalMemoryMap:flushData()
+		bytesInTransit = bytesInTransit + data:len()
+		BIOS.protocol_io.queue(data)
 		
 		if acftModule then
 			local dev0 = GetDevice(0)
 			dev0:update_arguments()
-			local setMsgArg = BIOS.protocol.setMsgArg
 			
-			for k, v in pairs(acftModule.lowFrequencyMap) do
-				setMsgArg(k, v(dev0))
+			for k, v in pairs(acftModule.exportHooks) do
+				v(dev0)
 			end
 			
-			acftModule.exportLowFrequency()
-			
-			if acftModule.maxIntIdx > 0 then
-				if acftModule.nextIntIdx > acftModule.maxIntIdx then
-					acftModule.nextIntIdx = 1
-				end
-			end
+			local data = acftModule.memoryMap:flushData()
+			bytesInTransit = bytesInTransit + data:len()
+			BIOS.protocol_io.queue(data)
 		end
 	end
 	
-	-- export ints
-	if acftModule then
-		local dev0 = GetDevice(0)
-		local intCapacity = math.floor((BIOS.protocol.maxBytesInTransit - bytesInTransit - 4)/2)
-		local intData = ""
-		if intCapacity > 2 and acftModule.nextIntIdx <= acftModule.maxIntIdx then
-			local firstIntIdx = acftModule.nextIntIdx
-			while intCapacity > 0 and acftModule.nextIntIdx <= acftModule.maxIntIdx do
-				intCapacity = intCapacity - 1
-				local intval = math.floor(acftModule.intMap[acftModule.nextIntIdx](dev0))
-				if intval < 0 then intval = 0 end
-				if intval > 65535 then intval = 65535 end
-				local lowbyte = intval % 256
-				local highbyte = (intval - lowbyte) / 256
-				intData = intData .. string.char(lowbyte, highbyte)
-				acftModule.nextIntIdx = acftModule.nextIntIdx + 1
-			end
-			
-			bytesInTransit = bytesInTransit + 4 + intData:len() -- overhead: 'i', start index, number of ints byte, \n terminator
-			BIOS.protocol_io.queue('i')
-			BIOS.protocol_io.queue(string.char(firstIntIdx))
-			BIOS.protocol_io.queue(string.char(intData:len() / 2))
-			BIOS.protocol_io.queue(intData)
-			BIOS.protocol_io.queue('\n')
-		end
-	end
-	
-	lastFrameTime = curTime
 end
