@@ -157,6 +157,38 @@ class ServoOutput : ExportStreamListener {
 		ServoOutput(unsigned int address, char pin) { ServoOutput(address, pin, 544, 2400); }
 };
 
+template < unsigned int LENGTH >
+class StringBuffer : ExportStreamListener {
+	private:
+		void onDcsBiosWrite(unsigned int address, unsigned int value) {
+			if ((address >= address_) && (address_ + LENGTH > address)) {
+			buffer[address - address_] = ((char*)&value)[0];
+			if (address_ + LENGTH > (address+1))
+				buffer[address - address_ + 1] = ((char*)&value)[1];
+			}
+			dirty_ = true;
+		}
+		void onDcsBiosFrameSync() {
+			if (dirty_) {
+				callback_(buffer);
+				dirty_ = false;
+			}
+		}
+		unsigned int address_;
+		bool dirty_;
+		void (*callback_)(char*);
+	public:
+		char buffer[LENGTH+1];
+		StringBuffer(unsigned int address, void (*callback)(char*)) {
+			callback_ = callback;
+			dirty_ = false;
+			address_ = address;
+			memset(buffer, '\0', LENGTH+1);
+		}
+};
+
+
+
 }
 #endif
 
