@@ -1,45 +1,13 @@
 # DCS-BIOS Protocol Specification
 
-First Draft, Revision 0
-
-# Design Goals
-
-DCS-BIOS aims to become a common platform to interface external
-software and hardware with the cockpit of a DCS: World aircraft. It
-will include a reference implementation for the Arduino platform, but
-it is not specific to any particular microcontroller platform.
-
-The protocol has been designed to be human-readable and
-human-writeable. This makes manual testing as easy as attaching a
-console window to the import or export stream.
-
-Binary messages are supported for exceptional cases where a binary
-representation is absolutely required for performance reasons.
-
+Second Draft, Revision 0
 
 # The Import and Export Streams
 
 The DCS-BIOS protocol defines an "export stream", which exports
 cockpit state out of DCS, and an "import stream", which can be used to
 manipulate controls in the cockpit, such as setting the position of
-switches or turning a rotary in a particular direction.
-
-Both streams are a sequence of messages.
-
-| Message Format | Description |
-| -------------- | ----------- |
-| `<message-type> '\n'` | no payload |
-| `<message-type> ' ' <text payload> '\n'` | text payload (arbitrary length, cannot contain line break) |
-| `<message-type> 'b' <payload length byte> <binary payload> '\n'` | binary payload (max. 255 bytes) |
-
-A message consists of the message type, an optional payload, and a line break.
-
-The *message type* can only contain upper case characters, numbers and underscores and must start with a letter, i.e. it must match the following regular expression:
-`[A-Z][A-Z0-9_]*`
-
-In a text payload, any byte except a line break is allowed, but it is
-recommended to stick to characters that can be typed on a keyboard to
-make debugging easier.
+switches or turning a rotary knob in a particular direction.
 
 # Transport Layer
 
@@ -47,17 +15,17 @@ This specification talks about streams of bytes. Those streams can be
 transported over a lot of different transports including TCP, UDP and
 a serial port.
 
-Because each message is terminated by a line break, clients can
-eventually recover from transmission errors, so it is safe to use
-unreliable transport meachanisms such as UDP.
-
-DCS-BIOS will listen on UDP port 7778 for input stream messages.
+DCS-BIOS will listen on UDP port 7778 for input stream data.
 
 DCS-BIOS will send output stream data via UDP to the multicast address
 239.255.50.10, port 5010 on the loopback interface (127.0.0.1).
 
 Mnemonic for the last address part and port: ED released the Ka-50 first,
 followed by the A-10C.
+
+Any program that listens to the export stream must specify the
+"allowreuseaddr" socket option so it does not prevent additional
+programs from connecting.
 
 The IPv4 multicast address block 239.255.0.0/16 is defined in RFC 2365
 as the "IPv4 Local Scope". It is part of the "Administratively Scoped
@@ -72,42 +40,52 @@ For those who do not want to deal with network programming, the
 windows version of `socat` can be used to connect almost anything
 (including a serial port) to the import and export stream.
 
-# Message Types
+# Export Stream Protocol
 
-Most message types will be defined by aircraft-specific DCS-BIOS
-modules. Usually, a message type will be defined for each piece of
-exported information (such as the state of an indicator light) and for
-each supported input command (e.g. to set the position of a toggle
-switch).
+The export stream protocol is designed to be as space-efficient as
+possible to enable the export of the complete cockpit state over a
+115200 bps serial connection.
 
-While it is possible to define a message type that maps to a
-`performClickableAction()` call or that sets the state of a particular
-cockpit argument, this would leak DCS implementation details into the
-protocol and should be avoided.
+Each piece of cockpit state is encoded as an integer or a string and
+is assigned an address within a 16-bit address space.
 
-This specification defines two message types: `AIRCRAFT` and `SYNC`.
-The `AIRCRAFT` message specifies the currently active aircraft (e.g. `A-10C` or `UH-1H`). If the player is not in an aircraft, the value is `NONE`.
-For the `SYNC` message, see the next section.
+## Integer values
 
-# Caching
+The location of an integer value is defined by a 16-bit word address
+which specifies the start of the 16-bit word in which the data is
+located, a 16-bit mask which specifies which bits in that word belong
+to the value, and a shift value (which can also be deduced from the
+mask).
 
-Most messages contain some state information as the payload, such as
-the position of a toggle switch or whether a light is turned on or
-not. In order not to overwhelm slow transport mechanisms such as a
-serial connection, these messages must only be sent once for each
-state change, except after receiving a `SYNC` message.
+Given the start address, mask and shift values, the following pseudo C
+code decodes a value:
+`char[] state;`
+`(((uint16_t*)state)[start_address<<2] & mask) << shift`
 
-To implement this, cache the payload of the last message sent for each
-message type. When sending a message, only send it if its cache entry
-is empty or the payload differs from the cached payload.
+Changes to the state data are encoded as write accesses to this
+address space and written to the export data stream in the following
+format:
 
-## `SYNC` message
+`<start address (16 bit)>` `<data length (16 bit)>` `data`
 
-A `SYNC` message has a single-character text payload that is either
-'E' (for export) or 'I' (for import). When receiving a `SYNC E`
-message, DCS-BIOS will send the full cockpit state to the export
-stream.
+Both the start address and the data length will always be
+even. This ensures that no write access partially updates
+a value (an integer may occupy no more than 16 bit).
 
-When receiving a `SYNC I` message, all programs that send state
-information to the input stream (e.g. custom panel controllers) should
-send their current state.
+## String values
+
+The location of a string is defined by its 16-bit start address and
+the length in bytes (all string values have a fixed length and start
+on a 16-bit aligned address).
+
+## Synchronization sequence
+
+DCS-BIOS will regularly send the four bytes `0x55 0x55 0x55
+0x55`. These do *not* specify a 65535-byte write access to the address
+0x5555. Instead, they are used by consumers of the data stream to find
+the start of a packet to synchronize to.
+
+DCS-BIOS ensures that this byte sequence cannot appear in the normal
+data stream. In the event that the byte sequence `0x55 0x55 0x55 0x55`
+would appear in a single write access, DCS-BIOS will split that access
+into two separate writes to avoid that situation.
