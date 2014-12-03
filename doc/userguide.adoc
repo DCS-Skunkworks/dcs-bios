@@ -1,0 +1,145 @@
+= DCS-BIOS User Guide
+:toc: right
+:icons: font
+
+This manual will explain how you can use DCS-BIOS to connect the virtual cockpit of a DCS: World aircraft to real-world hardware such as toggle switches, push buttons, rotary encoders, potentiometers and displays.
+
+== Introduction
+
+This section provides an overview of the components involved in connecting DCS: World to custom panels and shows where DCS-BIOS fits in.
+
+=== What is DCS-BIOS?
+
+DCS-BIOS is an `Export.lua` file for DCS that sends data about the current state of the virtual cockpit to third-party software over UDP and accepts commands to manipulate controls in the virtual cockpit.
+It comes with a code library that makes it easy to connect hardware such as push buttons and LEDs to DCS: World using the Arduino microcontroller platform.
+
+It currently only supports the A-10C module. Support for the UH-1H module is almost complete.
+
+NOTE: Adding a new aircraft module to DCS-BIOS takes about three days of work.
+If your favourite module is not supported and you know (or are willing to learn) a little Lua, I will gladly show you how it is done.
+
+=== Why use DCS-BIOS?
+
+* Building your own controller boards can be a lot cheaper compared to purpose-built interface boards.
+The popularity of the Arduino platform means it is mass-produced and economics of scale apply.
+Arduino boards start at about $25 in the official store, can be bought for about half of that locally from eBay, and if you are willing to wait a few weeks for delivery from China you can get started for less than $5.
+
+* Using a microcontroller platform for your electronics instead of commercial interface boards gives you a lot of flexibility.
+You can connect just about any type of sensor or display.
+In most cases, someone has already connected one to an Arduino board and wrote a tutorial.
+
+* DCS-BIOS is open source and fully documented. Should a new DCS: World release break something, anyone with a programming background can study the documentation, look at the code, and fix the problem.
+You do not depend on the original developer.
+
+* The DCS-BIOS protocol has been designed and tested to work over a slow serial port even when a lot of things are changing at once, such as when pressing the signal lamp test button, spooling up the engines, or when half your caution lights panel is blinking because you just took a SAM hit.
+
+WARNING: DCS-BIOS is not a "plug and play" solution.
+Expect to spend some time learning how to use the Arduino IDE to flash a program to your microcontroller, setting up DCS-BIOS according to this manual, or soldering pin headers to your Arduino board.
+You do not need any prior knowledge about programming or electronics, but you should at least be interested in learning about it.
+If you are, it can be a very rewarding experience.
+
+=== The Big Picture
+
+This section will explain the role of DCS-BIOS in connecting custom hardware to DCS.
+It assumes that you have no prior electronics or programming experience.
+
+Let's say you want to have a physical Master Caution button for your A-10C.
+Just like in your virtual cockpit, the button should blink when there is a master caution and pushing the button should silence that annoying noise.
+You buy a yellow LED, a resistor to limit the current going through the LED and a push button.
+Now you have four wires to connect: the two pins of your push button and the two pins of your LED.
+Unfortunately, your computer has no connector where you can plug those in.
+
+You need to connect your LED and push button to a _microcontroller_.
+Microcontrollers are tiny computers on a single chip.
+They run at about 16 __mega__hertz instead of several gigahertz, have one or two __kilo__bytes of RAM instead of a few gigabytes, and cost about $2 instead of hundreds of dollars.
+Microcontrollers also have a bunch of _general-purpose input/output pins_, or GPIO pins.
+They can output a digital value (0 or 1, power off or power on) to these pins which will turn a connected LED on or off.
+They can read a digital value from these pins to detect the state of a connected switch or button.
+Some pins support reading analog values and can be used to read potentiometers or different kinds of sensors.
+
+NOTE: Commercial interface boards such as the Leo Bodnar BBI-32 or the GP-Wiz products are essentially microcontrollers with USB support that have been programmed to appear as a joystick device to your computer.
+
+Microcontrollers can also talk to other electronic devices.
+Some models have direct support for USB, but almost every model has a serial port.
+There are cheap adapters available that connect a serial port found on a typical microcontroller to your computer via USB.
+
+NOTE: If your PC happens to be a dinosaur that has a RS-232 serial port, you still need an adapter because the RS-232 port uses higher voltage levels than your microcontroller will.
+
+At this point, you have your LED and push button connected to a microcontroller which can talk to the PC over its serial port.
+The important word is _can_.
+Now you need to program it to actually do so and you also need to convince DCS: World to talk to your
+microcontroller.
+
+This is where DCS-BIOS comes in.
+It consists of several parts:
+
+* An `Export.lua` file for DCS: World that sends information about the current state of the cockpit (such as what lights are on) to the "outside" over the network and listens for messages to trigger actions such as setting a switch to a certain position
+  
+* An Arduino library that makes programming your microcontroller as easy as copying and pasting a few lines from the DCS-BIOS reference documentation into a template program.
+(For more complicated devices such as displays, you will need to do some programming yourself.)
+
+NOTE: DCS-BIOS communicates over the network.
+The microcontroller will be connected to a serial port.
+To bridge this gap, we will use the `socat` program.
+DCS-BIOS includes a copy of socat and a batch file for windows that starts socat with the correct parameters.
+
+
+== Master Caution Tutorial
+
+This section will guide you through the process of building a Master Caution button for the A-10C.
+
+=== Set Up DCS-BIOS
+
+. Download the latest stable release of DCS-BIOS from GitHub and extract the ZIP file somewhere on your hard drive
+
+. Copy the `Scripts\DCS-BIOS` folder to `%USERPROFILE%\Saved Games\DCS\Scripts`.
+You may need to create this folder if it does not exist yet.
++
+NOTE: `%USERPROFILE%` is a placeholder for your profile directory.
+You can copy the whole path and paste it into the address bar of an Explorer window and press return.
+Windows will know what you mean and take you to the correct location.
+
+. Add the following line to the end of your `Export.lua` file (if you don't have an `Export.lua` file, create one at `%USERPROFILE%\Saved Games\DCS\Scripts\Export.lua`):
++
+[source,lua]
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOS.lua]])
+
+DCS-BIOS is now installed and enabled.
+If you want to verify it, you can start up an A-10C, run `multicast-console.cmd` from your DCS-BIOS directory, type `AHCP_CICU TOGGLE` into the console window and press return.
+That should toggle the CICU switch in your virtual cockpit.
+
+=== Program Your Arduino Board
+
+Download and install the Arduino IDE from the offical Arduino website.
+
+Next, you will have to install the DCS-BIOS Arduino library.
+
+. Download the lastest release from GitHub. You do not need to extract the archive.
+
+. Open your Arduino IDE
+
+. Go to Sketch -> Import Library... -> Add Library... and select the ZIP file you downloaded in step 1
+
+. Close and restart the Arduino IDE
+
+The DCS-BIOS Arduino Library comes with example code.
+To open the code that turns your Arduino board into a Master Caution button, click File -> Examples -> DcsBios -> MasterCaution.
+
+Now load the MasterCaution example sketch onto your Arduino.
+The details of how to do this may differ between Arduino boards, so check the http://arduino.cc/en/Guide/HomePage[instructions for your particular board.]
+
+=== Connect DCS-BIOS to Your Serial Port
+
+In the last section, you found out which serial port (e.g. `COM2`) your Arduino is connected to.
+
+Open `connect-serial-port.cmd` from your DCS-BIOS directory in a text editor and modify the line that starts with `COMPORT=` accordingly.
+
+Save the file and run it, then start DCS.
+
+The LED on your Arduino board should now blink when the Master Caution
+button in your virtual cockpit does.
+If you connect a push button between ground and pin 10 of your Arduino, you can use it to operate the Master Caution button in your virtual cockpit.
+
+== DCS-BIOS Arduino Library Tutorial
+
+This tutorial will show you how to read the DCS-BIOS reference documentation to create a sketch for any panel in the cockpit.
