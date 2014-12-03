@@ -1,6 +1,7 @@
 = DCS-BIOS User Guide
 :toc: right
 :icons: font
+:source-highlighter: coderay
 
 This manual will explain how you can use DCS-BIOS to connect the virtual cockpit of a DCS: World aircraft to real-world hardware such as toggle switches, push buttons, rotary encoders, potentiometers and displays.
 
@@ -136,10 +137,200 @@ Open `connect-serial-port.cmd` from your DCS-BIOS directory in a text editor and
 
 Save the file and run it, then start DCS.
 
-The LED on your Arduino board should now blink when the Master Caution
-button in your virtual cockpit does.
+The LED on your Arduino board should now blink when the Master Caution button in your virtual cockpit does.
 If you connect a push button between ground and pin 10 of your Arduino, you can use it to operate the Master Caution button in your virtual cockpit.
 
 == DCS-BIOS Arduino Library Tutorial
 
 This tutorial will show you how to read the DCS-BIOS reference documentation to create a sketch for any panel in the cockpit.
+
+=== The MasterCaution Example Sketch
+
+This section takes a closer look at the different parts of the MasterCaution example sketch.
+
+[source,c++]
+----
+/* Include neccessary libraries */ <1>
+#include <DcsBios.h>
+#include <Servo.h>
+
+/* Define connected controls */ <2>
+DcsBios::Switch2 masterCautionBtn("UFC_MASTER_CAUTION", 10);
+DcsBios::LED masterCautionLED("MASTER_CAUTION", 13);
+
+/* Standard boilerplate code follows */
+DcsBios::ProtocolParser parser; <3>
+
+void setup() {
+  Serial.begin(500000); <4>
+}
+
+void loop() {
+  // feed incoming data to the parser
+  while (Serial.available()) {
+      parser.processChar(Serial.read()); <5>
+  }
+  
+  // poll inputs
+  DcsBios::PollingInput::pollInputs(); <6>
+}
+
+void sendDcsBiosMessage(const char* msg, const char* arg) { <7>
+  Serial.write(msg);
+  Serial.write(' ');
+  Serial.write(arg);
+  Serial.write('\n');
+}
+
+void onDcsBiosMessage(const char* msg, const char* arg) { <8>
+  
+}
+----
+
+<1> Include the neccessary header files.
+This ensures that the Arduino IDE will bring in the required libraries during the compilation process.
+Even if your sketch does not use the `ServoOutput` class you still have to include `Servo.h`.
+Otherwise your sketch will not compile.
+
+<2> Tell the library what types of controls are connected to your Arduino.
+DCS-BIOS knows how to handle push buttons, toggle switches, rotary encoders, rotary switches, potentiometers, LEDs and servo motors.
+If you want to use one of these control types, refer to the next section to learn how to read the reference documentation and find out what to put here.
+
+<3> Create an object of type `DcsBios::ProtocolParser`.
+We will need this later.
+
+<4> In the `setup()` function, we set up the serial port to run at a speed of 500000 bps.
+This setting needs to match the one in `connect-serial-port.cmd`.
+500000 is the fastest the Arduino can handle and is the default.
+
+<5> In `loop()`, we read data from the serial port and feed it to the `DcsBios::ProtocolParser` we created above.
+
+<6> We also need to call `DcsBios::PollingInput::pollInputs()`.
+This causes the DcsBios library to check the state of all connected inputs such as push buttons, rotary encoders, etc. and send a message to your DCS computer if they have changed.
+
+<7> The DcsBios Arduino library expects you to supply a function called `sendDcsBiosMessage` that knows how to send a message to your DCS computer.
+In this case, we simply write the message to the serial port.
+
+<8> The DcsBios Arduino library calls `onDcsBiosWrite` whenever it receives data from DCS.
+This is the place to handle output when the DcsBios library does not have a pre-made class that fits your needs, for example when you want to connect a display for a radio frequency.
+Even when it is empty, this function must exist.
+The compiler will complain otherwise.
+
+=== Using the Reference Documentation
+Recall the following part from the MasterCaution example:
+[source,c++]
+----
+DcsBios::Switch2 masterCautionBtn("UFC_MASTER_CAUTION", 10);
+DcsBios::LED masterCautionLED("MASTER_CAUTION", 13);
+----
+
+Unless you are doing something more advanced such as connecting displays or using something other than a serial port to talk to your DCS computer, this is the only part you need to modify.
+
+Even without knowing much about DCS-BIOS, you might have guessed that this says there is a push button connected to pin 10 that should operate the master caution button and that the LED on pin 13 should light up then the master caution button does.
+
+But how do you know what to put here for other controls?
+You will have to consult the reference documentation.
+
+==== Locating the Reference Documentation
+
+The reference documentation is included in the `doc/` subdirectory in the DCS-BIOS download.
+Simply double-click `protocol-reference.html` to open it in your web browser.
+
+NOTE: If you see a red warning at the top of the page followed by a bunch of gibberish, you need to enable JavaScript and reload the page.
+
+==== Controls
+In your virtual cockpit you will find lots of toggle switches, buttons and rotary knobs.
+DCS-BIOS refers to them as controls.
+
+Each control is identified by a unique identifier and is associated with a category, which is usually the panel it is found on in the virtual cockpit.
+
+Some knobs in your cockpit are represented as two separate controls.
+For example, the volume controls on the A-10C intercom panel have one DCS-BIOS control for the volume and a separate for the mute function.
+
+==== Finding the Control You Are Looking For
+
+Use the filters at the top of the page to quickly find what you are looking for.
+You can filter by category, identifier and description.
+
+==== Input Interfaces
+
+Each DCS-BIOS control can support multiple _input interfaces_.
+An _input interface_ allows you to control something in the cockpit by sending a message to DCS-BIOS.
+For example, you can toggle the CICU switch in the A-10C by sending `AHCP_CICU TOGGLE`.
+
+A message starts with the identifier of the control you want to manipulate, followed by a space, an _argument_, and a newline character.
+Different input interfaces understand different arguments.
+
+Depending on the type of input interface, the reference documentation will offer different snippets of example code.
+
+::Types of input interfaces
+
+set_state:: If a control supports the _set_state_ interface, its current state can be set by sending it a number as an argument.
+For example, you can set the TACAN mode dial in the A-10C to the `A A REC` position by sending `TACAN_MODE 3`.
++
+NOTE: The range of acceptable values is 0 to the maximum value of the control's first output.
++
+The reference documentation will offer example code for a `DcsBios::RotarySwitch` and (in the case of two-position controls) a `DcsBios::Switch2`.
+
+fixed_step:: If a control supports the _fixed_step_ interface, you can increase its position with an `INC` argument and decrease its position with an `DEC` argument.
++
+The reference documentation will offer example code for a `DcsBios::RotaryEncoder`.
+
+action:: This represents an action such as toggling a toggle switch or changing the X/Y digit of the TACAN channel.
++
+The reference documentation will offer example code for a `DcsBios::ActionButton`.
+
+variable_step:: If a control supports the _variable_step_ interface, you can increase or decrease its position by a certain amount by sending `+NUMBER` or `-NUMBER` as an argument, where `NUMBER` is an integer.
++
+The reference documentation will offer example code for a `DcsBios::RotaryEncoder`.
+The default step size is 3200.
+You will need to experiment to find the right sensitivity.
+
+
+==== Outputs
+
+Each DCS-BIOS control can have multiple related _outputs_.
+An _output_ represents a piece of information that is exported from DCS, for example the position of the flaps position indicator.
+
+Outputs come in two types:
+
+Integer outputs:: Most outputs are integers.
+Each integer output has an associated maximum value and a minimum value of 0.
++
+The reference documentation will offer code examples for `DcsBios::LED` and `DcsBios::ServoOutput` where appropriate.
++
+The first code snippet for integer outputs is meant to be inserted into the `onDcsBiosWrite` function if the DCS-BIOS Arduino library cannot do what you want.
+It shows you how to extract the value using the _mask_ and _shift_ values of the output.
++
+NOTE: To learn about the meaning of the _address_, _mask_ and _shift_ value of an output, please refer to the developer guide.
+
+String outputs:: Some values (such as radio frequencies) are exported as character strings.
+The reference documentation will provide a code example that uses a `DcsBios::StringBuffer` to execute a piece of code whenever the value changes.
++
+NOTE: Because there are many different types of displays (7-segment, character, graphical) and different ways to connect them to a microcontroller (direct, I2C, SPI), the DcsBios library does not include code to handle them.
+For most common combinations of display type and connection method, you can find other Arduino libraries online that allow you to talk to them.
+
+
+==== Copy and Paste Example Code
+
+To use the example code from the reference documentation in your Arduino sketch, you first have to choose which code example to copy.
+That depends on what type of control you want to connect.
+
+For example, you might want to use a rotary switch for the TACAN mode dial in the A-10C and use the `DcsBios::RotarySwitch` code snippet. For the same control, you could also choose to use a rotary encoder.
+
+After choosing a code example, copy it to your Arduino sketch (refer back to the MasterCaution example to see where to copy it) and replace all the parts in red with your own values (usually the pin numbers that this control is connected to).
+
+Refer to the next section for more detailed information on the individual classes, including example circuits.
+
+
+=== Classes to Handle Inputs
+==== ActionButton
+==== Switch2
+==== RotarySwitch
+==== Potentiometer
+==== RotaryEncoder
+==== RotarySwitch
+=== Classes to Handle Outputs
+==== LED
+==== ServoOutput
+==== StringBuffer
