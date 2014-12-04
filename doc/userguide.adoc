@@ -402,12 +402,177 @@ Refer to the next section for more detailed information on the individual classe
 
 === Classes to Handle Inputs
 ==== ActionButton
+
+[source,c++]
+----
+DcsBios::ActionButton(char* message, char* argument, char* pin)
+----
+
+The ActionButton class is used to send a single command to DCS when its input pin goes low.
+
+.Constructor Parameters
+message:: The message that should be sent. Set this to the identifier of the control.
+argument:: The argument that should be sent.
+pin:: The number of the Arduino pin the button is connected to.
+
+.Circuit
+Connect a push button between the Arduino pin and ground.
+
+.Reference Documentation Code Example
+[source,c++]
+----
+DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", PIN);
+----
+
+.Code Examples
+[source,c++]
+----
+DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", 10); // <1>
+DcsBios::ActionButton decTacanMode("TACAN_MODE", "DEC", 11); // <2>
+----
+<1> A button on pin 10 that toggles the CICU switch
+<2> A button on pin 11 that moves the TACAN Mode dial one position to the left
+
 ==== Switch2
+
+[source,c++]
+----
+DcsBios::Switch2(char* message, char pin)
+----
+
+The Switch2 class handles inputs that have two states, such as toggle switches and push buttons.
+
+.Constructor Parameters
+message:: The message that should be sent. Set this to the identifier of the control.
+pin:: The number of the Arduino pin the button or switch is connected to
+
+.Circuit
+Connect the toggle switch or push button between the Arduino pin and ground.
+
+.Reference Documentation Code Examples
+[source,c++]
+----
+DcsBios::Switch2 ahcpCicu("AHCP_CICU", PIN);
+----
+
+[source,c++]
+----
+DcsBios::Switch2 ufcHack("UFC_HACK", PIN);
+----
+
 ==== RotarySwitch
+
+[source,c++]
+----
+DcsBios::RotarySwitch(char* message, const byte* pins, char numberOfPins);
+----
+
+The RotarySwitch class handles rotary switches.
+
+.Constructor Parameters
+message:: The message that should be sent. Set this to the identifier of the control.
+pins:: An array of pin numbers that the rotary switch positions are connected to.
+The first pin number corresponds to state 0 of the input, the second to state 1, etc.
+numberOfPins:: The length of the array passed in the `pins` parameter.
+
+.Circuit
+Connect the rotary switch so that it connects the Arduino pin for the currently selected position to ground.
+
+.Reference Documentation Code Examples
+[source,c++]
+----
+const byte aapSteerptPins[3] = {PIN_0, ... ,PIN_2};
+DcsBios::RotarySwitch aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);
+----
+
+.Example
+[source,c++]
+----
+// A rotary switch that controls the A-10C steerpoint mode (FLTPLAN / MARK / MISSION)
+// is connected to digital pins 10, 11 and 12
+const byte aapSteerptPins[3] = {10, 11, 12};
+DcsBios::RotarySwitch aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);
+----
+
 ==== Potentiometer
+
+[source,c++]
+----
+DcsBios::Potentiometer(char* message, char pin);
+----
+
+The Potentiometer class handles potentiometers connected to an analog pin.
+
+.Constructor Parameters
+message:: The message that should be sent. Set this to the identifier of the control.
+pin:: The number of the pin that is connected to the potentiometer.
+
+.Circuit
+Connect the outer pins of the potentiometer to +5V and ground.
+Connect the middle pin to the Arduino.
+
+To reverse the direction, swap +5V and GND.
+
+.Reference Documentation Code Example
+[source,c++]
+----
+DcsBios::Potentiometer cmscBrt("CMSC_BRT", PIN);
+----
+
 ==== RotaryEncoder
-==== RotarySwitch
+
+[source,c++]
+----
+DcsBios::RotaryEncoder(const char* message, const char* decArg, const char* incArg, char pinA, char pinB);
+----
+
+The RotaryEncoder class handles standard rotary encoders.
+
+.Constructor Parameters
+message:: The message that should be sent. Set this to the identifier of the control.
+decArg:: The argument that should be sent when the encoder is turned one step to the left.
+incArg:: The argument that should be sent when the encoder is turned one step to the right.
+pinA:: The first pin that is connected to the encoder.
+pinB:: The second pin that is connected to the encoder.
+
+.Circuit
+Rotary encoders usually have three pins (the ones with an integrated push button have two extra pins for the button).
+Connect the left pin to Arduino pin A, the middle pin to ground and the right pin to Arduino pin B.
+
+To reverse the direction, either swap decArg and incArg or swap pinA and pinB.
+
+.Reference Documentation Code Example
+[source,c++]
+----
+DcsBios::RotaryEncoder tacan1("TACAN_1", "DEC", "INC", PIN_A, PIN_B);
+----
+
+
 === Classes to Handle Outputs
 ==== LED
 ==== ServoOutput
 ==== StringBuffer
+
+[source,c++]
+----
+DcsBios::StringBuffer<MAXLENGTH>(unsigned int address, void (*)(char*) callback)
+----
+
+The StringBuffer class is used to handle string outputs.
+
+.Constructor Parameters
+MAXLENGTH:: The maximum length of the string output
+address:: The address of the string output
+callback:: A function which accepts an argument of type `char*`.
+This function will be called whenever the string output has changed.
+It will be passed the new value as an argument.
+
+.Reference Documentation Code Example
+[source,c++]
+----
+void onUhfFrequencyChange(char* newValue) {
+    /* your code here */
+}
+DcsBios::StringBuffer<7> uhfFrequencyBuffer(0x1170, onUhfFrequencyChange);
+----
+
