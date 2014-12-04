@@ -141,7 +141,7 @@
 							<b>Address:</b> {{ output.address | hex }}
 							<b>Max. Length:</b> {{ output.max_length }}
 							<b>Description:</b> {{ output.description }}<br>
-							<code>void {{ 'ON_' + control.identifier + output.suffix + '_CHANGE' | idCamelCase }}(char* newValue) {<br>&nbsp;&nbsp;&nbsp;&nbsp;/* your code here */<br>}<br>DcsBios::StringBuffer&lt;{{ output.max_length }}&gt; {{ control.identifier + input.suffix + "_BUFFER" | idCamelCase }}({{ input.address }}, {{ 'ON_' + control.identifier + output.suffix + '_CHANGE' | idCamelCase }});<br></code>
+							<code>void {{ 'ON_' + control.identifier + output.suffix + '_CHANGE' | idCamelCase }}(char* newValue) {<br>&nbsp;&nbsp;&nbsp;&nbsp;/* your code here */<br>}<br>DcsBios::StringBuffer&lt;{{ output.max_length }}&gt; {{ control.identifier + input.suffix + "_BUFFER" | idCamelCase }}({{ output.address | hex }}, {{ 'ON_' + control.identifier + output.suffix + '_CHANGE' | idCamelCase }});<br></code>
 						</div>
 					</div>
 				</div>
