@@ -1,6 +1,7 @@
 = DCS-BIOS User Guide
 :toc: right
 :icons: font
+:toclevels: 2
 
 Welcome to the DCS-BIOS User Guide.
 
@@ -86,7 +87,8 @@ We will assume you have access to the following:
 * A way to connect your push button to your Arduino
 
 
-=== Step 1: Setting up DCS-BIOS
+=== Step by Step
+==== Step 1: Setting up DCS-BIOS
 
 . Download the latest stable release of DCS-BIOS from https://github.com/jboecker/dcs-bios/releases[GitHub] and extract the ZIP file somewhere on your hard drive
 
@@ -96,7 +98,7 @@ We will assume you have access to the following:
 ----
 This should take you to your DCS configuration folder (its subfolders should include `Logs` and `Missions`).
 
-If you don't see a `Scripts` subfolder, copy the entire `Scripts` folder where you extracted DCS-BIOS to this directory and skip to the next step.
+If you don't see a `Scripts` subfolder, copy the entire `Scripts` from folder where you extracted DCS-BIOS to this directory and skip to the next step.
 
 If you do have a `Scripts` subfolder, copy the contents of the `Scripts` folder from where you extracted DCS-BIOS into your existing `Scripts` folder instead.
 
@@ -111,13 +113,13 @@ NOTE: DCS-BIOS is now installed and enabled.
 If you want to verify it, you can start up an A-10C, run `multicast-console.cmd` from your DCS-BIOS download directory, type `AHCP_CICU TOGGLE` into the console window and press return.
 That should toggle the CICU switch in your virtual cockpit.
 
-=== Step 2: Connecting your LED and button
+==== Step 2: Connecting your LED and button
 
 * Connect your push button between Arduino digital pin 10 and ground.
 
 * Connect your LED and current limiting resistor between Arduino digital pin 13 and ground.
 
-=== Step 3: Set up the Arduino IDE
+==== Step 3: Set up the Arduino IDE
 
 * Download and install the Arduino IDE http://arduino.cc/en/Main/Software[from the Arduino website.]
 
@@ -128,18 +130,18 @@ You do not have to extract it.
 . Click `Sketch -> Import Library -> Add Library...` and select the ZIP file you downloaded
 . Close and re-open your Arduino IDE
 
-=== Step 4: Create a program for your Arduino board
+==== Step 4: Create a program for your Arduino board
 
 Congratulations, you have completed all of the one-time setup steps.
 For each panel that you create, you will have to do steps 4 and 5.
 
 In this step, you are going to create a program for your Arduino board.
 That program will read the state of connected switches and report changes to DCS-BIOS.
-It will also interpret the data that DCS-BIOS sends to control LEDs, servo motors, or even displays.
+It will also interpret the data that DCS-BIOS sends to control outputs like LEDs or servo motors.
 
-NOTE: Arduino programs are also referred to as "sketches".
+NOTE: Arduino programs are also called "sketches".
 
-Click File -> Examples -> DcsBios -> TemplateSketch to open the template program that comes with the DCS-BIOS Arduino library.
+Click `File -> Examples -> DcsBios -> TemplateSketch` to open the template program that comes with the DCS-BIOS Arduino library.
 
 To complete the template program, you are going to copy code snippets from the reference documentation.
 
@@ -190,16 +192,16 @@ Click `File -> Save As` to save it under a new name.
 NOTE: The Arduino IDE prevents you from saving changes to a library example.
 You will have to save your changes under a new name.
 
-=== Step 5: Copy your program to your Arduino board
+==== Step 5: Copy your program to your Arduino board
 
 Now that your Arduino sketch is done, you need to load it onto your board.
 
 The details may vary for different Arduino boards.
-The Arduino website has detailed guides for each individual board.
+The Arduino website has http://arduino.cc/en/Guide/HomePage[step-by-step instructions for each board.]
 
 After loading your program onto your Arduino board, you can close the Arduino software.
 
-=== Step 6: Test your new panel
+==== Step 6: Test your new panel
 
 DCS-BIOS comes with a script that connects a serial port (which is what your Arduino board uses to talk to the PC) to the DCS-BIOS data stream.
 
@@ -301,7 +303,7 @@ DcsBios::Switch2 masterCautionBtn("UFC_MASTER_CAUTION", 10);
 DcsBios::LED masterCautionLED("MASTER_CAUTION", 13);
 ----
 
-Unless you are doing something more advanced such as connecting displays or using something other than a serial port to talk to your DCS computer, this is the only part you need to modify.
+Unless you are doing something more advanced such as using something other than a serial port to talk to your DCS computer, this is the only part you need to modify.
 
 Even without knowing much about DCS-BIOS, you might have guessed that this says there is a push button connected to pin 10 that should operate the master caution button and that the LED on pin 13 should light up then the master caution button does.
 
@@ -400,8 +402,8 @@ After choosing a code example, copy it to your Arduino sketch (refer back to the
 Refer to the next section for more detailed information on the individual classes, including example circuits.
 
 
-=== Classes to Handle Inputs
-==== ActionButton
+== Arduino Library Reference
+=== ActionButton
 
 [source,c++]
 ----
@@ -433,7 +435,7 @@ DcsBios::ActionButton decTacanMode("TACAN_MODE", "DEC", 11); // <2>
 <1> A button on pin 10 that toggles the CICU switch
 <2> A button on pin 11 that moves the TACAN Mode dial one position to the left
 
-==== Switch2
+=== Switch2
 
 [source,c++]
 ----
@@ -460,7 +462,7 @@ DcsBios::Switch2 ahcpCicu("AHCP_CICU", PIN);
 DcsBios::Switch2 ufcHack("UFC_HACK", PIN);
 ----
 
-==== RotarySwitch
+=== RotarySwitch
 
 [source,c++]
 ----
@@ -494,7 +496,7 @@ const byte aapSteerptPins[3] = {10, 11, 12};
 DcsBios::RotarySwitch aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);
 ----
 
-==== Potentiometer
+=== Potentiometer
 
 [source,c++]
 ----
@@ -519,7 +521,7 @@ To reverse the direction, swap +5V and GND.
 DcsBios::Potentiometer cmscBrt("CMSC_BRT", PIN);
 ----
 
-==== RotaryEncoder
+=== RotaryEncoder
 
 [source,c++]
 ----
@@ -548,10 +550,52 @@ DcsBios::RotaryEncoder tacan1("TACAN_1", "DEC", "INC", PIN_A, PIN_B);
 ----
 
 
-=== Classes to Handle Outputs
-==== LED
-==== ServoOutput
-==== StringBuffer
+=== LED
+
+[source,c++]
+----
+DcsBios::LED(unsigned int address, unsigned int mask, char pin)
+----
+
+The LED class is used for indicator lights.
+
+.Constructor Parameters
+address:: The address of the integer output
+mask:: The mask of the integer output
+pin:: The number of the Arduino pin that the LED (and current-limiting resistor) are connected to
+
+.Reference Documentation Code Example
+[source,c++]
+----
+DcsBios::LED tacanTest(0x10ca, 0x0400, PIN);
+----
+
+=== ServoOutput
+
+[source,c++]
+----
+DcsBios::ServoOutput (unsigned int address, char pin, int minPulseWidth, int maxPulseWidth)
+----
+
+The ServoOutput class handles standard "hobby servos".
+
+.Constructor Parameters
+address:: The address of the integer output
+pin:: The number of the Arduino pin that is connected to the servo's control input
+minPulseWidth:: The pulse width (in microseconds) that corresponds to the lowest servo position
+maxPulseWidth:: The pulse width (in microseconds) that corresponds to the highest servo position
+
+NOTE: A DCS-BIOS output value of 0 will be mapped to `minPulseWidth`, the maximum output value of 65535 will be mapped to `maxPulseWidth`.
+You will have to choose these values so that the minimum and maximum positions are at the beginning and end of your gauge's scale.
+
+.Reference Documentation Code Example
+[source,c++]
+----
+DcsBios::ServoOutput vvi(0x106e, PIN, 544, 2400);
+----
+
+
+=== StringBuffer
 
 [source,c++]
 ----
