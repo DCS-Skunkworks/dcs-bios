@@ -1,7 +1,81 @@
 = DCS-BIOS Developer Guide
-== The Data Stream
+
+== Connecting to DCS-BIOS
+
+DCS-BIOS communicates over UDP.
+
+Controls in the cockpit can be manipulated by sending newline-terminated plain text commands to UDP port 7778.
+The syntax is described in the <<The DCS-BIOS Import Protocol>> section.
+
+The current state of cockpit indicators and controls is exported from DCS using a binary protocol (see <<The DCS-BIOS Export Protocol>>). This data is sent via UDP to multicast address 239.255.50.10, port 5010 on the loopback interface (127.0.0.1).
+
+WARNING: When opening a UDP socket to listen on 239.255.50.10:5010, you must specify the `allowreuseaddr` socket option.
+Otherwise Windows will prevent other programs from listening to the same data stream.
+
+NOTE: The IPv4 multicast address block 239.255.0.0/16 is defined in RFC 2365 as the "IPv4 Local Scope".
+It is part of the "Administratively Scoped IPv4 Multicast Space", which is to multicast as the private address ranges 10.0.0.0/8, 192.168.0.0/16 and 172.16.0.0/12 are to unicast Ipv4.
+
+If you cannot or do not want to deal with multicast UDP, you can also make DCS-BIOS send a copy of the export data stream to a unicast address by editing `BIOSConfig.lua`.
+
+You can also use the `socat` utility to connect a serial port (and just about anything else that can be read or written) to the DCS-BIOS import and export streams.
+For an example, take a look at the batch files that come with DCS-BIOS.
+
 == The DCS-BIOS Import Protocol
+
+Commands are sent to DCS-BIOS as lines of plain text.
+
+A command consists of a control identifier, a space, an argument and a newline character.
+
+NOTE: The import protocol does not use binary encodings.
+Handling binary data in Lua with only the libraries that come with DCS is cumbersome.
+Also, a plain text protocol is easier to explain, understand and debug.
+In the input direction, the added verbosity of a plain text protocol is no problem because a human pilot will not flip 20 switches 30 times a second.
+
+To find out the arguments that a certain control accepts, refer to the reference documentation and look up _input interfaces_ in the User Guide.
+
 == The DCS-BIOS Export Protocol
-== Arduino Library Reference
-== Code Structure
-== Adding a New Aircraft Module
+
+The export stream protocol is designed to be as space-efficient as possible to enable the export of the complete cockpit state over a 115200 bps serial connection.
+
+Each piece of cockpit state is encoded as an integer or a string and is assigned an address within a 16-bit address space.
+
+=== Integer Values
+
+The location of an integer value is defined by a 16-bit word address which specifies the start of the 16-bit word in which the data is located, a 16-bit mask which specifies which bits in that word belong to the value, and a shift value (which can also be deduced from the mask).
+
+Given the start address, mask and shift values, the following pseudo C code decodes a value:
+[code,c]
+----
+char[] state;
+unsigned int value = (((uint16_t*)state)[start_address<<2] & mask) << shift
+----
+
+Changes to the state data are encoded as write accesses to this address space and written to the export data stream in the following format:
+
+`<start address (16 bit)>` `<data length (16 bit)>` `data`
+
+Both the start address and the data length will always be even (internally, DCS-BIOS treats the data as a list of 16-bit integers).
+This ensures that no write access partially updates an integer value (an integer may occupy no more than 16 bit).
+
+=== String Values
+
+The location of a string is defined by its 16-bit start address and the length in bytes (all string values have a fixed maximum length and start on a 16-bit aligned address).
+
+A string value with a maximum length greater than two characters can be updated partially.
+To avoid inconsistent intermediate states, an application that receives DCS-BIOS export data should apply changes to string values at the next frame synchronization sequence (see next section).
+
+=== Synchronization sequence
+
+DCS-BIOS tries to send 30 updates per second.
+
+DCS-BIOS will send the four bytes `0x55 0x55 0x55 0x55` at the start of each update.
+These do *not* specify a 65535-byte write access to the address 0x5555.
+Instead, they are used by consumers of the data stream to find the start of a write access to synchronize to.
+
+DCS-BIOS ensures that this byte sequence cannot appear in the normal data stream.
+In the event that the byte sequence `0x55 0x55 0x55 0x55` would appear in a single write access, DCS-BIOS will avoid that by splitting it up into two separate writes.
+
+== An In-Depth Look at the Arduino Library
+== The DCS-BIOS Lua Code
+=== MemoryMap objects
+=== Adding a New Aircraft Module
