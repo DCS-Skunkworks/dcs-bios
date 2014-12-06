@@ -57,6 +57,14 @@ Changes to the state data are encoded as write accesses to this address space an
 Both the start address and the data length will always be even (internally, DCS-BIOS treats the data as a list of 16-bit integers).
 This ensures that no write access partially updates an integer value (an integer may occupy no more than 16 bit).
 
+All integer values are written in litte-endian byte order.
+
+The following byte sequence is an example of a write access of four bytes starting at address 0x1000:
+
+----
+0x00 0x10 0x04 0x00 0x41 0x2d 0x31 0x30
+----
+
 === String Values
 
 The location of a string is defined by its 16-bit start address and the length in bytes (all string values have a fixed maximum length and start on a 16-bit aligned address).
