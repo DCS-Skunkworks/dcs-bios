@@ -37,7 +37,7 @@ We did not notice any change in FPS when testing DCS-BIOS.
 The additional computation it requires of DCS is negligible.
 
 .DCS just broke my panel with their latest update.
-DCS BIOS will not let that happen.  In fact, DCS-BIOS was written just for that reason.  DCS BIOS will isolate you from virtually any changes that Eagle Dynamics might introduce in an update.
+DCS BIOS will not let that happen.  In fact, DCS-BIOS was written just for that reason.  DCS BIOS will isolate your panels from virtually any changes that Eagle Dynamics might introduce in an update.
 In the extremely rare event that Eagle Dynamics does make a change that breaks something, we will ensure DCS-BIOS is immediately updated.   Your panels will always stay the same.
 
 .Efficient protocol design
@@ -46,7 +46,7 @@ DCS-BIOS communicates with DCS in a very efficient way.
 Your indicators, gauges and displays will not stutter or lag during a flurry of activity in the cockpit.  Pressing the signal lamp test button when spooling up the engines, or when half your caution lights panel is blinking after a SAM hit has no impact on your build.
 
 DCS BIOS covers everything.
-There are a variety interface boards that allow you to connect switches or rotary encoders or maybe both to DCS.  DCS BIOS goes way beyond any solution you might find. In Fact it is the most comprehensive means of connecting any DCS aircraft buttons, switches, rotary encodes, potentiometers, push buttons, three way switches etc., etc.  In sort There is nothing in the cockpit that DCS BIOS does not cover.    
+DCS BIOS is the most comprehensive means of connecting all DCS aircraft buttons, switches, rotary encodes, potentiometers, push buttons, LED Indciators, displays, three way switches etc., etc.  In sort There is nothing in the cockpit that DCS BIOS does not cover.    
 
 .Take advantage of the Arduino ecosystem
 
@@ -107,14 +107,6 @@ Once, Notepad++ is installed you need to open your existing `Export.lua` file   
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOS.lua]])
 ----
 Once you have completed that small change, save the file.
-
-
-NOTE: DCS-BIOS is now installed and enabled.
-If you want to verify it, you can start up an A-10C.  There is a file in the download you extracted called ,  `multicast-console.cmd`.  Double click on it and you will get a small window that pops up.  If you copy and paste the following line into that window...
-
-AHCP_CICU TOGGLE
-
-and then press return you will see that the CICU switch in your DCS aircraft  changed its position.  You have just turned that switch on/off from DCS BIOS.
 
 ==== Step 2: Connecting your LED and Push Button Switch
 
