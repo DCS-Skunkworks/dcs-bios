@@ -165,3 +165,27 @@ app.directive("control", function($parse, $compile) {
         }
     };
 });
+app.directive("code", function($parse) {
+    return {
+		restrict: "E",
+        link: function(scope, element, attrs) {
+			element.on("click", function() {
+				console.log("selecting", this);
+
+				// http://stackoverflow.com/questions/11128130/select-text-in-javascript
+				var doc = document;
+				if (doc.body.createTextRange) { // ms
+					var range = doc.body.createTextRange();
+					range.moveToElementText(this);
+					range.select();
+				} else if (window.getSelection) { // moz, opera, webkit
+					var selection = window.getSelection();
+					var range = doc.createRange();
+					range.selectNodeContents(this);
+					selection.removeAllRanges();
+					selection.addRange(range);
+				}
+			});
+        }
+    };
+});
