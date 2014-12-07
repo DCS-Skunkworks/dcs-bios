@@ -274,6 +274,26 @@ defineFloat("FUEL_QTY_100", 92, {0, 1}, "Fuel Panel", "Fuel Quantity Counter 100
 
 defineIndicatorLight("MASTER_CAUTION", 404, "UFC", "Master Caution Light")
 
+-- The order in this file roughly follows clickabledata.lua
+-- the following 12 indicators are "out of order" to ensure that
+-- the caution lights begin on a 16-bit boundary
+defineIndicatorLight("AOA_INDEXER_HIGH", 540, "HUD", "AOA Indexer High")
+defineIndicatorLight("AOA_INDEXER_NORMAL", 541, "HUD", "AOA Indexer Normal")
+defineIndicatorLight("AOA_INDEXER_LOW", 542, "HUD", "AOA Indexer Low")
+defineIndicatorLight("AIR_REFUEL_READY", 730, "HUD", "Air Refuel READY")
+defineIndicatorLight("AIR_REFUEL_LATCHED", 731, "HUD", "Air Refuel LATCHED")
+defineIndicatorLight("AIR_REFUEL_DISCONNECT", 732, "HUD", "Air Refuel DISCONNECT")
+
+defineIndicatorLight("TAKE_OFF_TRIM", 191, "SAS Panel", "TAKEOFF TRIM Indicator Light")
+
+defineIndicatorLight("GEAR_N_SAFE", 659, "Landing Gear and Flap Control Panel", "Nose Gear Safe")
+defineIndicatorLight("GEAR_L_SAFE", 660, "Landing Gear and Flap Control Panel", "Left Gear Safe")
+defineIndicatorLight("GEAR_R_SAFE", 661, "Landing Gear and Flap Control Panel", "Right Gear Safe")
+defineIndicatorLight("HANDLE_GEAR_WARNING", 737, "Landing Gear and Flap Control Panel", "Handle Gear Warning Light")
+
+defineIndicatorLight("GUN_READY", 662, "Front Dash", "GUN READY Indicator")
+
+-- caution lights
 defineIndicatorLight("CL_A1", 480, "Caution Lights Panel", "ENG START CYCLE")
 defineIndicatorLight("CL_A2", 481, "Caution Lights Panel", "L-HYD PRESS")
 defineIndicatorLight("CL_A3", 482, "Caution Lights Panel", "R-HYD PRESS")
@@ -323,21 +343,6 @@ defineIndicatorLight("CL_L2", 525, "Caution Lights Panel", "L-GEN")
 defineIndicatorLight("CL_L3", 526, "Caution Lights Panel", "R-GEN")
 defineIndicatorLight("CL_L4", 527, "Caution Lights Panel", "INST INV")
 
-defineIndicatorLight("AOA_INDEXER_HIGH", 540, "HUD", "AOA Indexer High")
-defineIndicatorLight("AOA_INDEXER_NORMAL", 541, "HUD", "AOA Indexer Normal")
-defineIndicatorLight("AOA_INDEXER_LOW", 542, "HUD", "AOA Indexer Low")
-defineIndicatorLight("AIR_REFUEL_READY", 730, "HUD", "Air Refuel READY")
-defineIndicatorLight("AIR_REFUEL_LATCHED", 731, "HUD", "Air Refuel LATCHED")
-defineIndicatorLight("AIR_REFUEL_DISCONNECT", 732, "HUD", "Air Refuel DISCONNECT")
-
-defineIndicatorLight("TAKE_OFF_TRIM", 191, "SAS Panel", "TAKEOFF TRIM Indicator Light")
-
-defineIndicatorLight("GEAR_N_SAFE", 659, "Landing Gear and Flap Control Panel", "Nose Gear Safe")
-defineIndicatorLight("GEAR_L_SAFE", 660, "Landing Gear and Flap Control Panel", "Left Gear Safe")
-defineIndicatorLight("GEAR_R_SAFE", 661, "Landing Gear and Flap Control Panel", "Right Gear Safe")
-defineIndicatorLight("HANDLE_GEAR_WARNING", 737, "Landing Gear and Flap Control Panel", "Handle Gear Warning Light")
-
-defineIndicatorLight("GUN_READY", 662, "Front Dash", "GUN READY Indicator")
 defineIndicatorLight("NOSEWHEEL_STEERING", 663, "Front Dash", "Nosewheel Steering Indicator")
 defineIndicatorLight("MARKER_BEACON", 664, "Front Dash", "MARKER BEACON Indicator")
 defineIndicatorLight("CANOPY_UNLOCKED", 665, "Front Dash", "CANOPY UNLOCKED Indicator")
