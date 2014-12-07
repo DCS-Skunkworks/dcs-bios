@@ -17,6 +17,7 @@
 		
 		<h1>{{ selectedModule }}</h1>
 		Change Module: <select ng-model="selectedModule"><option ng-repeat="moduleName in moduleNames" value="{{ moduleName }}">{{ moduleName }}</option></select>
+		View: <select ng-model="view"><option value="simple">Simple</option><option value="advanced">Advanced</option></select>
 		Category Filter: <input type="text" ng-model="categoryFilter" ng-minlength="2">
 		Description Filter: <input type="text" ng-model="descriptionFilter" ng-minlength="2">
 		Identifier Filter: <input type="text" ng-model="messageFilter" ng-minlength="2">

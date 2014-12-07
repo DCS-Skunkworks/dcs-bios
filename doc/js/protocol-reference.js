@@ -42,6 +42,7 @@ app.filter("range", function() {
 });
 app.controller("DocController", function($scope) {
 	$scope.getNumber = function(n) { return new Array(n); };
+	$scope.view = "simple";
 	$scope.modules = {}
 	$scope.moduleNames = Object.keys(docdata);
 	$scope.moduleNames.forEach(function(moduleName) {
@@ -158,6 +159,9 @@ app.directive("control", function($parse, $compile) {
                 defaultSnippet["default"] = true;
 
             scope.show_all_snippets = false;
+			scope.$parent.$watch('view', function(val) {
+				scope.show_all_snippets = val == 'advanced';
+			});
         }
     };
 });
