@@ -17,73 +17,95 @@
 		
 		<h1>{{ selectedModule }}</h1>
 		Change Module: <select ng-model="selectedModule"><option ng-repeat="moduleName in moduleNames" value="{{ moduleName }}">{{ moduleName }}</option></select>
-		Category Filter: <input type="text" ng-model="categoryFilter">
-		Description Filter: <input type="text" ng-model="descriptionFilter">
+		Category Filter: <input type="text" ng-model="categoryFilter" ng-minlength="2">
+		Description Filter: <input type="text" ng-model="descriptionFilter" ng-minlength="2">
 		Identifier Filter: <input type="text" ng-model="messageFilter" ng-minlength="2">
 		<hr>
 		
 		<div ng-repeat="category in modules[selectedModule].categories | filter:{ name: categoryFilter }" ng-show="(category.controls | filter: { description: descriptionFilter, identifier: messageFilter }).length">
 			<h2>{{ category.name }}</h2>
 
-			<div class="control" ng-repeat="control in category.controls | filter: { description: descriptionFilter, identifier:messageFilter }">
+			<div data-control="control" ng-repeat="control in category.controls | filter: { description: descriptionFilter, identifier:messageFilter }">
+
+			</div>
+		</div>
+
+
+        <script type="text/ng-template" id="control.html">
 				<div class="controlheader">
 				<span class="controlidentifier">{{ control.identifier }}</span> / <span class="controldescription">{{ control.description }}</span>
 				</div>
 				<div class="controlbody">
-				<div class="inputs" ng-show="control.inputs.length > 0">
-					Inputs:<br>
-					<div class="input" ng-repeat="input in control.inputs">
-						<b>Interface:</b> {{ input.interface }}
-						<span ng-show="input.interface == 'action'">
-							<b>Message:</b> <i>{{ control.identifier }}{{ input.argument }}</i> <b>Description:</b> {{ input.description }}<br>
-							<code>DcsBios::ActionButton {{ control.identifier + '_' + input.argument | idCamelCase }}("{{ control.identifier }}", "{{ input.argument }}", <i style="color:red;">PIN</i>);<br></code>
-						</span>
-						<span ng-show="input.interface == 'fixed_step'">
-							<b>Message:</b> <i>{{ control.identifier }} [DEC|INC]</i> <b>Description:</b> {{ input.description }}<br>
-							<code>DcsBios::RotaryEncoder {{ control.identifier | idCamelCase }}("{{ control.identifier }}", "DEC", "INC", <i style="color:red;">PIN_A</i>, <i style="color:red;">PIN_B</i>);<br></code>
-						</span>
-						<span ng-show="input.interface == 'variable_step'">
-							<b>Message:</b> <i>{{ control.identifier }} [&lt;new_value&gt;|-&lt;decrease_by&gt;|+&lt;increase_by&gt;]</i> <b>Description:</b> {{ input.description }}<br>
-							<code>DcsBios::RotaryEncoder {{ control.identifier | idCamelCase }}("{{ control.identifier }}", "-{{ input.suggested_step }}", "+{{ input.suggested_step }}", <i style="color:red;">PIN_A</i>, <i style="color:red;">PIN_B</i>);<br></code>
-						</span>
-						<span ng-show="input.interface == 'set_state'">
-							<b>Message:</b> <i>{{ control.identifier }} <new_value></i><b>Value Range:</b> 0 ... {{ input.max_value }} <b>Description:</b> {{ input.description }}<br>
-							<code ng-show="input.max_value == 1">DcsBios::Switch2 {{ control.identifier | idCamelCase }}("{{ control.identifier }}", <i style="color:red;">PIN</i>);<br></code>
-							<code ng-show="input.max_value == 65535">DcsBios::Potentiometer {{ control.identifier | idCamelCase }}("{{ control.identifier }}", <i style="color:red;">PIN</i>);<br></code>
-							<code ng-show="input.max_value < 33">
-								const byte {{ control.identifier + '_PINS' | idCamelCase }}[{{ input.max_value + 1 }}] = {<i style="color:red;">PIN_0</i>, ... ,<i style="color:red;">PIN_{{input.max_value}}</i>};<br>
-								DcsBios::RotarySwitch {{ control.identifier | idCamelCase }}("{{ control.identifier }}", {{ control.identifier + '_PINS' | idCamelCase }}, {{ input.max_value+1 }});
-							<br></code>
-						</span>
+				<div class="inputs" ng-show="inputs.length > 0">
+					<div class="input" ng-repeat="input in inputs">
+					  <b>Input Interface:</b> {{ input.interface }}
+                      <b>Message:</b> {{ control.identifier }}
+                      <span ng-show="input.interface == 'action'"> {{ input.argument }}</span>
+                      <span ng-show="input.interface == 'fixed_step'"> [DEC|INC]</span>
+                      <span ng-show="input.interface == 'variable_step'"><i> [&lt;new_value&gt;|-&lt;decrease_by&gt;|+&lt;increase_by&gt;]</i></span>
+                      <span ng-show="input.interface == 'set_state'"> &lt;new_value&gt;
+                        <b>Value Range:</b> 0 ... {{ input.max_value }}
+                      </span>
+                      
+                      <b>Description:</b> {{ input.description }}
+                      <span ng-repeat="snippet in input.snippets" ng-show="show_all_snippets || snippet.default">
+                        <code ng-show="snippet.type == 'ActionButton'">
+                          DcsBios::ActionButton {{ control.identifier + '_' + input.argument | idCamelCase }}("{{ control.identifier }}", "{{ input.argument }}", <i style="color:red;">PIN</i>);<br>
+                        </code>
+						<code ng-show="snippet.type == 'RotaryEncoder_fixed_step'">
+                          DcsBios::RotaryEncoder {{ control.identifier | idCamelCase }}("{{ control.identifier }}", "DEC", "INC", <i style="color:red;">PIN_A</i>, <i style="color:red;">PIN_B</i>);<br>
+                        </code>
+						<code ng-show="snippet.type == 'RotaryEncoder_variable_step'">
+                          DcsBios::RotaryEncoder {{ control.identifier | idCamelCase }}("{{ control.identifier }}", "-{{ input.suggested_step }}", "+{{ input.suggested_step }}", <i style="color:red;">PIN_A</i>, <i style="color:red;">PIN_B</i>);<br>
+                        </code>
+                        <code ng-show="snippet.type == 'Switch2'">
+                          DcsBios::Switch2 {{ control.identifier | idCamelCase }}("{{ control.identifier }}", <i style="color:red;">PIN</i>);<br>
+                        </code>
+                       	<code ng-show="snippet.type == 'Potentiometer'">
+                          DcsBios::Potentiometer {{ control.identifier | idCamelCase }}("{{ control.identifier }}", <i style="color:red;">PIN</i>);<br>
+                        </code>
+                       	<code ng-show="snippet.type == 'RotarySwitch'">
+						  const byte {{ control.identifier + '_PINS' | idCamelCase }}[{{ input.max_value + 1 }}] = {<i style="color:red;">{{ snippet.pin_template }}</i>};<br>
+						  DcsBios::RotarySwitch {{ control.identifier | idCamelCase }}("{{ control.identifier }}", {{ control.identifier + '_PINS' | idCamelCase }}, {{ input.max_value+1 }});
+						  <br>
+                        </code>
+                      </span>
 					</div>
 				</div>
-				<br>
+				  <br>
 				<div class="outputs" ng-show="control.outputs.length > 0">
-					Outputs:<br>
-					<div class="output" ng-repeat="output in control.outputs">
-						<div ng-show="output.type == 'integer'">
-							<b>Type:</b> {{ output.type }}
-							<b>Address:</b> {{ output.address | hex }}
-							<b>Mask:</b> {{ output.mask | hex }}
-							<b>Shift By:</b> {{ output.shift_by }}
-							<b>Max. Value:</b> {{ output.max_value }}
-							<b>Description:</b> {{ output.description }}<br>
-							<code>if (address == {{ output.address | hex }}) {<br>&nbsp;&nbsp;&nbsp;&nbsp;unsigned int {{ control.identifier + output.suffix | idCamelCase }}Value = (value & {{ output.mask | hex }}) &lt;&lt; {{ output.shift_by }};<br>&nbsp;&nbsp;&nbsp;&nbsp;/* your code here */<br>}<br></code>
-							<code ng-show="output.max_value == 1">DcsBios::LED {{ control.identifier | idCamelCase }}({{ output.address | hex }}, {{ output.mask | hex }}, <i style="color:red;">PIN</i>);<br></code>
-							<code ng-show="output.max_value == 65535">DcsBios::ServoOutput {{ control.identifier | idCamelCase }}({{ output.address | hex }}, <i style="color:red;">PIN</i>);<br></code>
-							<code ng-show="output.max_value == 65535">DcsBios::ServoOutput {{ control.identifier | idCamelCase }}({{ output.address | hex }}, <i style="color:red;">PIN</i>, <i style="color:red;">544</i>, <i style="color:red;">2400</i>);<br></code>
-						</div>
-						<div ng-show="output.type == 'string'">
-							<b>Type:</b> {{ output.type }}
-							<b>Address:</b> {{ output.address | hex }}
-							<b>Max. Length:</b> {{ output.max_length }}
-							<b>Description:</b> {{ output.description }}<br>
-							<code>void {{ 'ON_' + control.identifier + output.suffix + '_CHANGE' | idCamelCase }}(char* newValue) {<br>&nbsp;&nbsp;&nbsp;&nbsp;/* your code here */<br>}<br>DcsBios::StringBuffer&lt;{{ output.max_length }}&gt; {{ control.identifier + input.suffix + "_BUFFER" | idCamelCase }}({{ output.address | hex }}, {{ 'ON_' + control.identifier + output.suffix + '_CHANGE' | idCamelCase }});<br></code>
-						</div>
-					</div>
+				  <div class="output" ng-repeat="output in outputs">
+                    <b>Output Type:</b> {{ output.type }}
+                    <b>Address:</b> {{ output.address | hex }}
+                    <span ng-show="output.type == 'integer'">
+                      <b>Mask:</b> {{ output.mask | hex }}
+                      <b>Shift By:</b> {{ output.shift_by }}
+                      <b>Max. Value:</b> {{ output.max_value }}
+                    </span>
+                    <span ng-show="output.type == 'string'">
+                      <b>Max. Length:</b> {{ output.max_length }}
+                    </span>
+                    <b>Description:</b> {{ output.description }}
+                    <br>
+                    <span ng-repeat="snippet in output.snippets" ng-show="show_all_snippets || snippet.default">
+                      <code ng-show="snippet.type == 'generic_integer_output'">
+                        if (address == {{ output.address | hex }}) {<br>&nbsp;&nbsp;&nbsp;&nbsp;unsigned int {{ control.identifier + output.suffix | idCamelCase }}Value = (value & {{ output.mask | hex }}) &lt;&lt; {{ output.shift_by }};<br>&nbsp;&nbsp;&nbsp;&nbsp;/* your code here */<br>}<br>
+                      </code>
+					  <code ng-show="snippet.type == 'LED'">
+                        DcsBios::LED {{ control.identifier + output.suffix | idCamelCase }}({{ output.address | hex }}, {{ output.mask | hex }}, <i style="color:red;">PIN</i>);<br>
+                      </code>
+                      <code ng-show="snippet.type == 'ServoOutput'">
+                        DcsBios::ServoOutput {{ control.identifier | idCamelCase }}({{ output.address | hex }}, <i style="color:red;">PIN</i>, <i style="color:red;">544</i>, <i style="color:red;">2400</i>);<br>
+                      </code>
+                      <code ng-show="snippet.type == 'StringBuffer'">
+                        void {{ 'ON_' + control.identifier + output.suffix + '_CHANGE' | idCamelCase }}(char* newValue) {<br>&nbsp;&nbsp;&nbsp;&nbsp;/* your code here */<br>}<br>DcsBios::StringBuffer&lt;{{ output.max_length }}&gt; {{ control.identifier + input.suffix + "_BUFFER" | idCamelCase }}({{ output.address | hex }}, {{ 'ON_' + control.identifier + output.suffix + '_CHANGE' | idCamelCase }});<br>
+                      </code>
+                    </span>
 				</div>
 				</div>
-			</div>
-		</div>
+                
+
+        </script>
+        
 	</body>
 </html>

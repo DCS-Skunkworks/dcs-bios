@@ -1,6 +1,8 @@
 var app = angular.module("docApp", []);
 app.filter("hex", function() {
 	return function(input, padTo) {
+        if (!input)
+            return "";
 		if (!padTo)
 			padTo = 4;
 		hex = input.toString(16)
@@ -59,4 +61,103 @@ app.controller("DocController", function($scope) {
 		});
 	});
 	$scope.selectedModule = $scope.moduleNames[0];
+});
+app.directive("control", function($parse, $compile) {
+    return {
+        scope: {
+            control: "=",
+        },
+        templateUrl: "control.html",
+        link: function(scope, lElement, attrs) {
+            var defaultSnippetPrecedence = [
+                "Switch2",
+                "RotarySwitch",
+                "RotaryEncoder_variable_step",
+                "RotaryEncoder_fixed_step",
+                "ActionButton",
+                "LED",
+                "StringBuffer",
+                "generic_integer_output",
+            ];
+            var defaultSnippet = null;
+
+            var new_io;
+            var add_snippet = function(type) {
+                var snippet_def = { "type":type, "default":false };
+                new_io.snippets.push(snippet_def);
+                if (!defaultSnippet
+                    || defaultSnippetPrecedence.indexOf(type) < defaultSnippetPrecedence.indexOf(defaultSnippet.type)) {
+                    defaultSnippet = snippet_def;
+                }
+                return snippet_def;
+            };
+            scope.inputs = [];
+            (scope.control.inputs || []).forEach(function(input) {
+                new_io = {
+                    "interface": input["interface"],
+                    argument: input.argument,
+                    max_value: input.max_value,
+                    description: input.description,
+                    snippets: [],
+                };
+                switch(input["interface"]) {
+                case "set_state":
+                    if (input.max_value < 33) {
+                        var snippet = add_snippet("RotarySwitch");
+                        snippet.pin_template = 'PIN_0';
+                        for (var i=1; i <= input.max_value; i++)
+                            snippet.pin_template += ", PIN_" + i.toString();
+                    }
+                    if (input.max_value == 1)
+                        add_snippet("Switch2");
+                    if (input.max_value == 65535)
+                        add_snippet("Potentiometer");
+                    break;
+                case "variable_step":
+                    add_snippet("RotaryEncoder_variable_step");
+                    break;
+                case "fixed_step":
+                    add_snippet("RotaryEncoder_fixed_step");
+                    break;
+                case "action":
+                    add_snippet("ActionButton");
+                    break;
+                }
+                scope.inputs.push(new_io);
+            });
+
+            scope.outputs = [];
+            (scope.control.outputs || []).forEach(function(output) {
+                new_io = {
+                    "type": output.type,
+                    address: output.address,
+                    mask: output.mask,
+                    shift_by: output.shift_by,
+                    max_value: output.max_value,
+                    max_length: output.max_length,
+                    description: output.description,
+                    snippets: [],
+                };
+                switch(output["type"]) {
+                case "integer":
+                    add_snippet("generic_integer_output");
+                    if (output.max_value == 1)
+                        add_snippet("LED");
+                    if (output.max_value == 65535)
+                        add_snippet("ServoOutput");
+                    break;
+
+                case "string":
+                    add_snippet("StringBuffer");
+                    break;
+                }
+                scope.outputs.push(new_io);
+            });
+
+            if (defaultSnippet)
+                defaultSnippet["default"] = true;
+
+            scope.show_all_snippets = false;
+        }
+    };
 });
