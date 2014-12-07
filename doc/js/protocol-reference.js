@@ -170,8 +170,6 @@ app.directive("code", function($parse) {
 		restrict: "E",
         link: function(scope, element, attrs) {
 			element.on("click", function() {
-				console.log("selecting", this);
-
 				// http://stackoverflow.com/questions/11128130/select-text-in-javascript
 				var doc = document;
 				if (doc.body.createTextRange) { // ms
