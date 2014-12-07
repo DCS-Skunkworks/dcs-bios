@@ -788,8 +788,17 @@ definePotentiometer("TACAN_VOL", 51, 3007, 261, {0, 1}, "TACAN Panel", "TACAN Si
 
 defineRelativeTumb("TACAN_10", 51, 3001, 256, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Left Channel Selector")
 defineRelativeTumb("TACAN_1", 51, 3003, 257, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Right Channel Selector")
+defineToggleSwitch("TACAN_XY", 51, 3005, 266, "TACAN Panel", "TACAN Channel X/Y Toggle")
 moduleBeingDefined.inputProcessors["TACAN_XY"] = function(action)
-	if action == "TOGGLE" then
+	-- The TACAN X/Y behaves like a toggle switch, but its value can not be set directly.
+	-- Because we only have a "toggle" command available from Lua, this needs some special handling.
+	local toggle = false
+	local current_state = GetDevice(0):get_argument_value(266)
+	
+	if action == "TOGGLE" then toggle = true end
+	if (action == "0" or action == "DEC") and current_state == 1 then toggle = true end
+	if (action == "1" or action == "INC") and current_state == 0 then toggle = true end
+	if toggle then
 		GetDevice(51):performClickableAction(3005, 0.1)
 	end
 end
