@@ -761,7 +761,7 @@ function BIOS.util.defineRockerSwitch(msg, device_id, pos_command, pos_stop_comm
 end
 
 function BIOS.util.defineMultipositionSwitch(msg, device_id, device_command, arg_number, num_positions, increment, category, description)
-	BIOS.util.defineTumb(msg, device_id, device_command, arg_number, increment, {0, 0.1*(num_positions-1)}, nil, false, category, description)
+	BIOS.util.defineTumb(msg, device_id, device_command, arg_number, increment, {0, increment*(num_positions-1)}, nil, false, category, description)
 	local docentry = moduleBeingDefined.documentation[category][msg]
 	docentry.physical_variant = "toggle_switch"
 end
