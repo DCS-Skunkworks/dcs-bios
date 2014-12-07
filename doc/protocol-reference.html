@@ -33,11 +33,12 @@
 
         <script type="text/ng-template" id="control.html">
 				<div class="controlheader">
-				<span class="controlidentifier">{{ control.identifier }}</span> / <span class="controldescription">{{ control.description }}</span>
+				<span class="controldescription">{{ control.description }}</span> / <span class="controlidentifier">{{ control.identifier }}</span>
 				</div>
 				<div class="controlbody">
 				<div class="inputs" ng-show="inputs.length > 0">
 					<div class="input" ng-repeat="input in inputs">
+					  <span ng-show="show_all_snippets">
 					  <b>Input Interface:</b> {{ input.interface }}
                       <b>Message:</b> {{ control.identifier }}
                       <span ng-show="input.interface == 'action'"> {{ input.argument }}</span>
@@ -48,6 +49,8 @@
                       </span>
                       
                       <b>Description:</b> {{ input.description }}
+					  </span>
+					  
                       <span ng-repeat="snippet in input.snippets" ng-show="show_all_snippets || snippet.default">
                         <code ng-show="snippet.type == 'ActionButton'">
                           DcsBios::ActionButton {{ control.identifier + '_' + input.argument | idCamelCase }}("{{ control.identifier }}", "{{ input.argument }}", <i style="color:red;">PIN</i>);<br>
@@ -75,6 +78,7 @@
 				  <br>
 				<div class="outputs" ng-show="control.outputs.length > 0">
 				  <div class="output" ng-repeat="output in outputs">
+				    <span ng-show="show_all_snippets">
                     <b>Output Type:</b> {{ output.type }}
                     <b>Address:</b> {{ output.address | hex }}
                     <span ng-show="output.type == 'integer'">
@@ -87,6 +91,8 @@
                     </span>
                     <b>Description:</b> {{ output.description }}
                     <br>
+					</span>
+					
                     <span ng-repeat="snippet in output.snippets" ng-show="show_all_snippets || snippet.default">
                       <code ng-show="snippet.type == 'generic_integer_output'">
                         if (address == {{ output.address | hex }}) {<br>&nbsp;&nbsp;&nbsp;&nbsp;unsigned int {{ control.identifier + output.suffix | idCamelCase }}Value = (value & {{ output.mask | hex }}) &lt;&lt; {{ output.shift_by }};<br>&nbsp;&nbsp;&nbsp;&nbsp;/* your code here */<br>}<br>
