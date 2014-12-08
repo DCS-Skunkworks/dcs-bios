@@ -19,14 +19,14 @@ If that aircraft is the A-10C, read on to find out if DCS-BIOS is right for you.
 
 === Why Use DCS-BIOS?
 
-The Home Cockpit section on the ED forums provides numerous ways to connect a panel to DCS.  And DCS BIOS is just another means of doing just that.  Well actually it isn't and this is why you would want to use it..
+The Home Cockpit section on the ED forums provides numerous ways to connect a panel to DCS.  And DCS-BIOS is just another means of doing the same thing.  Well actually it isn't and this is why you would want to use it..
 
 .Most importantly DCS-BIOS is "easy to use".
 
 You've heard of people trying to learn Lua to write their own `Export.lua` file.  In most cases it was an exercise in frustration.  DCS-BIOS was produced so you don't have to worry about learning how to make you own lua files. *If you can connect two wires together, copy and paste text and follow step-by-step instructions, you can make a functioning panel.*
 
-.DCS BIOS is fully documented
-We understand the frustrations in trying to build or use something new with little or no instructions.   The DCS BIOS Users Guide was produced to ensure you have the help you need.  It was written in easy to understand terminology  aimed specifically at the novice.
+.DCS-BIOS is fully documented
+We understand the frustrations in trying to build or use something new with little or no instructions.   The DCS-BIOS "Users Guide" was produced to ensure you have the help you need.  It was written in easy to understand terminology  aimed specifically at the novice.
 You do not have to be a programmer or an electrical engineer to understand it.
 After you read this User Guide, you will be able to connect a simple panel to DCS.
 
@@ -34,19 +34,19 @@ If you do have a programming background or simply want to know more, we have a D
 
 .DCS BIOS will not impact performance
 We did not notice any change in FPS when testing DCS-BIOS.
-The additional computation it requires of DCS is negligible.
+The additional computation it requires of your PC or its precious resources is negligible.
 
 .DCS just broke my panel with their latest update.
-DCS BIOS will not let that happen.  In fact, DCS-BIOS was written just for that reason.  DCS BIOS will isolate your panels from virtually any changes that Eagle Dynamics might introduce in an update.
-In the extremely rare event that Eagle Dynamics does make a change that breaks something, we will ensure DCS-BIOS is immediately updated.   Your panels will always stay the same.
+DCS BIOS will not let that happen.  In fact, DCS-BIOS was written specifically to prevent that from happening.  DCS-BIOS will isolate your panels from virtually any changes that Eagle Dynamics might introduce in an update.
+In the extremely rare event that Eagle Dynamics makes a change actually does break something, we will ensure DCS-BIOS is immediately updated.   Your panels will always stay the same.
 
 .Efficient protocol design
 
 DCS-BIOS communicates with DCS in a very efficient way.
-Your indicators, gauges and displays will not stutter or lag during a flurry of activity in the cockpit.  Pressing the signal lamp test button when spooling up the engines, or when half your caution lights panel is blinking after a SAM hit has no impact on your build.
+Your indicators, gauges and displays will not stutter or lag even during a flurry of activity in the cockpit.  Pressing the signal lamp test button when spooling up the engines, or when half your caution lights are blinking after a SAM hit has no impact on your build.
 
-DCS BIOS covers everything.
-DCS BIOS is the most comprehensive means of connecting all DCS aircraft buttons, switches, rotary encodes, potentiometers, push buttons, LED Indciators, displays, three way switches etc., etc.  In sort There is nothing in the cockpit that DCS BIOS does not cover.    
+DCS-BIOS covers everything.
+DCS-BIOS provides you with a library of components that include ALL DCS aircraft buttons, switches, rotary encodes, potentiometers, push buttons, LED Indciators, displays, three way switches etc., etc.  In sort There is nothing in the cockpit that DCS-BIOS does not cover.    
 
 .Take advantage of the Arduino ecosystem
 
@@ -76,7 +76,7 @@ Make sure you have the following.
 We will assume you have access to the following:
 
 * A computer that has DCS: World installed, can access the internet and has a free USB port
-* An Arduino board
+* An Arduino board ( the Arduino "UNO" is the suggested Beginners board)
 * A push button
 * An LED
 * A 220ohm 1/4 watt resistor
@@ -85,34 +85,33 @@ We will assume you have access to the following:
 === Step by Step
 ==== Step 1: Setting up DCS-BIOS
 
-. Download the latest stable release of DCS-BIOS from https://github.com/jboecker/dcs-bios/releases[GitHub] and extract the ZIP file somewhere on your hard drive
+. Download the latest release of DCS-BIOS from https://github.com/jboecker/dcs-bios/releases[GitHub] and extract the ZIP file somewhere on your hard drive
 
 . Open a new Explorer window (for example by opening "My Computer"), paste the following into the address bar and press return:
 ----
 %USERPROFILE%\Saved Games\DCS
 ----
-This should take you to your DCS configuration folder (its subfolders should include `Logs` and `Missions`).  You are looking for the `scripts folder`.  (Not all configurations have a scripts folder and do not be concerned if you don`t have one.  Just follow the steps. )
+This should take you to your DCS configuration folder (its has several subfolders including `Logs` and `Missions`).  You are looking for the `scripts folder`.  (Not all configurations have a scripts folder and do not be concerned if you don`t have one.  Just follow these steps.)
 
-If you don't see a `Scripts` subfolder, copy the entire `Scripts` folder from where you extracted DCS-BIOS copy it to this directory.  You can now skip to the next step.
+There are two possible situations here.  The first one is if you don't see a `Scripts` subfolder.  If that's the case then you will copy the `Scripts` folder and all of its contents from where you extracted DCS-BIOS and paste it into %USERPROFILE%\Saved Games\DCS.  You can now skip to the next step.
 
-If you do have a `Scripts` subfolder, then copy just the contents of the `Scripts` folder from where you extracted DCS-BIOS  and paste them into your existing `Scripts` folder.
+If you do have a `Scripts` subfolder, then copy only the "contents" of the `Scripts` folder from where you extracted DCS-BIOS and paste those files into your existing `Scripts` folder. There is one important part to watch for when you do the paste.  If a  Windows pop up box says you already have an export.lua file, choose "do not overwrite".  All of the other files can be copied but we will leave your existing export.lua file as it is for the moment. 
 
-If you had an existing scripts folder you may also have an existing `Export.lua` file.  DO NOT COPY the `Export.lua` file from the DCS-BIOS download.
-Instead, you are going to make a small change to your exports.lua file.  This next part is important.  Do not use word processing software or the notepad that comes with Windows to make this change.  They may leave their own coding behind which could cause the file become corrupt.  Instead, you are going to download and install `Notepad++` This program is designed to edit files without contaminating them with extra coding.  
+Now that you complete the copy operation you are going to make a small change to the exports.lua file in the scripts folder.   This next part is important.  Do not use word processing software or the notepad that comes with Windows to make this change.  They may leave their own coding behind which could cause the file become corrupt.  Instead, you are going to download and install `Notepad++` This program is designed to edit files without contaminating them with extra coding.  
 Go to http://notepad-plus-plus.org/download/v6.6.9.html
-Once, Notepad++ is installed you need to open your existing `Export.lua` file   and copy the following line and paste it into notepad++.  It should be placed as the last line in the export.lua file. :
+Once, Notepad++ is installed you need to open your existing `Export.lua` file and copy the following line shown below and paste it into notepad++.  It should be placed as the last line in the export.lua file. :
 
 [source,lua]
 ----
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOS.lua]])
 ----
-Once you have completed that small change, save the file.
+Once you have completed that small change, save the file.  That is the only change you need to make.  Now we move on to the good stuff...connecting switches and LED's.
 
 ==== Step 2: Connecting your LED and Push Button Switch
 
 * Connect your push button switch to the Arduino board at pin 10 and pin GND (ground).
 
-* Connect your LED and current limiting resistor to the Arduino board at pin 13 and pin GND (ground).
+* Connect your LED and a 220 ohm 1/4 watt current limiting resistor to the Arduino board at pin 13 and pin GND (ground).
 
 You have now completed all of the required wiring for you first switch panel.
 
@@ -134,7 +133,7 @@ Congratulations, you have completed all of the one-time setup steps.
 From now on any panel that you create will only require you to complete steps  4 and 5.
 
 In this step, you are going to create a program for your Arduino board.
-Each program you create will use a basic template that we have provided. This template automatically reads the state of your connected switches and reports this to DCS-BIOS which then updates the switches of your DCS aircraft.  This ensures that whatever you switches say, you aircraft will be synced to them.
+Each program you create will use a basic template that we have provided. This template automatically reads the state of your connected switches and reports this to DCS-BIOS which then updates the switches of your DCS aircraft.  This ensures that whatever your switches say, your aircraft will be synced to them.
 
 Just an aside, you do need to be careful of what your switches are set to at startup.  Have you ever had your throttle set to full when you start a mission and the instant your dropped into the cockpit the plane takes off on you.
 
@@ -146,32 +145,30 @@ NOTE: Arduino programs are also called "sketches".
 
 Click `File -> Examples -> DcsBios -> TemplateSketch` to open the template program that comes with the DCS-BIOS Arduino library.
 
-To complete the template program, you are going to copy lines of code called "snippets" from the reference documentation.  Remember this term as it will be used frequently throughout the Users Guide.
+To complete the template program, you are going to copy lines of code called "snippets" from the reference documentation.  Remember this term "snippets".  It will be used frequently throughout the Users Guide.
 
-. Open the reference documentation in a browser by double-clicking the file `protocol-reference.html` which is located in the `doc` folder in your DCS-BIOS download.
+. Open the reference documentation in a browser of your choice by double-clicking the file `protocol-reference.html`.  It is located in the `doc` folder in your DCS-BIOS download.
 . If you see a red warning followed by a bunch of nonsense, you need to enable JavaScript in your web browser and reload the page.
 
 The reference documentation lists every switch, push button and rotary knob that DCS-BIOS knows about.
 Also provided are "filters" that you can use to show only what you want to look at.  For example, I want to see only those controls that belong to the Up Front Controller.  Type `UFC` into the `Category Filter` box.
 
-The first entry should be the one for the Master Caution Light.
-Note that it comes with two code snippets.
-
-Because you want to connect a LED, copy the second snippet to your Arduino sketch.
+The first line is the Master Caution Light.  Copy this line of code and paste it into the sketch as shown.  The contents of this line, for the most part, will not mean much to you.  Just make sure you copy the ENTITRE line. The Arduino/DCS-BIOS uses that information and thats basically all you need to know. What you do need to pay attention to is the notation highlighted in italic red.  
 
 In the reference documentation, `PIN` is highlighted in red in the example code.
-That means you have to replace that with your own value, in this case the pin number you have connected the LED to.
-In your sketch, replace `PIN` with `13` so you end up with this:
+That means once you finished pasting this line into the Arduino IDE you will have to replace that with the pin number you have connected the LED to.
+
+In this example sketch you are writing, replace `PIN` with `13` so you end up with this:
 [source,c++]
 ----
 DcsBios::LED masterCaution(0x108e, 0x0008, 13);
 ----
 
-Scroll down to the `UFC_MASTER_CAUTION / Master Caution Reset` entry.
+Now scroll down to the `UFC_MASTER_CAUTION / Master Caution Reset` entry.
 This represents the push button that resets the master caution warning.
 
 In the reference documentation, you see it has example code for a `DcsBios::Switch2`, which is used for toggle switches and push buttons.
-Again, copy the example code snippet to your sketch.
+As you did with the Master Caution Light, copy the example code snippet and paste it into your sketch.
 We connected the push button to pin `10` earlier, so replace `PIN` with `10`.
 
 Now the start of your template program should look like this:
@@ -199,23 +196,26 @@ You will have to save your changes under a new name.
 
 Now that your Arduino sketch is done, you need to load it onto your board.
 
-The details may vary for different Arduino boards.
-The Arduino website has http://arduino.cc/en/Guide/HomePage[step-by-step instructions for each board.]
+The details may vary for different Arduino boards but for the most part they follow the same basic routine.  If its the UNO you will need to say what board you are using and what com port its on.  If you don't know check the Devices and Printers page in the Control Panel.  It will show the UNO and what com port its on.
+
+The Arduino website has http://arduino.cc/en/Guide/HomePage[step-by-step instructions for each board.]  You should read this for your specific board.  Its not hard stuff by any means but you should know what it is you are doing.
 
 After loading your program onto your Arduino board, you can close the Arduino software.
 
 ==== Step 6: Test your new panel
 
-DCS-BIOS comes with a script that connects a serial port (which is what your Arduino board uses to talk to the PC) to the DCS-BIOS data stream.
+DCS-BIOS comes with a script that automatically connects a serial port to DCS/Arduino Board/Panel.  This is what your Arduino board uses to talk/listen to the PC.
 
-Open `connect-serial-port.cmd` from your DCS-BIOS download in a text editor and locate the line that starts with `COMPORT=`.
-Replace the number with the COM port number you used to program your Arduino board and save the file.
+Now its time to open Notepad++ again.  This time your going to open `connect-serial-port.cmd` from your DCS-BIOS download.  Locate the line that starts with `COMPORT=`.
+Replace the existing number with the COM port number you used to program your Arduino board and save the file.  When done, save the file.
 
 Now double-click `connect-serial-port.cmd`.
 A console window should pop up.
 Leave it open.
 
 You can now start DCS and try your new panel in action!
+
+You can make any panel you like using the standard template that we provided as the outline for your sketch.  Its just a matter of adding the lines of code from the reference documentation for the switches you wish to use and connecting the appropriate switch type to the appropriate pin number on the Arduino board.  If your intent is to also add displays you will need to have additional knowledge working with Arduino. There are so many type of displays that it is beyond the scope of the Users Manual to give instruction on every type of display thats available. We have provided the basic structure for a novice to create a switch panel using the Arduino platform with very little further knowledge of Arduino, DCS or lua.  
 
 
 
@@ -224,11 +224,11 @@ You can now start DCS and try your new panel in action!
 
 This tutorial will show you how to read the DCS-BIOS reference documentation to create a sketch for any panel in the cockpit.
 
-It will cover all of the different control types that are supported by the Arduino library.
+It will cover all of the different control types that are supported by the Arduino library.  The information provided at this point will require a high level of knowledge with Arduino and lua coding.
 
 === The MasterCaution Example Sketch
 
-This section takes a closer look at the different parts of the MasterCaution example sketch.
+This section takes a closer look at the different parts of the MasterCaution example sketch. 
 
 [source,c++]
 ----
