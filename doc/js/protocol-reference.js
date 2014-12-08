@@ -98,6 +98,7 @@ app.directive("control", function($parse, $compile) {
                 new_io = {
                     "interface": input["interface"],
                     argument: input.argument,
+                    suggested_step: input.suggested_step,
                     max_value: input.max_value,
                     description: input.description,
                     snippets: [],
