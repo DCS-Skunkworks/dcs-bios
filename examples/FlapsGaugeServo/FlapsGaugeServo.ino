@@ -9,7 +9,6 @@ DcsBios::ServoOutput flapsServo(0x1090, 5);
 
 void setup() {
   Serial.begin(500000);
-  flapsServo.setup(); // ServoOutput needs you to call its setup() method
 }
 
 /*

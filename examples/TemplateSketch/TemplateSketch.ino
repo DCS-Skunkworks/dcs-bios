@@ -59,6 +59,7 @@ does nothing).
 Use this to handle outputs which are not covered by the
 DcsBios Arduino library (e.g. displays).
 */
-void onDcsBiosMessage(const char* msg, const char* arg) {
-  
+void onDcsBiosWrite(unsigned int address, unsigned int value) {
+
 }
+
