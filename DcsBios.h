@@ -97,6 +97,18 @@ class Switch2 : PollingInput {
 		Switch2(char* msg, char pin);
 };
 
+class Switch3 : PollingInput {
+	private:
+		void pollInput();
+		char* msg_;
+		char pinA_;
+		char pinB_;
+		char lastState_;
+		char readState();
+	public:
+		Switch3(char* msg, char pinA, char pinB);
+};
+
 class RotarySwitch : PollingInput {
 	private:
 		void pollInput();

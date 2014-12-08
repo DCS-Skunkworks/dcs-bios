@@ -106,6 +106,31 @@ void Switch2::pollInput() {
 	lastState_ = state;
 }
 
+Switch3::Switch3(char* msg, char pinA, char pinB) {
+	msg_ = msg;
+	pinA_ = pinA;
+	pinB_ = pinB;
+	pinMode(pinA_, INPUT_PULLUP);
+	pinMode(pinB_, INPUT_PULLUP);
+	lastState_ = readState();
+}
+char Switch3::readState() {
+	if (digitalRead(pinA_) == LOW) return 0;
+	if (digitalRead(pinB_) == LOW) return 2;
+	return 1;
+}
+void Switch3::pollInput() {
+	char state = readState();
+	if (state != lastState_) {
+		if (state == 0)
+			sendDcsBiosMessage(msg_, "0");
+		if (state == 1)
+			sendDcsBiosMessage(msg_, "1");
+		if (state == 2)
+			sendDcsBiosMessage(msg_, "2");
+	}
+	lastState_ = state;
+}
 
 Potentiometer::Potentiometer(char* msg, char pin) {
 	msg_ = msg;
