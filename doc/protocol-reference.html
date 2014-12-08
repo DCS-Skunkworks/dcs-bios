@@ -68,6 +68,9 @@
                         <code ng-show="snippet.type == 'Switch2'">
                           DcsBios::Switch2 {{ control.identifier | idCamelCase }}("{{ control.identifier }}", <i style="color:red;">PIN</i>);
                         </code>
+                        <code ng-show="snippet.type == 'Switch3'">
+                          DcsBios::Switch3 {{ control.identifier | idCamelCase }}("{{ control.identifier }}", <i style="color:red;">PIN_A</i>, <i style="color: red">PIN_B</i>);
+                        </code>
                        	<code ng-show="snippet.type == 'Potentiometer'">
                           DcsBios::Potentiometer {{ control.identifier | idCamelCase }}("{{ control.identifier }}", <i style="color:red;">PIN</i>);
                         </code>

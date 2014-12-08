@@ -73,6 +73,7 @@ app.directive("control", function($parse, $compile) {
         link: function(scope, lElement, attrs) {
             var defaultSnippetPrecedence = [
                 "Switch2",
+                "Switch3",
                 "RotarySwitch",
                 "RotaryEncoder_variable_step",
                 "RotaryEncoder_fixed_step",
@@ -113,6 +114,8 @@ app.directive("control", function($parse, $compile) {
                     }
                     if (input.max_value == 1)
                         add_snippet("Switch2");
+                    if (input.max_value == 2)
+                        add_snippet("Switch3");
                     if (input.max_value == 65535)
                         add_snippet("Potentiometer");
                     break;
