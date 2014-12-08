@@ -43,6 +43,7 @@ app.filter("range", function() {
 app.controller("DocController", function($scope) {
 	$scope.getNumber = function(n) { return new Array(n); };
 	$scope.view = "simple";
+    $scope.categoryFilter = "";
 	$scope.modules = {}
 	$scope.moduleNames = Object.keys(docdata);
 	$scope.moduleNames.forEach(function(moduleName) {

@@ -18,15 +18,18 @@
 		<h1>{{ selectedModule }}</h1>
 		Change Module: <select ng-model="selectedModule"><option ng-repeat="moduleName in moduleNames" value="{{ moduleName }}">{{ moduleName }}</option></select>
 		View: <select ng-model="view"><option value="simple">Simple</option><option value="advanced">Advanced</option></select>
-		Category Filter: <input type="text" ng-model="categoryFilter" ng-minlength="2">
-		Description Filter: <input type="text" ng-model="descriptionFilter" ng-minlength="2">
-		Identifier Filter: <input type="text" ng-model="messageFilter" ng-minlength="2">
+		Category Filter: <select ng-model="categoryFilter">
+          <option value="">Show All</option>
+          <option ng-repeat="category in modules[selectedModule].categories" value="{{ category.name }}">{{ category.name }}</option>
+          </select>
 		<hr>
 		
-		<div ng-repeat="category in modules[selectedModule].categories | filter:{ name: categoryFilter }" ng-show="(category.controls | filter: { description: descriptionFilter, identifier: messageFilter }).length">
+		<div ng-repeat="category in modules[selectedModule].categories"
+             ng-class="{ 'hidden': categoryFilter.length > 0 && categoryFilter != category.name }"
+>
 			<h2>{{ category.name }}</h2>
 
-			<div data-control="control" ng-repeat="control in category.controls | filter: { description: descriptionFilter, identifier:messageFilter }">
+			<div data-control="control" ng-repeat="control in category.controls">
 
 			</div>
 		</div>
@@ -37,9 +40,9 @@
 				<span class="controldescription">{{ control.description }}</span> / <span class="controlidentifier">{{ control.identifier }}</span>
 				</div>
 				<div class="controlbody">
-				<div class="inputs" ng-show="inputs.length > 0">
+				<div class="inputs" ng-class="{ 'hidden' : inputs.length == 0 }">
 					<div class="input" ng-repeat="input in inputs">
-					  <span ng-show="show_all_snippets">
+					  <span ng-class="{ 'hidden': !show_all_snippets }">
 					  <b>Input Interface:</b> {{ input.interface }}
                       <b>Message:</b> {{ control.identifier }}
                       <span ng-show="input.interface == 'action'"> {{ input.argument }}</span>
@@ -52,7 +55,7 @@
                       <b>Description:</b> {{ input.description }}
 					  </span>
 					  
-                      <span ng-repeat="snippet in input.snippets" ng-show="show_all_snippets || snippet.default">
+                      <span ng-repeat="snippet in input.snippets" ng-class="{ 'hidden' : !(show_all_snippets || snippet.default) }">
                         <code ng-show="snippet.type == 'ActionButton'">
                           DcsBios::ActionButton {{ control.identifier + '_' + input.argument | idCamelCase }}("{{ control.identifier }}", "{{ input.argument }}", <i style="color:red;">PIN</i>);
                         </code>
@@ -76,9 +79,9 @@
 					</div>
 				</div>
 				  <br>
-				<div class="outputs" ng-show="control.outputs.length > 0">
+				<div class="outputs" ng-class="{ 'hidden' : outputs.length == 0 }">
 				  <div class="output" ng-repeat="output in outputs">
-				    <span ng-show="show_all_snippets">
+				    <span ng-class="{ 'hidden' : !show_all_snippets }">
                     <b>Output Type:</b> {{ output.type }}
                     <b>Address:</b> {{ output.address | hex }}
                     <span ng-show="output.type == 'integer'">
@@ -93,7 +96,7 @@
                     <br>
 					</span>
 					
-                    <span ng-repeat="snippet in output.snippets" ng-show="show_all_snippets || snippet.default">
+                    <span ng-repeat="snippet in output.snippets" ng-class="{ 'hidden' : !(show_all_snippets || snippet.default) }">
                       <code ng-show="snippet.type == 'generic_integer_output'">
                         if (address == {{ output.address | hex }}) {<br>&nbsp;&nbsp;&nbsp;&nbsp;unsigned int {{ control.identifier + output.suffix | idCamelCase }}Value = (value & {{ output.mask | hex }}) &lt;&lt; {{ output.shift_by }};<br>&nbsp;&nbsp;&nbsp;&nbsp;/* your code here */<br>}
                       </code>
