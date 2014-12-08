@@ -166,8 +166,40 @@ end
 
 local cmsp1Alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = 20 }
 local cmsp2Alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = 20 }
-document { identifier = "CMSP1", category = "CMSP", description = "Display Line 1", msg_type = "string", value_type = "string", can_set = false, actions = {}, address = cmsp1Alloc.address, maxLength = 20 }
-document { identifier = "CMSP2", category = "CMSP", description = "Display Line 2", msg_type = "string", value_type = "string", can_set = false, actions = {}, address = cmsp2Alloc.address, maxLength = 20 }
+document {
+	identifier = "CMSP1",
+	category = "CMSP",
+	description = "CMSP Display Line 1",
+	control_type = "display",
+	inputs = {},
+	outputs = {
+		{ ["type"] = "string",
+		  suffix = "",
+		  address = cmsp1Alloc.address,
+		  mask = cmsp1Alloc.mask,
+		  shift_by = cmsp1Alloc.shiftBy,
+		  max_length = cmsp1Alloc.maxLength,
+		  description = "CMSP Display Line 1 (20 characters)"
+		}
+	}
+}
+document {
+	identifier = "CMSP2",
+	category = "CMSP",
+	description = "CMSP Display Line 2",
+	control_type = "display",
+	inputs = {},
+	outputs = {
+		{ ["type"] = "string",
+		  suffix = "",
+		  address = cmsp2Alloc.address,
+		  mask = cmsp2Alloc.mask,
+		  shift_by = cmsp2Alloc.shiftBy,
+		  max_length = cmsp2Alloc.maxLength,
+		  description = "CMSP Display Line 2 (20 characters)"
+		}
+	}
+}
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 	
 	local line1, line2 = getCMSPDisplayLines(dev0)
