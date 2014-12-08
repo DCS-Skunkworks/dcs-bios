@@ -750,13 +750,29 @@ function BIOS.util.defineRockerSwitch(msg, device_id, pos_command, pos_stop_comm
 		}
 	}
 	moduleBeingDefined.inputProcessors[msg] = function(toState)
-		if type(toState) == "string" then toState = tonumber(toState) end
+		if toState == "0" then
+			toState = -1
+		elseif toState == "1" then
+			toState = 0
+		elseif toState == "2" then
+			toState = 1
+		else
+			return
+		end
 		local fromState = GetDevice(0):get_argument_value(arg_number)
 		local dev = GetDevice(device_id)
-		if fromState == 1 and toState == 2 then dev:performClickableAction(pos_command, 1) end
-		if fromState == 2 and toState == 1 then dev:performClickableAction(pos_stop_command, 0) end
-		if fromState == 1 and toState == 0 then dev:performClickableAction(neg_command, -1) end
-		if fromState == 0 and toState == 1 then dev:performClickableAction(neg_stop_command, 0) end
+		if fromState == 0 and toState == 1 then dev:performClickableAction(pos_command, 1) end
+		if fromState == 1 and toState == 0 then dev:performClickableAction(pos_stop_command, 0) end
+		if fromState == 0 and toState == -1 then dev:performClickableAction(neg_command, -1) end
+		if fromState == -1 and toState == 0 then dev:performClickableAction(neg_stop_command, 0) end
+		if fromState == -1 and toState == 1 then
+			dev:performClickableAction(neg_stop_command, 0)
+			dev:performClickableAction(pos_command, 1)
+		end
+		if fromState == 1 and toState == -1 then
+			dev:performClickableAction(pos_stop_command, 0)
+			dev:performClickableAction(neg_command, -1)
+		end
 	end
 end
 
