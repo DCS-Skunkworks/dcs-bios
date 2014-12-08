@@ -502,6 +502,31 @@ DcsBios::Switch2 ahcpCicu("AHCP_CICU", PIN);
 DcsBios::Switch2 ufcHack("UFC_HACK", PIN);
 ----
 
+=== Switch3
+
+[source,c++]
+----
+DcsBios::Switch3(char* message, char pinA, char pinB)
+----
+
+The Switch3 class handles inputs that have three states, such as three-position toggle switches or rotaries.
+
+.Constructor Parameters
+message:: The message that should be sent. Set this to the identifier of the control.
+pinA:: The number of the Arduino pin that the *first switch position* is connected to
+pinB:: The number of the Arduino pin that the *last switch position* is connected to
+
+.Circuit
+Connect your three-position toggle or rotary switch so that the first (left or down) position connects *pinA* to ground and the last (right or up) position connects *pinB* to ground.
+
+The Switch3 class defaults to the center position, so (if your switch even has a pin for that) you don't have to connect it to anything.
+
+.Reference Documentation Code Examples
+[source,c++]
+----
+DcsBios::Switch3 aapSteer("AAP_STEER", PIN_A, PIN_B);
+----
+
 === RotarySwitch
 
 [source,c++]
