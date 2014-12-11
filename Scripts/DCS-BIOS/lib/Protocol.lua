@@ -1,6 +1,6 @@
 BIOS.protocol = {}
-BIOS.protocol.maxBytesPerSecond = 11000
-BIOS.protocol.maxBytesInTransit = 4000
+BIOS.protocol.maxBytesPerSecond = BIOS.protocol.maxBytesPerSecond or 11000
+BIOS.protocol.maxBytesInTransit = BIOS.protocol.maxBytesPerSecond or 4000
 
 local aircraftNameToModule = {}
 BIOS.protocol.aircraftNameToModule = aircraftNameToModule
