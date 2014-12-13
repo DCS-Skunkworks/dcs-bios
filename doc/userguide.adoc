@@ -675,3 +675,46 @@ void onUhfFrequencyChange(char* newValue) {
 DcsBios::StringBuffer<7> uhfFrequencyBuffer(0x1170, onUhfFrequencyChange);
 ----
 
+== Aircraft-Specific Notes
+=== A-10C
+
+==== CMSP, CMSC and UHF Frequency Export in external view
+
+These values will not be updated by DCS when the cockpit is not rendered (e.g. in external view or HUD-only view).
+
+The solution is to assign another viewport to these indicators (through MonitorSetup.lua), so they exist even when the cockpit is not shown.
+You can make the viewport 1x1 pixels in size and place it outside of your visible screen area.
+For example, if you have no monitor above the primary one, you could place the viewport at coordinates (0, -10).
+
+==== Using a LED matrix for the Caution Lights
+
+If you are building the Caution Lights panel, you probably don't want to use several Arduinos to get 48 output pins.
+You want to use a LED matrix design instead.
+
+Fortunately, the caution lights data is located in three consecutive 16-bit integers in the DCS-BIOS export address space.
+The following code should get you started:
+
+[source,c++]
+----
+void updateCautionLights(unsigned int address, unsigned int data) {
+    unsigned char row = (address - 0x10c4) * 2;
+    unsigned char column = 0;
+    unsigned char i;
+    bool is_on;
+    for (i=0; i<16; i++) {
+        is_on = data & 0x01;
+        // set caution light state (row, column, is_on)
+        data >>= 1;
+        column++;
+        if (column == 4) {
+           row++;
+           column = 0;
+        }
+    }
+}
+void onDcsBiosWrite(unsigned int address, unsigned int data) {
+    if (address >= 0x10c4 && address <= 0x10c8) {
+       updateCautionLights(address, data);
+    }
+}
+----
