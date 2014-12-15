@@ -40,7 +40,7 @@ The additional computation it requires of your PC or its precious resources is n
 So ED just broke my switch panel with their latest update.  DCS-BIOS will not let that happen.  In fact, DCS-BIOS was written just for that reason.  DCS-BIOS isolates your switch panel from the impact of any changes that Eagle Dynamics might introduce in an update.
 In the extremely rare event that Eagle Dynamics does make a change that breaks something, we will ensure DCS-BIOS is immediately updated.   Your panels will always maintain their functionality.
 
-.DCS-BIOS has an extremely efficient protocol design
+DCS-BIOS communicates with DCS in a very efficient way.
 Well what does that mean?  DCS-BIOS provided extremely fast communication with DCS. Your indicators, gauges and displays will never stutter or lag during a flurry of activity in the cockpit.  Pressing the signal lamp test button when spooling up the engines, or when half your caution lights panel is blinking after a SAM hit will have no impact on how fast your instruments respond.  
 
 .DCS-BIOS covers everything.
@@ -75,7 +75,7 @@ We will assume you have access to the following:
 
 * A computer that has DCS: World installed, can access the internet and has a free USB port
 * An Arduino board (the http://arduino.cc/en/Main/ArduinoBoardUno[Arduino UNO] is a good choice for beginners)
-* A momentary on push button (the kind that stays on as long as your pressing it) 
+* A momentary on push button (the kind that stays on as long as you are pressing it) 
 * An LED (any colour and/or size) but not one of those super high powered, blind if you look at it, types. 
 * A 220ohm 1/4 watt resistor
 * 24 gauge wire or jumper wires
@@ -92,8 +92,7 @@ We will assume you have access to the following:
 This should take you to your DCS configuration folder (it has several subfolders including `Logs` and `Missions`).  You are looking for the `scripts folder`.  (Not all configurations may have a scripts folder. Do not be concerned if you don`t have one.  Just follow these steps.)
 
 There are two possible situations here.  The first one is if you don't see a `Scripts` subfolder.  If that's the case then you will copy the `Scripts` folder and all of its contents from where you extracted DCS-BIOS and paste it into `%USERPROFILE%\Saved Games\DCS`.  You can now skip to the next step.
-
-If you do have a `Scripts` subfolder, then just copy the contents of the `Scripts` folder from where you extracted DCS-BIOS  and paste them into your existing `Scripts` folder.  But be advised that, if you have an existing scripts folder you may also have an existing `Export.lua` file.  You do not want to over write YOUR FILE with `Export.lua` file from the DCS-BIOS download.
+If you had an existing scripts folder you may also have an existing `Export.lua` file.  DO NOT COPY the `Export.lua` file from the DCS-BIOS download.
 Instead, you are going to make a small change to your own export.lua file.  This next part is important.  Do not use word processing software or the notepad that comes with Windows to make this change.  They may leave their own coding behind which could cause the file become corrupt.  Instead, you are going to download and install `Notepad++` This program is designed to edit files without contaminating them with extra coding.  
 Go to http://notepad-plus-plus.org/download/v6.6.9.html
 Once Notepad++ is installed you need to open your existing `Export.lua`.  Copy and paste the following line into it.  This line should be placed as the last line in your export.lua file:
