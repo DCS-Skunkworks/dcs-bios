@@ -57,6 +57,22 @@ function BIOS.protocol.processInputLine(line)
 		argumentCache = {}
 	end
 	if cmd then
+		if cmd == "DCSBIOS_ADD_EXPORT_TARGET" then
+			local ip, port = args:match("^([^:]+):([0-9]+)")
+			local newIoConnection = BIOS.protocol_io.UDPSender:create({ host = ip, port = port })
+			newIoConnection:init()
+			BIOS.protocol_io.connections[#BIOS.protocol_io.connections + 1] = newIoConnection
+		end
+		if cmd == "DCSBIOS_REMOVE_EXPORT_TARGET" then
+			local ip, port = args:match("^([^:]+):([0-9]+)")
+			local newConns = {}
+			for _, c in pairs(BIOS.protocol_io.connections) do
+				if not (c.host == ip and c.port == port) then
+					newConns[#newConns+1] = c
+				end
+			end
+			BIOS.protocol_io.connections = newConns
+		end
 		if acftModule then
 			if acftModule.inputProcessors[cmd] then
 				acftModule.inputProcessors[cmd](args)
