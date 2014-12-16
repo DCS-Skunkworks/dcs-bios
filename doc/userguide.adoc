@@ -19,11 +19,11 @@ If that aircraft is the A-10C, read on to find out if DCS-BIOS is right for you.
 
 === Why Use DCS-BIOS?
 
-The Home Cockpit section on the ED forums provides numerous examples to connect a switch panel to DCS.  And DCS-BIOS is just another means of doing the same thing.  Well actually it isn't and this is why you would want to use it.
+The Home Cockpit section on the ED forums provides numerous examples to connect a switch panel to DCS.  And DCS-BIOS is just another means of doing the same thing.  Well... actually it isn't and this is why you would want to use it.
 
 .DCS-BIOS is "easy to use".
 
-You've heard of people trying to learn Lua to write their own `Export.lua` file.  In most cases it was an exercise in frustration.  DCS-BIOS was produced so you don't have to worry about learning how to make your own lua files. *If you can connect two wires together, copy and paste text and follow step-by-step instructions, you can make a functioning panel.*
+You've heard of people trying to learn Lua just to write their own `Export.lua` file.  In most cases it was an exercise in frustration.  DCS-BIOS was produced so you don't have to worry about learning how to make your own lua files. *If you can connect two wires together, copy and paste text and follow step-by-step instructions, you can make a functioning panel.*
 
 .DCS-BIOS is fully documented
 We understand the frustrations when you try to build something or use something that has little or no instructions.   The DCS-BIOS Users Guide was produced to ensure you have the help you need.  It was written in easy to understand terminology aimed specifically at the novice.
@@ -41,7 +41,7 @@ So ED just broke my switch panel with their latest update.  DCS-BIOS will not le
 In the extremely rare event that Eagle Dynamics does make a change that breaks something, we will ensure DCS-BIOS is immediately updated.   Your panels will always maintain their functionality.
 
 DCS-BIOS communicates with DCS in a very efficient way.
-Well what does that mean?  DCS-BIOS provided extremely fast communication with DCS. Your indicators, gauges and displays will never stutter or lag during a flurry of activity in the cockpit.  Pressing the signal lamp test button when spooling up the engines, or when half your caution lights panel is blinking after a SAM hit will have no impact on how fast your instruments respond.  
+Well what does that mean?  DCS-BIOS provides extremely fast communication with DCS. Your indicators, gauges and displays will never stutter or lag during a flurry of activity in the cockpit.  Pressing the signal lamp test button when spooling up the engines, or when half your caution lights panel is blinking after a SAM hit will have no impact on how fast your instruments respond.  
 
 .DCS-BIOS covers everything.
 There are a variety of interface boards that allow you to connect switches or rotary encoders or maybe both to DCS.  However DCS-BIOS extends way beyond any solution you might presently find. In Fact, it is the most comprehensive means of connecting your switch panel to any combination of your DCS aircrafts' buttons, switches, rotary encoders, potentiometers, push buttons, three way switches etc., etc.  In sort, there is nothing in the cockpit that DCS-BIOS does not cover.    
@@ -58,7 +58,8 @@ No matter what you wish to connect to your Arduino board, its more than probable
 
 == Connecting your First Panel
 
-After working through this section, you will have connected your first panel to DCS-BIOS.
+The purpose of this next section is to demonstrate the basic concept of easy it is to use DCS-BIOS to create a working switch panel and have it connect to your DCS aircraft.   
+After completing this section, you will have just connected your first functional swicth panel to a DCS A10C using DCS-BIOS.
 
 === Before you start
 
@@ -76,7 +77,7 @@ We will assume you have access to the following:
 * A computer that has DCS: World installed, can access the internet and has a free USB port
 * An Arduino board (the http://arduino.cc/en/Main/ArduinoBoardUno[Arduino UNO] is a good choice for beginners)
 * A momentary on push button (the kind that stays on as long as you are pressing it) 
-* An LED (any colour and/or size) but not one of those super high powered, blind if you look at it, types. 
+* An LED (any colour and/or size) but not one of those super high powered, go blind if you look at, it types. 
 * A 220ohm 1/4 watt resistor
 * 24 gauge wire or jumper wires
 
@@ -91,7 +92,11 @@ We will assume you have access to the following:
 ----
 This should take you to your DCS configuration folder (it has several subfolders including `Logs` and `Missions`).  You are looking for the `scripts folder`.  (Not all configurations may have a scripts folder. Do not be concerned if you don`t have one.  Just follow these steps.)
 
+If you don't see a `Scripts` subfolder, copy the entire `Scripts` folder from where you extracted DCS-BIOS copy it to this directory.  You can now skip to the next step.
 There are two possible situations here.  The first one is if you don't see a `Scripts` subfolder.  If that's the case then you will copy the `Scripts` folder and all of its contents from where you extracted DCS-BIOS and paste it into `%USERPROFILE%\Saved Games\DCS`.  You can now skip to the next step.
+
+You have an existing scripts folder. We want you to go back to where you extracted DCS-BIOS and copy the contents of that scripts folder and paste it into your existing scripts folder with the exception of the "export.lua file".  The reason we make this exception is that if you have an existing export.lua file, we don't want you overwriting it with our export.lua file.  However, If you didn't have one in the first place, then go get it from where you extracted DCS-BIOS (in the scripts folder of course).  Copy it and then paste it into your scripts folder. (I told you it was long winded)
+
 If you had an existing scripts folder you may also have an existing `Export.lua` file.  DO NOT COPY the `Export.lua` file from the DCS-BIOS download.
 Instead, you are going to make a small change to your own export.lua file.  This next part is important.  Do not use word processing software or the notepad that comes with Windows to make this change.  They may leave their own coding behind which could cause the file become corrupt.  Instead, you are going to download and install `Notepad++` This program is designed to edit files without contaminating them with extra coding.  
 Go to http://notepad-plus-plus.org/download/v6.6.9.html
@@ -101,7 +106,8 @@ Once Notepad++ is installed you need to open your existing `Export.lua`.  Copy a
 ----
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOS.lua]])
 ----
-Once you have completed that small change, save the file.  That is the only change you need to make.  Now we move on to the good stuff...connecting switches and LEDs.
+NOTE: DCS-BIOS is now installed and enabled.
+Time for some fun...
 
 ==== Step 2: Connecting your LED and Push Button Switch
 
