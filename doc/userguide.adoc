@@ -81,7 +81,7 @@ We will assume you have access to the following:
 * A 220ohm 1/4 watt resistor
 * 24 gauge wire or jumper wires
 
-=== Step by Step
+=== Our Step by Step Instructions:
 ==== Step 1: Setting up DCS-BIOS
 
 1.1 Download the latest release of DCS-BIOS from https://github.com/jboecker/dcs-bios/releases[GitHub] and extract the ZIP file somewhere on your hard drive
@@ -92,7 +92,7 @@ We will assume you have access to the following:
 ----
 This should take you to your DCS configuration folder (it has several subfolders including `Logs` and `Missions`).  You are looking for the `scripts folder`.  (Not all configurations may have a scripts folder. Do not be concerned if you don`t have one.  Just follow these steps.)
 
-1.3 If you see a scripts folder then move to step1.4.  If you don't see a `Scripts` subfolder don't worry as we will provide on for you.  Go back to where you extracted DCS-BIOS to and copy our `Scripts` folder (and its contents) from there and paste it into your Saved Games\DCS directory.  You now have scripts folder and can skip step 1.4 and 1.5 ... or you can read it and get totally confused.  So don't read it.  Go directly to step1.6.
+1.3 If you see a scripts folder, stop reading and go directly to step 1.4.   If you don't see a `Scripts` subfolder don't worry as we will provide one for you.  Go back to where you extracted DCS-BIOS to and copy our `Scripts` folder (and its contents) from there and paste it into your Saved Games\DCS directory.  You now have a scripts folder and can skip step 1.4 and 1.5 ... or you can read it and get totally confused.  So don't read it.  Go directly to step1.6.
 1.4 This step is for all those folks that already have a scripts folder.  So now what?  This next part is a little long winded and you may need to read it over again just to make sure you thoroughly understand what to do.
 
 You have an existing scripts folder and we want you to add some files to it that we provide. To do that you must go back to where you extracted DCS-BIOS and copy just the contents of our scripts folder and paste it into your existing scripts folder with the exception of the "export.lua file".
@@ -111,7 +111,10 @@ Once, Notepad++ is installed you need to open your existing `Export.lua`.  Copy 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOS.lua]])
 ----
 Once you have completed that small change, save the file and go to step 1.6.
+
 1.6  Go to step 2 as DCS-BIOS is now installed and enabled.
+
+
 
 NOTE: Time for some fun...
 
@@ -137,42 +140,58 @@ I imagine your next question is "what is an IDE".  The Arduino IDE is a program 
    
 . Download and install the Arduino IDE http://arduino.cc/en/Main/Software[from the Arduino website.]
 
-* Download the https://github.com/dcs-bios/dcs-bios-arduino-library/releases[DCS-BIOS Arduino library] from GitHub.
-DO NOT extract it.  The Arduino IDE prefers to install its libraries directly from "unzipped" zip files.  It also doesn't matter where you download the file to as long as YOU know where it is since you will need to point to its location in the next step.
+The Arduino IDE uses what are referred to as "Libraries" to help you make various types of devices work properly using a minimum of commands.  There are librabries for using LCD displays, stepper motors, servos etc.  It's an endless list. We have produced such a library for using DCS-BIOS and it is called the DCS-BIOS Arduino library.  As with all libraries, it was developed to make your life easier when it comes to writing a sketch.  However, Libraries need to be installed and this next step will guide you through that process.
+
+* Download the https://github.com/dcs-bios/dcs-bios-arduino-library/releases[DCS-BIOS Arduino library] from GitHub.  DO NOT extract it.  It also doesn't matter where you download the file to as long as YOU know where it is as you will need to point to its location in the next step.
 
 * Start the Arduino IDE
 * Click `Sketch -> Import Library -> Add Library...` and then go find the ZIP file you downloaded "DCS-BIOS Arduino library.zip" and select it.  That's all there is to importing libraries into the IDE.
 
 * Close and re-open your Arduino IDE.  You are now ready to start you first sketch.
 
+==== Step 4: Create a skecth for your Arduino board
+*Congratulations, you have completed all of the one-time setup steps.*
+From now on any panel that you create will only require you to complete following instructions.
+
 
 ==== Step 4: Create a sketch for your Arduino board
 
-Congratulations, you have completed all of the one-time setup steps.
-From now on any panel that you create will only require you to complete the following instructions.
+
 
 You are now going to create a sketch for your Arduino board.  In order to simplify this process you will begin your sketch by opening a "template" that we have provided.   Until you become an Arduino programming expert you will start every new sketch with this template.  It provides all of the essential code necessary to communicate with DCS.  It  automatically reads the state of your connected switches and reports this to DCS-BIOS which then updates the switches of your DCS aircraft.  This ensures that whatever you switches are set to at start up, you aircraft also will be set that way.
  
 Another function of this template is to automatically gather output data from DCS.  You can use this data to make gauges function, displays work or indicator lights to light up.  We will provide you with several examples in the appendix. 
 
 
-NOTE: Take care not to alter any of the existing code in template as you work on your sketch.  
+NOTE: Take special care not to alter any of the existing code in template as you work on your sketch.  
 
 ==== So lets begin:
 
-. * Click `File -> Examples -> DcsBios -> TemplateSketch` to open the template program that comes with the DCS-BIOS Arduino library.
+* Click `File -> Examples -> DcsBios -> TemplateSketch` to open the template program that comes with the DCS-BIOS Arduino library.
 
-To complete the template program, you are going to copy snippets or lines of code from the reference documentation.  So lets go get this code...But Where is it ?  Keep reading.
-. Open the reference documentation in a browser by double-clicking the file `protocol-reference.html` which is located in the `doc` folder in your DCS-BIOS download.
+To develop a sketch for your panel, you are going to copy snippets or lines of code from a reference document that we have provided.  So lets go get this code...But Where is it ?  Keep reading.
 
-. Go to your saved Games folder/DCS-BIOS and double-click on the file `protocol-reference.html` which is located in the `doc` folder in your DCS-BIOS download.  Your web browser will automatically open and either display all sorts of colorful headings and code or you will see a red warning followed by a bunch of nonsense.  In that case you need to enable JavaScript in your web browser and reload the page.  There is usually a box at the bottom of your screen that appears and asks you if you want to display "active content".  You need to say yes.
 
-This web page lists every switch, push button and rotary knob that DCS-BIOS knows about and the corresponding code that you will use to create your "Sketch".
+* Go to your saved Games folder/DCS-BIOS and double-click on the file `protocol-reference.html` which is located in the `doc` folder in your DCS-BIOS download.  Your web browser will automatically open and either display all sorts of colorful headings and code or you will see a red warning followed by a bunch of nonsense.  In that case you need to enable JavaScript in your web browser and reload the page.  There is usually a box at the bottom of your screen that appears and asks you if you want to display "active content".  You need to say yes.
+
+This web page is the reference document we were referring too. It lists every single DCS module (Only the A10 for now but it will) and every single panel found in that aircraft and every single corresponding switch, push button and rotary knob or whatever assoicated with that panel and the corresponding code that you will use to create your "Sketch".  This is one huge document, or at least it will be when its complete.
  
-Also provided along the top of the web page are "filters" in the form of drop down menus that can be use to show precisely what you are looking for.  You have the choice of what aircraft you would like to work with (The A10 is your only choice at the moment), the type of information you would like displayed (basic or advanced) and every single panel on the aircraft you chose to work with.  Stay away from the advanced tab until you know what you are doing.
+You will find along the top of the web page, "filters" in the form of drop down menus that can be use to display precisely what you are looking for.  You have the choice of what aircraft you would like to work with (The A10 is your only choice at the moment), the type of information you would like displayed (basic or advanced) and every single panel on the aircraft you chose to work with.  Stay away from the advanced tab until you know what you are doing.  And finally there is the filter thats lets you display information on the panel of your choice.
 
-The first line is the Master Caution Light.  Copy this line of code and paste it into the sketch as shown.  The contents of this line, for the most part, will not mean much to you.  Just make sure you copy the *entire line*. The Arduino/DCS-BIOS uses that information and thats basically all you need to know. What you do need to pay attention to is the notation highlighted in italic red.  
+* Set your filters accordingly for the Up Front Controller
 
+The first entry should be the one for the Master Caution Light.
+
+* just left click in the box with the yellow background and then right click and choose "Copy".  Now move to the Arduino IDE and paste this line in the space just below where it says " paste your code below here"  I would say thats pretty simple.   
+
+* Scroll down a bit until you come to the `UFC_MASTER_CAUTION / Master Caution Reset` entry.
+Note that it comes with two code snippets.
+
+* As before, left click in the box with the yellow background and then right click and choose "Copy". Move to the Arduino IDE and paste this line in the space below the last one.
+
+Did you notice the red highlighting in the reference document?  It highlights the word "PIN" or "PIN_A, PIN_B" etc.  The idea here is that the switch you use to reset the master Caution is located at Pin 10 on the Arduino board.  You now need to change all notations of "PIN" to whatever pin you selected for that switch or LED.
+
+Because you want to connect a LED, copy the second snippet to your Arduino sketch.
 In the reference documentation, `PIN` is highlighted in red in the example code.
 That means once you finished pasting this line into the Arduino IDE you will have to replace that with the pin number you have connected the LED to.
 
@@ -183,8 +202,7 @@ DcsBios::LED masterCaution(0x108e, 0x0008, 13);
 ----
 
 Now scroll down to the `UFC_MASTER_CAUTION / Master Caution Reset` entry.
-This represents the push button that resets the master caution warning.
-
+ 
 In the reference documentation, you see it has example code for a `DcsBios::Switch2`, which is used for toggle switches and push buttons.
 As you did with the Master Caution Light, copy the example code snippet and paste it into your sketch.
 We connected the push button to pin `10` earlier, so replace `PIN` with `10`.
