@@ -99,7 +99,7 @@ You have an existing scripts folder and we want you to add some files to it that
 
 NOTE: The reason we make this exception is that if you already have an existing export.lua file, we don't want you overwriting it with our export.lua file.  
 
-So check first and see if you have one.  If you do, then don't bother reading any more of this step and go immediately to step 1.5.  However, if you don't have one, then we will provide one for you.  Go back to where you extracted DCS-BIOS to and find our export.lua file (it's in the scripts folder of course).  Copy it and then paste it into your scripts folder. Because you are using our export.lua file you can skip step1.5 all together and go immediately to step 1.6. (I told you it was long winded)
+So check first and see if you have one.  If you do, then don't bother reading any more of this step and go immediately to step 1.5.  If you don't have one, then we will provide one for you.  Go back to where you extracted DCS-BIOS to and find our export.lua file (it's in the scripts folder of course).  Copy it and then paste it into your scripts folder. Because you are using our export.lua file you can skip step1.5 all together and go immediately to step 1.6. (I told you it was long winded)
 
 The next situation to consider is " I already have an export.lua file" in my scripts folder.  Great, that makes things easy. 
 What you are going to do now is make a small change to your export.lua file.  And how might this be accomplished you ask.  Well firstly, do not use word processing software or the notepad that comes with Windows.  These programs may leave their own coding behind which could cause the file your working on (the export.lua file...remember?) to become corrupt.  Instead, you are going to download and install `Notepad++` This program is designed to edit files without contaminating them with extra coding.  
@@ -115,47 +115,57 @@ Once you have completed that small change, save the file and go to step 1.6.
 
 NOTE: Time for some fun...
 
+
 ==== Step 2: Connecting your LED and Push Button Switch
 
-* take a few minutes and have a look at the Arduino board you are using.  It has a  bunch of holes that you can plug wires into.  They are all labeled.  If I were you I would spend a few minutes on the Arduino web site and do a bit of reading on the basics of using Arduino boards or maybe look at a couple of the intro YouTube videos. I'm sure you took some time to read up on how to fly an A10C so take a bit of time now and read a little on Arduino. It will help you as you move forward to more complex switch panels. Enough rambling and on to the first step.  Connect your push button switch to your Arduino board at pin 10 and pin GND (ground).  There are several grounds on the board and they are all connected together so it doesn't matter which one you choose.
+Take a few minutes and have a look at the Arduino board you are using.  It has a  bunch of holes that you can plug wires into.  They are all labeled.  I might suggest that you spend a few minutes on the Arduino web site and do a bit of reading on the basics of using Arduino boards. Or maybe look at a couple of the intro YouTube videos. I'm sure you took some time to read up on how to fly an A10 so take a bit of time beforehand to read a little bit on Arduino. It will help you as you move forward to more complex switch panels. Enough rambling.  On to the first step.  
 
-* Connect your LED and a 220 ohm 1/4 watt current limiting resistor in series between the Arduino pins 13 and GND (ground).
+* Connect your push button switch to your Arduino board at pin 10 and pin GND (ground).  There are several grounds on the board and they are all connected together so it doesn't matter which one you choose.
+
+* Connect your LED and current limiting resistor to the Arduino board at pin 13 and pin GND (ground).  Be sure to pay attention to the polarity of the LED before you connect it.  Nothing will start smoking if you connect it backwards.  It just won't work until its connected properly.
 
 * Plug your Arduino board into a USB port.  If any drivers are required there will be instructions as to how to install them.  It does vary between Arduino boards but it no different than installing a headset or joystick.  The USB port provides power to the Arduino board but you can use a wallwart providing its 12v.  There is an onboard jack to plug into.
 
-You have now completed all of the required wiring for you first switch panel.
+*You have now completed all of the required wiring for you first switch panel.*
+
+NOTE: The USB port provides power to the Arduino board but many boards also have a jack that allows you use an external power supply such as a wallwart providing its 12v. 
+
+
 
 ==== Step 3: Set up the Arduino IDE
 I imagine your next question is "what is an IDE".  The Arduino IDE is a program that you will download and install on to your PC.  It is similar to a word processing program except this it is used to write small programs (they are called sketches) and upload them to your Arduino board.  You should probably read the page describing how to use the IDE on the Arduino web site.  It is very simple and you should have little to no difficulty understanding what to do.  So to continue...
    
-* Download and install the Arduino IDE http://arduino.cc/en/Main/Software[from the Arduino website.]
+. Download and install the Arduino IDE http://arduino.cc/en/Main/Software[from the Arduino website.]
 
 * Download the https://github.com/dcs-bios/dcs-bios-arduino-library/releases[DCS-BIOS Arduino library] from GitHub.
 DO NOT extract it.  The Arduino IDE prefers to install its libraries directly from "unzipped" zip files.  It also doesn't matter where you download the file to as long as YOU know where it is since you will need to point to its location in the next step.
-+
-. Start the Arduino IDE
-. Click `Sketch -> Import Library -> Add Library...` and then go find the ZIP file you downloaded "DCS-BIOS Arduino library.zip" and select it.  That's all there is to importing libraries into the IDE.
-. Close and re-open your Arduino IDE
 
-==== Step 4: Create a program for your Arduino board
+* Start the Arduino IDE
+* Click `Sketch -> Import Library -> Add Library...` and then go find the ZIP file you downloaded "DCS-BIOS Arduino library.zip" and select it.  That's all there is to importing libraries into the IDE.
+
+* Close and re-open your Arduino IDE.  You are now ready to start you first sketch.
+
+
+==== Step 4: Create a sketch for your Arduino board
 
 Congratulations, you have completed all of the one-time setup steps.
-From now on any panel that you create will only require you to complete steps  4 and 5.
+From now on any panel that you create will only require you to complete the following instructions.
 
-In this step, you are going to create a program for your Arduino board.
-Each program (sketch) you create will use a basic template that we have provided. This template automatically reads the state of your connected switches and reports this to DCS-BIOS which then updates the switches of your DCS aircraft.  This ensures that whatever you switches are set to, you aircraft will be synced to them.
+You are now going to create a sketch for your Arduino board.  In order to simplify this process you will begin your sketch by opening a "template" that we have provided.   Until you become an Arduino programming expert you will start every new sketch with this template.  It provides all of the essential code necessary to communicate with DCS.  It  automatically reads the state of your connected switches and reports this to DCS-BIOS which then updates the switches of your DCS aircraft.  This ensures that whatever you switches are set to at start up, you aircraft also will be set that way.
  
 Another function of this template is to automatically gather output data from DCS.  You can use this data to make gauges function, displays work or indicator lights to light up.  We will provide you with several examples in the appendix. 
 
 
-NOTE: Arduino programs are called "sketches".
+NOTE: Take care not to alter any of the existing code in template as you work on your sketch.  
 
-Click `File -> Examples -> DcsBios -> TemplateSketch` to open the template program that comes with the DCS-BIOS Arduino library.
+==== So lets begin:
+
+. * Click `File -> Examples -> DcsBios -> TemplateSketch` to open the template program that comes with the DCS-BIOS Arduino library.
 
 To complete the template program, you are going to copy snippets or lines of code from the reference documentation.  So lets go get this code...But Where is it ?  Keep reading.
 . Open the reference documentation in a browser by double-clicking the file `protocol-reference.html` which is located in the `doc` folder in your DCS-BIOS download.
 
-. Go to your saved Games folder/DCS-BIOS and double-click on the file `protocol-reference.html` which is located in the `doc` folder in your DCS-BIOS download.  You web browsers will automatically open and either display all sorts of colorful headings and code or you will see a red warning followed by a bunch of nonsense.  In that case you need to enable JavaScript in your web browser and reload the page.  There is usually a box at the bottom of your screen that appears and asks you if you want to display "active content".  You need to say yes.
+. Go to your saved Games folder/DCS-BIOS and double-click on the file `protocol-reference.html` which is located in the `doc` folder in your DCS-BIOS download.  Your web browser will automatically open and either display all sorts of colorful headings and code or you will see a red warning followed by a bunch of nonsense.  In that case you need to enable JavaScript in your web browser and reload the page.  There is usually a box at the bottom of your screen that appears and asks you if you want to display "active content".  You need to say yes.
 
 This web page lists every switch, push button and rotary knob that DCS-BIOS knows about and the corresponding code that you will use to create your "Sketch".
  
