@@ -2,8 +2,6 @@
 
 == Connecting to DCS-BIOS
 
-DCS-BIOS communicates over UDP.
-
 Controls in the cockpit can be manipulated by sending newline-terminated plain text commands to UDP port 7778.
 The syntax is described in the <<The DCS-BIOS Import Protocol>> section.
 
@@ -19,6 +17,12 @@ If you cannot or do not want to deal with multicast UDP, you can also make DCS-B
 
 You can also use the `socat` utility to connect a serial port (and just about anything else that can be read or written) to the DCS-BIOS import and export streams.
 For an example, take a look at the batch files that come with DCS-BIOS.
+
+Another way is to open a TCP connection to port 7778.
+You can use this connection to send commands to DCS-BIOS and receive the export data.
+If you can, use UDP instead of TCP.
+Each TCP connection slightly increases the amount of work that is performed inside of DCS (blocking the rest of the simulation).
+
 
 == The DCS-BIOS Import Protocol
 
