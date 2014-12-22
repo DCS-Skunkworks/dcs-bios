@@ -744,7 +744,7 @@ function BIOS.util.defineRockerSwitch(msg, device_id, pos_command, pos_stop_comm
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  max_value = last_n,
+			  max_value = 2,
 			  description = "selector position"
 			}
 		}
