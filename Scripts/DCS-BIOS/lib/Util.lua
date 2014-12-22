@@ -57,6 +57,14 @@ function BIOS.util.MemoryMapEntry:getValue()
 	end
 	return ret
 end
+function BIOS.util.MemoryMapEntry:setDirtyIfAble()
+	for _, alloc in pairs(self.allocations) do
+		if alloc.value ~= nil then
+			self.dirty = true
+			return
+		end
+	end
+end
 function BIOS.util.MemoryMapEntry:allocate(args)
 	assert(args.maxValue)
 	
@@ -118,7 +126,8 @@ function BIOS.util.StringAllocation:setValue(value)
 end
 
 BIOS.util.MemoryMap = {
-	baseAddress = nil
+	baseAddress = nil,
+	autosyncPosition = nil
 }
 function BIOS.util.MemoryMap:create(args)
 	assert(args.baseAddress)
@@ -126,10 +135,20 @@ function BIOS.util.MemoryMap:create(args)
 	local self = BIOS.util.shallowCopy(BIOS.util.MemoryMap)
 	self.baseAddress = args.baseAddress
 	self.lastAddress = self.baseAddress
+	self.autosyncPosition = self.baseAddress
 	self.entries = {
 		[self.baseAddress] = BIOS.util.MemoryMapEntry:create{address = self.baseAddress}
 	}
 	return self
+end
+function BIOS.util.MemoryMap:autosyncStep()
+	-- set a non-dirty value to dirty
+	self.autosyncPosition = self.autosyncPosition + 2
+	if self.autosyncPosition > self.lastAddress then
+		self.autosyncPosition = self.baseAddress -- wrap around
+	end
+	local entry = self:getEntry(self.autosyncPosition)
+	entry:setDirtyIfAble()
 end
 function BIOS.util.MemoryMap:flushData()
 	-- Return a string containing a sequence of write accesses

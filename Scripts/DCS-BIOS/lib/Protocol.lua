@@ -128,6 +128,7 @@ function BIOS.protocol.step()
 		BIOS.protocol_io.queue(string.char(0x55, 0x55, 0x55, 0x55))
 		
 		-- export global / system data
+		globalMemoryMap:autosyncStep();
 		local data = globalMemoryMap:flushData()
 		bytesInTransit = bytesInTransit + data:len()
 		BIOS.protocol_io.queue(data)
@@ -140,6 +141,7 @@ function BIOS.protocol.step()
 				v(dev0)
 			end
 			
+			acftModule.memoryMap:autosyncStep()
 			local data = acftModule.memoryMap:flushData()
 			bytesInTransit = bytesInTransit + data:len()
 			BIOS.protocol_io.queue(data)
