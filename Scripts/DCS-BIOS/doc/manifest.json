@@ -1,0 +1,16 @@
+{
+    "name": "DCS-BIOS Control Reference Live Preview",
+    "description": "Show live data from DCS inside the DCS-BIOS control reference documentation",
+    "version": "0.1",
+    "manifest_version": 2,
+	"app": {
+		"background": {
+			"scripts": ["js/chrome-extension-background.js"]
+		}
+	},
+    "sockets": {
+        "tcp": {
+            "connect": "*"
+        }
+    }
+}
