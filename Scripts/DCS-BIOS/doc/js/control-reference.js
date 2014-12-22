@@ -8,9 +8,14 @@ $(function() {
 	
 	var viewSelect = $("<select>");
 	viewSelect.append($("<option>").attr("value", "simple").text("Simple"));
-	viewSelect.append($("<option>").attr("value", "Advanced").text("Advanced"));
+	viewSelect.append($("<option>").attr("value", "advanced").text("Advanced"));
+	if (chrome && chrome.sockets && chrome.sockets.tcp) {
+		viewSelect.append($("<option>").attr("value", "livedata").text("Live Data"));
+		viewSelect.val("livedata");
+	}
 	$("#app").append($("<span>").text(" View: "));
 	$("#app").append(viewSelect);
+
 	
 	var categoryFilter = $("<select>");
 	$("#app").append($("<span>").text(" Category Filter: "));
@@ -18,6 +23,8 @@ $(function() {
 	
 	var controlsDiv = $("<div>");
 	$("#app").append(controlsDiv);
+	
+	var exportStreamListeners = [];
 	
 	var init = function() {
 		augmentData();
@@ -27,6 +34,12 @@ $(function() {
 		
 		categoryFilter.on("change", redraw);
 		viewSelect.on("change", redraw);
+		
+		$(document).on("dcs-bios-write", function(evt, address, data) {
+			_.each(exportStreamListeners, function(listener) {
+				listener(address, data);
+			});
+		});
 	}
 	
 	var defaultSnippetPrecedence = [
@@ -125,6 +138,7 @@ $(function() {
 	};
 	
 	var redraw = function() {
+		exportStreamListeners = [];
 		controlsDiv.empty();
 		_.each(moduleData, function(controls, category) {
 			if (categoryFilter.val().length > 0 && category != categoryFilter.val())
@@ -213,6 +227,22 @@ $(function() {
 	
 	var makeSnippet = function(snippet, io, control) {
 		var code = $("<code>");
+		code.on("click", function() {
+			// http://stackoverflow.com/questions/11128130/select-text-in-javascript
+			var doc = document;
+			if (doc.body.createTextRange) { // ms
+				var range = doc.body.createTextRange();
+				range.moveToElementText(this);
+				range.select();
+			} else if (window.getSelection) { // moz, opera, webkit
+				var selection = window.getSelection();
+				var range = doc.createRange();
+				range.selectNodeContents(this);
+				selection.removeAllRanges();
+				selection.addRange(range);
+			}
+		});
+		
 		var cid = control.identifier;
 		switch(snippet.type) {
 			case "ActionButton":
@@ -312,25 +342,81 @@ $(function() {
 		var div = $("<div>").attr("class", "input");
 		if (viewSelect.val() == "simple") {
 			div.append(makeSnippet(input.default_snippet, input, control));
-			return div;
 		}
-		div.append($("<b>Input Interface: </b>"));
-		div.append($("<span>").text(input["interface"]));
-		_.each(input.snippets, function(snippet) {
-			div.append(makeSnippet(snippet, input, control));
-		});
+		if (viewSelect.val() == "advanced") {
+			div.append($("<b>Input Interface: </b>"));
+			div.append($("<span>").text(input["interface"]));
+			_.each(input.snippets, function(snippet) {
+				div.append(makeSnippet(snippet, input, control));
+			});
+		}
 		return div;
 	};
 	
 	var makeOutput = function(output, control) {
 		var div = $("<div>").attr("class", "output");
 		if (viewSelect.val() == "simple") return div;
+				
+		if (viewSelect.val() == "advanced") {
+			div.append($("<b>Output Type: </b>"));
+			div.append($("<span>").text(output.type));
+			_.each(output.snippets, function(snippet) {
+				div.append(makeSnippet(snippet, output, control));
+			});
+		}
 		
-		div.append($("<b>Output Type: </b>"));
-		div.append($("<span>").text(output.type));
-		_.each(output.snippets, function(snippet) {
-			div.append(makeSnippet(snippet, output, control));
-		});
+		if (viewSelect.val() == "livedata") {
+			div.append($("<b>Output Type: </b>"));
+			div.append($("<span>").text(output.type));
+			
+			var currentValueWrapper = $("<span>");
+			div.append(currentValueWrapper);
+			currentValueWrapper.append($("<b> Current Value: </b>"));
+			var currentValue = $("<span>").text("unknown");
+			if (output.type == "integer") {
+				var currentValueRotation = $('<span class="arrow">↑</span>').css({ "display": "inline-block;" });
+				var currentValuePercent = $('<span style="color: orange;">');
+				currentValueWrapper.append(currentValueRotation);
+				currentValueWrapper.append(currentValue);
+				currentValueWrapper.append(currentValuePercent);
+				exportStreamListeners.push(function(address, data) {
+					if (address[0] == output.address) {
+						var value = (data[0] & output.mask) >> output.shift_by;
+						currentValue.text(value.toString());
+						var percent = value / output.max_value * 100;
+						currentValuePercent.text(" ("+parseInt(percent).toString()+"%)");
+						var rotationDeg = value / (output.max_value+1) * 360;
+						currentValueRotation.css({ "WebkitTransform": "rotate("+rotationDeg.toString()+"deg)" });
+					}
+				});
+			}
+			if (output.type == "string") {
+				currentValue.attr("style", "font-family: monospace; white-space: pre;");
+				currentValueWrapper.append(currentValue);
+				var stringLengthLabel = $("<span>");
+				currentValueWrapper.append(stringLengthLabel);
+				var stringBuffer = new ArrayBuffer(output.max_length);
+				var view = new DataView(stringBuffer);
+				var stringBuffer_uint8 = new Uint8Array(stringBuffer);
+				exportStreamListeners.push(function(address, data) {
+					if (address[0] >= output.address && output.address + output.max_length > address[0]) {
+						var data_uint8 = new Uint8Array(data.buffer);
+						stringBuffer_uint8[address[0] - output.address] = data_uint8[0];
+						if (output.address + output.max_length > (address[0]+1)) {
+							stringBuffer_uint8[address[0] - output.address + 1] = data_uint8[1];
+						}
+						
+						var str = "";
+						for (var i=0; i<stringBuffer.byteLength; i++) {
+							if (stringBuffer_uint8[i] == 0) break;
+							str = str + String.fromCharCode(stringBuffer_uint8[i]);
+						}
+						currentValue.text('"'+str+'"');
+						stringLengthLabel.text(" ("+str.length.toString()+")");
+					}
+				});
+			}
+		}
 		
 		return div;
 	};

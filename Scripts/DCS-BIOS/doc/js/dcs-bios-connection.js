@@ -87,6 +87,10 @@ function rawStringToBuffer( str ) {
 }
 
 $(function() {
+	if (!chrome || !chrome.sockets || !chrome.sockets.tcp) {
+		return; // not running as chrome app
+	}
+	
     var socketId;
 	var parser = ProtocolParser();
 	
@@ -118,13 +122,4 @@ $(function() {
 		chrome.sockets.tcp.send(socketId, rawStringToBuffer(msg));
 	});
 	
-	/*
-	$(document).on("dcs-bios-write", function(evt, address, data) {
-		if (address[0] == 0x10ba) {
-			$("#text").val(data[0].toString());
-			var degree = data[0] / 65535 * 360;
-			$("#arrow").css({"WebkitTransform": "rotate("+parseInt(degree)+"deg)"});
-		}
-	});
-	*/
 });
