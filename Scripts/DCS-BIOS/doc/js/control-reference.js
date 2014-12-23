@@ -260,7 +260,7 @@ $(function() {
 			break;
 			
 			case "RotaryEncoder_variable_step":
-			code.append($("<span>").text('DcsBios::RotaryEncoder '+idCamelCase(cid)+'("'+cid+'", "-'+io.suggested_step.toString()+'", "+'+io.suggested_step.toString()+', '));
+			code.append($("<span>").text('DcsBios::RotaryEncoder '+idCamelCase(cid)+'("'+cid+'", "-'+io.suggested_step.toString()+'", "+'+io.suggested_step.toString()+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_A"));
 			code.append($("<span>").text(", "));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_B"));
@@ -274,7 +274,7 @@ $(function() {
 			break;
 			
 			case "Switch3":
-			code.append($("<span>").text('DcsBios::Switch2 '+idCamelCase(cid)+'("'+cid+'", '));
+			code.append($("<span>").text('DcsBios::Switch3 '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_A"));
 			code.append($("<span>").text(", "));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_B"));
@@ -282,7 +282,7 @@ $(function() {
 			break;
 			
 			case "Potentiometer":
-			code.append($("<span>").text('DcsBios::Potentiometer '+idCamelCase(cid)+'("'+cid+'", "'));
+			code.append($("<span>").text('DcsBios::Potentiometer '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
 			code.append($("<span>").text(");"));
 			break;
@@ -299,7 +299,7 @@ $(function() {
 			code.append($("<span>").text("if (address == "+hex(io.address)+") {"));
 			code.append($("<br>"));
 			code.append($("<span>").html("&nbsp;&nbsp;&nbsp;&nbsp;"));
-			code.append($("<span>").text("unsigned int "+idCamelCase(cid+io.suffix)+"Value = (value & "+hex(io.mask)+" >> "+io.shift_by.toString()+");"));
+			code.append($("<span>").text("unsigned int "+idCamelCase(cid+io.suffix)+"Value = (value & "+hex(io.mask)+") >> "+io.shift_by.toString()+";"));
 			code.append($("<br>"));
 			code.append($("<span>").html("&nbsp;&nbsp;&nbsp;&nbsp;"));
 			code.append($("<span>").text("/* your code here */"));
@@ -346,6 +346,21 @@ $(function() {
 		if (viewSelect.val() == "advanced") {
 			div.append($("<b>Input Interface: </b>"));
 			div.append($("<span>").text(input["interface"]));
+			div.append($("<b> Message: </b>"));
+			div.append($("<span>").text(control.identifier));
+			if (input["interface"] == "action")
+				div.append($("<span>").text(" "+input.argument));
+			if (input["interface"] == "fixed_step")
+				div.append($("<span>").text(" <DEC|INC>"));
+			if (input["interface"] == "variable_step")
+				div.append($("<span> &lt;new_value&gt;|-&lt;decrease_by&gt;|+&lt;increase_by&gt;</span>"));
+			if (input["interface"] == "set_state") {
+				div.append($("<span>").text(" <new_value>"));
+				div.append($("<b>").text(" Value Range:"));
+				div.append($("<span>").text(" 0 ... "+input.max_value.toString()));
+			}
+			div.append($("<b> Description: </b>"));
+			div.append($("<span>").text(input.description));
 			_.each(input.snippets, function(snippet) {
 				div.append(makeSnippet(snippet, input, control));
 			});
@@ -360,6 +375,22 @@ $(function() {
 		if (viewSelect.val() == "advanced") {
 			div.append($("<b>Output Type: </b>"));
 			div.append($("<span>").text(output.type));
+			div.append($("<b> Address: </b>"));
+			div.append($("<span>").text(hex(output.address)));
+			if (output.type == "integer") {
+				div.append($("<b> Mask: </b>"));
+				div.append($("<span>").text(hex(output.mask)));
+				div.append($("<b> Shift By: </b>"));
+				div.append($("<span>").text(output.shift_by));
+				div.append($("<b> Max. Value: </b>"));
+				div.append($("<span>").text(output.max_value));
+			}
+			if (output.type == "string") {
+				div.append($("<b> Max. Length: </b>"));
+				div.append($("<span>").text(output.max_length));
+			}
+			div.append($("<b> Description: </b>"));
+			div.append($("<span>").text(output.description));
 			_.each(output.snippets, function(snippet) {
 				div.append(makeSnippet(snippet, output, control));
 			});
