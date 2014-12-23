@@ -260,7 +260,7 @@ $(function() {
 			break;
 			
 			case "RotaryEncoder_variable_step":
-			code.append($("<span>").text('DcsBios::RotaryEncoder '+idCamelCase(cid)+'("'+cid+'", "-'+io.suggested_step.toString()+'", "+'+io.suggested_step.toString()+', '));
+			code.append($("<span>").text('DcsBios::RotaryEncoder '+idCamelCase(cid)+'("'+cid+'", "-'+io.suggested_step.toString()+'", "+'+io.suggested_step.toString()+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_A"));
 			code.append($("<span>").text(", "));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_B"));
@@ -274,7 +274,7 @@ $(function() {
 			break;
 			
 			case "Switch3":
-			code.append($("<span>").text('DcsBios::Switch2 '+idCamelCase(cid)+'("'+cid+'", '));
+			code.append($("<span>").text('DcsBios::Switch3 '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_A"));
 			code.append($("<span>").text(", "));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_B"));
@@ -282,7 +282,7 @@ $(function() {
 			break;
 			
 			case "Potentiometer":
-			code.append($("<span>").text('DcsBios::Potentiometer '+idCamelCase(cid)+'("'+cid+'", "'));
+			code.append($("<span>").text('DcsBios::Potentiometer '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
 			code.append($("<span>").text(");"));
 			break;
@@ -299,7 +299,7 @@ $(function() {
 			code.append($("<span>").text("if (address == "+hex(io.address)+") {"));
 			code.append($("<br>"));
 			code.append($("<span>").html("&nbsp;&nbsp;&nbsp;&nbsp;"));
-			code.append($("<span>").text("unsigned int "+idCamelCase(cid+io.suffix)+"Value = (value & "+hex(io.mask)+" >> "+io.shift_by.toString()+");"));
+			code.append($("<span>").text("unsigned int "+idCamelCase(cid+io.suffix)+"Value = (value & "+hex(io.mask)+") >> "+io.shift_by.toString()+";"));
 			code.append($("<br>"));
 			code.append($("<span>").html("&nbsp;&nbsp;&nbsp;&nbsp;"));
 			code.append($("<span>").text("/* your code here */"));
