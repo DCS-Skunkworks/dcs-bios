@@ -152,7 +152,7 @@ It just won't work until its connected properly.
 
 When complete your curcuit should look like this:
 
-image::uno1.jpg[650, 650]
+image::uno1.jpg[651, 651]
 
 
 
@@ -380,10 +380,10 @@ With DCS-BIOS, it's straight forward.
 
 == A Closer Look at The DCS-BIOS Arduino Library
 
-This tutorial will show you how to read the DCS-BIOS reference documentation to create a sketch for any panel in the cockpit.
+This tutorial will show you how to read the DCS-BIOS control-reference documentation to create a sketch for any panel in the cockpit.
 
 It will cover all of the different control types that are supported by the Arduino library.
-The information provided at this point will require some level of knowledge with Arduino programming.
+The information provided at this point may require some level of knowledge with Arduino programming.
 
 === The MasterCaution Example Sketch
 
@@ -394,49 +394,26 @@ This section takes a closer look at the different parts of the MasterCaution exa
 #include <DcsBios.h> // <1>
 #include <Servo.h>
 
-/* Declare a Master Caution Reset button on pin 10 */ // <2>
+/* paste your code below this line */ // <2>
 DcsBios::Switch2 masterCautionBtn("UFC_MASTER_CAUTION", 10);
-/* Make the LED connected to pin 13 into a Master Caution Light */
 DcsBios::LED mcLed(0x108e, 0x0008, 13);
 
-/* Instantiate a ProtocolParser object to parse the DCS-BIOS export stream */
+/* Do Not change anything below this line unless you know what you are doing */
 DcsBios::ProtocolParser parser; // <3>
 
 void setup() {
   Serial.begin(500000); // <4>
 }
 
-/*
-Your main loop needs to pass data from the DCS-BIOS export
-stream to the parser object you instantiated above.
-
-It also needs to call DcsBios::PollingInput::pollInputs()
-to detect changes in the state of connected controls and
-pass them on to DCS.
-*/
 void loop() {
-  // feed incoming data to the parser
-  while (Serial.available()) {
+    while (Serial.available()) {
       parser.processChar(Serial.read()); // <5>
   }
   
-  // poll inputs
-  DcsBios::PollingInput::pollInputs(); // <6>
+    DcsBios::PollingInput::pollInputs(); // <6>
 }
 
-/*
-You need to define
-void sendDcsBiosMessage(const char* msg, const char* arg)
-so that the string msg, followed by a space, the string arg
-and a newline gets sent to the DCS-BIOS import stream.
 
-In this example we send it to the serial port, so you need to
-run socat to read the data from the serial port and send it
-over UDP to DCS-BIOS.
-
-If you are using an Ethernet Shield, you would probably want
-to send a UDP packet from this subroutine.
-*/
 void sendDcsBiosMessage(const char* msg, const char* arg) { // <7>
   Serial.write(msg);
   Serial.write(' ');
@@ -444,47 +421,42 @@ void sendDcsBiosMessage(const char* msg, const char* arg) { // <7>
   Serial.write('\n');
 }
 
-/*
-This subroutine gets called every time a write access is received
-from the export stream (you need to define it even if it
-does nothing).
-
-Use this to handle outputs which are not covered by the
-DcsBios Arduino library (e.g. displays).
-*/
 void onDcsBiosWrite(unsigned int address, unsigned int value) { // <8>
   
 }
 ----
 
-<1> Include the neccessary header files.
-This ensures that the Arduino IDE will bring in the required libraries during the compilation process.
-Even if your sketch does not use the `ServoOutput` class you still have to include `Servo.h`.
-Otherwise your sketch will not compile.
+<1> These are libraries that have been included to make you sketch function apropriately.  
+They are always placed at the beginning of a sketch.  
+It ensures that the Arduino IDE will bring in the required libraries when it compilies your sketch for uploading to your board.  
+In addition to the `DCS-BIOS.h` library you will also see that the `Servo.h` library has been included.
+Please take note that even if your sketch does not use the `ServoOutput` class of controls you still have to include `Servo.h`. 
+Otherwise your sketch will fail to load.
 
-<2> Tell the library what types of controls are connected to your Arduino.
+<2> This is the code you have cut and pasted from the control-reference document.  It tells the library what types of controls you are connecting to your Arduino board.
 DCS-BIOS knows how to handle push buttons, toggle switches, rotary encoders, rotary switches, potentiometers, LEDs and servo motors.
-If you want to use one of these control types, refer to the next section to learn how to read the reference documentation and find out what to put here.
+The Arduino Library Reference (below) documents all of the controls that are available to use. 
+
 
 <3> Create an object of type `DcsBios::ProtocolParser`.
-We will need this later.
-
-<4> In the `setup()` function, we set up the serial port to run at a speed of 500000 bps.
+This is code that you need not be concerned with other than you should not change it.
+<4> This line tells the Arduino board at what speed communication will take place.
 This setting needs to match the one in `connect-serial-port.cmd`.
-500000 is the fastest the Arduino can handle and is the default.
-
-<5> In `loop()`, we read data from the serial port and feed it to the `DcsBios::ProtocolParser` we created above.
-
-<6> We also need to call `DcsBios::PollingInput::pollInputs()`.
-This causes the DcsBios library to check the state of all connected inputs such as push buttons, rotary encoders, etc. and send a message to your DCS computer if they have changed.
-
-<7> The DcsBios Arduino library expects you to supply a function called `sendDcsBiosMessage` that knows how to send a message to your DCS computer.
-In this case, we simply write the message to the serial port.
-
-<8> The DcsBios Arduino library calls `onDcsBiosWrite` whenever it receives data from DCS.
-This is the place to handle output when the DcsBios library does not have a pre-made class that fits your needs, for example when you want to connect a display for a radio frequency.
-Even when it is empty, this function must exist.
-The compiler will complain otherwise.
+500000 is the fastest the Arduino can handle and is the default.  
+You will probably not need to adjust this whatsoever .
+<5> This statement creates a `loop()` so the Arduino will continually read data from DCS. It then sends it to the `DcsBios::ProtocolParser` for additional processing.
+<6> DcsBios::PollingInput::pollInputs()` causes the DCS-BIOS library to check the state of all of your connected push buttons, toggle switches, rotary encoders, etc. If it finds that something has changed it sends a message to DCS to initiate that same change.  
+You push your button...DCS shows that button being pushed.
+<7> This line is used to tell the Arduino to communicate via "serial port".
+Its nothing you will need to change.
+It can, however, be modified so you can use TCP or UDP to communicate.
+We anticiapte a majority of installation will probably use a serial port.
+<8> Data that the Ardiuno has receievd from DCS can be sent out to physical displays.
+Such display might include LED displays, LCD displays, Gauges etc.
+This is the line that you would modify to obtain that data.
+However, even if you do not intend to display anything you still must include this function.
+If you do not, your sketch will fail to upload.  
+The code required to obtain the data you wish to display is found in the "Control-Reference" document. 
 
 === Using the Reference Documentation
 Recall the following part from the MasterCaution example:
@@ -494,46 +466,71 @@ DcsBios::Switch2 masterCautionBtn("UFC_MASTER_CAUTION", 10);
 DcsBios::LED masterCautionLED("MASTER_CAUTION", 13);
 ----
 
-Unless you are doing something more advanced such as using something other than a serial port to talk to your DCS computer, this is the only part you need to modify.
+Unless you are doing something more advanced such as using something other than a serial port to talk to your DCS computer, this is the only part you need be concerned with.
 
 Even without knowing much about DCS-BIOS, you might have guessed that this says there is a push button connected to pin 10 that should operate the master caution button and that the LED on pin 13 should light up then the master caution button does.
 
 But how do you know what to put here for other controls?
-You will have to consult the reference documentation.
+You will have to consult the "Control-Reference" documentation.
 
 ==== Locating the Reference Documentation
 
-The reference documentation is included in the `doc/` subdirectory in the DCS-BIOS download.
-Simply double-click `protocol-reference.html` to open it in your web browser.
+The Control-Reference documentation is included in the `doc/` subdirectory in the DCS-BIOS download.
+Simply double-click `Control-Reference.html` to open it in your web browser.
 
 NOTE: If all you see is a big red warning, you need to enable JavaScript and reload the page.
-
-==== Controls
-In your virtual cockpit you will find lots of toggle switches, buttons and rotary knobs.
-DCS-BIOS refers to them as controls.
-
-Each control is identified by a unique identifier and is associated with a category, which is usually the panel it is found on in the virtual cockpit.
-
-Some knobs in your cockpit are represented as two separate controls.
-For example, the volume controls on the A-10C intercom panel have one DCS-BIOS control for the volume and a separate for the mute function.
 
 ==== Finding the Control You Are Looking For
 
 Use the "Category Filter" dropdown box and your browser's search function to quickly find what you are looking for.
 
 
+==== Supported Controls
+DCS-BIOS refers to switches, rotary encoders, potentiometers, push buttons etc. as " CONTROLS".
+The following are all of the supported Controls available in DCS-BIOS:
+
+* `DcsBios::ActionButton`
+
+* `DcsBios::Switch2`.  defines a 2 position swich
+
+* `DcsBios::Switch3`. defines a 3 position switch
+
+* `DcsBios::RotarySwitch`. defines a rotary switch, you provide how many positions
+
+* `DcsBios::potentiometer`. defines a potentiometer
+
+* `DcsBios::RotaryEncoder`. defines a rotary encoder
+
+DCS-BIOS also includes indicator LED's in the Controls as follows:
+
+* `DcsBios::LED`. defines an LED
+
+Each control is identified by a unique identifier and is associated with a category, which is usually the panel it is found on in the DCS aircraft cockpit.
+
+.example:
+`DcsBios::Switch2 ahcpCicu("AHCP_CICU", PIN);` 
+
+* whereas `ahcpCicu` indicates the CICU switch on the AHCP panel.  
+
+* The first notation between the brackets `"AHCP_CICU"` is a placeholder for a piece of data that gets sent to DCS when a change occurs to a pin on the Arduino board.  
+
+* The second notation `PIN` is also a placeholder however, you have to replace it with the pin number that your control is attached to.  In the Control-Reference document, placeholder that require you to assign a specific pin number to are always highlighted in"RED"
+There also a few knobs/switches in your cockpit represented with two separate controls.
+For example, the volume controls on the A-10C intercom panel have one DCS-BIOS control for the volume and a separate control for the mute function.
+
 ==== Input Interfaces
 
 NOTE: To make sense of the following, select "Advanced" in the "View" dropdown box at the top of the page.
 
-Each DCS-BIOS control can support multiple _input interfaces_.
 An _input interface_ allows you to control something in the cockpit by sending a message to DCS-BIOS.
+Each DCS-BIOS control can support multiple _input interfaces_.
 For example, you can toggle the CICU switch in the A-10C by sending `AHCP_CICU TOGGLE`.
 
-A message starts with the identifier of the control you want to manipulate, followed by a space, an _argument_, and a newline character.
+A message starts with the identifier of the control you want to manipulate, followed by a space, an _argument_, and a semi-colon.
 Different input interfaces understand different arguments.
 
 Depending on the type of input interface, the reference documentation will offer different pieces of example code.
+
 
 .Types of input interfaces
 
@@ -545,6 +542,7 @@ NOTE: The range of acceptable values is 0 to the maximum value of the control's 
 The reference documentation will offer example code for a `DcsBios::RotarySwitch` and (where appropriate) a `DcsBios::Switch2` or `DcsBios::Switch3`.
 
 fixed_step:: If a control supports the _fixed_step_ interface, you can increase its position with an `INC` argument and decrease its position with a `DEC` argument.
+An example would be a rotary encoder used to change the frequency of a VHF radio.
 +
 The reference documentation will offer example code for a `DcsBios::RotaryEncoder`.
 
@@ -597,7 +595,6 @@ After choosing a code example, copy it to your Arduino sketch (refer back to the
 
 Refer to the next section for more detailed information on the individual classes, including example circuits.
 
-
 == Arduino Library Reference
 === ActionButton
 
@@ -614,7 +611,11 @@ argument:: The argument that should be sent.
 pin:: The number of the Arduino pin the button is connected to.
 
 .Circuit
-Connect a push button between the Arduino pin and ground.
+Connect a push button between the Arduino pin 10 and ground.
+
+image::uno2.jpg[500, 500]
+
+The button on pin 10 toggles the CICU switch
 
 .Reference Documentation Code Example
 [source,c++]
@@ -625,11 +626,11 @@ DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", PIN);
 .Code Examples
 [source,c++]
 ----
-DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", 10); // <1>
-DcsBios::ActionButton decTacanMode("TACAN_MODE", "DEC", 11); // <2>
+DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", 10);  
 ----
-<1> A button on pin 10 that toggles the CICU switch
-<2> A button on pin 11 that moves the TACAN Mode dial one position to the left
+ 
+
+
 
 === Switch2
 
@@ -676,6 +677,8 @@ pinB:: The number of the Arduino pin that the *last switch position* is connecte
 Connect your three-position toggle or rotary switch so that the first (left or down) position connects *pinA* to ground and the last (right or up) position connects *pinB* to ground.
 
 The Switch3 class defaults to the center position, so (if your switch even has a pin for that) you don't have to connect it to anything.
+
+image::toggle.jpg[500, 500]
 
 .Reference Documentation Code Examples
 [source,c++]
@@ -734,6 +737,8 @@ pin:: The number of the pin that is connected to the potentiometer.
 Connect the outer pins of the potentiometer to +5V and ground.
 Connect the middle pin to the Arduino.
 
+image::DCS-BIOSpotentiometer.png[500, 500]
+
 To reverse the direction, swap +5V and GND.
 
 .Reference Documentation Code Example
@@ -749,7 +754,7 @@ DcsBios::Potentiometer cmscBrt("CMSC_BRT", PIN);
 DcsBios::RotaryEncoder(const char* message, const char* decArg, const char* incArg, char pinA, char pinB);
 ----
 
-The RotaryEncoder class handles standard rotary encoders.
+The RotaryEncoder class handles standard rotary encoders, 2-bit grey code, 20 position detents.
 
 .Constructor Parameters
 message:: The message that should be sent. Set this to the identifier of the control.
@@ -759,8 +764,10 @@ pinA:: The first pin that is connected to the encoder.
 pinB:: The second pin that is connected to the encoder.
 
 .Circuit
-Rotary encoders usually have three pins (the ones with an integrated push button have two extra pins for the button).
-Connect the left pin to Arduino pin A, the middle pin to ground and the right pin to Arduino pin B.
+Rotary encoders usually have three pins (the ones with an integrated push button have two extra pins for a momentary on push button).
+Connect the left pin and right pins to any two of the Arduino pins 2 through 12, A0 through A5, and the middle pin to ground. If you find it is functioning opposite to what you want you can just swap Pin A and B on the board or in the sketch.
+
+image::DCSBIOSrotaryencoder.png[500, 500]
 
 To reverse the direction, either swap decArg and incArg or swap pinA and pinB.
 
@@ -783,7 +790,11 @@ The LED class is used for indicator lights.
 .Constructor Parameters
 address:: The address of the integer output
 mask:: The mask of the integer output
-pin:: The number of the Arduino pin that the LED (and current-limiting resistor) are connected to
+pin:: The number of the Arduino pin that the LED (and current-limiting resistor) are connected to. Prior to connecting multiple LED's to your Arduino board, it would be advisable to read the section on LED's on the Arduino web site.  
+
+.Circuit
+
+image::LED.png[500, 500]
 
 .Reference Documentation Code Example
 [source,c++]
@@ -791,12 +802,23 @@ pin:: The number of the Arduino pin that the LED (and current-limiting resistor)
 DcsBios::LED tacanTest(0x10ca, 0x0400, PIN);
 ----
 
+NOTE: Arduino boards are only capable of providing 40mA of current per pin.
+Multiple LED's connected to a single pin will require additional circuitry to avoid damaging the board.
+
+
+
 === ServoOutput
 
 [source,c++]
 ----
 DcsBios::ServoOutput (unsigned int address, char pin, int minPulseWidth, int maxPulseWidth)
 ----
+.Circuit
+Servos have 3 wires which are black, red and orange or yellow.
+Black and red are for 5V power in.
+The orange or yellow wire is the signal and must be plugged into one of the PWM pins having the ~designation. On the Uno those pins are ~3, ~5, ~6, ~9, ~10, ~11. 
+
+image::DCSBIOSservo.png[500, 500]
 
 The ServoOutput class handles standard "hobby servos".
 
@@ -806,7 +828,7 @@ pin:: The number of the Arduino pin that is connected to the servo's control inp
 minPulseWidth:: The pulse width (in microseconds) that corresponds to the lowest servo position
 maxPulseWidth:: The pulse width (in microseconds) that corresponds to the highest servo position
 
-NOTE: A DCS-BIOS output value of 0 will be mapped to `minPulseWidth`, the maximum output value of 65535 will be mapped to `maxPulseWidth`.
+A DCS-BIOS output value of 0 will be mapped to `minPulseWidth`, the maximum output value of 65535 will be mapped to `maxPulseWidth`.
 You will have to choose these values so that the minimum and maximum positions are at the beginning and end of your gauge's scale.
 
 .Reference Documentation Code Example
@@ -815,6 +837,7 @@ You will have to choose these values so that the minimum and maximum positions a
 DcsBios::ServoOutput vvi(0x106e, PIN, 544, 2400);
 ----
 
+NOTE: Servos are devices which have the potential to demand more current than a single Arduino board can safely provide.  Connecting multiple servos to one Aduino board will require an external power supply. Further reading at the Arduino site will be required to ensure the board does not get damaged.
 
 === StringBuffer
 
