@@ -112,49 +112,21 @@ We will assume you have access to the following:
 %USERPROFILE%\Saved Games\DCS
 ----
 This should take you to your DCS configuration folder (it has several subfolders including `Logs` and `Missions`).
-You are looking for the `Scripts` folder.
-(Not all configurations will have a `Scripts` folder.
-Do not be concerned if you don`t have one.
-Just follow these steps.)
 
-1.3 If you see a `Scripts` folder, stop reading and go directly to step 1.4.
-If you don't see a `Scripts` subfolder don't worry as we will provide one for you.
-Go back to where you extracted DCS-BIOS and copy our `Scripts` folder (and its contents) from there and paste it into your Saved Games\DCS directory.
-You now have a `Scripts` folder and can skip step 1.4 and 1.5.  Go directly to step 1.6.
+1.3 If there is no `Scripts` subfolder in your `Saved Games\DCS` folder, create it.
 
-1.4 This step is for all those folks that already have a `Scripts` folder, but...
-You have an existing scripts folder and we want you to add some files to it that we have provided.
-To do that you must go back to where you extracted DCS-BIOS and copy *just the contents* of `DCS-BIOS\Scripts` and paste it into your existing `Scripts` folder with the exception of the `Export.lua` file.
+1.4 Copy the `Scripts\DCS-BIOS` folder from the DCS-BIOS download to your `Scripts` folder.
 
-NOTE: The contents of our `Scripts` folder includes a copy of our `Export.lua` file.  If you already have an existing `Export.lua` file in your `Scripts` folder, we don't want you overwriting it with our `Export.lua` file.  
+1.5 *If you do not have an existing `Export.lua` file* in your `Scripts` folder, copy `Scripts\Export.lua` from the DCS-BIOS download to your `Scripts` folder. Then continue with step 2.
 
-So check first and see if you have one.
-If you do, then read no further and go immediately to step 1.5.
-If you don't have one, then we will provide one for you.
-Go back to where you extracted DCS-BIOS to and find our `Export.lua` file (in the `Scripts` folder of course).
-Copy it and then paste it into your scripts folder.
-Because you are now going to use our `Export.lua` file, you can skip step 1.5 and go immediately to step 1.6.
-
-
-1.5 "I already have an `Export.lua` file in my `Scripts` folder" which you are now going to edit.
-If editing a file is new to you, do not be concerned.  Just follow these steps.
- 
-* Download `Notepad++`from http://notepad-plus-plus.org/download/v6.6.9.html
-and install it onto your PC.  This program is designed to edit files.
-  
-NOTE: You should never use any word processing software to edit files.  These type of programs leave their own coding behind.  This can result in file that no longer functions as intended.
-
-* Once Notepad++ is installed on your PC, start it and open your existing `Export.lua` file.  Copy the single line below and paste it into the lua file.
-It should be the very last line in your `Export.lua` file.
-
+1.6 *If you already have an `Export.lua` file*, open it in a text editor (we recommend http://notepad-plus-plus.org/download/v6.6.9.html[Notepad++]) and append the following line to the end:
 [source,lua]
 ----
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOS.lua]])
 ----
-* Save the file and continue on to step 1.6.
-
- 
-1.6 *DCS-BIOS is installed and enabled.*  You may now move to Step 2. 
+  
+WARNING: You should never use any word processing software to edit text files.
+Word processing software saves formatting information in the file which will render it unusable.
 
 
 ==== Step 2: Connecting your LED and Push Button Switch
