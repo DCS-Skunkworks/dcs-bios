@@ -55,7 +55,7 @@ Given the start address, mask and shift values, the following pseudo C code deco
 [code,c]
 ----
 char[] state;
-unsigned int value = (((uint16_t*)state)[start_address<<2] & mask) << shift
+unsigned int value = (((uint16_t*)state)[start_address/2] & mask) >> shift
 ----
 
 Changes to the state data are encoded as write accesses to this address space and written to the export data stream in the following format:
