@@ -272,7 +272,7 @@ defineIndicatorLight("CMSC_LAUNCH", 372, "CMSC", "Missile Launch Indicator")
 defineIndicatorLight("CMSC_PRIO", 373, "CMSC", "Priority Status Indicator")
 defineIndicatorLight("CMSC_UNKN", 374, "CMSC", "Unknown Status Indicator")
 
-defineFloat("FLAP_POS", 653, {0, 2/3}, "Flaps", "Flap Position Indicator")
+defineFloat("FLAP_POS", 653, {0, 2/3}, "Landing Gear and Flap Control Panel", "Flap Position Indicator")
 
 defineFloat("L_ENG_FAN", 76, {0, 1}, "Engine Instruments", "Left Engine Fan Speed")
 defineFloat("R_ENG_FAN", 77, {0, 1}, "Engine Instruments", "Right Engine Fan Speed")
@@ -514,7 +514,7 @@ definePushButton("UFC_NA5", 8, 3034, 535, "UFC", "No Function 5")
 definePushButton("UFC_NA6", 8, 3035, 536, "UFC", "No Function 6")
 
 definePushButton("UFC_MASTER_CAUTION", 24, 3001, 403, "UFC", "Master Caution Reset")
-definePushButton("GEAR_HORN_SILENCE", 24, 3003, 127, "Landing Gear and Flap Panel", "Landing Gear Horn Silence")
+definePushButton("GEAR_HORN_SILENCE", 24, 3003, 127, "Landing Gear and Flap Control Panel", "Landing Gear Horn Silence")
 
 definePushButton("CDU_LSK_3L", 9, 3001, 410, "CDU", "LSK 3L")
 definePushButton("CDU_LSK_5L", 9, 3002, 411, "CDU", "LSK 5L")
@@ -649,7 +649,7 @@ defineToggleSwitch("EPP_EMER_FLOOD", 1, 3007, 243, "Electrical Power Panel", "Em
 
 defineToggleSwitch("GEAR_LEVER", 39, 3001, 716, "Landing Gear and Flap Control Panel", "Gear Lever DOWN - UP")
 definePushButton("DOWNLOCK_OVERRIDE", 39, 3003, 651, "Landing Gear and Flap Control Panel", "Downlock Override Button")
-defineTumb("FLAPS_SWITCH", 39, 3002, 773, 0.1, {0.0, 0.2}, nil, false, "Flaps Setting DN - MVR - UP")
+defineTumb("FLAPS_SWITCH", 39, 3002, 773, 0.1, {0.0, 0.2}, nil, false, "Throttle", "Flaps Setting DN - MVR - UP")
 defineElectricallyHeldSwitch("ANTI_SKID_SWITCH", 38, 3028, 3029, 654, "Landing Gear and Flap Control Panel", "Anti-Skid Switch")
 
 
@@ -670,8 +670,8 @@ defineIndicatorLight("NMSP_ILS_LED", 618, "NMSP", "ILS Button LED")
 defineToggleSwitch("NMSP_ABLE_STOW", 46, 3008, 621, "NMSP", "Able/Stow Localizer Bars")
 
 
-defineTumb("TISL_MODE", 57, 3001, 622, 0.1, {0.0, 0.4}, nil, false, "TISL Control Panel", "TISL Mode")
-defineTumb("TISL_SLANT_RANGE", 57, 3002, 623, 1, {-1, 1}, {"0", "1", "2"}, false, "TISL Control Panel", "Slant Range UNDER 5 - 5 - 10")
+defineTumb("TISL_MODE", 57, 3001, 622, 0.1, {0.0, 0.4}, nil, false, "TISL Panel", "TISL Mode")
+defineTumb("TISL_SLANT_RANGE", 57, 3002, 623, 1, {-1, 1}, {"0", "1", "2"}, false, "TISL Panel", "Slant Range UNDER 5 - 5 - 10")
 defineTumb("TISL_ALT_10000", 57, 3003, 624, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, "skiplast", "TISL Panel", "Altitude Above Target, 10000 ft")
 defineTumb("TISL_ALT_1000", 57, 3004, 626, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, "skiplast", "TISL Panel", "Altitude Above Target, 1000 ft")
 defineTumb("TISL_CODE1", 57, 3005, 636, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 1")
@@ -685,7 +685,7 @@ definePushButton("TISL_BITE", 57, 3011, 632, "TISL Panel", "BITE")
 
 definePushButton("EXT_STORES_JETTISON", 12, 3001, 101, "Glare Shield", "External Stores Jettison Button")
 
-definePushButton("LAMP_TEST_BTN", 24, 3002, 197, "Aux Lights Panel", "Signal Lights Test")
+definePushButton("LAMP_TEST_BTN", 24, 3002, 197, "Auxiliary Light Control Panel", "Signal Lights Test")
 
 defineToggleSwitch("GND_SAFE_OVERRIDE_COVER", 12, 3002, 709, "Misc", "Ground Safety Override Switch Cover")
 defineToggleSwitch("GND_SAFE_OVERRIDE", 12, 3003, 710, "Misc", "Ground Safety Override")
@@ -816,8 +816,8 @@ definePotentiometer("HSI_CRS", 45, 3001, 44, {0, 1}, "HSI", "Course Select")
 
 definePotentiometer("ADI_PITCH_TRIM", 47, 3001, 22, {0, 1}, "ADI", "ADI Pitch Trim")
 
-definePushButton("SAI_CAGE", 48, 3002, 67, "SAI", "Cage SAI")
-defineRotary("SAI_PITCH_TRIM", 48, 3003, 66, "SAI", "SAI Pitch Trim")
+definePushButton("SAI_CAGE", 48, 3002, 67, "Standby Attitude Indicator", "Cage SAI")
+defineRotary("SAI_PITCH_TRIM", 48, 3003, 66, "Standby Attitude Indicator", "SAI Pitch Trim")
 
 defineString("TACAN_CHANNEL", getTacanChannel, 4, "TACAN Panel", "TACAN Channel")
 definePushButton("TACAN_TEST_BTN", 51, 3006, 259, "TACAN Panel", "TACAN Test Button")
@@ -871,7 +871,7 @@ defineTumb("UHF_1MHZ_SEL", 54, 3004, 164, 0.1, {0.0, 0.9}, nil, false, "UHF Radi
 defineTumb("UHF_POINT1MHZ_SEL", 54, 3005, 165, 0.1, {0.0, 0.9}, nil, false, "UHF Radio", "UHF 0.1MHz Selector")
 defineTumb("UHF_POINT25_SEL", 54, 3006, 166, 0.1, {0.0, 0.3}, {"0", "25", "50", "75"}, false, "UHF Radio", "UHF 10MHz Selector")
 define3PosTumb("UHF_MODE", 54, 3007, 167, "UHF Radio", "Frequency Mode Dial MNL/PRESET/GRD")
-defineTumb("UHF_FUNCTION", 54, 3008, 168, 0.1, {0.0, 0.3}, nil, false, "UHF Function Dial OFF/MAIN/BOTH/ADF")
+defineTumb("UHF_FUNCTION", 54, 3008, 168, 0.1, {0.0, 0.3}, nil, false, "UHF Radio", "UHF Function Dial OFF/MAIN/BOTH/ADF")
 defineTumb("UHF_T_TONE", 54, 3009, 169, 1, {-1, 1}, {"0", "1", "2"}, false, "UHF Radio", "T-Tone Button")
 defineToggleSwitch("UHF_SQUELCH", 54, 3010, 170, "UHF Radio", "Squelch Switch")
 definePotentiometer("UHF_VOL", 54, 3011, 171, {0, 1}, "UHF Radio", "UHF Volume Control")

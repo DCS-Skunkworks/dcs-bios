@@ -937,30 +937,6 @@
                                                                       "physical_variant": "toggle_switch"
                                                                }
                                            },
-                       "Aux Lights Panel": {
-                                               "LAMP_TEST_BTN": {
-                                                                         "api_variant": "momentary_last_position",
-                                                                            "category": "Aux Lights Panel",
-                                                                        "control_type": "selector",
-                                                                         "description": "Signal Lights Test",
-                                                                          "identifier": "LAMP_TEST_BTN",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the state of the button (1 = pushed, 0 = released)",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 1
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4354,
-                                                                                            "description": "0 in released state, 1 in pushed state",
-                                                                                                   "mask": 16384,
-                                                                                              "max_value": 1,
-                                                                                               "shift_by": 14,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ],
-                                                                    "physical_variant": "push_button"
-                                                                }
-                                           },
           "Auxiliary Light Control Panel": {
                                                "ALCP_FDBA_TEST": {
                                                                           "api_variant": "momentary_last_position",
@@ -1112,6 +1088,28 @@
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
+                                                                 },
+                                                "LAMP_TEST_BTN": {
+                                                                          "api_variant": "momentary_last_position",
+                                                                             "category": "Auxiliary Light Control Panel",
+                                                                         "control_type": "selector",
+                                                                          "description": "Signal Lights Test",
+                                                                           "identifier": "LAMP_TEST_BTN",
+                                                                               "inputs": [ {
+                                                                                             "description": "set the state of the button (1 = pushed, 0 = released)",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 1
+                                                                                         } ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 4354,
+                                                                                             "description": "0 in released state, 1 in pushed state",
+                                                                                                    "mask": 16384,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 14,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ],
+                                                                     "physical_variant": "push_button"
                                                                  }
                                            },
                                     "CDU": {
@@ -5845,50 +5843,6 @@
                                                                   "physical_variant": "push_button"
                                                               }
                                            },
-                                  "Flaps": {
-                                               "FLAP_POS": {
-                                                                   "category": "Flaps",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "Flap Position Indicator",
-                                                                 "identifier": "FLAP_POS",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 4240,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           }
-                                           },
-            "Flaps Setting DN - MVR - UP": {
-                                               "FLAPS_SWITCH": {
-                                                                              "category": "Flaps Setting DN - MVR - UP",
-                                                                          "control_type": "selector",
-                                                                            "identifier": "FLAPS_SWITCH",
-                                                                                "inputs": [ {
-                                                                                              "description": "switch to previous or next state",
-                                                                                                "interface": "fixed_step"
-                                                                                          }, {
-                                                                                              "description": "set position",
-                                                                                                "interface": "set_state",
-                                                                                                "max_value": 2
-                                                                                          } ],
-                                                                   "momentary_positions": "none",
-                                                                               "outputs": [ {
-                                                                                                  "address": 4346,
-                                                                                              "description": "selector position",
-                                                                                                     "mask": 24576,
-                                                                                                "max_value": 2,
-                                                                                                 "shift_by": 13,
-                                                                                                   "suffix": "",
-                                                                                                     "type": "integer"
-                                                                                          } ],
-                                                                      "physical_variant": "limited_rotary"
-                                                               }
-                                           },
                              "Front Dash": {
                                                   "CANOPY_UNLOCKED": {
                                                                              "category": "Front Dash",
@@ -8674,6 +8628,44 @@
                                                                                               } ],
                                                                           "physical_variant": "push_button"
                                                                       },
+                                                          "FLAP_POS": {
+                                                                              "category": "Landing Gear and Flap Control Panel",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "Flap Position Indicator",
+                                                                            "identifier": "FLAP_POS",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 4240,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                 "GEAR_HORN_SILENCE": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "Landing Gear and Flap Control Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Landing Gear Horn Silence",
+                                                                                "identifier": "GEAR_HORN_SILENCE",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "set the state of the button (1 = pushed, 0 = released)",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                      "address": 4322,
+                                                                                                  "description": "0 in released state, 1 in pushed state",
+                                                                                                         "mask": 16,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 4,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "push_button"
+                                                                      },
                                                         "GEAR_LEVER": {
                                                                                      "category": "Landing Gear and Flap Control Panel",
                                                                                  "control_type": "selector",
@@ -8792,30 +8784,6 @@
                                                                                                  } ],
                                                                              "physical_variant": "limited_rotary"
                                                                       }
-                                           },
-            "Landing Gear and Flap Panel": {
-                                               "GEAR_HORN_SILENCE": {
-                                                                             "api_variant": "momentary_last_position",
-                                                                                "category": "Landing Gear and Flap Panel",
-                                                                            "control_type": "selector",
-                                                                             "description": "Landing Gear Horn Silence",
-                                                                              "identifier": "GEAR_HORN_SILENCE",
-                                                                                  "inputs": [ {
-                                                                                                "description": "set the state of the button (1 = pushed, 0 = released)",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 1
-                                                                                            } ],
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4322,
-                                                                                                "description": "0 in released state, 1 in pushed state",
-                                                                                                       "mask": 16,
-                                                                                                  "max_value": 1,
-                                                                                                   "shift_by": 4,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "push_button"
-                                                                    }
                                            },
                               "Left MFCD": {
                                                 "LMFD_01": {
@@ -11067,52 +11035,6 @@
                                                                   "physical_variant": "rocker_switch"
                                                            }
                                            },
-                                    "SAI": {
-                                                     "SAI_CAGE": {
-                                                                          "api_variant": "momentary_last_position",
-                                                                             "category": "SAI",
-                                                                         "control_type": "selector",
-                                                                          "description": "Cage SAI",
-                                                                           "identifier": "SAI_CAGE",
-                                                                               "inputs": [ {
-                                                                                             "description": "set the state of the button (1 = pushed, 0 = released)",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 1
-                                                                                         } ],
-                                                                              "outputs": [ {
-                                                                                                 "address": 4412,
-                                                                                             "description": "0 in released state, 1 in pushed state",
-                                                                                                    "mask": 8192,
-                                                                                               "max_value": 1,
-                                                                                                "shift_by": 13,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "push_button"
-                                                                 },
-                                               "SAI_PITCH_TRIM": {
-                                                                      "api_variant": "multiturn",
-                                                                         "category": "SAI",
-                                                                     "control_type": "analog_dial",
-                                                                      "description": "SAI Pitch Trim",
-                                                                       "identifier": "SAI_PITCH_TRIM",
-                                                                           "inputs": [ {
-                                                                                            "description": "turn the dial left or right",
-                                                                                              "interface": "variable_step",
-                                                                                              "max_value": 65535,
-                                                                                         "suggested_step": 3200
-                                                                                     } ],
-                                                                          "outputs": [ {
-                                                                                             "address": 4430,
-                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                                "mask": 65535,
-                                                                                           "max_value": 65535,
-                                                                                            "shift_by": 0,
-                                                                                              "suffix": "_KNOB_POS",
-                                                                                                "type": "integer"
-                                                                                     } ]
-                                                                 }
-                                           },
                               "SAS Panel": {
                                                "SASP_MONITOR_TEST": {
                                                                                    "category": "SAS Panel",
@@ -11583,6 +11505,28 @@
                                                                                                   "type": "integer"
                                                                                        } ]
                                                                    },
+                                                       "SAI_CAGE": {
+                                                                            "api_variant": "momentary_last_position",
+                                                                               "category": "Standby Attitude Indicator",
+                                                                           "control_type": "selector",
+                                                                            "description": "Cage SAI",
+                                                                             "identifier": "SAI_CAGE",
+                                                                                 "inputs": [ {
+                                                                                               "description": "set the state of the button (1 = pushed, 0 = released)",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 1
+                                                                                           } ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 4412,
+                                                                                               "description": "0 in released state, 1 in pushed state",
+                                                                                                      "mask": 8192,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 13,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "push_button"
+                                                                   },
                                                  "SAI_KNOB_ARROW": {
                                                                            "category": "Standby Attitude Indicator",
                                                                        "control_type": "analog_gauge",
@@ -11628,6 +11572,28 @@
                                                                                              "max_value": 65535,
                                                                                               "shift_by": 0,
                                                                                                 "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                                 "SAI_PITCH_TRIM": {
+                                                                        "api_variant": "multiturn",
+                                                                           "category": "Standby Attitude Indicator",
+                                                                       "control_type": "analog_dial",
+                                                                        "description": "SAI Pitch Trim",
+                                                                         "identifier": "SAI_PITCH_TRIM",
+                                                                             "inputs": [ {
+                                                                                              "description": "turn the dial left or right",
+                                                                                                "interface": "variable_step",
+                                                                                                "max_value": 65535,
+                                                                                           "suggested_step": 3200
+                                                                                       } ],
+                                                                            "outputs": [ {
+                                                                                               "address": 4430,
+                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                  "mask": 65535,
+                                                                                             "max_value": 65535,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "_KNOB_POS",
                                                                                                   "type": "integer"
                                                                                        } ]
                                                                    },
@@ -11827,9 +11793,270 @@
                                                                         "physical_variant": "toggle_switch"
                                                                  }
                                            },
-                     "TISL Control Panel": {
+                             "TISL Panel": {
+                                                  "TISL_ALT_1000": {
+                                                                                  "category": "TISL Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Altitude Above Target, 1000 ft",
+                                                                                "identifier": "TISL_ALT_1000",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 10
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 4352,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 3840,
+                                                                                                    "max_value": 10,
+                                                                                                     "shift_by": 8,
+                                                                                                       "suffix": "_INT",
+                                                                                                         "type": "integer"
+                                                                                              }, {
+                                                                                                      "address": 4356,
+                                                                                                  "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"0\" ",
+                                                                                                   "max_length": 1,
+                                                                                                       "suffix": "_STR",
+                                                                                                         "type": "string"
+                                                                                              } ],
+                                                                          "physical_variant": "infinite_rotary"
+                                                                   },
+                                                 "TISL_ALT_10000": {
+                                                                                  "category": "TISL Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Altitude Above Target, 10000 ft",
+                                                                                "identifier": "TISL_ALT_10000",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 10
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 4350,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 61440,
+                                                                                                    "max_value": 10,
+                                                                                                     "shift_by": 12,
+                                                                                                       "suffix": "_INT",
+                                                                                                         "type": "integer"
+                                                                                              }, {
+                                                                                                      "address": 4354,
+                                                                                                  "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"0\" ",
+                                                                                                   "max_length": 1,
+                                                                                                       "suffix": "_STR",
+                                                                                                         "type": "string"
+                                                                                              } ],
+                                                                          "physical_variant": "infinite_rotary"
+                                                                   },
+                                                       "TISL_AUX": {
+                                                                                  "category": "TISL Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "TISL AUX Switch",
+                                                                                "identifier": "TISL_AUX",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 2
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 4352,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 12288,
+                                                                                                    "max_value": 2,
+                                                                                                     "shift_by": 12,
+                                                                                                       "suffix": "_INT",
+                                                                                                         "type": "integer"
+                                                                                              }, {
+                                                                                                      "address": 4374,
+                                                                                                  "description": "possible values: \"0\" \"1\" \"2\" ",
+                                                                                                   "max_length": 1,
+                                                                                                       "suffix": "_STR",
+                                                                                                         "type": "string"
+                                                                                              } ],
+                                                                          "physical_variant": "limited_rotary"
+                                                                   },
+                                                      "TISL_BITE": {
+                                                                            "api_variant": "momentary_last_position",
+                                                                               "category": "TISL Panel",
+                                                                           "control_type": "selector",
+                                                                            "description": "BITE",
+                                                                             "identifier": "TISL_BITE",
+                                                                                 "inputs": [ {
+                                                                                               "description": "set the state of the button (1 = pushed, 0 = released)",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 1
+                                                                                           } ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 4352,
+                                                                                               "description": "0 in released state, 1 in pushed state",
+                                                                                                      "mask": 32768,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 15,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "push_button"
+                                                                   },
+                                                     "TISL_CODE1": {
+                                                                                  "category": "TISL Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Code Wheel 1",
+                                                                                "identifier": "TISL_CODE1",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 20
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 4354,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 7936,
+                                                                                                    "max_value": 20,
+                                                                                                     "shift_by": 8,
+                                                                                                       "suffix": "_INT",
+                                                                                                         "type": "integer"
+                                                                                              }, {
+                                                                                                      "address": 4358,
+                                                                                                  "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\" ",
+                                                                                                   "max_length": 3,
+                                                                                                       "suffix": "_STR",
+                                                                                                         "type": "string"
+                                                                                              } ],
+                                                                          "physical_variant": "infinite_rotary"
+                                                                   },
+                                                     "TISL_CODE2": {
+                                                                                  "category": "TISL Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Code Wheel 2",
+                                                                                "identifier": "TISL_CODE2",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 20
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 4356,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 7936,
+                                                                                                    "max_value": 20,
+                                                                                                     "shift_by": 8,
+                                                                                                       "suffix": "_INT",
+                                                                                                         "type": "integer"
+                                                                                              }, {
+                                                                                                      "address": 4362,
+                                                                                                  "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\" ",
+                                                                                                   "max_length": 3,
+                                                                                                       "suffix": "_STR",
+                                                                                                         "type": "string"
+                                                                                              } ],
+                                                                          "physical_variant": "infinite_rotary"
+                                                                   },
+                                                     "TISL_CODE3": {
+                                                                                  "category": "TISL Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Code Wheel 3",
+                                                                                "identifier": "TISL_CODE3",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 20
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 4360,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 7936,
+                                                                                                    "max_value": 20,
+                                                                                                     "shift_by": 8,
+                                                                                                       "suffix": "_INT",
+                                                                                                         "type": "integer"
+                                                                                              }, {
+                                                                                                      "address": 4366,
+                                                                                                  "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\" ",
+                                                                                                   "max_length": 3,
+                                                                                                       "suffix": "_STR",
+                                                                                                         "type": "string"
+                                                                                              } ],
+                                                                          "physical_variant": "infinite_rotary"
+                                                                   },
+                                                     "TISL_CODE4": {
+                                                                                  "category": "TISL Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Code Wheel 4",
+                                                                                "identifier": "TISL_CODE4",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 20
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 4364,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 7936,
+                                                                                                    "max_value": 20,
+                                                                                                     "shift_by": 8,
+                                                                                                       "suffix": "_INT",
+                                                                                                         "type": "integer"
+                                                                                              }, {
+                                                                                                      "address": 4370,
+                                                                                                  "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\" ",
+                                                                                                   "max_length": 3,
+                                                                                                       "suffix": "_STR",
+                                                                                                         "type": "string"
+                                                                                              } ],
+                                                                          "physical_variant": "infinite_rotary"
+                                                                   },
+                                                     "TISL_ENTER": {
+                                                                            "api_variant": "momentary_last_position",
+                                                                               "category": "TISL Panel",
+                                                                           "control_type": "selector",
+                                                                            "description": "ENTER",
+                                                                             "identifier": "TISL_ENTER",
+                                                                                 "inputs": [ {
+                                                                                               "description": "set the state of the button (1 = pushed, 0 = released)",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 1
+                                                                                           } ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 4352,
+                                                                                               "description": "0 in released state, 1 in pushed state",
+                                                                                                      "mask": 16384,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 14,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "push_button"
+                                                                   },
                                                       "TISL_MODE": {
-                                                                                  "category": "TISL Control Panel",
+                                                                                  "category": "TISL Panel",
                                                                               "control_type": "selector",
                                                                                "description": "TISL Mode",
                                                                                 "identifier": "TISL_MODE",
@@ -11854,7 +12081,7 @@
                                                                           "physical_variant": "limited_rotary"
                                                                    },
                                                "TISL_SLANT_RANGE": {
-                                                                                  "category": "TISL Control Panel",
+                                                                                  "category": "TISL Panel",
                                                                               "control_type": "selector",
                                                                                "description": "Slant Range UNDER 5 - 5 - 10",
                                                                                 "identifier": "TISL_SLANT_RANGE",
@@ -11884,269 +12111,6 @@
                                                                                               } ],
                                                                           "physical_variant": "limited_rotary"
                                                                    }
-                                           },
-                             "TISL Panel": {
-                                                "TISL_ALT_1000": {
-                                                                                "category": "TISL Panel",
-                                                                            "control_type": "selector",
-                                                                             "description": "Altitude Above Target, 1000 ft",
-                                                                              "identifier": "TISL_ALT_1000",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 10
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4352,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 3840,
-                                                                                                  "max_value": 10,
-                                                                                                   "shift_by": 8,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4356,
-                                                                                                "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"0\" ",
-                                                                                                 "max_length": 1,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                               "TISL_ALT_10000": {
-                                                                                "category": "TISL Panel",
-                                                                            "control_type": "selector",
-                                                                             "description": "Altitude Above Target, 10000 ft",
-                                                                              "identifier": "TISL_ALT_10000",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 10
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4350,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 61440,
-                                                                                                  "max_value": 10,
-                                                                                                   "shift_by": 12,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4354,
-                                                                                                "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"0\" ",
-                                                                                                 "max_length": 1,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                     "TISL_AUX": {
-                                                                                "category": "TISL Panel",
-                                                                            "control_type": "selector",
-                                                                             "description": "TISL AUX Switch",
-                                                                              "identifier": "TISL_AUX",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 2
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4352,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 12288,
-                                                                                                  "max_value": 2,
-                                                                                                   "shift_by": 12,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4374,
-                                                                                                "description": "possible values: \"0\" \"1\" \"2\" ",
-                                                                                                 "max_length": 1,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "limited_rotary"
-                                                                 },
-                                                    "TISL_BITE": {
-                                                                          "api_variant": "momentary_last_position",
-                                                                             "category": "TISL Panel",
-                                                                         "control_type": "selector",
-                                                                          "description": "BITE",
-                                                                           "identifier": "TISL_BITE",
-                                                                               "inputs": [ {
-                                                                                             "description": "set the state of the button (1 = pushed, 0 = released)",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 1
-                                                                                         } ],
-                                                                              "outputs": [ {
-                                                                                                 "address": 4352,
-                                                                                             "description": "0 in released state, 1 in pushed state",
-                                                                                                    "mask": 32768,
-                                                                                               "max_value": 1,
-                                                                                                "shift_by": 15,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "push_button"
-                                                                 },
-                                                   "TISL_CODE1": {
-                                                                                "category": "TISL Panel",
-                                                                            "control_type": "selector",
-                                                                             "description": "Code Wheel 1",
-                                                                              "identifier": "TISL_CODE1",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 20
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4354,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 7936,
-                                                                                                  "max_value": 20,
-                                                                                                   "shift_by": 8,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4358,
-                                                                                                "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\" ",
-                                                                                                 "max_length": 3,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                   "TISL_CODE2": {
-                                                                                "category": "TISL Panel",
-                                                                            "control_type": "selector",
-                                                                             "description": "Code Wheel 2",
-                                                                              "identifier": "TISL_CODE2",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 20
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4356,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 7936,
-                                                                                                  "max_value": 20,
-                                                                                                   "shift_by": 8,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4362,
-                                                                                                "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\" ",
-                                                                                                 "max_length": 3,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                   "TISL_CODE3": {
-                                                                                "category": "TISL Panel",
-                                                                            "control_type": "selector",
-                                                                             "description": "Code Wheel 3",
-                                                                              "identifier": "TISL_CODE3",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 20
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4360,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 7936,
-                                                                                                  "max_value": 20,
-                                                                                                   "shift_by": 8,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4366,
-                                                                                                "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\" ",
-                                                                                                 "max_length": 3,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                   "TISL_CODE4": {
-                                                                                "category": "TISL Panel",
-                                                                            "control_type": "selector",
-                                                                             "description": "Code Wheel 4",
-                                                                              "identifier": "TISL_CODE4",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 20
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4364,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 7936,
-                                                                                                  "max_value": 20,
-                                                                                                   "shift_by": 8,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4370,
-                                                                                                "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\" ",
-                                                                                                 "max_length": 3,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                   "TISL_ENTER": {
-                                                                          "api_variant": "momentary_last_position",
-                                                                             "category": "TISL Panel",
-                                                                         "control_type": "selector",
-                                                                          "description": "ENTER",
-                                                                           "identifier": "TISL_ENTER",
-                                                                               "inputs": [ {
-                                                                                             "description": "set the state of the button (1 = pushed, 0 = released)",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 1
-                                                                                         } ],
-                                                                              "outputs": [ {
-                                                                                                 "address": 4352,
-                                                                                             "description": "0 in released state, 1 in pushed state",
-                                                                                                    "mask": 16384,
-                                                                                               "max_value": 1,
-                                                                                                "shift_by": 14,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "push_button"
-                                                                 }
                                            },
                                "Throttle": {
                                                        "ENGINE_APU_START": {
@@ -12304,6 +12268,31 @@
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ]
+                                                                           },
+                                                           "FLAPS_SWITCH": {
+                                                                                          "category": "Throttle",
+                                                                                      "control_type": "selector",
+                                                                                       "description": "Flaps Setting DN - MVR - UP",
+                                                                                        "identifier": "FLAPS_SWITCH",
+                                                                                            "inputs": [ {
+                                                                                                          "description": "switch to previous or next state",
+                                                                                                            "interface": "fixed_step"
+                                                                                                      }, {
+                                                                                                          "description": "set position",
+                                                                                                            "interface": "set_state",
+                                                                                                            "max_value": 2
+                                                                                                      } ],
+                                                                               "momentary_positions": "none",
+                                                                                           "outputs": [ {
+                                                                                                              "address": 4346,
+                                                                                                          "description": "selector position",
+                                                                                                                 "mask": 24576,
+                                                                                                            "max_value": 2,
+                                                                                                             "shift_by": 13,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                                      } ],
+                                                                                  "physical_variant": "limited_rotary"
                                                                            }
                                            },
                                     "UFC": {
@@ -12984,32 +12973,6 @@
                                                                             "physical_variant": "rocker_switch"
                                                                      }
                                            },
-    "UHF Function Dial OFF/MAIN/BOTH/ADF": {
-                                               "UHF_FUNCTION": {
-                                                                              "category": "UHF Function Dial OFF/MAIN/BOTH/ADF",
-                                                                          "control_type": "selector",
-                                                                            "identifier": "UHF_FUNCTION",
-                                                                                "inputs": [ {
-                                                                                              "description": "switch to previous or next state",
-                                                                                                "interface": "fixed_step"
-                                                                                          }, {
-                                                                                              "description": "set position",
-                                                                                                "interface": "set_state",
-                                                                                                "max_value": 3
-                                                                                          } ],
-                                                                   "momentary_positions": "none",
-                                                                               "outputs": [ {
-                                                                                                  "address": 4456,
-                                                                                              "description": "selector position",
-                                                                                                     "mask": 3072,
-                                                                                                "max_value": 3,
-                                                                                                 "shift_by": 10,
-                                                                                                   "suffix": "",
-                                                                                                     "type": "integer"
-                                                                                          } ],
-                                                                      "physical_variant": "limited_rotary"
-                                                               }
-                                           },
                               "UHF Radio": {
                                                   "UHF_100MHZ_SEL": {
                                                                                    "category": "UHF Radio",
@@ -13134,6 +13097,31 @@
                                                                                                  "suffix": "",
                                                                                                    "type": "string"
                                                                                         } ]
+                                                                    },
+                                                    "UHF_FUNCTION": {
+                                                                                   "category": "UHF Radio",
+                                                                               "control_type": "selector",
+                                                                                "description": "UHF Function Dial OFF/MAIN/BOTH/ADF",
+                                                                                 "identifier": "UHF_FUNCTION",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 3
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4456,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 3072,
+                                                                                                     "max_value": 3,
+                                                                                                      "shift_by": 10,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "limited_rotary"
                                                                     },
                                                         "UHF_LOAD": {
                                                                              "api_variant": "momentary_last_position",
