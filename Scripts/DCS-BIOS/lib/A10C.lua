@@ -55,7 +55,7 @@ end
 local function getCMSPDisplayLines(dev0)
 	local cmsp = BIOS.util.parse_indication(7)
 	if not cmsp then
-		local emptyline = string.format("%20s", "") -- 20 spaces
+		local emptyline = string.format("%19s", "") -- 19 spaces
 		return emptyline, emptyline
 	else
 		local tu = cmsp["txt_UP"]
@@ -164,8 +164,8 @@ end
 
 
 
-local cmsp1Alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = 20 }
-local cmsp2Alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = 20 }
+local cmsp1Alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = 19 }
+local cmsp2Alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = 19 }
 document {
 	identifier = "CMSP1",
 	category = "CMSP",
@@ -179,7 +179,7 @@ document {
 		  mask = cmsp1Alloc.mask,
 		  shift_by = cmsp1Alloc.shiftBy,
 		  max_length = cmsp1Alloc.maxLength,
-		  description = "CMSP Display Line 1 (20 characters)"
+		  description = "CMSP Display Line 1 (19 characters)"
 		}
 	}
 }
@@ -196,7 +196,7 @@ document {
 		  mask = cmsp2Alloc.mask,
 		  shift_by = cmsp2Alloc.shiftBy,
 		  max_length = cmsp2Alloc.maxLength,
-		  description = "CMSP Display Line 2 (20 characters)"
+		  description = "CMSP Display Line 2 (19 characters)"
 		}
 	}
 }
@@ -588,6 +588,30 @@ defineToggleSwitch("AAP_EGIPWR", 22, 3006, 477, "AAP", "EGI Power")
 
 definePushButton("CLOCK_SET", 15, 3001, 68, "Digital Clock", "Clock SET")
 definePushButton("CLOCK_CTRL", 15, 3002, 69, "Digital Clock", "Clock CTRL")
+local lastClockData = nil
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	lastClockData = parse_indication(4)
+end
+local function getClockHH()
+	if not lastClockData then return "  " end
+	return lastClockData.txtHours or "  "
+end
+local function getClockMM()
+	if not lastClockData then return "  " end
+	return lastClockData.txtMinutes or "  "
+end
+local function getClockSS()
+	if not lastClockData then return "  " end
+	return lastClockData.txtSeconds or "  "
+end
+local function getClockETC()
+	if not lastClockData then return "   " end
+	return (lastClockData.txtET or "  ") .. (lastClockData.txtC or " ")
+end
+defineString("CLOCK_HH", getClockHH, 2, "Digital Clock", "Clock Hours (or two spaces)")
+defineString("CLOCK_MM", getClockMM, 2, "Digital Clock", "Clock Minutes (or two spaces)")
+defineString("CLOCK_SS", getClockSS, 2, "Digital Clock", "Clock Seconds (or two spaces)")
+defineString("CLOCK_ETC", getClockETC, 3, "Digital Clock", "Clock ETC display ('ET ', '  C', or three spaces)")
 
 defineToggleSwitch("FSCP_EXT_TANKS_WING", 36, 3001, 106, "Fuel System Control Panel", "External Wing Tanks Boost Pumps")
 defineToggleSwitch("FSCP_EXT_TANKS_FUS", 36, 3002, 107, "Fuel System Control Panel", "External Fuselage Tanks Boost Pumps")
