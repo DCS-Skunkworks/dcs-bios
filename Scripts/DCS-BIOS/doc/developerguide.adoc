@@ -1,4 +1,8 @@
 = DCS-BIOS Developer Guide
+:toc: right
+:icons: font
+:toclevels: 2
+:imagesdir: images
 
 == Connecting to DCS-BIOS
 
@@ -51,7 +55,7 @@ Given the start address, mask and shift values, the following pseudo C code deco
 [code,c]
 ----
 char[] state;
-unsigned int value = (((uint16_t*)state)[start_address<<2] & mask) << shift
+unsigned int value = (((uint16_t*)state)[start_address/2] & mask) >> shift
 ----
 
 Changes to the state data are encoded as write accesses to this address space and written to the export data stream in the following format:
@@ -81,7 +85,7 @@ To avoid inconsistent intermediate states, an application that receives DCS-BIOS
 DCS-BIOS tries to send 30 updates per second.
 
 DCS-BIOS will send the four bytes `0x55 0x55 0x55 0x55` at the start of each update.
-These do *not* specify a 65535-byte write access to the address 0x5555.
+These do *not* specify a 21845-byte write access to the address 0x5555.
 Instead, they are used by consumers of the data stream to find the start of a write access to synchronize to.
 
 DCS-BIOS ensures that this byte sequence cannot appear in the normal data stream.
