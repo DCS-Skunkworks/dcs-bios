@@ -712,10 +712,14 @@ definePushButton("IFF_TEST_TEST", 43, 3018, 796, "IFF", "TEST Push to Test")
 definePotentiometer("IFF_TEST_DIM", 43, 3021, 901, {0.0, 1.0}, "IFF", "TEST Reply Dim")
 
 
-defineTumb("OXY_EMERGENCY", 40, 3003, 601, 1, {-1, 1}, nil, false, "Oxygen Panel", "Oxygen Flow: Emergency / Normal / Test")
-defineToggleSwitch("OXY_DILUTER", 40, 3002, 602, "Oxygen Panel", "Oxygen Normal/100%")
-defineToggleSwitch("OXY_SUPPLY", 40, 3001, 603, "Oxygen Panel", "Oxygen Supply On/Off")
+defineTumb("OXY_EMERGENCY", 40, 3003, 601, 1, {-1, 1}, nil, false, "Oxygen Regulator Panel", "Oxygen Flow: Emergency / Normal / Test")
+defineToggleSwitch("OXY_DILUTER", 40, 3002, 602, "Oxygen Regulator Panel", "Oxygen Normal/100%")
+defineToggleSwitch("OXY_SUPPLY", 40, 3001, 603, "Oxygen Regulator Panel", "Oxygen Supply On/Off")
+defineFloat("OXY_PRESS", 604, {0, 1}, "Oxygen Regulator Panel", "Oxygen Pressure Indicator")
+defineIndicatorLight("OXY_FLOW", 600, "Oxygen Regulator Panel", "Flow Indicator (on/off)")
 
+defineFloat("OXY_VOLUME", 274, {0, 1}, "Environment Control Panel", "Oxygen Volume (0 to 5 liters)")
+defineFloat("CABIN_PRESS_ALT", 281, {0, 1}, "Environment Control Panel", "Cabin Pressure Altitude")
 definePushButton("ENVCP_OXY_TEST", 41, 3001, 275, "Environment Control Panel", "Oxygen Indicator Test")
 defineToggleSwitch("ENVCP_WINDSHIELD_DEFOG", 41, 3002, 276, "Environment Control Panel", "Windshield Defog/Deice")
 definePotentiometer("ENVCP_CANOPY_DEFOG", 41, 3003, 277, {0.0, 1.0}, "Environment Control Panel", "Canopy Defog")
@@ -968,6 +972,8 @@ definePushButton("ACCEL_PTS", 72, 3001, 904, "Accelerometer", "Push to Set")
 
 defineMultipositionSwitch("DVADR_FUNCTION", 73, 3001, 789, 3, 0.1, "DVADR", "Function Control Toggle Switch")
 defineMultipositionSwitch("DVADR_VIDEO", 73, 3002, 790, 3, 0.1, "DVADR", "Video Selector Toggle Switch")
+defineIndicatorLight("DVADR_EOT", 791, "DVADR", "DVADR End of Tape Indicator Light")
+defineIndicatorLight("DVADR_REC", 794, "DVADR", "DVADR Record (On) Indicator Light")
 
 definePushButton("SUIT_TEST", 41, 3014, 776, "Misc", "Anti-G Suit Valve Test Button")
 
