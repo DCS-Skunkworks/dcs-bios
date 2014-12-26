@@ -271,6 +271,27 @@ defineFloat("ALT_PRESSURE3", 56, {0, 1}, "Altimeter", "Barometric Pressure Digit
 defineIndicatorLight("CMSC_LAUNCH", 372, "CMSC", "Missile Launch Indicator")
 defineIndicatorLight("CMSC_PRIO", 373, "CMSC", "Priority Status Indicator")
 defineIndicatorLight("CMSC_UNKN", 374, "CMSC", "Unknown Status Indicator")
+local cmscData = nil
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	cmscData = parse_indication(8)
+end
+local function getCmscChaffFlare()
+	if not cmscData then return "        " end
+	return cmscData.txt_CHAFF_FLARE or "        "
+end
+defineString("CMSC_TXT_CHAFF_FLARE", getCmscChaffFlare, 8, "CMSC", "Chaff / Flare Amount Display")
+
+local function getCmscJmr()
+	if not cmscData then return "    " end
+	return cmscData.txt_JMR or "    "
+end
+defineString("CMSC_TXT_JMR", getCmscJmr, 4, "CMSC", "JMR Status Display")
+
+local function getCmscMws()
+	if not cmscData then return "      " end
+	return cmscData.txt_MWS or "      "
+end
+defineString("CMSC_TXT_MWS", getCmscMws, 6, "CMSC", "MWS Status Display")
 
 defineFloat("FLAP_POS", 653, {0, 2/3}, "Landing Gear and Flap Control Panel", "Flap Position Indicator")
 
