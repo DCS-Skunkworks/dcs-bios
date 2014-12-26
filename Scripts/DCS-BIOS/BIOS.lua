@@ -15,6 +15,7 @@ socket = require("socket")
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Util.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\ProtocolIO.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Protocol.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CommonData.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A10C.lua]])
 --dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH1H.lua]])
 
@@ -31,6 +32,7 @@ PrevExport.LuaExportAfterNextFrame = LuaExportAfterNextFrame
 LuaExportStart = function()
 	
 	for _, v in pairs(BIOS.protocol_io.connections) do v:init() end
+	BIOS.protocol.init()
 	
 	-- Chain previously-included export as necessary
 	if PrevExport.LuaExportStart then

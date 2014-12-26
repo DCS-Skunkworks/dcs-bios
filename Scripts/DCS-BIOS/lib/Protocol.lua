@@ -5,13 +5,16 @@ BIOS.protocol.maxBytesInTransit = BIOS.protocol.maxBytesPerSecond or 4000
 local aircraftNameToModule = {}
 BIOS.protocol.aircraftNameToModule = aircraftNameToModule
 
-local globalMemoryMap = BIOS.util.MemoryMap:create{ baseAddress = 0x0000 }
-BIOS.protocol.globalMemoryMap = globalMemoryMap
-local currentAircraftStringExport = globalMemoryMap:allocateString{ maxLength = 16 }
-local frameCounterExport = globalMemoryMap:allocateInt{ maxValue = 255 }
-local frameCounter = 0
-local frameSkipCounterExport = globalMemoryMap:allocateInt{ maxValue = 255 }
-local frameSkipCounter = 0
+local commonDataModule = nil
+local metadata = nil
+function BIOS.protocol.init()
+  -- called after all aircraft modules have been loaded
+  commonDataModule = aircraftNameToModule["CommonData"]
+  metadata = commonDataModule.metadata
+  metadata.acftName = nil
+  metadata.updateCounter = 0
+  metadata.updateSkipCounter = 0
+end
 
 function BIOS.protocol.beginModule(name, baseAddress)
 	moduleBeingDefined = {}
@@ -95,42 +98,41 @@ function BIOS.protocol.step()
 	if bytesInTransit < 0 then bytesInTransit = 0 end
 	
 	-- determine active aircraft
-	local acftName = "NONE"
+	metadata.acftName = "NONE"
 	local selfData = LoGetSelfData()
 	if selfData then
-		acftName = selfData["Name"]
+		metadata.acftName = selfData["Name"]
 	end
-	acftModule = aircraftNameToModule[acftName]
-	if lastAcftName ~= acftName then
+	acftModule = aircraftNameToModule[metadata.acftName]
+	if lastAcftName ~= metadata.acftName then
 		if acftModule then acftModule.memoryMap:clearValues() end
-		lastAcftName = acftName
-		BIOS.mmap = acftModule.memoryMap
+		lastAcftName = metadata.acftName
+		BIOS.mmap = acftModule.memoryMap -- for debugging
 	end
-	currentAircraftStringExport:setValue(acftName)
 	
 	-- export data
 	if curTime >= nextLowFreqStepTime then
 		-- runs 30 times per second
-		frameCounter = (frameCounter + 1) % 256
-		frameCounterExport:setValue(frameCounter)
+		metadata.updateCounter = (metadata.updateCounter + 1) % 256
 		
 		-- if the last frame update has not been completely transmitted, skip a frame
 		if bytesInTransit > 0 then
 			-- TODO: increase a frame skip counter for logging purposes
-			frameSkipCounter = (frameSkipCounter + 1) % 256
+			metadata.updateSkipCounter = (metadata.updateSkipCounter + 1) % 256
 			return
 		end
 		nextLowFreqStepTime = curTime + .033
-		frameSkipCounterExport:setValue(frameSkipCounter)
 		
 		-- send frame sync sequence
 		bytesInTransit = bytesInTransit + 4
 		BIOS.protocol_io.queue(string.char(0x55, 0x55, 0x55, 0x55))
 		
-		-- export global / system data
-		globalMemoryMap:autosyncStep()
-		globalMemoryMap:autosyncStep()
-		local data = globalMemoryMap:flushData()
+		-- export aircraft-independent data
+		for k, v in pairs(commonDataModule.exportHooks) do
+			v()
+		end
+		commonDataModule.memoryMap:autosyncStep()
+		local data = commonDataModule.memoryMap:flushData()
 		bytesInTransit = bytesInTransit + data:len()
 		BIOS.protocol_io.queue(data)
 		
@@ -142,6 +144,7 @@ function BIOS.protocol.step()
 				v(dev0)
 			end
 			
+			acftModule.memoryMap:autosyncStep()
 			acftModule.memoryMap:autosyncStep()
 			local data = acftModule.memoryMap:flushData()
 			bytesInTransit = bytesInTransit + data:len()

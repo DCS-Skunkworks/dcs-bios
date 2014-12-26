@@ -836,3 +836,27 @@ function BIOS.util.defineFloat(msg, arg_number, limits, category, description)
 	}
 	--document { msg = msg, category = category, description = description, msg_type = "int", value_type = "int", value_range = limits, can_set = false, actions = {}, address = alloc.address }
 end
+
+function BIOS.util.defineIntegerFromGetter(msg, getter, maxValue, category, description)
+	local alloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = maxValue }
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		alloc:setValue(getter())
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "metadata",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = alloc.address,
+			  mask = alloc.mask,
+			  shift_by = alloc.shiftBy,
+			  max_value = maxValue,
+			  description = description
+			}
+		}
+	}
+end
