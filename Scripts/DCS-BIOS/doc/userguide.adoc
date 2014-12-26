@@ -506,7 +506,7 @@ You will have to consult the reference documentation.
 The reference documentation is included in the `doc/` subdirectory in the DCS-BIOS download.
 Simply double-click `protocol-reference.html` to open it in your web browser.
 
-NOTE: If you see a red warning at the top of the page followed by a bunch of gibberish, you need to enable JavaScript and reload the page.
+NOTE: If all you see is a big red warning, you need to enable JavaScript and reload the page.
 
 ==== Controls
 In your virtual cockpit you will find lots of toggle switches, buttons and rotary knobs.
@@ -519,12 +519,12 @@ For example, the volume controls on the A-10C intercom panel have one DCS-BIOS c
 
 ==== Finding the Control You Are Looking For
 
-Use the search boxes at the top of the page to quickly find what you are looking for.
-You can filter by category, identifier and description.
+Use the "Category Filter" dropdown box and your browser's search function to quickly find what you are looking for.
+
 
 ==== Input Interfaces
 
-NOTE: To make sense of the following, switch the reference documentation to "advanced view".
+NOTE: To make sense of the following, select "Advanced" in the "View" dropdown box at the top of the page.
 
 Each DCS-BIOS control can support multiple _input interfaces_.
 An _input interface_ allows you to control something in the cockpit by sending a message to DCS-BIOS.
@@ -542,9 +542,9 @@ For example, you can set the TACAN mode dial in the A-10C to the `A A REC` posit
 +
 NOTE: The range of acceptable values is 0 to the maximum value of the control's first output.
 +
-The reference documentation will offer example code for a `DcsBios::RotarySwitch` and (in the case of two-position controls) a `DcsBios::Switch2`.
+The reference documentation will offer example code for a `DcsBios::RotarySwitch` and (where appropriate) a `DcsBios::Switch2` or `DcsBios::Switch3`.
 
-fixed_step:: If a control supports the _fixed_step_ interface, you can increase its position with an `INC` argument and decrease its position with an `DEC` argument.
+fixed_step:: If a control supports the _fixed_step_ interface, you can increase its position with an `INC` argument and decrease its position with a `DEC` argument.
 +
 The reference documentation will offer example code for a `DcsBios::RotaryEncoder`.
 
@@ -572,7 +572,7 @@ Each integer output has an associated maximum value and a minimum value of 0.
 The reference documentation will offer code examples for `DcsBios::LED` and `DcsBios::ServoOutput` where appropriate.
 +
 The first code snippet for integer outputs is meant to be inserted into the `onDcsBiosWrite` function if the DCS-BIOS Arduino library cannot do what you want.
-It shows you how to extract the value using the _mask_ and _shift_ values of the output.
+It shows you how to extract the value using the _address_, _mask_ and _shift_ value of the output.
 +
 NOTE: To learn about the meaning of the _address_, _mask_ and _shift_ value of an output, please refer to the developer guide.
 
@@ -590,6 +590,8 @@ That depends on what type of control you want to connect.
 
 For example, you might want to use a rotary switch for the TACAN mode dial in the A-10C and use the `DcsBios::RotarySwitch` code snippet.
 For the same control, you could also choose to use a rotary encoder.
+
+If the "Simple" view mode, the reference documentation displays only the "most appropriate" code example for each control.
 
 After choosing a code example, copy it to your Arduino sketch (refer back to the MasterCaution example to see where to copy it) and replace all the parts in red with your own values (usually the pin numbers that this control is connected to).
 
