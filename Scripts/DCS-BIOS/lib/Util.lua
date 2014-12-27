@@ -16,12 +16,10 @@ function BIOS.util.parse_indication(indicator_id)
 	local ret = {}
 	local li = list_indication(indicator_id)
 	if li == "" then return nil end
-	local m = li:gmatch("([^\n]+)\n")
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
-		local separator = m()
-		if not separator then break end
-		local name = m()
-		local value = m()
+        local name, value = m()
+        if not name then break end
 		ret[name] = value
 	end
 	return ret
