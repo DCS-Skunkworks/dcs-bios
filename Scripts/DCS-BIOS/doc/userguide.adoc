@@ -450,9 +450,6 @@ You push your button...DCS shows that button being pushed.
 <7> This line specifies that communication between the Arduino board and your DCS computer will be via "serial port".
 It can, however, be modified so you can use TCP or UDP to communicate.
 We anticiapte that most installation will use a serial port.
-
-NOTE: 3 to 6 are lines that should never be edited. 7 may be changed to suit how you wish to communicate with you DCS computer but you already know what to do if you are changing this line. 
- 
 <8> This is where you can obtain and manipulate the infomation that DCS is exporting.
 You can specify what you wish to obtain such as engin gauge data or CMSP displays that the Ardiuno has receievd from DCS.  You can then send this out to "Real"  gauges or displays on your panels.
 A more detailed explanation of how to get this data and what you can do with it is detailed in the Appendix.
@@ -484,22 +481,24 @@ NOTE: If all you see is a big red warning, you need to enable JavaScript and rel
 
 ==== Finding the Control You Are Looking For
 
-Use the "Category Filter" dropdown box and your browser's search function to quickly find what you are looking for.
-
-
+First, select the module.
+At the moment your only choice is the A10.
+Second, select the type of view.
+Choose Simple if it is not already displayed as the default.
+Finally, the "Category Filter" dropdown box will provide you with a complete listing of all the panels and you can select the panel you are looking for.
 ==== Supported Controls
 DCS-BIOS refers to switches, rotary encoders, potentiometers, push buttons etc. as " CONTROLS".
 The following are all of the supported Controls available in DCS-BIOS:
 
 * `DcsBios::ActionButton`
 
-* `DcsBios::Switch2`.  defines a 2 position swich
+* `DcsBios::SwitchPos2`.  defines a 2 position swich
 
-* `DcsBios::Switch3`. defines a 3 position switch
+* `DcsBios::SwitchPos3`. defines a 3 position switch
 
-* `DcsBios::RotarySwitch`. defines a rotary switch, you provide how many positions
+* `DcsBios::SwitchMultiPos`. defines a rotary switch, you provide how many positions
 
-* `DcsBios::potentiometer`. defines a potentiometer
+* `DcsBios::Pot`. defines a potentiometer
 
 * `DcsBios::RotaryEncoder`. defines a rotary encoder
 
@@ -510,7 +509,7 @@ DCS-BIOS also includes indicator LED's in the Controls as follows:
 Each control is identified by a unique identifier and is associated with a category, which is usually the panel it is found on in the DCS aircraft cockpit.
 
 .example:
-`DcsBios::Switch2 ahcpCicu("AHCP_CICU", PIN);` 
+`DcsBios::SwitchPos2 ahcpCicu("AHCP_CICU", PIN);` 
 
 * whereas `ahcpCicu` indicates the CICU switch on the AHCP panel.  
 
@@ -524,17 +523,7 @@ For example, the volume controls on the A-10C intercom panel have one DCS-BIOS c
 
 NOTE: To make sense of the following, select "Advanced" in the "View" dropdown box at the top of the page.
 
-An _input interface_ allows you to control something in the cockpit by sending a message to DCS-BIOS.
-Each DCS-BIOS control can support multiple _input interfaces_.
-For example, you can toggle the CICU switch in the A-10C by sending `AHCP_CICU TOGGLE`.
-
-A message starts with the identifier of the control you want to manipulate, followed by a space, an _argument_, and a semi-colon.
-Different input interfaces understand different arguments.
-
-Depending on the type of input interface, the reference documentation will offer different pieces of example code.
-
-
-.Types of input interfaces
+An _input interface_ describes the means by which controls in the cockpit can be manipulated..Types of input interfaces
 
 set_state:: If a control supports the _set_state_ interface, its current state can be set by sending it a number as an argument.
 For example, you can set the TACAN mode dial in the A-10C to the `A A REC` position by sending `TACAN_MODE 3`.
@@ -598,39 +587,7 @@ After choosing a code example, copy it to your Arduino sketch (refer back to the
 Refer to the next section for more detailed information on the individual classes, including example circuits.
 
 == Arduino Library Reference
-=== ActionButton
 
-[source,c++]
-----
-DcsBios::ActionButton(char* message, char* argument, char* pin)
-----
-
-The ActionButton class is used to send a single command to DCS when its input pin goes low.
-
-.Constructor Parameters
-message:: The message that should be sent. Set this to the identifier of the control.
-argument:: The argument that should be sent.
-pin:: The number of the Arduino pin the button is connected to.
-
-.Circuit
-Connect a push button between the Arduino pin 10 and ground.
-
-image::uno2.jpg[500, 500]
-
-The button on pin 10 toggles the CICU switch
-
-.Reference Documentation Code Example
-[source,c++]
-----
-DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", PIN);
-----
-
-.Code Examples
-[source,c++]
-----
-DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", 10);  
-----
- 
 
 
 
@@ -778,7 +735,33 @@ To reverse the direction, either swap decArg and incArg or swap pinA and pinB.
 ----
 DcsBios::RotaryEncoder tacan1("TACAN_1", "DEC", "INC", PIN_A, PIN_B);
 ----
+=== ActionButton
+The ActionButton class is used to send a single command to DCS when its input pin goes low.
 
+.Constructor Parameters
+message:: The message that should be sent. Set this to the identifier of the control.
+argument:: The argument that should be sent.
+pin:: The number of the Arduino pin the button is connected to.
+
+.Circuit
+Connect a push button between the Arduino pin 10 and ground.
+
+image::uno2.jpg[500, 500]
+
+The button on pin 10 toggles the CICU switch
+
+.Reference Documentation Code Example
+[source,c++]
+----
+DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", PIN);
+----
+
+.Code Examples
+[source,c++]
+----
+DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", 10);  
+----
+ 
 
 === LED
 
