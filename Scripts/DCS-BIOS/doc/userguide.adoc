@@ -426,39 +426,41 @@ void onDcsBiosWrite(unsigned int address, unsigned int value) { // <8>
 }
 ----
 
-<1> These are libraries that have been included to make you sketch function apropriately.  
+<1> These are libraries that have been included to make your sketch function apropriately.  
 They are always placed at the beginning of a sketch.  
-It ensures that the Arduino IDE will bring in the required libraries when it compilies your sketch for uploading to your board.  
+It ensures that the Arduino IDE will include the required libraries when it compilies your sketch for uploading to your board.  
 In addition to the `DCS-BIOS.h` library you will also see that the `Servo.h` library has been included.
-Please take note that even if your sketch does not use the `ServoOutput` class of controls you still have to include `Servo.h`. 
+Please note that even if your sketch does not use the `ServoOutput` class of controls you still have to include `Servo.h`. 
 Otherwise your sketch will fail to load.
 
-<2> This is the code you have cut and pasted from the control-reference document.  It tells the library what types of controls you are connecting to your Arduino board.
+<2> This is the code that you have cut and pasted from the Control-Reference document.  It tells the library what types of controls you are connecting to your Arduino board.
 DCS-BIOS knows how to handle push buttons, toggle switches, rotary encoders, rotary switches, potentiometers, LEDs and servo motors.
-The Arduino Library Reference (below) documents all of the controls that are available to use. 
+The Arduino Library Reference section (below) documents all of the controls that are available for you to use. 
 
 
 <3> Create an object of type `DcsBios::ProtocolParser`.
-This is code that you need not be concerned with other than you should not change it.
-<4> This line tells the Arduino board at what speed communication will take place.
+You need not be concerned with this line of code other than you do not change it.
+<4> This line tells the Arduino board at what speed communication will take place between you Arduino board and DCS.
 This setting needs to match the one in `connect-serial-port.cmd`.
 500000 is the fastest the Arduino can handle and is the default.  
 You will probably not need to adjust this whatsoever .
 <5> This statement creates a `loop()` so the Arduino will continually read data from DCS. It then sends it to the `DcsBios::ProtocolParser` for additional processing.
 <6> DcsBios::PollingInput::pollInputs()` causes the DCS-BIOS library to check the state of all of your connected push buttons, toggle switches, rotary encoders, etc. If it finds that something has changed it sends a message to DCS to initiate that same change.  
 You push your button...DCS shows that button being pushed.
-<7> This line is used to tell the Arduino to communicate via "serial port".
-Its nothing you will need to change.
+<7> This line specifies that communication between the Arduino board and your DCS computer will be via "serial port".
 It can, however, be modified so you can use TCP or UDP to communicate.
-We anticiapte a majority of installation will probably use a serial port.
-<8> Data that the Ardiuno has receievd from DCS can be sent out to physical displays.
-Such display might include LED displays, LCD displays, Gauges etc.
-This is the line that you would modify to obtain that data.
-However, even if you do not intend to display anything you still must include this function.
-If you do not, your sketch will fail to upload.  
-The code required to obtain the data you wish to display is found in the "Control-Reference" document. 
+We anticiapte that most installation will use a serial port.
 
-=== Using the Reference Documentation
+NOTE: 3 to 6 are lines that should never be edited. 7 may be changed to suit how you wish to communicate with you DCS computer but you already know what to do if you are changing this line. 
+ 
+<8> This is where you can obtain and manipulate the infomation that DCS is exporting.
+You can specify what you wish to obtain such as engin gauge data or CMSP displays that the Ardiuno has receievd from DCS.  You can then send this out to "Real"  gauges or displays on your panels.
+A more detailed explanation of how to get this data and what you can do with it is detailed in the Appendix.
+Even if you do not intend to display anything you still must include this function.
+If you do not, your sketch will fail to upload.  
+
+
+=== Using the Control-Reference Documentation
 Recall the following part from the MasterCaution example:
 [source,c++]
 ----
