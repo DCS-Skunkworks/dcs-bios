@@ -299,39 +299,10 @@ function BIOS.util.defineIndicatorLight(msg, arg_number, category, description)
 end
 
 function BIOS.util.definePushButton(msg, device_id, device_command, arg_number, category, description)
-	--moduleBeingDefined.highFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
-	moduleBeingDefined.inputProcessors[msg] = function(state)
-		if type(state) == "string" then state = tonumber(state) end
-		GetDevice(device_id):performClickableAction(device_command, state)
-	end
-	local value = moduleBeingDefined.memoryMap:allocateInt {
-		maxValue = 1
-	}
-	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		value:setValue(dev0:get_argument_value(arg_number))
-	end	
-	document {
-		identifier = msg,
-		category = category,
-		description = description,
-		control_type = "selector",
-		api_variant = "momentary_last_position",
-		physical_variant = "push_button",
-		inputs = {
-			{ interface = "set_state", max_value = 1, description = "set the state of the button (1 = pushed, 0 = released)" },
-		},
-		outputs = {
-			{ ["type"] = "integer",
-			  suffix = "",
-			  address = value.address,
-			  mask = value.mask,
-			  shift_by = value.shiftBy,
-			  max_value = 1,
-			  description = "0 in released state, 1 in pushed state"
-			}
-		}
-	}
-
+	BIOS.util.defineTumb(msg, device_id, device_command, arg_number, 1, {0, 1}, nil, false, category, description)
+	local docentry = moduleBeingDefined.documentation[category][msg]
+	docentry.physical_variant = "push_button"
+	docentry.api_variant = "momentary_last_position"
 end
 
 function BIOS.util.definePotentiometer(msg, device_id, command, arg_number, limits, category, description)
