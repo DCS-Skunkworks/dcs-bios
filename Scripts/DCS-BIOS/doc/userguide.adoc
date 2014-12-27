@@ -262,8 +262,8 @@ The word "PIN' gets replaced with 10.
 The line of code for the Master Caution switch should have changed as follows:
 [source,c++]
 ----
-DcsBios::Switch2 ufcMasterCaution("UFC_MASTER_CAUTION", PIN);
-DcsBios::Switch2 ufcMasterCaution("UFC_MASTER_CAUTION", 10);  
+DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", PIN);
+DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", 10);  
 ---- 
 
 * You now do the same for the LED that respresents the Master Caution warning. 
@@ -285,7 +285,7 @@ When you have completed these changes, the beginning of your sketch should look 
 /**** Paste your code below here ****/
 
 DcsBios::LED masterCaution(0x108e, 0x0008, 13);
-DcsBios::Switch2 ufcMasterCaution("UFC_MASTER_CAUTION", 10);
+DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", 10);
 
 /**** Do not change anything below this line ****/
 
@@ -395,7 +395,7 @@ This section takes a closer look at the different parts of the MasterCaution exa
 #include <Servo.h>
 
 /* paste your code below this line */ // <2>
-DcsBios::Switch2 masterCautionBtn("UFC_MASTER_CAUTION", 10);
+DcsBios::Switch2Pos masterCautionBtn("UFC_MASTER_CAUTION", 10);
 DcsBios::LED mcLed(0x108e, 0x0008, 13);
 
 /* Do Not change anything below this line unless you know what you are doing */
@@ -461,7 +461,7 @@ If you do not, your sketch will fail to upload.
 Recall the following part from the MasterCaution example:
 [source,c++]
 ----
-DcsBios::Switch2 masterCautionBtn("UFC_MASTER_CAUTION", 10);
+DcsBios::Switch2Pos masterCautionBtn("UFC_MASTER_CAUTION", 10);
 DcsBios::LED masterCautionLED("MASTER_CAUTION", 13);
 ----
 
@@ -492,9 +492,9 @@ The following are all of the supported Controls available in DCS-BIOS:
 
 * `DcsBios::ActionButton`
 
-* `DcsBios::SwitchPos2`.  defines a 2 position swich
+* `DcsBios::Switch2Pos`.  defines a 2 position swich
 
-* `DcsBios::SwitchPos3`. defines a 3 position switch
+* `DcsBios::Switch3Pos`. defines a 3 position switch
 
 * `DcsBios::SwitchMultiPos`. defines a rotary switch, you provide how many positions
 
@@ -530,7 +530,7 @@ For example, you can set the TACAN mode dial in the A-10C to the `A A REC` posit
 +
 NOTE: The range of acceptable values is 0 to the maximum value of the control's first output.
 +
-The reference documentation will offer example code for a `DcsBios::RotarySwitch` and (where appropriate) a `DcsBios::Switch2` or `DcsBios::Switch3`.
+The reference documentation will offer example code for a `DcsBios::SwitchMultiPos` and (where appropriate) a `DcsBios::Switch2Pos` or `DcsBios::Switch3Pos`.
 
 fixed_step:: If a control supports the _fixed_step_ interface, you can increase its position with an `INC` argument and decrease its position with a `DEC` argument.
 An example would be a rotary encoder used to change the frequency of a VHF radio.
@@ -577,7 +577,7 @@ For most common combinations of display type and connection method, you can find
 To use the example code from the reference documentation in your Arduino sketch, you first have to choose which code example to copy.
 That depends on what type of control you want to connect.
 
-For example, you might want to use a rotary switch for the TACAN mode dial in the A-10C and use the `DcsBios::RotarySwitch` code snippet.
+For example, you might want to use a rotary switch for the TACAN mode dial in the A-10C and use the `DcsBios::SwitchMultiPos` code snippet.
 For the same control, you could also choose to use a rotary encoder.
 
 If the "Simple" view mode, the reference documentation displays only the "most appropriate" code example for each control.
@@ -591,14 +591,14 @@ Refer to the next section for more detailed information on the individual classe
 
 
 
-=== Switch2
+=== Switch2Pos
 
 [source,c++]
 ----
-DcsBios::Switch2(char* message, char pin)
+DcsBios::Switch2Pos(char* message, char pin)
 ----
 
-The Switch2 class handles inputs that have two states, such as toggle switches and push buttons.
+The Switch2Pos class handles inputs that have two states, such as toggle switches and push buttons.
 
 .Constructor Parameters
 message:: The message that should be sent. Set this to the identifier of the control.
@@ -610,22 +610,22 @@ Connect the toggle switch or push button between the Arduino pin and ground.
 .Reference Documentation Code Examples
 [source,c++]
 ----
-DcsBios::Switch2 ahcpCicu("AHCP_CICU", PIN);
+DcsBios::Switch2Pos ahcpCicu("AHCP_CICU", PIN);
 ----
 
 [source,c++]
 ----
-DcsBios::Switch2 ufcHack("UFC_HACK", PIN);
+DcsBios::Switch2Pos ufcHack("UFC_HACK", PIN);
 ----
 
-=== Switch3
+=== Switch3Pos
 
 [source,c++]
 ----
-DcsBios::Switch3(char* message, char pinA, char pinB)
+DcsBios::Switch3Pos(char* message, char pinA, char pinB)
 ----
 
-The Switch3 class handles inputs that have three states, such as three-position toggle switches or rotaries.
+The Switch3Pos class handles inputs that have three states, such as three-position toggle switches or rotaries.
 
 .Constructor Parameters
 message:: The message that should be sent. Set this to the identifier of the control.
@@ -635,24 +635,24 @@ pinB:: The number of the Arduino pin that the *last switch position* is connecte
 .Circuit
 Connect your three-position toggle or rotary switch so that the first (left or down) position connects *pinA* to ground and the last (right or up) position connects *pinB* to ground.
 
-The Switch3 class defaults to the center position, so (if your switch even has a pin for that) you don't have to connect it to anything.
+The Switch3Pos class defaults to the center position, so (if your switch even has a pin for that) you don't have to connect it to anything.
 
 image::toggle.jpg[500, 500]
 
 .Reference Documentation Code Examples
 [source,c++]
 ----
-DcsBios::Switch3 aapSteer("AAP_STEER", PIN_A, PIN_B);
+DcsBios::Switch3Pos aapSteer("AAP_STEER", PIN_A, PIN_B);
 ----
 
-=== RotarySwitch
+=== SwitchMultiPos
 
 [source,c++]
 ----
-DcsBios::RotarySwitch(char* message, const byte* pins, char numberOfPins);
+DcsBios::SwitchMultiPos(char* message, const byte* pins, char numberOfPins);
 ----
 
-The RotarySwitch class handles rotary switches.
+The SwitchMultiPos class handles rotary switches.
 
 .Constructor Parameters
 message:: The message that should be sent. Set this to the identifier of the control.
@@ -667,7 +667,7 @@ Connect the rotary switch so that it connects the Arduino pin for the currently 
 [source,c++]
 ----
 const byte aapSteerptPins[3] = {PIN_0, ... ,PIN_2};
-DcsBios::RotarySwitch aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);
+DcsBios::SwitchMultiPos aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);
 ----
 
 .Example
@@ -676,7 +676,7 @@ DcsBios::RotarySwitch aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);
 // A rotary switch that controls the A-10C steerpoint mode (FLTPLAN / MARK / MISSION)
 // is connected to digital pins 10, 11 and 12
 const byte aapSteerptPins[3] = {10, 11, 12};
-DcsBios::RotarySwitch aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);
+DcsBios::SwitchMultiPos aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);
 ----
 
 === Potentiometer

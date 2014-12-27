@@ -43,9 +43,9 @@ $(function() {
 	}
 	
 	var defaultSnippetPrecedence = [
-		"Switch2",
-		"Switch3",
-		"RotarySwitch",
+		"Switch2Pos",
+		"Switch3Pos",
+		"SwitchMultiPos",
 		"RotaryEncoder_variable_step",
 		"RotaryEncoder_fixed_step",
 		"ActionButton",
@@ -81,15 +81,15 @@ $(function() {
 			switch(input["interface"]) {
 			case "set_state":
 				if (input.max_value < 33) {
-					var snippet = add_snippet("RotarySwitch");
+					var snippet = add_snippet("SwitchMultiPos");
 					snippet.pin_template = 'PIN_0';
 					for (var i=1; i <= input.max_value; i++)
 						snippet.pin_template += ", PIN_" + i.toString();
 				}
 				if (input.max_value == 1)
-					add_snippet("Switch2");
+					add_snippet("Switch2Pos");
 				if (input.max_value == 2)
-					add_snippet("Switch3");
+					add_snippet("Switch3Pos");
 				if (input.max_value == 65535)
 					add_snippet("Potentiometer");
 				break;
@@ -267,14 +267,14 @@ $(function() {
 			code.append($("<span>").text(');'));
 			break;
 			
-			case "Switch2":
-			code.append($("<span>").text('DcsBios::Switch2 '+idCamelCase(cid)+'("'+cid+'", '));
+			case "Switch2Pos":
+			code.append($("<span>").text('DcsBios::Switch2Pos '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
 			code.append($("<span>").text(");"));
 			break;
 			
-			case "Switch3":
-			code.append($("<span>").text('DcsBios::Switch3 '+idCamelCase(cid)+'("'+cid+'", '));
+			case "Switch3Pos":
+			code.append($("<span>").text('DcsBios::Switch3Pos '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_A"));
 			code.append($("<span>").text(", "));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_B"));
@@ -287,12 +287,12 @@ $(function() {
 			code.append($("<span>").text(");"));
 			break;
 			
-			case "RotarySwitch":
+			case "SwitchMultiPos":
 			code.append($("<span>").text('const byte '+idCamelCase(cid+'_PINS')+'['+(io.max_value+1).toString()+'] = {'));
 			code.append($("<i>").attr("style", "color: red;").text(snippet.pin_template));
 			code.append($("<span>").text("};"));
 			code.append($("<br>"));
-			code.append($("<span>").text('DcsBios::RotarySwitch '+idCamelCase(cid)+'("'+cid+'", '+idCamelCase(cid+'_PINS')+', '+(io.max_value+1).toString()+');'));
+			code.append($("<span>").text('DcsBios::SwitchMultiPos '+idCamelCase(cid)+'("'+cid+'", '+idCamelCase(cid+'_PINS')+', '+(io.max_value+1).toString()+');'));
 			break;
 			
 			case "generic_integer_output":
