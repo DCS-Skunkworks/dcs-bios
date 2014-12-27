@@ -863,7 +863,7 @@ define3PosTumb("FIRE_EXT_DISCH", 50, 3004, 105, "Glare Shield", "Fire Extinguish
 definePotentiometer("HSI_HDG", 45, 3001, 45, {0, 1}, "HSI", "Heading Select")
 definePotentiometer("HSI_CRS", 45, 3001, 44, {0, 1}, "HSI", "Course Select")
 
-definePotentiometer("ADI_PITCH_TRIM", 47, 3001, 22, {0, 1}, "ADI", "ADI Pitch Trim")
+definePotentiometer("ADI_PITCH_TRIM", 47, 3001, 22, {-.5, .5}, "ADI", "ADI Pitch Trim")
 
 definePushButton("SAI_CAGE", 48, 3002, 67, "Standby Attitude Indicator", "Cage SAI")
 defineRotary("SAI_PITCH_TRIM", 48, 3003, 66, "Standby Attitude Indicator", "SAI Pitch Trim")
