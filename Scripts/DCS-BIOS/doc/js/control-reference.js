@@ -365,6 +365,65 @@ $(function() {
 				div.append(makeSnippet(snippet, input, control));
 			});
 		}
+		
+		if (viewSelect.val() == "livedata") {
+			div.append($("<b>Input Interface: </b>"));
+			div.append($("<span>").text(input["interface"]+" "));
+			function appendActionButton(argument) {
+				var button = $("<button>").text(argument);
+				div.append(button);
+				button.on("click", function() {
+					$(document).trigger("dcs-bios-send", [control.identifier+" "+argument+"\n"]);
+				});
+			}
+			if (input["interface"] == "action") {
+				appendActionButton(input.argument);
+			}
+			if (input["interface"] == "fixed_step") {
+				appendActionButton("DEC");
+				appendActionButton("INC");
+			}
+			if (input["interface"] == "variable_step") {
+				var slider = $("<input>")
+				.attr("type", "range")
+				.attr("value", input.suggested_step.toString())
+				.attr("min", "1")
+				.attr("max", input.max_value.toString())
+				.attr("style", "width: 50%;");
+				var decButton = $("<button>").text("-"+input.suggested_step.toString());
+				var incButton = $("<button>").text("+"+input.suggested_step.toString());
+				div.append(slider);
+				div.append(decButton);
+				div.append(incButton);
+				slider.on("change", function() {
+					decButton.text("-"+slider.val().toString());
+					incButton.text("+"+slider.val().toString());
+				});
+				decButton.on("click", function() {
+					$(document).trigger("dcs-bios-send", [control.identifier+" "+decButton.text()+"\n"]);
+				});
+				incButton.on("click", function() {
+					$(document).trigger("dcs-bios-send", [control.identifier+" "+incButton.text()+"\n"]);
+				});
+			}
+			if (input["interface"] == "set_state") {
+				var slider = $("<input>")
+				.attr("type", "range")
+				.attr("value", "0")
+				.attr("min", "0")
+				.attr("max", input.max_value.toString());
+				var button = $("<button>").text("0");
+				div.append(slider);
+				div.append(button);
+				slider.on("change", function() {
+					button.text(slider.val().toString());
+				});
+				button.on("click", function() {
+					$(document).trigger("dcs-bios-send", [control.identifier+" "+button.text()+"\n"]);
+				});
+			}
+		}
+		
 		return div;
 	};
 	

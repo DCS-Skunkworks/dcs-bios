@@ -119,7 +119,9 @@ $(function() {
 	.done();
 	
 	$(document).on("dcs-bios-send", function(evt, msg) {
-		chrome.sockets.tcp.send(socketId, rawStringToBuffer(msg));
+		chrome.sockets.tcp.send(socketId, rawStringToBuffer(msg), function(result) {
+		
+		});
 	});
 	
 });
