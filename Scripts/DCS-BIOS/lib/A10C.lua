@@ -650,8 +650,8 @@ definePushButton("FSCP_FD_MAIN_L", 36, 3014, 119, "Fuel System Control Panel", "
 definePushButton("FSCP_FD_MAIN_R", 36, 3015, 120, "Fuel System Control Panel", "Fill Disable Main Right")
 defineToggleSwitch("FSCP_RCVR_LEVER", 36, 3016, 121, "Fuel System Control Panel", "Aerial Refueling Slipway Control Lever")
 
-definePushButton("FQIS_TEST", 36, 3018, 646, "FQIS", "Fuel Gauge Test")
-defineTumb("FQIS_SELECT", 36, 3017, 645, 0.1, {0.0, 0.4}, nil, false, "FQIS", "Fuel Display Selector")
+definePushButton("FQIS_TEST", 36, 3018, 646, "Fuel Panel", "Fuel Gauge Test")
+defineTumb("FQIS_SELECT", 36, 3017, 645, 0.1, {0.0, 0.4}, nil, false, "Fuel Panel", "Fuel Display Selector")
 
 defineToggleSwitch("ENGINE_FUEL_FLOW_L", 37, 3001, 122, "Throttle", "Fuel Flow L")
 defineToggleSwitch("ENGINE_FUEL_FLOW_R", 37, 3002, 123, "Throttle", "Fuel Flow R")

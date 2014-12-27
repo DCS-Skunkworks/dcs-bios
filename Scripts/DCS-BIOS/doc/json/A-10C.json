@@ -6128,55 +6128,6 @@
                                                                                              } ]
                                                                          }
                                            },
-                                   "FQIS": {
-                                               "FQIS_SELECT": {
-                                                                             "category": "FQIS",
-                                                                         "control_type": "selector",
-                                                                          "description": "Fuel Display Selector",
-                                                                           "identifier": "FQIS_SELECT",
-                                                                               "inputs": [ {
-                                                                                             "description": "switch to previous or next state",
-                                                                                               "interface": "fixed_step"
-                                                                                         }, {
-                                                                                             "description": "set position",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 4
-                                                                                         } ],
-                                                                  "momentary_positions": "none",
-                                                                              "outputs": [ {
-                                                                                                 "address": 4358,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 7168,
-                                                                                               "max_value": 4,
-                                                                                                "shift_by": 10,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "limited_rotary"
-                                                              },
-                                                 "FQIS_TEST": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "FQIS",
-                                                                      "control_type": "selector",
-                                                                       "description": "Fuel Gauge Test",
-                                                                        "identifier": "FQIS_TEST",
-                                                                            "inputs": [ {
-                                                                                          "description": "set the state of the button (1 = pushed, 0 = released)",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      } ],
-                                                                           "outputs": [ {
-                                                                                              "address": 4358,
-                                                                                          "description": "0 in released state, 1 in pushed state",
-                                                                                                 "mask": 512,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 9,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                              }
-                                           },
                              "Front Dash": {
                                                   "CANOPY_UNLOCKED": {
                                                                              "category": "Front Dash",
@@ -6244,6 +6195,53 @@
                                                                      }
                                            },
                              "Fuel Panel": {
+                                                  "FQIS_SELECT": {
+                                                                                "category": "Fuel Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Fuel Display Selector",
+                                                                              "identifier": "FQIS_SELECT",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 4
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4358,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 7168,
+                                                                                                  "max_value": 4,
+                                                                                                   "shift_by": 10,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "limited_rotary"
+                                                                 },
+                                                    "FQIS_TEST": {
+                                                                          "api_variant": "momentary_last_position",
+                                                                             "category": "Fuel Panel",
+                                                                         "control_type": "selector",
+                                                                          "description": "Fuel Gauge Test",
+                                                                           "identifier": "FQIS_TEST",
+                                                                               "inputs": [ {
+                                                                                             "description": "set the state of the button (1 = pushed, 0 = released)",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 1
+                                                                                         } ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 4358,
+                                                                                             "description": "0 in released state, 1 in pushed state",
+                                                                                                    "mask": 512,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 9,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ],
+                                                                     "physical_variant": "push_button"
+                                                                 },
                                                  "FUEL_QTY_100": {
                                                                          "category": "Fuel Panel",
                                                                      "control_type": "analog_gauge",
