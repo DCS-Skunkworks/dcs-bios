@@ -5,10 +5,10 @@
 
 DcsBios::ProtocolParser parser;
 
-DcsBios::Switch2 tacanTestButton("TACAN_TEST_BTN", A6);
+DcsBios::Switch2Pos tacanTestButton("TACAN_TEST_BTN", A6);
 DcsBios::ActionButton xyToggleButton("TACAN", "XY", 9);
 byte modeSelectorPins[] = {2,3,4,5,6};
-DcsBios::RotarySwitch modeSelector("TACAN_MODE", modeSelectorPins, 5);
+DcsBios::SwitchMultiPos modeSelector("TACAN_MODE", modeSelectorPins, 5);
 DcsBios::Potentiometer volumeKnob("TACAN_VOL", A0);
 DcsBios::RotaryEncoder khzKnob("TACAN", "-1", "+1", A1, A2);
 DcsBios::RotaryEncoder mhzKnob("TACAN", "-10", "+10", 7, 8);

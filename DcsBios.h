@@ -87,17 +87,17 @@ class ActionButton : PollingInput {
 		ActionButton(char* msg, char* arg, char pin);
 };
 
-class Switch2 : PollingInput {
+class Switch2Pos : PollingInput {
 	private:
 		void pollInput();
 		char* msg_;
 		char pin_;
 		char lastState_;
 	public:
-		Switch2(char* msg, char pin);
+		Switch2Pos(char* msg, char pin);
 };
 
-class Switch3 : PollingInput {
+class Switch3Pos : PollingInput {
 	private:
 		void pollInput();
 		char* msg_;
@@ -106,10 +106,10 @@ class Switch3 : PollingInput {
 		char lastState_;
 		char readState();
 	public:
-		Switch3(char* msg, char pinA, char pinB);
+		Switch3Pos(char* msg, char pinA, char pinB);
 };
 
-class RotarySwitch : PollingInput {
+class SwitchMultiPos : PollingInput {
 	private:
 		void pollInput();
 		char* msg_;
@@ -118,7 +118,7 @@ class RotarySwitch : PollingInput {
 		char lastState_;
 		char readState();
 	public:
-		RotarySwitch(char* msg_, const byte* pins, char numberOfPins);
+		SwitchMultiPos(char* msg_, const byte* pins, char numberOfPins);
 };
 
 class Potentiometer : PollingInput {

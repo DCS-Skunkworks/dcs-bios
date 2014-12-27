@@ -92,13 +92,13 @@ void ActionButton::pollInput() {
 	lastState_ = state;
 }
 
-Switch2::Switch2(char* msg, char pin) {
+Switch2Pos::Switch2Pos(char* msg, char pin) {
 	msg_ = msg;
 	pin_ = pin;
 	pinMode(pin_, INPUT_PULLUP);
 	lastState_ = digitalRead(pin_);
 }
-void Switch2::pollInput() {
+void Switch2Pos::pollInput() {
 	char state = digitalRead(pin_);
 	if (state != lastState_) {
 		sendDcsBiosMessage(msg_, state == HIGH ? "0" : "1");
@@ -106,7 +106,7 @@ void Switch2::pollInput() {
 	lastState_ = state;
 }
 
-Switch3::Switch3(char* msg, char pinA, char pinB) {
+Switch3Pos::Switch3Pos(char* msg, char pinA, char pinB) {
 	msg_ = msg;
 	pinA_ = pinA;
 	pinB_ = pinB;
@@ -114,12 +114,12 @@ Switch3::Switch3(char* msg, char pinA, char pinB) {
 	pinMode(pinB_, INPUT_PULLUP);
 	lastState_ = readState();
 }
-char Switch3::readState() {
+char Switch3Pos::readState() {
 	if (digitalRead(pinA_) == LOW) return 0;
 	if (digitalRead(pinB_) == LOW) return 2;
 	return 1;
 }
-void Switch3::pollInput() {
+void Switch3Pos::pollInput() {
 	char state = readState();
 	if (state != lastState_) {
 		if (state == 0)
@@ -149,7 +149,7 @@ void Potentiometer::pollInput() {
 }
 
 
-RotarySwitch::RotarySwitch(char* msg, const byte* pins, char numberOfPins) {
+SwitchMultiPos::SwitchMultiPos(char* msg, const byte* pins, char numberOfPins) {
 	msg_ = msg;
 	pins_ = pins;
 	numberOfPins_ = numberOfPins;
@@ -159,14 +159,14 @@ RotarySwitch::RotarySwitch(char* msg, const byte* pins, char numberOfPins) {
 	}
 	lastState_ = readState();
 }
-char RotarySwitch::readState() {
+char SwitchMultiPos::readState() {
 	char i;
 	for (i=0; i<numberOfPins_; i++) {
 		if (digitalRead(pins_[i]) == LOW) return i;
 	}
 	return 0;
 }
-void RotarySwitch::pollInput() {
+void SwitchMultiPos::pollInput() {
 	char state = readState();
 	if (state != lastState_) {
 		char buf[7];

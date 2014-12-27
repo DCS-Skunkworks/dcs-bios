@@ -5,7 +5,7 @@
 DcsBios::ProtocolParser parser;
 
 /* Declare a Master Caution Reset button on pin 10 */
-DcsBios::Switch2 masterCautionBtn("UFC_MASTER_CAUTION", 10);
+DcsBios::Switch2Pos masterCautionBtn("UFC_MASTER_CAUTION", 10);
 /* Make the LED connected to pin 13 into a Master Caution Light */
 DcsBios::LED mcLed(0x108e, 0x0008, 13);
 
