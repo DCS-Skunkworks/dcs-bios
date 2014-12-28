@@ -9,9 +9,13 @@ $(function() {
 	var viewSelect = $("<select>");
 	viewSelect.append($("<option>").attr("value", "simple").text("Simple"));
 	viewSelect.append($("<option>").attr("value", "advanced").text("Advanced"));
-	if (chrome && chrome.sockets && chrome.sockets.tcp) {
-		viewSelect.append($("<option>").attr("value", "livedata").text("Live Data"));
-		viewSelect.val("livedata");
+	if (typeof chrome != "undefined") {
+		if (typeof chrome.sockets != "undefined") {
+			if (typeof chrome.sockets.tcp != "undefined") {
+				viewSelect.append($("<option>").attr("value", "livedata").text("Live Data"));
+				viewSelect.val("livedata");
+			}
+		}
 	}
 	$("#app").append($("<span>").text(" View: "));
 	$("#app").append(viewSelect);
