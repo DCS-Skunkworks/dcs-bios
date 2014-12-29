@@ -833,7 +833,9 @@ defineRotary("ALT_SET_PRESSURE", 35, 3001, 62, "Altimeter", "Set Pressure")
 defineRockerSwitch("ALT_ELECT_PNEU", 62, 3002, 3002, 3001, 3001, 60, "Altimeter", "ELECT / PNEU")
 
 
-defineTumb("LCP_POSITION", 49, 3008, 287, 0.1, {-1, 1}, nil, false, "Light System Control Panel", "Position Lights FLASH/OFF/STEADY")
+defineTumb("LCP_POSITION", 49, 3008, 287, 1, {-1, 1}, nil, false, "Light System Control Panel", "Position Lights FLASH/OFF/STEADY")
+-- skip 3 bits in the memory map to preserve backwards compatibility:
+local dummyAlloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 7 }
 definePotentiometer("LCP_FORMATION", 49, 3009, 288, {0, 1}, "Light System Control Panel", "Formation Lights")
 defineElectricallyHeldSwitch("LCP_ANTICOLLISION", 49, 3010, 3011, 289, "Light System Control Panel", "Anticollision Lights")
 definePotentiometer("LCP_ENG_INST", 49, 3001, 290, {0, 1}, "Light System Control Panel", "Engine Instrument Lights")
