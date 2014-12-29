@@ -628,7 +628,7 @@ function BIOS.util.defineToggleSwitchToggleOnly(msg, device_id, command, arg_num
 	end
 end
 
-function BIOS.util.defineRelativeTumb(msg, device_id, command, arg_number, step, limits, rel_args, output_map, category, description)
+function BIOS.util.defineFixedStepTumb(msg, device_id, command, arg_number, step, limits, rel_args, output_map, category, description)
 	BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits, output_map, true, category, description)
 	local docentry = moduleBeingDefined.documentation[category][msg]
 	assert(docentry.inputs[2].interface == "set_state")
@@ -642,6 +642,43 @@ function BIOS.util.defineRelativeTumb(msg, device_id, command, arg_number, step,
 			GetDevice(device_id):performClickableAction(command, rel_args[2])
 		end
 	end
+end
+
+
+function BIOS.util.defineVariableStepTumb(msg, device_id, command, arg_number, max_step, category, description)
+	
+	local rotationAlloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 65535 }
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		local value = dev0:get_argument_value(arg_number)
+		rotationAlloc:setValue(value * 65535)
+	end
+	
+	moduleBeingDefined.inputProcessors[msg] = function(state)
+		local delta = tonumber(state) / 65535 * max_step
+		GetDevice(device_id):performClickableAction(command, delta)
+	end
+	
+	
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "variable_step_dial",
+		inputs = {
+			{ interface = "variable_step", suggested_step = 3200, max_value = 65535, description = "rotate the knob" }
+		},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = rotationAlloc.address,
+			  mask = rotationAlloc.mask,
+			  shift_by = rotationAlloc.shiftBy,
+			  max_value = 65535,
+			  description = "rotation of the knob (not the value being manipulated!)"
+			}
+		}
+	}
+	
 end
 
 function BIOS.util.defineString(msg, getter, maxLength, category, description)

@@ -8155,22 +8155,18 @@
                                                                    },
                                                         "HSI_CRS": {
                                                                            "category": "HSI",
-                                                                       "control_type": "limited_dial",
-                                                                        "description": "Course Select",
+                                                                       "control_type": "variable_step_dial",
+                                                                        "description": "Course Select Knob",
                                                                          "identifier": "HSI_CRS",
                                                                              "inputs": [ {
-                                                                                           "description": "set the position of the dial",
-                                                                                             "interface": "set_state",
-                                                                                             "max_value": 65535
-                                                                                       }, {
-                                                                                              "description": "turn the dial left or right",
+                                                                                              "description": "rotate the knob",
                                                                                                 "interface": "variable_step",
                                                                                                 "max_value": 65535,
                                                                                            "suggested_step": 3200
                                                                                        } ],
                                                                             "outputs": [ {
-                                                                                               "address": 4444,
-                                                                                           "description": "position of the potentiometer",
+                                                                                               "address": 4442,
+                                                                                           "description": "rotation of the knob (not the value being manipulated!)",
                                                                                                   "mask": 65535,
                                                                                              "max_value": 65535,
                                                                                               "shift_by": 0,
@@ -8228,22 +8224,18 @@
                                                                    },
                                                         "HSI_HDG": {
                                                                            "category": "HSI",
-                                                                       "control_type": "limited_dial",
-                                                                        "description": "Heading Select",
+                                                                       "control_type": "variable_step_dial",
+                                                                        "description": "Heading Select Knob",
                                                                          "identifier": "HSI_HDG",
                                                                              "inputs": [ {
-                                                                                           "description": "set the position of the dial",
-                                                                                             "interface": "set_state",
-                                                                                             "max_value": 65535
-                                                                                       }, {
-                                                                                              "description": "turn the dial left or right",
+                                                                                              "description": "rotate the knob",
                                                                                                 "interface": "variable_step",
                                                                                                 "max_value": 65535,
                                                                                            "suggested_step": 3200
                                                                                        } ],
                                                                             "outputs": [ {
-                                                                                               "address": 4442,
-                                                                                           "description": "position of the potentiometer",
+                                                                                               "address": 4444,
+                                                                                           "description": "rotation of the knob (not the value being manipulated!)",
                                                                                                   "mask": 65535,
                                                                                              "max_value": 65535,
                                                                                               "shift_by": 0,

@@ -16,7 +16,8 @@ local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineToggleSwitchToggleOnly = BIOS.util.defineToggleSwitchToggleOnly
-local defineRelativeTumb = BIOS.util.defineRelativeTumb
+local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
+local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
@@ -735,7 +736,7 @@ definePushButton("LAMP_TEST_BTN", 24, 3002, 197, "Auxiliary Light Control Panel"
 defineToggleSwitch("GND_SAFE_OVERRIDE_COVER", 12, 3002, 709, "Misc", "Ground Safety Override Switch Cover")
 defineToggleSwitch("GND_SAFE_OVERRIDE", 12, 3003, 710, "Misc", "Ground Safety Override")
 
-defineRelativeTumb("IFF_CODE", 43, 3007, 199, 0.1, {0.0, 0.3}, {1, -1}, nil, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
+defineFixedStepTumb("IFF_CODE", 43, 3007, 199, 0.1, {0.0, 0.3}, {1, -1}, nil, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
 defineTumb("IFF_MASTER", 43, 3008, 200, 0.1, {0, 0.4}, nil, true, "IFF", "IFF Master: OFF - STBY - LOW - NORM - EMER")
 define3PosTumb("IFF_OUT_AUDIO_LIGHT", 43, 3009, 301, "IFF", "IFF Out: LIGHT - OFF - AUDIO")
 defineTumb("IFF_TEST_M1", 43, 3010, 202, 1, {-1, 1}, nil, true, "IFF", "Test M-1")
@@ -859,9 +860,8 @@ defineToggleSwitch("FIRE_APU_PULL", 50, 3002, 103, "Glare Shield", "APU Fire T-H
 defineToggleSwitch("FIRE_RENG_PULL", 50, 3003, 104, "Glare Shield", "Right Engine Fire T-Handle")
 define3PosTumb("FIRE_EXT_DISCH", 50, 3004, 105, "Glare Shield", "Fire Extinguisher Discharge Left/Off/Right")
 
-
-definePotentiometer("HSI_HDG", 45, 3001, 45, {0, 1}, "HSI", "Heading Select")
-definePotentiometer("HSI_CRS", 45, 3001, 44, {0, 1}, "HSI", "Course Select")
+defineVariableStepTumb("HSI_CRS", 45, 3002, 44, 1.0, "HSI", "Course Select Knob")
+defineVariableStepTumb("HSI_HDG", 45, 3001, 45, 1.0, "HSI", "Heading Select Knob")
 
 definePotentiometer("ADI_PITCH_TRIM", 47, 3001, 22, {-.5, .5}, "ADI", "ADI Pitch Trim")
 
@@ -872,8 +872,8 @@ defineString("TACAN_CHANNEL", getTacanChannel, 4, "TACAN Panel", "TACAN Channel"
 definePushButton("TACAN_TEST_BTN", 51, 3006, 259, "TACAN Panel", "TACAN Test Button")
 definePotentiometer("TACAN_VOL", 51, 3007, 261, {0, 1}, "TACAN Panel", "TACAN Signal Volume")
 
-defineRelativeTumb("TACAN_10", 51, 3001, 256, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Left Channel Selector")
-defineRelativeTumb("TACAN_1", 51, 3003, 257, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Right Channel Selector")
+defineFixedStepTumb("TACAN_10", 51, 3001, 256, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Left Channel Selector")
+defineFixedStepTumb("TACAN_1", 51, 3003, 257, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Right Channel Selector")
 defineToggleSwitch("TACAN_XY", 51, 3005, 266, "TACAN Panel", "TACAN Channel X/Y Toggle")
 moduleBeingDefined.inputProcessors["TACAN_XY"] = function(action)
 	-- The TACAN X/Y behaves like a toggle switch, but its value can not be set directly.
