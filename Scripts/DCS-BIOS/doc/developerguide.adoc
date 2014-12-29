@@ -92,6 +92,26 @@ DCS-BIOS ensures that this byte sequence cannot appear in the normal data stream
 In the event that the byte sequence `0x55 0x55 0x55 0x55` would appear in a single write access, DCS-BIOS will avoid that by splitting it up into two separate writes.
 
 == An In-Depth Look at the Arduino Library
+
+=== PollingInput
+
+The `DcsBios::PollingInput` class is the base class of all input classes such as `Switch2Pos` or `RotaryEncoder`.
+
+If your class inherits from `PollingInput`, its `pollInput()` method will be called whenever `DcsBios::PollingInput::pollInputs()` is called from the main loop.
+
+To make this happen, the constructor of `PollingInput` maintains a global singly-linked list of all `PollingInput` instances.
+
+=== ExportStreamListener
+
+If your class inherits from `ExportStreamListener`, its `onDcsBiosWrite(unsigned int address, unsigned int data)` method will be called every time a `ProtocolParser` finishes receiving new export stream data.
+
+Its `onDcsBiosFrameSync()` method will be called every time the synchronization sequence (`0x55 0x55 0x55 0x55`) is received.
+The `StringBuffer` class uses this to avoid calling your code with an inconsistent string mid-update.
+
+=== ProtocolParser
+
+If you feed the export stream data you receive from DCS-BIOS to the `processChar` method of a `ProtocolParser` instance, it will interpret the data and ensure that the global `onDcsBiosWrite` function as well as every `ExportStreamListener`'s `onDcsBiosWrite` and `onDcsBiosFrameSync` methods are called with the results.
+
 == The DCS-BIOS Lua Code
 === MemoryMap objects
 === Adding a New Aircraft Module
