@@ -52,7 +52,7 @@ Each piece of cockpit state is encoded as an integer or a string and is assigned
 The location of an integer value is defined by a 16-bit word address which specifies the start of the 16-bit word in which the data is located, a 16-bit mask which specifies which bits in that word belong to the value, and a shift value (which can also be deduced from the mask).
 
 Given the start address, mask and shift values, the following pseudo C code decodes a value:
-[code,c]
+[source,c]
 ----
 char[] state;
 unsigned int value = (((uint16_t*)state)[start_address/2] & mask) >> shift
