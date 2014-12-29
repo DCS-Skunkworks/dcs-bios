@@ -136,13 +136,13 @@ Potentiometer::Potentiometer(char* msg, char pin) {
 	msg_ = msg;
 	pin_ = pin;
 	pinMode(pin_, INPUT);
-	lastState_ = analogRead(pin_) / 1024.0f;
+	lastState_ = map(analogRead(pin_), 0, 1023, 0, 65535);
 }
 void Potentiometer::pollInput() {
-	float state = analogRead(pin_) / 1024.0f;
+	unsigned int state = map(analogRead(pin_), 0, 1023, 0, 65535);
 	if (state != lastState_) {
-		char buf[7];
-		dtostrf(state, 6, 4, buf);
+		char buf[6];
+		utoa(state, buf, 10);
 		sendDcsBiosMessage(msg_, buf);
 	}
 	lastState_ = state;

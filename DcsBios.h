@@ -126,7 +126,7 @@ class Potentiometer : PollingInput {
 		void pollInput();
 		char* msg_;
 		char pin_;
-		float lastState_;
+		unsigned int lastState_;
 	public:
 		Potentiometer(char* msg, char pin);
 };
