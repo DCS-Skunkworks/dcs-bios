@@ -55,6 +55,7 @@ $(function() {
 		"ActionButton",
 		"LED",
 		"StringBuffer",
+		"ServoOutput",
 		"generic_integer_output",
 	];
 	
