@@ -1,15 +1,12 @@
 BIOS.protocol.beginModule("UH-1H", 0x1400)
 
-local inputProcessors = moduleBeingDefined.inputProcessors
-local lowFrequencyMap = moduleBeingDefined.lowFrequencyMap
-local highFrequencyMap = moduleBeingDefined.highFrequencyMap
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
 
 local parse_indication = BIOS.util.parse_indication
 
-
+local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
@@ -18,12 +15,29 @@ local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineToggleSwitchToggleOnly = BIOS.util.defineToggleSwitchToggleOnly
-local defineRelativeTumb = BIOS.util.defineRelativeTumb
+local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
+local defineFixedStepInput = BIOS.util.defineFixedStepInput
+local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 
+-- MAIN_PANEL/electric_system_gauges.lua:
+defineFloat("DC_VOLTAGE", 526, {0, 1}, "WTF", "DC Voltage")
+defineFloat("AC_VOLTAGE", 532, {0, 1}, "WTF", "AC Voltage")
 
+defineFloat("DC_BAT1_CURRENT", 527, {0, 1}, "WTF", "DC Battery 1 Current")
+defineFloat("DC_BAT2_CURRENT", 528, {0, 1}, "WTF", "DC Battery 2 Current")
+defineFloat("DC_VU1_CURRENT", 529, {0, 1}, "WTF", "DC VU 1 Current")
+defineFloat("DC_VU2_CURRENT", 530, {0, 1}, "WTF", "DC VU 2 Current")
+defineFloat("DC_VU3_CURRENT", 531, {0, 1}, "WTF", "DC VU 3 Current")
+
+defineFloat("AC_GEN1_CURRENT", 533, {0, 1}, "WTF", "AC GEN 1 Current")
+defineFloat("AC_GEN2_CURRENT", 534, {0, 1}, "WTF", "AC GEN 2 Current")
+
+defineFloat("ANTI_ICE_AMP", 371, {0, 1}, "WTF", "Anti-Ice Amperemeter")
+
+--  MAIN_PANEL/lamps.lua
 defineIndicatorLight("CL_A0", 91, "Caution Lights Panel", "ENGINE OIL PRESS")
 defineIndicatorLight("CL_B0", 92, "Caution Lights Panel", "ENGINE ICING")
 defineIndicatorLight("CL_C0", 93, "Caution Lights Panel", "ENGINE ICE JET")
@@ -55,13 +69,132 @@ defineIndicatorLight("MASTER_CAUTION_IND", 277, "Front Dash", "MASTER CAUTION Li
 defineIndicatorLight("IFF_REPLY_IND", 76, "IFF", "IFF Reply Indicator Lamp")
 defineIndicatorLight("IFF_TEST_IND", 77, "IFF", "IFF Test Indicator Lamp")
 
+-- mainpanel_init.lua:
+
+defineFloat("CI_VBAR", 151, {-.7, .7}, "Course Indicator", "Vertical Bar")
+defineFloat("CI_HBAR", 152, {-.7, .7}, "Course Indicator", "Horizontal Bar")
+defineFloat("CI_TO", 153, {0, 1}, "Course Indicator", "To Marker")
+defineFloat("CI_FROM", 154, {0, 1}, "Course Indicator", "From Marker")
+defineFloat("CI_COURSE_CARD", 156, {0, 1}, "Course Indicator", "Rotating Course Card")
+defineFloat("CI_VOFF", 157, {0, 1}, "Course Indicator", "Vertical OFF Warning Flag")
+defineFloat("CI_HOFF", 158, {0, 1}, "Course Indicator", "Horizontal OFF Warning Flag")
+
+defineFloat("ADF_FREQ", 45, {0, 0.55}, "ADF", "ADF Frequency")
+defineFloat("ADF_SIGNAL", 40, {0, 1}, "ADF", "ADF Signal Level")
+
+defineFloat("GMC_CRS1", 159, {0, 1}, "GMC", "GMC Course Pointer 1")
+defineFloat("GMC_CRS2", 160, {0, 1}, "GMC", "GMC Course Pointer 2")
+defineFloat("GMC_HDG_MARKER", 162, {0, 1}, "GMC", "GMC Heading Marker")
+defineFloat("GMC_HDG", 165, {0, 1}, "GMC", "GMC Heading")
+defineFloat("GMC_ANNUNCIATOR", 166, {-1, 1}, "GMC Annunciator")
+defineFloat("GMC_PWRFAIL", 167, {0, 1}, "GMC Power Fail")
+
+defineFloat("RMI_CRS1", 266, {0, 1}, "Copilot RMI", "RMI Course Pointer 1")
+defineFloat("RMI_CRS2", 267, {0, 1}, "Copilot RMI", "RMI Course Pointer 2")
+defineFloat("RMI_HDG", 269, {0, 1}, "Copilot RMI", "RMI Heading")
+
+defineFloat("OALT_PTR", 168, {0, 1}, "Altimeter (Operator)", "Altimeter Pointer")
+defineFloat("OALT_10000", 169, {0, 1}, "Altimeter (Operator)", "10000 Foot Counter")
+defineFloat("OALT_1000", 170, {0, 1}, "Altimeter (Operator)", "1000 Foot Counter")
+defineFloat("OALT_100", 171, {0, 1}, "Altimeter (Operator)", "100 Foot Counter")
+
+defineFloat("OALT_PRESS2", 174, {0, 1}, "Altimeter (Operator)", "Pressure Drum Counter 2")
+defineFloat("OALT_PRESS1", 175, {0, 1}, "Altimeter (Operator)", "Pressure Drum Counter 1")
+defineFloat("OALT_PRESS0", 176, {0, 1}, "Altimeter (Operator)", "Pressure Drum Counter 0")
+
+defineFloat("OALT_CODE_OFF_FLAG", 177, {0, 1}, "Altimeter (Operator)", "Code Off Flag")
+
+defineFloat("PALT_10000", 178, {0, 1}, "Altimeter (Pilot)", "10000 Foot Counter")
+defineFloat("PALT_1000", 179, {0, 1}, "Altimeter (Pilot)", "1000 Foot Counter")
+defineFloat("PALT_100", 180, {0, 1}, "Altimeter (Pilot)", "100 Foot Counter")
+
+defineFloat("PALT_PRESS", 182, {0, 1}, "Altimeter (Pilot)", "Pressure Indicator")
+
+defineFloat("ENG_OIL_PRESS", 113, {0, 1}, "Front Dash", "Engine Oil Pressure")
+defineFloat("ENG_OIL_TEMP", 114, {0, 1}, "Front Dash", "Engine Oil Temperature")
+defineFloat("TRANS_OIL_PRESS", 115, {0, 1}, "Front Dash", "Transmission Oil Pressure")
+defineFloat("TRANS_OIL_TEMP", 116, {0, 1}, "Front Dash", "Transmission Oil Temperature")
+
+defineFloat("IAS_NOSE", 117, {0, 1}, "WTF", "IAS Front")
+defineFloat("IAS_ROOF", 118, {0, 1}, "WTF", "IAS Roof")
+
+defineFloat("EXHAUST_TEMP", 121, {0, 1}, "Front Dash", "Exhaust Temperature")
+
+defineFloat("ENG_RPM", 122, {0, 1}, "Front Dash", "Engine RPM")
+defineFloat("ROTOR_RPM", 123, {0, 1}, "Front Dash", "Rotor RPM")
+defineFloat("GAS_RPM_T", 119, {0, 1}, "Front Dash", "Gas Producer RPM Tenths")
+defineFloat("GAS_RPM", 120, {0, 1}, "Front Dash", "Gas Producer RPM")
+
+defineFloat("TORQUE_PRESS", 124, {0, 1}, "Front Dash", "Torque Pressure")
+
+defineFloat("DC_V", 149, {0, 1}, "Front Dash", "DC Voltage")
+defineFloat("AC_V", 150, {0, 1}, "Front Dash", "AC Voltage")
+
+defineFloat("MAIN_GEN_LOAD", 436, {0, 1}, "Front Dash", "Main Generator Load")
+defineFloat("STBY_GEN_LOAD", 125, {0, 1}, "Front Dash", "STBY Generator Load")
+
+defineFloat("FUEL_PRESS", 126, {0, 1}, "Front Dash", "Fuel Pressure")
+defineFloat("FUEL_QTY", 239, {0, 1}, "Front Dash", "Fuel Quantity")
+
+defineFloat("CLOCK_H", 127, {0, 1}, "Front Dash", "Clock Hours")
+defineFloat("CLOCK_M", 128, {0, 1}, "Front Dash", "Clock Seconds")
+defineFloat("CLOCK_S", 129, {0, 1}, "Front Dash", "Clock Seconds")
+
+defineFloat("TURN_PTR", 132, {-1, 1}, "Front Dash", "Turn Indicator")
+defineFloat("SIDESLIP", 133, {-1, 1}, "Front Dash", "Side Slip")
+defineFloat("VVI_P", 134, {-1, 1}, "Front Dash", "Vertical Velocity Indicator (Pilot)")
+defineFloat("VVI_O", 251, {-1, 1}, "Front Dash", "Vertical Velocity Indicator (Operator)")
+
+defineFloat("PADI_ROLL", 142, {-1, 1}, "Front Dash - ADI (Pilot)", "Roll")
+defineFloat("PADI_PITCH", 143, {-1, 1}, "Front Dash - ADI (Pilot)", "Pitch")
+defineFloat("PADI_OFF", 148, {0, 1}, "Front Dash - ADI (Pilot)", "Off Warning Flag")
+
+defineFloat("OADI_ROLL", 135, {-1, 1}, "Front Dash - ADI (Operator)", "Roll")
+defineFloat("OADI_PITCH", 136, {-1, 1}, "Front Dash - ADI (Operator)", "Pitch")
+defineFloat("OADI_OFF", 141, {0, 1}, "Front Dash - ADI (Operator)", "Off Warning Flag")
+
+defineFloat("ADI_PITCH_SHIFT", 138, {-1, 1}, "WTF", "Attitude_PitchShift")
+
+defineFloat("MARKER_BEACON", 56, {0, 0.9}, "WTF", "Marker Beacon")
+
+defineFloat("WIPER_P", 284, {0, 1}, "Windshield Wipers", "Windshield Wiper (Pilot)")
+defineFloat("WIPER_O", 283, {0, 1}, "Windshield Wipers", "Windshield Wiper (Operator)")
+
+defineFloat("CONSOLE_LIGHT", 279, {0, 1}, "Lights", "Console Light")
+defineFloat("DOME_LIGHT", 410, {0, 1}, "Lights", "Dome Light")
+defineFloat("DOME_LIGHT_GREEN", 411, {0, 1}, "Lights", "Dome Light Green")
+
+defineFloat("RAM_TEMP", 437, {0, 1}, "WTF", "RamTemp")
+
+defineFloat("RALT_NEEDLE", 443, {0, 1}, "Radar Altimeter", "Needle")
+defineFloat("RALT_OFF", 467, {0, 1}, "Radar Altimeter", "Off Warning Flag")
+defineIndicatorLight("RALT_LO_LAMP", 447, "Radar Altimeter", "LO Lamp")
+defineIndicatorLight("RALT_HI_LAMP", 465, "Radar Altimeter", "HI Lamp")
+defineFloat("RALT_LO_IDX", 444, {0, 1}, "Radar Altimeter", "LO Index")
+defineFloat("RALT_HI_IDX", 466, {0, 1}, "Radar Altimeter", "HI Index")
+local function getRadarAlt()
+	local function a(n) return GetDevice(0):get_argument_value(n) end
+	local digit1 = string.format("%.0f", a(468)*10)
+	if digit1 == "10" then digit1 = " " end
+	local digit2 = string.format("%.0f", a(469)*10)
+	if digit2 == "10" then digit2 = " " end
+	local digit3 = string.format("%.0f", a(470)*10)
+	if digit3 == "10" then digit3 = " " end
+	local digit4 = string.format("%.0f", a(471)*10)
+	if digit4 == "10" then digit4 = " " end
+	return digit1 .. digit2 .. digit3 .. digit4
+end
+defineString("RALT_DISPLAY", getRadarAlt, 4, "Radar Altimeter", "Display")
+
+-- clickabledata.lua:
+
 
 defineToggleSwitch("BAT_SW", 1, 3001, 219, "Electrical System", "Battery Switch")
 defineToggleSwitch("STARTER_GEN_SW", 1, 3003, 220, "Electrical System", "Starter/Stdby GEN")
 defineMultipositionSwitch("DC_VM_SRC", 1, 3004, 218, 5, 0.1, "Electrical System", "DC Voltmeter Source")
 defineToggleSwitch("NON_ESS_BUS_SW", 1, 3005, 221, "Electrical System", "NON ESS BUS Switch")
 defineMultipositionSwitch("AC_VM_SRC", 1, 3007, 214, 3, 0.1, "Electrical System", "AC Voltmeter Source")
-defineTumb("INVERTER_SW", 1, 3008, 215, 1, {-1, 1}, {"0", "1", "2"}, false, "Electrical System", "Inverter Switch")
+defineTumb("INVERTER_SW", 1, 3008, 215, 1, {-1, 1}, nil, false, "Electrical System", "Inverter Switch")
 
 local cb_start_cmd = 3021
 defineToggleSwitch("CB_IFF_APX1", 1, cb_start_cmd, 285, "Circuit Breakers", "IFF APX 1 (No Function)")
@@ -148,7 +281,7 @@ defineToggleSwitch("CB_CRSIND", 1, cb_start_cmd + 77, 435, "Circuit Breakers", "
 
 
 defineToggleSwitch("PITOT_HEAT", 1, 3016, 238, "Overhead Panel", "Pitot Heater")
-defineTumb("MAIN_GEN_SW", 1, 3002, 216, 1, {-1, 1}, {"0", "1", "2"}, false, "Overhead Panel", "Main Generator RESET/OFF/ON")
+defineTumb("MAIN_GEN_SW", 1, 3002, 216, 1, {-1, 1}, nil, false, "Overhead Panel", "Main Generator RESET/OFF/ON")
 defineToggleSwitch("MAIN_GEN_COVER", 1, 3019, 217, "Overhead Panel", "Main Generator Switch Cover")
 
 defineRockerSwitch("CLP_RESET_TEST_SW", 16, 3001, 3001, 3001, 3001, 111, "Caution Lights Panel", "Test/Reset Rocker Switch")
@@ -157,15 +290,15 @@ defineRockerSwitch("CLP_BRIGHT_DIM_SW", 16, 3002, 3002, 3002, 3002, 112, "Cautio
 defineToggleSwitch("MAIN_FUEL_SW", 2, 3001, 81, "Fuel System", "Main Fuel Switch")
 definePushButton("TEST_FUEL_GAUGE_BTN", 2, 3002, 240, "Fuel System", "Test Fuel Gauge Button")
 
-defineRelativeTumb("IFF_CODE", 17, 3007, 58, 0.1, {0.0, 0.3}, {1, -1}, nil, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
+defineFixedStepTumb("IFF_CODE", 17, 3007, 58, 0.1, {0.0, 0.3}, {1, -1}, nil, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
 defineMultipositionSwitch("IFF_MASTER", 17, 3008, 59, 5, 0.1, "IFF", "IFF Master")
-defineTumb("IFF_OUT_AUDIO_LIGHT", 17, 3009, 60, 1, {-1, 1}, {"0", "1", "2"}, false, "IFF", "IFF Out: LIGHT - OFF - AUDIO")
-defineTumb("IFF_TEST_M1", 17, 3010, 61, 1, {-1, 1}, {"0", "1", "2"}, true, "IFF", "Test M-1")
-defineTumb("IFF_TEST_M2", 17, 3011, 62, 1, {-1, 1}, {"0", "1", "2"}, true, "IFF", "Test M-2")
-defineTumb("IFF_TEST_M3", 17, 3012, 63, 1, {-1, 1}, {"0", "1", "2"}, true, "IFF", "Test M-3")
-defineTumb("IFF_TEST_M4", 17, 3013, 64, 1, {-1, 1}, {"0", "1", "2"}, true, "IFF", "Test M-4")
-defineTumb("IFF_RADTEST", 17, 3014, 65, 1, {-1, 1}, {"0", "1", "2"}, true, "IFF", "RAD Test/Mon")
-defineTumb("IFF_MIC_IDENT", 17, 3015, 66, 1, {-1, 1}, {"0", "1", "2"}, true, "IFF", "RAD Test/Mon")
+defineTumb("IFF_OUT_AUDIO_LIGHT", 17, 3009, 60, 1, {-1, 1}, nil, false, "IFF", "IFF Out: LIGHT - OFF - AUDIO")
+defineTumb("IFF_TEST_M1", 17, 3010, 61, 1, {-1, 1}, nil, true, "IFF", "Test M-1")
+defineTumb("IFF_TEST_M2", 17, 3011, 62, 1, {-1, 1}, nil, true, "IFF", "Test M-2")
+defineTumb("IFF_TEST_M3", 17, 3012, 63, 1, {-1, 1}, nil, true, "IFF", "Test M-3")
+defineTumb("IFF_TEST_M4", 17, 3013, 64, 1, {-1, 1}, nil, true, "IFF", "Test M-4")
+defineTumb("IFF_RADTEST", 17, 3014, 65, 1, {-1, 1}, nil, true, "IFF", "RAD Test/Mon")
+defineTumb("IFF_MIC_IDENT", 17, 3015, 66, 1, {-1, 1}, nil, true, "IFF", "RAD Test/Mon")
 defineToggleSwitch("IFF_ON_OUT", 17, 3016, 67, "IFF", "IFF On/Out")
 defineTumb("IFF_MODE1_WHEEL1", 17, 3001, 68, 0.1, {0.0, 0.7}, nil, true, "IFF", "Mode-1 Wheel 1")
 defineTumb("IFF_MODE1_WHEEL2", 17, 3002, 69, 0.1, {0.0, 0.3}, nil, true, "IFF", "Mode-1 Wheel 2")
@@ -199,45 +332,26 @@ definePushButton("FIRE_TEST_BTN", 3, 3023, 278, "Front Dash", "Fire Test Button"
 
 definePushButton("CPLT_ADI_CAGE", 6, 3001, 140, "Front Dash", "Cage Copilot ADI")
 
---definePotentiometer("ADI_PITCH_ADJ", 6, 3002, 146, {0, 1}, "Front Dash", "ADI Pitch Adjust")
-
-definePotentiometer("ADI_PITCH_TRIM", 5, 3001, 145, {0, 1}, "Front Dash", "ADI Pitch Trim Knob")
-definePotentiometer("ADI_PITCH_TRIM", 5, 3002, 144, {0, 1}, "Front Dash", "ADI Roll Trim Knob")
+defineVariableStepTumb("ADI_ROLL_TRIM", 5, 3001, 145, 1.0, "Front Dash", "ADI Roll Trim Knob")
+defineVariableStepTumb("ADI_PITCH_TRIM", 5, 3002, 144, 1.0, "Front Dash", "ADI Pitch Trim Knob")
 
 defineRotary("ALT_ADJ_CPLT", 19, 3001, 172, "Front Dash", "Copilot Altimeter Pressure Adjustment")
 
 defineRotary("ALT_ADJ_PLT", 18, 3001, 181, "Front Dash", "Pilot Altimeter Pressure Adjustment")
 
-definePushButton("VHFCOMM_TEST_SW", 20, 3002, 6, "VHF Radio", "Communication Test Button")
+definePushButton("VHFCOMM_TEST_SW", 20, 3002, 6, "VHF COMM Radio", "Communication Test Button")
 
 defineTumb("VHFCOMM_PWR", 20, 3001, 7, 0.15, {0.85, 1.0}, nil, false, "VHF COMM Radio", "Power")
-document { msg = "VHFCOMM_MHZ", category = "VHF COMM Radio", description = "MHz", msg_type = "string", value_type = "string", can_set = false, actions = {"DEC", "INC"} }
-lowFrequencyMap["VHFCOMM_MHZ"] = function(dev0)
-	local function a(n) return dev0:get_argument_value(n) end
-	return string.format("1%.0f%.0f", a(1)*10, a(2)*10)
-end
-inputProcessors["VHFCOMM_MHZ"] = function(state)
-	if state == "INC" then
-		GetDevice(20):performClickableAction(3004, 1)
-	elseif state == "DEC" then
-		GetDevice(20):performClickableAction(3004, -1)
-	end
-end
+definePotentiometer("VHFCOMM_VOL", 20, 3003, 8, {0, 0.65}, "VHF COMM Radio", "Volume Control (step size less than 8192 may not work)")
+documentation["VHF COMM Radio"]["VHFCOMM_VOL"].inputs[2].suggested_step = 8192
 
-definePotentiometer("VHFCOMM_VOL", 20, 3003, 8, {0, 0.65}, "VHF COMM Radio", "Volume Control")
-document { msg = "VHFCOMM_KHZ", category = "VHF COMM Radio", description = "KHz", msg_type = "string", value_type = "string", can_set = false, actions = {"DEC", "INC"} }
-lowFrequencyMap["VHFCOMM_KHZ"] = function(dev0)
-	local function a(n) return dev0:get_argument_value(n) end
-	return string.format("%.0f%02.0f", a(3)*10, a(4)*100)
+local function getVhfCommFreq()
+	local function a(n) return GetDevice(0):get_argument_value(n) end
+	return string.format("1%.0f%.0f", a(1)*10, a(2)*10) .. "." .. string.format("%.0f%02.0f", a(3)*10, a(4)*100)
 end
-inputProcessors["VHFCOMM_KHZ"] = function(state)
-	if state == "INC" then
-		GetDevice(20):performClickableAction(3005, 1)
-	elseif state == "DEC" then
-		GetDevice(20):performClickableAction(3005, -1)
-	end
-end
-
+defineString("VHFCOMM_FREQ", getVhfCommFreq, 7, "VHF COMM Radio", "VHF Frequency")
+defineFixedStepTumb("VHFCOMM_MHZ", 20, 3004, 5, 0.1, {0, 1}, {-0.1, 0.1}, nil, "VHF COMM Radio", "VHF MHz Selector")
+defineFixedStepTumb("VHFCOMM_KHZ", 20, 3005, 9, 0.1, {0, 1}, {-0.1, 0.1}, nil, "VHF COMM Radio", "VHF KHz Selector")
 
 definePotentiometer("INT_VOL", 21, 3007, 29, {0.3, 1.0}, "Intercom Panel", "Intercom Volume")
 defineToggleSwitch("INT_RCVR1_SW", 21, 3001, 23, "Intercom Panel", "Receiver 1 Switch (VHF AM)")
@@ -253,51 +367,15 @@ defineToggleSwitch("RADIO_ICS_SW", 21, 3009, 194, "Cyclic", "Radio/ICS Switch")
 
 defineTumb("UHF_PRESET", 22, 3001, 16, 0.05, {0.0, 0.95}, {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, false, "UHF Radio", "Preset Channel Selector")
 
+local function getUhfFreq()
+	local function a(n) return GetDevice(0):get_argument_value(n) end
+	return string.format("%.0f%.0f%.0f.%.0f%.0f", 2+a(10), a(11)*10, a(12)*10, a(13)*10, a(14)*10) .. "." .. string.format("%.0f", a(12)*10)
+end
+defineString("UHF_FREQ", getUhfFreq, 6, "UHF Radio", "UHF Frequency")
+defineFixedStepInput("UHF_10MHZ", 22, 3002, {0.1, -0.1}, "UHF Radio", "UHF 10 MHz Selector")
+defineFixedStepInput("UHF_1MHZ", 22, 3003, {0.1, -0.1}, "UHF Radio", "UHF 1 MHz Selector")
+defineFixedStepInput("VHF_50KHZ", 22, 3004, {0.1, -0.1}, "UHF Radio", "UHF 50 KHz Selector")
 
-document { msg = "UHF_10MHZ", category = "UHF Radio", description = "10 MHz", msg_type = "string", value_type = "string", can_set = false, actions = {"DEC", "INC"} }
-lowFrequencyMap["UHF_10MHZ"] = function(dev0)
-	local function a(n) return dev0:get_argument_value(n) end
-	return string.format("%.0f%.0f", 2+a(10), a(11)*10)
-	--return string.format("%.0f%.0f%.0f.%.0f%.0f", 2+a(10), a(11)*10, a(12)*10, a(13)*10, a(14)*10)
-end
-inputProcessors["UHF_10MHZ"] = function(state)
-	if state == "INC" then
-		GetDevice(22):performClickableAction(3002, -1)
-	elseif state == "DEC" then
-		GetDevice(22):performClickableAction(3002, 1)
-	end
-end
-
-
-document { msg = "UHF_1MHZ", category = "UHF Radio", description = "1 MHz", msg_type = "string", value_type = "string", can_set = false, actions = {"DEC", "INC"} }
-lowFrequencyMap["UHF_1MHZ"] = function(dev0)
-	local function a(n) return dev0:get_argument_value(n) end
-	return string.format("%.0f", a(12)*10)
-end
-inputProcessors["UHF_1MHZ"] = function(state)
-	if state == "INC" then
-		GetDevice(22):performClickableAction(3003, -1)
-	elseif state == "DEC" then
-		GetDevice(22):performClickableAction(3003, 1)
-	end
-end
-
-
-document { msg = "UHF_50KHZ", category = "UHF Radio", description = "50 KHz", msg_type = "string", value_type = "string", can_set = false, actions = {"DEC", "INC"} }
-lowFrequencyMap["UHF_50KHZ"] = function(dev0)
-	local function a(n) return dev0:get_argument_value(n) end
-	return string.format("%.0f%.0f", a(13)*10, a(14)*10)
-end
-inputProcessors["UHF_50KHZ"] = function(state)
-	if state == "INC" then
-		GetDevice(22):performClickableAction(3004, -1)
-	elseif state == "DEC" then
-		GetDevice(22):performClickableAction(3004, 1)
-	end
-end
---defineTumb("UHF_10MHZ", 22, 3002, 18, 0.1, {0, 0.9}, nil, true, "UHF Radio", "UHF 10 MHz Selector")
---defineTumb("UHF_1MHZ", 22, 3003, 19, 0.1, {0, 0.9}, nil, true, "UHF Radio", "UHF 1 MHz Selector")
---defineTumb("UHF_50KHZ", 22, 3004, 20, 0.1, {0, 0.9}, nil, true, "UHF Radio", "UHF 50 KHz Selector")
 defineMultipositionSwitch("UHF_MODE", 22, 3005, 15, 3, 0.1, "UHF Radio", "Frequency Mode Select")
 defineMultipositionSwitch("UHF_FUNCTION", 22, 3006, 17, 4, 0.1, "UHF Radio", "Function Dial")
 defineToggleSwitch("UHF_SQUELCH_SW", 22, 3007, 22, "UHF Radio", "Squelch Switch")
@@ -314,35 +392,17 @@ definePotentiometer("VHFFM_VOL", 23, 3006, 37, {0.3, 1}, "VHF FM Radio", "Volume
 
 
 
-defineTumb("VHFNAV_PWR", 25, 3003, 52, 0.2, {0.8, 1.0}, nil, false, "VHF NAV Radio", "Power")
+defineTumb("VHFNAV_PWR", 25, 3003, 52, 0.1, {0.8, 1.0}, nil, false, "VHF NAV Radio", "VHF NAV Off / On / Test")
+local function getVhfNavFreq()
+	local function a(n) return GetDevice(0):get_argument_value(n) end
+	return string.format("%.0f%.0f%.0f", a(46)*10, a(47)*10, a(48)*10) .. "." .. string.format("%.0f%.0f", a(49)*10, a(50)*10)
+end
+defineString("VHFNAV_FREQ", getVhfNavFreq, 6, "VHF NAV Radio", "VHF NAV Frequency")
+defineFixedStepInput("VHFNAV_MHZ", 25, 3001, {0.1, -0.1}, "VHF NAV Radio", "VHF NAV MHz Selector")
+defineFixedStepInput("VHFNAV_KHZ", 25, 3002, {0.1, -0.1}, "VHF NAV Radio", "VHF NAV KHz Selector")
 
-document { msg = "VHFNAV_MHZ", category = "VHF NAV Radio", description = "MHz", msg_type = "string", value_type = "string", can_set = false, actions = {"DEC", "INC"} }
-lowFrequencyMap["VHFNAV_MHZ"] = function(dev0)
-	local function a(n) return dev0:get_argument_value(n) end
-	return string.format("%.0f%.0f%.0f", a(46)*10, a(47)*10, a(48)*10)
-end
-inputProcessors["VHFNAV_MHZ"] = function(state)
-	if state == "INC" then
-		GetDevice(25):performClickableAction(3001, -1)
-	elseif state == "DEC" then
-		GetDevice(25):performClickableAction(3001, 1)
-	end
-end
-
-definePotentiometer("VHFNAV_VOL", 25, 3004, 53, {0, 0.7}, "VHF NAV Radio", "Volume Control")
-document { msg = "VHFNAV_KHZ", category = "VHF Radio", description = "KHz", msg_type = "string", value_type = "string", can_set = false, actions = {"DEC", "INC"} }
-lowFrequencyMap["VHFNAV_KHZ"] = function(dev0)
-	local function a(n) return dev0:get_argument_value(n) end
-	return string.format("%.0f%.0f", a(49)*10, a(50)*10)
-end
-inputProcessors["VHFNAV_KHZ"] = function(state)
-	if state == "INC" then
-		GetDevice(25):performClickableAction(3002, -1)
-	elseif state == "DEC" then
-		GetDevice(25):performClickableAction(3002, 1)
-	end
-end
-
+definePotentiometer("VHFNAV_VOL", 25, 3004, 53, {0, 0.7}, "VHF NAV Radio", "Volume Control (step size less than 8192 may not work)")
+documentation["VHF NAV Radio"]["VHFNAV_VOL"].inputs[2].suggested_step = 8192
 
 definePotentiometer("BEACON_VOL", 26, 3001, 57, {0, 1}, "Front Dash", "Marker Beacon Volume")
 defineToggleSwitch("BEACON_SENSING_SW", 26, 3002, 55, "Front Dash", "Marker Beacon Sensing LOW / HIGH")
@@ -355,17 +415,17 @@ defineToggleSwitch("ADF_BFO_SW", 27, 3006, 41, "ADF", "BFO Switch")
 defineMultipositionSwitch("ADF_MODE", 27, 3001, 43, 3, 0.1, "ADF", "ADF Mode OFF / ADF / ANT / LOOP")
 definePotentiometer("ADF_GAIN", 27, 3004, 44, {0, 1}, "ADF", "ADF Frequency")
 
-defineTumb("ADF_BAND", 27, 3002, 38, 1, {-1, 1}, {"0", "1", "2"}, false, "ADF", "ADF Band")
+defineTumb("ADF_BAND", 27, 3002, 38, 1, {-1, 1}, nil, false, "ADF", "ADF Band")
 defineRotary("ADF_TUNE", 27, 3003, 39, "ADF", "ADF Tune")
 
 
 defineMultipositionSwitch("NVG_POS_LTS", 7, 3001, 222, 6, 0.1, "Overhead Panel", "NVG Position Lights")
-defineTumb("NAV_LTS_SW", 7, 3002, 223, 1, {-1, 1}, {"0", "1", "2"}, false, "Overhead Panel", "Navigation Lights STEADY - OFF - FLASH")
+defineTumb("NAV_LTS_SW", 7, 3002, 223, 1, {-1, 1}, nil, false, "Overhead Panel", "Navigation Lights STEADY - OFF - FLASH")
 defineToggleSwitch("POS_LTS_SW", 7, 3003, 224, "Overhead Panel", "Position LIghts DIM / BRT")
 defineToggleSwitch("ANTICOLL_LTS_SW", 7, 3004, 225, "Overhead Panel", "Anticollision Lights OFF / ON")
 defineToggleSwitch("LDG_LIGHT_SW", 7, 3005, 202, "Collective", "Landing Lights Switch")
-defineTumb("SEARCH_LIGHT_SW", 7, 3006, 201, 1, {-1, 1}, {"0", "1", "2"}, false, "Collective", "Search Light STOW / OFF / ON")
-defineTumb("LDG_LT_CTRL", 7, 3007, 205, 1, {-1, 1}, {"0", "1", "2"}, false, "Collective", "Landing Lights Control Switch")
+defineTumb("SEARCH_LIGHT_SW", 7, 3006, 201, 1, {-1, 1}, nil, false, "Collective", "Search Light STOW / OFF / ON")
+defineTumb("LDG_LT_CTRL", 7, 3007, 205, 1, {-1, 1}, nil, false, "Collective", "Landing Lights Control Switch")
 
 definePotentiometer("BRT_CONSOLE", 7, 3015, 230, {0, 1}, "Overhead Panel", "Overhead Console Panel Lights Brightness")
 definePotentiometer("BRT_PED", 7, 3016, 231, {0, 1}, "Overhead Panel", "Pedestal Lights Brightness")
@@ -373,27 +433,27 @@ definePotentiometer("BRT_SEC", 7, 3017, 232, {0, 1}, "Overhead Panel", "Secondar
 definePotentiometer("BRT_ENGINE", 7, 3018, 233, {0, 1}, "Overhead Panel", "Engine Instrument Lights Brightness")
 definePotentiometer("BRT_COPILOT", 7, 3019, 234, {0, 1}, "Overhead Panel", "Copilot Instrument Lights Brightness")
 definePotentiometer("BRT_PILOT", 7, 3020, 235, {0, 1}, "Overhead Panel", "Pilot Instrument Lights Brightness")
-defineTumb("DOME_LIGHT_SW", 7, 3021, 226, 1, {-1, 1}, {"0", "1", "2"}, false, "Overhead Panel", "Dome Light Switch WHITE / OFF / GREEN")
+defineTumb("DOME_LIGHT_SW", 7, 3021, 226, 1, {-1, 1}, nil, false, "Overhead Panel", "Dome Light Switch WHITE / OFF / GREEN")
 
 defineMultipositionSwitch("BLEED_AIR_SW", 47, 3001, 236, 5, 0.1, "Overhead Panel", "Bleed Air Dial")
 
 definePotentiometer("HDG_SET", 10, 3003, 163, {0, 1}, "Front Dash", "HDG SET Knob")
-definePotentiometer("HDG_SYNC", 10, 3005, 161, {0.05, 1}, "Front Dash", "Compass Synchronizing")
+definePotentiometer("HDG_SYNC", 10, 3005, 161, {0, 1}, "Front Dash", "Compass Synchronizing")
 defineToggleSwitch("ADF_VOR_SW", 10, 3004, 164, "Front Dash", "ADF / VOR Switch: VOR / ADF")
 defineToggleSwitch("GYRO_MODE_SW", 10, 3002, 241, "Front Dash", "DG / Slave Gyro Mode: MAG / DG")
 
 defineRotary("CRS_KNOB", 29, 3001, 155, "Front Dash", "CDI CRS Selector Knob")
 
-defineTumb("MASTER_ARM_SW", 9, 3008, 252, 1, {-1, 1}, {"0", "1", "2"}, false, "Armament Panel", "Master Arm OFF - SAFE - ARMED")
-defineTumb("GUN_SEL", 9, 3009, 253, 1, {-1, 1}, {"0", "1", "2"}, false, "Armament Panel", "Gun Selector LEFT / BOTH / RIGHT")
-defineTumb("ROCKET_SEL", 9, 3010, 256, 1, {-1, 1}, {"0", "1", "2"}, false, "Armament Panel", "7.62 / 2.75 / 40")
+defineTumb("MASTER_ARM_SW", 9, 3008, 252, 1, {-1, 1}, nil, false, "Armament Panel", "Master Arm OFF - SAFE - ARMED")
+defineTumb("GUN_SEL", 9, 3009, 253, 1, {-1, 1}, nil, false, "Armament Panel", "Gun Selector LEFT / BOTH / RIGHT")
+defineTumb("ROCKET_SEL", 9, 3010, 256, 1, {-1, 1}, nil, false, "Armament Panel", "7.62 / 2.75 / 40")
 defineMultipositionSwitch("ROCKET_PAIR", 9, 3011, 257, 8, 0.1, "Armament Panel", "Rocket Pair")
 definePushButton("ROCKET_RESET", 9, 3012, 258, "Armament Panel", "Rocket Reset")
-defineTumb("JTSN_COVER", 9, 3013, 259, 1, {-1, 1}, {"0", "1", "2"}, false, "Armament Panel", "Jettison Switch Cover")
+defineTumb("JTSN_COVER", 9, 3013, 259, 1, {-1, 1}, nil, false, "Armament Panel", "Jettison Switch Cover")
 definePushButton("JTSN_BTN", 9, 3014, 260, "Armament Panel", "Jettison Switch")
 
 definePotentiometer("SIGHT_INTEN_CPLT", 32, 3001, 281, {0, 1}, "Flex Sight", "Copilot Sighting System Intensity Knob")
-defineTumb("SIGHT_LAMP_SW", 32, 3003, 408, 1, {-1, 1}, {"0", "1", "2"}, false, "Flex Sight", "Sighting Station Lamp Switch BACKUP / OFF / MAIN")
+defineTumb("SIGHT_LAMP_SW", 32, 3003, 408, 1, {-1, 1}, nil, false, "Flex Sight", "Sighting Station Lamp Switch BACKUP / OFF / MAIN")
 
 defineToggleSwitch("SIGHT_ARM_PLT", 49, 3005, 0, "Flex Sight", "Pilot Sight Armed / Safe")
 defineToggleSwitch("SIGHT_PWR_PLT", 49, 3006, 439, "Flex Sight", "Pilot Sight Off / On")
@@ -401,8 +461,8 @@ definePotentiometer("SIGHT_INTEN_PLT", 49, 3001, 440, {0, 1}, "Flex Sight", "Pil
 definePotentiometer("SIGHT_ELEV_PLT", 49, 3003, 441, {-1, 1}, "Flex Sight", "Pilot Sight Elevation")
 
 
-defineTumb("WIPER_SEL", 12, 3002, 227, 1, {-1, 1}, {"0", "1", "2"}, false, "Overhead Panel", "Wiper PILOT / BOTH / OPERATOR")
-defineRelativeTumb("WIPER_SPD", 12, 3001, 229, 0.1, {0.0, 0.4}, {1, -1}, nil, "Overhead Panel", "Wiper Speed PARK - STOP - SLOW - MED - HIGH")
+defineTumb("WIPER_SEL", 12, 3002, 227, 1, {-1, 1}, nil, false, "Overhead Panel", "Wiper PILOT / BOTH / OPERATOR")
+defineFixedStepTumb("WIPER_SPD", 12, 3001, 229, 0.1, {0.0, 0.4}, {1, -1}, nil, "Overhead Panel", "Wiper Speed PARK - STOP - SLOW - MED - HIGH")
 
 
 definePushButton("TRIM_PLT", 41, 3001, 189, "Cyclic", "Force Trim (Pilot Side)")
@@ -417,38 +477,30 @@ definePushButton("CM_FLARE_BTN", 50, 3006, 464, "Countermeasures", "Flare Button
 definePushButton("CM_ARMED_TEST", 50, 3010, 457, "Countermeasures", "Armed Lamp Test")
 
 definePushButton("CM_FLARECNT_RESET", 50, 3003, 453, "Countermeasures", "Flare Counter Reset Button")
-document { msg = "CM_FLARECNT", category = "Countermeasures", description = "Flare Counter", msg_type = "string", value_type = "string", can_set = false, actions = {"DEC", "INC"} }
-lowFrequencyMap["CM_FLARECNT"] = function(dev0)
-	local function a(n) return dev0:get_argument_value(n) end
+local function getFlareCount()
+	local function a(n) return GetDevice(0):get_argument_value(n) end
 	return string.format("%.0f%.0f", a(460)*10, a(461)*10)
 end
-inputProcessors["CM_FLARECNT"] = function(state)
-	if state == "INC" then
-		GetDevice(50):performClickableAction(3004, 1)
-	elseif state == "DEC" then
-		GetDevice(50):performClickableAction(3004, -1)
-	end
-end
+defineString("CM_FLARECNT_DISPLAY", getFlareCount, 2, "Countermeasures", "Flare Counter")
+defineFixedStepInput("CM_FLARECNT", 50, 3004, {-1, 1}, "Countermeasures", "Flare Counter Decrease/Increase")
 
 definePushButton("CM_CHAFFCNT_RESET", 50, 3007, 455, "Countermeasures", "Chaff Counter Reset Button")
-document { msg = "CM_CHAFFCNT", category = "Countermeasures", description = "Chaff Counter", msg_type = "string", value_type = "string", can_set = false, actions = {"DEC", "INC"} }
-lowFrequencyMap["CM_CHAFFCNT"] = function(dev0)
-	local function a(n) return dev0:get_argument_value(n) end
+local function getChaffCount()
+	local function a(n) return GetDevice(0):get_argument_value(n) end
 	return string.format("%.0f%.0f", a(462)*10, a(463)*10)
 end
-inputProcessors["CM_CHAFFCNT"] = function(state)
-	if state == "INC" then
-		GetDevice(50):performClickableAction(3008, 1)
-	elseif state == "DEC" then
-		GetDevice(50):performClickableAction(3008, -1)
-	end
-end
+defineString("CM_CHAFFCNT_DISPLAY", getChaffCount, 2, "Countermeasures", "Chaff Counter")
+defineFixedStepInput("CM_CHAFFCNT", 50, 3008, {-1, 1}, "Countermeasures", "Chaff Counter Decrease/Increase")
 
 
 defineToggleSwitch("RADAR_ALT_PWR", 13, 3007, 449, "Overhead Panel", "Radar Altimeter Power")
 defineRotary("RADAR_ALT_LO", 13, 3002, 445, "Front Dash", "Radar Altimeter Low Setting")
 defineRotary("RADAR_ALT_HI", 13, 3003, 464, "Front Dash", "Radar Altimeter High Setting")
 definePushButton("RADAR_ALT_TEST", 13, 3001, 446, "Front Dash", "Radar Altimeter Test")
+
+defineIndicatorLight("X130_ARMED", 458, "Armament Panel", "X130 Armed Lamp")
+
+defineFloat("SIGHTS_FOR_CIVIL", 473, {0, 1}, "WTF", "SIGHTS_FOR_CIVIL / controllers.Civil_Heli")
 
 
 BIOS.protocol.endModule()

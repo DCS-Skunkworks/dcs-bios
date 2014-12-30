@@ -644,6 +644,26 @@ function BIOS.util.defineFixedStepTumb(msg, device_id, command, arg_number, step
 	end
 end
 
+function BIOS.util.defineFixedStepInput(msg, device_id, command, rel_args, category, description)
+	moduleBeingDefined.inputProcessors[msg] = function(state)
+		if state == "DEC" then
+			GetDevice(device_id):performClickableAction(command, rel_args[1])
+		elseif state == "INC" then
+			GetDevice(device_id):performClickableAction(command, rel_args[2])
+		end
+	end
+
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "fixed_step_dial",
+		inputs = {
+			{ interface = "fixed_step", description = "turn left or right" }
+		},
+		outputs = {}
+	}
+end
 
 function BIOS.util.defineVariableStepTumb(msg, device_id, command, arg_number, max_step, category, description)
 	
