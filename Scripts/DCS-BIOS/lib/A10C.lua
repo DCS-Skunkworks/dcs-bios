@@ -103,7 +103,7 @@ local vhf_lut1 = {
     ["0.75"] = "15"
 }
 
-function getVhfAmFreqency()
+local function getVhfAmFreqency()
     local freq1 = vhf_lut1[string.format("%.2f",GetDevice(0):get_argument_value(143))]
     local freq2 = string.format("%1.1f", GetDevice(0):get_argument_value(144)):sub(3)
     local freq3 = string.format("%1.1f", GetDevice(0):get_argument_value(145)):sub(3)
@@ -112,7 +112,7 @@ function getVhfAmFreqency()
     return freq1 .. freq2 .. "." .. freq3 .. freq4
 end
 
-function getVhfFmFreqency()
+local function getVhfFmFreqency()
     local freq1 = vhf_lut1[string.format("%.2f",GetDevice(0):get_argument_value(157))]
     local freq2 = string.format("%1.1f", GetDevice(0):get_argument_value(158)):sub(3)
     local freq3 = string.format("%1.1f", GetDevice(0):get_argument_value(159)):sub(3)
