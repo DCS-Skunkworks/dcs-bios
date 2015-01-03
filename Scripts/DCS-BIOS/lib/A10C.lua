@@ -283,16 +283,12 @@ end
 defineString("CMSC_TXT_CHAFF_FLARE", getCmscChaffFlare, 8, "CMSC", "Chaff / Flare Amount Display")
 
 local function getCmscJmr()
-	if not cmscData then return "    " end
-	return cmscData.txt_JMR or "    "
+	if not cmscData then return "        " end
+	return cmscData.txt_JMR or "        "
 end
-defineString("CMSC_TXT_JMR", getCmscJmr, 4, "CMSC", "JMR Status Display")
+defineString("CMSC_TXT_JMR", getCmscJmr, 8, "CMSC", "JMR Status Display")
 
-local function getCmscMws()
-	if not cmscData then return "      " end
-	return cmscData.txt_MWS or "      "
-end
-defineString("CMSC_TXT_MWS", getCmscMws, 6, "CMSC", "MWS Status Display")
+local dummy = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 65535 }
 
 defineFloat("FLAP_POS", 653, {0, 2/3}, "Landing Gear and Flap Control Panel", "Flap Position Indicator")
 
@@ -1177,5 +1173,11 @@ defineString("CDU_LINE6", function() return cdu_lines[7] end, 24, "CDU Display",
 defineString("CDU_LINE7", function() return cdu_lines[8] end, 24, "CDU Display", "CDU Line 8")
 defineString("CDU_LINE8", function() return cdu_lines[9] end, 24, "CDU Display", "CDU Line 9")
 defineString("CDU_LINE9", function() return cdu_lines[10] end, 24, "CDU Display", "CDU Line 10")
+
+local function getCmscMws()
+	if not cmscData then return "        " end
+	return cmscData.txt_MWS or "        "
+end
+defineString("CMSC_TXT_MWS", getCmscMws, 8, "CMSC", "MWS Status Display")
 
 BIOS.protocol.endModule()
