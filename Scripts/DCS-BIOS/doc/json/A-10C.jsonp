@@ -13494,14 +13494,14 @@ docdata["A-10C"] =
                                                                                               }, {
                                                                                                   "description": "set position",
                                                                                                     "interface": "set_state",
-                                                                                                    "max_value": 10
+                                                                                                    "max_value": 9
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
                                                                                                       "address": 4372,
                                                                                                   "description": "selector position",
                                                                                                          "mask": 3840,
-                                                                                                    "max_value": 10,
+                                                                                                    "max_value": 9,
                                                                                                      "shift_by": 8,
                                                                                                        "suffix": "_INT",
                                                                                                          "type": "integer"
@@ -13525,14 +13525,14 @@ docdata["A-10C"] =
                                                                                               }, {
                                                                                                   "description": "set position",
                                                                                                     "interface": "set_state",
-                                                                                                    "max_value": 10
+                                                                                                    "max_value": 9
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
                                                                                                       "address": 4370,
                                                                                                   "description": "selector position",
                                                                                                          "mask": 61440,
-                                                                                                    "max_value": 10,
+                                                                                                    "max_value": 9,
                                                                                                      "shift_by": 12,
                                                                                                        "suffix": "_INT",
                                                                                                          "type": "integer"
@@ -13611,14 +13611,14 @@ docdata["A-10C"] =
                                                                                               }, {
                                                                                                   "description": "set position",
                                                                                                     "interface": "set_state",
-                                                                                                    "max_value": 20
+                                                                                                    "max_value": 19
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
                                                                                                       "address": 4374,
                                                                                                   "description": "selector position",
                                                                                                          "mask": 7936,
-                                                                                                    "max_value": 20,
+                                                                                                    "max_value": 19,
                                                                                                      "shift_by": 8,
                                                                                                        "suffix": "_INT",
                                                                                                          "type": "integer"
@@ -13642,14 +13642,14 @@ docdata["A-10C"] =
                                                                                               }, {
                                                                                                   "description": "set position",
                                                                                                     "interface": "set_state",
-                                                                                                    "max_value": 20
+                                                                                                    "max_value": 19
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
                                                                                                       "address": 4378,
                                                                                                   "description": "selector position",
                                                                                                          "mask": 7936,
-                                                                                                    "max_value": 20,
+                                                                                                    "max_value": 19,
                                                                                                      "shift_by": 8,
                                                                                                        "suffix": "_INT",
                                                                                                          "type": "integer"
@@ -13673,14 +13673,14 @@ docdata["A-10C"] =
                                                                                               }, {
                                                                                                   "description": "set position",
                                                                                                     "interface": "set_state",
-                                                                                                    "max_value": 20
+                                                                                                    "max_value": 19
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
                                                                                                       "address": 4382,
                                                                                                   "description": "selector position",
                                                                                                          "mask": 7936,
-                                                                                                    "max_value": 20,
+                                                                                                    "max_value": 19,
                                                                                                      "shift_by": 8,
                                                                                                        "suffix": "_INT",
                                                                                                          "type": "integer"
@@ -13704,14 +13704,14 @@ docdata["A-10C"] =
                                                                                               }, {
                                                                                                   "description": "set position",
                                                                                                     "interface": "set_state",
-                                                                                                    "max_value": 20
+                                                                                                    "max_value": 19
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
                                                                                                       "address": 4386,
                                                                                                   "description": "selector position",
                                                                                                          "mask": 7936,
-                                                                                                    "max_value": 20,
+                                                                                                    "max_value": 19,
                                                                                                      "shift_by": 8,
                                                                                                        "suffix": "_INT",
                                                                                                          "type": "integer"
@@ -15314,21 +15314,15 @@ docdata["A-10C"] =
                                            },
                            "VHF AM Radio": {
                                                   "VHFAM_FREQ1": {
-                                                                                 "can_set": false,
                                                                                 "category": "VHF AM Radio",
-                                                                            "control_type": "selector",
+                                                                            "control_type": "discrete_dial",
                                                                              "description": "Frequency Selector 1",
                                                                               "identifier": "VHFAM_FREQ1",
                                                                                   "inputs": [ {
                                                                                                 "description": "switch to previous or next state",
                                                                                                   "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 12
                                                                                             } ],
                                                                      "momentary_positions": "none",
-                                                                                "msg_type": "radiowheel",
                                                                                  "outputs": [ {
                                                                                                     "address": 4494,
                                                                                                 "description": "selector position",
@@ -15347,21 +15341,15 @@ docdata["A-10C"] =
                                                                         "physical_variant": "infinite_rotary"
                                                                  },
                                                   "VHFAM_FREQ2": {
-                                                                                 "can_set": false,
                                                                                 "category": "VHF AM Radio",
-                                                                            "control_type": "selector",
+                                                                            "control_type": "discrete_dial",
                                                                              "description": "Frequency Selector 2",
                                                                               "identifier": "VHFAM_FREQ2",
                                                                                   "inputs": [ {
                                                                                                 "description": "switch to previous or next state",
                                                                                                   "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 9
                                                                                             } ],
                                                                      "momentary_positions": "none",
-                                                                                "msg_type": "radiowheel",
                                                                                  "outputs": [ {
                                                                                                     "address": 4494,
                                                                                                 "description": "selector position",
@@ -15374,21 +15362,15 @@ docdata["A-10C"] =
                                                                         "physical_variant": "infinite_rotary"
                                                                  },
                                                   "VHFAM_FREQ3": {
-                                                                                 "can_set": false,
                                                                                 "category": "VHF AM Radio",
-                                                                            "control_type": "selector",
+                                                                            "control_type": "discrete_dial",
                                                                              "description": "Frequency Selector 3",
                                                                               "identifier": "VHFAM_FREQ3",
                                                                                   "inputs": [ {
                                                                                                 "description": "switch to previous or next state",
                                                                                                   "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 9
                                                                                             } ],
                                                                      "momentary_positions": "none",
-                                                                                "msg_type": "radiowheel",
                                                                                  "outputs": [ {
                                                                                                     "address": 4494,
                                                                                                 "description": "selector position",
@@ -15401,26 +15383,20 @@ docdata["A-10C"] =
                                                                         "physical_variant": "infinite_rotary"
                                                                  },
                                                   "VHFAM_FREQ4": {
-                                                                                 "can_set": false,
                                                                                 "category": "VHF AM Radio",
-                                                                            "control_type": "selector",
+                                                                            "control_type": "discrete_dial",
                                                                              "description": "Frequency Selector 4",
                                                                               "identifier": "VHFAM_FREQ4",
                                                                                   "inputs": [ {
                                                                                                 "description": "switch to previous or next state",
                                                                                                   "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 4
                                                                                             } ],
                                                                      "momentary_positions": "none",
-                                                                                "msg_type": "radiowheel",
                                                                                  "outputs": [ {
                                                                                                     "address": 4494,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 28672,
-                                                                                                  "max_value": 4,
+                                                                                                  "max_value": 3,
                                                                                                    "shift_by": 12,
                                                                                                      "suffix": "_INT",
                                                                                                        "type": "integer"
@@ -15597,21 +15573,15 @@ docdata["A-10C"] =
                                            },
                            "VHF FM Radio": {
                                                   "VHFFM_FREQ1": {
-                                                                                 "can_set": false,
                                                                                 "category": "VHF FM Radio",
-                                                                            "control_type": "selector",
+                                                                            "control_type": "discrete_dial",
                                                                              "description": "Frequency Selector 1",
                                                                               "identifier": "VHFFM_FREQ1",
                                                                                   "inputs": [ {
                                                                                                 "description": "switch to previous or next state",
                                                                                                   "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 12
                                                                                             } ],
                                                                      "momentary_positions": "none",
-                                                                                "msg_type": "radiowheel",
                                                                                  "outputs": [ {
                                                                                                     "address": 4500,
                                                                                                 "description": "selector position",
@@ -15630,21 +15600,15 @@ docdata["A-10C"] =
                                                                         "physical_variant": "infinite_rotary"
                                                                  },
                                                   "VHFFM_FREQ2": {
-                                                                                 "can_set": false,
                                                                                 "category": "VHF FM Radio",
-                                                                            "control_type": "selector",
+                                                                            "control_type": "discrete_dial",
                                                                              "description": "Frequency Selector 2",
                                                                               "identifier": "VHFFM_FREQ2",
                                                                                   "inputs": [ {
                                                                                                 "description": "switch to previous or next state",
                                                                                                   "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 9
                                                                                             } ],
                                                                      "momentary_positions": "none",
-                                                                                "msg_type": "radiowheel",
                                                                                  "outputs": [ {
                                                                                                     "address": 4508,
                                                                                                 "description": "selector position",
@@ -15657,21 +15621,15 @@ docdata["A-10C"] =
                                                                         "physical_variant": "infinite_rotary"
                                                                  },
                                                   "VHFFM_FREQ3": {
-                                                                                 "can_set": false,
                                                                                 "category": "VHF FM Radio",
-                                                                            "control_type": "selector",
+                                                                            "control_type": "discrete_dial",
                                                                              "description": "Frequency Selector 3",
                                                                               "identifier": "VHFFM_FREQ3",
                                                                                   "inputs": [ {
                                                                                                 "description": "switch to previous or next state",
                                                                                                   "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 9
                                                                                             } ],
                                                                      "momentary_positions": "none",
-                                                                                "msg_type": "radiowheel",
                                                                                  "outputs": [ {
                                                                                                     "address": 4508,
                                                                                                 "description": "selector position",
@@ -15684,26 +15642,20 @@ docdata["A-10C"] =
                                                                         "physical_variant": "infinite_rotary"
                                                                  },
                                                   "VHFFM_FREQ4": {
-                                                                                 "can_set": false,
                                                                                 "category": "VHF FM Radio",
-                                                                            "control_type": "selector",
+                                                                            "control_type": "discrete_dial",
                                                                              "description": "Frequency Selector 4",
                                                                               "identifier": "VHFFM_FREQ4",
                                                                                   "inputs": [ {
                                                                                                 "description": "switch to previous or next state",
                                                                                                   "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 4
                                                                                             } ],
                                                                      "momentary_positions": "none",
-                                                                                "msg_type": "radiowheel",
                                                                                  "outputs": [ {
                                                                                                     "address": 4508,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 1792,
-                                                                                                  "max_value": 4,
+                                                                                                  "max_value": 3,
                                                                                                    "shift_by": 8,
                                                                                                      "suffix": "_INT",
                                                                                                        "type": "integer"

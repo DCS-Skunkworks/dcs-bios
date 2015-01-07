@@ -35,9 +35,11 @@ local defineFloat = BIOS.util.defineFloat
 --end
 
 local function defineRadioWheel(msg, device_id, command1, command2, command_args, arg_number, step, limits, output_map, category, description)
-	defineTumb(msg, device_id, command1, arg_number, step, limits, output_map, true, category, description)
-	documentation[category][msg].can_set = false
-	documentation[category][msg].msg_type = "radiowheel"
+	defineTumb(msg, device_id, command1, arg_number, step, limits, output_map, "skiplast", category, description)
+	local docentry = moduleBeingDefined.documentation[category][msg]
+	assert(docentry.inputs[2].interface == "set_state")
+	docentry.inputs[2] = nil
+	moduleBeingDefined.documentation[category][msg].control_type = "discrete_dial"
 	inputProcessors[msg] = function(state)
 		if state == "INC" then
 			GetDevice(device_id):performClickableAction(command2, command_args[2])
@@ -936,10 +938,10 @@ defineMultipositionSwitch("VHFAM_FREQEMER", 55, 3004, 135, 4, 0.1, "VHF AM Radio
 definePotentiometer("VHFAM_VOL", 55, 3005, 133, {0, 1}, "VHF AM Radio", "VHF AM Volume Control")
 definePushButton("VHFAM_LOAD", 55, 3006, 136, "VHF AM Radio", "Load Button")
 defineTumb("VHFAM_SQUELCH", 55, 3007, 134, 1, {-1, 1}, nil, false, "VHF AM Radio", "Squelch")
-defineRadioWheel("VHFAM_FREQ1", 55, 3009, 3010, {-0.1, 0.1}, 143, 0.05, {0.15, 0.75}, {"3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"}, "VHF AM Radio", "Frequency Selector 1")
-defineRadioWheel("VHFAM_FREQ2", 55, 3011, 3012, {-0.1, 0.1}, 144, 0.1, {0, 0.9}, nil, "VHF AM Radio", "Frequency Selector 2")
-defineRadioWheel("VHFAM_FREQ3", 55, 3013, 3014, {-0.1, 0.1}, 145, 0.1, {0, 0.9}, nil, "VHF AM Radio", "Frequency Selector 3")
-defineRadioWheel("VHFAM_FREQ4", 55, 3015, 3016, {-0.25, 0.25}, 146, 0.25, {0, 0.9}, {"0", "25", "50", "75"}, "VHF AM Radio", "Frequency Selector 4")
+defineRadioWheel("VHFAM_FREQ1", 55, 3009, 3010, {-0.1, 0.1}, 143, 0.05, {0.15, 0.80}, {"3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"}, "VHF AM Radio", "Frequency Selector 1")
+defineRadioWheel("VHFAM_FREQ2", 55, 3011, 3012, {-0.1, 0.1}, 144, 0.1, {0, 1.0}, nil, "VHF AM Radio", "Frequency Selector 2")
+defineRadioWheel("VHFAM_FREQ3", 55, 3013, 3014, {-0.1, 0.1}, 145, 0.1, {0, 1.0}, nil, "VHF AM Radio", "Frequency Selector 3")
+defineRadioWheel("VHFAM_FREQ4", 55, 3015, 3016, {-0.25, 0.25}, 146, 0.25, {0, 1.0}, {"0", "25", "50", "75"}, "VHF AM Radio", "Frequency Selector 4")
 
 --defineString("VHF_AM_FREQUENCY", getVhfAmFreqency, "VHF AM Radio", "VHF AM Frequency")
 
@@ -949,10 +951,10 @@ defineMultipositionSwitch("VHFFM_FREQEMER", 56, 3004, 149, 4, 0.1, "VHF FM Radio
 definePotentiometer("VHFFM_VOL", 56, 3005, 147, {0, 1}, "VHF FM Radio", "VHF FM Volume Control")
 definePushButton("VHFFM_LOAD", 56, 3006, 150, "VHF FM Radio", "Load Button")
 defineTumb("VHFFM_SQUELCH", 56, 3007, 148, 1, {-1, 1}, nil, false, "VHF FM Radio", "Squelch")
-defineRadioWheel("VHFFM_FREQ1", 56, 3009, 3010, {-0.1, 0.1}, 157, 0.05, {0.15, 0.75}, {"3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"}, "VHF FM Radio", "Frequency Selector 1")
-defineRadioWheel("VHFFM_FREQ2", 56, 3011, 3012, {-0.1, 0.1}, 158, 0.1, {0, 0.9}, nil, "VHF FM Radio", "Frequency Selector 2")
-defineRadioWheel("VHFFM_FREQ3", 56, 3013, 3014, {-0.1, 0.1}, 159, 0.1, {0, 0.9}, nil, "VHF FM Radio", "Frequency Selector 3")
-defineRadioWheel("VHFFM_FREQ4", 56, 3015, 3016, {-0.25, 0.25}, 160, 0.25, {0, 0.9}, {"0", "25", "50", "75"}, "VHF FM Radio", "Frequency Selector 4")
+defineRadioWheel("VHFFM_FREQ1", 56, 3009, 3010, {-0.1, 0.1}, 157, 0.05, {0.15, 0.80}, {"3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"}, "VHF FM Radio", "Frequency Selector 1")
+defineRadioWheel("VHFFM_FREQ2", 56, 3011, 3012, {-0.1, 0.1}, 158, 0.1, {0, 1.0}, nil, "VHF FM Radio", "Frequency Selector 2")
+defineRadioWheel("VHFFM_FREQ3", 56, 3013, 3014, {-0.1, 0.1}, 159, 0.1, {0, 1.0}, nil, "VHF FM Radio", "Frequency Selector 3")
+defineRadioWheel("VHFFM_FREQ4", 56, 3015, 3016, {-0.25, 0.25}, 160, 0.25, {0, 1.0}, {"0", "25", "50", "75"}, "VHF FM Radio", "Frequency Selector 4")
 
 
 --defineString("VHF_FM_FREQUENCY", getVhfFmFreqency, "VHF FM Radio", "VHF FM Frequency")

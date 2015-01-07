@@ -426,13 +426,14 @@ function BIOS.util.defineSetCommandTumb(msg, device_id, command, arg_number, ste
 		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
 		
 		if n > last_n then n = last_n end
+		if n == last_n and cycle == "skiplast" then n = 0 end
 		enumAlloc:setValue(n)
 		if strAlloc then
 			strAlloc:setValue(output_map[n+1])
 		end
 	end
 	
-		
+	local max_value = last_n - (cycle == "skiplast" and 1 or 0)
 	document {
 		identifier = msg,
 		category = category,
@@ -441,7 +442,7 @@ function BIOS.util.defineSetCommandTumb(msg, device_id, command, arg_number, ste
 		momentary_positions = "none",
 		inputs = {
 			{ interface = "fixed_step", description = "switch to previous or next state" },
-			{ interface = "set_state", max_value = last_n, description = "set position" },
+			{ interface = "set_state", max_value = max_value, description = "set position" },
 		},
 		outputs = {
 			{ ["type"] = "integer",
@@ -449,7 +450,7 @@ function BIOS.util.defineSetCommandTumb(msg, device_id, command, arg_number, ste
 			  address = enumAlloc.address,
 			  mask = enumAlloc.mask,
 			  shift_by = enumAlloc.shiftBy,
-			  max_value = last_n,
+			  max_value = max_value,
 			  description = "selector position"
 			}
 		}
@@ -523,10 +524,11 @@ function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits,
 		strAlloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = max_len }
 	end
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		local value = dev0:get_argument_value(arg_number)		
+		local value = dev0:get_argument_value(arg_number)
 		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
 		
 		if n > last_n then n = last_n end
+		if n == last_n and cycle == "skiplast" then n = 0 end
 		enumAlloc:setValue(n)
 		if strAlloc then
 			strAlloc:setValue(output_map[n+1])
@@ -534,7 +536,7 @@ function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits,
 	end
 	
 		
-
+	local max_value = last_n - (cycle == "skiplast" and 1 or 0)
 	document {
 		identifier = msg,
 		category = category,
@@ -543,7 +545,7 @@ function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits,
 		momentary_positions = "none",
 		inputs = {
 			{ interface = "fixed_step", description = "switch to previous or next state" },
-			{ interface = "set_state", max_value = last_n, description = "set position" },
+			{ interface = "set_state", max_value = max_value, description = "set position" },
 		},
 		outputs = {
 			{ ["type"] = "integer",
@@ -551,7 +553,7 @@ function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits,
 			  address = enumAlloc.address,
 			  mask = enumAlloc.mask,
 			  shift_by = enumAlloc.shiftBy,
-			  max_value = last_n,
+			  max_value = max_value,
 			  description = "selector position"
 			}
 		}
