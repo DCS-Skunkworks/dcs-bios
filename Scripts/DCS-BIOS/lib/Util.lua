@@ -179,7 +179,6 @@ function BIOS.util.MemoryMap:flushData()
 	
 	while address <= self.lastAddress do
 		entry = self:getEntry(address)
-		--BIOS.log("LOOP 2: address = "..tostring(address)..", lastAddress = "..tostring(self.lastAddress))
 		-- advance to the next changed value
 		if entry.dirty then
 			-- figure out whether to start a new write request
@@ -433,8 +432,7 @@ function BIOS.util.defineSetCommandTumb(msg, device_id, command, arg_number, ste
 		end
 	end
 	
-	--document { msg = msg, category = category, description = description, msg_type = "tumb", value_type = "enum", value_enum = value_enum, can_set = true, actions = {"DEC", "INC"}, enum_address = enumAlloc.address, enum_mask = enumAlloc.mask }
-	
+		
 	document {
 		identifier = msg,
 		category = category,
@@ -535,8 +533,7 @@ function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits,
 		end
 	end
 	
-	--document { msg = msg, category = category, description = description, msg_type = "tumb", value_type = "enum", value_enum = value_enum, can_set = true, actions = {"DEC", "INC"}, enum_address = enumAlloc.address, enum_mask = enumAlloc.mask }
-	
+		
 
 	document {
 		identifier = msg,
@@ -734,7 +731,7 @@ function BIOS.util.defineElectricallyHeldSwitch(msg, device_id, pos_command, neg
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		alloc:setValue(dev0:get_argument_value(arg_number))
 	end
-	--document { msg = msg, category = category, description = description, msg_type = "electrically_held_switch", value_type = "enum", value_enum = {"0", "1"}, can_set = false, actions = {"PUSH", "RELEASE", "OFF"} }
+	
 	document {
 		identifier = msg,
 		category = category,
@@ -765,11 +762,7 @@ function BIOS.util.defineElectricallyHeldSwitch(msg, device_id, pos_command, neg
 end
 
 function BIOS.util.defineRockerSwitch(msg, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)
-	--document { msg = msg, category = category, description = description, msg_type = "rocker", value_type = "enum", value_enum = {"0", "1", "2"}, can_set = true, actions = {} }
-	--moduleBeingDefined.lowFrequencyMap[msg] = function(dev0)
-	--	local lut = {["-1"] = "0", ["0"] = "1", ["1"] = "2"}
-	--	return lut[string.format("%.0f", dev0:get_argument_value(arg_number))]
-	--end
+	
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		local lut = {["-1"] = "0", ["0"] = "1", ["1"] = "2"}
