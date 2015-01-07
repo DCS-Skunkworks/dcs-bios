@@ -596,7 +596,7 @@ definePushButton("CDU_FA", 9, 3059, 471, "CDU", "FA")
 defineRockerSwitch("CDU_BRT", 9, 3060, 3060, 3061, 3061, 424, "CDU", "DIMBRT Rocker (No Function)")
 defineRockerSwitch("CDU_PG", 9, 3062, 3062, 3063, 3063, 463, "CDU", "PG Rocker")
 defineRockerSwitch("CDU_SCROLL", 9, 3064, 3064, 3065, 3065, 469, "CDU", "Scroll Waypoint Names (Blank Rocker)")
-defineRockerSwitch("CDU_DATA", 9, 3066, 3066, 3077, 3077, 472, "CDU", "+/- Rocker")
+defineRockerSwitch("CDU_DATA", 9, 3066, 3066, 3067, 3067, 472, "CDU", "+/- Rocker")
 
 defineTumb("AAP_STEERPT", 22, 3001, 473, 0.1, {0.0, 0.2}, nil, false, "AAP", "STEERPT FLTPLAN - MARK - MISSION")
 defineRockerSwitch("AAP_STEER", 22, 3003, 3003, 3002, 3002, 474, "AAP", "Toggle Steerpoint")
