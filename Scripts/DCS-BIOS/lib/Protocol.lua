@@ -21,10 +21,6 @@ function BIOS.protocol.beginModule(name, baseAddress)
 	moduleBeingDefined.name = name
 	moduleBeingDefined.documentation = {}
 	moduleBeingDefined.inputProcessors = {}
-	--moduleBeingDefined.lowFrequencyMap = {}
-	--moduleBeingDefined.highFrequencyMap = {}
-	--moduleBeingDefined.exportLowFrequency = function() return end
-	--moduleBeingDefined.exportHighFrequency = function() return end
 	moduleBeingDefined.memoryMap = BIOS.util.MemoryMap:create { baseAddress = baseAddress }
 	moduleBeingDefined.exportHooks = {}
 	aircraftNameToModule[name] = moduleBeingDefined
