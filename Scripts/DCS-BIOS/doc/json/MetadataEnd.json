@@ -1,20 +1,5 @@
-docdata["CommonData"] =
 {
     "Metadata": {
-                              "_ACFT_NAME": {
-                                                    "category": "Metadata",
-                                                "control_type": "display",
-                                                 "description": "Aircraft Name (or NONE)",
-                                                  "identifier": "_ACFT_NAME",
-                                                      "inputs": [  ],
-                                                     "outputs": [ {
-                                                                        "address": 0,
-                                                                    "description": "Aircraft Name (or NONE)",
-                                                                     "max_length": 16,
-                                                                         "suffix": "",
-                                                                           "type": "string"
-                                                                } ]
-                                            },
                          "_UPDATE_COUNTER": {
                                                     "category": "Metadata",
                                                 "control_type": "metadata",
@@ -22,7 +7,7 @@ docdata["CommonData"] =
                                                   "identifier": "_UPDATE_COUNTER",
                                                       "inputs": [  ],
                                                      "outputs": [ {
-                                                                        "address": 16,
+                                                                        "address": 65534,
                                                                     "description": "Update Counter",
                                                                            "mask": 255,
                                                                       "max_value": 255,
@@ -38,7 +23,7 @@ docdata["CommonData"] =
                                                   "identifier": "_UPDATE_SKIP_COUNTER",
                                                       "inputs": [  ],
                                                      "outputs": [ {
-                                                                        "address": 16,
+                                                                        "address": 65534,
                                                                     "description": "Update Skip Counter",
                                                                            "mask": 65280,
                                                                       "max_value": 255,
@@ -48,4 +33,4 @@ docdata["CommonData"] =
                                                                 } ]
                                             }
                 }
-};
+}

@@ -1,4 +1,5 @@
 BIOS = {}
+BIOS.dbg = {}
 BIOS.logfile = io.open(lfs.writedir()..[[Logs\dcs-bios.log]], "w")
 function BIOS.log(str)
 	if BIOS.logfile then
@@ -15,7 +16,8 @@ socket = require("socket")
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Util.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\ProtocolIO.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Protocol.lua]])
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CommonData.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataEnd.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataStart.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A10C.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH1H.lua]])
 

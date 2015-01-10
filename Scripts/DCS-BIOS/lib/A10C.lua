@@ -1,4 +1,5 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
+BIOS.protocol.setExportModuleAircrafts({"A-10C"})
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
