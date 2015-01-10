@@ -1,0 +1,153 @@
+docdata["CommonData"] =
+{
+    "Altitude": {
+                    "ALT_MSL_FT": {
+                                          "category": "Altitude",
+                                      "control_type": "metadata",
+                                       "description": "Altitude MSL (ft)",
+                                        "identifier": "ALT_MSL_FT",
+                                            "inputs": [  ],
+                                           "outputs": [ {
+                                                              "address": 1032,
+                                                          "description": "Altitude MSL (ft)",
+                                                                 "mask": 65535,
+                                                            "max_value": 65535,
+                                                             "shift_by": 0,
+                                                               "suffix": "",
+                                                                 "type": "integer"
+                                                      } ]
+                                  }
+                },
+     "Heading": {
+                         "HDG_DEG": {
+                                            "category": "Heading",
+                                        "control_type": "metadata",
+                                         "description": "Heading (Degrees)",
+                                          "identifier": "HDG_DEG",
+                                              "inputs": [  ],
+                                             "outputs": [ {
+                                                                "address": 1034,
+                                                            "description": "Heading (Degrees)",
+                                                                   "mask": 511,
+                                                              "max_value": 360,
+                                                               "shift_by": 0,
+                                                                 "suffix": "",
+                                                                   "type": "integer"
+                                                        } ]
+                                    },
+                    "HDG_DEG_FRAC": {
+                                            "category": "Heading",
+                                        "control_type": "metadata",
+                                         "description": "Heading (Fractional Degrees, divide by 127)",
+                                          "identifier": "HDG_DEG_FRAC",
+                                              "inputs": [  ],
+                                             "outputs": [ {
+                                                                "address": 1034,
+                                                            "description": "Heading (Fractional Degrees, divide by 127)",
+                                                                   "mask": 65024,
+                                                              "max_value": 127,
+                                                               "shift_by": 9,
+                                                                 "suffix": "",
+                                                                   "type": "integer"
+                                                        } ]
+                                    }
+                },
+    "Position": {
+                         "LAT_DEG": {
+                                            "category": "Position",
+                                        "control_type": "metadata",
+                                         "description": "Latitude Degrees",
+                                          "identifier": "LAT_DEG",
+                                              "inputs": [  ],
+                                             "outputs": [ {
+                                                                "address": 1024,
+                                                            "description": "Latitude Degrees",
+                                                                   "mask": 63,
+                                                              "max_value": 59,
+                                                               "shift_by": 0,
+                                                                 "suffix": "",
+                                                                   "type": "integer"
+                                                        } ]
+                                    },
+                         "LAT_SEC": {
+                                            "category": "Position",
+                                        "control_type": "metadata",
+                                         "description": "Latitude Seconds",
+                                          "identifier": "LAT_SEC",
+                                              "inputs": [  ],
+                                             "outputs": [ {
+                                                                "address": 1024,
+                                                            "description": "Latitude Seconds",
+                                                                   "mask": 4032,
+                                                              "max_value": 59,
+                                                               "shift_by": 6,
+                                                                 "suffix": "",
+                                                                   "type": "integer"
+                                                        } ]
+                                    },
+                    "LAT_SEC_FRAC": {
+                                            "category": "Position",
+                                        "control_type": "metadata",
+                                         "description": "Latitude Fractional Seconds (divide by 65535)",
+                                          "identifier": "LAT_SEC_FRAC",
+                                              "inputs": [  ],
+                                             "outputs": [ {
+                                                                "address": 1026,
+                                                            "description": "Latitude Fractional Seconds (divide by 65535)",
+                                                                   "mask": 65535,
+                                                              "max_value": 65535,
+                                                               "shift_by": 0,
+                                                                 "suffix": "",
+                                                                   "type": "integer"
+                                                        } ]
+                                    },
+                         "LON_DEG": {
+                                            "category": "Position",
+                                        "control_type": "metadata",
+                                         "description": "Longitude Degrees",
+                                          "identifier": "LON_DEG",
+                                              "inputs": [  ],
+                                             "outputs": [ {
+                                                                "address": 1028,
+                                                            "description": "Longitude Degrees",
+                                                                   "mask": 63,
+                                                              "max_value": 59,
+                                                               "shift_by": 0,
+                                                                 "suffix": "",
+                                                                   "type": "integer"
+                                                        } ]
+                                    },
+                         "LON_SEC": {
+                                            "category": "Position",
+                                        "control_type": "metadata",
+                                         "description": "Longitude Seconds",
+                                          "identifier": "LON_SEC",
+                                              "inputs": [  ],
+                                             "outputs": [ {
+                                                                "address": 1028,
+                                                            "description": "Longitude Seconds",
+                                                                   "mask": 4032,
+                                                              "max_value": 59,
+                                                               "shift_by": 6,
+                                                                 "suffix": "",
+                                                                   "type": "integer"
+                                                        } ]
+                                    },
+                    "LON_SEC_FRAC": {
+                                            "category": "Position",
+                                        "control_type": "metadata",
+                                         "description": "Longitude Fractional Seconds (divide by 65535)",
+                                          "identifier": "LON_SEC_FRAC",
+                                              "inputs": [  ],
+                                             "outputs": [ {
+                                                                "address": 1030,
+                                                            "description": "Longitude Fractional Seconds (divide by 65535)",
+                                                                   "mask": 65535,
+                                                              "max_value": 65535,
+                                                               "shift_by": 0,
+                                                                 "suffix": "",
+                                                                   "type": "integer"
+                                                        } ]
+                                    }
+                }
+};
