@@ -872,7 +872,7 @@ The following code should get you started:
 [source,c++]
 ----
 void updateCautionLights(unsigned int address, unsigned int data) {
-    unsigned char row = (address - 0x10c4) * 2;
+    unsigned char row = (address - 0x10d4) * 2;
     unsigned char column = 0;
     unsigned char i;
     bool is_on;
@@ -888,7 +888,7 @@ void updateCautionLights(unsigned int address, unsigned int data) {
     }
 }
 void onDcsBiosWrite(unsigned int address, unsigned int data) {
-    if (address >= 0x10c4 && address <= 0x10c8) {
+    if (address >= 0x10d4 && address <= 0x10d8) {
        updateCautionLights(address, data);
     }
 }
