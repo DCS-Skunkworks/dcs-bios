@@ -1,3 +1,19 @@
+function highlightThis() {
+	// http://stackoverflow.com/questions/11128130/select-text-in-javascript
+	var doc = document;
+	if (doc.body.createTextRange) { // ms
+		var range = doc.body.createTextRange();
+		range.moveToElementText(this);
+		range.select();
+	} else if (window.getSelection) { // moz, opera, webkit
+		var selection = window.getSelection();
+		var range = doc.createRange();
+		range.selectNodeContents(this);
+		selection.removeAllRanges();
+		selection.addRange(range);
+	}
+}
+
 $(function() {
 	var moduleSelect = $("<select>");
 	_.each(docdata, function(value, key) {
@@ -160,11 +176,13 @@ $(function() {
 	var makeControl = function(control) {
 		var div = $("<div>");
 		div.append($("<div>")
-			.attr("class", "controlheader")
-			.append($("<span>").attr("class", "controldescription").text(control.description))
-			.append($("<span>").text(" / "))
-			.append($("<span>").attr("class", "controlidentifier").text(control.identifier))
-			);
+			       .attr("class", "controlheader")
+			       .append($("<span>")
+                           .attr("class", "controldescription").text(control.description))
+  	               .append($("<span>")
+                           .attr("class", "controlidentifier").text(moduleSelect.val()+"/"+control.identifier)
+                           .on("click", highlightThis))
+			      );
 			
 		var bodyDiv = $("<div>").attr("class", "controlbody");
 		div.append(bodyDiv);
@@ -232,21 +250,7 @@ $(function() {
 	
 	var makeSnippet = function(snippet, io, control) {
 		var code = $("<code>");
-		code.on("click", function() {
-			// http://stackoverflow.com/questions/11128130/select-text-in-javascript
-			var doc = document;
-			if (doc.body.createTextRange) { // ms
-				var range = doc.body.createTextRange();
-				range.moveToElementText(this);
-				range.select();
-			} else if (window.getSelection) { // moz, opera, webkit
-				var selection = window.getSelection();
-				var range = doc.createRange();
-				range.selectNodeContents(this);
-				selection.removeAllRanges();
-				selection.addRange(range);
-			}
-		});
+		code.on("click", highlightThis);
 		
 		var cid = control.identifier;
 		switch(snippet.type) {
