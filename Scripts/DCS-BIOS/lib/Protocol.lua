@@ -23,7 +23,7 @@ function BIOS.protocol.setExportModuleAircrafts(acftList)
 	-- next, add module name to all aircrafts it should be on
 	for _, acftName in pairs(acftList) do
 		if aircraftNameToModuleNames[acftName] == nil then
-			aircraftNameToModuleNames[acftName] = {acftName}
+			aircraftNameToModuleNames[acftName] = {moduleBeingDefined.name}
 		else
 			local moduleList = aircraftNameToModuleNames[acftName]
 			moduleList[#moduleList+1] = moduleBeingDefined.name
