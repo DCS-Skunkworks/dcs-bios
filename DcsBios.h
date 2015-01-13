@@ -174,10 +174,14 @@ class StringBuffer : ExportStreamListener {
 	private:
 		void onDcsBiosWrite(unsigned int address, unsigned int value) {
 			if ((address >= address_) && (address_ + LENGTH > address)) {
-			buffer[address - address_] = ((char*)&value)[0];
+				setChar(address - address_, ((char*)&value)[0]);
 			if (address_ + LENGTH > (address+1))
-				buffer[address - address_ + 1] = ((char*)&value)[1];
+				setChar(address - address_ + 1, ((char*)&value)[1]);
 			}
+		}
+		void setChar(unsigned int index, unsigned char value) {
+			if (buffer[index] == value) return;
+			buffer[index] = value;
 			dirty_ = true;
 		}
 		void onDcsBiosFrameSync() {
