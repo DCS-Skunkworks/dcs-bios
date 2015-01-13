@@ -690,7 +690,7 @@ defineTumb("EPP_INVERTER", 1, 3002, 242, 1, {-1, 1}, nil, false, "Electrical Pow
 defineToggleSwitch("EPP_AC_GEN_PWR_L", 1, 3004, 244, "Electrical Power Panel", "AC GEN PWR Left")
 defineToggleSwitch("EPP_AC_GEN_PWR_R", 1, 3005, 245, "Electrical Power Panel", "AC GEN PWR Right")
 defineToggleSwitch("EPP_BATTERY_PWR", 1, 3006, 246, "Electrical Power Panel", "Battery Power")
-defineToggleSwitch("EPP_EMER_FLOOD", 1, 3007, 243, "Electrical Power Panel", "Emergency Flood Light")
+defineToggleSwitch("EPP_EMER_FLOOD", 49, 3007, 243, "Electrical Power Panel", "Emergency Flood Light")
 
 defineToggleSwitch("GEAR_LEVER", 39, 3001, 716, "Landing Gear and Flap Control Panel", "Gear Lever DOWN - UP")
 definePushButton("DOWNLOCK_OVERRIDE", 39, 3003, 651, "Landing Gear and Flap Control Panel", "Downlock Override Button")
