@@ -117,9 +117,9 @@ function BIOS.util.StringAllocation:setValue(value)
 		self.characterAllocations[i]:setValue(value:byte(i))
 		i = i + 1
 	end
-	if value:len() < #self.characterAllocations then
-		-- null-terminate
-		self.characterAllocations[value:len()+1]:setValue(0)
+	while i <= #self.characterAllocations do
+		self.characterAllocations[i]:setValue(32) -- space
+		i = i + 1
 	end
 end
 
