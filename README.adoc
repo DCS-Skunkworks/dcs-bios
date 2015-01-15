@@ -1,15 +1,18 @@
+ifdef::env-github[{set:link-ext:adoc}]
+ifndef::env-github[{set:link-ext:html}]
+
 DCS-BIOS is a community-maintained `Export.lua` file for use with http://www.digitalcombatsimulator.com/[DCS: World].
 It provides a stable, documented interface for external hardware and software to interact with the clickable cockpit of a DCS: World aircraft.
 
 == For Panel Builders
 
 You don't need to be a programmer or electrical engineer.
-The <<Scripts/DCS-BIOS/doc/userguide#,DCS-BIOS User Guide>> will show you step by step how to connect your panel to DCS using DCS-BIOS and the beginner-friendly http://arduino.cc[Arduino microcontroller platform].
+The link:Scripts/DCS-BIOS/doc/userguide.{link-ext}[DCS-BIOS User Guide] will show you step by step how to connect your panel to DCS using DCS-BIOS and the beginner-friendly http://arduino.cc[Arduino microcontroller platform].
 You don't have to write any program code yourself.
 
 == For Software Developers
 
-The <<Scripts/DCS-BIOS/doc/developerguide#,Developer Guide>> explains how to connect to and interpret the DCS-BIOS export data stream and how to send commands to DCS-BIOS to operate controls inside the cockpit.
+The link:Scripts/DCS-BIOS/doc/developerguide.{link-ext}[Developer Guide] explains how to connect to and interpret the DCS-BIOS export data stream and how to send commands to DCS-BIOS to operate controls inside the cockpit.
 
 == Is My Aircraft Supported?
 
