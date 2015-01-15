@@ -237,6 +237,8 @@ $(function() {
 		return ret;
 	};
 	var hex = function(input) {
+		if (input === 0)
+			return "0x0000";
 		var padTo = 4;
         if (!input)
             return "";
