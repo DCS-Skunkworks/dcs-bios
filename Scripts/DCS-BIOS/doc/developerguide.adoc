@@ -113,5 +113,134 @@ The `StringBuffer` class uses this to avoid calling your code with an inconsiste
 If you feed the export stream data you receive from DCS-BIOS to the `processChar` method of a `ProtocolParser` instance, it will interpret the data and ensure that the global `onDcsBiosWrite` function as well as every `ExportStreamListener`'s `onDcsBiosWrite` and `onDcsBiosFrameSync` methods are called with the results.
 
 == The DCS-BIOS Lua Code
-=== MemoryMap objects
-=== Adding a New Aircraft Module
+
+DCS-BIOS is loaded by executing the `BIOS.lua` file.
+That file loads all other DCS-BIOS code. It also defines the hook functions for DCS export (`LuaExportStart` and friends), which mostly call functions in `Protocol.lua`.
+
+The following is an overview of the other files and their purpose:
+
+BIOSConfig.lua:: This file is loaded last, so it can override any settings that are defined in global variables.
+It has to set the variable `BIOS.protocol.io_connections` to a list of suitable connection objects to define where the export data gets sent to and how DCS-BIOS listens for commands.
+
+lib/ProtocolIO.lua:: This file contains classes that handle the actual data transmission, i.e. creating and using sockets.
+
+lib/Protocol.lua:: The code in this file manages the list of known aircraft modules.
+Every frame, the `BIOS.protocol.step()` function in this file is called.
+That function checks what aircraft is currently being used and ensures that the correct data is exported.
+
+lib/Util.lua:: This file includes a lot of utility classes and functions.
+Most of them implement the `MemoryMap` class and related classes or provide shortcuts to quickly define controls in aircraft modules.
+
+lib/A-10C.lua, lib/UH-1H.lua, etc:: Each aircraft module has its own file where all of its controls are defined.
+
+
+== Adding a New Aircraft Module
+
+This section will describe how to add support for another aircraft module.
+
+=== Export Modules in DCS-BIOS
+
+DCS-BIOS consists of several export modules (they are what you select in the "module" drop-down field in the control reference documentation). Each export module is assigned to one or multiple aircraft and several export modules can be active at the same time.
+
+The `MetadataStart` and `MetadataEnd` modules are special: they are always active, even if there is no active aircraft (e.g. in spectator mode in a multiplayer game). The `CommonData` module is always active when any of the aircraft in `AircraftList.lua` is active. It exports generic information like altitude, position and heading.
+
+* Each export module is defined in its own file in the `lib` subdirectory.
+* Each export module is loaded by a `dofile(...)` line in `BIOS.lua`.
+* Each export module needs a `<script>` tag in `control-reference.html` to show up in the control reference documentation.
+
+=== Adding an Export Module for Your Aircraft
+
+First, find out the exact name of your aircraft in DCS: World.
+To do this, open the interactive control reference documentation while in your aircraft and look at the _ACFT_NAME value in the `MetadataStart` module.
+
+.Add your aircraft to AircraftList.lua
+Open `AircraftList.lua`. If your aircraft has a clickable cockpit, add `a("Your Aircraft Name", true)`. If your aircraft does not have a clickable cockpit, add `a("Your Aircraft Name", false)`. This will populate the constants `BIOS.ALL_PLAYABLE_AIRCRAFT`, `BIOS.CLICKABLE_COCKPIT_AIRCRAFT` and `BIOS.FLAMING_CLIFFS_AIRCRAFT` accordingly. After this, the `CommonData` export module will be active for your aircraft.
+
+.Create an export module
+Create a new Lua file with your aircraft name in the `lib` subfolder.
+The basic structure of an export module looks like this:
+
+[source,lua]
+----
+BIOS.protocol.beginModule("Your Export Module Name", 0x1234)
+BIOS.protocol.setExportModuleAircrafts({"Your Aircraft Name"})
+
+BIOS.protocol.endModule()
+----
+
+The call to `BIOS.protocol.beginModule` starts your new export module. The name does not have to be the same as the name of your aircraft, although in most cases it will be. It must be a valid filename.
+
+Replace `0x1234` with a base address for your module. A base address is the address in the DCS-BIOS export address space where the data from your export module starts. Choose it in a way so the address space occupied by your module does not overlap with any other export module that is active at the same time. Ideally, choose it so you do not have an overlap with any other export module. As a rule of thumb, take the highest base address of an existing export module (except `MetadataEnd`) and add 1024 (0x400). 1 KiB of address space should be more than enough for most aircraft.
+
+The call to `BIOS.protocol.setExportModuleAircrafts` specifies what aircraft you want your export module to be active in. In most cases, you will pass a list with a single entry (the name of your aircraft).
+
+After creating a file for your export module, add a `dofile(...)` call in `BIOS.lua` and a `<script>` tag in `control-reference.lua` (you will see what to do from the existing entries).
+
+.The Export Module API
+Between the calls to `beginModule` and `endModule`, you have access to the global table `moduleBeingDefined`.
+This table has the following entries:
+
+inputProcessors:: A table that maps control identifiers to functions.
+When a message with the given identifier is received, the function will be called with the message argument.
+memoryMap:: This object manages your export module's address space. You can ask it to "allocate memory" (reserve address space) for integer or string values.
+exportHooks:: a list of functions that will be called before sending out an update. Each function will typically get some state information (e.g. the status of an indicator light) from DCS and call `setValue` on a previously created `MemoryAllocation` object.
+documentation:: This is a Lua table that will be serialized and written to `YourModuleName.json`. This will become the machine-readable reference documentation for your export module. It has to follow the format expected by the control reference documentation.
+
+=== A Minimal Example
+
+[source,lua]
+----
+BIOS.protocol.beginModule("ExampleModule", 0x200)
+BIOS.protocol.setExportModuleAircrafts({"A-10C"})
+
+local document = BIOS.util.document
+
+local batterySwitchState = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 1 }
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+    batterySwitchState:setValue(dev0:get_argument_value(246))
+end
+moduleBeingDefined.inputProcessors["BATTERY_POWER"] = function(value)
+    if value == "0" then
+        GetDevice(1):performClickableAction(3006, 0)
+    elseif value == "1" then
+        GetDevice(1):performClickableAction(3006, 1)
+    end
+end
+document {
+  identifier = "BATTERY_POWER",
+  category = "Electrical Power Panel",
+  description = "Battery Power Switch",
+  inputs = { interface = "set_state", max_value = 1, description = "set switch state (1=on, 0=off)"},
+  outputs = {
+    ["type"] = "integer",
+    suffix = "",
+    address = tacanTestLEDState.address,
+    mask = tacanTestLEDState.mask,
+    shift_by = tacanTestLEDState.shiftBy,
+    max_value = 1,
+    description = "1 if light is on, 0 if light is off"
+  }
+}
+
+BIOS.protocol.endModule()
+----
+
+This example shows how to add an export module for the battery power switch in the A-10C.
+Once you understand this example, you should be able to read and understand the other export modules and the code in `Util.lua`.
+
+Using functions from `Util.lua`, we can write this a lot shorter:
+
+[source,lua]
+----
+BIOS.protocol.beginModule("ExampleModule", 0x200)
+BIOS.protocol.setExportModuleAircrafts({"A-10C"})
+
+local document = BIOS.util.document
+local defineToggleSwitch = BIOS.util.defineToggleSwitch
+
+defineToggleSwitch("BATTERY_POWER", 1, 3006, 246, "Electrical Power Panel", "Battery Power")
+
+BIOS.protocol.endModule()
+----
+
+Take a look at the functions in `Util.lua` and how they are used in the other export modules to get an idea of what to use in which situation. After a while, you should be able to recognize most patterns in `clickabledata.lua` and translate them to a line of code for your export module relatively quickly. Some controls will require trial and error in the DCS Witchcraft Lua Console and some custom code, though -- each aircraft module seems to do things slightly differently and there is always that one panel that does not want to behave...
