@@ -919,7 +919,7 @@ defineTumb("UHF_100MHZ_SEL", 54, 3002, 162, 0.1, {0.0, 0.2}, {"2", "3", "A"}, fa
 defineTumb("UHF_10MHZ_SEL", 54, 3003, 163, 0.1, {0.0, 0.9}, nil, false, "UHF Radio", "UHF 10MHz Selector")
 defineTumb("UHF_1MHZ_SEL", 54, 3004, 164, 0.1, {0.0, 0.9}, nil, false, "UHF Radio", "UHF 1MHz Selector")
 defineTumb("UHF_POINT1MHZ_SEL", 54, 3005, 165, 0.1, {0.0, 0.9}, nil, false, "UHF Radio", "UHF 0.1MHz Selector")
-defineTumb("UHF_POINT25_SEL", 54, 3006, 166, 0.1, {0.0, 0.3}, {"0", "25", "50", "75"}, false, "UHF Radio", "UHF 10MHz Selector")
+defineTumb("UHF_POINT25_SEL", 54, 3006, 166, 0.1, {0.0, 0.3}, {"0", "25", "50", "75"}, false, "UHF Radio", "UHF 0.25MHz Selector")
 define3PosTumb("UHF_MODE", 54, 3007, 167, "UHF Radio", "Frequency Mode Dial MNL/PRESET/GRD")
 defineTumb("UHF_FUNCTION", 54, 3008, 168, 0.1, {0.0, 0.3}, nil, false, "UHF Radio", "UHF Function Dial OFF/MAIN/BOTH/ADF")
 defineTumb("UHF_T_TONE", 54, 3009, 169, 1, {-1, 1}, nil, false, "UHF Radio", "T-Tone Button")
