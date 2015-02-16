@@ -694,7 +694,7 @@ defineToggleSwitch("EPP_EMER_FLOOD", 49, 3007, 243, "Electrical Power Panel", "E
 
 defineToggleSwitch("GEAR_LEVER", 39, 3001, 716, "Landing Gear and Flap Control Panel", "Gear Lever DOWN - UP")
 definePushButton("DOWNLOCK_OVERRIDE", 39, 3003, 651, "Landing Gear and Flap Control Panel", "Downlock Override Button")
-defineTumb("FLAPS_SWITCH", 39, 3002, 773, 0.1, {0.0, 0.2}, nil, false, "Throttle", "Flaps Setting DN - MVR - UP")
+defineTumb("FLAPS_SWITCH", 39, 3002, 773, 0.5, {0.0, 1.0}, nil, false, "Throttle", "Flaps Setting DN - MVR - UP")
 defineElectricallyHeldSwitch("ANTI_SKID_SWITCH", 38, 3028, 3029, 654, "Landing Gear and Flap Control Panel", "Anti-Skid Switch")
 
 
