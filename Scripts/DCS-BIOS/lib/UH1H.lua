@@ -414,7 +414,7 @@ defineTumb("ADF_LOOP_LR", 27, 3005, 42, 0.1, {0.0, 0.4}, nil, false, "ADF", "ADF
 defineToggleSwitch("ADF_BFO_SW", 27, 3006, 41, "ADF", "BFO Switch")
 
 defineMultipositionSwitch("ADF_MODE", 27, 3001, 43, 3, 0.1, "ADF", "ADF Mode OFF / ADF / ANT / LOOP")
-definePotentiometer("ADF_GAIN", 27, 3004, 44, {0, 1}, "ADF", "ADF Frequency")
+definePotentiometer("ADF_GAIN", 27, 3004, 44, {0, 1}, "ADF", "ADF Gain")
 
 defineTumb("ADF_BAND", 27, 3002, 38, 1, {-1, 1}, nil, false, "ADF", "ADF Band")
 defineRotary("ADF_TUNE", 27, 3003, 39, "ADF", "ADF Tune")
