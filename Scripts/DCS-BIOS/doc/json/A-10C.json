@@ -11593,6 +11593,22 @@
                                                                                                   "type": "integer"
                                                                                        } ]
                                                                    },
+                                                    "NMSP_FM_LED": {
+                                                                           "category": "NMSP",
+                                                                       "control_type": "led",
+                                                                        "description": "FM LED",
+                                                                         "identifier": "NMSP_FM_LED",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 4540,
+                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                  "mask": 4,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 2,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
                                                   "NMSP_HARS_BTN": {
                                                                                "api_variant": "momentary_last_position",
                                                                                   "category": "NMSP",
@@ -11819,6 +11835,22 @@
                                                                                                   "mask": 8192,
                                                                                              "max_value": 1,
                                                                                               "shift_by": 13,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                                   "NMSP_UHF_LED": {
+                                                                           "category": "NMSP",
+                                                                       "control_type": "led",
+                                                                        "description": "UHF LED",
+                                                                         "identifier": "NMSP_UHF_LED",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 4540,
+                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                  "mask": 2,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 1,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]

@@ -1183,4 +1183,7 @@ local function getCmscMws()
 end
 defineString("CMSC_TXT_MWS", getCmscMws, 8, "CMSC", "MWS Status Display")
 
+defineIndicatorLight("NMSP_UHF_LED", 619, "NMSP", "UHF LED")
+defineIndicatorLight("NMSP_FM_LED", 620, "NMSP", "FM LED")
+
 BIOS.protocol.endModule()
