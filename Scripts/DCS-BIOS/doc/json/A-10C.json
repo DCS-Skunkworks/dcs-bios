@@ -15344,522 +15344,650 @@
                                                                     }
                                            },
                            "VHF AM Radio": {
-                                                  "VHFAM_FREQ1": {
-                                                                                "category": "VHF AM Radio",
-                                                                            "control_type": "discrete_dial",
-                                                                             "description": "Frequency Selector 1",
-                                                                              "identifier": "VHFAM_FREQ1",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4494,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 15,
-                                                                                                  "max_value": 12,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4496,
-                                                                                                "description": "possible values: \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" ",
-                                                                                                 "max_length": 2,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                  "VHFAM_FREQ2": {
-                                                                                "category": "VHF AM Radio",
-                                                                            "control_type": "discrete_dial",
-                                                                             "description": "Frequency Selector 2",
-                                                                              "identifier": "VHFAM_FREQ2",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4494,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 240,
-                                                                                                  "max_value": 9,
-                                                                                                   "shift_by": 4,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                  "VHFAM_FREQ3": {
-                                                                                "category": "VHF AM Radio",
-                                                                            "control_type": "discrete_dial",
-                                                                             "description": "Frequency Selector 3",
-                                                                              "identifier": "VHFAM_FREQ3",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4494,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 3840,
-                                                                                                  "max_value": 9,
-                                                                                                   "shift_by": 8,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                  "VHFAM_FREQ4": {
-                                                                                "category": "VHF AM Radio",
-                                                                            "control_type": "discrete_dial",
-                                                                             "description": "Frequency Selector 4",
-                                                                              "identifier": "VHFAM_FREQ4",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4494,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 28672,
-                                                                                                  "max_value": 3,
-                                                                                                   "shift_by": 12,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4498,
-                                                                                                "description": "possible values: \"00\" \"25\" \"50\" \"75\" ",
-                                                                                                 "max_length": 2,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                               "VHFAM_FREQEMER": {
-                                                                                "category": "VHF AM Radio",
-                                                                            "control_type": "selector",
-                                                                             "description": "Frequency Selection Dial FM/AM/MAN/PRE",
-                                                                              "identifier": "VHFAM_FREQEMER",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 3
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4486,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 3072,
-                                                                                                  "max_value": 3,
-                                                                                                   "shift_by": 10,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "toggle_switch"
-                                                                 },
-                                                   "VHFAM_LOAD": {
-                                                                             "api_variant": "momentary_last_position",
-                                                                                "category": "VHF AM Radio",
-                                                                            "control_type": "selector",
-                                                                             "description": "Load Button",
-                                                                              "identifier": "VHFAM_LOAD",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 1
-                                                                                            }, {
-                                                                                                   "argument": "TOGGLE",
-                                                                                                "description": "Toggle switch state",
-                                                                                                  "interface": "action"
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4486,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 4096,
-                                                                                                  "max_value": 1,
-                                                                                                   "shift_by": 12,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "push_button"
-                                                                 },
-                                                   "VHFAM_MODE": {
-                                                                                "category": "VHF AM Radio",
-                                                                            "control_type": "selector",
-                                                                             "description": "Mode OFF/TR/DF",
-                                                                              "identifier": "VHFAM_MODE",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 2
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4486,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 768,
-                                                                                                  "max_value": 2,
-                                                                                                   "shift_by": 8,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "toggle_switch"
-                                                                 },
-                                                 "VHFAM_PRESET": {
-                                                                                "category": "VHF AM Radio",
-                                                                            "control_type": "selector",
-                                                                             "description": "Preset Channel Selector",
-                                                                              "identifier": "VHFAM_PRESET",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 19
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4476,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 63488,
-                                                                                                  "max_value": 19,
-                                                                                                   "shift_by": 11,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4490,
-                                                                                                "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
-                                                                                                 "max_length": 2,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                "VHFAM_SQUELCH": {
-                                                                                "category": "VHF AM Radio",
-                                                                            "control_type": "selector",
-                                                                             "description": "Squelch",
-                                                                              "identifier": "VHFAM_SQUELCH",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 2
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4486,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 24576,
-                                                                                                  "max_value": 2,
-                                                                                                   "shift_by": 13,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "limited_rotary"
-                                                                 },
-                                                    "VHFAM_VOL": {
-                                                                         "category": "VHF AM Radio",
-                                                                     "control_type": "limited_dial",
-                                                                      "description": "VHF AM Volume Control",
-                                                                       "identifier": "VHFAM_VOL",
-                                                                           "inputs": [ {
-                                                                                         "description": "set the position of the dial",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 65535
-                                                                                     }, {
-                                                                                            "description": "turn the dial left or right",
-                                                                                              "interface": "variable_step",
-                                                                                              "max_value": 65535,
-                                                                                         "suggested_step": 3200
-                                                                                     } ],
-                                                                          "outputs": [ {
-                                                                                             "address": 4492,
-                                                                                         "description": "position of the potentiometer",
-                                                                                                "mask": 65535,
-                                                                                           "max_value": 65535,
-                                                                                            "shift_by": 0,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ]
-                                                                 }
+                                                   "VHFAM_FREQ1": {
+                                                                                 "category": "VHF AM Radio",
+                                                                             "control_type": "discrete_dial",
+                                                                              "description": "Frequency Selector 1",
+                                                                               "identifier": "VHFAM_FREQ1",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4494,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 15,
+                                                                                                   "max_value": 12,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "_INT",
+                                                                                                        "type": "integer"
+                                                                                             }, {
+                                                                                                     "address": 4496,
+                                                                                                 "description": "possible values: \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" ",
+                                                                                                  "max_length": 2,
+                                                                                                      "suffix": "_STR",
+                                                                                                        "type": "string"
+                                                                                             } ],
+                                                                         "physical_variant": "infinite_rotary"
+                                                                  },
+                                               "VHFAM_FREQ1_ROT": {
+                                                                          "category": "VHF AM Radio",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Frequency Selector 1 Rotation",
+                                                                        "identifier": "VHFAM_FREQ1_ROT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 4540,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 2040,
+                                                                                            "max_value": 255,
+                                                                                             "shift_by": 3,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                   "VHFAM_FREQ2": {
+                                                                                 "category": "VHF AM Radio",
+                                                                             "control_type": "discrete_dial",
+                                                                              "description": "Frequency Selector 2",
+                                                                               "identifier": "VHFAM_FREQ2",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4494,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 240,
+                                                                                                   "max_value": 9,
+                                                                                                    "shift_by": 4,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "infinite_rotary"
+                                                                  },
+                                               "VHFAM_FREQ2_ROT": {
+                                                                          "category": "VHF AM Radio",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Frequency Selector 2 Rotation",
+                                                                        "identifier": "VHFAM_FREQ2_ROT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 4792,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 255,
+                                                                                            "max_value": 255,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                   "VHFAM_FREQ3": {
+                                                                                 "category": "VHF AM Radio",
+                                                                             "control_type": "discrete_dial",
+                                                                              "description": "Frequency Selector 3",
+                                                                               "identifier": "VHFAM_FREQ3",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4494,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 3840,
+                                                                                                   "max_value": 9,
+                                                                                                    "shift_by": 8,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "infinite_rotary"
+                                                                  },
+                                               "VHFAM_FREQ3_ROT": {
+                                                                          "category": "VHF AM Radio",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Frequency Selector 3 Rotation",
+                                                                        "identifier": "VHFAM_FREQ3_ROT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 4792,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 65280,
+                                                                                            "max_value": 255,
+                                                                                             "shift_by": 8,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                   "VHFAM_FREQ4": {
+                                                                                 "category": "VHF AM Radio",
+                                                                             "control_type": "discrete_dial",
+                                                                              "description": "Frequency Selector 4",
+                                                                               "identifier": "VHFAM_FREQ4",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4494,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 28672,
+                                                                                                   "max_value": 3,
+                                                                                                    "shift_by": 12,
+                                                                                                      "suffix": "_INT",
+                                                                                                        "type": "integer"
+                                                                                             }, {
+                                                                                                     "address": 4498,
+                                                                                                 "description": "possible values: \"00\" \"25\" \"50\" \"75\" ",
+                                                                                                  "max_length": 2,
+                                                                                                      "suffix": "_STR",
+                                                                                                        "type": "string"
+                                                                                             } ],
+                                                                         "physical_variant": "infinite_rotary"
+                                                                  },
+                                               "VHFAM_FREQ4_ROT": {
+                                                                          "category": "VHF AM Radio",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Frequency Selector 4 Rotation",
+                                                                        "identifier": "VHFAM_FREQ4_ROT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 4794,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 255,
+                                                                                            "max_value": 255,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                "VHFAM_FREQEMER": {
+                                                                                 "category": "VHF AM Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Frequency Selection Dial FM/AM/MAN/PRE",
+                                                                               "identifier": "VHFAM_FREQEMER",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 3
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4486,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 3072,
+                                                                                                   "max_value": 3,
+                                                                                                    "shift_by": 10,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "toggle_switch"
+                                                                  },
+                                                    "VHFAM_LOAD": {
+                                                                              "api_variant": "momentary_last_position",
+                                                                                 "category": "VHF AM Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Load Button",
+                                                                               "identifier": "VHFAM_LOAD",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4486,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 4096,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 12,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "push_button"
+                                                                  },
+                                                    "VHFAM_MODE": {
+                                                                                 "category": "VHF AM Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Mode OFF/TR/DF",
+                                                                               "identifier": "VHFAM_MODE",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 2
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4486,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 768,
+                                                                                                   "max_value": 2,
+                                                                                                    "shift_by": 8,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "toggle_switch"
+                                                                  },
+                                                  "VHFAM_PRESET": {
+                                                                                 "category": "VHF AM Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Preset Channel Selector",
+                                                                               "identifier": "VHFAM_PRESET",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 19
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4476,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 63488,
+                                                                                                   "max_value": 19,
+                                                                                                    "shift_by": 11,
+                                                                                                      "suffix": "_INT",
+                                                                                                        "type": "integer"
+                                                                                             }, {
+                                                                                                     "address": 4490,
+                                                                                                 "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
+                                                                                                  "max_length": 2,
+                                                                                                      "suffix": "_STR",
+                                                                                                        "type": "string"
+                                                                                             } ],
+                                                                         "physical_variant": "infinite_rotary"
+                                                                  },
+                                                 "VHFAM_SQUELCH": {
+                                                                                 "category": "VHF AM Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Squelch",
+                                                                               "identifier": "VHFAM_SQUELCH",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 2
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4486,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 24576,
+                                                                                                   "max_value": 2,
+                                                                                                    "shift_by": 13,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "limited_rotary"
+                                                                  },
+                                                     "VHFAM_VOL": {
+                                                                          "category": "VHF AM Radio",
+                                                                      "control_type": "limited_dial",
+                                                                       "description": "VHF AM Volume Control",
+                                                                        "identifier": "VHFAM_VOL",
+                                                                            "inputs": [ {
+                                                                                          "description": "set the position of the dial",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 65535
+                                                                                      }, {
+                                                                                             "description": "turn the dial left or right",
+                                                                                               "interface": "variable_step",
+                                                                                               "max_value": 65535,
+                                                                                          "suggested_step": 3200
+                                                                                      } ],
+                                                                           "outputs": [ {
+                                                                                              "address": 4492,
+                                                                                          "description": "position of the potentiometer",
+                                                                                                 "mask": 65535,
+                                                                                            "max_value": 65535,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  }
                                            },
                            "VHF FM Radio": {
-                                                  "VHFFM_FREQ1": {
-                                                                                "category": "VHF FM Radio",
-                                                                            "control_type": "discrete_dial",
-                                                                             "description": "Frequency Selector 1",
-                                                                              "identifier": "VHFFM_FREQ1",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4500,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 30720,
-                                                                                                  "max_value": 12,
-                                                                                                   "shift_by": 11,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4506,
-                                                                                                "description": "possible values: \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" ",
-                                                                                                 "max_length": 2,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                  "VHFFM_FREQ2": {
-                                                                                "category": "VHF FM Radio",
-                                                                            "control_type": "discrete_dial",
-                                                                             "description": "Frequency Selector 2",
-                                                                              "identifier": "VHFFM_FREQ2",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4508,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 15,
-                                                                                                  "max_value": 9,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                  "VHFFM_FREQ3": {
-                                                                                "category": "VHF FM Radio",
-                                                                            "control_type": "discrete_dial",
-                                                                             "description": "Frequency Selector 3",
-                                                                              "identifier": "VHFFM_FREQ3",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4508,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 240,
-                                                                                                  "max_value": 9,
-                                                                                                   "shift_by": 4,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                  "VHFFM_FREQ4": {
-                                                                                "category": "VHF FM Radio",
-                                                                            "control_type": "discrete_dial",
-                                                                             "description": "Frequency Selector 4",
-                                                                              "identifier": "VHFFM_FREQ4",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4508,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 1792,
-                                                                                                  "max_value": 3,
-                                                                                                   "shift_by": 8,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4510,
-                                                                                                "description": "possible values: \"00\" \"25\" \"50\" \"75\" ",
-                                                                                                 "max_length": 2,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                               "VHFFM_FREQEMER": {
-                                                                                "category": "VHF FM Radio",
-                                                                            "control_type": "selector",
-                                                                             "description": "Frequency Selection Dial FM/AM/MAN/PRE",
-                                                                              "identifier": "VHFFM_FREQEMER",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 3
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4500,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 384,
-                                                                                                  "max_value": 3,
-                                                                                                   "shift_by": 7,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "toggle_switch"
-                                                                 },
-                                                   "VHFFM_LOAD": {
-                                                                             "api_variant": "momentary_last_position",
-                                                                                "category": "VHF FM Radio",
-                                                                            "control_type": "selector",
-                                                                             "description": "Load Button",
-                                                                              "identifier": "VHFFM_LOAD",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 1
-                                                                                            }, {
-                                                                                                   "argument": "TOGGLE",
-                                                                                                "description": "Toggle switch state",
-                                                                                                  "interface": "action"
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4486,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 32768,
-                                                                                                  "max_value": 1,
-                                                                                                   "shift_by": 15,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "push_button"
-                                                                 },
-                                                   "VHFFM_MODE": {
-                                                                                "category": "VHF FM Radio",
-                                                                            "control_type": "selector",
-                                                                             "description": "Mode OFF/TR/DF",
-                                                                              "identifier": "VHFFM_MODE",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 2
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4500,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 96,
-                                                                                                  "max_value": 2,
-                                                                                                   "shift_by": 5,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "toggle_switch"
-                                                                 },
-                                                 "VHFFM_PRESET": {
-                                                                                "category": "VHF FM Radio",
-                                                                            "control_type": "selector",
-                                                                             "description": "Preset Channel Selector",
-                                                                              "identifier": "VHFFM_PRESET",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 19
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4500,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 31,
-                                                                                                  "max_value": 19,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "_INT",
-                                                                                                       "type": "integer"
-                                                                                            }, {
-                                                                                                    "address": 4502,
-                                                                                                "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
-                                                                                                 "max_length": 2,
-                                                                                                     "suffix": "_STR",
-                                                                                                       "type": "string"
-                                                                                            } ],
-                                                                        "physical_variant": "infinite_rotary"
-                                                                 },
-                                                "VHFFM_SQUELCH": {
-                                                                                "category": "VHF FM Radio",
-                                                                            "control_type": "selector",
-                                                                             "description": "Squelch",
-                                                                              "identifier": "VHFFM_SQUELCH",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 2
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4500,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 1536,
-                                                                                                  "max_value": 2,
-                                                                                                   "shift_by": 9,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "limited_rotary"
-                                                                 },
-                                                    "VHFFM_VOL": {
-                                                                         "category": "VHF FM Radio",
-                                                                     "control_type": "limited_dial",
-                                                                      "description": "VHF FM Volume Control",
-                                                                       "identifier": "VHFFM_VOL",
-                                                                           "inputs": [ {
-                                                                                         "description": "set the position of the dial",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 65535
-                                                                                     }, {
-                                                                                            "description": "turn the dial left or right",
-                                                                                              "interface": "variable_step",
-                                                                                              "max_value": 65535,
-                                                                                         "suggested_step": 3200
-                                                                                     } ],
-                                                                          "outputs": [ {
-                                                                                             "address": 4504,
-                                                                                         "description": "position of the potentiometer",
-                                                                                                "mask": 65535,
-                                                                                           "max_value": 65535,
-                                                                                            "shift_by": 0,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ]
-                                                                 }
+                                                   "VHFFM_FREQ1": {
+                                                                                 "category": "VHF FM Radio",
+                                                                             "control_type": "discrete_dial",
+                                                                              "description": "Frequency Selector 1",
+                                                                               "identifier": "VHFFM_FREQ1",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4500,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 30720,
+                                                                                                   "max_value": 12,
+                                                                                                    "shift_by": 11,
+                                                                                                      "suffix": "_INT",
+                                                                                                        "type": "integer"
+                                                                                             }, {
+                                                                                                     "address": 4506,
+                                                                                                 "description": "possible values: \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" ",
+                                                                                                  "max_length": 2,
+                                                                                                      "suffix": "_STR",
+                                                                                                        "type": "string"
+                                                                                             } ],
+                                                                         "physical_variant": "infinite_rotary"
+                                                                  },
+                                               "VHFFM_FREQ1_ROT": {
+                                                                          "category": "VHF FM Radio",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Frequency Selector 1 Rotation",
+                                                                        "identifier": "VHFFM_FREQ1_ROT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 4794,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 65280,
+                                                                                            "max_value": 255,
+                                                                                             "shift_by": 8,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                   "VHFFM_FREQ2": {
+                                                                                 "category": "VHF FM Radio",
+                                                                             "control_type": "discrete_dial",
+                                                                              "description": "Frequency Selector 2",
+                                                                               "identifier": "VHFFM_FREQ2",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4508,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 15,
+                                                                                                   "max_value": 9,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "infinite_rotary"
+                                                                  },
+                                               "VHFFM_FREQ2_ROT": {
+                                                                          "category": "VHF FM Radio",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Frequency Selector 2 Rotation",
+                                                                        "identifier": "VHFFM_FREQ2_ROT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 4796,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 255,
+                                                                                            "max_value": 255,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                   "VHFFM_FREQ3": {
+                                                                                 "category": "VHF FM Radio",
+                                                                             "control_type": "discrete_dial",
+                                                                              "description": "Frequency Selector 3",
+                                                                               "identifier": "VHFFM_FREQ3",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4508,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 240,
+                                                                                                   "max_value": 9,
+                                                                                                    "shift_by": 4,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "infinite_rotary"
+                                                                  },
+                                               "VHFFM_FREQ3_ROT": {
+                                                                          "category": "VHF FM Radio",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Frequency Selector 3 Rotation",
+                                                                        "identifier": "VHFFM_FREQ3_ROT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 4796,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 65280,
+                                                                                            "max_value": 255,
+                                                                                             "shift_by": 8,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                   "VHFFM_FREQ4": {
+                                                                                 "category": "VHF FM Radio",
+                                                                             "control_type": "discrete_dial",
+                                                                              "description": "Frequency Selector 4",
+                                                                               "identifier": "VHFFM_FREQ4",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4508,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 1792,
+                                                                                                   "max_value": 3,
+                                                                                                    "shift_by": 8,
+                                                                                                      "suffix": "_INT",
+                                                                                                        "type": "integer"
+                                                                                             }, {
+                                                                                                     "address": 4510,
+                                                                                                 "description": "possible values: \"00\" \"25\" \"50\" \"75\" ",
+                                                                                                  "max_length": 2,
+                                                                                                      "suffix": "_STR",
+                                                                                                        "type": "string"
+                                                                                             } ],
+                                                                         "physical_variant": "infinite_rotary"
+                                                                  },
+                                               "VHFFM_FREQ4_ROT": {
+                                                                          "category": "VHF FM Radio",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Frequency Selector 4 Rotation",
+                                                                        "identifier": "VHFFM_FREQ4_ROT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 4798,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 255,
+                                                                                            "max_value": 255,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                "VHFFM_FREQEMER": {
+                                                                                 "category": "VHF FM Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Frequency Selection Dial FM/AM/MAN/PRE",
+                                                                               "identifier": "VHFFM_FREQEMER",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 3
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4500,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 384,
+                                                                                                   "max_value": 3,
+                                                                                                    "shift_by": 7,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "toggle_switch"
+                                                                  },
+                                                    "VHFFM_LOAD": {
+                                                                              "api_variant": "momentary_last_position",
+                                                                                 "category": "VHF FM Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Load Button",
+                                                                               "identifier": "VHFFM_LOAD",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4486,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 32768,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 15,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "push_button"
+                                                                  },
+                                                    "VHFFM_MODE": {
+                                                                                 "category": "VHF FM Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Mode OFF/TR/DF",
+                                                                               "identifier": "VHFFM_MODE",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 2
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4500,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 96,
+                                                                                                   "max_value": 2,
+                                                                                                    "shift_by": 5,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "toggle_switch"
+                                                                  },
+                                                  "VHFFM_PRESET": {
+                                                                                 "category": "VHF FM Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Preset Channel Selector",
+                                                                               "identifier": "VHFFM_PRESET",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 19
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4500,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 31,
+                                                                                                   "max_value": 19,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "_INT",
+                                                                                                        "type": "integer"
+                                                                                             }, {
+                                                                                                     "address": 4502,
+                                                                                                 "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
+                                                                                                  "max_length": 2,
+                                                                                                      "suffix": "_STR",
+                                                                                                        "type": "string"
+                                                                                             } ],
+                                                                         "physical_variant": "infinite_rotary"
+                                                                  },
+                                                 "VHFFM_SQUELCH": {
+                                                                                 "category": "VHF FM Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Squelch",
+                                                                               "identifier": "VHFFM_SQUELCH",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 2
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 4500,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 1536,
+                                                                                                   "max_value": 2,
+                                                                                                    "shift_by": 9,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "limited_rotary"
+                                                                  },
+                                                     "VHFFM_VOL": {
+                                                                          "category": "VHF FM Radio",
+                                                                      "control_type": "limited_dial",
+                                                                       "description": "VHF FM Volume Control",
+                                                                        "identifier": "VHFFM_VOL",
+                                                                            "inputs": [ {
+                                                                                          "description": "set the position of the dial",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 65535
+                                                                                      }, {
+                                                                                             "description": "turn the dial left or right",
+                                                                                               "interface": "variable_step",
+                                                                                               "max_value": 65535,
+                                                                                          "suggested_step": 3200
+                                                                                      } ],
+                                                                           "outputs": [ {
+                                                                                              "address": 4504,
+                                                                                          "description": "position of the potentiometer",
+                                                                                                 "mask": 65535,
+                                                                                            "max_value": 65535,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  }
                                            },
                                     "VVI": {
                                                "VVI": {

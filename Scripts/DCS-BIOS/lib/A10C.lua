@@ -24,6 +24,8 @@ local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineElectricallyHeldSwitch = BIOS.util.defineElectricallyHeldSwitch
 local defineFloat = BIOS.util.defineFloat
+local define8BitFloat = BIOS.util.define8BitFloat
+
 
 --local function defineElectricallyHeldSwitch(msg, device_id, pos_command, neg_command, arg_number, category, description)
 --	document { identifier = msg, category = category, description = description, control_type = "electrically_held_switch", value_type = "enum", value_enum = {"0", "1"}, can_set = false, actions = {"PUSH", "RELEASE", "OFF"} }
@@ -1185,5 +1187,15 @@ defineString("CMSC_TXT_MWS", getCmscMws, 8, "CMSC", "MWS Status Display")
 
 defineIndicatorLight("NMSP_UHF_LED", 619, "NMSP", "UHF LED")
 defineIndicatorLight("NMSP_FM_LED", 620, "NMSP", "FM LED")
+
+define8BitFloat("VHFAM_FREQ1_ROT", 143, {0, 1}, "VHF AM Radio", "Frequency Selector 1 Rotation")
+define8BitFloat("VHFAM_FREQ2_ROT", 144, {0, 1}, "VHF AM Radio", "Frequency Selector 2 Rotation")
+define8BitFloat("VHFAM_FREQ3_ROT", 145, {0, 1}, "VHF AM Radio", "Frequency Selector 3 Rotation")
+define8BitFloat("VHFAM_FREQ4_ROT", 146, {0, 1}, "VHF AM Radio", "Frequency Selector 4 Rotation")
+
+define8BitFloat("VHFFM_FREQ1_ROT", 157, {0, 1}, "VHF FM Radio", "Frequency Selector 1 Rotation")
+define8BitFloat("VHFFM_FREQ2_ROT", 158, {0, 1}, "VHF FM Radio", "Frequency Selector 2 Rotation")
+define8BitFloat("VHFFM_FREQ3_ROT", 159, {0, 1}, "VHF FM Radio", "Frequency Selector 3 Rotation")
+define8BitFloat("VHFFM_FREQ4_ROT", 160, {0, 1}, "VHF FM Radio", "Frequency Selector 4 Rotation")
 
 BIOS.protocol.endModule()

@@ -864,6 +864,34 @@ function BIOS.util.defineFloat(msg, arg_number, limits, category, description)
 	--document { msg = msg, category = category, description = description, msg_type = "int", value_type = "int", value_range = limits, can_set = false, actions = {}, address = alloc.address }
 end
 
+function BIOS.util.define8BitFloat(msg, arg_number, limits, category, description)
+	-- same as defineFloat, but only allocates an 8-bit int
+	local intervalLength = limits[2] - limits[1]
+	--moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return encode01Float(dev0:get_argument_value(arg_number)) end--string.format("%.4f", dev0:get_argument_value(arg_number)) end
+	local alloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 255 }
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		alloc:setValue(((dev0:get_argument_value(arg_number) - limits[1]) / intervalLength) * 255)
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "analog_gauge",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = alloc.address,
+			  mask = alloc.mask,
+			  shift_by = alloc.shiftBy,
+			  max_value = 255,
+			  description = "gauge position"
+			}
+		}
+	}
+	--document { msg = msg, category = category, description = description, msg_type = "int", value_type = "int", value_range = limits, can_set = false, actions = {}, address = alloc.address }
+end
+
 function BIOS.util.defineIntegerFromGetter(msg, getter, maxValue, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = maxValue }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
