@@ -238,7 +238,7 @@ defineFloat("HSI_HDG", 34, {0, 1}, "HSI", "HSI Heading")
 defineFloat("HSI_BEARING1", 33, {0, 1}, "HSI", "HSI Bearing Pointer 1")
 defineFloat("HSI_BEARING2", 35, {0, 1}, "HSI", "HSI Bearing Pointer 2")
 defineFloat("HSI_HDG_BUG", 36, {0, 1}, "HSI", "HSI Heading Bug")
-defineFloat("HSI_CRS_BUG", 47, {0, 1}, "HSI", "HSI Course")
+defineFloat("HSI_CRS", 47, {0, 1}, "HSI", "HSI Course")
 defineFloat("HSI_CC_A", 37, {0, 1}, "HSI", "HSI Course Counter A")
 defineFloat("HSI_CC_B", 39, {0, 1}, "HSI", "HSI Course Counter B")
 defineFloat("HSI_RC_A", 28, {0, 1}, "HSI", "HSI Range Counter A")
@@ -248,8 +248,8 @@ defineFloat("HSI_RC_D", 31, {0, 1}, "HSI", "HSI Range Counter D")
 defineFloat("HSI_DEVIATION", 41, {-1, 1}, "HSI", "HSI Deviation")
 defineFloat("HSI_TOFROM1", 42, {0, 1}, "HSI", "HSI TO/FROM 1")
 defineFloat("HSI_TOFROM2", 43, {0, 1}, "HSI", "HSI TO/FROM 2")
-defineFloat("HSI_HDG_KNOB", 45, {0, 1}, "HSI", "HSI Heading Knob")
-defineFloat("HSI_CRS_KNOB", 44, {0, 1}, "HSI", "HSI Course Knob")
+local dummyAlloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 65535 }
+local dummyAlloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 65535 }
 
 defineFloat("HARS_SYNC", 269, {-1, 1}, "HARS", "HARS Sync")
 
@@ -864,8 +864,8 @@ defineToggleSwitch("FIRE_APU_PULL", 50, 3002, 103, "Glare Shield", "APU Fire T-H
 defineToggleSwitch("FIRE_RENG_PULL", 50, 3003, 104, "Glare Shield", "Right Engine Fire T-Handle")
 define3PosTumb("FIRE_EXT_DISCH", 50, 3004, 105, "Glare Shield", "Fire Extinguisher Discharge Left/Off/Right")
 
-defineVariableStepTumb("HSI_CRS", 45, 3002, 44, 1.0, "HSI", "Course Select Knob")
-defineVariableStepTumb("HSI_HDG", 45, 3001, 45, 1.0, "HSI", "Heading Select Knob")
+defineVariableStepTumb("HSI_CRS_KNOB", 45, 3002, 44, 1.0, "HSI", "Course Select Knob")
+defineVariableStepTumb("HSI_HDG_KNOB", 45, 3001, 45, 1.0, "HSI", "Heading Select Knob")
 
 definePotentiometer("ADI_PITCH_TRIM", 47, 3001, 22, {-.5, .5}, "ADI", "ADI Pitch Trim")
 

@@ -8155,30 +8155,9 @@
                                                                    },
                                                         "HSI_CRS": {
                                                                            "category": "HSI",
-                                                                       "control_type": "variable_step_dial",
-                                                                        "description": "Course Select Knob",
-                                                                         "identifier": "HSI_CRS",
-                                                                             "inputs": [ {
-                                                                                              "description": "rotate the knob",
-                                                                                                "interface": "variable_step",
-                                                                                                "max_value": 65535,
-                                                                                           "suggested_step": 3200
-                                                                                       } ],
-                                                                            "outputs": [ {
-                                                                                               "address": 4442,
-                                                                                           "description": "rotation of the knob (not the value being manipulated!)",
-                                                                                                  "mask": 65535,
-                                                                                             "max_value": 65535,
-                                                                                              "shift_by": 0,
-                                                                                                "suffix": "",
-                                                                                                  "type": "integer"
-                                                                                       } ]
-                                                                   },
-                                                    "HSI_CRS_BUG": {
-                                                                           "category": "HSI",
                                                                        "control_type": "analog_gauge",
                                                                         "description": "HSI Course",
-                                                                         "identifier": "HSI_CRS_BUG",
+                                                                         "identifier": "HSI_CRS",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
                                                                                                "address": 4180,
@@ -8192,13 +8171,18 @@
                                                                    },
                                                    "HSI_CRS_KNOB": {
                                                                            "category": "HSI",
-                                                                       "control_type": "analog_gauge",
-                                                                        "description": "HSI Course Knob",
+                                                                       "control_type": "variable_step_dial",
+                                                                        "description": "Course Select Knob",
                                                                          "identifier": "HSI_CRS_KNOB",
-                                                                             "inputs": [  ],
+                                                                             "inputs": [ {
+                                                                                              "description": "rotate the knob",
+                                                                                                "interface": "variable_step",
+                                                                                                "max_value": 65535,
+                                                                                           "suggested_step": 3200
+                                                                                       } ],
                                                                             "outputs": [ {
-                                                                                               "address": 4202,
-                                                                                           "description": "gauge position",
+                                                                                               "address": 4442,
+                                                                                           "description": "rotation of the knob (not the value being manipulated!)",
                                                                                                   "mask": 65535,
                                                                                              "max_value": 65535,
                                                                                               "shift_by": 0,
@@ -8224,18 +8208,13 @@
                                                                    },
                                                         "HSI_HDG": {
                                                                            "category": "HSI",
-                                                                       "control_type": "variable_step_dial",
-                                                                        "description": "Heading Select Knob",
+                                                                       "control_type": "analog_gauge",
+                                                                        "description": "HSI Heading",
                                                                          "identifier": "HSI_HDG",
-                                                                             "inputs": [ {
-                                                                                              "description": "rotate the knob",
-                                                                                                "interface": "variable_step",
-                                                                                                "max_value": 65535,
-                                                                                           "suggested_step": 3200
-                                                                                       } ],
+                                                                             "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 4444,
-                                                                                           "description": "rotation of the knob (not the value being manipulated!)",
+                                                                                               "address": 4172,
+                                                                                           "description": "gauge position",
                                                                                                   "mask": 65535,
                                                                                              "max_value": 65535,
                                                                                               "shift_by": 0,
@@ -8261,13 +8240,18 @@
                                                                    },
                                                    "HSI_HDG_KNOB": {
                                                                            "category": "HSI",
-                                                                       "control_type": "analog_gauge",
-                                                                        "description": "HSI Heading Knob",
+                                                                       "control_type": "variable_step_dial",
+                                                                        "description": "Heading Select Knob",
                                                                          "identifier": "HSI_HDG_KNOB",
-                                                                             "inputs": [  ],
+                                                                             "inputs": [ {
+                                                                                              "description": "rotate the knob",
+                                                                                                "interface": "variable_step",
+                                                                                                "max_value": 65535,
+                                                                                           "suggested_step": 3200
+                                                                                       } ],
                                                                             "outputs": [ {
-                                                                                               "address": 4200,
-                                                                                           "description": "gauge position",
+                                                                                               "address": 4444,
+                                                                                           "description": "rotation of the knob (not the value being manipulated!)",
                                                                                                   "mask": 65535,
                                                                                              "max_value": 65535,
                                                                                               "shift_by": 0,
