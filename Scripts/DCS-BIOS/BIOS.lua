@@ -23,6 +23,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataStart.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CommonData.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A10C.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH1H.lua]])
+dofile(lfs.writedir()..[[scripts\dcs-bios\lib\mig21.lua]])
 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 
