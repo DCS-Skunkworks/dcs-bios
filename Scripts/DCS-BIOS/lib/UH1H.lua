@@ -386,7 +386,7 @@ definePotentiometer("UHF_VOL", 22, 3008, 21, {0, 1}, "UHF Radio", "Volume Contro
 defineTumb("VHFFM_FREQ1", 23, 3001, 31, 0.1, {0.3, 0.7}, {"3", "4", "5", "6", "7"}, false, "VHF FM Radio", "Frequency Tens of MHz")
 defineTumb("VHFFM_FREQ2", 23, 3002, 32, 0.1, {0.0, 0.9}, nil, false, "VHF FM Radio", "Frequency 1 MHz")
 defineTumb("VHFFM_FREQ3", 23, 3003, 33, 0.1, {0.0, 0.9}, nil, false, "VHF FM Radio", "Frequency Decimals MHz")
-defineTumb("VHFFM_FREQ4", 23, 3004, 34, 0.1, {0.0, 0.1}, {"0", "5"}, "VHF FM Radio", "Frequency Hundreds of MHz")
+defineTumb("VHFFM_FREQ4", 23, 3004, 34, 0.1, {0.0, 0.1}, {"0", "5"}, false, "VHF FM Radio", "Frequency Hundreds of MHz")
 defineMultipositionSwitch("VHFFM_MODE", 23, 3007, 35, 4, 0.1, "VHF FM Radio", "Mode Dial: OFF / T/R / RETRAN / HOME")
 defineTumb("VHFFM_SQUELCH", 23, 3005, 36, 0.1, {0.0, 0.2}, nil, false, "VHF FM Radio", "Squelch Mode: DIS / CARR / TONE")
 definePotentiometer("VHFFM_VOL", 23, 3006, 37, {0.3, 1}, "VHF FM Radio", "Volume Control")

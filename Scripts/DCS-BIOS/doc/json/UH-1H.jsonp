@@ -4371,42 +4371,6 @@ docdata["UH-1H"] =
                                                                                "physical_variant": "toggle_switch"
                                                                         }
                                                 },
-                   "Frequency Hundreds of MHz": {
-                                                    "VHFFM_FREQ4": {
-                                                                                  "category": "Frequency Hundreds of MHz",
-                                                                              "control_type": "selector",
-                                                                                "identifier": "VHFFM_FREQ4",
-                                                                                    "inputs": [ {
-                                                                                                  "description": "switch to previous or next state",
-                                                                                                    "interface": "fixed_step"
-                                                                                              }, {
-                                                                                                  "description": "set position",
-                                                                                                    "interface": "set_state",
-                                                                                                    "max_value": 1
-                                                                                              }, {
-                                                                                                     "argument": "TOGGLE",
-                                                                                                  "description": "Toggle switch state",
-                                                                                                    "interface": "action"
-                                                                                              } ],
-                                                                       "momentary_positions": "none",
-                                                                                   "outputs": [ {
-                                                                                                      "address": 5342,
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 8192,
-                                                                                                    "max_value": 1,
-                                                                                                     "shift_by": 13,
-                                                                                                       "suffix": "_INT",
-                                                                                                         "type": "integer"
-                                                                                              }, {
-                                                                                                      "address": 5356,
-                                                                                                  "description": "possible values: \"0\" \"5\" ",
-                                                                                                   "max_length": 1,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
-                                                                                              } ],
-                                                                          "physical_variant": "infinite_rotary"
-                                                                   }
-                                                },
                                   "Front Dash": {
                                                                   "AC_V": {
                                                                                   "category": "Front Dash",
@@ -7296,6 +7260,41 @@ docdata["UH-1H"] =
                                                                                                        "shift_by": 8,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
+                                                                                                } ],
+                                                                            "physical_variant": "limited_rotary"
+                                                                     },
+                                                      "VHFFM_FREQ4": {
+                                                                                    "category": "VHF FM Radio",
+                                                                                "control_type": "selector",
+                                                                                 "description": "Frequency Hundreds of MHz",
+                                                                                  "identifier": "VHFFM_FREQ4",
+                                                                                      "inputs": [ {
+                                                                                                    "description": "switch to previous or next state",
+                                                                                                      "interface": "fixed_step"
+                                                                                                }, {
+                                                                                                    "description": "set position",
+                                                                                                      "interface": "set_state",
+                                                                                                      "max_value": 1
+                                                                                                }, {
+                                                                                                       "argument": "TOGGLE",
+                                                                                                    "description": "Toggle switch state",
+                                                                                                      "interface": "action"
+                                                                                                } ],
+                                                                         "momentary_positions": "none",
+                                                                                     "outputs": [ {
+                                                                                                        "address": 5342,
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 8192,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 13,
+                                                                                                         "suffix": "_INT",
+                                                                                                           "type": "integer"
+                                                                                                }, {
+                                                                                                        "address": 5356,
+                                                                                                    "description": "possible values: \"0\" \"5\" ",
+                                                                                                     "max_length": 1,
+                                                                                                         "suffix": "_STR",
+                                                                                                           "type": "string"
                                                                                                 } ],
                                                                             "physical_variant": "limited_rotary"
                                                                      },
