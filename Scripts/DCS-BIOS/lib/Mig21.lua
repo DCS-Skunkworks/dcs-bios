@@ -1,3 +1,7 @@
+local success1 = pcall(dofile, lfs.currentdir().."mods/aircraft/Mig-21bis/Cockpit/devices.lua")
+local success2 = pcall(dofile, lfs.currentdir().."mods/aircraft/Mig-21bis/Cockpit/command_defs.lua")
+if success1 and success2 then -- only define module if Mig-21 is installed
+
 BIOS.protocol.beginModule("MiG-21Bis", 0x2200)
 BIOS.protocol.setExportModuleAircrafts({"MiG-21Bis"})
 
@@ -23,12 +27,10 @@ local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 
-dofile(lfs.currentdir().."mods/aircraft/Mig-21bis/Cockpit/devices.lua")
-dofile(lfs.currentdir().."mods/aircraft/Mig-21bis/Cockpit/command_defs.lua")
-
 defineToggleSwitch("BAT_PWR", devices.DC_BUS, device_commands.BatteryOn, 165, "Electrical Panel", "Battery Power Switch")
 
 devices = nil
 device_commands = nil
 
 BIOS.protocol.endModule()
+end
