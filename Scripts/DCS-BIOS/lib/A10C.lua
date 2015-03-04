@@ -997,8 +997,8 @@ defineToggleSwitch("HARS_SLAVE_DG", 44, 3002, 270, "HARS", "HARS SLAVE-DG Mode")
 defineToggleSwitch("HARS_NS", 44, 3003, 273, "HARS", "HARS N/S toggle switch")
 define3PosTumb("HARS_MAGVAR", 44, 3004, 272, "HARS", "HARS MAG VAR")
 definePotentiometer("HARS_LATITUDE", 44, 3005, 271, {0, 1}, "HARS", "HARS Latitude Dial")
-definePotentiometer("HARS_HDG", 44, 3006, 268, {0, 1}, "HARS", "HARS Heading")
-definePushButton("HARS_PTS", 44, 3007, 267, "HARS", "HARS Push-to-Sync")
+definePotentiometer("HARS_HDG", 44, 3007, 268, {0, 1}, "HARS", "HARS Heading")
+definePushButton("HARS_PTS", 44, 3006, 267, "HARS", "HARS Push-to-Sync")
 
 
 defineToggleSwitch("KY58_ZEROIZE_COVER", 69, 3001, 778, "Secure Voice Comms Panel", "Zeroize Switch Cover")
