@@ -45,6 +45,13 @@ defineToggleSwitch("RAD_SQL", devices.RADIO, device_commands.Squelch, 209, "Righ
 definePotentiometer("RAD_VOL", devices.RADIO, device_commands.RadioVolume, 210, {0, 1}, "Right Vertical", "Radio Volume")
 defineTumb("RAD_CHAN", devices.RADIO, device_commands.RadioChannel, 211, 0.05, {0.0, 0.95}, nil, true, "Right Vertical", "Radio Channel") --May be a better way to do this?
 definePotentiometer("WHITE_LIGHT", devices.LIGHTS, device_commands.WhiteLightsMain_axis, 222, {0, 1}, "Right Vertical", "White Lights")
+defineToggleSwitch("ARC_PWR", devices.ARK, device_commands.ARKon, 174, "Right Vertical", "ARC On/Off")
+definePotentiometer("ARC_VOL", devices.ARK, device_commands.ARKsound, 198, {0, 1}, "Right Vertical", "ARC Volume")
+definePushButton("ARC_CHG", devices.ARK, device_commands.ARKpereklucenie, 212, "Right Vertical", "ARC Change")
+defineTumb("ARC_CHAN", devices.ARK, device_commands.ARKchannel, 213, 0.1, {0.1, 0.9}, nil, true, "Right Vertical", "ARC Channel") --Split up into individual channels?
+defineTumb("ARC_ZONE", devices.ARK, device_commands.ARKzone, 189, 0.14, {0, 0.98}, nil, false, "Right Vertical", "ARC Zones")
+defineToggleSwitch("ARC_CMP", devices.ARK, device_commands.ARKantenaCompass, 197, "Right Vertical", "ARC Antenna/Compass")
+defineToggleSwitch("RSBN_PWR", devices.RSBN, device_commands.RSBNon, 176, "Right Vertical", "RSBN On/Off")
 
 --Right Horizontal Panel
 defineToggleSwitch("BAT_PWR", devices.DC_BUS, device_commands.BatteryOn, 165, "Right Horizontal", "Battery On/Off")
@@ -64,6 +71,7 @@ definePotentiometer("RED_LIGHT", devices.LIGHTS, device_commands.RedLightsMain_a
 --Center Upper Panel
 definePushButton("ACC_RESET", devices.ACCELEROMETER, device_commands.AccelReset, 228, "Center Upper", "Accelerometer Reset")
 defineToggleSwitch("PIT_SEL", devices.PITOT_TUBES, device_commands.PitoSelect, 229, "Center Upper", "Pitot Main/Emergency Select")
+defineTumb("RSBN_MODE", devices.RSBN, device_commands.RSBNmode, 240, 0.5, {0, 1}, nil, false, "Center Upper", "RSBN Mode")
 
 --Center Middle Panel
 definePotentiometer("FUEL_QTY_SEL", devices.FUEL_SYSTEM, device_commands.FuelQt, 274, {0, 1}, "Center Middle", "Adjust Fuel Quantity")
@@ -72,6 +80,7 @@ definePushButton("CTR_WARN_LIGHT_TEST", devices.LIGHTS_WARNING, device_commands.
 defineToggleSwitch("CTR_WARN_LIGHTS_BRT", devices.LIGHTS_WARNING, device_commands.CheckWarningLights31, 273, "Center Middle", "Center Warn Lights Brightness")
 definePushButton("MASTER_WARN_LIGHT_TEST", devices.LIGHTS_WARNING, device_commands.SORC, 255, "Center Middle", "Master Warn Light Test/Acknowledge")
 defineToggleSwitch("MASTER_WARN_LIGHT_BRT", devices.LIGHTS_WARNING, device_commands.SORCNightDay, 657, "Center Middle", "Master Warn Light Brightness")
+defineToggleSwitch("ARC_MRK", devices.ARK, device_commands.ARKfarNear, 254, "Center Middle", "ARC Marker Far/Near")
 
 --Center Lower Panel
 defineToggleSwitch("PIT_HEAT_MAIN", devices.PITOT_TUBES, device_commands.PitoHeatMain, 279, "Center Lower", "Pitot, Clock, Periscope Heat")
@@ -94,6 +103,16 @@ definePushButton("FIRE_EXT", devices.FIRE_EXTINGUISHER, device_commands.Ognetush
 defineTumb("LND_LIGHT", devices.LIGHTS, device_commands.LandingLights, 323, 0.5, {0.0, 1}, nil, false, "Left Vertical", "Landing Lights Land/Taxi/Off/Dim/Med/Bright")
 definePushButton("GEAR_WARN_LIGHT_TEST", devices.LIGHTS_WARNING, device_commands.CheckWarningLights60, 374, "Left Vertical", "Gear Warn Lights Test")
 defineToggleSwitch("GEAR_WARN_LIGHTS_BRT", devices.LIGHTS_WARNING, device_commands.CheckWarningLights61, 322, "Left Vertical", "Gear Warn Lights Brightness")
+defineToggleSwitch("RSBN_ARC_SEL", devices.RSBN, device_commands.RSBNARK, 340, "Left Vertical", "RSBN/ARC Select")
+definePushButton("RSBN_IDENT", devices.RSBN, device_commands.RSBNident, 294, "Left Vertical", "RSBN Identify")
+definePushButton("RSBN_Test", devices.RSBN, device_commands.RSBNtest, 347, "Left Vertical", "RSBN Self-Test")
+definePotentiometer("RSBN_VOL", devices.RSBN, device_commands.RSBNsound, 345, {0, 1}, "Left Vertical", "RSBN Volume")
+defineTumb("RSBN_CHAN", devices.RSBN, device_commands.RSBNnav, 351, 0.01, {0, 0.99}, nil, true, "Left Vertical", "RSBN Channel")
+defineTumb("PRMG_CHAN", devices.RSBN, device_commands.RSBNland, 352, 0.01, {0, 0.99}, nil, true, "Left Vertical", "PRMG Channel")
+definePushButton("RSBN_RST", devices.RSBN, device_commands.RSBNreset, 366, "Left Vertical", "RSBN Reset")
+defineToggleSwitch("RSBN_DIST", devices.RSBN, device_commands.RSBNfar, 368, "Left Vertical", "RSBN Distance")
+defineToggleSwitch("RSBN_BRG", devices.RSBN, device_commands.RSBNbearing, 367, "Left Vertical", "RSBN Bearing")
+
 
 --Left Horizontal Panel
 defineToggleSwitch("ENG_STOP", devices.ENGINE_START_DEVICE, device_commands.RUDStop_lock, 616, "Left Horizontal", "Engine Stop/Throttle Lock")
