@@ -6877,6 +6877,17 @@
                                                                                           } ],
                                                                                "outputs": [  ]
                                                                       },
+                                                         "UHF_50KHZ": {
+                                                                              "category": "UHF Radio",
+                                                                          "control_type": "fixed_step_dial",
+                                                                           "description": "UHF 50 KHz Selector",
+                                                                            "identifier": "UHF_50KHZ",
+                                                                                "inputs": [ {
+                                                                                              "description": "turn left or right",
+                                                                                                "interface": "fixed_step"
+                                                                                          } ],
+                                                                               "outputs": [  ]
+                                                                      },
                                                           "UHF_FREQ": {
                                                                               "category": "UHF Radio",
                                                                           "control_type": "display",
@@ -7025,17 +7036,6 @@
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
-                                                                      },
-                                                         "VHF_50KHZ": {
-                                                                              "category": "UHF Radio",
-                                                                          "control_type": "fixed_step_dial",
-                                                                           "description": "UHF 50 KHz Selector",
-                                                                            "identifier": "VHF_50KHZ",
-                                                                                "inputs": [ {
-                                                                                              "description": "turn left or right",
-                                                                                                "interface": "fixed_step"
-                                                                                          } ],
-                                                                               "outputs": [  ]
                                                                       }
                                                 },
                               "VHF COMM Radio": {

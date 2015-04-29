@@ -375,7 +375,7 @@ end
 defineString("UHF_FREQ", getUhfFreq, 6, "UHF Radio", "UHF Frequency")
 defineFixedStepInput("UHF_10MHZ", 22, 3002, {0.1, -0.1}, "UHF Radio", "UHF 10 MHz Selector")
 defineFixedStepInput("UHF_1MHZ", 22, 3003, {0.1, -0.1}, "UHF Radio", "UHF 1 MHz Selector")
-defineFixedStepInput("VHF_50KHZ", 22, 3004, {0.1, -0.1}, "UHF Radio", "UHF 50 KHz Selector")
+defineFixedStepInput("UHF_50KHZ", 22, 3004, {0.1, -0.1}, "UHF Radio", "UHF 50 KHz Selector")
 
 defineMultipositionSwitch("UHF_MODE", 22, 3005, 15, 3, 0.1, "UHF Radio", "Frequency Mode Select")
 defineMultipositionSwitch("UHF_FUNCTION", 22, 3006, 17, 4, 0.1, "UHF Radio", "Function Dial")
