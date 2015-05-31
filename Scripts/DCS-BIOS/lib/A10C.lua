@@ -1199,4 +1199,11 @@ define8BitFloat("VHFFM_FREQ2_ROT", 158, {0, 1}, "VHF FM Radio", "Frequency Selec
 define8BitFloat("VHFFM_FREQ3_ROT", 159, {0, 1}, "VHF FM Radio", "Frequency Selector 3 Rotation")
 define8BitFloat("VHFFM_FREQ4_ROT", 160, {0, 1}, "VHF FM Radio", "Frequency Selector 4 Rotation")
 
+defineFloat("AIRSPEED_MAX_IAS", 50, {0, 1}, "Airspeed Indicator", "Airspeed Max IAS Dial")
+
+defineFloat("COMPASS_HDG", 6, {-1, 1}, "Standby Compass", "Compass Heading")
+defineFloat("COMPASS_PITCH", 720, {-1, 1}, "Standby Compass", "Compass Pitch")
+defineFloat("COMPASS_BANK", 721, {-1, 1}, "Standby Compass", "Compass Bank")
+
+
 BIOS.protocol.endModule()

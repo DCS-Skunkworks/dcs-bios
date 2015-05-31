@@ -705,38 +705,54 @@
                                                             }
                                            },
                      "Airspeed Indicator": {
-                                                 "AIRSPEED_DIAL": {
-                                                                          "category": "Airspeed Indicator",
-                                                                      "control_type": "analog_gauge",
-                                                                       "description": "Airspeed Dial",
-                                                                        "identifier": "AIRSPEED_DIAL",
-                                                                            "inputs": [  ],
-                                                                           "outputs": [ {
-                                                                                              "address": 4220,
-                                                                                          "description": "gauge position",
-                                                                                                 "mask": 65535,
-                                                                                            "max_value": 65535,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ]
-                                                                  },
-                                               "AIRSPEED_NEEDLE": {
-                                                                          "category": "Airspeed Indicator",
-                                                                      "control_type": "analog_gauge",
-                                                                       "description": "Airspeed Needle",
-                                                                        "identifier": "AIRSPEED_NEEDLE",
-                                                                            "inputs": [  ],
-                                                                           "outputs": [ {
-                                                                                              "address": 4218,
-                                                                                          "description": "gauge position",
-                                                                                                 "mask": 65535,
-                                                                                            "max_value": 65535,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ]
-                                                                  }
+                                                  "AIRSPEED_DIAL": {
+                                                                           "category": "Airspeed Indicator",
+                                                                       "control_type": "analog_gauge",
+                                                                        "description": "Airspeed Dial",
+                                                                         "identifier": "AIRSPEED_DIAL",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 4220,
+                                                                                           "description": "gauge position",
+                                                                                                  "mask": 65535,
+                                                                                             "max_value": 65535,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                               "AIRSPEED_MAX_IAS": {
+                                                                           "category": "Airspeed Indicator",
+                                                                       "control_type": "analog_gauge",
+                                                                        "description": "Airspeed Max IAS Dial",
+                                                                         "identifier": "AIRSPEED_MAX_IAS",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 4800,
+                                                                                           "description": "gauge position",
+                                                                                                  "mask": 65535,
+                                                                                             "max_value": 65535,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                                "AIRSPEED_NEEDLE": {
+                                                                           "category": "Airspeed Indicator",
+                                                                       "control_type": "analog_gauge",
+                                                                        "description": "Airspeed Needle",
+                                                                         "identifier": "AIRSPEED_NEEDLE",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 4218,
+                                                                                           "description": "gauge position",
+                                                                                                  "mask": 65535,
+                                                                                             "max_value": 65535,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   }
                                            },
                               "Altimeter": {
                                                 "ALT_10000FT_CNT": {
@@ -13309,6 +13325,56 @@
                                                                                                   "type": "integer"
                                                                                        } ]
                                                                    }
+                                           },
+                        "Standby Compass": {
+                                                "COMPASS_BANK": {
+                                                                        "category": "Standby Compass",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Compass Bank",
+                                                                      "identifier": "COMPASS_BANK",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 4806,
+                                                                                        "description": "gauge position",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
+                                                                },
+                                                 "COMPASS_HDG": {
+                                                                        "category": "Standby Compass",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Compass Heading",
+                                                                      "identifier": "COMPASS_HDG",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 4802,
+                                                                                        "description": "gauge position",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
+                                                                },
+                                               "COMPASS_PITCH": {
+                                                                        "category": "Standby Compass",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Compass Pitch",
+                                                                      "identifier": "COMPASS_PITCH",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 4804,
+                                                                                        "description": "gauge position",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
+                                                                }
                                            },
                             "TACAN Panel": {
                                                       "TACAN_1": {
