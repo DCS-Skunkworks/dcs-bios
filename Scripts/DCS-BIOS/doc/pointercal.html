@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/doc.css">
+		<title>DCS-BIOS Pointer Calibration Tool</title>
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<script src="js/underscore-min.js"></script>
+		<script src="js/q.js"></script>
+		<script src="js/tcp-promise-wrapper.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="json/MetadataEnd.jsonp"></script>
+		<script src="json/MetadataStart.jsonp"></script>
+		<script src="json/CommonData.jsonp"></script>
+		<script src="json/A-10C.jsonp"></script>
+		<script src="json/UH-1H.jsonp"></script>
+		<script src="json/MiG-21Bis.jsonp"></script>
+		<script src="js/pointercal.js"></script>
+		<script src="js/dcs-bios-connection.js"></script>
+		
+		</style>
+			
+		</style>
+	</head>
+	<body>
+		<noscript>
+			<h2 style="color: red;">This page requires JavaScript to be enabled.</h2>
+		</noscript>
+		
+		<div id="app">
+			<div id="setup" style="float:left;">
+				<h3>Setup</h3><br>
+				DCS Connection: <span id="connection_status" style="background-color: red; color: yellow;">Connection failed. Refresh the page to try again.</span><br>
+				DCS Export Address: <input type="text" id="address" value=""><br>
+				<span id="control_id" style="font-size: .9em;"></span><br><br>
+				Gauge Background Image:<br><input type="file" id="gauge_img"><br>
+				Stepper Zero Position (deg): <input type="text" id="stepper_zero_pos" value="0"><br>
+				Degree of Movement per Step: <input type="text" id="stepper_deg_per_step" value="0.5"><br>
+				Max. Steps (0=infinite): <input type="number" id="stepper_max_steps" value="0"><br>
+			</div>
+			
+			<div id="mapping" style="float:left;">
+				<h3>Mapping</h3><br>
+				Point 1 DCS Value: <input type="number" id="point1_dcs" value="0"><br>
+				Point 1 Steps: <input type="number" id="point1_steps" value="0"><br>
+				<hr>
+				Point 2 DCS Value: <input type="number" id="point2_dcs" value="65535"><br>
+				Point 2 Steps: <input type="number" id="point2_steps" value="720"></br>
+				<hr>
+				Value from DCS: <span id="dcs_value">?</span><br>
+				Degrees: <span id="mapped_deg"></span><br>
+				Mapped to: <span id="mapped_steps"></span><br>
+				Capped to: <span id="capped_steps"></span><br>
+			</div>
+			<div id="output" style="float:left;">
+			
+				<h3>Output</h3>
+				<div id="instrument" style="position: relative; width: 200px; height: 200px;">
+					<img src="images/default_gauge_background.png" id="gauge" style="background-color: black; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+					<img src="images/pointer.png" id="pointer" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0; z-index: 1; rotation: 90;">
+					<img src="images/pointer_lightblue.png" id="user_pointer" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0; z-index: 2; rotation: 90;">
+					<div id="gaugeclick" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3;"></div>
+				</div>
+				<hr><br>
+				<center>
+					<input type="number" id="user_pointer_steps" value="0"><br>
+					<input type="button" id="set_zero_pos" value="Set Stepper Zero Pos"><br>
+					<input type="button" id="set_point_1" value="Set Point 1"><input type="button" id="set_point_2" value="Set Point 2"><br>
+				</center>
+			</div>
+		</div>
+		
+	</body>
+</html>

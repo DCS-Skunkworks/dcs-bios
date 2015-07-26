@@ -41,6 +41,8 @@ $(function() {
 	$("#app").append($("<span>").text(" Category Filter: "));
 	$("#app").append(categoryFilter);
 	
+	$("#app").append($('<span> </span><a href="pointercal.html">Pointer Calibration Tool</a>'));
+	
 	var controlsDiv = $("<div>");
 	$("#app").append(controlsDiv);
 	
