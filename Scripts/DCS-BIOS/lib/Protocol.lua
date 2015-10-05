@@ -165,7 +165,9 @@ function BIOS.protocol.step()
 		if acftModules then
 			for _, acftModule in pairs(acftModules) do
 				local dev0 = GetDevice(0)
-				dev0:update_arguments()
+				if dev0 ~= nil and type(dev0) ~= "number" then
+					dev0:update_arguments()
+				end
 				
 				for k, v in pairs(acftModule.exportHooks) do
 					v(dev0)
