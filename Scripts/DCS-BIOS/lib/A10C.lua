@@ -478,10 +478,67 @@ defineRockerSwitch("CMSP_UPDN", 4, 3005, 3005, 3006, 3006, 356, "CMSP", "Cycle P
 definePushButton("CMSP_RTN", 4, 3007, 357, "CMSP", "RTN")
 defineToggleSwitch("CMSP_JTSN", 4, 3008, 358, "CMSP", "JTSN / OFF")
 definePotentiometer("CMSP_BRT", 4, 3009, 359, {0.15, 0.85}, "CMSP", "Brightness")
-defineTumb("CMSP_MWS", 4, 3010, 360, 0.1, {0.0, 0.2}, nil, false, "CMSP", "Missile Warning System OFF - ON - (MENU)")
-defineTumb("CMSP_JMR", 4, 3012, 361, 0.1, {0.0, 0.2}, nil, false, "CMSP", "Jammer OFF - ON - (MENU)")
-defineTumb("CMSP_RWR", 4, 3014, 362, 0.1, {0.0, 0.2}, nil, false, "CMSP", "Radar Warning Receiver OFF - ON - (MENU)")
-defineTumb("CMSP_DISP", 4, 3016, 363, 0.1, {0.0, 0.2}, nil, false, "CMSP", "Countermeasure Dispenser OFF - ON - (MENU)")
+
+local function defineCMSPSwitch(msg, device_id, down_command, up_command, arg_number, category, description)
+	
+	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		local lut = {["0.0"] = "0", ["0.1"] = "1", ["0.2"] = "2"}
+		alloc:setValue(lut[string.format("%.1f", dev0:get_argument_value(arg_number))])
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "selector",
+		momentary_positions = "last",
+		physical_variant = "toggle_switch",
+		inputs = {
+			{ interface = "set_state", max_value = 2, description = "set the switch position -- 0 = down, 1 = centered, 2 = held up" },
+		},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = alloc.address,
+			  mask = alloc.mask,
+			  shift_by = alloc.shiftBy,
+			  max_value = 2,
+			  description = "switch position: 0 - down, 1 - center, 2 - up"
+			}
+		}
+	}
+	moduleBeingDefined.inputProcessors[msg] = function(toState)
+		if toState == "0" then
+			toState = -1
+		elseif toState == "1" then
+			toState = 0
+		elseif toState == "2" then
+			toState = 1
+		else
+			return
+		end
+		local fromState = string.format("%.1f", GetDevice(0):get_argument_value(arg_number))
+		local fslut = {["0.0"] = -1, ["0.1"] = 0, ["0.2"] = 1}
+		fromState = fslut[fromState]
+		local dev = GetDevice(device_id)
+		if fromState == 0 and toState == 1 then dev:performClickableAction(up_command, 0.2) end
+		if fromState == 1 and toState == 0 then dev:performClickableAction(up_command, 0.1) end
+		if fromState == 0 and toState == -1 then dev:performClickableAction(down_command, 0.0) end
+		if fromState == -1 and toState == 0 then dev:performClickableAction(down_command, 0.1) end
+		if fromState == -1 and toState == 1 then
+			dev:performClickableAction(down_command, 0.1)
+			dev:performClickableAction(up_command, 0.2)
+		end
+		if fromState == 1 and toState == -1 then
+			dev:performClickableAction(up_command, 0.1)
+			dev:performClickableAction(down_command, 0.0)
+		end
+	end
+end
+defineCMSPSwitch("CMSP_MWS", 4, 3010, 3011, 360, "CMSP", "Missile Warning System OFF - ON - (MENU)")
+defineCMSPSwitch("CMSP_JMR", 4, 3012, 3013, 361, "CMSP", "Jammer OFF - ON - (MENU)")
+defineCMSPSwitch("CMSP_RWR", 4, 3014, 3015, 362, "CMSP", "Radar Warning Receiver OFF - ON - (MENU)")
+defineCMSPSwitch("CMSP_DISP", 4, 3016, 3017, 363, "CMSP", "Countermeasure Dispenser OFF - ON - (MENU)")
 defineTumb("CMSP_MODE", 4, 3018, 364, 0.1, {0.0, 0.4}, nil, false, "CMSP", "CMSP Mode Select")
 
 

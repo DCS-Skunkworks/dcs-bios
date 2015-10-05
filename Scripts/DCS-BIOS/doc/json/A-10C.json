@@ -3644,24 +3644,21 @@
                                                                         "description": "Countermeasure Dispenser OFF - ON - (MENU)",
                                                                          "identifier": "CMSP_DISP",
                                                                              "inputs": [ {
-                                                                                           "description": "switch to previous or next state",
-                                                                                             "interface": "fixed_step"
-                                                                                       }, {
-                                                                                           "description": "set position",
+                                                                                           "description": "set the switch position -- 0 = down, 1 = centered, 2 = held up",
                                                                                              "interface": "set_state",
                                                                                              "max_value": 2
                                                                                        } ],
-                                                                "momentary_positions": "none",
+                                                                "momentary_positions": "last",
                                                                             "outputs": [ {
                                                                                                "address": 4324,
-                                                                                           "description": "selector position",
+                                                                                           "description": "switch position: 0 - down, 1 - center, 2 - up",
                                                                                                   "mask": 1536,
                                                                                              "max_value": 2,
                                                                                               "shift_by": 9,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ],
-                                                                   "physical_variant": "limited_rotary"
+                                                                   "physical_variant": "toggle_switch"
                                                             },
                                                 "CMSP_JMR": {
                                                                            "category": "CMSP",
@@ -3669,24 +3666,21 @@
                                                                         "description": "Jammer OFF - ON - (MENU)",
                                                                          "identifier": "CMSP_JMR",
                                                                              "inputs": [ {
-                                                                                           "description": "switch to previous or next state",
-                                                                                             "interface": "fixed_step"
-                                                                                       }, {
-                                                                                           "description": "set position",
+                                                                                           "description": "set the switch position -- 0 = down, 1 = centered, 2 = held up",
                                                                                              "interface": "set_state",
                                                                                              "max_value": 2
                                                                                        } ],
-                                                                "momentary_positions": "none",
+                                                                "momentary_positions": "last",
                                                                             "outputs": [ {
                                                                                                "address": 4324,
-                                                                                           "description": "selector position",
+                                                                                           "description": "switch position: 0 - down, 1 - center, 2 - up",
                                                                                                   "mask": 96,
                                                                                              "max_value": 2,
                                                                                               "shift_by": 5,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ],
-                                                                   "physical_variant": "limited_rotary"
+                                                                   "physical_variant": "toggle_switch"
                                                             },
                                                "CMSP_JTSN": {
                                                                            "category": "CMSP",
@@ -3748,24 +3742,21 @@
                                                                         "description": "Missile Warning System OFF - ON - (MENU)",
                                                                          "identifier": "CMSP_MWS",
                                                                              "inputs": [ {
-                                                                                           "description": "switch to previous or next state",
-                                                                                             "interface": "fixed_step"
-                                                                                       }, {
-                                                                                           "description": "set position",
+                                                                                           "description": "set the switch position -- 0 = down, 1 = centered, 2 = held up",
                                                                                              "interface": "set_state",
                                                                                              "max_value": 2
                                                                                        } ],
-                                                                "momentary_positions": "none",
+                                                                "momentary_positions": "last",
                                                                             "outputs": [ {
                                                                                                "address": 4324,
-                                                                                           "description": "selector position",
+                                                                                           "description": "switch position: 0 - down, 1 - center, 2 - up",
                                                                                                   "mask": 24,
                                                                                              "max_value": 2,
                                                                                               "shift_by": 3,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ],
-                                                                   "physical_variant": "limited_rotary"
+                                                                   "physical_variant": "toggle_switch"
                                                             },
                                                 "CMSP_RTN": {
                                                                         "api_variant": "momentary_last_position",
@@ -3803,24 +3794,21 @@
                                                                         "description": "Radar Warning Receiver OFF - ON - (MENU)",
                                                                          "identifier": "CMSP_RWR",
                                                                              "inputs": [ {
-                                                                                           "description": "switch to previous or next state",
-                                                                                             "interface": "fixed_step"
-                                                                                       }, {
-                                                                                           "description": "set position",
+                                                                                           "description": "set the switch position -- 0 = down, 1 = centered, 2 = held up",
                                                                                              "interface": "set_state",
                                                                                              "max_value": 2
                                                                                        } ],
-                                                                "momentary_positions": "none",
+                                                                "momentary_positions": "last",
                                                                             "outputs": [ {
                                                                                                "address": 4324,
-                                                                                           "description": "selector position",
+                                                                                           "description": "switch position: 0 - down, 1 - center, 2 - up",
                                                                                                   "mask": 384,
                                                                                              "max_value": 2,
                                                                                               "shift_by": 7,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ],
-                                                                   "physical_variant": "limited_rotary"
+                                                                   "physical_variant": "toggle_switch"
                                                             },
                                                "CMSP_UPDN": {
                                                                            "category": "CMSP",
