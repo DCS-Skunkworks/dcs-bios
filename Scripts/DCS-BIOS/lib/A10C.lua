@@ -1262,5 +1262,6 @@ defineFloat("COMPASS_HDG", 6, {-1, 1}, "Standby Compass", "Compass Heading")
 defineFloat("COMPASS_PITCH", 720, {-1, 1}, "Standby Compass", "Compass Pitch")
 defineFloat("COMPASS_BANK", 721, {-1, 1}, "Standby Compass", "Compass Bank")
 
+defineFloat("ALT_PNEU_FLAG", 61, {0, 1}, "Altimeter", "PNEU Flag")
 
 BIOS.protocol.endModule()

@@ -841,6 +841,22 @@
                                                                                               } ],
                                                                           "physical_variant": "rocker_switch"
                                                                    },
+                                                  "ALT_PNEU_FLAG": {
+                                                                           "category": "Altimeter",
+                                                                       "control_type": "analog_gauge",
+                                                                        "description": "PNEU Flag",
+                                                                         "identifier": "ALT_PNEU_FLAG",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 4808,
+                                                                                           "description": "gauge position",
+                                                                                                  "mask": 65535,
+                                                                                             "max_value": 65535,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
                                                   "ALT_PRESSURE0": {
                                                                            "category": "Altimeter",
                                                                        "control_type": "analog_gauge",
