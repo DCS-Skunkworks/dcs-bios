@@ -1004,6 +1004,14 @@ defineRadioWheel("VHFAM_FREQ2", 55, 3011, 3012, {-0.1, 0.1}, 144, 0.1, {0, 1.0},
 defineRadioWheel("VHFAM_FREQ3", 55, 3013, 3014, {-0.1, 0.1}, 145, 0.1, {0, 1.0}, nil, "VHF AM Radio", "Frequency Selector 3")
 defineRadioWheel("VHFAM_FREQ4", 55, 3015, 3016, {-0.25, 0.25}, 146, 0.25, {0, 1.0}, {"00", "25", "50", "75"}, "VHF AM Radio", "Frequency Selector 4")
 
+moduleBeingDefined.inputProcessors["SET_VHF_AM"] = function(freq)
+	freq = freq:gsub("%.", "")
+	freq = tonumber(freq)
+	if type(freq) == "nil" then return end
+	
+	GetDevice(55):set_frequency(freq*1000)
+end
+
 --defineString("VHF_AM_FREQUENCY", getVhfAmFreqency, "VHF AM Radio", "VHF AM Frequency")
 
 defineSetCommandTumb("VHFFM_PRESET", 56, 3001, 151, 0.01, {0.0, 0.19}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "VHF FM Radio", "Preset Channel Selector")
@@ -1016,6 +1024,14 @@ defineRadioWheel("VHFFM_FREQ1", 56, 3009, 3010, {-0.1, 0.1}, 157, 0.05, {0.15, 0
 defineRadioWheel("VHFFM_FREQ2", 56, 3011, 3012, {-0.1, 0.1}, 158, 0.1, {0, 1.0}, nil, "VHF FM Radio", "Frequency Selector 2")
 defineRadioWheel("VHFFM_FREQ3", 56, 3013, 3014, {-0.1, 0.1}, 159, 0.1, {0, 1.0}, nil, "VHF FM Radio", "Frequency Selector 3")
 defineRadioWheel("VHFFM_FREQ4", 56, 3015, 3016, {-0.25, 0.25}, 160, 0.25, {0, 1.0}, {"00", "25", "50", "75"}, "VHF FM Radio", "Frequency Selector 4")
+
+moduleBeingDefined.inputProcessors["SET_VHF_FM"] = function(freq)
+	freq = freq:gsub("%.", "")
+	freq = tonumber(freq)
+	if type(freq) == "nil" then return end
+	
+	GetDevice(56):set_frequency(freq*1000)
+end
 
 
 --defineString("VHF_FM_FREQUENCY", getVhfFmFreqency, "VHF FM Radio", "VHF FM Frequency")
