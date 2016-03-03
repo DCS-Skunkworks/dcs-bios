@@ -309,15 +309,14 @@ $(function() {
 			break;
 			
 			case "generic_integer_output":
-			code.append($("<span>").text("if (address == "+hex(io.address)+") {"));
-			code.append($("<br>"));
-			code.append($("<span>").html("&nbsp;&nbsp;&nbsp;&nbsp;"));
-			code.append($("<span>").text("unsigned int "+idCamelCase(cid+io.suffix)+"Value = (value & "+hex(io.mask)+") >> "+io.shift_by.toString()+";"));
+			code.append($("<span>").text('void '+idCamelCase("ON_"+cid+"_CHANGE")+'(unsigned int newValue) {'));
 			code.append($("<br>"));
 			code.append($("<span>").html("&nbsp;&nbsp;&nbsp;&nbsp;"));
 			code.append($("<span>").text("/* your code here */"));
 			code.append($("<br>"));
 			code.append($("<span>").text("}"));
+			code.append($("<br>"));
+			code.append($("<span>").text("DcsBios::IntegerBuffer "+idCamelCase(cid+"_BUFFER")+'('+hex(io.address)+', '+hex(io.mask)+', '+io.shift_by+', '+idCamelCase("ON_"+cid+"_CHANGE")+');'));
 			break;
 			
 			case "LED":
