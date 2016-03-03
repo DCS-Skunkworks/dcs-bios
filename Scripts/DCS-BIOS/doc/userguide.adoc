@@ -230,10 +230,10 @@ Your web browser will automatically open and display all sorts of colorful headi
 If you see a red warning instead, you need to enable JavaScript in your web browser and reload the page.
 
 This web page is the reference document we are referring to.
-It lists every single DCS module that DCS-BIOS supports (Only the A10 for now), every single panel found in that aircraft, and every single corresponding switch, push button and rotary knob or whatever associated with that panel and the corresponding code that you will use to create your sketch.
+It lists every single DCS module that DCS-BIOS supports, every single panel found in that aircraft, and every single corresponding switch, push button and rotary knob or whatever associated with that panel and the corresponding code that you will use to create your sketch.
  
 Along the top of the web page, there are "filters" in the form of drop down menus that can be used to display precisely what you are looking for.
-You have the choice of what aircraft you would like to work with (The A10 is your only choice at the moment), the type of information you would like displayed (basic or advanced) and every single panel on the aircraft you chose to work with.
+You have the choice of what aircraft you would like to work with, the type of information you would like displayed (basic or advanced) and every single panel on the aircraft you chose to work with.
 Stay away from the advanced tab until you know what you are doing.
 
 * Select "Up Front Controller" in the "Category Filter" dropdown menu.
@@ -392,70 +392,35 @@ This section takes a closer look at the different parts of the MasterCaution exa
 
 [source,c++]
 ----
-#include <DcsBios.h> // <1>
-#include <Servo.h>
+/* use '#define DCSBIOS_DEFAULT_SERIAL' instead if your Arduino board
+ *  does not feature an ATMega328 or ATMega2650 controller.
+ */
+#define DCSBIOS_IRQ_SERIAL // <1>
+#include "DcsBios.h" // <2>
 
-/* paste your code below this line */ // <2>
-DcsBios::Switch2Pos masterCautionBtn("UFC_MASTER_CAUTION", 10);
-DcsBios::LED mcLed(0x108e, 0x0008, 13);
-
-/* Do Not change anything below this line unless you know what you are doing */
-DcsBios::ProtocolParser parser; // <3>
+DcsBios::LED masterCaution(0x108e, 0x0008, 13); // <3>
+DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", 10); // <4>
 
 void setup() {
-  Serial.begin(500000); // <4>
+  DcsBios::setup(); // <5>
 }
 
 void loop() {
-    while (Serial.available()) {
-      parser.processChar(Serial.read()); // <5>
-  }
-  
-    DcsBios::PollingInput::pollInputs(); // <6>
+  DcsBios::loop(); // <6>
 }
 
-
-void sendDcsBiosMessage(const char* msg, const char* arg) { // <7>
-  Serial.write(msg);
-  Serial.write(' ');
-  Serial.write(arg);
-  Serial.write('\n');
-}
-
-void onDcsBiosWrite(unsigned int address, unsigned int value) { // <8>
   
 }
 ----
 
-<1> These are libraries that have been included to make your sketch function apropriately.  
-They are always placed at the beginning of a sketch.  
-It ensures that the Arduino IDE will include the required libraries when it compilies your sketch for uploading to your board.  
-In addition to the `DCS-BIOS.h` library you will also see that the `Servo.h` library has been included.
-Please note that even if your sketch does not use the `ServoOutput` class of controls you still have to include `Servo.h`. 
-Otherwise your sketch will fail to load.
-
-<2> This is the code that you have cut and pasted from the Control-Reference document.  It tells the library what types of controls you are connecting to your Arduino board.
-DCS-BIOS knows how to handle push buttons, toggle switches, rotary encoders, rotary switches, potentiometers, LEDs and servo motors.
-The Arduino Library Reference section (below) documents all of the controls that are available for you to use. 
-
-
-<3> Create an object of type `DcsBios::ProtocolParser`.
-You need not be concerned with this line of code other than you do not change it.
-<4> This line tells the Arduino board at what speed communication will take place between you Arduino board and DCS.
-This setting needs to match the one in `connect-serial-port.cmd`.
-500000 is the fastest the Arduino can handle and is the default.  
-You will probably not need to adjust this whatsoever .
-<5> This statement creates a `loop()` so the Arduino will continually read data from DCS. It then sends it to the `DcsBios::ProtocolParser` for additional processing.
-<6> DcsBios::PollingInput::pollInputs()` causes the DCS-BIOS library to check the state of all of your connected push buttons, toggle switches, rotary encoders, etc. If it finds that something has changed it sends a message to DCS to initiate that same change.  
-You push your button...DCS shows that button being pushed.
-<7> This line specifies that communication between the Arduino board and your DCS computer will be via "serial port".
-It can, however, be modified so you can use TCP or UDP to communicate.
-We anticiapte that most installation will use a serial port.
-<8> This is where you can obtain and manipulate the infomation that DCS is exporting.
-You can specify what you wish to obtain such as engin gauge data or CMSP displays that the Ardiuno has receievd from DCS.  You can then send this out to "Real"  gauges or displays on your panels.
-A more detailed explanation of how to get this data and what you can do with it is detailed in the Appendix.
-Even if you do not intend to display anything you still must include this function.
-If you do not, your sketch will fail to upload.  
+<1> Before including `DcsBios.h`, you have to define a preprocessor macro that tells the DCS-BIOS Arduino Library what mode it should operate in. If you are using an Arduino board that has either an ATMega328 or an ATMega2560 chip, such as the Uno, Pro Mini, Nano or Mega 2650 boards, use `DCSBIOS_IRQ_SERIAL`. If your board has a different microcontroller, you can use `DCSBIOS_DEFAULT_SERIAL` instead, which should work with any Arduino-compatible board but can cause problems if your sketch spends a long time updating outputs, either because you are outputting to something "slow" like displays or you are using a lot of outputs (such as trying to run a Caution Lights Panel with 48 instances of `DcsBios::LED`).
+<2> This line adds the DCS-BIOS Arduino Library to your sketch.
+<3> This line tells the DCS-BIOS Arduino Library that there is a switch connected to pin 10 that should be mapped to the master caution reset button.
+<4> This line tells the DCS-BIOS Arduino Library to use the built-in LED on your Arduino board, which is connected to pin 13, as a master caution light.
+Refer to the control reference documentation for more examples.
+<5> In your `setup()` function, you have to call `DcsBios::setup()` to initialize the DCS-BIOS Arduino Library.
+<6> In your `loop()` function, you have to call `DcsBios::loop()`. This causes the DCS-BIOS Arduino library to notify DCS if any inputs (push buttons, switches, etc.) have changed, and to update any outputs (LEDs, servo motors, displays, etc.) with the latest data from DCS.
+  
 
 
 === Using the Control-Reference Documentation
@@ -483,12 +448,11 @@ NOTE: If all you see is a big red warning, you need to enable JavaScript and rel
 ==== Finding the Control You Are Looking For
 
 First, select the module.
-At the moment your only choice is the A10.
 Second, select the type of view.
 Choose Simple if it is not already displayed as the default.
 Finally, the "Category Filter" dropdown box will provide you with a complete listing of all the panels and you can select the panel you are looking for.
 ==== Supported Controls
-DCS-BIOS refers to switches, rotary encoders, potentiometers, push buttons etc. as " CONTROLS".
+DCS-BIOS refers to switches, rotary encoders, potentiometers, push buttons etc. as "CONTROLS".
 The following are all of the supported Controls available in DCS-BIOS:
 
 * `DcsBios::ActionButton`
@@ -825,6 +789,35 @@ DcsBios::ServoOutput vvi(0x106e, PIN, 544, 2400);
 
 NOTE: Servos are devices which have the potential to demand more current than a single Arduino board can safely provide.  Connecting multiple servos to one Aduino board will require an external power supply. Further reading at the Arduino site will be required to ensure the board does not get damaged.
 
+
+
+=== IntegerBuffer
+
+[source,c++]
+----
+DcsBios::IntegerBuffer(unsigned int address, unsigned int mask, unsigned int shift, void (*)(unsigned int) callback)
+----
+
+The IntegerBuffer class is used to handle integer outputs in a generic way. You have to supply your own code to do something useful with the data.
+
+.Constructor Parameters
+address:: The address of the integer output (found in the control reference)
+mask:: The mask of the integer output (found in the control reference)
+shift:: The number of bits to shift left (found in the control reference)
+callback:: A function which accepts an argument of type `unsigned int`.
+This function will be called whenever the integer output has changed.
+It will be passed the new value as an argument.
+
+.Reference Documentation Code Example
+[source,c++]
+----
+void onAltMslFtChange(unsigned int newValue) {
+    /* your code here */
+}
+DcsBios::IntegerBuffer altMslFtBuffer(0x0408, 0xffff, 0, onAltMslFtChange);
+----
+
+
 === StringBuffer
 
 [source,c++]
@@ -832,7 +825,7 @@ NOTE: Servos are devices which have the potential to demand more current than a 
 DcsBios::StringBuffer<MAXLENGTH>(unsigned int address, void (*)(char*) callback)
 ----
 
-The StringBuffer class is used to handle string outputs.
+The StringBuffer class is used to handle string outputs in a generic way. You have to supply your own code to do something useful with the data. A common use case is to use another Arduino Library to write it to some kind of display, such as a character LCD with a HD44780 compatible controller chip (LiquidCrystal library), a small OLED display with an SSD1306 controller chip (Adafruit SSD1306 library) or a 7-segment display driven by a MAX7219 chip (LedControl library).
 
 .Constructor Parameters
 MAXLENGTH:: The maximum length of the string output
@@ -860,36 +853,3 @@ These values will not be updated by DCS when the cockpit is not rendered (e.g. i
 The solution is to assign another viewport to these indicators (through MonitorSetup.lua), so they exist even when the cockpit is not shown.
 You can make the viewport 1x1 pixels in size and place it outside of your visible screen area.
 For example, if you have no monitor above the primary one, you could place the viewport at coordinates (0, -10).
-
-==== Using a LED matrix for the Caution Lights
-
-If you are building the Caution Lights panel, you probably don't want to use several Arduinos to get 48 output pins.
-You want to use a LED matrix design instead.
-
-Fortunately, the caution lights data is located in three consecutive 16-bit integers in the DCS-BIOS export address space.
-The following code should get you started:
-
-[source,c++]
-----
-void updateCautionLights(unsigned int address, unsigned int data) {
-    unsigned char row = (address - 0x10d4) * 2;
-    unsigned char column = 0;
-    unsigned char i;
-    bool is_on;
-    for (i=0; i<16; i++) {
-        is_on = data & 0x01;
-        // set caution light state (row, column, is_on)
-        data >>= 1;
-        column++;
-        if (column == 4) {
-           row++;
-           column = 0;
-        }
-    }
-}
-void onDcsBiosWrite(unsigned int address, unsigned int data) {
-    if (address >= 0x10d4 && address <= 0x10d8) {
-       updateCautionLights(address, data);
-    }
-}
-----
