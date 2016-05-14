@@ -744,9 +744,7 @@ function BIOS.util.defineElectricallyHeldSwitch(msg, device_id, pos_command, neg
 		description = description,
 		control_type = "electrically_held_switch",
 		inputs = {
-			{ interface = "action", argument = "PUSH", description = "push and hold the switch in the ON position" },
-			{ interface = "action", argument = "RELEASE", description = "release the switch" },
-			{ interface = "action", argument = "OFF", description = "put the switch in the OFF position" }
+			{ interface = "set_state", max_value = 1, description = "set the switch position -- 0 = off, 1 = try to turn it on" }
 		},
 		outputs = {
 			{ ["type"] = "integer",
@@ -763,7 +761,11 @@ function BIOS.util.defineElectricallyHeldSwitch(msg, device_id, pos_command, neg
 	moduleBeingDefined.inputProcessors[msg] = function(action)
 		if action == "PUSH" then GetDevice(device_id):performClickableAction(pos_command, 1) end
 		if action == "RELEASE" then GetDevice(device_id):performClickableAction(neg_command, 0) end
-		if action == "OFF" then GetDevice(device_id):performClickableAction(pos_command, 0) end
+		if action == "OFF" or action == "0" then GetDevice(device_id):performClickableAction(pos_command, 0) end
+		if action == "1" then
+			GetDevice(device_id):performClickableAction(pos_command, 1)
+			GetDevice(device_id):performClickableAction(neg_command, 0)
+		end
 	end
 end
 

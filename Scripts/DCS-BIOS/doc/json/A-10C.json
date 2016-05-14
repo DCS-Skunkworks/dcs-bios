@@ -9741,17 +9741,9 @@
                                                                        "description": "EAC On/Off",
                                                                         "identifier": "LASTE_EAC",
                                                                             "inputs": [ {
-                                                                                             "argument": "PUSH",
-                                                                                          "description": "push and hold the switch in the ON position",
-                                                                                            "interface": "action"
-                                                                                      }, {
-                                                                                             "argument": "RELEASE",
-                                                                                          "description": "release the switch",
-                                                                                            "interface": "action"
-                                                                                      }, {
-                                                                                             "argument": "OFF",
-                                                                                          "description": "put the switch in the OFF position",
-                                                                                            "interface": "action"
+                                                                                          "description": "set the switch position -- 0 = off, 1 = try to turn it on",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 1
                                                                                       } ],
                                                                            "outputs": [ {
                                                                                               "address": 4360,
@@ -9800,17 +9792,9 @@
                                                                            "description": "Anti-Skid Switch",
                                                                             "identifier": "ANTI_SKID_SWITCH",
                                                                                 "inputs": [ {
-                                                                                                 "argument": "PUSH",
-                                                                                              "description": "push and hold the switch in the ON position",
-                                                                                                "interface": "action"
-                                                                                          }, {
-                                                                                                 "argument": "RELEASE",
-                                                                                              "description": "release the switch",
-                                                                                                "interface": "action"
-                                                                                          }, {
-                                                                                                 "argument": "OFF",
-                                                                                              "description": "put the switch in the OFF position",
-                                                                                                "interface": "action"
+                                                                                              "description": "set the switch position -- 0 = off, 1 = try to turn it on",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
                                                                                           } ],
                                                                                "outputs": [ {
                                                                                                   "address": 4368,
@@ -10820,17 +10804,9 @@
                                                                          "description": "Anticollision Lights",
                                                                           "identifier": "LCP_ANTICOLLISION",
                                                                               "inputs": [ {
-                                                                                               "argument": "PUSH",
-                                                                                            "description": "push and hold the switch in the ON position",
-                                                                                              "interface": "action"
-                                                                                        }, {
-                                                                                               "argument": "RELEASE",
-                                                                                            "description": "release the switch",
-                                                                                              "interface": "action"
-                                                                                        }, {
-                                                                                               "argument": "OFF",
-                                                                                            "description": "put the switch in the OFF position",
-                                                                                              "interface": "action"
+                                                                                            "description": "set the switch position -- 0 = off, 1 = try to turn it on",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
                                                                                         } ],
                                                                              "outputs": [ {
                                                                                                 "address": 4420,
@@ -12773,17 +12749,9 @@
                                                                          "description": "Pitch SAS Left OFF - ENGAGE",
                                                                           "identifier": "SASP_PITCH_SAS_L",
                                                                               "inputs": [ {
-                                                                                               "argument": "PUSH",
-                                                                                            "description": "push and hold the switch in the ON position",
-                                                                                              "interface": "action"
-                                                                                        }, {
-                                                                                               "argument": "RELEASE",
-                                                                                            "description": "release the switch",
-                                                                                              "interface": "action"
-                                                                                        }, {
-                                                                                               "argument": "OFF",
-                                                                                            "description": "put the switch in the OFF position",
-                                                                                              "interface": "action"
+                                                                                            "description": "set the switch position -- 0 = off, 1 = try to turn it on",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
                                                                                         } ],
                                                                              "outputs": [ {
                                                                                                 "address": 4360,
@@ -12801,17 +12769,9 @@
                                                                          "description": "Pitch SAS Right OFF - ENGAGE",
                                                                           "identifier": "SASP_PITCH_SAS_R",
                                                                               "inputs": [ {
-                                                                                               "argument": "PUSH",
-                                                                                            "description": "push and hold the switch in the ON position",
-                                                                                              "interface": "action"
-                                                                                        }, {
-                                                                                               "argument": "RELEASE",
-                                                                                            "description": "release the switch",
-                                                                                              "interface": "action"
-                                                                                        }, {
-                                                                                               "argument": "OFF",
-                                                                                            "description": "put the switch in the OFF position",
-                                                                                              "interface": "action"
+                                                                                            "description": "set the switch position -- 0 = off, 1 = try to turn it on",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
                                                                                         } ],
                                                                              "outputs": [ {
                                                                                                 "address": 4360,
@@ -12859,17 +12819,9 @@
                                                                          "description": "Yaw SAS Left OFF - ENGAGE",
                                                                           "identifier": "SASP_YAW_SAS_L",
                                                                               "inputs": [ {
-                                                                                               "argument": "PUSH",
-                                                                                            "description": "push and hold the switch in the ON position",
-                                                                                              "interface": "action"
-                                                                                        }, {
-                                                                                               "argument": "RELEASE",
-                                                                                            "description": "release the switch",
-                                                                                              "interface": "action"
-                                                                                        }, {
-                                                                                               "argument": "OFF",
-                                                                                            "description": "put the switch in the OFF position",
-                                                                                              "interface": "action"
+                                                                                            "description": "set the switch position -- 0 = off, 1 = try to turn it on",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
                                                                                         } ],
                                                                              "outputs": [ {
                                                                                                 "address": 4360,
@@ -12887,17 +12839,9 @@
                                                                          "description": "Yaw SAS Right OFF - ENGAGE",
                                                                           "identifier": "SASP_YAW_SAS_R",
                                                                               "inputs": [ {
-                                                                                               "argument": "PUSH",
-                                                                                            "description": "push and hold the switch in the ON position",
-                                                                                              "interface": "action"
-                                                                                        }, {
-                                                                                               "argument": "RELEASE",
-                                                                                            "description": "release the switch",
-                                                                                              "interface": "action"
-                                                                                        }, {
-                                                                                               "argument": "OFF",
-                                                                                            "description": "put the switch in the OFF position",
-                                                                                              "interface": "action"
+                                                                                            "description": "set the switch position -- 0 = off, 1 = try to turn it on",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
                                                                                         } ],
                                                                              "outputs": [ {
                                                                                                 "address": 4360,
