@@ -285,8 +285,8 @@ defineToggleSwitch("PITOT_HEAT", 1, 3016, 238, "Overhead Panel", "Pitot Heater")
 defineTumb("MAIN_GEN_SW", 1, 3002, 216, 1, {-1, 1}, nil, false, "Overhead Panel", "Main Generator RESET/OFF/ON")
 defineToggleSwitch("MAIN_GEN_COVER", 1, 3019, 217, "Overhead Panel", "Main Generator Switch Cover")
 
-defineRockerSwitch("CLP_RESET_TEST_SW", 16, 3001, 3001, 3001, 3001, 111, "Caution Lights Panel", "Test/Reset Rocker Switch")
-defineRockerSwitch("CLP_BRIGHT_DIM_SW", 16, 3002, 3002, 3002, 3002, 112, "Caution Lights Panel", "Bright/Dim Rocker Switch")
+defineRockerSwitch("CLP_RESET_TEST_SW", 15, 3001, 3001, 3001, 3001, 111, "Caution Lights Panel", "Test/Reset Rocker Switch")
+defineRockerSwitch("CLP_BRIGHT_DIM_SW", 15, 3002, 3002, 3002, 3002, 112, "Caution Lights Panel", "Bright/Dim Rocker Switch")
 
 defineToggleSwitch("MAIN_FUEL_SW", 2, 3001, 81, "Fuel System", "Main Fuel Switch")
 definePushButton("TEST_FUEL_GAUGE_BTN", 2, 3002, 240, "Fuel System", "Test Fuel Gauge Button")
