@@ -131,16 +131,20 @@ end
 
 local function getTacanChannel()
     local tcn_2 = ""
-    if GetDevice(0):get_argument_value(263) == 1 then
-        tcn_2 = " "
+    if GetDevice(0):get_argument_value(263) == 0 then
+        tcn_2 = "0"
     else
     	tcn_2 = "1"    
     end
     local tcn_1 = string.format("%.1f", GetDevice(0):get_argument_value(264)):sub(3)
     local tcn_0 = string.format("%.1f", GetDevice(0):get_argument_value(265)):sub(3)
 
-    local tcn_xy_lut = {"X", "Y"}
-    local tcn_xy = tcn_xy_lut[GetDevice(0):get_argument_value(266)+1]
+	local tcn_xy = ""
+	if GetDevice(0):get_argument_value(266) == 0 then
+		tcn_xy = "X"
+	else
+		tcn_xy = "Y"
+	end
 
     return tcn_2 .. tcn_1 .. tcn_0 .. tcn_xy
 end
@@ -930,37 +934,29 @@ definePushButton("SAI_CAGE", 48, 3002, 67, "Standby Attitude Indicator", "Cage S
 defineRotary("SAI_PITCH_TRIM", 48, 3003, 66, "Standby Attitude Indicator", "SAI Pitch Trim")
 
 defineString("TACAN_CHANNEL", getTacanChannel, 4, "TACAN Panel", "TACAN Channel")
-definePushButton("TACAN_TEST_BTN", 51, 3006, 259, "TACAN Panel", "TACAN Test Button")
-definePotentiometer("TACAN_VOL", 51, 3007, 261, {0, 1}, "TACAN Panel", "TACAN Signal Volume")
+definePushButton("TACAN_TEST_BTN", 74, 3004, 259, "TACAN Panel", "TACAN Test Button")
+definePotentiometer("TACAN_VOL", 74, 3005, 261, {0, 1}, "TACAN Panel", "TACAN Signal Volume")
 
-defineFixedStepTumb("TACAN_10", 51, 3001, 256, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Left Channel Selector")
-defineFixedStepTumb("TACAN_1", 51, 3003, 257, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Right Channel Selector")
-defineToggleSwitch("TACAN_XY", 51, 3005, 266, "TACAN Panel", "TACAN Channel X/Y Toggle")
-moduleBeingDefined.inputProcessors["TACAN_XY"] = function(action)
-	-- The TACAN X/Y behaves like a toggle switch, but its value can not be set directly.
-	-- Because we only have a "toggle" command available from Lua, this needs some special handling.
-	local toggle = false
-	local current_state = GetDevice(0):get_argument_value(266)
-	
-	if action == "TOGGLE" then toggle = true end
-	if (action == "0" or action == "DEC") and current_state == 1 then toggle = true end
-	if (action == "1" or action == "INC") and current_state == 0 then toggle = true end
-	if toggle then
-		GetDevice(51):performClickableAction(3005, 0.1)
-	end
-end
+defineFixedStepTumb("TACAN_10", 74, 3001, 256, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Left Channel Selector")
+defineFixedStepTumb("TACAN_1", 74, 3002, 257, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Right Channel Selector")
+defineToggleSwitch("TACAN_XY", 74, 3003, 258, "TACAN Panel", "TACAN Channel X/Y Toggle")
+
 local docentry = moduleBeingDefined.documentation["TACAN Panel"]["TACAN_1"]
 docentry.inputs[#docentry.inputs+1] = { interface = "action", argument = "TOGGLE_XY", description = "Toggle TACAN Channel X/Y" }
 local oldInputHandler = moduleBeingDefined.inputProcessors["TACAN_1"]
 moduleBeingDefined.inputProcessors["TACAN_1"] = function(args)
 	if args == "TOGGLE_XY" then
-		GetDevice(51):performClickableAction(3005, 0.1)
+		if GetDevice(0):get_argument_value(266) == 0 then
+			GetDevice(74):performClickableAction(3003, 1)
+		else
+			GetDevice(74):performClickableAction(3003, 0)
+		end	
 	else
 		oldInputHandler(args)
 	end
 end
 
-defineTumb("TACAN_MODE", 51, 3008, 262, 0.1, {0.0, 0.4}, nil, false, "TACAN Panel", "TACAN Mode Dial")
+defineTumb("TACAN_MODE", 74, 3006, 262, 0.1, {0.0, 0.4}, nil, false, "TACAN Panel", "TACAN Mode Dial")
 
 
 definePotentiometer("STALL_VOL", 52, 3001, 704, nil, "Stall System Volume Controls", "Stall Volume")
