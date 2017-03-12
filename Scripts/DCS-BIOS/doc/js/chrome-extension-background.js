@@ -1,3 +1,3 @@
 chrome.app.runtime.onLaunched.addListener(function() {
-	window.open("control-reference.html");
+	chrome.app.window.create("control-reference.html");
 });
