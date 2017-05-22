@@ -9,6 +9,9 @@ local altFt
 local hdgDeg
 local hdgDegFrac
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	-- skip  this data if ownship export is disabled
+	if not LoIsOwnshipExportAllowed() then return end
+
 	local selfData = LoGetSelfData()
 	if selfData.LatLongAlt == nil then return end
 	altFt = selfData.LatLongAlt.Alt / 0.3048
@@ -38,15 +41,27 @@ end
 
 defineIntegerFromGetter("LAT_DEG", function() return latDeg end, 59, "Position", "Latitude Degrees")
 defineIntegerFromGetter("LAT_SEC", function() return latSec end, 59, "Position", "Latitude Seconds")
-defineIntegerFromGetter("LAT_SEC_FRAC", function() return math.floor(latFractionalSec*65535) end, 65535, "Position", "Latitude Fractional Seconds (divide by 65535)")
+defineIntegerFromGetter("LAT_SEC_FRAC", function()
+	if not LoIsOwnshipExportAllowed() then return nil end
+	return math.floor(latFractionalSec*65535)
+end, 65535, "Position", "Latitude Fractional Seconds (divide by 65535)")
 
 defineIntegerFromGetter("LON_DEG", function() return lonDeg end, 59, "Position", "Longitude Degrees")
 defineIntegerFromGetter("LON_SEC", function() return lonSec end, 59, "Position", "Longitude Seconds")
-defineIntegerFromGetter("LON_SEC_FRAC", function() return math.floor(lonFractionalSec*65535) end, 65535, "Position", "Longitude Fractional Seconds (divide by 65535)")
+defineIntegerFromGetter("LON_SEC_FRAC", function()
+	if not LoIsOwnshipExportAllowed() then return nil end
+	return math.floor(lonFractionalSec*65535)
+end, 65535, "Position", "Longitude Fractional Seconds (divide by 65535)")
 
-defineIntegerFromGetter("ALT_MSL_FT", function() return math.floor(altFt) end, 65535, "Altitude", "Altitude MSL (ft)")
+defineIntegerFromGetter("ALT_MSL_FT", function()
+	if not LoIsOwnshipExportAllowed() then return nil end
+	return math.floor(altFt)
+end, 65535, "Altitude", "Altitude MSL (ft)")
 
 defineIntegerFromGetter("HDG_DEG", function() return hdgDeg end, 360, "Heading", "Heading (Degrees)")
-defineIntegerFromGetter("HDG_DEG_FRAC", function() return hdgDegFrac * 127 end, 127, "Heading", "Heading (Fractional Degrees, divide by 127)")
+defineIntegerFromGetter("HDG_DEG_FRAC", function()
+	if not LoIsOwnshipExportAllowed() then return nil end
+	return hdgDegFrac * 127
+end, 127, "Heading", "Heading (Fractional Degrees, divide by 127)")
 
 BIOS.protocol.endModule()

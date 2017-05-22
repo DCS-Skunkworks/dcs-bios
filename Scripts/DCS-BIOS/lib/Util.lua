@@ -89,6 +89,9 @@ BIOS.util.MemoryAllocation = {
 	multiplier = nil
 }
 function BIOS.util.MemoryAllocation:setValue(value)
+	-- ignore nil values (on MP servers with player export disabled, some values are not available)
+	if value == nil then return end
+	
 	assert(self.maxValue)
 	assert(value)
 	value = math.floor(value)
