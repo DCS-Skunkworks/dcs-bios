@@ -327,27 +327,32 @@ When it disappears the upload is complete.
 
 ==== Step 6: Test your new panel
 
-DCS-BIOS comes with a script that automatically connects a serial port to DCS.
+DCS-BIOS comes with a script that connects a serial port to DCS.
 This  serial port is the means by which your PC and your Arduino Board communicate.
-To initiated this connection you need specify the COM Port to use.
+To initiate this connection you need specify the COM Port to use.
 You will use the same COM Port that the Arduino IDE used to program your board.
-To begin...
+
+* Double-click `connect-serial-port.cmd` which is in the DCS-BIOS folder you previously downloaded.
+A console window should pop up. Type in the number of the COM port that your Arduino board is connected to and press Return.
+Leave the console window open.
+
+*You can now start DCS and try your new panel in action!*
+
+
+If you don't want to type in the COM port number every time you run the script, you can edit the script
+(or a copy of it) so it always uses the same port:
 
 * Start Notepad++.
-Open the`connect-serial-port.cmd` file which is in the DCS-BIOS folder you previously downloaded.
-With the file on the screen the second line will read as:
+Open the `connect-serial-port.cmd` file which is in the DCS-BIOS folder you previously downloaded.
+Near the top of the file, you will see a line that says `set COMPORT=ASK`. Replace `ASK` with the number of the COM port you wish this script to use.
+For example, to use COM5, the line should look like this:
 ----
 set COMPORT=5
 ----
-* Replace the number 5 with the COM port number that your Arduino board is connected to.
  
 * Save the file and close Notepad++.
 
-* Double-click `connect-serial-port.cmd`.
-A console window should pop up.
-Leave it open.
-
-*You can now start DCS and try your new panel in action!*
+WARNING: If you make a copy of the script, you need to place it in the same folder as the original. Otherwise it will not find the `socat` executable.
 
 ==== Summary
 You can make any panel you like using this template file.
@@ -362,12 +367,10 @@ You can make any panel you like using this template file.
 
 * Begin using your switches and LED's in your DCS aircraft.
 
-*It can't get much easier then that.*
-
 ==== What this Guide *IS NOT*
 If your intent is to include displays and/or analog gauges with your panels you will need to have additional programming knowledge.
 There are displays in the aircraft that could incorporate LCD displays, LED displays or OLED displays.
-In addition there are analog Gauges in the cockpit that could be built using stepper motors, servos's or even air core motors.
+In addition there are analog Gauges in the cockpit that could be built using stepper motors, servos or even air core motors.
 With such a wide choice of components available, it really is beyond the scope of this particular document to provide instruction on every possible solution.
 
 
