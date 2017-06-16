@@ -742,6 +742,34 @@ definePotentiometer("SASP_YAW_TRIM", 38, 3013, 192, {-1, 1}, "SAS Panel", "Yaw T
 defineToggleSwitch("EFCP_SPDBK_EMER_RETR", 38, 3015, 174, "Emergency Flight Control Panel", "Speed Brake Emergency Retract")
 defineToggleSwitch("EFCP_TRIM_OVERRIDE", 38, 3016, 175, "Emergency Flight Control Panel", "Pitch/Roll Trim Override EMER - NORM")
 defineTumb("EFCP_EMER_TRIM", 38, 3025, 176, 0.1, {0.0, 0.4}, nil, false, "Emergency Flight Control Panel", "Emergency Trim CENTER - NOSE DN - RWD - NOSE UP - LWD")
+moduleBeingDefined.inputProcessors["EFCP_EMER_TRIM"] = function(args)
+	local currentState = tonumber(string.format("%1.1f", GetDevice(0):get_argument_value(176)):sub(3))
+	if args == "INC" then
+		args = tostring(currentState + 1)
+		if args == "5" then args = "0" end
+	elseif args == "DEC" then
+		args = tostring(currentState - 1)
+		if args == "-1" then args = "4" end
+	end
+	
+	if args == "0" then
+		GetDevice(38):performClickableAction(3025, 0)
+	elseif args == "1" then
+		GetDevice(38):performClickableAction(3025, 0)
+		GetDevice(38):performClickableAction(3017, 0.1)
+	elseif args == "2" then
+		GetDevice(38):performClickableAction(3025, 0)
+		GetDevice(38):performClickableAction(3018, 0.2)
+	elseif args == "3" then
+		GetDevice(38):performClickableAction(3025, 0)
+		GetDevice(38):performClickableAction(3019, 0.3)
+	elseif args == "4" then
+		GetDevice(38):performClickableAction(3025, 0)
+		GetDevice(38):performClickableAction(3020, 0.4)
+	end
+	
+	
+end
 defineTumb("EFCP_AILERON_EMER_DISENGAGE", 38, 3021, 177, 1, {-1, 1}, nil, false, "Emergency Flight Control Panel", "Aileron Emergency Disengage LEFT - OFF - RIGHT")
 defineTumb("EFCP_ELEVATOR_EMER_DISENGAGE", 38, 3022, 180, 1, {-1, 1}, nil, false, "Emergency Flight Control Panel", "Elevator Emergency Disengage LEFT - OFF - RIGHT")
 defineToggleSwitch("EFCP_FLAPS_EMER_RETR", 38, 3023, 183, "Emergency Flight Control Panel", "Flaps Emergency Retract")
