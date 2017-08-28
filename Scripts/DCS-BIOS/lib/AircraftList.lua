@@ -10,6 +10,7 @@ local function a(name, hasClickableCockpit)
 	end
 end
 
+
 a("A-10C", true)
 a("Ka-50", true)
 a("Mi-8MT", true)
