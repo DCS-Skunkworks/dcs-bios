@@ -567,7 +567,7 @@ definePotentiometer("ARC9_VOL",40, start_command + 1, 448,{ 0, 1},"Radio Volume"
 defineTumb("SPUU52_TEST", 8, start_command + 3, 129, 1, {-1, 1}, nil, false, "SPUU-52", "SPUU-52 Test Switch, P/OFF/t)")
 defineTumb("GMC_CTRL_SWITCH", 14, start_command + 3, 476, 1, {-1, 1}, nil, false, "GMC", "GMC Control Switch, 0/CONTROL/300")
 defineTumb("GMC_CRS_SWITCH", 14, start_command + 5, 477, 1, {-1, 1}, nil, false, "GMC", "GMC Course Setting Switch, CCW/OFF/CW)")
-defineTumb("R_863_CNL_SEL", 38, start_command + 3, 370, 0.05, {0, 0.949768}, nil, false, "R-863", "R-863, Radio Channel Selector Knob")
+defineTumb("R863_CNL_SEL", 38, start_command + 3, 370, 0.05, {0, 0.949768}, nil, false, "R-863", "R-863, Radio Channel Selector Knob")
 
 
 --defineTumb(msg, device_id, command, arg_number, step, limits, output_map, cycle, category, description)
@@ -585,14 +585,18 @@ defineTumb("R_863_CNL_SEL", 38, start_command + 3, 370, 0.05, {0, 0.949768}, nil
 --defineIndicatorLight(msg, arg_number, category, description)
 
 
---radio_wheel_1(hint_,device_,command1_,arg_, arg_value_, arg_lim_, slave_)
-defineFixedStepTumb("R863_10MHZ", 38, start_command + 6, 157, 0.1, {0, 1}, {-0.1, 0.1}, nil, "R-863", "R-863, 10MHz Rotary Knob")
-defineFixedStepTumb("R863_1MHZ", 38, start_command + 7, 158, 0.1, {0, 1}, {-0.1, 0.1}, nil, "R-863", "R-863, 1MHz Rotary Knob")
-defineFixedStepTumb("R863_100KHZ", 38, start_command + 8, 159, 0.1, {0, 1}, {-0.1, 0.1}, nil, "R-863", "R-863, 100KHz Rotary Knob")
-defineFixedStepTumb("R863_1KHZ", 38, start_command + 9, 160, 0.1, {0, 1}, {-0.1, 0.1}, nil, "R-863", "R-863, 1KHz Rotary Knob")
---TODO GET R-863 FREQ
 
-defineTumb("R828_PRST_CHAN_SEL", 39, start_command + 1, 735, 0.1, {0, 0.9}, nil, false, "R-863", "R-828, Radio Channel Selector Knob")
+-- TODO NO WORKY defineTumb("R863_FREQ1", 38, start_command + 6, 157, 0.01, {0, 0.23}, {"10", "11", "12", "13", "14", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"}, false, "R-863", "R-863, 10MHz Rotary Knob")
+--Jumps over postition "10"
+defineFixedStepTumb("R863_FREQ1", 38, start_command + 6, 157, 0.01, {0, 0.22}, {-0.1, 0.1}, {"10", "11", "12", "13", "14", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"}, "R-863", "R-863, 10MHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ2", 38, start_command + 7, 158, 0.1, {0, 1}, {-0.1, 0.1}, nil, "R-863", "R-863, 1MHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ3", 38, start_command + 8, 159, 0.1, {0, 1}, {-0.1, 0.1}, nil, "R-863", "R-863, 100KHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ4", 38, start_command + 9, 160, 0.3, {0, 0.9}, {-0.1, 0.1}, {"00", "25", "50", "75"}, "R-863", "R-863, 1KHz Rotary Knob")
+--radio_wheel_1(_(       "R-863, 1kHz Rotary Knob"), devices.R_863, device_commands.Button_9, 166,  {-0.1, 0.1},  {0,1},    {160,{0.0,1.0},2.5})
+--function radio_wheel_1(hint_,                      device_,       command1_,                arg_, arg_value_,   arg_lim_, slave_)
+
+
+defineTumb("R828_PRST_CHAN_SEL", 39, start_command + 1, 735, 0.1, {0, 0.9}, nil, false, "R-828", "R-828, Radio Channel Selector Knob")
 defineFixedStepTumb("JADRO1A_1MHZ", 37, start_command + 2, 745, 0.1, {0, 1}, {-0.1, 0.1}, nil, "Jadro-1A", "Jadro-1A, Frequency Selector, 1MHz")
 defineFixedStepTumb("JADRO1A_100KHZ", 37, start_command + 3, 746, 0.1, {0, 1}, {-0.1, 0.1}, nil, "Jadro-1A", "Jadro-1A, Frequency Selector, 100kHz")
 defineFixedStepTumb("JADRO1A_10KHZ", 37, start_command + 4, 747, 0.1, {0, 1}, {-0.1, 0.1}, nil, "Jadro-1A", "Jadro-1A, Frequency Selector, 10kHz")
