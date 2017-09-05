@@ -600,18 +600,11 @@ defineTumb("R828_PRST_CHAN_SEL", 39, start_command + 1, 735, 0.1, {0, 0.9}, nil,
 
 --THIS ONE!!!                                             --THIS ONE
 --defineTumb("YADRO1A_1MHZ_1", 37, start_command + 2, 745, 0.9, {0.9, 1}, nil, false, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1MHz Second Digit")
-defineFixedStepTumb("YADRO1A_1MHZ", 37, start_command + 2, 745, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1MHz")
-
---devices.JADRO_1A, device_commands.Button_2, 745, {-0.1, 0.1}, {0,1},    {751,{0.0,1.0}, 1.0,slave = {750,{0.0,1.0},1.0,master_lim = {0.9,1.0}}})
---radio_wheel_1( hint_,device_,command1_,     arg_, arg_value_, arg_lim_, slave_)
-
-
-
-
-defineFixedStepTumb("YADRO1A_100KHZ", 37, start_command + 3, 746, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 100kHz")
-defineFixedStepTumb("YADRO1A_10KHZ", 37, start_command + 4, 747, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 10kHz")
-defineFixedStepTumb("YADRO1A_1KHZ", 37, start_command + 5, 748, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1kHz")
-defineFixedStepTumb("YADRO1A_100HZ", 37, start_command + 6, 749, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 100Hz")
+defineFixedStepTumb("YADRO1A_FREQ1", 37, start_command + 2, 745, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1MHz")
+defineFixedStepTumb("YADRO1A_FREQ2", 37, start_command + 3, 746, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 100kHz")
+defineFixedStepTumb("YADRO1A_FREQ3", 37, start_command + 4, 747, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 10kHz")
+defineFixedStepTumb("YADRO1A_FREQ4", 37, start_command + 5, 748, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1kHz")
+defineFixedStepTumb("YADRO1A_FREQ5", 37, start_command + 6, 749, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 100Hz")
 defineTumb("YADRO1A_SQL", 37, start_command + 8, 741, 0.7, {0, 0.7}, nil, false, "YaDRO-1A", "YaDRO-1A, Squelch Switch")
 --TODO GET JADRO FREQ
 
@@ -622,7 +615,6 @@ local function getYadro1AFreqency()
     local freq4 = string.format("%.0f", GetDevice(0):get_argument_value(747)*10)
     local freq5 = string.format("%.0f", GetDevice(0):get_argument_value(748)*10)
     local freq6 = string.format("%.0f", GetDevice(0):get_argument_value(749)*10)
-    --local freq6 = vhf_lut1[string.format("%.0f", GetDevice(0):get_argument_value(139)*100)]
 	return  freq1 .. freq2 .. freq3 .. freq4 .. freq5 .. "." .. freq6
 end
 defineString("YADRO1A_FREQ", getYadro1AFreqency, 7, "YaDRO-1A", "YaDRO-1A, Frequency")
