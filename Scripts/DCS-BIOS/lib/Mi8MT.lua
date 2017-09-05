@@ -403,8 +403,8 @@ defineTumb("R828_TUNER",39, start_command + 3, 738, 1, {0,1}, nil, false, "R-828
 
 --################################################ ###########################################
 
-defineTumb("JAD1A_PWR",37, start_command + 13, 484, 1, {0,1}, nil, false, "Jadro-1A", "Jadro-1A, Power Switch, ON/OFF")
-defineTumb("JAD1A_CTRL",37, start_command + 9, 742, 1, {0,1}, nil, false, "Jadro-1A", "Jadro-1A, Control Button")
+defineTumb("JAD1A_PWR",37, start_command + 13, 484, 1, {0,1}, nil, false, "YaDRO-1A", "YaDRO-1A, Power Switch, ON/OFF")
+defineTumb("JAD1A_CTRL",37, start_command + 9, 742, 1, {0,1}, nil, false, "YaDRO-1A", "YaDRO-1A, Control Button")
 
 --################################################ ###########################################
 
@@ -531,7 +531,7 @@ defineTumb("DFRST_AMP_SEL",3, start_command + 37, 372, 0.1,{0, 0.9}, nil, false,
 defineTumb("DOP_NAV_MODE",15, start_command + 10, 826, 0.1,{0, 0.4}, nil, false, "Navigation", "Doppler Navigator Mode Switch")
 defineTumb("RADIO_SEL_L",36, start_command + 3, 550, 0.1,{0, 0.5}, nil, false, "Radios", "Radio Source Selector Switch, R-863/JADRO-1A/R-828/NF/ARC-9/ARC-UD")
 defineTumb("RADIO_SEL_R",36, start_command + 11, 842, 0.1,{0, 0.5}, nil, false, "Radios", "Radio Source Selector Switch, R-863/JADRO-1A/R-828/NF/ARC-9/ARC-UD")
-defineTumb("JADR1A_MODE",37, start_command + 1, 744, 0.5,{-0.5, 1}, nil, false, "Jadro-1A", "Jadro-1A, Mode Switch, OFF/OM/AM")
+defineTumb("JADR1A_MODE",37, start_command + 1, 744, 0.5,{-0.5, 1}, nil, false, "YaDRO-1A", "YaDRO-1A, Mode Switch, OFF/OM/AM")
 defineTumb("ARCUD_MODE",41, start_command + 1, 456, 0.1,{0, 0.4}, nil, false, "ARC-UD", "ARC-UD, Mode Switch, OFF/NARROW/WIDE/PULSE/RC")
 defineTumb("ARCUD_CHL",41, start_command + 4, 457, 0.1,{0, 0.5}, nil, false, "ARC-UD", "ARC-UD, Channel Selector Switch, 1/2/3/4/5/6")
 defineTumb("ARC9_MODE",40, start_command + 3, 446, 0.1,{0, 0.3}, nil, false, "ARC-9", "ARC-9, Mode Selector Switch, OFF/COMP/ANT/LOOP")
@@ -559,7 +559,7 @@ definePotentiometer("LST_VOL_KNOB_L",36, start_command + 2, 548,{ 0, 1},"Radio V
 definePotentiometer("LST_VOL_KNOB_R",36, start_command + 10, 840,{ 0, 1},"Radio Volume", "Listening Volume Knob")
 definePotentiometer("R863_VOL",38, start_command + 5, 156,{ 0, 1},"Radio Volume", "R-863, Volume Knob")
 definePotentiometer("R828_VOL",39, start_command + 2, 737,{ 0, 1},"Radio Volume", "R-828, Volume Knob")
-definePotentiometer("JADR1A_VOL",37, start_command + 7, 743,{ 0, 1},"Radio Volume", "Jadro-1A, Volume Knob")
+definePotentiometer("JADR1A_VOL",37, start_command + 7, 743,{ 0, 1},"Radio Volume", "YaDRO-1A, Volume Knob")
 definePotentiometer("ARCUD_VOL",41, start_command + 5, 455,{ 0, 1},"Radio Volume", "ARC-UD, Volume Knob")
 definePotentiometer("SGT_BRIGHT",47, start_command + 1, 589,{ 0, 1},"Weapons", "Sight Brightness Knob")
 definePotentiometer("ARC9_VOL",40, start_command + 1, 448,{ 0, 1},"Radio Volume", "ARC-9, Volume Knob")
@@ -595,15 +595,37 @@ defineFixedStepTumb("R863_FREQ4", 38, start_command + 9, 160, 0.3, {0, 0.9}, {-0
 --radio_wheel_1(_(       "R-863, 1kHz Rotary Knob"), devices.R_863, device_commands.Button_9, 166,  {-0.1, 0.1},  {0,1},    {160,{0.0,1.0},2.5})
 --function radio_wheel_1(hint_,                      device_,       command1_,                arg_, arg_value_,   arg_lim_, slave_)
 
-
 defineTumb("R828_PRST_CHAN_SEL", 39, start_command + 1, 735, 0.1, {0, 0.9}, nil, false, "R-828", "R-828, Radio Channel Selector Knob")
-defineFixedStepTumb("JADRO1A_1MHZ", 37, start_command + 2, 745, 0.1, {0, 1}, {-0.1, 0.1}, nil, "Jadro-1A", "Jadro-1A, Frequency Selector, 1MHz")
-defineFixedStepTumb("JADRO1A_100KHZ", 37, start_command + 3, 746, 0.1, {0, 1}, {-0.1, 0.1}, nil, "Jadro-1A", "Jadro-1A, Frequency Selector, 100kHz")
-defineFixedStepTumb("JADRO1A_10KHZ", 37, start_command + 4, 747, 0.1, {0, 1}, {-0.1, 0.1}, nil, "Jadro-1A", "Jadro-1A, Frequency Selector, 10kHz")
-defineFixedStepTumb("JADRO1A_1KHZ", 37, start_command + 5, 748, 0.1, {0, 1}, {-0.1, 0.1}, nil, "Jadro-1A", "Jadro-1A, Frequency Selector, 1kHz")
-defineFixedStepTumb("JADRO1A_100HZ", 37, start_command + 6, 749, 0.1, {0, 1}, {-0.1, 0.1}, nil, "Jadro-1A", "Jadro-1A, Frequency Selector, 100Hz")
-defineTumb("JADRO1A_SQL", 37, start_command + 8, 741, 0.7, {0, 0.7}, nil, false, "Jadro-1A", "Jadro-1A, Squelch Switch")
+
+
+--THIS ONE!!!                                             --THIS ONE
+--defineTumb("YADRO1A_1MHZ_1", 37, start_command + 2, 745, 0.9, {0.9, 1}, nil, false, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1MHz Second Digit")
+defineFixedStepTumb("YADRO1A_1MHZ", 37, start_command + 2, 745, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1MHz")
+
+--devices.JADRO_1A, device_commands.Button_2, 745, {-0.1, 0.1}, {0,1},    {751,{0.0,1.0}, 1.0,slave = {750,{0.0,1.0},1.0,master_lim = {0.9,1.0}}})
+--radio_wheel_1( hint_,device_,command1_,     arg_, arg_value_, arg_lim_, slave_)
+
+
+
+
+defineFixedStepTumb("YADRO1A_100KHZ", 37, start_command + 3, 746, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 100kHz")
+defineFixedStepTumb("YADRO1A_10KHZ", 37, start_command + 4, 747, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 10kHz")
+defineFixedStepTumb("YADRO1A_1KHZ", 37, start_command + 5, 748, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1kHz")
+defineFixedStepTumb("YADRO1A_100HZ", 37, start_command + 6, 749, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 100Hz")
+defineTumb("YADRO1A_SQL", 37, start_command + 8, 741, 0.7, {0, 0.7}, nil, false, "YaDRO-1A", "YaDRO-1A, Squelch Switch")
 --TODO GET JADRO FREQ
+
+local function getYadro1AFreqency()
+    local freq1 = string.format("%.0f", GetDevice(0):get_argument_value(750)*10)
+    local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(745)*10)
+    local freq3 = string.format("%.0f", GetDevice(0):get_argument_value(746)*10)
+    local freq4 = string.format("%.0f", GetDevice(0):get_argument_value(747)*10)
+    local freq5 = string.format("%.0f", GetDevice(0):get_argument_value(748)*10)
+    local freq6 = string.format("%.0f", GetDevice(0):get_argument_value(749)*10)
+    --local freq6 = vhf_lut1[string.format("%.0f", GetDevice(0):get_argument_value(139)*100)]
+	return  freq1 .. freq2 .. freq3 .. freq4 .. freq5 .. "." .. freq6
+end
+defineString("YADRO1A_FREQ", getYadro1AFreqency, 7, "YaDRO-1A", "YaDRO-1A, Frequency")
 
 defineTumb("WPN_SIGHT_DBL", 47, start_command + 5, 856, 0.5, {0, 0.5}, nil, false, "Weapons", "PKV Sight Double")
 
