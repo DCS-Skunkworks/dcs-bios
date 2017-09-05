@@ -589,8 +589,8 @@ defineTumb("R863_CNL_SEL", 38, start_command + 3, 370, 0.05, {0, 0.949768}, nil,
 -- TODO NO WORKY defineTumb("R863_FREQ1", 38, start_command + 6, 157, 0.01, {0, 0.23}, {"10", "11", "12", "13", "14", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"}, false, "R-863", "R-863, 10MHz Rotary Knob")
 --Jumps over postition "10"
 defineFixedStepTumb("R863_FREQ1", 38, start_command + 6, 157, 0.01, {0, 0.22}, {-0.1, 0.1}, {"10", "11", "12", "13", "14", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"}, "R-863", "R-863, 10MHz Rotary Knob")
-defineFixedStepTumb("R863_FREQ2", 38, start_command + 7, 158, 0.1, {0, 1}, {-0.1, 0.1}, nil, "R-863", "R-863, 1MHz Rotary Knob")
-defineFixedStepTumb("R863_FREQ3", 38, start_command + 8, 159, 0.1, {0, 1}, {-0.1, 0.1}, nil, "R-863", "R-863, 100KHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ2", 38, start_command + 7, 158, 0.1, {0, 0.9}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 1MHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ3", 38, start_command + 8, 159, 0.1, {0, 0.9}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 100KHz Rotary Knob")
 defineFixedStepTumb("R863_FREQ4", 38, start_command + 9, 160, 0.3, {0, 0.9}, {-0.1, 0.1}, {"00", "25", "50", "75"}, "R-863", "R-863, 1KHz Rotary Knob")
 --radio_wheel_1(_(       "R-863, 1kHz Rotary Knob"), devices.R_863, device_commands.Button_9, 166,  {-0.1, 0.1},  {0,1},    {160,{0.0,1.0},2.5})
 --function radio_wheel_1(hint_,                      device_,       command1_,                arg_, arg_value_,   arg_lim_, slave_)
