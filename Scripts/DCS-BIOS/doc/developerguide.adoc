@@ -174,7 +174,7 @@ Replace `0x1234` with a base address for your module. A base address is the addr
 
 The call to `BIOS.protocol.setExportModuleAircrafts` specifies what aircraft you want your export module to be active in. In most cases, you will pass a list with a single entry (the name of your aircraft).
 
-After creating a file for your export module, add a `dofile(...)` call in `BIOS.lua` and a `<script>` tag in `control-reference.lua` (you will see what to do from the existing entries).
+After creating a file for your export module, add a `dofile(...)` call in `BIOS.lua` and a `<script>` tag in `control-reference.html` (you will see what to do from the existing entries).
 
 .The Export Module API
 Between the calls to `beginModule` and `endModule`, you have access to the global table `moduleBeingDefined`.
