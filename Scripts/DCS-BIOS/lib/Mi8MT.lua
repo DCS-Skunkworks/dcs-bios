@@ -529,8 +529,8 @@ defineTumb("PYRO_R",12, start_command + 45, 351, 0.1,{0, 0.3}, nil, false, "PODS
 defineTumb("FIRE_CHECK_CIRC",19, start_command + 12, 401, 0.1,{0, 0.7}, nil, false, "FIRE", "Check Fire Circuits Switch, OFF/CONTROL/1/2/3/4/5/6")
 defineTumb("DFRST_AMP_SEL",3, start_command + 37, 372, 0.1,{0, 0.9}, nil, false, "HEATING", "Defrost System Amperemeter Selector Switch")
 defineTumb("DOP_NAV_MODE",15, start_command + 10, 826, 0.1,{0, 0.4}, nil, false, "Navigation", "Doppler Navigator Mode Switch")
-defineTumb("RADIO_SEL_L",36, start_command + 3, 550, 0.1,{0, 0.5}, nil, false, "Radios", "Radio Source Selector Switch, R-863/JADRO-1A/R-828/NF/ARC-9/ARC-UD")
-defineTumb("RADIO_SEL_R",36, start_command + 11, 842, 0.1,{0, 0.5}, nil, false, "Radios", "Radio Source Selector Switch, R-863/JADRO-1A/R-828/NF/ARC-9/ARC-UD")
+defineTumb("RADIO_SEL_L",36, start_command + 3, 550, 0.1,{0, 0.5}, nil, false, "SPU-7", "Radio Source Selector Switch, R-863/JADRO-1A/R-828/NF/ARC-9/ARC-UD")
+defineTumb("RADIO_SEL_R",36, start_command + 11, 842, 0.1,{0, 0.5}, nil, false, "SPU-7", "Radio Source Selector Switch, R-863/JADRO-1A/R-828/NF/ARC-9/ARC-UD")
 defineTumb("JADR1A_MODE",37, start_command + 1, 744, 0.5,{-0.5, 1}, nil, false, "YaDRO-1A", "YaDRO-1A, Mode Switch, OFF/OM/AM")
 defineTumb("ARCUD_MODE",41, start_command + 1, 456, 0.1,{0, 0.4}, nil, false, "ARC-UD", "ARC-UD, Mode Switch, OFF/NARROW/WIDE/PULSE/RC")
 defineTumb("ARCUD_CHL",41, start_command + 4, 457, 0.1,{0, 0.5}, nil, false, "ARC-UD", "ARC-UD, Channel Selector Switch, 1/2/3/4/5/6")
@@ -585,15 +585,79 @@ defineTumb("R863_CNL_SEL", 38, start_command + 3, 370, 0.05, {0, 0.949768}, nil,
 --defineIndicatorLight(msg, arg_number, category, description)
 
 
+--radio_wheel_1(_("R-863, 10MHz Rotary Knob"), devices.R_863, device_commands.Button_6, 163, {-0.1, 0.1},{0,1},{157,{0.0,0.23},0.1})
+--radio_wheel_1(_("R-863, 1MHz Rotary Knob"), devices.R_863, device_commands.Button_7, 164, {-0.1, 0.1},{0,1},{158,{0.0,1.0}})
+--radio_wheel_1(_("R-863, 100kHz Rotary Knob"), devices.R_863, device_commands.Button_8, 165, {-0.1, 0.1},{0,1},{159,{0.0,1.0}})
+--radio_wheel_1(_("R-863, 1kHz Rotary Knob"), devices.R_863, device_commands.Button_9, 166, {-0.1, 0.1},{0,1},{160,{0.0,1.0},2.5})
 
--- TODO NO WORKY defineTumb("R863_FREQ1", 38, start_command + 6, 157, 0.01, {0, 0.23}, {"10", "11", "12", "13", "14", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"}, false, "R-863", "R-863, 10MHz Rotary Knob")
+local R863_FREQ1_POS = {
+  ["0"] = "10",
+	["1"] = "11",
+  ["2"] = "12",
+  ["3"] = "13",
+  ["4"] = "14",
+  ["5"] = "22",
+  ["6"] = "23",
+  ["7"] = "24",
+  ["8"] = "25",
+  ["9"] = "26",
+  ["10"] = "27",
+  ["11"] = "28",
+  ["12"] = "29",
+  ["13"] = "30",
+  ["14"] = "31",
+  ["15"] = "32",
+  ["16"] = "33",
+  ["17"] = "34",
+  ["18"] = "35",
+  ["19"] = "36",
+  ["20"] = "37",
+  ["21"] = "38",
+  ["22"] = "39"
+}
+
+local R863_FREQ09_POS = {
+  ["100"] = "0",
+  ["10"] = "0",
+  ["0"] = "0",
+	["1"] = "1",
+  ["2"] = "2",
+  ["3"] = "3",
+  ["4"] = "4",
+  ["5"] = "5",
+  ["6"] = "6",
+  ["7"] = "7",
+  ["8"] = "8",
+  ["9"] = "9"
+}
+
+local R863_FREQ4_POS = {
+  ["100"] = "00",
+  ["0"] = "00",
+	["25"] = "25",
+  ["50"] = "50",
+  ["75"] = "75"
+}
+
 --Jumps over postition "10"
 defineFixedStepTumb("R863_FREQ1", 38, start_command + 6, 157, 0.01, {0, 0.22}, {-0.1, 0.1}, {"10", "11", "12", "13", "14", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"}, "R-863", "R-863, 10MHz Rotary Knob")
 defineFixedStepTumb("R863_FREQ2", 38, start_command + 7, 158, 0.1, {0, 0.9}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 1MHz Rotary Knob")
 defineFixedStepTumb("R863_FREQ3", 38, start_command + 8, 159, 0.1, {0, 0.9}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 100KHz Rotary Knob")
+--TODO, no worky, jumps over "00" now and then
 defineFixedStepTumb("R863_FREQ4", 38, start_command + 9, 160, 0.3, {0, 0.9}, {-0.1, 0.1}, {"00", "25", "50", "75"}, "R-863", "R-863, 1KHz Rotary Knob")
---radio_wheel_1(_(       "R-863, 1kHz Rotary Knob"), devices.R_863, device_commands.Button_9, 166,  {-0.1, 0.1},  {0,1},    {160,{0.0,1.0},2.5})
---function radio_wheel_1(hint_,                      device_,       command1_,                arg_, arg_value_,   arg_lim_, slave_)
+
+
+local function getR863Frequency()
+    local freq1 = R863_FREQ1_POS[string.format("%.0f", GetDevice(0):get_argument_value(157)*100)]
+    local freq2 = R863_FREQ09_POS[string.format("%.0f", GetDevice(0):get_argument_value(158)*10)]
+    local freq3 = R863_FREQ09_POS[string.format("%.0f", GetDevice(0):get_argument_value(159)*10)]
+    local freq4 = R863_FREQ4_POS[string.format("%.0f", GetDevice(0):get_argument_value(160)*100)]
+	return  freq1 .. freq2 .. "." .. freq3 .. freq4
+end
+
+defineString("R863_FREQ", getR863Frequency, 7, "R-863", "R863, Frequency")
+
+
 
 defineTumb("R828_PRST_CHAN_SEL", 39, start_command + 1, 735, 0.1, {0, 0.9}, nil, false, "R-828", "R-828, Radio Channel Selector Knob")
 
@@ -608,7 +672,7 @@ defineFixedStepTumb("YADRO1A_FREQ5", 37, start_command + 6, 749, 0.1, {0, 1}, {-
 defineTumb("YADRO1A_SQL", 37, start_command + 8, 741, 0.7, {0, 0.7}, nil, false, "YaDRO-1A", "YaDRO-1A, Squelch Switch")
 --TODO GET JADRO FREQ
 
-local function getYadro1AFreqency()
+local function getYadro1AFrequency()
     local freq1 = string.format("%.0f", GetDevice(0):get_argument_value(750)*10)
     local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(745)*10)
     local freq3 = string.format("%.0f", GetDevice(0):get_argument_value(746)*10)
@@ -617,7 +681,8 @@ local function getYadro1AFreqency()
     local freq6 = string.format("%.0f", GetDevice(0):get_argument_value(749)*10)
 	return  freq1 .. freq2 .. freq3 .. freq4 .. freq5 .. "." .. freq6
 end
-defineString("YADRO1A_FREQ", getYadro1AFreqency, 7, "YaDRO-1A", "YaDRO-1A, Frequency")
+
+defineString("YADRO1A_FREQ", getYadro1AFrequency, 7, "YaDRO-1A", "YaDRO-1A, Frequency")
 
 defineTumb("WPN_SIGHT_DBL", 47, start_command + 5, 856, 0.5, {0, 0.5}, nil, false, "Weapons", "PKV Sight Double")
 
