@@ -56,9 +56,9 @@ defineTumb("RADIO_ON_OFF",1, 3018, 121, 1, {0,1}, nil, false, "Radio", "Radio On
 defineTumb("RADIO_ON",1, 3020, 121, 1,  {1, 1}, nil, false, "Radio", "Radio On")
 defineTumb("RADIO_OFF",1, 3088, 158, 1, {0,1}, nil, false, "Radio", "Radio Off")
 -- F 211 - IFF CB - Labelled "FuG 25a"
-defineTumb("IFF_ON_OFF",1, 3021, 122, 1, {0,1}, nil, false, "Radio", "I.F.F. On/Off")
-defineTumb("IFF_ON",1, 3023, 122, 1,  {1, 1}, nil, false, "Radio", "I.F.F. On")
-defineTumb("IFF_OFF",1, 3089, 159, 1, {0,1}, nil, false, "Radio", "I.F.F. Off")
+defineTumb("IFF_ON_OFF",1, 3021, 122, 1, {0,1}, nil, false, "Radio", "I.F.F. Power On/Off")
+defineTumb("IFF_ON",1, 3023, 122, 1,  {1, 1}, nil, false, "Radio", "I.F.F. Power On")
+defineTumb("IFF_OFF",1, 3089, 159, 1, {0,1}, nil, false, "Radio", "I.F.F. Power Off")
 -- E 101 - Fuel Pump CB - Labelled "Tankpumpe"
 defineTumb("FUEL_ON_OFF",1, 3015, 123, 1, {0,1}, nil, false, "Engine", "Fuel Pump On/Off")
 defineTumb("FUEL_ON",1, 3017, 123, 1,  {1, 1}, nil, false, "Engine", "Fuel Pump On")
@@ -201,7 +201,7 @@ defineTumb("RADIO_MODE",14, 3001, 128, 0.1, {0,0.3}, nil, false, "Radio", "Radio
 
 defineRotary("FUG16_TUNING",14,3008, 129, "Radio", "FuG16 ZY Fine Tune")
 defineRotary("FUG16_VOLUME",14, 3003, 130, "Radio", "FuG16 ZY Volume")
-defineTumb("FT_ZF_SWITCH",14, 3006, 131, 1, {0,1}, nil, false, "Radio", "FT FT / Y ZF")
+defineTumb("FT_ZF_SWITCH",14, 3006, 131, 1, {0,1}, nil, false, "Radio", "FT FT / Y ZF Homing Switch")
 
 defineTumb("FUG25_MODE",14, 3012, 132, 1,  {0.0, 1}, nil, false, "Radio", "FuG25 Mode 1 / 2")
 defineTumb("FUG25_TEST",14, 3014, 133, 1, {0,1}, nil, false, "Radio", "FuG25 Test")
