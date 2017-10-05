@@ -28,6 +28,7 @@ dofile(lfs.writedir()..[[scripts\dcs-bios\lib\Ka50.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\Mi8MT.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\F86.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\FW190D9.lua]])
+dofile(lfs.writedir()..[[scripts\dcs-bios\lib\P-51D.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 
 -- Prev Export functions.
