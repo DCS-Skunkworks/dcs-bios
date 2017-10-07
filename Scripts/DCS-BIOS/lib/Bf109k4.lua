@@ -22,6 +22,7 @@ local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 defineTumb("GEN_ON_OFF",1, 3075, 114, 1, {0,1}, nil, false, "Generator", "Generator On/Off")
 defineTumb("GEN_ON",1, 3077, 114, 1,  {1, 1}, nil, false, "Generator", "Generator On")
@@ -298,36 +299,118 @@ defineFloat("LANDINGGEARGREENLIGHTLEFT", 57, {0.0, 1.0}, "Indicator", "LandingGe
 defineFloat("LANDINGGEARGREENLIGHTRIGHT", 58, {0.0, 1.0}, "Indicator", "LandingGearGreenLightRight")
 defineFloat("FUEL_RESERVE_LAMP", 135, {0.0, 1.0}, "Indicator", "Fuel_Reserve_Lamp")
 
+-- Gauge Formulas
 
+local function getManifold()
+     local returnValue = (GetDevice(0):get_argument_value(32))*65+10
+     return returnValue
+end
+defineIntegerFromGetter("MANIFOLD_PRESSURE_VALUE", getManifold, 65000, 
+"Gauge Values", "Manifold Pressure kg/cm2")
 
+local function getMW50()
+     local returnValue = (GetDevice(0):get_argument_value(1))*30
+     return returnValue
+end
+defineIntegerFromGetter("METHANOL_WATER _PRES_VALUE", getMW50, 65000, 
+"Gauge Values", "Methanol Water Pres kg/cm2 Read as X.X")
 
+local function getPropPitch()
+     local returnValue = (GetDevice(0):get_argument_value(30))*63+26
+     return returnValue
+end
+defineIntegerFromGetter("PROPELLER_PITCH_DEG_VALUE", getPropPitch, 65000, 
+"Gauge Values", "Propeller Pitch Degrees")
 
+local function getFuelLevel()
+     local returnValue = (GetDevice(0):get_argument_value(33))*400
+     return returnValue
+end
+defineIntegerFromGetter("FUEL_LEVEL_VALUE", getFuelLevel, 65000, 
+"Gauge Values", "Fuel Level Liters")
 
+local function getFuelPressure()
+     local returnValue = (GetDevice(0):get_argument_value(25))*20
+     return returnValue
+end
+defineIntegerFromGetter("FUEL_PRESSURE_VALUE", getFuelPressure, 65000, 
+"Gauge Values", "Fuel Pres kg/cm2 Read as X.X")
 
+local function getOilPressure()
+     local returnValue = (GetDevice(0):get_argument_value(26))*100
+     return returnValue
+end
+defineIntegerFromGetter("OIL_PRESSURE_VALUE", getOilPressure, 65000, 
+"Gauge Values", "Oil Pressure kg/cm2 Read as X.X or XX.X")
 
+local function getOilTemp()
+     local returnValue = (GetDevice(0):get_argument_value(28))*130
+     return returnValue
+end
+defineIntegerFromGetter("OIL_TEMPERATURE_VALUE", getOilTemp, 65000, 
+"Gauge Values", "Oil Temp °C")
 
+local function getCoolantTemp()
+     local returnValue = (GetDevice(0):get_argument_value(27))*130
+     return returnValue
+end
+defineIntegerFromGetter("COOLANT_TEMPERATURE_VALUE", getCoolantTemp, 65000, 
+"Gauge Values", "Coolant Temp °C")
 
+local function getOxygenPressure()
+     local returnValue = (GetDevice(0):get_argument_value(34))*250
+     return returnValue
+end
+defineIntegerFromGetter("OXYGEN_PRESSURE_VALUE", getOxygenPressure, 65000, 
+"Gauge Values", "Oxygen Pressure kg/cm2")
 
+local function getAirspeed()
+     local returnValue = (GetDevice(0):get_argument_value(2))*750
+     return returnValue
+end
+defineIntegerFromGetter("AIRSPEED_VALUE", getAirspeed, 65000, 
+"Gauge Values", "Airspeed km/h")
 
+local function getAltitude()
+     local returnValue = (GetDevice(0):get_argument_value(9))*9999
+     return returnValue
+end
+defineIntegerFromGetter("ALTITUDE_VALUE", getAltitude, 65000, 
+"Gauge Values", "Altitude Meters")
 
+--[[--local function getVariometer()
+     local returnValue = (GetDevice(0):get_argument_value(36))*100
+     return returnValue
+end
+defineIntegerFromGetter("VARIOMETER_VVI_VALUE", getVariometer, 65000, 
+"Gauge Values", "Variometer VVI m/s")--]]--
 
+local function getTachometer()
+     local returnValue = (GetDevice(0):get_argument_value(29))*3200+400
+     return returnValue
+end
+defineIntegerFromGetter("TACHOMETER_VALUE", getTachometer, 65000, 
+"Gauge Values", "Tachometer RPM")
 
+local function getBaro()
+     local returnValue = (GetDevice(0):get_argument_value(10))*120+920
+     return returnValue
+end
+defineIntegerFromGetter("BAROMETRIC_PRESSURE_VALUE", getBaro, 65000, 
+"Gauge Values", "Barometric Pressure mb")
 
+local function getHDG()
+     local returnValue = (GetDevice(0):get_argument_value(13))*360
+     return returnValue
+end
+defineIntegerFromGetter("COMPASS_HEADING_VALUE", getHDG, 65000, 
+"Gauge Values", "Compass Heading")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+--[[--local function getCRS()
+     local returnValue = (GetDevice(0):get_argument_value(12))*360
+     return returnValue
+end
+defineIntegerFromGetter("COURSE_VALUE", getCRS, 65000, 
+"Gauge Values", "Course")--]]--
 
 BIOS.protocol.endModule()
