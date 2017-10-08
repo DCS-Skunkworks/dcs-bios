@@ -12817,6 +12817,20 @@
                                                                                        } ],
                                                                    "physical_variant": "limited_rotary"
                                                             },
+                                               "R863_FREQ": {
+                                                                    "category": "R-863",
+                                                                "control_type": "display",
+                                                                 "description": "R863, Frequency",
+                                                                  "identifier": "R863_FREQ",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 10268,
+                                                                                    "description": "R863, Frequency",
+                                                                                     "max_length": 7,
+                                                                                         "suffix": "",
+                                                                                           "type": "string"
+                                                                                } ]
+                                                            },
                                               "R863_FREQ1": {
                                                                            "category": "R-863",
                                                                        "control_type": "discrete_dial",
@@ -13507,58 +13521,6 @@
                                                                               } ]
                                                           }
                                     },
-                          "Radios": {
-                                        "RADIO_SEL_L": {
-                                                                      "category": "Radios",
-                                                                  "control_type": "selector",
-                                                                   "description": "Radio Source Selector Switch, R-863/JADRO-1A/R-828/NF/ARC-9/ARC-UD",
-                                                                    "identifier": "RADIO_SEL_L",
-                                                                        "inputs": [ {
-                                                                                      "description": "switch to previous or next state",
-                                                                                        "interface": "fixed_step"
-                                                                                  }, {
-                                                                                      "description": "set position",
-                                                                                        "interface": "set_state",
-                                                                                        "max_value": 5
-                                                                                  } ],
-                                                           "momentary_positions": "none",
-                                                                       "outputs": [ {
-                                                                                          "address": 9812,
-                                                                                      "description": "selector position",
-                                                                                             "mask": 7168,
-                                                                                        "max_value": 5,
-                                                                                         "shift_by": 10,
-                                                                                           "suffix": "",
-                                                                                             "type": "integer"
-                                                                                  } ],
-                                                              "physical_variant": "limited_rotary"
-                                                       },
-                                        "RADIO_SEL_R": {
-                                                                      "category": "Radios",
-                                                                  "control_type": "selector",
-                                                                   "description": "Radio Source Selector Switch, R-863/JADRO-1A/R-828/NF/ARC-9/ARC-UD",
-                                                                    "identifier": "RADIO_SEL_R",
-                                                                        "inputs": [ {
-                                                                                      "description": "switch to previous or next state",
-                                                                                        "interface": "fixed_step"
-                                                                                  }, {
-                                                                                      "description": "set position",
-                                                                                        "interface": "set_state",
-                                                                                        "max_value": 5
-                                                                                  } ],
-                                                           "momentary_positions": "none",
-                                                                       "outputs": [ {
-                                                                                          "address": 9812,
-                                                                                      "description": "selector position",
-                                                                                             "mask": 57344,
-                                                                                        "max_value": 5,
-                                                                                         "shift_by": 13,
-                                                                                           "suffix": "",
-                                                                                             "type": "integer"
-                                                                                  } ],
-                                                              "physical_variant": "limited_rotary"
-                                                       }
-                                    },
                  "Recorder P-503B": {
                                         "P503B_PWR": {
                                                                     "category": "Recorder P-503B",
@@ -13707,6 +13669,56 @@
                                                      }
                                     },
                            "SPU-7": {
+                                             "RADIO_SEL_L": {
+                                                                           "category": "SPU-7",
+                                                                       "control_type": "selector",
+                                                                        "description": "Radio Source Selector Switch, R-863/JADRO-1A/R-828/NF/ARC-9/ARC-UD",
+                                                                         "identifier": "RADIO_SEL_L",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 5
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 9812,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 7168,
+                                                                                             "max_value": 5,
+                                                                                              "shift_by": 10,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "limited_rotary"
+                                                            },
+                                             "RADIO_SEL_R": {
+                                                                           "category": "SPU-7",
+                                                                       "control_type": "selector",
+                                                                        "description": "Radio Source Selector Switch, R-863/JADRO-1A/R-828/NF/ARC-9/ARC-UD",
+                                                                         "identifier": "RADIO_SEL_R",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 5
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 9812,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 57344,
+                                                                                             "max_value": 5,
+                                                                                              "shift_by": 13,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "limited_rotary"
+                                                            },
                                              "SPU7_LARYNG": {
                                                                            "category": "SPU-7",
                                                                        "control_type": "selector",

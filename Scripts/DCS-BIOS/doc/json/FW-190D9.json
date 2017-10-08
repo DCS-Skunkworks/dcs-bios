@@ -22,31 +22,6 @@
                                                                              "type": "integer"
                                                                   } ]
                                               },
-                              "BMB_FUSE_SEL": {
-                                                             "category": "Cockpit",
-                                                         "control_type": "selector",
-                                                          "description": "Bomb Fusing Selector",
-                                                           "identifier": "BMB_FUSE_SEL",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 4
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 13358,
-                                                                             "description": "selector position",
-                                                                                    "mask": 14,
-                                                                               "max_value": 4,
-                                                                                "shift_by": 1,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "limited_rotary"
-                                              },
                             "CANOPY_EMG_REL": {
                                                              "category": "Cockpit",
                                                          "control_type": "selector",
@@ -301,35 +276,6 @@
                                                                          } ],
                                                      "physical_variant": "limited_rotary"
                                               },
-                                   "FT_MODE": {
-                                                             "category": "Cockpit",
-                                                         "control_type": "selector",
-                                                          "description": "FT FT / Y ZF Mode Switch",
-                                                           "identifier": "FT_MODE",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 1
-                                                                         }, {
-                                                                                "argument": "TOGGLE",
-                                                                             "description": "Toggle switch state",
-                                                                               "interface": "action"
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 13332,
-                                                                             "description": "selector position",
-                                                                                    "mask": 64,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 6,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "limited_rotary"
-                                              },
                             "FUEL_GAUGE_SEL": {
                                                              "category": "Cockpit",
                                                          "control_type": "selector",
@@ -438,94 +384,6 @@
                                                                          } ],
                                                      "physical_variant": "limited_rotary"
                                               },
-                                "GUN1_AMM_C": {
-                                                   "api_variant": "multiturn",
-                                                      "category": "Cockpit",
-                                                  "control_type": "analog_dial",
-                                                   "description": "Set Gun 1 Ammunition Count",
-                                                    "identifier": "GUN1_AMM_C",
-                                                        "inputs": [ {
-                                                                         "description": "turn the dial left or right",
-                                                                           "interface": "variable_step",
-                                                                           "max_value": 65535,
-                                                                      "suggested_step": 3200
-                                                                  } ],
-                                                       "outputs": [ {
-                                                                          "address": 13324,
-                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                             "mask": 65535,
-                                                                        "max_value": 65535,
-                                                                         "shift_by": 0,
-                                                                           "suffix": "_KNOB_POS",
-                                                                             "type": "integer"
-                                                                  } ]
-                                              },
-                                "GUN2_AMM_C": {
-                                                   "api_variant": "multiturn",
-                                                      "category": "Cockpit",
-                                                  "control_type": "analog_dial",
-                                                   "description": "Set Gun 2 Ammunition Count",
-                                                    "identifier": "GUN2_AMM_C",
-                                                        "inputs": [ {
-                                                                         "description": "turn the dial left or right",
-                                                                           "interface": "variable_step",
-                                                                           "max_value": 65535,
-                                                                      "suggested_step": 3200
-                                                                  } ],
-                                                       "outputs": [ {
-                                                                          "address": 13326,
-                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                             "mask": 65535,
-                                                                        "max_value": 65535,
-                                                                         "shift_by": 0,
-                                                                           "suffix": "_KNOB_POS",
-                                                                             "type": "integer"
-                                                                  } ]
-                                              },
-                                "GUN3_AMM_C": {
-                                                   "api_variant": "multiturn",
-                                                      "category": "Cockpit",
-                                                  "control_type": "analog_dial",
-                                                   "description": "Set Gun 3 Ammunition Count",
-                                                    "identifier": "GUN3_AMM_C",
-                                                        "inputs": [ {
-                                                                         "description": "turn the dial left or right",
-                                                                           "interface": "variable_step",
-                                                                           "max_value": 65535,
-                                                                      "suggested_step": 3200
-                                                                  } ],
-                                                       "outputs": [ {
-                                                                          "address": 13328,
-                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                             "mask": 65535,
-                                                                        "max_value": 65535,
-                                                                         "shift_by": 0,
-                                                                           "suffix": "_KNOB_POS",
-                                                                             "type": "integer"
-                                                                  } ]
-                                              },
-                                "GUN4_AMM_C": {
-                                                   "api_variant": "multiturn",
-                                                      "category": "Cockpit",
-                                                  "control_type": "analog_dial",
-                                                   "description": "Set Gun 4 Ammunition Count",
-                                                    "identifier": "GUN4_AMM_C",
-                                                        "inputs": [ {
-                                                                         "description": "turn the dial left or right",
-                                                                           "interface": "variable_step",
-                                                                           "max_value": 65535,
-                                                                      "suggested_step": 3200
-                                                                  } ],
-                                                       "outputs": [ {
-                                                                          "address": 13330,
-                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                             "mask": 65535,
-                                                                        "max_value": 65535,
-                                                                         "shift_by": 0,
-                                                                           "suffix": "_KNOB_POS",
-                                                                             "type": "integer"
-                                                                  } ]
-                                              },
                                   "HOR_CAGE": {
                                                       "category": "Cockpit",
                                                   "control_type": "limited_dial",
@@ -571,60 +429,6 @@
                                                                                     "mask": 49152,
                                                                                "max_value": 2,
                                                                                 "shift_by": 14,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "limited_rotary"
-                                              },
-                                   "IFF_CHK": {
-                                                             "category": "Cockpit",
-                                                         "control_type": "selector",
-                                                          "description": "IFF Check",
-                                                           "identifier": "IFF_CHK",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 1
-                                                                         }, {
-                                                                                "argument": "TOGGLE",
-                                                                             "description": "Toggle switch state",
-                                                                               "interface": "action"
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 13332,
-                                                                             "description": "selector position",
-                                                                                    "mask": 256,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 8,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "limited_rotary"
-                                              },
-                              "IFF_CHNL_SEL": {
-                                                             "category": "Cockpit",
-                                                         "control_type": "selector",
-                                                          "description": "IFF Channel Selector",
-                                                           "identifier": "IFF_CHNL_SEL",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 2
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 13358,
-                                                                             "description": "selector position",
-                                                                                    "mask": 192,
-                                                                               "max_value": 2,
-                                                                                "shift_by": 6,
                                                                                   "suffix": "",
                                                                                     "type": "integer"
                                                                          } ],
@@ -793,64 +597,6 @@
                                                                          } ],
                                                      "physical_variant": "limited_rotary"
                                               },
-                                  "MAIN_RKT": {
-                                                             "category": "Cockpit",
-                                                         "control_type": "selector",
-                                                          "description": "Main Rocket Switch",
-                                                           "identifier": "MAIN_RKT",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 1
-                                                                         }, {
-                                                                                "argument": "TOGGLE",
-                                                                             "description": "Toggle switch state",
-                                                                               "interface": "action"
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 13332,
-                                                                             "description": "selector position",
-                                                                                    "mask": 1,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 0,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "limited_rotary"
-                                              },
-                                "MASTER_ARM": {
-                                                             "category": "Cockpit",
-                                                         "control_type": "selector",
-                                                          "description": "Master Arm",
-                                                           "identifier": "MASTER_ARM",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 1
-                                                                         }, {
-                                                                                "argument": "TOGGLE",
-                                                                             "description": "Toggle switch state",
-                                                                               "interface": "action"
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 13314,
-                                                                             "description": "selector position",
-                                                                                    "mask": 32768,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 15,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "limited_rotary"
-                                              },
                               "MBG_EMG_HNDL": {
                                                              "category": "Cockpit",
                                                          "control_type": "selector",
@@ -963,75 +709,6 @@
                                                                              "type": "integer"
                                                                   } ]
                                               },
-                            "RADIO_CHNL_SEL": {
-                                                             "category": "Cockpit",
-                                                         "control_type": "selector",
-                                                          "description": "Radio Channel Selector",
-                                                           "identifier": "RADIO_CHNL_SEL",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 3
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 13358,
-                                                                             "description": "selector position",
-                                                                                    "mask": 48,
-                                                                               "max_value": 3,
-                                                                                "shift_by": 4,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "limited_rotary"
-                                              },
-                                "RADIO_TUNE": {
-                                                   "api_variant": "multiturn",
-                                                      "category": "Cockpit",
-                                                  "control_type": "analog_dial",
-                                                   "description": "Radio Tuning (+/-30 kHz)",
-                                                    "identifier": "RADIO_TUNE",
-                                                        "inputs": [ {
-                                                                         "description": "turn the dial left or right",
-                                                                           "interface": "variable_step",
-                                                                           "max_value": 65535,
-                                                                      "suggested_step": 3200
-                                                                  } ],
-                                                       "outputs": [ {
-                                                                          "address": 13346,
-                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                             "mask": 65535,
-                                                                        "max_value": 65535,
-                                                                         "shift_by": 0,
-                                                                           "suffix": "_KNOB_POS",
-                                                                             "type": "integer"
-                                                                  } ]
-                                              },
-                                 "RADIO_VOL": {
-                                                   "api_variant": "multiturn",
-                                                      "category": "Cockpit",
-                                                  "control_type": "analog_dial",
-                                                   "description": "Radio Volume",
-                                                    "identifier": "RADIO_VOL",
-                                                        "inputs": [ {
-                                                                         "description": "turn the dial left or right",
-                                                                           "interface": "variable_step",
-                                                                           "max_value": 65535,
-                                                                      "suggested_step": 3200
-                                                                  } ],
-                                                       "outputs": [ {
-                                                                          "address": 13344,
-                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                             "mask": 65535,
-                                                                        "max_value": 65535,
-                                                                         "shift_by": 0,
-                                                                           "suffix": "_KNOB_POS",
-                                                                             "type": "integer"
-                                                                  } ]
-                                              },
                              "RAD_FLAP_CTRL": {
                                                    "api_variant": "multiturn",
                                                       "category": "Cockpit",
@@ -1046,210 +723,6 @@
                                                                   } ],
                                                        "outputs": [ {
                                                                           "address": 13312,
-                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                             "mask": 65535,
-                                                                        "max_value": 65535,
-                                                                         "shift_by": 0,
-                                                                           "suffix": "_KNOB_POS",
-                                                                             "type": "integer"
-                                                                  } ]
-                                              },
-                               "RKT_EMG_REL": {
-                                                             "category": "Cockpit",
-                                                         "control_type": "selector",
-                                                          "description": "Rocket Emergency Release",
-                                                           "identifier": "RKT_EMG_REL",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 1
-                                                                         }, {
-                                                                                "argument": "TOGGLE",
-                                                                             "description": "Toggle switch state",
-                                                                               "interface": "action"
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 13332,
-                                                                             "description": "selector position",
-                                                                                    "mask": 4,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 2,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "limited_rotary"
-                                              },
-                           "RKT_EMG_REL_CVR": {
-                                                             "category": "Cockpit",
-                                                         "control_type": "selector",
-                                                          "description": "Rocket Emergency Release Cover",
-                                                           "identifier": "RKT_EMG_REL_CVR",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 1
-                                                                         }, {
-                                                                                "argument": "TOGGLE",
-                                                                             "description": "Toggle switch state",
-                                                                               "interface": "action"
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 13332,
-                                                                             "description": "selector position",
-                                                                                    "mask": 2,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 1,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "limited_rotary"
-                                              },
-                            "SIGHT_ALT_KNOB": {
-                                                   "api_variant": "multiturn",
-                                                      "category": "Cockpit",
-                                                  "control_type": "analog_dial",
-                                                   "description": "EZ42 Gunsight Altitude Aiming Correction Adjusting Knob I",
-                                                    "identifier": "SIGHT_ALT_KNOB",
-                                                        "inputs": [ {
-                                                                         "description": "turn the dial left or right",
-                                                                           "interface": "variable_step",
-                                                                           "max_value": 65535,
-                                                                      "suggested_step": 3200
-                                                                  } ],
-                                                       "outputs": [ {
-                                                                          "address": 13340,
-                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                             "mask": 65535,
-                                                                        "max_value": 65535,
-                                                                         "shift_by": 0,
-                                                                           "suffix": "_KNOB_POS",
-                                                                             "type": "integer"
-                                                                  } ]
-                                              },
-                              "SIGHT_BRIGHT": {
-                                                   "api_variant": "multiturn",
-                                                      "category": "Cockpit",
-                                                  "control_type": "analog_dial",
-                                                   "description": "EZ42 Gunsight Brightness Control",
-                                                    "identifier": "SIGHT_BRIGHT",
-                                                        "inputs": [ {
-                                                                         "description": "turn the dial left or right",
-                                                                           "interface": "variable_step",
-                                                                           "max_value": 65535,
-                                                                      "suggested_step": 3200
-                                                                  } ],
-                                                       "outputs": [ {
-                                                                          "address": 13338,
-                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                             "mask": 65535,
-                                                                        "max_value": 65535,
-                                                                         "shift_by": 0,
-                                                                           "suffix": "_KNOB_POS",
-                                                                             "type": "integer"
-                                                                  } ]
-                                              },
-                           "SIGHT_DISC_CTRL": {
-                                                   "api_variant": "multiturn",
-                                                      "category": "Cockpit",
-                                                  "control_type": "analog_dial",
-                                                   "description": "EZ42 Gunsight Target Distance Control",
-                                                    "identifier": "SIGHT_DISC_CTRL",
-                                                        "inputs": [ {
-                                                                         "description": "turn the dial left or right",
-                                                                           "interface": "variable_step",
-                                                                           "max_value": 65535,
-                                                                      "suggested_step": 3200
-                                                                  } ],
-                                                       "outputs": [ {
-                                                                          "address": 13336,
-                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                             "mask": 65535,
-                                                                        "max_value": 65535,
-                                                                         "shift_by": 0,
-                                                                           "suffix": "_KNOB_POS",
-                                                                             "type": "integer"
-                                                                  } ]
-                                              },
-                                "SIGHT_GYRO": {
-                                                             "category": "Cockpit",
-                                                         "control_type": "selector",
-                                                          "description": "EZ42 Gunsight Gyro Power Switch, ON/OFF",
-                                                           "identifier": "SIGHT_GYRO",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 1
-                                                                         }, {
-                                                                                "argument": "TOGGLE",
-                                                                             "description": "Toggle switch state",
-                                                                               "interface": "action"
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 13332,
-                                                                             "description": "selector position",
-                                                                                    "mask": 16,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 4,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "limited_rotary"
-                                              },
-                               "SIGHT_NIGHT": {
-                                                             "category": "Cockpit",
-                                                         "control_type": "selector",
-                                                          "description": "EZ42 Gunsight Night Lens Filter, ON/OFF",
-                                                           "identifier": "SIGHT_NIGHT",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 1
-                                                                         }, {
-                                                                                "argument": "TOGGLE",
-                                                                             "description": "Toggle switch state",
-                                                                               "interface": "action"
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 13332,
-                                                                             "description": "selector position",
-                                                                                    "mask": 32,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 5,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "limited_rotary"
-                                              },
-                           "SIGHT_WING_SPAN": {
-                                                   "api_variant": "multiturn",
-                                                      "category": "Cockpit",
-                                                  "control_type": "analog_dial",
-                                                   "description": "EZ42 Gunsight Target Wingspan Knob",
-                                                    "identifier": "SIGHT_WING_SPAN",
-                                                        "inputs": [ {
-                                                                         "description": "turn the dial left or right",
-                                                                           "interface": "variable_step",
-                                                                           "max_value": 65535,
-                                                                      "suggested_step": 3200
-                                                                  } ],
-                                                       "outputs": [ {
-                                                                          "address": 13334,
                                                                       "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                              "mask": 65535,
                                                                         "max_value": 65535,
@@ -1701,122 +1174,6 @@
                                                                            } ],
                                                        "physical_variant": "limited_rotary"
                                                 },
-                                 "FUG16ZY_OFF": {
-                                                               "category": "Electric System",
-                                                           "control_type": "selector",
-                                                            "description": "FuG16ZY Off",
-                                                             "identifier": "FUG16ZY_OFF",
-                                                                 "inputs": [ {
-                                                                               "description": "switch to previous or next state",
-                                                                                 "interface": "fixed_step"
-                                                                           }, {
-                                                                               "description": "set position",
-                                                                                 "interface": "set_state",
-                                                                                 "max_value": 1
-                                                                           }, {
-                                                                                  "argument": "TOGGLE",
-                                                                               "description": "Toggle switch state",
-                                                                                 "interface": "action"
-                                                                           } ],
-                                                    "momentary_positions": "none",
-                                                                "outputs": [ {
-                                                                                   "address": 13352,
-                                                                               "description": "selector position",
-                                                                                      "mask": 8192,
-                                                                                 "max_value": 1,
-                                                                                  "shift_by": 13,
-                                                                                    "suffix": "",
-                                                                                      "type": "integer"
-                                                                           } ],
-                                                       "physical_variant": "limited_rotary"
-                                                },
-                                  "FUG16ZY_ON": {
-                                                               "category": "Electric System",
-                                                           "control_type": "selector",
-                                                            "description": "FuG16ZY On",
-                                                             "identifier": "FUG16ZY_ON",
-                                                                 "inputs": [ {
-                                                                               "description": "switch to previous or next state",
-                                                                                 "interface": "fixed_step"
-                                                                           }, {
-                                                                               "description": "set position",
-                                                                                 "interface": "set_state",
-                                                                                 "max_value": 1
-                                                                           }, {
-                                                                                  "argument": "TOGGLE",
-                                                                               "description": "Toggle switch state",
-                                                                                 "interface": "action"
-                                                                           } ],
-                                                    "momentary_positions": "none",
-                                                                "outputs": [ {
-                                                                                   "address": 13352,
-                                                                               "description": "selector position",
-                                                                                      "mask": 4096,
-                                                                                 "max_value": 1,
-                                                                                  "shift_by": 12,
-                                                                                    "suffix": "",
-                                                                                      "type": "integer"
-                                                                           } ],
-                                                       "physical_variant": "limited_rotary"
-                                                },
-                                  "FUG25A_OFF": {
-                                                               "category": "Electric System",
-                                                           "control_type": "selector",
-                                                            "description": "FuG25a Off",
-                                                             "identifier": "FUG25A_OFF",
-                                                                 "inputs": [ {
-                                                                               "description": "switch to previous or next state",
-                                                                                 "interface": "fixed_step"
-                                                                           }, {
-                                                                               "description": "set position",
-                                                                                 "interface": "set_state",
-                                                                                 "max_value": 1
-                                                                           }, {
-                                                                                  "argument": "TOGGLE",
-                                                                               "description": "Toggle switch state",
-                                                                                 "interface": "action"
-                                                                           } ],
-                                                    "momentary_positions": "none",
-                                                                "outputs": [ {
-                                                                                   "address": 13352,
-                                                                               "description": "selector position",
-                                                                                      "mask": 2048,
-                                                                                 "max_value": 1,
-                                                                                  "shift_by": 11,
-                                                                                    "suffix": "",
-                                                                                      "type": "integer"
-                                                                           } ],
-                                                       "physical_variant": "limited_rotary"
-                                                },
-                                   "FUG25A_ON": {
-                                                               "category": "Electric System",
-                                                           "control_type": "selector",
-                                                            "description": "FuG25a On",
-                                                             "identifier": "FUG25A_ON",
-                                                                 "inputs": [ {
-                                                                               "description": "switch to previous or next state",
-                                                                                 "interface": "fixed_step"
-                                                                           }, {
-                                                                               "description": "set position",
-                                                                                 "interface": "set_state",
-                                                                                 "max_value": 1
-                                                                           }, {
-                                                                                  "argument": "TOGGLE",
-                                                                               "description": "Toggle switch state",
-                                                                                 "interface": "action"
-                                                                           } ],
-                                                    "momentary_positions": "none",
-                                                                "outputs": [ {
-                                                                                   "address": 13352,
-                                                                               "description": "selector position",
-                                                                                      "mask": 1024,
-                                                                                 "max_value": 1,
-                                                                                  "shift_by": 10,
-                                                                                    "suffix": "",
-                                                                                      "type": "integer"
-                                                                           } ],
-                                                       "physical_variant": "limited_rotary"
-                                                },
                               "FW_TNK_PMP_OFF": {
                                                                "category": "Electric System",
                                                            "control_type": "selector",
@@ -2223,6 +1580,154 @@
                                                                            } ],
                                                        "physical_variant": "limited_rotary"
                                                 }
+                       },
+          "Gun Sight": {
+                            "SIGHT_ALT_KNOB": {
+                                                   "api_variant": "multiturn",
+                                                      "category": "Gun Sight",
+                                                  "control_type": "analog_dial",
+                                                   "description": "EZ42 Gunsight Altitude Aiming Correction Adjusting Knob I",
+                                                    "identifier": "SIGHT_ALT_KNOB",
+                                                        "inputs": [ {
+                                                                         "description": "turn the dial left or right",
+                                                                           "interface": "variable_step",
+                                                                           "max_value": 65535,
+                                                                      "suggested_step": 3200
+                                                                  } ],
+                                                       "outputs": [ {
+                                                                          "address": 13340,
+                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                             "mask": 65535,
+                                                                        "max_value": 65535,
+                                                                         "shift_by": 0,
+                                                                           "suffix": "_KNOB_POS",
+                                                                             "type": "integer"
+                                                                  } ]
+                                              },
+                              "SIGHT_BRIGHT": {
+                                                   "api_variant": "multiturn",
+                                                      "category": "Gun Sight",
+                                                  "control_type": "analog_dial",
+                                                   "description": "EZ42 Gunsight Brightness Control",
+                                                    "identifier": "SIGHT_BRIGHT",
+                                                        "inputs": [ {
+                                                                         "description": "turn the dial left or right",
+                                                                           "interface": "variable_step",
+                                                                           "max_value": 65535,
+                                                                      "suggested_step": 3200
+                                                                  } ],
+                                                       "outputs": [ {
+                                                                          "address": 13338,
+                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                             "mask": 65535,
+                                                                        "max_value": 65535,
+                                                                         "shift_by": 0,
+                                                                           "suffix": "_KNOB_POS",
+                                                                             "type": "integer"
+                                                                  } ]
+                                              },
+                           "SIGHT_DISC_CTRL": {
+                                                   "api_variant": "multiturn",
+                                                      "category": "Gun Sight",
+                                                  "control_type": "analog_dial",
+                                                   "description": "EZ42 Gunsight Target Distance Control",
+                                                    "identifier": "SIGHT_DISC_CTRL",
+                                                        "inputs": [ {
+                                                                         "description": "turn the dial left or right",
+                                                                           "interface": "variable_step",
+                                                                           "max_value": 65535,
+                                                                      "suggested_step": 3200
+                                                                  } ],
+                                                       "outputs": [ {
+                                                                          "address": 13336,
+                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                             "mask": 65535,
+                                                                        "max_value": 65535,
+                                                                         "shift_by": 0,
+                                                                           "suffix": "_KNOB_POS",
+                                                                             "type": "integer"
+                                                                  } ]
+                                              },
+                                "SIGHT_GYRO": {
+                                                             "category": "Gun Sight",
+                                                         "control_type": "selector",
+                                                          "description": "EZ42 Gunsight Gyro Power Switch, ON/OFF",
+                                                           "identifier": "SIGHT_GYRO",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 13332,
+                                                                             "description": "selector position",
+                                                                                    "mask": 16,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 4,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "limited_rotary"
+                                              },
+                               "SIGHT_NIGHT": {
+                                                             "category": "Gun Sight",
+                                                         "control_type": "selector",
+                                                          "description": "EZ42 Gunsight Night Lens Filter, ON/OFF",
+                                                           "identifier": "SIGHT_NIGHT",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 13332,
+                                                                             "description": "selector position",
+                                                                                    "mask": 32,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 5,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "limited_rotary"
+                                              },
+                           "SIGHT_WING_SPAN": {
+                                                   "api_variant": "multiturn",
+                                                      "category": "Gun Sight",
+                                                  "control_type": "analog_dial",
+                                                   "description": "EZ42 Gunsight Target Wingspan Knob",
+                                                    "identifier": "SIGHT_WING_SPAN",
+                                                        "inputs": [ {
+                                                                         "description": "turn the dial left or right",
+                                                                           "interface": "variable_step",
+                                                                           "max_value": 65535,
+                                                                      "suggested_step": 3200
+                                                                  } ],
+                                                       "outputs": [ {
+                                                                          "address": 13334,
+                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                             "mask": 65535,
+                                                                        "max_value": 65535,
+                                                                         "shift_by": 0,
+                                                                           "suffix": "_KNOB_POS",
+                                                                             "type": "integer"
+                                                                  } ]
+                                              }
                        },
           "Indicator": {
                                   "ADF_HORIZONT": {
@@ -3427,5 +2932,505 @@
                                                                          "type": "integer"
                                                               } ]
                                           }
+                       },
+              "Radio": {
+                           "FT_ZF_SWITCH": {
+                                                          "category": "Radio",
+                                                      "control_type": "selector",
+                                                       "description": "FT FT / Y ZF Mode Switch",
+                                                        "identifier": "FT_ZF_SWITCH",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 1
+                                                                      }, {
+                                                                             "argument": "TOGGLE",
+                                                                          "description": "Toggle switch state",
+                                                                            "interface": "action"
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 13332,
+                                                                          "description": "selector position",
+                                                                                 "mask": 64,
+                                                                            "max_value": 1,
+                                                                             "shift_by": 6,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "limited_rotary"
+                                           },
+                            "FUG16ZY_OFF": {
+                                                          "category": "Radio",
+                                                      "control_type": "selector",
+                                                       "description": "FuG16ZY Off",
+                                                        "identifier": "FUG16ZY_OFF",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 1
+                                                                      }, {
+                                                                             "argument": "TOGGLE",
+                                                                          "description": "Toggle switch state",
+                                                                            "interface": "action"
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 13352,
+                                                                          "description": "selector position",
+                                                                                 "mask": 8192,
+                                                                            "max_value": 1,
+                                                                             "shift_by": 13,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "limited_rotary"
+                                           },
+                             "FUG16ZY_ON": {
+                                                          "category": "Radio",
+                                                      "control_type": "selector",
+                                                       "description": "FuG16ZY On",
+                                                        "identifier": "FUG16ZY_ON",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 1
+                                                                      }, {
+                                                                             "argument": "TOGGLE",
+                                                                          "description": "Toggle switch state",
+                                                                            "interface": "action"
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 13352,
+                                                                          "description": "selector position",
+                                                                                 "mask": 4096,
+                                                                            "max_value": 1,
+                                                                             "shift_by": 12,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "limited_rotary"
+                                           },
+                           "FUG16_TUNING": {
+                                                          "category": "Radio",
+                                                      "control_type": "discrete_dial",
+                                                       "description": "Radio Tuning (+/-30 kHz)",
+                                                        "identifier": "FUG16_TUNING",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 13360,
+                                                                          "description": "selector position",
+                                                                                 "mask": 2040,
+                                                                            "max_value": 200,
+                                                                             "shift_by": 3,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "infinite_rotary"
+                                           },
+                           "FUG16_VOLUME": {
+                                                "api_variant": "multiturn",
+                                                   "category": "Radio",
+                                               "control_type": "analog_dial",
+                                                "description": "Radio Volume",
+                                                 "identifier": "FUG16_VOLUME",
+                                                     "inputs": [ {
+                                                                      "description": "turn the dial left or right",
+                                                                        "interface": "variable_step",
+                                                                        "max_value": 65535,
+                                                                   "suggested_step": 3200
+                                                               } ],
+                                                    "outputs": [ {
+                                                                       "address": 13344,
+                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                          "mask": 65535,
+                                                                     "max_value": 65535,
+                                                                      "shift_by": 0,
+                                                                        "suffix": "_KNOB_POS",
+                                                                          "type": "integer"
+                                                               } ]
+                                           },
+                             "FUG25A_OFF": {
+                                                          "category": "Radio",
+                                                      "control_type": "selector",
+                                                       "description": "FuG25a Off",
+                                                        "identifier": "FUG25A_OFF",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 1
+                                                                      }, {
+                                                                             "argument": "TOGGLE",
+                                                                          "description": "Toggle switch state",
+                                                                            "interface": "action"
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 13352,
+                                                                          "description": "selector position",
+                                                                                 "mask": 2048,
+                                                                            "max_value": 1,
+                                                                             "shift_by": 11,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "limited_rotary"
+                                           },
+                              "FUG25A_ON": {
+                                                          "category": "Radio",
+                                                      "control_type": "selector",
+                                                       "description": "FuG25a On",
+                                                        "identifier": "FUG25A_ON",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 1
+                                                                      }, {
+                                                                             "argument": "TOGGLE",
+                                                                          "description": "Toggle switch state",
+                                                                            "interface": "action"
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 13352,
+                                                                          "description": "selector position",
+                                                                                 "mask": 1024,
+                                                                            "max_value": 1,
+                                                                             "shift_by": 10,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "limited_rotary"
+                                           },
+                             "FUG25_MODE": {
+                                                          "category": "Radio",
+                                                      "control_type": "selector",
+                                                       "description": "FuG 25A IFF Channel Selector",
+                                                        "identifier": "FUG25_MODE",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 2
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 13358,
+                                                                          "description": "selector position",
+                                                                                 "mask": 192,
+                                                                            "max_value": 2,
+                                                                             "shift_by": 6,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "limited_rotary"
+                                           },
+                             "FUG25_TEST": {
+                                                          "category": "Radio",
+                                                      "control_type": "selector",
+                                                       "description": "IFF Check",
+                                                        "identifier": "FUG25_TEST",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 1
+                                                                      }, {
+                                                                             "argument": "TOGGLE",
+                                                                          "description": "Toggle switch state",
+                                                                            "interface": "action"
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 13332,
+                                                                          "description": "selector position",
+                                                                                 "mask": 256,
+                                                                            "max_value": 1,
+                                                                             "shift_by": 8,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "limited_rotary"
+                                           },
+                             "RADIO_MODE": {
+                                                          "category": "Radio",
+                                                      "control_type": "selector",
+                                                       "description": "FuG 16ZY Radio Channel Selector",
+                                                        "identifier": "RADIO_MODE",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 3
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 13358,
+                                                                          "description": "selector position",
+                                                                                 "mask": 48,
+                                                                            "max_value": 3,
+                                                                             "shift_by": 4,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "limited_rotary"
+                                           }
+                       },
+     "Weapon Control": {
+                              "BMB_FUSE_SEL": {
+                                                             "category": "Weapon Control",
+                                                         "control_type": "selector",
+                                                          "description": "Bomb Fusing Selector",
+                                                           "identifier": "BMB_FUSE_SEL",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 4
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 13358,
+                                                                             "description": "selector position",
+                                                                                    "mask": 14,
+                                                                               "max_value": 4,
+                                                                                "shift_by": 1,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "limited_rotary"
+                                              },
+                                "GUN1_AMM_C": {
+                                                   "api_variant": "multiturn",
+                                                      "category": "Weapon Control",
+                                                  "control_type": "analog_dial",
+                                                   "description": "Set Gun 1 Ammunition Count",
+                                                    "identifier": "GUN1_AMM_C",
+                                                        "inputs": [ {
+                                                                         "description": "turn the dial left or right",
+                                                                           "interface": "variable_step",
+                                                                           "max_value": 65535,
+                                                                      "suggested_step": 3200
+                                                                  } ],
+                                                       "outputs": [ {
+                                                                          "address": 13324,
+                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                             "mask": 65535,
+                                                                        "max_value": 65535,
+                                                                         "shift_by": 0,
+                                                                           "suffix": "_KNOB_POS",
+                                                                             "type": "integer"
+                                                                  } ]
+                                              },
+                                "GUN2_AMM_C": {
+                                                   "api_variant": "multiturn",
+                                                      "category": "Weapon Control",
+                                                  "control_type": "analog_dial",
+                                                   "description": "Set Gun 2 Ammunition Count",
+                                                    "identifier": "GUN2_AMM_C",
+                                                        "inputs": [ {
+                                                                         "description": "turn the dial left or right",
+                                                                           "interface": "variable_step",
+                                                                           "max_value": 65535,
+                                                                      "suggested_step": 3200
+                                                                  } ],
+                                                       "outputs": [ {
+                                                                          "address": 13326,
+                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                             "mask": 65535,
+                                                                        "max_value": 65535,
+                                                                         "shift_by": 0,
+                                                                           "suffix": "_KNOB_POS",
+                                                                             "type": "integer"
+                                                                  } ]
+                                              },
+                                "GUN3_AMM_C": {
+                                                   "api_variant": "multiturn",
+                                                      "category": "Weapon Control",
+                                                  "control_type": "analog_dial",
+                                                   "description": "Set Gun 3 Ammunition Count",
+                                                    "identifier": "GUN3_AMM_C",
+                                                        "inputs": [ {
+                                                                         "description": "turn the dial left or right",
+                                                                           "interface": "variable_step",
+                                                                           "max_value": 65535,
+                                                                      "suggested_step": 3200
+                                                                  } ],
+                                                       "outputs": [ {
+                                                                          "address": 13328,
+                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                             "mask": 65535,
+                                                                        "max_value": 65535,
+                                                                         "shift_by": 0,
+                                                                           "suffix": "_KNOB_POS",
+                                                                             "type": "integer"
+                                                                  } ]
+                                              },
+                                "GUN4_AMM_C": {
+                                                   "api_variant": "multiturn",
+                                                      "category": "Weapon Control",
+                                                  "control_type": "analog_dial",
+                                                   "description": "Set Gun 4 Ammunition Count",
+                                                    "identifier": "GUN4_AMM_C",
+                                                        "inputs": [ {
+                                                                         "description": "turn the dial left or right",
+                                                                           "interface": "variable_step",
+                                                                           "max_value": 65535,
+                                                                      "suggested_step": 3200
+                                                                  } ],
+                                                       "outputs": [ {
+                                                                          "address": 13330,
+                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                             "mask": 65535,
+                                                                        "max_value": 65535,
+                                                                         "shift_by": 0,
+                                                                           "suffix": "_KNOB_POS",
+                                                                             "type": "integer"
+                                                                  } ]
+                                              },
+                                  "MAIN_RKT": {
+                                                             "category": "Weapon Control",
+                                                         "control_type": "selector",
+                                                          "description": "Main Rocket Switch",
+                                                           "identifier": "MAIN_RKT",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 13332,
+                                                                             "description": "selector position",
+                                                                                    "mask": 1,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "limited_rotary"
+                                              },
+                                "MASTER_ARM": {
+                                                             "category": "Weapon Control",
+                                                         "control_type": "selector",
+                                                          "description": "Master Arm",
+                                                           "identifier": "MASTER_ARM",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 13314,
+                                                                             "description": "selector position",
+                                                                                    "mask": 32768,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 15,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "limited_rotary"
+                                              },
+                               "RKT_EMG_REL": {
+                                                             "category": "Weapon Control",
+                                                         "control_type": "selector",
+                                                          "description": "Rocket Emergency Release",
+                                                           "identifier": "RKT_EMG_REL",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 13332,
+                                                                             "description": "selector position",
+                                                                                    "mask": 4,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 2,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "limited_rotary"
+                                              },
+                           "RKT_EMG_REL_CVR": {
+                                                             "category": "Weapon Control",
+                                                         "control_type": "selector",
+                                                          "description": "Rocket Emergency Release Cover",
+                                                           "identifier": "RKT_EMG_REL_CVR",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 13332,
+                                                                             "description": "selector position",
+                                                                                    "mask": 2,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 1,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "limited_rotary"
+                                              }
                        }
 }
