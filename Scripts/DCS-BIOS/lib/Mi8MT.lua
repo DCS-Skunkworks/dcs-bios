@@ -655,8 +655,6 @@ local function getR863Frequency()
 	return  freq1 .. freq2 .. "." .. freq3 .. freq4
 end
 
-defineString("R863_FREQ", getR863Frequency, 7, "R-863", "R863, Frequency")
-
 
 
 defineTumb("R828_PRST_CHAN_SEL", 39, start_command + 1, 735, 0.1, {0, 0.9}, nil, false, "R-828", "R-828, Radio Channel Selector Knob")
@@ -1031,6 +1029,8 @@ defineFloat("RIGHTPLAFOND", 665, {0.0, 1.0}, "Indicator", "RightPlafond")
 defineFloat("RECORDERP503B_PANELLIGHTNESS", 920, {1.0, 0.0}, "Indicator", "RecorderP503B_PanelLightness")
 defineFloat("WINDSCREENWIPERL", 254, {0.0, 1.0}, "Indicator", "WindscreenWiperL")
 defineFloat("WINDSCREENWIPERR", 255, {0.0, 1.0}, "Indicator", "WindscreenWiperR")
+
+defineString("R863_FREQ", getR863Frequency, 7, "R-863", "R863, Frequency")
 
 
 
