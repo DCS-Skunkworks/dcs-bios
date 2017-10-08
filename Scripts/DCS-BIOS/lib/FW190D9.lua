@@ -61,7 +61,9 @@ defineRotary("SIGHT_ALT_KNOB",21, 3012, 191, "Gun Sight", "EZ42 Gunsight Altitud
 defineRotary("INSTR_LGHT_CTRL",7, 3001, 78, "Cockpit", "Instrument Lights Brightness")
 defineRotary("FUG16_VOLUME",15, 3003, 83, "Radio", "Radio Volume")
 defineTumb("FT_ZF_SWITCH",15, 3006,84, 1, {0,1}, nil, false, "Radio", "FT FT / Y ZF Mode Switch")
-defineFixedStepTumb("FUG16_TUNING", 15, 3008, 82, 0.01, {-1, 1}, {-0.01, 0.01}, nil,"Radio", "Radio Tuning (+/-30 kHz)") 
+-- a defineRotary() for FUG16_TUNING was removed in a previous commit at this location.
+-- Allocate 16 bits of address space to avoid changing the address of subsequent allocations:
+local dummyAlloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 65535 }
 defineTumb("OXY_EMG_KNOB",4, 3001,190, 1, {0,1}, nil, false, "Cockpit", "Oxygen Emergency Knob")
 defineTumb("FUG25_TEST",16, 3003,88, 1, {0,1}, nil, false, "Radio", "IFF Check")
 definePotentiometer("HOR_CAGE",12,3001, 39,{0.511, 1.0},"Cockpit", "Horizon Cage")
@@ -188,5 +190,6 @@ defineFloat("ADF_HORIZONT", 30, {-1.0, 1.0}, "Indicator", "ADF_Horizont")
 defineFloat("WINDSHIELDDAMAGE", 209, {0.0, 1.0}, "Indicator", "WindshieldDamage")
 defineFloat("CANOPYDAMAGE", 210, {0.0, 1.0}, "Indicator", "CanopyDamage")
 
+defineFixedStepTumb("FUG16_TUNING", 15, 3008, 82, 0.01, {-1, 1}, {-0.01, 0.01}, nil,"Radio", "Radio Tuning (+/-30 kHz)")
 
 BIOS.protocol.endModule()
