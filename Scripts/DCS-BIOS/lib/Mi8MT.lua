@@ -452,8 +452,8 @@ defineTumb("CPIT_AIR_R_FAN",17, start_command + 21, 488, 1, {0,1}, nil, false, "
 
 --################################################ ###########################################
 
-defineTumb("ARC9",40, start_command + 11, 469, 1, {0,1}, nil, false, "ARC-9", "ARC-9, Dialer Switch, MAIN/BACKUP")
-defineTumb("ARC9",40, start_command + 2, 444, 1, {0,1}, nil, false, "ARC-9", "ARC-9, TLF/TLG Switch")
+defineTumb("ARC9_MAIN_BACKUP",40, start_command + 11, 469, 1, {0,1}, nil, false, "ARC-9", "ARC-9, Dialer Switch, MAIN/BACKUP")
+defineTumb("ARC9_TLF_TLG",40, start_command + 2, 444, 1, {0,1}, nil, false, "ARC-9", "ARC-9, TLF/TLG Switch")
 
 --################################################ ###########################################
 
