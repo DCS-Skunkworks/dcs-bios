@@ -232,235 +232,264 @@
                                                           }
                                     },
                            "ARC-9": {
-                                                   "ARC9": {
-                                                                          "category": "ARC-9",
-                                                                      "control_type": "selector",
-                                                                       "description": "ARC-9, TLF/TLG Switch",
-                                                                        "identifier": "ARC9",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 9790,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 1024,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 10,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "limited_rotary"
-                                                           },
-                                          "ARC9_BCK_TUNE": {
-                                                                   "category": "ARC-9",
-                                                               "control_type": "limited_dial",
-                                                                "description": "ARC-9, Backup Frequency Tune Knob",
-                                                                 "identifier": "ARC9_BCK_TUNE",
-                                                                     "inputs": [ {
-                                                                                   "description": "set the position of the dial",
-                                                                                     "interface": "set_state",
-                                                                                     "max_value": 65535
-                                                                               }, {
-                                                                                      "description": "turn the dial left or right",
-                                                                                        "interface": "variable_step",
-                                                                                        "max_value": 65535,
-                                                                                   "suggested_step": 3200
-                                                                               } ],
-                                                                    "outputs": [ {
-                                                                                       "address": 9840,
-                                                                                   "description": "position of the potentiometer",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                         "ARC9_MAIN_TUNE": {
-                                                                   "category": "ARC-9",
-                                                               "control_type": "limited_dial",
-                                                                "description": "ARC-9, Main Frequency Tune Knob",
-                                                                 "identifier": "ARC9_MAIN_TUNE",
-                                                                     "inputs": [ {
-                                                                                   "description": "set the position of the dial",
-                                                                                     "interface": "set_state",
-                                                                                     "max_value": 65535
-                                                                               }, {
-                                                                                      "description": "turn the dial left or right",
-                                                                                        "interface": "variable_step",
-                                                                                        "max_value": 65535,
-                                                                                   "suggested_step": 3200
-                                                                               } ],
-                                                                    "outputs": [ {
-                                                                                       "address": 9842,
-                                                                                   "description": "position of the potentiometer",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                              "ARC9_MODE": {
-                                                                          "category": "ARC-9",
-                                                                      "control_type": "selector",
-                                                                       "description": "ARC-9, Mode Selector Switch, OFF/COMP/ANT/LOOP",
-                                                                        "identifier": "ARC9_MODE",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 3
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 9814,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 768,
-                                                                                            "max_value": 3,
-                                                                                             "shift_by": 8,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "limited_rotary"
-                                                           },
-                                             "ARC_9_LOOP": {
-                                                                          "category": "ARC-9",
-                                                                      "control_type": "selector",
-                                                                       "description": "ARC-9, Loop Control Switch, LEFT/OFF/RIGHT",
-                                                                        "identifier": "ARC_9_LOOP",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 2
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 9888,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 192,
-                                                                                            "max_value": 2,
-                                                                                             "shift_by": 6,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "limited_rotary"
-                                                           },
-                                         "ARC_BCK_100KHZ": {
-                                                                          "category": "ARC-9",
-                                                                      "control_type": "selector",
-                                                                       "description": "ARC-9, Backup 100kHz Rotary Knob",
-                                                                        "identifier": "ARC_BCK_100KHZ",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 11
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 9888,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 3840,
-                                                                                            "max_value": 11,
-                                                                                             "shift_by": 8,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "limited_rotary"
-                                                           },
-                                          "ARC_BCK_10KHZ": {
-                                                                          "category": "ARC-9",
-                                                                      "control_type": "selector",
-                                                                       "description": "ARC-9, Backup 10kHz Rotary Knob",
-                                                                        "identifier": "ARC_BCK_10KHZ",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 9
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 9888,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 61440,
-                                                                                            "max_value": 9,
-                                                                                             "shift_by": 12,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "limited_rotary"
-                                                           },
-                                        "ARC_MAIN_100KHZ": {
-                                                                          "category": "ARC-9",
-                                                                      "control_type": "selector",
-                                                                       "description": "ARC-9, Main 100kHz Rotary Knob",
-                                                                        "identifier": "ARC_MAIN_100KHZ",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 11
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 9890,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 15,
-                                                                                            "max_value": 11,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "limited_rotary"
-                                                           },
-                                         "ARC_MAIN_10KHZ": {
-                                                                          "category": "ARC-9",
-                                                                      "control_type": "selector",
-                                                                       "description": "ARC-9, Main 10kHz Rotary Knob",
-                                                                        "identifier": "ARC_MAIN_10KHZ",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 9
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 9890,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 240,
-                                                                                            "max_value": 9,
-                                                                                             "shift_by": 4,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "limited_rotary"
-                                                           }
+                                           "ARC9_BCK_TUNE": {
+                                                                    "category": "ARC-9",
+                                                                "control_type": "limited_dial",
+                                                                 "description": "ARC-9, Backup Frequency Tune Knob",
+                                                                  "identifier": "ARC9_BCK_TUNE",
+                                                                      "inputs": [ {
+                                                                                    "description": "set the position of the dial",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 65535
+                                                                                }, {
+                                                                                       "description": "turn the dial left or right",
+                                                                                         "interface": "variable_step",
+                                                                                         "max_value": 65535,
+                                                                                    "suggested_step": 3200
+                                                                                } ],
+                                                                     "outputs": [ {
+                                                                                        "address": 9840,
+                                                                                    "description": "position of the potentiometer",
+                                                                                           "mask": 65535,
+                                                                                      "max_value": 65535,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                        "ARC9_MAIN_BACKUP": {
+                                                                           "category": "ARC-9",
+                                                                       "control_type": "selector",
+                                                                        "description": "ARC-9, Dialer Switch, MAIN/BACKUP",
+                                                                         "identifier": "ARC9_MAIN_BACKUP",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
+                                                                                              "argument": "TOGGLE",
+                                                                                           "description": "Toggle switch state",
+                                                                                             "interface": "action"
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 9790,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 512,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 9,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "limited_rotary"
+                                                            },
+                                          "ARC9_MAIN_TUNE": {
+                                                                    "category": "ARC-9",
+                                                                "control_type": "limited_dial",
+                                                                 "description": "ARC-9, Main Frequency Tune Knob",
+                                                                  "identifier": "ARC9_MAIN_TUNE",
+                                                                      "inputs": [ {
+                                                                                    "description": "set the position of the dial",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 65535
+                                                                                }, {
+                                                                                       "description": "turn the dial left or right",
+                                                                                         "interface": "variable_step",
+                                                                                         "max_value": 65535,
+                                                                                    "suggested_step": 3200
+                                                                                } ],
+                                                                     "outputs": [ {
+                                                                                        "address": 9842,
+                                                                                    "description": "position of the potentiometer",
+                                                                                           "mask": 65535,
+                                                                                      "max_value": 65535,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                               "ARC9_MODE": {
+                                                                           "category": "ARC-9",
+                                                                       "control_type": "selector",
+                                                                        "description": "ARC-9, Mode Selector Switch, OFF/COMP/ANT/LOOP",
+                                                                         "identifier": "ARC9_MODE",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 3
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 9814,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 768,
+                                                                                             "max_value": 3,
+                                                                                              "shift_by": 8,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "limited_rotary"
+                                                            },
+                                            "ARC9_TLF_TLG": {
+                                                                           "category": "ARC-9",
+                                                                       "control_type": "selector",
+                                                                        "description": "ARC-9, TLF/TLG Switch",
+                                                                         "identifier": "ARC9_TLF_TLG",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
+                                                                                              "argument": "TOGGLE",
+                                                                                           "description": "Toggle switch state",
+                                                                                             "interface": "action"
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 9790,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 1024,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 10,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "limited_rotary"
+                                                            },
+                                              "ARC_9_LOOP": {
+                                                                           "category": "ARC-9",
+                                                                       "control_type": "selector",
+                                                                        "description": "ARC-9, Loop Control Switch, LEFT/OFF/RIGHT",
+                                                                         "identifier": "ARC_9_LOOP",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 2
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 9888,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 192,
+                                                                                             "max_value": 2,
+                                                                                              "shift_by": 6,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "limited_rotary"
+                                                            },
+                                          "ARC_BCK_100KHZ": {
+                                                                           "category": "ARC-9",
+                                                                       "control_type": "selector",
+                                                                        "description": "ARC-9, Backup 100kHz Rotary Knob",
+                                                                         "identifier": "ARC_BCK_100KHZ",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 11
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 9888,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 3840,
+                                                                                             "max_value": 11,
+                                                                                              "shift_by": 8,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "limited_rotary"
+                                                            },
+                                           "ARC_BCK_10KHZ": {
+                                                                           "category": "ARC-9",
+                                                                       "control_type": "selector",
+                                                                        "description": "ARC-9, Backup 10kHz Rotary Knob",
+                                                                         "identifier": "ARC_BCK_10KHZ",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 9
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 9888,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 61440,
+                                                                                             "max_value": 9,
+                                                                                              "shift_by": 12,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "limited_rotary"
+                                                            },
+                                         "ARC_MAIN_100KHZ": {
+                                                                           "category": "ARC-9",
+                                                                       "control_type": "selector",
+                                                                        "description": "ARC-9, Main 100kHz Rotary Knob",
+                                                                         "identifier": "ARC_MAIN_100KHZ",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 11
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 9890,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 15,
+                                                                                             "max_value": 11,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "limited_rotary"
+                                                            },
+                                          "ARC_MAIN_10KHZ": {
+                                                                           "category": "ARC-9",
+                                                                       "control_type": "selector",
+                                                                        "description": "ARC-9, Main 10kHz Rotary Knob",
+                                                                         "identifier": "ARC_MAIN_10KHZ",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 9
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 9890,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 240,
+                                                                                             "max_value": 9,
+                                                                                              "shift_by": 4,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "limited_rotary"
+                                                            }
                                     },
                           "ARC-UD": {
                                           "ARCUD_CHL": {
