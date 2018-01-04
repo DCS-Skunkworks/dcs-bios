@@ -231,7 +231,7 @@ defineIndicatorLight("HYDRA_TA_1", 420, "Error Panel", "Hydraulic System 1 Press
 defineIndicatorLight("AFK_FEL", 421, "Error Panel", "Autothrottle")
 defineIndicatorLight("EJ_REV", 422, "Error Panel", "Thrust Reverser Inoperable")
 defineIndicatorLight("OLJETRYCK", 423, "Error Panel", "Oil Pressure")
-defineIndicatorLight("SPAK", 424, "Error Panel", "SPAK")
+defineIndicatorLight("SPAK_ERROR", 424, "Error Panel", "SPAK Error")
 defineIndicatorLight("HALL_FUNK", 425, "Error Panel", "Autopilot Hold")
 defineIndicatorLight("RHM_FEL", 426, "Error Panel", "Radar Altimeter")
 defineIndicatorLight("ROLL_VAXEL", 427, "Error Panel", "Roll Gearing")
@@ -258,37 +258,37 @@ local function getRPM()
      local returnValue = ((GetDevice(0):get_argument_value(139))*55+55)
      return returnValue
 end
-defineIntegerFromGetter("ENGINE_RPM", getRPM, 65000, "Gauge Values", "Engine RPM")
+defineIntegerFromGetter("ENGINE_RPM_VALUE", getRPM, 65000, "Gauge Values", "Engine RPM Value")
 
 local function getEngineTemp()
      local returnValue = ((GetDevice(0):get_argument_value(146))*700+100)
      return returnValue
 end
-defineIntegerFromGetter("ENGINE_TEMP", getEngineTemp, 65000, "Gauge Values", "Engine Temp")
+defineIntegerFromGetter("ENGINE_TEMP_VALUE", getEngineTemp, 65000, "Gauge Values", "Engine Temp Value")
 
 local function getAirspeed()
      local returnValue = ((-707.23*(GetDevice(0):get_argument_value(100))^4)+(1843.8*(GetDevice(0):get_argument_value(100))^3)-(647.84*(GetDevice(0):get_argument_value(100))^2)+(810.63*(GetDevice(0):get_argument_value(100)))+100.03)
      return returnValue
 end
-defineIntegerFromGetter("Airspeed", getAirspeed, 65000, "Gauge Values", "Airspeed")
+defineIntegerFromGetter("AIRSPEED_VALUE", getAirspeed, 65000, "Gauge Values", "Airspeed Value")
 
 local function getAlt()
      local returnValue = ((GetDevice(0):get_argument_value(114))*10000)
      return returnValue
 end
-defineIntegerFromGetter("ALTITUDE", getAlt, 65000, "Gauge Values", "Altitude Meters")
+defineIntegerFromGetter("ALTITUDE_VALUE", getAlt, 65000, "Gauge Values", "Altitude Value")
 
 local function getFuelLev()
      local returnValue = ((GetDevice(0):get_argument_value(144))*135)
      return returnValue
 end
-defineIntegerFromGetter("FUEL_LEVEL", getFuelLev, 65000, "Gauge Values", "Fuel Level")
+defineIntegerFromGetter("FUEL_LEVEL_VALUE", getFuelLev, 65000, "Gauge Values", "Fuel Level Value")
 
 local function getFuelNeed()
      local returnValue = ((GetDevice(0):get_argument_value(145))*135)
      return returnValue
 end
-defineIntegerFromGetter("FUEL_NEEDED", getFuelNeed, 65000, "Gauge Values", "Fuel Needed")
+defineIntegerFromGetter("FUEL_NEEDED_VALUE", getFuelNeed, 65000, "Gauge Values", "Fuel Needed Value")
 
 local function getCIHDG()
 	 local heading = 0
@@ -299,7 +299,7 @@ local function getCIHDG()
 	 end
      return heading
 end
-defineIntegerFromGetter("CI_HEADING", getCIHDG, 65000, "Gauge Values", "CI Heading")
+defineIntegerFromGetter("CI_HEADING_VALUE", getCIHDG, 65000, "Gauge Values", "CI Heading Value")
 
 local function getCICMDHDG()
      local returnValue = ((GetDevice(0):get_argument_value(129)) * 360)
