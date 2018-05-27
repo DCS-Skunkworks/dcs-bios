@@ -1,5 +1,5 @@
-BIOS.protocol.beginModule("SA342Mistral", 0x6600)
-BIOS.protocol.setExportModuleAircrafts({"SA342Mistral"})
+BIOS.protocol.beginModule("SA342Minigun", 0x7000)
+BIOS.protocol.setExportModuleAircrafts({"SA342Minigun"})
 
 local documentation = moduleBeingDefined.documentation
 

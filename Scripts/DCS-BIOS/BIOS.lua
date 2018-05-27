@@ -35,6 +35,7 @@ dofile(lfs.writedir()..[[scripts\dcs-bios\lib\AJS37.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\SA342M.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\SA342L.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\SA342Mistral.lua]])
+dofile(lfs.writedir()..[[scripts\dcs-bios\lib\SA342Minigun.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\SpitfireLFMkIX.lua]])
 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])

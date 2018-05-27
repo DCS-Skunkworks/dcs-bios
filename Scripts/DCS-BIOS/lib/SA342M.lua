@@ -44,10 +44,15 @@ definePushButton("REARM_GENE", 2, 3015, 67, "Electric System", "Gene Rearm")
 defineToggleSwitch("CONVOY_TANK", 2, 3016, 63, "Electric System", "Convoy Tank On/Off")
 defineToggleSwitch("SAND_FILTER", 2, 3017, 64, "Electric System", "Sand Filter On/Off")
 
---[[--Intercom--]]--
-defineRotary("VHF_AM_RADIO_VOLUME", 4, 3001, 68, "Intercom", "VHF AM Radio Volume")
-defineRotary("FM_RADIO_VOLUME", 4, 3002, 70, "Intercom", "FM Radio Volume")
-defineRotary("UHF_RADIO_VOLUME", 4, 3003, 69, "Intercom", "UHF Radio Volume")
+--[[--Intercom Pilot--]]--
+defineRotary("VHF_AM_RADIO_VOLUME_1", 4, 3001, 68, "Intercom", "VHF AM Radio Volume 1")
+defineRotary("FM_RADIO_VOLUME_1", 4, 3002, 70, "Intercom", "FM Radio Volume 1")
+defineRotary("UHF_RADIO_VOLUME_1", 4, 3003, 69, "Intercom", "UHF Radio Volume 1")
+
+--[[--Intercom Copilot--]]--
+defineRotary("VHF_AM_RADIO_VOLUME_2", 4, 3031, 79, "Intercom", "VHF AM Radio Volume 2")
+defineRotary("FM_RADIO_VOLUME_2", 4, 3032, 81, "Intercom", "FM Radio Volume 2")
+defineRotary("UHF_RADIO_VOLUME_2", 4, 3033, 80, "Intercom", "UHF Radio Volume 2")
 
 --[[--AM Radio--]]--
 defineTumb("AM_RADIO_SELECTOR", 5, 3001, 128, 0.33, {0, 1}, nil, false, "AM Radio", "AM Radio Selector")
