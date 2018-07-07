@@ -248,11 +248,11 @@ docdata["FW-190D9"] =
                                                                          } ],
                                                      "physical_variant": "limited_rotary"
                                               },
-                                  "FLAPS_UP": {
+                           "FLAPS_UP_TOGGLE": {
                                                              "category": "Cockpit",
                                                          "control_type": "selector",
                                                           "description": "Flaps Up",
-                                                           "identifier": "FLAPS_UP",
+                                                           "identifier": "FLAPS_UP_TOGGLE",
                                                                "inputs": [ {
                                                                              "description": "switch to previous or next state",
                                                                                "interface": "fixed_step"
@@ -1738,7 +1738,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "ADF_HORIZONT",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13488,
+                                                                              "address": 13482,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -1754,7 +1754,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "ADF_VERTICAL",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13486,
+                                                                              "address": 13480,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -1818,7 +1818,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "AMMO_COUNTER_1",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13450,
+                                                                              "address": 13444,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -1834,7 +1834,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "AMMO_COUNTER_2",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13452,
+                                                                              "address": 13446,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -1850,7 +1850,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "AMMO_COUNTER_3",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13454,
+                                                                              "address": 13448,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -1866,7 +1866,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "AMMO_COUNTER_4",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13456,
+                                                                              "address": 13450,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -1882,7 +1882,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "BOMB_LAMP_1",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13468,
+                                                                              "address": 13462,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -1898,7 +1898,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "BOMB_LAMP_2",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13470,
+                                                                              "address": 13464,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -1914,7 +1914,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "BOMB_LAMP_3",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13472,
+                                                                              "address": 13466,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -1930,7 +1930,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "BOMB_LAMP_4",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13474,
+                                                                              "address": 13468,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -1946,7 +1946,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "B_1_KNOPF",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13478,
+                                                                              "address": 13472,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -1962,7 +1962,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "B_2_KNOPF",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13480,
+                                                                              "address": 13474,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -1994,7 +1994,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "CANOPYDAMAGE",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13492,
+                                                                              "address": 13486,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2026,7 +2026,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "CHRONO_MINUTES",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13448,
+                                                                              "address": 13442,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2090,7 +2090,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "COVER_KNOPF",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13482,
+                                                                              "address": 13476,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2106,7 +2106,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "CURRTIME_HOURS",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13442,
+                                                                              "address": 13436,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2122,7 +2122,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "CURRTIME_MINUTES",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13444,
+                                                                              "address": 13438,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2138,7 +2138,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "CURRTIME_SECONDS",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13446,
+                                                                              "address": 13440,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2186,7 +2186,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "FLUOR_LIGHT",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13438,
+                                                                              "address": 13432,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2202,7 +2202,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "FUELMETER",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13432,
+                                                                              "address": 13430,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2213,32 +2213,32 @@ docdata["FW-190D9"] =
                                                   },
                                   "FUEL_LOW_FWD": {
                                                           "category": "Indicator",
-                                                      "control_type": "analog_gauge",
+                                                      "control_type": "led",
                                                        "description": "Fuel_Low_Fwd",
                                                         "identifier": "FUEL_LOW_FWD",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13434,
-                                                                          "description": "gauge position",
-                                                                                 "mask": 65535,
-                                                                            "max_value": 65535,
-                                                                             "shift_by": 0,
+                                                                              "address": 13360,
+                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                 "mask": 8,
+                                                                            "max_value": 1,
+                                                                             "shift_by": 3,
                                                                                "suffix": "",
                                                                                  "type": "integer"
                                                                       } ]
                                                   },
                                  "FUEL_LOW_REAR": {
                                                           "category": "Indicator",
-                                                      "control_type": "analog_gauge",
+                                                      "control_type": "led",
                                                        "description": "Fuel_Low_Rear",
                                                         "identifier": "FUEL_LOW_REAR",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13436,
-                                                                          "description": "gauge position",
-                                                                                 "mask": 65535,
-                                                                            "max_value": 65535,
-                                                                             "shift_by": 0,
+                                                                              "address": 13360,
+                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                 "mask": 16,
+                                                                            "max_value": 1,
+                                                                             "shift_by": 4,
                                                                                "suffix": "",
                                                                                  "type": "integer"
                                                                       } ]
@@ -2266,7 +2266,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "GUN_FIRE_1",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13458,
+                                                                              "address": 13452,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2282,7 +2282,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "GUN_FIRE_2",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13460,
+                                                                              "address": 13454,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2298,7 +2298,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "GUN_FIRE_3",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13462,
+                                                                              "address": 13456,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2314,7 +2314,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "GUN_FIRE_4",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13464,
+                                                                              "address": 13458,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2538,7 +2538,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "PILOT_DRAW",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13440,
+                                                                              "address": 13434,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2554,7 +2554,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "ROCKETEMCVR",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13476,
+                                                                              "address": 13470,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2666,7 +2666,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "TARGETDIST",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13466,
+                                                                              "address": 13460,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2682,7 +2682,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "TRIMMNEEDLE",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13484,
+                                                                              "address": 13478,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -2746,7 +2746,7 @@ docdata["FW-190D9"] =
                                                         "identifier": "WINDSHIELDDAMAGE",
                                                             "inputs": [  ],
                                                            "outputs": [ {
-                                                                              "address": 13490,
+                                                                              "address": 13484,
                                                                           "description": "gauge position",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
@@ -3035,9 +3035,9 @@ docdata["FW-190D9"] =
                                                            "outputs": [ {
                                                                               "address": 13360,
                                                                           "description": "selector position",
-                                                                                 "mask": 2040,
+                                                                                 "mask": 8160,
                                                                             "max_value": 200,
-                                                                             "shift_by": 3,
+                                                                             "shift_by": 5,
                                                                                "suffix": "",
                                                                                  "type": "integer"
                                                                       } ],
