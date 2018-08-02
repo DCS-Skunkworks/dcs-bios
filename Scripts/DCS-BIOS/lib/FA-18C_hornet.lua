@@ -287,10 +287,10 @@ defineIndicatorLight("AOA_INDEXER_HIGH", 4, "Angle of Attack Indexer Lights", "A
 defineIndicatorLight("AOA_INDEXER_NORMAL", 5, "Angle of Attack Indexer Lights", "AOA Indexer Normal")
 defineIndicatorLight("AOA_INDEXER_LOW", 6, "Angle of Attack Indexer Lights", "AOA Indexer Low")
 
--- 4. Left Engine Fire Warning/Extinguisher Light
-defineIndicatorLight("FIRE_LEFT_LT", 10, "Left Engine Fire Warning/Extinguisher Light", "FIRE LEFT")
-definePushButton("LEFT_FIRE_BTN", 12, 3010, 11, "Left Engine Fire Warning/Extinguisher Light", "Left Engine/AMAD Fire Warning/Extinguisher Light")
-defineToggleSwitch("LEFT_FIRE_BTN_COVER", 12, 3012, 12, "Left Engine Fire Warning/Extinguisher Light", "Left Engine/AMAD Fire Warning Cover")
+-- 4. Left Engine Fire Warning Extinguisher Light
+defineIndicatorLight("FIRE_LEFT_LT", 10, "Left Engine Fire Warning Extinguisher Light", "FIRE LEFT")
+definePushButton("LEFT_FIRE_BTN", 12, 3010, 11, "Left Engine Fire Warning Extinguisher Light", "Left Engine/AMAD Fire Warning Extinguisher Light")
+defineToggleSwitch("LEFT_FIRE_BTN_COVER", 12, 3012, 12, "Left Engine Fire Warning Extinguisher Light", "Left Engine/AMAD Fire Warning Cover")
 
 -- 5. Master Caution Light
 defineIndicatorLight("MASTER_CAUTION_LT", 13, "Master Caution Light", "MASTER CAUTION")
@@ -327,12 +327,12 @@ defineIndicatorLight("RH_ADV_SPARE_RH5", 37, "RH Advisory Panel", "SPARE RH5")
 
 -- 9. APU Fire Warning / Extinguisher Light
 defineIndicatorLight("FIRE_APU_LT", 29, "APU Fire Warning / Extinguisher Light", "FIRE APU")
-definePushButton("APU_FIRE_BTN", 12, 3009, 30, "APU Fire Warning / Extinguisher Light", "APU Fire Warning/Extinguisher Light")
+definePushButton("APU_FIRE_BTN", 12, 3009, 30, "APU Fire Warning / Extinguisher Light", "APU Fire Warning Extinguisher Light")
 
--- 10. Right Engine Fire Warning/Extinguisher Light
-defineIndicatorLight("FIRE_RIGHT_LT", 26, " Right Engine Fire Warning/Extinguisher Light", "FIRE RIGHT")
-definePushButton("RIGHT_FIRE_BTN", 12, 3011, 27, " Right Engine Fire Warning/Extinguisher Light", "Right Engine/AMAD Fire Warning/Extinguisher Light")
-defineToggleSwitch("RIGHT_FIRE_BTN_COVER", 12, 3013, 28, " Right Engine Fire Warning/Extinguisher Light", "Right Engine/AMAD Fire Warning Cover")
+-- 10. Right Engine Fire Warning Extinguisher Light
+defineIndicatorLight("FIRE_RIGHT_LT", 26, " Right Engine Fire Warning Extinguisher Light", "FIRE RIGHT")
+definePushButton("RIGHT_FIRE_BTN", 12, 3011, 27, " Right Engine Fire Warning Extinguisher Light", "Right Engine/AMAD Fire Warning Extinguisher Light")
+defineToggleSwitch("RIGHT_FIRE_BTN_COVER", 12, 3013, 28, " Right Engine Fire Warning Extinguisher Light", "Right Engine/AMAD Fire Warning Cover")
 
 -- 11. Canopy Internal Jettison Handle
 defineToggleSwitch("CANOPY_JETT_HANDLE_UNLOCK", 7, 3004, 43, "Canopy Internal Jettison Handle", "Canopy Jettison Handle Unlock Button - Press to unlock")

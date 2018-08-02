@@ -228,7 +228,7 @@ defineIndicatorLight("EmergConditioning_lamp", 17, "l-39 lamps","Clim secours")
 
 --- Anti icing syst
 defineIndicatorLight("FwdDefrost_lamp", 25, "l-39 lamps","Anti icing on")
-defineIndicatorLight("FwdIce_lamp	", 21, "l-39 lamps","Icing Warn")
+defineIndicatorLight("FwdIce_lamp", 21, "l-39 lamps","Icing Warn")
 defineIndicatorLight("RIO_HeatingOk_lamp", 182, "l-39 lamps","RIO Heating On")
 
 --- Hydrolics
