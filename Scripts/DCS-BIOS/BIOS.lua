@@ -39,6 +39,7 @@ dofile(lfs.writedir()..[[scripts\dcs-bios\lib\SA342Minigun.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\SpitfireLFMkIX.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\M2000C.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\FA-18C_hornet.lua]])
+dofile(lfs.writedir()..[[scripts\dcs-bios\lib\F-5E.lua]])
 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 
