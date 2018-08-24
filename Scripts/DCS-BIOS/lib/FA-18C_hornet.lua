@@ -2,6 +2,11 @@
 -- Many thanks to Capt Zeen for the pointers on analog outputs and UFC/IFEI export
 -- And of course huge thanks to [FSF]Ian for writing DCS-BIOS in the first place
 
+
+-- Added new functions by Capt Zeen to get radios frecuencies and channels
+
+
+
 BIOS.protocol.beginModule("FA-18C_hornet", 0x7400)
 BIOS.protocol.setExportModuleAircrafts({"FA-18C_hornet"})
 
@@ -273,6 +278,124 @@ function defineFloatWithValueConversion(msg, arg_number, limits, input_range, ou
 end
 
 
+-- functions by Capt Zeen
+function defineFrequency(msg, id_device_number, category, description)
+	
+	local alloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 65535 }
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(freq)
+	local dato=GetDevice(id_device_number)
+	alloc:setValue(dato:get_frequency()/10000)
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "frequency",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = alloc.address,
+			  mask = alloc.mask,
+			  shift_by = alloc.shiftBy,
+			  max_value = 65535,
+			  description = "frequency"
+			}
+		}
+	}
+end
+
+
+function defineFloatFromUFCChannel(msg, _channel, category, description)
+	
+	
+		 
+	 
+	local alloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 65535 }
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	
+	local ufc = parse_indication(6)
+	UFC_Comm1Display = "  "
+	UFC_Comm2Display = "  "
+
+	
+			if not ufc then
+				return
+			end
+			UFC_Comm1Display 				= coerce_nil_to_string(ufc.UFC_Comm1Display)
+			UFC_Comm2Display 				= coerce_nil_to_string(ufc.UFC_Comm2Display)
+			local valor=1
+			local nuevo=""
+			if _channel==1 then
+				nuevo=UFC_Comm1Display 
+			else
+				nuevo=UFC_Comm2Display 
+			end
+
+			
+			if nuevo==" 1" then valor=1 
+			elseif nuevo==" 2" then valor=2 
+			elseif nuevo==" 3" then valor=3 
+			elseif nuevo==" 4" then valor=4 
+			elseif nuevo==" 5" then valor=5 
+			elseif nuevo==" 6" then valor=6 
+			elseif nuevo==" 7" then valor=7 
+			elseif nuevo==" 8" then valor=8 
+			elseif nuevo==" 9" then valor=9 
+			elseif nuevo=="`0" then valor=10 
+			elseif nuevo=="`1" then valor=11 
+			elseif nuevo=="`2" then valor=12 
+			elseif nuevo=="`3" then valor=13 
+			elseif nuevo=="`4" then valor=14 
+			elseif nuevo=="`5" then valor=15 
+			elseif nuevo=="`6" then valor=16 
+			elseif nuevo=="`7" then valor=17 
+			elseif nuevo=="`8" then valor=18 
+			elseif nuevo=="`9" then valor=19 
+			elseif nuevo=="~0" then valor=20
+			elseif nuevo=="G" then valor=21 
+			elseif nuevo=="M" then valor=22
+			elseif nuevo=="C" then valor=23
+			elseif nuevo=="S" then valor=24 
+			 end
+
+		 
+			alloc:setValue(valor)
+		end
+		
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "analog_gauge",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = alloc.address,
+			  mask = alloc.mask,
+			  shift_by = alloc.shiftBy,
+			  max_value = 65535,
+			  description = "gauge position"
+			}
+		}
+	}
+
+end
+
+
+-- end of functions adeed by Capt Zeen
+
+
+-- radio freqs: by Capt Zeen
+defineFrequency("COMM1_FREQ", 38, "Comms frequency", "COMM1 FREQ")
+defineFrequency("COMM2_FREQ", 39, "Comms frequency", "COMM2 FREQ")
+defineFloatFromUFCChannel("COMM1_CHANNEL_NUMERIC", 1, "Comms frequency", "Comm 1 Channel as number")   
+defineFloatFromUFCChannel("COMM2_CHANNEL_NUMERIC", 2, "Comms frequency", "Comm 2 Channel as number")   
+
+
+
+
 -- INSTRUMENT PANEL
 
 -- 1. Lock/Shoot Lights
@@ -287,10 +410,10 @@ defineIndicatorLight("AOA_INDEXER_HIGH", 4, "Angle of Attack Indexer Lights", "A
 defineIndicatorLight("AOA_INDEXER_NORMAL", 5, "Angle of Attack Indexer Lights", "AOA Indexer Normal")
 defineIndicatorLight("AOA_INDEXER_LOW", 6, "Angle of Attack Indexer Lights", "AOA Indexer Low")
 
--- 4. Left Engine Fire Warning Extinguisher Light
-defineIndicatorLight("FIRE_LEFT_LT", 10, "Left Engine Fire Warning Extinguisher Light", "FIRE LEFT")
-definePushButton("LEFT_FIRE_BTN", 12, 3010, 11, "Left Engine Fire Warning Extinguisher Light", "Left Engine/AMAD Fire Warning Extinguisher Light")
-defineToggleSwitch("LEFT_FIRE_BTN_COVER", 12, 3012, 12, "Left Engine Fire Warning Extinguisher Light", "Left Engine/AMAD Fire Warning Cover")
+-- 4. Left Engine Fire Warning/Extinguisher Light
+defineIndicatorLight("FIRE_LEFT_LT", 10, "Left Engine Fire Warning/Extinguisher Light", "FIRE LEFT")
+definePushButton("LEFT_FIRE_BTN", 12, 3010, 11, "Left Engine Fire Warning/Extinguisher Light", "Left Engine/AMAD Fire Warning/Extinguisher Light")
+defineToggleSwitch("LEFT_FIRE_BTN_COVER", 12, 3012, 12, "Left Engine Fire Warning/Extinguisher Light", "Left Engine/AMAD Fire Warning Cover")
 
 -- 5. Master Caution Light
 defineIndicatorLight("MASTER_CAUTION_LT", 13, "Master Caution Light", "MASTER CAUTION")
@@ -327,11 +450,11 @@ defineIndicatorLight("RH_ADV_SPARE_RH5", 37, "RH Advisory Panel", "SPARE RH5")
 
 -- 9. APU Fire Warning / Extinguisher Light
 defineIndicatorLight("FIRE_APU_LT", 29, "APU Fire Warning / Extinguisher Light", "FIRE APU")
-definePushButton("APU_FIRE_BTN", 12, 3009, 30, "APU Fire Warning / Extinguisher Light", "APU Fire Warning Extinguisher Light")
+definePushButton("APU_FIRE_BTN", 12, 3009, 30, "APU Fire Warning / Extinguisher Light", "APU Fire Warning/Extinguisher Light")
 
 -- 10. Right Engine Fire Warning Extinguisher Light
 defineIndicatorLight("FIRE_RIGHT_LT", 26, " Right Engine Fire Warning Extinguisher Light", "FIRE RIGHT")
-definePushButton("RIGHT_FIRE_BTN", 12, 3011, 27, " Right Engine Fire Warning Extinguisher Light", "Right Engine/AMAD Fire Warning Extinguisher Light")
+definePushButton("RIGHT_FIRE_BTN", 12, 3011, 27, " Right Engine Fire Warning Extinguisher Light", "Right Engine/AMAD Fire Warning/Extinguisher Light")
 defineToggleSwitch("RIGHT_FIRE_BTN_COVER", 12, 3013, 28, " Right Engine Fire Warning Extinguisher Light", "Right Engine/AMAD Fire Warning Cover")
 
 -- 11. Canopy Internal Jettison Handle
@@ -461,6 +584,9 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	UFC_ScratchPadString1Display 	= coerce_nil_to_string(ufc.UFC_ScratchPadString1Display)
 	UFC_ScratchPadString2Display 	= coerce_nil_to_string(ufc.UFC_ScratchPadString2Display)
 end
+
+
+
 
 defineString("UFC_COMM1_DISPLAY", function() return UFC_Comm1Display end, 2, "Up Front Controller (UFC)", "Comm 1 Display")
 defineString("UFC_COMM2_DISPLAY", function() return UFC_Comm2Display end, 2, "Up Front Controller (UFC)", "Comm 2 Display")
@@ -794,7 +920,7 @@ definePotentiometer("RIGHT_LOUVER", 11, 3011, 506, {0, 1}, "Environment Control 
 defineToggleSwitch("GEAR_LEVER", 5, 3001, 226, "Landing Gear Handle and Warning Tone Silence", "Gear Lever")
 defineToggleSwitch("EMERGENCY_GEAR_ROTATE", 5, 3002, 228, "Landing Gear Handle and Warning Tone Silence", "Emergency Gear Rotate")
 definePushButton("GEAR_DOWNLOCK_OVERRIDE_BTN", 5, 3003, 229, "Landing Gear Handle and Warning Tone Silence", "Landing Gear Override")
-definePushButton("GEAR_SILENCE_BTN", 41, 3018, 230, "Landing Gear Handle and Warning Tone Silence", "Warning Tone Silence Button - Push to silence")
+definePushButton("GEAR_SILENCE_BTN", 40, 3018, 230, "Landing Gear Handle and Warning Tone Silence", "Warning Tone Silence Button - Push to silence")
 
 -- 32. Select Jettison Button
 definePushButton("SEL_JETT_BTN", 23, 3010, 235, "Select Jettison Button", "Selective Jettison Pushbutton")
@@ -813,20 +939,20 @@ defineToggleSwitch("EMERGENCY_PARKING_BRAKE_PULL", 5, 3005, 240, "Emergency and 
 defineEmergencyParkingBrake("EMERGENCY_PARKING_BRAKE_ROTATE", 5, 3007, 3006, 241, "Emergency and Parking Brake Handle", "Emergency/Parking Brake Rotate")
 
 -- 35. Dispenser/EMC Panel
-defineTumb("CMSD_DISPENSE_SW", 55, 3001, 517, 0.1, {0.0, 0.2}, nil, false, "Dispenser/EMC Panel", "DISPENSER Switch, BYPASS/ON/OFF")
-definePushButton("CMSD_JET_SEL_BTN", 55, 3003, 515, "Dispenser/EMC Panel", "ECM JETT JETT SEL Button - Push to jettison")
+defineTumb("CMSD_DISPENSE_SW", 54, 3001, 517, 0.1, {0.0, 0.2}, nil, false, "Dispenser/EMC Panel", "DISPENSER Switch, BYPASS/ON/OFF")
+definePushButton("CMSD_JET_SEL_BTN", 54, 3003, 515, "Dispenser/EMC Panel", "ECM JETT JETT SEL Button - Push to jettison")
 defineTumb("ECM_MODE_SW", 0, 3116, 248, 0.1, {0.0, 0.4}, nil, false, "Dispenser/EMC Panel", "ECM Mode Switch, XMIT/REC/BIT/STBY/OFF")
 defineToggleSwitch("AUX_REL_SW", 23, 3012, 258, "Dispenser/EMC Panel", "Auxiliary Release Switch, ENABLE/NORM")
 
 -- 36. RWR Control Indicator
-definePushButton("RWR_POWER_BTN", 54, 3001, 277, "RWR Control Indicator", "ALR-67 POWER Pushbutton")
-definePushButton("RWR_DISPLAY_BTN", 54, 3002, 275, "RWR Control Indicator", "ALR-67 DISPLAY Pushbutton")
-definePushButton("RWR_SPECIAL_BTN", 54, 3003, 272, "RWR Control Indicator", "ALR-67 SPECIAL Pushbutton")
-definePushButton("RWR_OFFSET_BTN", 54, 3004, 269, "RWR Control Indicator", "ALR-67 OFFSET Pushbutton")
-definePushButton("RWR_BIT_BTN", 54, 3005, 266, "RWR Control Indicator", "ALR-67 BIT Pushbutton")
-definePotentiometer("RWR_DMR_CTRL", 54, 3006, 263, {0, 1}, "RWR Control Indicator", "ALR-67 DMR Control Knob")
-defineTumb("RWR_DIS_TYPE_SW", 54, 3007, 261, 0.1, {0.0, 0.4}, nil, false, "RWR Control Indicator", "ALR-67 DIS TYPE Switch, N/I/A/U/F")
-definePotentiometer("RWR_RWR_INTESITY", 54, 3008, 216, {0, 1}, "RWR Control Indicator", "RWR Intensity Knob")
+definePushButton("RWR_POWER_BTN", 53, 3001, 277, "RWR Control Indicator", "ALR-67 POWER Pushbutton")
+definePushButton("RWR_DISPLAY_BTN", 53, 3002, 275, "RWR Control Indicator", "ALR-67 DISPLAY Pushbutton")
+definePushButton("RWR_SPECIAL_BTN", 53, 3003, 272, "RWR Control Indicator", "ALR-67 SPECIAL Pushbutton")
+definePushButton("RWR_OFFSET_BTN", 53, 3004, 269, "RWR Control Indicator", "ALR-67 OFFSET Pushbutton")
+definePushButton("RWR_BIT_BTN", 53, 3005, 266, "RWR Control Indicator", "ALR-67 BIT Pushbutton")
+definePotentiometer("RWR_DMR_CTRL", 53, 3006, 263, {0, 1}, "RWR Control Indicator", "ALR-67 DMR Control Knob")
+defineTumb("RWR_DIS_TYPE_SW", 53, 3007, 261, 0.1, {0.0, 0.4}, nil, false, "RWR Control Indicator", "ALR-67 DIS TYPE Switch, N/I/A/U/F")
+definePotentiometer("RWR_RWR_INTESITY", 53, 3008, 216, {0, 1}, "RWR Control Indicator", "RWR Intensity Knob")
 defineIndicatorLight("RWR_LOWER_LT", 276, "RWR Control Indicator", "ALR-67 LOWER Light")
 defineIndicatorLight("RWR_LIMIT_LT", 273, "RWR Control Indicator", "ALR-67 LIMIT Light")
 defineIndicatorLight("RWR_DISPLAY_LT", 274, "RWR Control Indicator", "ALR-67 DISPLAY Light")
@@ -930,21 +1056,21 @@ defineToggleSwitch("GAIN_SWITCH_COVER", 2, 3005, 348, "Flight Control System Pan
 defineToggleSwitch("GAIN_SWITCH", 2, 3006, 347, "Flight Control System Panel", "GAIN Switch")
 
 -- 7. Communication Panel
-definePotentiometer("COM_VOX", 41, 3002, 357, {0, 1}, "Communication Panel", "VOX Volume Control Knob")
-definePotentiometer("COM_ICS", 41, 3003, 358, {0, 1}, "Communication Panel", "ICS Volume Control Knob")
-definePotentiometer("COM_RWR", 41, 3004, 359, {0, 1}, "Communication Panel", "RWR Volume Control Knob")
-definePotentiometer("COM_WPN", 41, 3005, 360, {0, 1}, "Communication Panel", "WPN Volume Control Knob")
-definePotentiometer("COM_MIDS_A", 41, 3006, 362, {0, 1}, "Communication Panel", "MIDS A Volume Control Knob")
-definePotentiometer("COM_MIDS_B", 41, 3007, 361, {0, 1}, "Communication Panel", "MIDS B Volume Control Knob")
-definePotentiometer("COM_TACAN", 41, 3008, 363, {0, 1}, "Communication Panel", "TACAN Volume Control Knob")
-definePotentiometer("COM_AUX", 41, 3009, 364, {0, 1}, "Communication Panel", "AUX Volume Control Knob")
-define3PosTumb("COM_COMM_RELAY_SW", 41, 3010, 350, "Communication Panel", "Comm Relay Switch, CIPHER/OFF/PLAIN")
-define3PosTumb("COM_COMM_G_XMT_SW", 41, 3011, 351, "Communication Panel", "COMM G XMT Switch, COMM 1/OFF/COMM 2")
-defineToggleSwitch("COM_IFF_MASTER_SW", 41, 3012, 356, "Communication Panel", "IFF Master Switch, EMER/NORM")
-define3PosTumb("COM_IFF_MODE4_SW", 41, 3013, 355, "Communication Panel", "IFF Mode 4 Switch, DIS/AUD /DIS/OFF")
-defineRockerSwitch("COM_CRYPTO_SW", 41, 3015, 3015, 3014, 3014, 354, "Communication Panel", "CRYPTO Switch, HOLD/NORM/ZERO")
-defineToggleSwitch("COM_ILS_UFC_MAN_SW", 41, 3016, 353, "Communication Panel", "ILS UFC/MAN Switch, UFC/MAN")
-defineTumb("COM_ILS_CHANNEL_SW", 41, 3017, 352, 0.05, {0.0, 0.95}, nil, false, "Communication Panel", "ILS Channel Selector Switch")
+definePotentiometer("COM_VOX", 40, 3002, 357, {0, 1}, "Communication Panel", "VOX Volume Control Knob")
+definePotentiometer("COM_ICS", 40, 3003, 358, {0, 1}, "Communication Panel", "ICS Volume Control Knob")
+definePotentiometer("COM_RWR", 40, 3004, 359, {0, 1}, "Communication Panel", "RWR Volume Control Knob")
+definePotentiometer("COM_WPN", 40, 3005, 360, {0, 1}, "Communication Panel", "WPN Volume Control Knob")
+definePotentiometer("COM_MIDS_A", 40, 3006, 362, {0, 1}, "Communication Panel", "MIDS A Volume Control Knob")
+definePotentiometer("COM_MIDS_B", 40, 3007, 361, {0, 1}, "Communication Panel", "MIDS B Volume Control Knob")
+definePotentiometer("COM_TACAN", 40, 3008, 363, {0, 1}, "Communication Panel", "TACAN Volume Control Knob")
+definePotentiometer("COM_AUX", 40, 3009, 364, {0, 1}, "Communication Panel", "AUX Volume Control Knob")
+define3PosTumb("COM_COMM_RELAY_SW", 40, 3010, 350, "Communication Panel", "Comm Relay Switch, CIPHER/OFF/PLAIN")
+define3PosTumb("COM_COMM_G_XMT_SW", 40, 3011, 351, "Communication Panel", "COMM G XMT Switch, COMM 1/OFF/COMM 2")
+defineToggleSwitch("COM_IFF_MASTER_SW", 40, 3012, 356, "Communication Panel", "IFF Master Switch, EMER/NORM")
+define3PosTumb("COM_IFF_MODE4_SW", 40, 3013, 355, "Communication Panel", "IFF Mode 4 Switch, DIS/AUD /DIS/OFF")
+defineRockerSwitch("COM_CRYPTO_SW", 40, 3015, 3015, 3014, 3014, 354, "Communication Panel", "CRYPTO Switch, HOLD/NORM/ZERO")
+defineToggleSwitch("COM_ILS_UFC_MAN_SW", 40, 3016, 353, "Communication Panel", "ILS UFC/MAN Switch, UFC/MAN")
+defineTumb("COM_ILS_CHANNEL_SW", 40, 3017, 352, 0.05, {0.0, 0.95}, nil, false, "Communication Panel", "ILS Channel Selector Switch")
 
 -- 8. LOX Indicator
 defineToggleSwitch("OBOGS_SW", 10, 3001, 365, "LOX Indicator", "OBOGS Control Switch, ON/OFF")
@@ -961,8 +1087,8 @@ defineMissionComputerSwitch("MC_SW", 3, 3025, 3026, 368, "Mission Computer and H
 defineToggleSwitch("HYD_ISOLATE_OVERRIDE_SW", 4, 3001, 369, "Mission Computer and Hydraulic Isolate Panel", "Hydraulic Isolate Override Switch, NORM/ORIDE")
 
 -- 13. Antenna Select Panel
-define3PosTumb("COMM1_ANT_SELECT_SW", 51, 3001, 373, "Antenna Select Panel", "COMM 1 Antenna Selector Switch, UPPER/AUTO/LOWER")
-define3PosTumb("IFF_ANT_SELECT_SW", 51, 3002, 374, "Antenna Select Panel", "IFF Antenna Selector Switch, UPPER/BOTH/LOWER")
+define3PosTumb("COMM1_ANT_SELECT_SW", 50, 3001, 373, "Antenna Select Panel", "COMM 1 Antenna Selector Switch, UPPER/AUTO/LOWER")
+define3PosTumb("IFF_ANT_SELECT_SW", 50, 3002, 374, "Antenna Select Panel", "IFF Antenna Selector Switch, UPPER/BOTH/LOWER")
 
 -- 14. Auxiliary Power Unit Panel
 defineToggleSwitchToggleOnly2("APU_CONTROL_SW", 12, 3001, 375, "Auxiliary Power Unit Panel", "APU Control Switch, ON/OFF")
@@ -974,7 +1100,7 @@ defineToggleSwitch("GEN_TIE_COVER", 3, 3007, 379, "Generator Tie Control Switch"
 defineToggleSwitch("GEN_TIE_SW", 3, 3006, 378, "Generator Tie Control Switch", "Generator TIE Control Switch, NORM/RESET")
 
 -- 16. ECM Dispenser Button
-definePushButton("CMSD_DISPENSE_BTN", 55, 3002, 380, "ECM Dispenser Button", "Dispense Button - Push to dispense flares and chaff")
+definePushButton("CMSD_DISPENSE_BTN", 54, 3002, 380, "ECM Dispenser Button", "Dispense Button - Push to dispense flares and chaff")
 
 -- 17. Ground Power Decal
 
@@ -1026,14 +1152,14 @@ defineToggleSwitch("LIGHTS_TEST_SW", 9, 3007, 416, "Interior Lights Panel", "Lig
 define3PosTumb("FLIR_SW", 0, 3110, 439, "Sensor Panel", "FLIR Switch, ON/STBY/OFF") -- From TODO, will change
 define3PosTumb("LTD_R_SW", 0, 3111, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE/AFT") -- From TODO, will change
 defineToggleSwitch("LST_NFLR_SW", 0, 3112, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF") -- From TODO, will change
-defineTumb("RADAR_SW", 43, 3001, 440, 0.1, {0.0, 0.3}, nil, false, "Sensor Panel", "RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
-defineTumb("INS_SW", 45, 3001, 443, 0.1, {0.0, 0.7}, nil, false, "Sensor Panel", "INS Switch, OFF/CV/GND/NAV/IFA/GYRO/GB/TEST")
+defineTumb("RADAR_SW", 42, 3001, 440, 0.1, {0.0, 0.3}, nil, false, "Sensor Panel", "RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
+defineTumb("INS_SW", 44, 3001, 443, 0.1, {0.0, 0.7}, nil, false, "Sensor Panel", "INS Switch, OFF/CV/GND/NAV/IFA/GYRO/GB/TEST")
 
 -- 6. KY-58 Control
-defineTumb("KY58_MODE_SELECT", 42, 3001, 444, 0.1, {0.0, 0.3}, nil, false, "KY-58 Control", "KY-58 Mode Select Knob, P/C/LD/RV")
-definePotentiometer("KY58_VOLUME", 42, 3005, 445, {0, 1}, "KY-58 Control", "KY-58 Volume Control Knob")
-defineTumb("KY58_FILL_SELECT", 42, 3002, 446, 0.1, {0.0, 0.7}, nil, false, "KY-58 Control", "KY-58 Fill Select Knob, Z 1-5/1/2/3/4/5/6/Z ALL")
-defineTumb("KY58_POWER_SELECT", 42, 3004, 447, 0.1, {0.0, 0.2}, nil, false, "KY-58 Control", "KY-58 Power Select Knob, OFF/ON/TD")
+defineTumb("KY58_MODE_SELECT", 41, 3001, 444, 0.1, {0.0, 0.3}, nil, false, "KY-58 Control", "KY-58 Mode Select Knob, P/C/LD/RV")
+definePotentiometer("KY58_VOLUME", 41, 3005, 445, {0, 1}, "KY-58 Control", "KY-58 Volume Control Knob")
+defineTumb("KY58_FILL_SELECT", 41, 3002, 446, 0.1, {0.0, 0.7}, nil, false, "KY-58 Control", "KY-58 Fill Select Knob, Z 1-5/1/2/3/4/5/6/Z ALL")
+defineTumb("KY58_POWER_SELECT", 41, 3004, 447, 0.1, {0.0, 0.2}, nil, false, "KY-58 Control", "KY-58 Power Select Knob, OFF/ON/TD")
 
 -- 7. NVG Storage
 
