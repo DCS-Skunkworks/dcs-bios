@@ -1,6 +1,7 @@
 BIOS.protocol.beginModule("F-5E", 0x7600)
 BIOS.protocol.setExportModuleAircrafts({"F-5E-3"})
 
+
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -57,7 +58,7 @@ defineIndicatorLight("MC_LIGHT", 169, "Warning, Caution and IndicatorLights","Ma
 -- Control System
 defineToggleSwitch("YAW_DAMPER", 2, 3001, 323,"Control Interface" , "Yaw Damper Switch, YAW/OFF")
 defineToggleSwitch("PITCH_DAMPER", 2, 3002, 322,"Control Interface" , "Pitch Damper Switch, PITCH/OFF")
-definePotentiometer("RUDDER_TRIM", 2, 3003, 324, {-1, 1}, "AirSpeed Indicator", "Rudder Trim Knob")
+definePotentiometer("RUDDER_TRIM", 2, 3003, 324, {-1, 1}, "Control Interface", "Rudder Trim Knob")
 definePushButton("PITCH_DAMPER_CUT", 2, 3004, 132, "Control Interface" , "Pitch Damper Cutoff Switch")
 define3PosTumb("FLAPS", 2, 3005, 116, "Control Interface", "Flaps Lever, EMER UP/THUMB SW/FULL")
 define3PosTumb("A_FLAPS", 2, 3006, 115, "Control Interface", "Auto Flap System Thumb Switch, UP/FIXED/AUTO")
@@ -175,7 +176,7 @@ defineTumb("EXT_STORE", 15, 3012, 344, 0.1, {0.0, 0.3}, nil, false, "Weapons Con
 definePotentiometer("MISSILE_VOL", 15, 3015, 345, {0, 1}, "Weapons Control", "Missile Volume Knob")
 
 -- AN/APQ-159 Radar Control Panel
-defineTumb("RADAR_MODE", 17, 3005, 316, 0.1, {0.0, 0.3}, nil, false, "AN APQ159", "Off/Stby/Oper/test")
+defineTumb("RADAR_MODE", 17, 3005, 316, 0.1, {0.0, 0.3}, nil, false, "Radar", "Off/Stby/Oper/test")
 
 -- RWR-IC
 definePushButton("RWR_MODE", 19, 3001, 551,"RWR IC" , "RWR MODE Button")
@@ -209,7 +210,7 @@ definePushButton("ACC", 27, 3001, 904,"Accelerometer" , "Accelerometer - Push to
 definePotentiometer("IAS_SET", 28, 3001, 180, {0, 1}, "AirSpeed Indicator", "Index Setting Pointer Knob")
 
 -- Altimeter AAU-34/A
-defineRotary("ALT_SET_PRESSURE", 31, 3001, 62, "AAU34", "Altimeter Zero Setting Knob")
+defineRotary("ALT_SET_PRESSURE", 31, 3001, 62, "Altimeter", "Altimeter Zero Setting Knob")
 
 -- Attitude Indicator ARU-20/A
 definePotentiometer("AI_PITCH_TRIM", 32, 3001, 150, {0, 1}, "Attitude Indicator", "AI Pitch Trim Knob")
@@ -219,7 +220,7 @@ defineVariableStepTumb("HSI_HDG_KNOB", 33, 3001, 271, 1.0, "HSI", "HSI Heading S
 defineVariableStepTumb("HSI_CRS_KNOB", 33, 3002, 272, 1.0, "HSI", "HSI Course Set Knob")
 
 -- Clock
-efinePushButton("ELAP_TIME", 35, 3003, 512,"Clock" , "ABU-11 Clock Elapsed Time Knob")
+definePushButton("ELAP_TIME", 35, 3003, 512,"Clock" , "ABU-11 Clock Elapsed Time Knob")
 
 --UHF Radio AN/ARC-164
 definePushButton("UHF_TONE_BT", 23, 3001, 310,"UHF Radio" , "UHF Radio Tone Button")
