@@ -36,5 +36,7 @@ definePushButton("NAV_SEL", 12, 3282, 282,"Master Modes" , "NAV Master Mode Sele
 definePushButton("VSTOL_SEL", 12, 3284, 284,"Master Modes" , "VSTOL Master Mode Selector")
 definePushButton("AG_SEL", 12, 3280, 280,"Master Modes" , "AG Master Mode Selector")
 
+-- Engine Display Panel
+
 
 BIOS.protocol.endModule()
