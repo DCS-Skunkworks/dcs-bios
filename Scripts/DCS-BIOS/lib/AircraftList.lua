@@ -30,5 +30,6 @@ a("SA342Minigun", true)
 a("M2000C", true)
 a("FA-18C_hornet", true)
 a("F-5E", true)
+a("L-39ZA", true)
 a("AV8BNA", true)
 
