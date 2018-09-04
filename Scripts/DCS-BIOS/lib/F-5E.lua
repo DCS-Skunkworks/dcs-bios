@@ -170,10 +170,13 @@ defineToggleSwitch("ARMPOS5", 15, 3005, 350,"Weapons Control" , "Armament Positi
 defineToggleSwitch("ARMPOS6", 15, 3006, 351,"Weapons Control" , "Armament Position Selector - R OUTBD, ON/OFF")
 defineToggleSwitch("ARMPOS7", 15, 3007, 352,"Weapons Control" , "Armament Position Selector - R WINGTIP, ON/OFF")
 define3PosTumb("INT_SW", 15, 3008, 340, "Weapons Control", "Interval Switch [sec], .06/.10/.14")
+defineMultipositionSwitch("BOMBS_ARM_SW", 15, 3009, 341, 3, 0.1,"Weapons Control" ,"Bombs Arm Switch, SAFE/TAIL/NOSE & TAIL/NOSE")
 defineToggleSwitch("MASTER_ARM_GUARD", 15, 3010, 342,"Weapons Control" , "Master Arm Safe Guard")
 define3PosTumb("MASTER_ARM", 15, 3011, 343,"Weapons Control" , "Master Arm Guns, GUNS MSL & CAMR/OFF/CAMR ONLY")
 defineTumb("EXT_STORE", 15, 3012, 344, 0.1, {0.0, 0.3}, nil, false, "Weapons Control", "External Stores Selector RIPL/BOMB/SAFE/RKT DISP")
+definePushButton("MISSILE_UNCAGE", 15, 3014, 136,"Weapons Control" , "Missile Uncage Switch - Press and hold to uncage missile seeker head")
 definePotentiometer("MISSILE_VOL", 15, 3015, 345, {0, 1}, "Weapons Control", "Missile Volume Knob")
+definePushButton("WEAPON_RELEASE", 15, 3018, 128,"Weapons Control" , "Weapon Release Button")
 
 -- AN/APQ-159 Radar Control Panel
 defineTumb("RADAR_MODE", 17, 3005, 316, 0.1, {0.0, 0.3}, nil, false, "Radar", "Off/Stby/Oper/test")
@@ -210,7 +213,8 @@ definePushButton("ACC", 27, 3001, 904,"Accelerometer" , "Accelerometer - Push to
 definePotentiometer("IAS_SET", 28, 3001, 180, {0, 1}, "AirSpeed Indicator", "Index Setting Pointer Knob")
 
 -- Altimeter AAU-34/A
-defineRotary("ALT_SET_PRESSURE", 31, 3001, 62, "Altimeter", "Altimeter Zero Setting Knob")
+defineToggleSwitch("ALT_ELECT", 31, 3002, 60, "Altimeter", "Altimeter Mode Control Lever, ELECT(rical)/PNEU(matic)")
+defineRotary("ALT_ZERO", 31, 3003, 62, "Altimeter", "Altimeter Zero Setting Knob")
 
 -- Attitude Indicator ARU-20/A
 definePotentiometer("AI_PITCH_TRIM", 32, 3001, 150, {0, 1}, "Attitude Indicator", "AI Pitch Trim Knob")
