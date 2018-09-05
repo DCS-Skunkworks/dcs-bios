@@ -1,7 +1,6 @@
 BIOS.protocol.beginModule("F-5E", 0x7600)
 BIOS.protocol.setExportModuleAircrafts({"F-5E-3"})
 
-
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -54,6 +53,11 @@ defineIndicatorLight("SPARE_2", 548, "Warning, Caution and IndicatorLights","Spa
 defineIndicatorLight("DC_OVERLOAD", 549, "Warning, Caution and IndicatorLights","DC Overload")
 defineIndicatorLight("SPARE_3", 550, "Warning, Caution and IndicatorLights","Spare 3")
 defineIndicatorLight("MC_LIGHT", 169, "Warning, Caution and IndicatorLights","MasterCaution Lamp")
+defineIndicatorLight("L_FIRE", 167, "Warning, Caution and IndicatorLights","Left Fire Lamp")
+defineIndicatorLight("R_FIRE", 168, "Warning, Caution and IndicatorLights","Right Fire Lamp")
+defineIndicatorLight("AOA_R", 48, "Warning, Caution and IndicatorLights","AOA Red")
+defineIndicatorLight("AOA_G", 49, "Warning, Caution and IndicatorLights","AOA Green")
+defineIndicatorLight("AOA_Y", 50, "Warning, Caution and IndicatorLights","AOA Yellow")
 
 -- Control System
 defineToggleSwitch("YAW_DAMPER", 2, 3001, 323,"Control Interface" , "Yaw Damper Switch, YAW/OFF")
@@ -90,10 +94,11 @@ definePushButton("R_START", 6, 3002, 358,"Engine Interface" , "Right Engine Star
 defineToggleSwitch("INLET_HEATER", 6, 3003, 376,"Engine Interface" , "Engine Anti-Ice Switch, ENGINE/OFF")
 
 -- Gear System
-defineIndicatorLight("GW_LIGHT", 96, "Gear Interface","GearWarning")
-defineIndicatorLight("NOSE_LIGHT", 54, "Gear Interface","Gear Nose-Green")
-defineIndicatorLight("LEFT_LIGHT", 53, "Gear Interface","Gear Left-Green")
-defineIndicatorLight("RIGHT_LIGHT", 55, "Gear Interface","Gear Right-Green")
+defineIndicatorLight("GW_LIGHT", 96, "Gear Interface","Gear Warning Lamp")
+defineIndicatorLight("NOSE_LIGHT", 54, "Gear Interface","Gear Nose-Green Lamp")
+defineIndicatorLight("LEFT_LIGHT", 53, "Gear Interface","Gear Left-Green Lamp")
+defineIndicatorLight("RIGHT_LIGHT", 55, "Gear Interface","Gear Right-Green Lamp")
+defineIndicatorLight("HOOK_LIGHT", 90, "Gear Interface","Hook Warning Lamp")
 defineToggleSwitch("LG_LEVER_SWITCH", 7, 3001, 83,"Gear Interface" , "Gear Lever")
 definePushButton("LG_ALT_REL", 7, 3002, 95,"Gear Interface" , "Landing Gear Alternate Release Handle, Pull and Hold")
 definePushButton("LG_DOWN_L", 7, 3003, 88,"Gear Interface" , "Landing Gear Downlock Override Button - Push and Hold")
@@ -153,7 +158,11 @@ definePushButton("FL_COUNT", 13, 3006, 407,"CMDS" , "Flare Counter Reset Button 
 definePushButton("FL_CHAFF_BT", 13, 3007, 117,"CMDS" , "Flare-Chaff Button - Push to dispense")
 
 -- IFF
+defineIndicatorLight("IFF_REPLY_L", 216, "IFF","IFF Reply Lamp")
+defineIndicatorLight("IFF_TEST_L", 218, "IFF","IFF Test Lamp")
 defineToggleSwitch("IFF4", 22, 3010, 208,"IFF" , "IFF MODE 4 Control Switch, ON/OUT")
+definePushButton("MODE4_REPLY_L", 22, 3017, 215,"IFF" , "MODE 4 REPLY Light - Press to test(LMB)")
+definePushButton("RAD_TEST_L", 22, 3018, 217,"IFF" , "Radiation TEST and Monitor Light - Press to test(LMB)")
 
 -- Jettison System
 defineToggleSwitch("EMER_JETT_COVER", 14, 3001, 364,"Jettison" , "Emergency All Jettison Button Cover, OPEN")
@@ -177,6 +186,11 @@ defineTumb("EXT_STORE", 15, 3012, 344, 0.1, {0.0, 0.3}, nil, false, "Weapons Con
 definePushButton("MISSILE_UNCAGE", 15, 3014, 136,"Weapons Control" , "Missile Uncage Switch - Press and hold to uncage missile seeker head")
 definePotentiometer("MISSILE_VOL", 15, 3015, 345, {0, 1}, "Weapons Control", "Missile Volume Knob")
 definePushButton("WEAPON_RELEASE", 15, 3018, 128,"Weapons Control" , "Weapon Release Button")
+
+-- AHRS
+definePushButton("AHRS_ERECT", 16, 3001, 166,"AHRS" , "Fast Erect Button - Push to erect")
+define3PosTumb("AHRS_FAST_SLAVE", 16, 3003, 220, "AHRS", "Compass Switch, DIR GYRO/MAG/FAST SLAVE")
+defineTumb("AHRS_NAV_MODE", 16, 3004, 273, 0.1, {0.0, 0.1}, nil, false, "AHRS", "Nav Mode Selector Switch, DF/TACAN")
 
 -- AN/APQ-159 Radar Control Panel
 defineTumb("RADAR_MODE", 17, 3005, 316, 0.1, {0.0, 0.3}, nil, false, "Radar", "Off/Stby/Oper/test")
@@ -202,9 +216,12 @@ definePotentiometer("RWR_INT", 20, 3001, 140, {0, 1}, "AN ALR87", "RWR INT Knob"
 defineFloat("TRIM_INDICATOR", 52, {1.0, 0.0, -0.1}, "Gauges", "Trim Position")
 defineFloat("FUELQUANTITY_L", 22, {0.0, 1.0}, "Gauges", "Fuel Quantity Left")
 defineFloat("FUELQUANTITY_R", 23, {0.0, 1.0}, "Gauges", "Fuel Quantity Right")
+defineFloat("HSI_CRS", 35, {0.0, 1.0}, "Gauges", "HSI Course")
+defineFloat("HSI_DEG", 144, {0.0, 1.0}, "Gauges", "HSI Heading")
 defineFloat("O2QUANTITY", 390, {0.0, 1.0}, "Gauges", "O2 Quantity")
 defineFloat("O2FLOWINDICATOR", 600, {0.0, 1.0}, "Gauges", "O2 Flow Blinker")
 defineFloat("O2FLOWPRESSURE", 604, {0.0, 0.5, 1.0}, "Gauges", "O2 FlowPressure")
+defineFloat("AIRSPEED", 8, {0.0, 0.0435,   0.1, 0.318, 0.3745, 0.397, 0.4495, 0.482,  0.54, 0.553, 0.6145, 0.658, 0.668, 0.761, 0.801, 0.877, 0.909, 0.942, 0.972,   1.0}, "Gauges", "Airspeed")
 
 -- Accelerometer
 definePushButton("ACC", 27, 3001, 904,"Accelerometer" , "Accelerometer - Push to set")
@@ -228,7 +245,7 @@ definePushButton("ELAP_TIME", 35, 3003, 512,"Clock" , "ABU-11 Clock Elapsed Time
 
 --UHF Radio AN/ARC-164
 definePushButton("UHF_TONE_BT", 23, 3001, 310,"UHF Radio" , "UHF Radio Tone Button")
-defineToggleSwitch("UHF_SQUELCH_SW", 23, 3002, 308,"UHF Radio" , "AUHF Radio Squelch Switch, ON/OFF")
+defineToggleSwitch("UHF_SQUELCH_SW", 23, 3002, 308,"UHF Radio" , "UHF Radio Squelch Switch, ON/OFF")
 defineTumb("UHF_FUNC", 23, 3003, 311, 0.1, {0.0, 0.3}, nil, false,"UHF Radio" , "UHF Radio Function Selector Switch, OFF/MAIN/BOTH/ADF")
 defineTumb("UHF_FREQ", 23, 3004, 307, 0.1, {0.0, 0.2}, nil, false,"UHF Radio" , "UHF Radio Frequency Mode Selector Switch, MANUAL/PRESET/GUARD")
 defineTumb("UHF_PRE", 23, 3005, 300, 0.05, {0.0, 1.0}, nil, false,"UHF Radio" , "UHF Radio Preset Channel Selector Knob")
