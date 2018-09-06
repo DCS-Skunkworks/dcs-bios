@@ -157,13 +157,6 @@ definePushButton("CHAFF_COUNT", 13, 3005, 403,"CMDS" , "Chaff Counter Reset Butt
 definePushButton("FL_COUNT", 13, 3006, 407,"CMDS" , "Flare Counter Reset Button - Push to reset")
 definePushButton("FL_CHAFF_BT", 13, 3007, 117,"CMDS" , "Flare-Chaff Button - Push to dispense")
 
--- IFF
-defineIndicatorLight("IFF_REPLY_L", 216, "IFF","IFF Reply Lamp")
-defineIndicatorLight("IFF_TEST_L", 218, "IFF","IFF Test Lamp")
-defineToggleSwitch("IFF4", 22, 3010, 208,"IFF" , "IFF MODE 4 Control Switch, ON/OUT")
-definePushButton("MODE4_REPLY_L", 22, 3017, 215,"IFF" , "MODE 4 REPLY Light - Press to test(LMB)")
-definePushButton("RAD_TEST_L", 22, 3018, 217,"IFF" , "Radiation TEST and Monitor Light - Press to test(LMB)")
-
 -- Jettison System
 defineToggleSwitch("EMER_JETT_COVER", 14, 3001, 364,"Jettison" , "Emergency All Jettison Button Cover, OPEN")
 definePushButton("EMER_JETT_B", 14, 3002, 365,"Jettison" , "Emergency All Jettison Button - Push to jettison")
@@ -193,7 +186,23 @@ define3PosTumb("AHRS_FAST_SLAVE", 16, 3003, 220, "AHRS", "Compass Switch, DIR GY
 defineTumb("AHRS_NAV_MODE", 16, 3004, 273, 0.1, {0.0, 0.1}, nil, false, "AHRS", "Nav Mode Selector Switch, DF/TACAN")
 
 -- AN/APQ-159 Radar Control Panel
-defineTumb("RADAR_MODE", 17, 3005, 316, 0.1, {0.0, 0.3}, nil, false, "Radar", "Off/Stby/Oper/test")
+definePotentiometer("RADAR_ELEVATION", 17, 3001, 321, {0, 1}, "Radar", "AN/APQ-159 Radar Elevation Antenna Tilt Control Knob")
+defineTumb("RADAR_RANGE", 17, 3004, 315, 0.1, {0.0, 0.3}, nil, false, "Radar", "AN/APQ-159 Radar Range Selector Switch [nm], 5/10/20/40")
+defineTumb("RADAR_MODE", 17, 3005, 316, 0.1, {0.0, 0.3}, nil, false, "Radar", "AN/APQ-159 Radar Mode Selector Switch, OFF/STBY/OPER/TEST")
+definePushButton("RADAR_ACQUIS", 17, 3006, 317, "Radar" , "AN/APQ-159 Radar Acquisition Button")
+definePotentiometer("RADAR_SCALE", 17, 3007, 65, {0, 1}, "Radar", "AN/APQ-159 Radar Scale Knob")
+definePotentiometer("RADAR_BRIGHT", 17, 3008, 70, {0, 1}, "Radar", "AN/APQ-159 Radar Bright Knob")
+definePotentiometer("RADAR_PERSIS", 17, 3009, 69, {0, 1}, "Radar", "AN/APQ-159 Radar Persistence Knob")
+definePotentiometer("RADAR_VIDEO", 17, 3010, 68, {0, 1}, "Radar", "AN/APQ-159 Radar Video Knob")
+definePotentiometer("RADAR_CURSOR", 17, 3011, 67, {0, 1}, "Radar", "AN/APQ-159 Radar Cursor Knob")
+definePotentiometer("RADAR_CURSOR", 17, 3012, 66, {-0.75,0.75}, "Radar", "AN/APQ-159 Radar Pitch Knob")
+
+-- AN/ASG-31 Sight
+defineTumb("SIGHT_MODE", 18, 3001, 40, 0.1, {0.0, 0.4}, nil, false, "Sight", "AN/ASG-31 Sight Mode Selector, OFF/MSL/A/A1 GUNS/A/A2 GUNS/MAN")
+definePotentiometer("SIGHT_DEPRESS", 18, 3002, 42, {0, 1}, "Sight", "AN/ASG-31 Sight Reticle Depression Knob")
+definePotentiometer("SIGHT_INTENS", 18, 3003, 41, {0, 1}, "Sight", "AN/ASG-31 Sight Reticle Intensity Knob")
+define3PosTumb("SIGHT_BIT", 18, 3004, 47, "Sight", "AN/ASG-31 Sight BIT Switch, BIT 1/OFF/BIT 2")
+definePushButton("SIGHT_CAGE", 18, 3007, 137, "Sight" , "AN/ASG-31 Sight Cage Switch")
 
 -- RWR-IC
 definePushButton("RWR_MODE", 19, 3001, 551,"RWR IC" , "RWR MODE Button")
@@ -212,8 +221,37 @@ definePotentiometer("RWR_VOL", 19, 3012, 577, {0, 1}, "RWR IC", "RWR AUDIO Knob"
 -- AN/ALR-87 RWR
 definePotentiometer("RWR_INT", 20, 3001, 140, {0, 1}, "AN ALR87", "RWR INT Knob")
 
+-- Sight Camera
+defineToggleSwitch("CAMERA_FPS", 21, 3001, 80,"Camera" , "Sight Camera FPS Select Switch, 24/48")
+definePotentiometer("CAMERA_LENS", 21, 3002, 140, {0, 1}, "Camera", "Sight Camera Lens f-Stop Selector, 2.8(dull)..22(bright)")
+defineTumb("CAMERA_OVERRUN", 21, 3003, 311, 0.1, {0.0, 0.3}, nil, false,"Camera" , "Sight Camera Overrun Selector, 0/3/10/20")
+definePushButton("CAMERA_RUN", 21, 3004, 573,"Camera" , "Sight Camera Run (Test) Switch, ON/OFF")
+
+-- IFF
+defineIndicatorLight("IFF_REPLY_L", 216, "IFF","IFF Reply Lamp")
+defineIndicatorLight("IFF_TEST_L", 218, "IFF","IFF Test Lamp")
+defineTumb("IFF4_CODE_SEL", 22, 3001, 199, 0.1, {0.0, 0.3}, nil, false,"IFF" , "IFF MODE 4 CODE Selector, ZERO/B/A/HOLD")
+defineTumb("IFF4_MASTER", 22, 3002, 200, 0.1, {0.0, 0.4}, nil, false,"IFF" , "IFF MASTER Control Selector, EMER/NORM/LOW/STBY/OFF")
+define3PosTumb("IFF4_MON_CONTR", 22, 3003, 201, "IFF", "IFF MODE 4 Monitor Control Switch, AUDIO/OUT/LIGHT")
+define3PosTumb("IFF4_M1", 22, 3004, 202, "IFF", "IFF Mode Select/TEST Switch, M-1 /ON/OUT")
+define3PosTumb("IFF4_M2", 22, 3005, 203, "IFF", "IFF Mode Select/TEST Switch, M-2 /ON/OUT")
+define3PosTumb("IFF4_M3", 22, 3006, 204, "IFF", "IFF Mode Select/TEST Switch, M-3/A /ON/OUT")
+define3PosTumb("IFF4_MC", 22, 3007, 205, "IFF", "IFF Mode Select/TEST Switch, M-C /ON/OUT")
+define3PosTumb("IFF4_RAD", 22, 3008, 206, "IFF", "IFF RAD TEST/MON Switch, RAD TEST/OUT/MON")
+define3PosTumb("IFF4_IDENT", 22, 3009, 207, "IFF", "IFF Identification of Position (IP) Switch, IDENT/OUT/MIC")
+defineToggleSwitch("IFF4_CONTROL", 22, 3010, 208,"IFF" , "IFF MODE 4 Control Switch, ON/OUT")
+defineTumb("IFF4_MASTER", 22, 3011, 209, 0.1, {0.0, 1.0}, nil, false,"IFF" , "IFF MODE 1 Code Selector Wheel 1")
+defineTumb("IFF4_MASTER", 22, 3012, 210, 0.1, {0.0, 1.0}, nil, false,"IFF" , "IFF MODE 1 Code Selector Wheel 2")
+defineTumb("IFF4_MASTER", 22, 3013, 211, 0.1, {0.0, 1.0}, nil, false,"IFF" , "IFF MODE 3/A Code Selector Wheel 1")
+defineTumb("IFF4_MASTER", 22, 3014, 212, 0.1, {0.0, 1.0}, nil, false,"IFF" , "IFF MODE 3/A Code Selector Wheel 2")
+defineTumb("IFF4_MASTER", 22, 3015, 213, 0.1, {0.0, 1.0}, nil, false,"IFF" , "IFF MODE 3/A Code Selector Wheel 3")
+defineTumb("IFF4_MASTER", 22, 3016, 214, 0.1, {0.0, 1.0}, nil, false,"IFF" , "IFF MODE 3/A Code Selector Wheel 4")
+definePushButton("IFF4_REPLY_L", 22, 3017, 215,"IFF" , "MODE 4 REPLY Light - Press to test(LMB)")
+definePushButton("IFF4_RAD_TEST_L", 22, 3018, 217,"IFF" , "Radiation TEST and Monitor Light - Press to test(LMB)")
+
 -- Instruments --------------------------
 defineFloat("TRIM_INDICATOR", 52, {1.0, 0.0, -0.1}, "Gauges", "Trim Position")
+defineFloat("FLAP_INDICATOR", 51, {0.0, 0.4}, "Gauges", "Flap Indicator")
 defineFloat("FUELQUANTITY_L", 22, {0.0, 1.0}, "Gauges", "Fuel Quantity Left")
 defineFloat("FUELQUANTITY_R", 23, {0.0, 1.0}, "Gauges", "Fuel Quantity Right")
 defineFloat("HSI_CRS", 35, {0.0, 1.0}, "Gauges", "HSI Course")
