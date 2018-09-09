@@ -74,7 +74,7 @@ definePushButton("UFC_WEAPON", 23, 3321, 321,"UFC" , "UFC Weapons Function Selec
 definePushButton("UFC_BEACON", 23, 3323, 323,"UFC" , "UFC Radar Beacon Function Selector")
 definePushButton("UFC_IP", 23, 3297, 297,"UFC" , "UFC I/P Button")
 definePushButton("UFC_SAVE", 23, 3309, 309,"UFC" , "UFC Save Data Button")
-definePotentiometer("UFC_BRIGHT", 23, 3295, 295 {0, 1}, "UHF Radio", "UFC Display Brightness Control")
+definePotentiometer("UFC_BRIGHT", 23, 3295, 295, {0, 1}, "UHF Radio", "UFC Display Brightness Control")
 definePotentiometer("UFC_COM1_VOL", 23, 3298, 298, {0, 1}, "UHF Radio", "UFC Comm 1 Volume Control")
 definePotentiometer("UFC_COM2_VOL", 23, 3299, 299, {0, 1}, "UHF Radio", "UFC Comm 2 Volume Control")
 definePushButton("UFC_COM1_PULL", 23, 3178, 178,"UFC" , "UFC Comm 1 Channel Selector Pull")
