@@ -53,10 +53,6 @@ defineIndicatorLight("SPARE_2", 548, "Warning, Caution and IndicatorLights","Spa
 defineIndicatorLight("DC_OVERLOAD", 549, "Warning, Caution and IndicatorLights","DC Overload")
 defineIndicatorLight("SPARE_3", 550, "Warning, Caution and IndicatorLights","Spare 3")
 defineIndicatorLight("MC_LIGHT", 169, "Warning, Caution and IndicatorLights","MasterCaution Lamp")
-defineIndicatorLight("RADAR_INRANGE", 159, "Warning, Caution and IndicatorLights","Radar InRange Light")
-defineIndicatorLight("RADAR_FAIL", 160, "Warning, Caution and IndicatorLights","Radar Fail Light")
-defineIndicatorLight("RADAR_LOCKON", 161, "Warning, Caution and IndicatorLights","Radar LockOn Light")
-defineIndicatorLight("RADAR_EXCESS", 162, "Warning, Caution and IndicatorLights","Radar ExcessG Light")
 defineIndicatorLight("L_FIRE", 167, "Warning, Caution and IndicatorLights","Left Fire Lamp")
 defineIndicatorLight("R_FIRE", 168, "Warning, Caution and IndicatorLights","Right Fire Lamp")
 defineIndicatorLight("AOA_R", 48, "Warning, Caution and IndicatorLights","AOA Red")
@@ -72,6 +68,9 @@ define3PosTumb("FLAPS", 2, 3005, 116, "Control Interface", "Flaps Lever, EMER UP
 define3PosTumb("A_FLAPS", 2, 3006, 115, "Control Interface", "Auto Flap System Thumb Switch, UP/FIXED/AUTO")
 define3PosTumb("SPEED", 2, 3007, 101, "Control Interface", "Speed Brake Switch, OUT/OFF/IN")
 defineToggleSwitch("RUDDER_T", 2, 3014, 278, "Control Interface" , "Rudder Pedal Adjust T-Handle, PULL/STOW")
+defineFloat("TRIM_INDICATOR", 52, {1.0, 0.0, -0.1}, "Gauges", "Trim Position")
+defineFloat("FLAP_INDICATOR", 51, {0.0, 0.4}, "Gauges", "Flap Indicator")
+defineFloat("SLIPBALL", 3, {-1.0, 1.0}, "Gauges", "Slipball")
 
 -- Electric system
 defineToggleSwitch("SW_BATTERY", 3, 3001, 387,"Electric" , "Battery Switch")
@@ -91,11 +90,27 @@ defineToggleSwitch("L_BOOSTPUMP", 4, 3008, 380,"Fuel" , "Left Boost Pump Switch,
 defineToggleSwitch("R_BOOSTPUMP", 4, 3009, 382,"Fuel" , "Right Boost Pump Switch, ON/OFF")
 defineToggleSwitch("L_SHUTOFF_C", 4, 3010, 359,"Fuel" , "Left Fuel Shutoff Switch Cover, OPEN/CLOSED")
 defineToggleSwitch("R_SHUTOFF_C", 4, 3011, 361,"Fuel" , "Right Fuel Shutoff Switch Cover, OPEN/CLOSED")
+defineFloat("FUELQUANTITY_L", 22, {0.0, 1.0}, "Gauges", "Fuel Quantity Left")
+defineFloat("FUELFLOW_R", 526, {0.0,   0.67,   0.75,    0.83,     1.0}, "Gauges", "Fuel Flow Right")
+defineFloat("FUELFLOW_L", 525, {0.0,   0.67,   0.75,    0.83,     1.0}, "Gauges", "Fuel Flow Left")
 
 -- Engines
 definePushButton("L_START", 6, 3001, 357,"Engine Interface" , "Left Engine Start Button")
 definePushButton("R_START", 6, 3002, 358,"Engine Interface" , "Right Engine Start Button")
 defineToggleSwitch("INLET_HEATER", 6, 3003, 376,"Engine Interface" , "Engine Anti-Ice Switch, ENGINE/OFF")
+defineFloat("NOZZLEPOS_L", 107, {0.0, 1.0}, "Gauges", "Nozzle Position Left")
+defineFloat("NOZZLEPOS_R", 108, {0.0, 1.0}, "Gauges", "Nozzle Position Right")
+defineFloat("AUXINT_DOOR", 111, {0.0, 0.2}, "Gauges", "Aux Intake Doors")
+defineFloat("OILPRESS_L", 112, {0.0, 1.0}, "Gauges", "Oil Pressure Left")
+defineFloat("OILPRESS_R", 113, {0.0, 1.0}, "Gauges", "Oil Pressure Right")
+defineFloat("EXHAUST_TEMP_L", 12, {0.0,  0.03,  0.1, 0.274,  0.78,    1.0}, "Gauges", "Exhaust Gas Temp Left")
+defineFloat("EXHAUST_TEMP_R", 14, {0.0,  0.03,  0.1, 0.274,  0.78,    1.0}, "Gauges", "Exhaust Gas Temp Right")
+defineFloat("TACHO_L", 16, {0.008, 0.475, 0.84,  0.94,   1.0}, "Gauges", "Tachometer Left")
+defineFloat("TACHO_PERC_L", 425, {0.0, 1.0}, "Gauges", "Tachometer Percent Left")
+defineFloat("TACHO_R", 17, {0.008, 0.475, 0.84,  0.94,   1.0}, "Gauges", "Tachometer Right")
+defineFloat("TACHO_PERC_R", 426, {0.0, 1.0}, "Gauges", "Tachometer Percent Right")
+defineFloat("UTIL_PRESS", 109, {0.0, 1.0}, "Gauges", "Utility Pressure")
+defineFloat("FLIGHT_PRESS", 110, {0.0, 1.0}, "Gauges", "Flight Pressure")
 
 -- Gear System
 defineIndicatorLight("GW_LIGHT", 96, "Gear Interface","Gear Warning Lamp")
@@ -119,6 +134,9 @@ definePushButton("HOOK", 7, 3014, 89,"Gear Interface" , "Arresting Hook Button")
 defineToggleSwitch("O2_LEVER", 8, 3001, 603,"O2 Interface" , "Oxygen Supply Lever, ON/OFF")
 defineToggleSwitch("DILUTER_LEVER", 8, 3002, 602,"O2 Interface" , "Diluter Lever")
 define3PosTumb("EMER_L", 8, 3003, 601, "O2 Interface", "Emergency Lever, EMERGENCY/NORMAL/TEST MASK")
+defineFloat("O2QUANTITY", 390, {0.0, 1.0}, "Gauges", "O2 Quantity")
+defineFloat("O2FLOWINDICATOR", 600, {0.0, 1.0}, "Gauges", "O2 Flow Blinker")
+defineFloat("O2FLOWPRESSURE", 604, {0.0, 0.5, 1.0}, "Gauges", "O2 FlowPressure")
 
 -- EC System
 define3PosTumb("CABIN_P_SW", 9, 3001, 371, "EC Interface", "Cabin Press Switch, DEFOG ONLY/NORMAL/RAM DUMP")
@@ -131,6 +149,7 @@ definePotentiometer("CABIN_DEFOG", 9, 3005, 374, {0, 1},"EC Interface" , "Canopy
 defineToggleSwitch("CANOPY_LEVER", 10, 3001, 712,"Cockpit" , "Canopy Handle, OPEN/CLOSE")
 define3PosTumb("DRAG_CHUTE", 10, 3002, 91,"Cockpit" , "Chute Handle")
 defineToggleSwitch("CANOPY_JETTISON", 10, 3005, 384,"Cockpit" , "Canopy Jettison T-Handle, PULL/PUSH")
+defineFloat("CABIN_PRESS", 114, {0.0, 1.0}, "Gauges", "Cabin Pressure")
 
 --Mirrors
 
@@ -160,6 +179,10 @@ defineToggleSwitch("FL_JETT_SW", 13, 3004, 409,"CMDS" , "Flare Jettison Switch, 
 definePushButton("CHAFF_COUNT", 13, 3005, 403,"CMDS" , "Chaff Counter Reset Button - Push to reset")
 definePushButton("FL_COUNT", 13, 3006, 407,"CMDS" , "Flare Counter Reset Button - Push to reset")
 definePushButton("FL_CHAFF_BT", 13, 3007, 117,"CMDS" , "Flare-Chaff Button - Push to dispense")
+defineFloat("CHAFF_COUNT_10", 401, {0.0, 1.0}, "Gauges", "Chaff Drum Counter 10")
+defineFloat("CHAFF_COUNT_1", 402, {0.0, 1.0}, "Gauges", "Chaff Drum Counter 1")
+defineFloat("FL_COUNT_10", 405, {0.0, 1.0}, "Gauges", "Flare Drum Counter 10")
+defineFloat("FL_COUNT_1", 406, {0.0, 1.0}, "Gauges", "Flare Drum Counter 1")
 
 -- Jettison System
 defineToggleSwitch("EMER_JETT_COVER", 14, 3001, 364,"Jettison" , "Emergency All Jettison Button Cover, OPEN")
@@ -200,6 +223,17 @@ definePotentiometer("RADAR_PERSIS", 17, 3009, 69, {0, 1}, "Radar", "AN/APQ-159 R
 definePotentiometer("RADAR_VIDEO", 17, 3010, 68, {0, 1}, "Radar", "AN/APQ-159 Radar Video Knob")
 definePotentiometer("RADAR_CURSOR", 17, 3011, 67, {0, 1}, "Radar", "AN/APQ-159 Radar Cursor Knob")
 definePotentiometer("RADAR_CURSOR", 17, 3012, 66, {-0.75,0.75}, "Radar", "AN/APQ-159 Radar Pitch Knob")
+defineIndicatorLight("RADAR_SCALE_5", 155, "Warning, Caution and IndicatorLights","Radar Range Scale 5")
+defineIndicatorLight("RADAR_SCALE_10", 156, "Warning, Caution and IndicatorLights","Radar Range Scale 10")
+defineIndicatorLight("RADAR_SCALE_20", 157, "Warning, Caution and IndicatorLights","Radar Range Scale 20")
+defineIndicatorLight("RADAR_SCALE_40", 158, "Warning, Caution and IndicatorLights","Radar Range Scale 40")
+defineIndicatorLight("RADAR_INRANGE", 159, "Warning, Caution and IndicatorLights","Radar InRange Light")
+defineIndicatorLight("RADAR_FAIL", 160, "Warning, Caution and IndicatorLights","Radar Fail Light")
+defineIndicatorLight("RADAR_LOCKON", 161, "Warning, Caution and IndicatorLights","Radar LockOn Light")
+defineIndicatorLight("RADAR_EXCESS", 162, "Warning, Caution and IndicatorLights","Radar ExcessG Light")
+defineIndicatorLight("RADAR_SCALE_BRIGHT", 163, "Warning, Caution and IndicatorLights","Radar Scale Brightness")
+defineFloat("TDC_RANGE", 319, {-1.0, 1.0}, "Gauges", "TdcControlRange")
+defineFloat("TDC_AZIMUTH", 318, {-1.0, 1.0}, "Gauges", "TdcControlAzimuth")
 
 -- AN/ASG-31 Sight
 defineTumb("SIGHT_MODE", 18, 3001, 40, 0.1, {0.0, 0.4}, nil, false, "Sight", "AN/ASG-31 Sight Mode Selector, OFF/MSL/A/A1 GUNS/A/A2 GUNS/MAN")
@@ -207,6 +241,9 @@ definePotentiometer("SIGHT_DEPRESS", 18, 3002, 42, {0, 1}, "Sight", "AN/ASG-31 S
 definePotentiometer("SIGHT_INTENS", 18, 3003, 41, {0, 1}, "Sight", "AN/ASG-31 Sight Reticle Intensity Knob")
 define3PosTumb("SIGHT_BIT", 18, 3004, 47, "Sight", "AN/ASG-31 Sight BIT Switch, BIT 1/OFF/BIT 2")
 definePushButton("SIGHT_CAGE", 18, 3007, 137, "Sight" , "AN/ASG-31 Sight Cage Switch")
+defineFloat("SIGHT_DEP_100", 43, {0.0, 1.0}, "Gauges", "Ret Depression Drum 100")
+defineFloat("SIGHT_DEP_10", 44, {0.0, 1.0}, "Gauges", "Ret Depression Drum 10")
+defineFloat("SIGHT_DEP_1", 45, {0.0, 1.0}, "Gauges", "Ret Depression Drum 1")
 
 -- RWR-IC
 definePushButton("RWR_MODE", 19, 3001, 551,"RWR IC" , "RWR MODE Button")
@@ -252,44 +289,74 @@ defineTumb("IFF4_MASTER", 22, 3015, 213, 0.1, {0.0, 1.0}, nil, false,"IFF" , "IF
 defineTumb("IFF4_MASTER", 22, 3016, 214, 0.1, {0.0, 1.0}, nil, false,"IFF" , "IFF MODE 3/A Code Selector Wheel 4")
 definePushButton("IFF4_REPLY_L", 22, 3017, 215,"IFF" , "MODE 4 REPLY Light - Press to test(LMB)")
 definePushButton("IFF4_RAD_TEST_L", 22, 3018, 217,"IFF" , "Radiation TEST and Monitor Light - Press to test(LMB)")
+defineToggleSwitch("IFF4_CODE_SEL_PULL", 22, 3019, 197,"IFF" , "IFF MODE 4 CODE Selector Pull")
+defineToggleSwitch("IFF4_MASTER_PULL", 22, 3020, 198,"IFF" , "IFF MASTER Control Selector Pull")
 
 -- Instruments --------------------------
-defineFloat("TRIM_INDICATOR", 52, {1.0, 0.0, -0.1}, "Gauges", "Trim Position")
-defineFloat("FLAP_INDICATOR", 51, {0.0, 0.4}, "Gauges", "Flap Indicator")
-defineFloat("FUELQUANTITY_L", 22, {0.0, 1.0}, "Gauges", "Fuel Quantity Left")
-defineFloat("FUELQUANTITY_R", 23, {0.0, 1.0}, "Gauges", "Fuel Quantity Right")
-defineFloat("HSI_CRS", 35, {0.0, 1.0}, "Gauges", "HSI Course")
 defineFloat("AOA_GAUGE", 7, {0.0, 1.0}, "Gauges", "AOA Units")
-defineFloat("HSI_DEG", 144, {0.0, 1.0}, "Gauges", "HSI Heading")
-defineFloat("SLIPBALL", 3, {-1.0, 1.0}, "Gauges", "Slipball")
-defineFloat("MOTORRUNKNOB", 85, {1.0, 0.0}, "Gauges", "MotorRunKnob")
-defineFloat("O2QUANTITY", 390, {0.0, 1.0}, "Gauges", "O2 Quantity")
-defineFloat("O2FLOWINDICATOR", 600, {0.0, 1.0}, "Gauges", "O2 Flow Blinker")
-defineFloat("O2FLOWPRESSURE", 604, {0.0, 0.5, 1.0}, "Gauges", "O2 FlowPressure")
-defineFloat("ACCELEROMETER", 6, {0.0, 0.323, 0.653, 1.0}, "Gauges", "Accelerometer")
-defineFloat("ACCELEROMETER_MIN", 902, {0.0, 0.323, 0.653, 1.0}, "Gauges", "Accelerometer Min")
-defineFloat("ACCELEROMETER_MAX", 903, {0.0, 0.323, 0.653, 1.0}, "Gauges", "Accelerometer Max")
-defineFloat("AIRSPEED", 8, {0.0, 0.0435,   0.1, 0.318, 0.3745, 0.397, 0.4495, 0.482,  0.54, 0.553, 0.6145, 0.658, 0.668, 0.761, 0.801, 0.877, 0.909, 0.942, 0.972,   1.0}, "Gauges", "Airspeed")
+defineFloat("MOTOR_RUN", 85, {1.0, 0.0}, "Gauges", "Motor Run Knob")
+defineFloat("VARIOMETER", 24, {-1.0, -0.64, -0.5, -0.29, 0.0, 0.29, 0.5, 0.64, 1.0}, "Gauges", "Variometer")
+defineFloat("SAI_PITCH", 438, {0.0, 1.0}, "Gauges", "SAI Pitch")
+defineFloat("SAI_BANK", 439, {0.0, 1.0}, "Gauges", "SAI Bank")
+defineFloat("SAI_OFF", 440, {0.0, 1.0}, "Gauges", "SAI OFF Flag")
+defineFloat("SAI_ARROW", 443, {0.0, 1.0}, "Gauges", "SAI Knob Arrow")
 
 -- Accelerometer
 definePushButton("ACC", 27, 3001, 904,"Accelerometer" , "Accelerometer - Push to set")
+defineFloat("ACCELEROMETER", 6, {0.0, 0.323, 0.653, 1.0}, "Gauges", "Accelerometer")
+defineFloat("ACCELEROMETER_MIN", 902, {0.0, 0.323, 0.653, 1.0}, "Gauges", "Accelerometer Min")
+defineFloat("ACCELEROMETER_MAX", 903, {0.0, 0.323, 0.653, 1.0}, "Gauges", "Accelerometer Max")
 
 -- AirSpeed/Mach Indicator
 definePotentiometer("IAS_SET", 28, 3001, 180, {0, 1}, "AirSpeed Indicator", "Index Setting Pointer Knob")
+defineFloat("AIRSPEED", 8, {0.0, 0.0435,   0.1, 0.318, 0.3745, 0.397, 0.4495, 0.482,  0.54, 0.553, 0.6145, 0.658, 0.668, 0.761, 0.801, 0.877, 0.909, 0.942, 0.972,   1.0}, "Gauges", "Airspeed")
+defineFloat("AIRSPEED_MAX", 178, {0.0, 0.0435,   0.1, 0.318, 0.3745, 0.397, 0.4495, 0.482,  0.54, 0.553, 0.6145, 0.658, 0.668, 0.761, 0.801, 0.877, 0.909, 0.942, 0.972,   1.0}, "Gauges", "Max Airspeed")
+defineFloat("AIRSPEED_SET", 177, {0.0, 1.0}, "Gauges", "Set Airspeed")
+defineFloat("MACH", 179, {1.0, 0.929, 0.871, 0.816, 0.765, 0.727, 0.683, 0.643, 0.611, 0.582, 0.551, 0.525, 0.5, 0.4}, "Gauges", "MachIndicator")
 
 -- Altimeter AAU-34/A
 defineToggleSwitch("ALT_ELECT", 31, 3002, 60, "Altimeter", "Altimeter Mode Control Lever, ELECT(rical)/PNEU(matic)")
 defineRotary("ALT_ZERO", 31, 3003, 62, "Altimeter", "Altimeter Zero Setting Knob")
+defineFloat("ALT_100_P", 10, {0.0, 1.0}, "Gauges", "Altimeter 100ft Pointer")
+defineFloat("ALT_10000_C", 11, {0.0, 1.0}, "Gauges", "Altimeter 10000ft Count")
+defineFloat("ALT_1000_C", 520, {0.0, 1.0}, "Gauges", "Altimeter 1000ft Count")
+defineFloat("ALT_100_C", 521, {0.0, 1.0}, "Gauges", "Altimeter 100ft Count")
+defineFloat("PRESS_0", 59, {0.0, 1.0}, "Gauges", "Pressure Setting 0")
+defineFloat("PRESS_1", 58, {0.0, 1.0}, "Gauges", "Pressure Setting 1")
+defineFloat("PRESS_2", 57, {0.0, 1.0}, "Gauges", "Pressure Setting 2")
+defineFloat("PRESS_3", 56, {0.0, 1.0}, "Gauges", "Pressure Setting 3")
+defineFloat("ALT_PNEU_FLAG", 9, {0.0, 1.0}, "Gauges", "Altimeter PNEU Flag")
 
 -- Attitude Indicator ARU-20/A
-definePotentiometer("AI_PITCH_TRIM", 32, 3001, 150, {0, 1}, "Attitude Indicator", "AI Pitch Trim Knob")
+definePotentiometer("AI_PITCH_TRIM", 32, 3001, 150, {0, 1}, "Attitude Indicator", "Attitude Indicator Pitch Trim Knob")
+defineFloat("AI_PITCH", 81, {-0.507, 0.0, 0.507}, "Gauges", "Attitude Indicator Pitch")
+defineFloat("AI_BANK", 30, {-1.0, 1.0}, "Gauges", "Attitude Indicator Bank")
+defineFloat("AI_OFF_FLAG", 149, {0.0, 1.0}, "Gauges", "Attitude Indicator OFF Flag")
 
 -- Horizontal Situation Indicator
 defineVariableStepTumb("HSI_HDG_KNOB", 33, 3001, 271, 1.0, "HSI", "HSI Heading Set Knob")
 defineVariableStepTumb("HSI_CRS_KNOB", 33, 3002, 272, 1.0, "HSI", "HSI Course Set Knob")
+defineFloat("HSI_CRS", 35, {0.0, 1.0}, "Gauges", "HSI Course Arrow")
+defineFloat("HSI_HDG", 144, {0.0, 1.0}, "Gauges", "HSI Heading Mark")
+defineFloat("HSI_COMP", 32, {0.0, 1.0}, "Gauges", "HSI Compass Card")
+defineFloat("HSI_BER_POINT", 139, {0.0, 1.0}, "Gauges", "HSI Bearing Pointer")
+defineFloat("HSI_CRS_DEV", 36, {0.0, 1.0}, "Gauges", "HSI Course Dev Indicator")
+defineFloat("HSI_Range_100", 268, {0.0, 1.0}, "Gauges", "HSI Range 100")
+defineFloat("HSI_Range_10", 269, {0.0, 1.0}, "Gauges", "HSI Range 10")
+defineFloat("HSI_Range_1", 270, {0.0, 1.0}, "Gauges", "HSI Range 1")
+defineIndicatorLight("HSI_Range_FLAG", 142, "Warning, Caution and IndicatorLights", "HSI Range Flag")
+defineFloat("HSI_CRS_10010", 276, {0.0, 1.0}, "Gauges", "HSI CourseSel 100 10")
+defineFloat("HSI_CRS_1", 277, {0.0, 1.0}, "Gauges", "HSI CourseSel 1")
+defineFloat("HSI_TO_FROM", 146, {0.0, 1.0}, "Gauges", "HSI To From")
+defineFloat("HSI_OFF", 143, {0.0, 1.0}, "Gauges", "HSI OFF Flag")
+defineFloat("HSI_DEV", 141, {0.0, 1.0}, "Gauges", "HSI DevDF Window")
 
 -- Clock
 definePushButton("ELAP_TIME", 35, 3003, 512,"Clock" , "ABU-11 Clock Elapsed Time Knob")
+defineFloat("CLOCK_CURR_H", 19, {0.0, 1.0}, "Gauges", "Clock Currtime Hours")
+defineFloat("CLOCK_CURR_M", 18, {0.0, 1.0}, "Gauges", "CLOCK Currtime Minutes")
+defineFloat("CLOCK_ELAP_M", 509, {0.0, 1.0}, "Gauges", "CLOCK Elapsed Time Minutes")
+defineFloat("CLOCK_ELAP_S", 37, {0.0, 1.0}, "Gauges", "CLOCK Elapsed Time Seconds")
 
 --UHF Radio AN/ARC-164
 definePushButton("UHF_TONE_BT", 23, 3001, 310,"UHF Radio" , "UHF Radio Tone Button")
@@ -307,6 +374,12 @@ define3PosTumb("UHF_ANT", 23, 3012, 336, "UHF Radio", "UHF Radio Antenna Selecto
 definePushButton("UHF_MIC_BT", 23, 3013, 135,"UHF Radio" , "UHF Radio Microphone Button")
 defineToggleSwitch("UHF_DOOR", 23, 3014, 335,"UHF Radio" , "Hinged Access Door, OPEN/CLOSE")
 definePushButton("UHF_PRE_SET", 23, 3015, 314,"UHF Radio" , "UHF Preset Channel Set Button")
+defineFloat("UHF_CHAN_G", 326, {0.0, 1.0}, "Gauges", "UHF Radio Channel")
+defineFloat("UHF_100_G", 302, {0.0, 1.0}, "Gauges", "UHF Radio 100MHz")
+defineFloat("UHF_10_G", 303, {0.0, 1.0}, "Gauges", "UHF Radio 10MHz")
+defineFloat("UHF_1_G", 304, {0.0, 1.0}, "Gauges", "UHF Radio 1MHz")
+defineFloat("UHF_01_G", 305, {0.0, 1.0}, "Gauges", "UHF Radio 0.1MHz")
+defineFloat("UHF_0025_G", 306, {0.0, 1.0}, "Gauges", "UHF Radio 0.025MHz")
 
 --TACAN
 defineIndicatorLight("TACAN_TEST", 260, "TACAN Panel", "TACAN Test Indicator Light")
