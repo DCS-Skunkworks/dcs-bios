@@ -27,7 +27,7 @@ local defineFloat = BIOS.util.defineFloat
 local define8BitFloat = BIOS.util.define8BitFloat
 
 local function define3PosTumb(msg, device_id, command, arg_number, category, description)
-	defineTumb(msg, device_id, command, arg_number, 0.1, {0.0, 0.2}, nil, false, category, description)
+	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
 end
 
 
@@ -158,6 +158,9 @@ definePushButton("LAUNCH_FLARE_SALVO", 30, 3286, 286,"Master Armament Panel" , "
 defineToggleSwitch("MASTER_ARM", 29, 3287, 287,"Master Armament Panel" , "Master Arm Switch")
 
 -- ECM Control Panel
+definePotentiometer("RWR_VOL", 18, 3273, 273, {0, 1},"ECM" , "RWR Power/Volume Button")
+defineMultipositionSwitch("DECOY_CONTROL", 30, 3274, 274, 5, 0.25,"ECM" ,"Decoy Dispenser Control OFF/AUT/UP/DWN/RWR")
+defineMultipositionSwitch("JAMMER_CONTROL", 30, 3275, 275, 5, 0.25,"ECM" ,"Jammer Control OFF/STBY/BIT/RCV/RPT")
 
 -- Landing Gear/Flaps Control Panel
 defineToggleSwitch("LG_LEVER", 28, 3461, 461,"Gear/Flaps Control Panel" , "Gear Lever")
@@ -168,6 +171,10 @@ definePushButton("CMBT", 9, 3450, 450,"H2O" , "CMBT Thrust Button")
 define3PosTumb("H2O_MODE", 9, 3449, 449,"H2O" , "H2O Mode Switch  TO/OFF/LDG")
 
 -- Bulkhead Switches
+defineToggleSwitch("MFS_EMERG_LEVER", 28, 3501, 501,"Bulkhead" , "MFS Emergency Lever")
+definePushButton("STOPWATCH_START", 12, 3282, 282,"Bulkhead" , "Stopwatch Start/Stop")
+definePushButton("STOPWATCH_LAP", 12, 3284, 284,"Bulkhead" , "Stopwatch Lap/Reset")
+
 -- Seat
 defineToggleSwitch("SEAT_SAFE_LEVER", 12, 3800, 800,"Seat" , "Seat Ground Safety Lever")
 
