@@ -124,7 +124,10 @@ definePushButton("MPCD_L_17", 26, 3216, 216,"MPCD Left" , "MPCD Left Button 17")
 definePushButton("MPCD_L_18", 26, 3217, 217,"MPCD Left" , "MPCD Left Button 18")
 definePushButton("MPCD_L_19", 26, 3218, 218,"MPCD Left" , "MPCD Left Button 19")
 definePushButton("MPCD_L_20", 26, 3219, 219,"MPCD Left" , "MPCD Left Button 20")
-
+define3PosTumb("MPCD_L_DAY_NIGHT", 26, 3220, 220,"MPCD Left" , "MPCD Left Display DAY/NIGHT Mode")
+define3PosTumb("MPCD_L_SYMBOL", 26, 3221, 221,"MPCD Left" , "MPCD Left Display Symbology")
+define3PosTumb("MPCD_L_GAIN", 26, 3222, 222,"MPCD Left" , "MPCD Left Display Gain")
+define3PosTumb("MPCD_L_CONTRAST", 26, 3223, 223,"MPCD Left" , "MPCD Left Display Contrast")
 definePotentiometer("MPCD_L_BRIGHT", 26, 3194, 194, {0, 1},"MPCD Left" , "MPCD Left Off/Brightness Control")
 
 -- MPCD Right
@@ -148,7 +151,10 @@ definePushButton("MPCD_R_17", 27, 3240, 240,"MPCD Right" , "MPCD Right Button 17
 definePushButton("MPCD_R_18", 27, 3241, 241,"MPCD Right" , "MPCD Right Button 18")
 definePushButton("MPCD_R_19", 27, 3242, 242,"MPCD Right" , "MPCD Right Button 19")
 definePushButton("MPCD_R_20", 27, 3243, 243,"MPCD Right" , "MPCD Right Button 20")
-
+define3PosTumb("MPCD_R_DAY_NIGHT", 267, 3244, 244,"MPCD Right" , "MPCD Right Display DAY/NIGHT Mode")
+define3PosTumb("MPCD_R_SYMBOL", 27, 3245, 245,"MPCD Right" , "MPCD Right Display Symbology")
+define3PosTumb("MPCD_R_GAIN", 27, 3246, 246,"MPCD Right" , "MPCD Right Display Gain")
+define3PosTumb("MPCD_R_CONTRAST", 27, 3247, 247,"MPCD Right" , "MPCD Right Display Contrast")
 definePotentiometer("MPCD_R_BRIGHT", 27, 3195, 195, {0, 1},"MPCD Right" , "MPCD Right Off/Brightness Control")
 
 -- Armament Control Panel ACP
