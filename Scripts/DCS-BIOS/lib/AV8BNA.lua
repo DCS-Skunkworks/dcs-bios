@@ -158,6 +158,25 @@ define3PosTumb("MPCD_R_CONTRAST", 27, 3247, 247,"MPCD Right" , "MPCD Right Displ
 definePotentiometer("MPCD_R_BRIGHT", 27, 3195, 195, {0, 1},"MPCD Right" , "MPCD Right Off/Brightness Control")
 
 -- Armament Control Panel ACP
+defineMultipositionSwitch("RELEASE_CONTROL", 29, 3395, 395, 3, 0.33,"ACP" ,"Manual Release Control Knob NORM/N+T/N/T")
+define3PosTumb("ARM_CONTROL", 29, 3396, 396,"ACP" , "Armament Mode Control")
+define3PosTumb("FUZE_CONTROL", 29, 3397, 397,"ACP" , "Fuzing Control")
+define3PosTumb("QUANT_SEL_10", 29, 3398, 398,"ACP" , "Quantity Selector (Tens)")
+define3PosTumb("QUANT_SEL_01", 29, 3399, 399,"ACP" , "Quantity Selector (Units)")
+define3PosTumb("MULTI_RELEASE_CONTROL", 29, 3400, 400,"ACP" , "Multiple Release Control")
+define3PosTumb("RELEASE_INT_100", 29, 3401, 401,"ACP" , "Release Interval Control (Hundreds)")
+define3PosTumb("RELEASE_INT_010", 29, 3402, 402,"ACP" , "Release Interval Control (Tens)")
+define3PosTumb("RELEASE_INT_001", 29, 3403, 403,"ACP" , "Release Interval Control (Units)")
+defineMultipositionSwitch("JETT_MODE", 29, 3404, 404, 4, 0.5,"ACP" ,"Jettison Mode Selector STA/STOR/SAFE/CMBT/Fuel")
+definePushButton("JETT_STORES", 29, 3405, 405,"ACP" , "Jettison Stores")
+definePushButton("JETT_STATION_1", 29, 3407, 407,"ACP" , "Select Station 1 Toggle")
+definePushButton("JETT_STATION_2", 29, 3409, 409,"ACP" , "Select Station 2 Toggle")
+definePushButton("JETT_STATION_3", 29, 3411, 411,"ACP" , "Select Station 3 Toggle")
+definePushButton("JETT_STATION_4", 29, 3413, 413,"ACP" , "Select Station 4 Toggle")
+definePushButton("JETT_STATION_5", 29, 3415, 415,"ACP" , "Select Station 5 Toggle")
+definePushButton("JETT_STATION_6", 29, 3417, 417,"ACP" , "Select Station 6 Toggle")
+definePushButton("JETT_STATION_7", 29, 3419, 419,"ACP" , "Select Station 7 Toggle")
+defineToggleSwitch("GND_IR_COOL", 29, 3420, 420,"ACP" , "Ground IR Cool Switch")
 
 -- Master Armament Panel
 definePushButton("LAUNCH_FLARE_SALVO", 30, 3286, 286,"Master Armament Panel" , "Launch Flare Salvo")
@@ -165,8 +184,8 @@ defineToggleSwitch("MASTER_ARM", 29, 3287, 287,"Master Armament Panel" , "Master
 
 -- ECM Control Panel
 definePotentiometer("RWR_VOL", 18, 3273, 273, {0, 1},"ECM" , "RWR Power/Volume Button")
-defineMultipositionSwitch("DECOY_CONTROL", 30, 3274, 274, 5, 0.25,"ECM" ,"Decoy Dispenser Control OFF/AUT/UP/DWN/RWR")
-defineMultipositionSwitch("JAMMER_CONTROL", 30, 3275, 275, 5, 0.25,"ECM" ,"Jammer Control OFF/STBY/BIT/RCV/RPT")
+defineMultipositionSwitch("DECOY_CONTROL", 30, 3274, 274, 4, 0.25,"ECM" ,"Decoy Dispenser Control OFF/AUT/UP/DWN/RWR")
+defineMultipositionSwitch("JAMMER_CONTROL", 30, 3275, 275, 4, 0.25,"ECM" ,"Jammer Control OFF/STBY/BIT/RCV/RPT")
 
 -- Landing Gear/Flaps Control Panel
 defineToggleSwitch("LG_LEVER", 28, 3461, 461,"Gear/Flaps Control Panel" , "Gear Lever")
@@ -224,10 +243,10 @@ define3PosTumb("BATT_SW", 1, 3613, 613,"Electric Panel" , "Battery Switch  ON/OF
 -- V/UHF Radio Panel
 definePotentiometer("UHF_VOL", 7, 3614, 614, {0, 1}, "UHF Radio", "V/UHF RSC Volume Knob")
 definePotentiometer("UHF_FREQ", 7, 3615, 615, {0, 1}, "UHF Radio", "V/UHF RSC Chan/Freq Knob")
-defineMultipositionSwitch("UHF_MODE", 7, 3616, 616, 7, 0.2,"UHF Radio" ,"V/UHF RSC Operational Mode Switch ZRO/OFF/TEST/TR+G/TR/ADF/CHNG PRST")
+defineMultipositionSwitch("UHF_MODE", 7, 3616, 616, 6, 0.2,"UHF Radio" ,"V/UHF RSC Operational Mode Switch ZRO/OFF/TEST/TR+G/TR/ADF/CHNG PRST")
 definePushButton("UHF_ANC_POINT", 7, 3617, 617,"UHF Radio" , "V/UHF RSC Ancillary Mode Pointer")
 definePushButton("UHF_ANC_SW", 7, 3618, 618,"UHF Radio" , "V/UHF RSC Ancillary Mode Switch")
-defineMultipositionSwitch("BOMBS_ARM_SW", 7, 3619, 619, 8, 0.15,"UHF Radio" ,"V/UHF RSC Frequency Mode Switch AJ-M/AJ/MAR/PRST/MAN/243/121")
+defineMultipositionSwitch("BOMBS_ARM_SW", 7, 3619, 619, 6, 0.15,"UHF Radio" ,"V/UHF RSC Frequency Mode Switch AJ-M/AJ/MAR/PRST/MAN/243/121")
 definePushButton("UHF_LOAD_SW", 7, 3620, 620,"UHF Radio" , "V/UHF RSC LOAD/OFST Switch")
 
 -- ACNIP
