@@ -30,7 +30,6 @@ local function define3PosTumb(msg, device_id, command, arg_number, category, des
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
 end
 
-
 -------------------------------------------------------------------
 -- MAIN INSTRUMENT PANEL:
 -------------------------------------------------------------------
@@ -188,6 +187,13 @@ defineMultipositionSwitch("DECOY_CONTROL", 30, 3274, 274, 4, 0.25,"ECM" ,"Decoy 
 defineMultipositionSwitch("JAMMER_CONTROL", 30, 3275, 275, 4, 0.25,"ECM" ,"Jammer Control OFF/STBY/BIT/RCV/RPT")
 
 -- Landing Gear/Flaps Control Panel
+defineToggleSwitch("LG_EMERG_LEVER", 28, 3447, 447,"Gear/Flaps Control Panel" , "Emergency Landing Gear Lever")
+definePushButton("LG_DOWN_LOCK", 28, 3448, 448,"Gear/Flaps Control Panel" , "Gear Down Lock Override Button")
+defineMultipositionSwitch("FLAP_MODE", 13, 3454, 454, 3, 0.5, "Gear/Flaps Control Panel", "Flaps Mode Switch CRUISE/AUTO/STOL")
+defineMultipositionSwitch("FLAP_MODE", 13, 3457, 457, 3, 0.5, "Gear/Flaps Control Panel", "Flaps Power Switch RESET/ON/OFF")
+definePushButton("EMERG_JETT" 29, 3458, 458,"Gear/Flaps Control Panel" , "Emergency Jettison Button")
+defineMultipositionSwitch("ANTI_SKID", 28, 3459, 459, 3, 0.5, "Gear/Flaps Control Panel", "Anti-Skid Switch TEST/ON/NWS")
+definePushButton("FLAPS_BIT" 13, 3460, 460,"Gear/Flaps Control Panel" , "Flaps BIT Button")
 defineToggleSwitch("LG_LEVER", 28, 3461, 461,"Gear/Flaps Control Panel" , "Gear Lever")
 defineToggleSwitch("LG_EMERGBATT_LEVER", 28, 3470, 470,"Gear/Flaps Control Panel" , "Landing Gear Emergency Battery Lever")
 
@@ -207,7 +213,19 @@ defineToggleSwitch("SEAT_SAFE_LEVER", 12, 3800, 800,"Seat" , "Seat Ground Safety
 -- CENTER CONSOLE:
 -------------------------------------------------------------------
 -- Flights Instruments Panel
+definePotentiometer("NAV_CRS", 11, 3364, 364, {0, 1}, "Flight Instruments", "NAV Course Setting")
+definePotentiometer("BARO_PRESSURE", 10, 3653, 653, {0, 1}, "Flight Instruments", "Barometric Pressure Calibration")
+definePotentiometer("BAK_ADI_CAGE_KNOB", 19, 3351, 351, {0, 1}, "Flight Instruments", "Backup ADI Cage/Pitch Adjust Knob")
+definePushButton("BAK_ADI_CAGE_PULL", 19, 3350, 350,"Flight Instruments" , "Backup ADI Cage/Pitch Adjust Pull")
+
 -- Miscelaneous Switch Panel
+defineToggleSwitch("RECORD_SYS_MODE", 14, 3422, 422,"Misc" , "Video Recorder System Mode Switch")
+defineToggleSwitch("RECORD_SYS_DISPLAY", 14, 3423, 423,"Misc" , "Video Recorder System Display Selector Switch")
+defineToggleSwitch("DMT", 16, 3424, 424,"Misc" , "DMT Toggle On/Off")
+defineMultipositionSwitch("DUAL_CPU_MODE", 12, 3425, 425, 3, 0.5, "Misc", "Dual Processor Mode Selector Switch PRIM/AUTO/ALTER")
+defineToggleSwitch("PROBE_HEAT_MODE", 19, 3426, 426,"Misc" , "Probe Heat Mode Switch")
+defineMultipositionSwitch("MISS_PC_MODE", 12, 3427, 427, 3, 0.5, "Misc", "Mission Computer Mode Switch OVRD/AUTO/OFF")
+defineToggleSwitch("FLIR", 14, 3429, 429,"Misc" , "FLIR Power Switch")
 
 -- INS Panel
 defineMultipositionSwitch("INS_MODE", 11, 3421, 421, 7, 0.1,"INS" ,"INS Mode Knob OFF/SEA/GND/NAV/IFA/GYRO/GB/TEST")
@@ -216,7 +234,17 @@ defineMultipositionSwitch("INS_MODE", 11, 3421, 421, 7, 0.1,"INS" ,"INS Mode Kno
 -- LEFT CONSOLE:
 -------------------------------------------------------------------
 -- Trim Panel
+defineMultipositionSwitch("YAW_TRIM_SW", 28, 3471, 471, 3, 0.5, "Trim", "RPS/YAW Trim Switch TEST/ON/OFF")
+defineMultipositionSwitch("TRIM_MODE", 28, 3472, 472, 3, 0.5, "Trim", "Trim Mode Switch APRCH/HVR/OFF")
+
 -- SAAHS Panel
+defineToggleSwitch("ALT_HOLD_SW", 28, 3476, 476,"SAAHS" , "Alt Hold Switch")
+defineToggleSwitch("Q_FEEL_SW", 28, 3475, 475,"SAAHS" , "Q Feel Switch")
+defineMultipositionSwitch("AFC_SW", 28, 3477, 477, 3, 0.5, "SAAHS", "AFC Switch ON/OFF/RESET")
+defineToggleSwitch("SAS_YAW", 28, 3478, 478,"SAAHS" , "SAS Yaw Switch")
+defineToggleSwitch("SAS_ROLL", 28, 3479, 479,"SAAHS" , "SAS Roll Switch")
+defineToggleSwitch("SAS_PITCH", 28, 3480, 480,"SAAHS" , "SAS Pitch Switch")
+
 -- Throttle Quadrant
 -- Fuel Panel
 -- External Lights Panel
