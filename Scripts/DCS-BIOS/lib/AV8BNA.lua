@@ -191,9 +191,9 @@ defineToggleSwitch("LG_EMERG_LEVER", 28, 3447, 447,"Gear/Flaps Control Panel" , 
 definePushButton("LG_DOWN_LOCK", 28, 3448, 448,"Gear/Flaps Control Panel" , "Gear Down Lock Override Button")
 defineMultipositionSwitch("FLAP_MODE", 13, 3454, 454, 3, 0.5, "Gear/Flaps Control Panel", "Flaps Mode Switch CRUISE/AUTO/STOL")
 defineMultipositionSwitch("FLAP_MODE", 13, 3457, 457, 3, 0.5, "Gear/Flaps Control Panel", "Flaps Power Switch RESET/ON/OFF")
-definePushButton("EMERG_JETT" 29, 3458, 458,"Gear/Flaps Control Panel" , "Emergency Jettison Button")
+definePushButton("EMERG_JETT", 29, 3458, 458,"Gear/Flaps Control Panel" , "Emergency Jettison Button")
 defineMultipositionSwitch("ANTI_SKID", 28, 3459, 459, 3, 0.5, "Gear/Flaps Control Panel", "Anti-Skid Switch TEST/ON/NWS")
-definePushButton("FLAPS_BIT" 13, 3460, 460,"Gear/Flaps Control Panel" , "Flaps BIT Button")
+definePushButton("FLAPS_BIT", 13, 3460, 460,"Gear/Flaps Control Panel" , "Flaps BIT Button")
 defineToggleSwitch("LG_LEVER", 28, 3461, 461,"Gear/Flaps Control Panel" , "Gear Lever")
 defineToggleSwitch("LG_EMERGBATT_LEVER", 28, 3470, 470,"Gear/Flaps Control Panel" , "Landing Gear Emergency Battery Lever")
 
@@ -246,17 +246,44 @@ defineToggleSwitch("SAS_ROLL", 28, 3479, 479,"SAAHS" , "SAS Roll Switch")
 defineToggleSwitch("SAS_PITCH", 28, 3480, 480,"SAAHS" , "SAS Pitch Switch")
 
 -- Throttle Quadrant
+defineToggleSwitch("JPTL_SW", 9, 3481, 481,"Throttle" , "JPTL Switch")
+define3PosTumb("RUDDER_TRIM", 28, 3483, 483,"Throttle" , "Rudder Trim Switch L/R")
+definePushButton("EMS_B", 9, 3482, 482,"Throttle" , "EMS Button")
+defineToggleSwitch("MAN_FUEL_SW", 9, 3484, 484,"Throttle" , "Manual Fuel Switch")
+definePotentiometer("THROTTLE_FRICTION", 28, 3485, 485, {0, 1}, "Throttle", "Throttle Lever Friction Knob")
+definePotentiometer("NOZZLE_FRICTION", 28, 3486, 486, {0, 1}, "Throttle", "Nozzle Lever Friction Knob")
+defineToggleSwitch("MAN_FUEL_SW", 9, 3490, 490,"Throttle" , "Throttle Cutoff Lever")
+defineToggleSwitch("MAN_FUEL_SW", 28, 3489, 489,"Throttle" , "Parking Brake Lever")
+definePotentiometer("NOZZLE_LEVER", 13, 3487, 487, {0, 1}, "Throttle", "Nozzle Control Lever")
+definePotentiometer("STO_LEVER", 13, 3488, 488, {0, 1}, "Throttle", "STO Stop Lever")
+
 -- Fuel Panel
+defineToggleSwitch("MAN_FUEL_SW", 9, 3504, 504,"Fuel Panel" , "Fuel Proportioner")
+defineMultipositionSwitch("FUEL_PUMP_L", 9, 3505, 505, 3, 0.5,"Fuel Panel" ,"Fuel Pump L Switch NORM/OFF/DC OPEN")
+defineMultipositionSwitch("FUEL_PUMP_R", 9, 3506, 506, 3, 0.5,"Fuel Panel" ,"Fuel Pump R Switch NORM/OFF/DC OPEN")
+defineMultipositionSwitch("PROBE", 9, 3507, 507, 3, 0.5,"Fuel Panel" ,"Air Refueling Probe Switch PRESS/OUT/IN")
+defineToggleSwitch("FUEL_DUMP_L", 9, 3508, 508,"Fuel Panel" , "Fuel Dump L Switch")
+defineToggleSwitch("FUEL_DUMP_R", 9, 3509, 509,"Fuel Panel" , "Fuel Dump R Switch")
+
 -- External Lights Panel
+defineMultipositionSwitch("LANDING_TAXI_LIGHTS", 33, 3472, 472, 3, 0.5,"External Lights" ,"Landing/Taxi Lights Switch APRCH/HVR/OFF")
+defineMultipositionSwitch("EXT_LIGHTS", 33, 3503, 503, 3, 0.5,"External Lights" ,"External Lights Mode Switch NORM/NVG/OFF")
+definePotentiometer("FORMATION_LIGHTS", 33, 3510, 510, {0, 1}, "External Lights", "Formation Lights Knob")
+defineMultipositionSwitch("POS_LIGHTS", 33, 3511, 511, 3, 0.5,"External Lights" ,"Position Lights Switch BRT/DIM/OFF")
+defineToggleSwitch("ANTI_COLL_LIGHTS", 33, 3512, 512,"External Lights" , "Anti-Collision Lights Switch")
+defineToggleSwitch("EXT_AUX_LIGHTS", 33, 3513, 513,"External Lights" , "External Auxiliary Lights Switch")
 
 -- Pilot Service Panel
 defineToggleSwitch("O2_SW", 36, 3514, 514,"Gear/Flaps Control Panel" , "Oxygen Switch")
 defineToggleSwitch("H2O_DUMP", 9, 3515, 515,"Gear/Flaps Control Panel" , "H2O Dump Switch")
-defineToggleSwitch("LIDS_SW", 13, 3516, 516"Gear/Flaps Control Panel" , "LIDS Switch")
+defineToggleSwitch("LIDS_SW", 13, 3516, 516,"Gear/Flaps Control Panel" , "LIDS Switch")
 defineToggleSwitch("RPM_SW", 9, 3517, 517,"Gear/Flaps Control Panel" , "ENG RPM Switch")
 defineToggleSwitch("EFC_SW", 9, 3518, 518,"Gear/Flaps Control Panel" , "EFC Switch")
 
 -- Bulkhead Switches
+define3PosTumb("SEAT_ADJ", 12, 3502, 502,"Bulkhead Left" , "Seat Adjustment Switch")
+defineToggleSwitch("FUEL_SHUTOFF", 9, 3519, 519,"Bulkhead Left" , "Fuel Shutoff Lever")
+defineToggleSwitch("DECS_SW", 9, 3520, 520,"Bulkhead Left" , "DECS Switch")
 
 -------------------------------------------------------------------
 -- RIGHT CONSOLE:
@@ -304,6 +331,11 @@ definePotentiometer("FLOOD_LIGHTS", 34, 3637, 637, {0, 1}, "Int Light", "Flood L
 definePotentiometer("ANNUNCIATOR_LIGHTS", 34, 3638, 638, {0, 0.9}, "Int Light", "Annunciator Lights")
 
 -- ECS Panel
+definePotentiometer("TEMP_CONTROL", 36, 3639, 639, {0, 1}, "ECS", "Temperature Control Knob")
+defineToggleSwitch("ECS_FWD", 36, 3640, 640,"ECS" ,"Fwd Equipment Bay ECS Switch")
+defineMultipositionSwitch("CABIN_DEFOG", 36, 3641, 641, 3, 0.5,"ECS" ,"Cabin Defog Switch NORM/DFOG/MAX")
+defineMultipositionSwitch("ECS_AFT", 36, 3642, 642, 3, 0.5,"ECS" ,"Aft Equipment Bay ECS Switch RESET/ON/OFF")
+defineMultipositionSwitch("CABIN_PRESS", 36, 3643, 643, 3, 0.5,"ECS" ,"Cabin Pressure Switch NORM/DUMP/RAM")
 
 -------------------------------------------------------------------
 -- FLOOD LAMPS:
@@ -322,7 +354,8 @@ definePotentiometer("FLOOD_L_CAN_T", 28, 3159, 159, {-1, 1}, "Flood Lamps", "Flo
 -------------------------------------------------------------------
 -- CANOPY CONTROLS:
 -------------------------------------------------------------------
-
-
+defineToggleSwitch("CANOPY_HAND_L", 28, 3801, 801,"CANOPY" , "Canopy Handle Left")
+defineToggleSwitch("CANOPY_HAND_R", 28, 3802, 802,"CANOPY" , "Canopy Handle Right")
+defineToggleSwitch("CANOPY_LOCK", 28, 3803, 803,"CANOPY" , "Canopy Locking Lever")
 
 BIOS.protocol.endModule()
