@@ -91,6 +91,7 @@ defineToggleSwitch("R_BOOSTPUMP", 4, 3009, 382,"Fuel" , "Right Boost Pump Switch
 defineToggleSwitch("L_SHUTOFF_C", 4, 3010, 359,"Fuel" , "Left Fuel Shutoff Switch Cover, OPEN/CLOSED")
 defineToggleSwitch("R_SHUTOFF_C", 4, 3011, 361,"Fuel" , "Right Fuel Shutoff Switch Cover, OPEN/CLOSED")
 defineFloat("FUELQUANTITY_L", 22, {0.0, 1.0}, "Gauges", "Fuel Quantity Left")
+defineFloat("FUELQUANTITY_R", 23, {0.0, 1.0}, "Gauges", "Fuel Quantity Right")
 defineFloat("FUELFLOW_R", 526, {0.0,   0.67,   0.75,    0.83,     1.0}, "Gauges", "Fuel Flow Right")
 defineFloat("FUELFLOW_L", 525, {0.0,   0.67,   0.75,    0.83,     1.0}, "Gauges", "Fuel Flow Left")
 
