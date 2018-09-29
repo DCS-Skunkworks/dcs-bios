@@ -30,6 +30,8 @@ local function define3PosTumb(msg, device_id, command, arg_number, category, des
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
 end
 
+--Remove Pilot Arg# 775
+
 -- Indicator Lights
 defineIndicatorLight("L_GEN", 530, "Warning, Caution and IndicatorLights","L Generator Lamp")
 defineIndicatorLight("CANOPY", 531, "Warning, Caution and IndicatorLights","Canopy Open")
