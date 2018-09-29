@@ -504,7 +504,7 @@ defineIndicatorLight("X130_ARMED", 458, "Armament Panel", "X130 Armed Lamp")
 defineFloat("SIGHTS_FOR_CIVIL", 473, {0, 1}, "WTF", "SIGHTS_FOR_CIVIL / controllers.Civil_Heli")
 
 --Doors
-defineToggleSwitch("DOOR_L-PTR", 12, 3005, 419, "Doors", "Door Left")
-defineToggleSwitch("DOOR_R-PTR", 12, 3006, 421, "Doors", "Door Right")
+definePushButton("DOOR_L-PTR", 12, 3005, 419, "Doors", "Door Left")
+definePushButton("DOOR_R-PTR", 12, 3006, 421, "Doors", "Door Right")
 
 BIOS.protocol.endModule()
