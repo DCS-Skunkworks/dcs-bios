@@ -3957,6 +3957,68 @@
                                                                            "physical_variant": "push_button"
                                                                     }
                                                 },
+                                       "Doors": {
+                                                    "DOOR_L-PTR": {
+                                                                              "api_variant": "momentary_last_position",
+                                                                                 "category": "Doors",
+                                                                             "control_type": "selector",
+                                                                              "description": "Door Left",
+                                                                               "identifier": "DOOR_L-PTR",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 5404,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 128,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 7,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "push_button"
+                                                                  },
+                                                    "DOOR_R-PTR": {
+                                                                              "api_variant": "momentary_last_position",
+                                                                                 "category": "Doors",
+                                                                             "control_type": "selector",
+                                                                              "description": "Door Right",
+                                                                               "identifier": "DOOR_R-PTR",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 5404,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 256,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 8,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "push_button"
+                                                                  }
+                                                },
                            "Electrical System": {
                                                          "AC_VM_SRC": {
                                                                                      "category": "Electrical System",

@@ -296,3 +296,17 @@ www.socat.org is an alternate site providing the same contents.
 public git repository:
 	git://repo.or.cz/socat.git
 	http://repo.or.cz/r/socat.git
+
+Changes 1.7.3.0 
+
+https://github.com/tech128/socat-1.7.3.0-windows
+
+Since no one else has compiled socat for windows, here it is.
+
+I used some optimizations, which should help this version of socat stand 
+out from the rest.
+
+Those optimizations were -march=i586 -flto -fomit-frame-pointer
+
+I didn't want to get too crazy, since that sometimes leads to weird 
+issues.
