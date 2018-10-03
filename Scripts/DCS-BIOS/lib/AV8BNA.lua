@@ -44,9 +44,9 @@ definePotentiometer("EDP_BRIGHT", 20, 3272, 272, {0, 1},"Engine Display" , "EDP 
 defineToggleSwitch("EDP_BIT", 20, 3655, 655,"Engine Display" , "EDP BIT Button")
 
 -- HUD Control Panel
-define3PosTumb("HUD_SYMBOL", 22, 3288, 288,"HUD Control" , "HUD Symbology Reject Switch NORM/REJ1/REJ2")
+defineMultipositionSwitch("HUD_SYMBOL", 22, 3288, 288, 3, 0.5, "HUD Control" , "HUD Symbology Reject Switch NORM/REJ1/REJ2")
 definePotentiometer("HUD_BRIGHT", 22, 3289, 289, {0, 1},"HUD Control" , "HUD Off/Brightness Control")
-define3PosTumb("HUD_MODE", 22, 3290, 290,"HUD Control" , "HUD Display Mode Switch DAY/AUTO/NIGHT")
+defineMultipositionSwitch("HUD_MODE", 22, 3290, 290, 3, 0.5, "HUD Control" , "HUD Display Mode Switch DAY/AUTO/NIGHT")
 definePotentiometer("HUD_VIDEO_BRIGHT", 22, 3291, 291, {0, 1},"HUD Control" , "HUD Video Brightness Control")
 definePotentiometer("HUD_VIDEO_CONTR", 22, 3292, 292, {0, 1},"HUD Control" , "HUD Video Contrast Control")
 defineToggleSwitch("HUD_ALT", 22, 3293, 293,"HUD Control" , "HUD Altitude Selector Switch")
@@ -157,7 +157,7 @@ define3PosTumb("MPCD_R_CONTRAST", 27, 3247, 247,"MPCD Right" , "MPCD Right Displ
 definePotentiometer("MPCD_R_BRIGHT", 27, 3195, 195, {0, 1},"MPCD Right" , "MPCD Right Off/Brightness Control")
 
 -- Armament Control Panel ACP
-defineMultipositionSwitch("RELEASE_CONTROL", 29, 3395, 395, 3, 0.33,"ACP" ,"Manual Release Control Knob NORM/N+T/N/T")
+defineMultipositionSwitch("RELEASE_CONTROL", 29, 3395, 395, 4, 0.33,"ACP" ,"Manual Release Control Knob NORM/N+T/N/T")
 define3PosTumb("ARM_CONTROL", 29, 3396, 396,"ACP" , "Armament Mode Control")
 define3PosTumb("FUZE_CONTROL", 29, 3397, 397,"ACP" , "Fuzing Control")
 define3PosTumb("QUANT_SEL_10", 29, 3398, 398,"ACP" , "Quantity Selector (Tens)")
@@ -166,7 +166,7 @@ define3PosTumb("MULTI_RELEASE_CONTROL", 29, 3400, 400,"ACP" , "Multiple Release 
 define3PosTumb("RELEASE_INT_100", 29, 3401, 401,"ACP" , "Release Interval Control (Hundreds)")
 define3PosTumb("RELEASE_INT_010", 29, 3402, 402,"ACP" , "Release Interval Control (Tens)")
 define3PosTumb("RELEASE_INT_001", 29, 3403, 403,"ACP" , "Release Interval Control (Units)")
-defineMultipositionSwitch("JETT_MODE", 29, 3404, 404, 4, 0.5,"ACP" ,"Jettison Mode Selector STA/STOR/SAFE/CMBT/Fuel")
+defineMultipositionSwitch("JETT_MODE", 29, 3404, 404, 5, 0.5,"ACP" ,"Jettison Mode Selector STA/STOR/SAFE/CMBT/Fuel")
 definePushButton("JETT_STORES", 29, 3405, 405,"ACP" , "Jettison Stores")
 definePushButton("JETT_STATION_1", 29, 3407, 407,"ACP" , "Select Station 1 Toggle")
 definePushButton("JETT_STATION_2", 29, 3409, 409,"ACP" , "Select Station 2 Toggle")
@@ -183,8 +183,8 @@ defineToggleSwitch("MASTER_ARM", 29, 3287, 287,"Master Armament Panel" , "Master
 
 -- ECM Control Panel
 definePotentiometer("RWR_VOL", 18, 3273, 273, {0, 1},"ECM" , "RWR Power/Volume Button")
-defineMultipositionSwitch("DECOY_CONTROL", 30, 3274, 274, 4, 0.25,"ECM" ,"Decoy Dispenser Control OFF/AUT/UP/DWN/RWR")
-defineMultipositionSwitch("JAMMER_CONTROL", 30, 3275, 275, 4, 0.25,"ECM" ,"Jammer Control OFF/STBY/BIT/RCV/RPT")
+defineMultipositionSwitch("DECOY_CONTROL", 30, 3274, 274, 5, 0.25,"ECM" ,"Decoy Dispenser Control OFF/AUT/UP/DWN/RWR")
+defineMultipositionSwitch("JAMMER_CONTROL", 30, 3275, 275, 5, 0.25,"ECM" ,"Jammer Control OFF/STBY/BIT/RCV/RPT")
 
 -- Landing Gear/Flaps Control Panel
 defineToggleSwitch("LG_EMERG_LEVER", 28, 3447, 447,"Gear/Flaps Control Panel" , "Emergency Landing Gear Lever")
@@ -199,7 +199,7 @@ defineToggleSwitch("LG_EMERGBATT_LEVER", 28, 3470, 470,"Gear/Flaps Control Panel
 
 -- Combat/Water Panel
 definePushButton("CMBT", 9, 3450, 450,"H2O" , "CMBT Thrust Button")
-define3PosTumb("H2O_MODE", 9, 3449, 449,"H2O" , "H2O Mode Switch  TO/OFF/LDG")
+defineMultipositionSwitch("H2O_MODE", 9, 3449, 449, 3, 0.5, "H2O" , "H2O Mode Switch  LDG/OFF/TO")
 
 -- Bulkhead Switches
 defineToggleSwitch("MFS_EMERG_LEVER", 28, 3501, 501,"Bulkhead" , "MFS Emergency Lever")
@@ -228,7 +228,7 @@ defineMultipositionSwitch("MISS_PC_MODE", 12, 3427, 427, 3, 0.5, "Misc", "Missio
 defineToggleSwitch("FLIR", 14, 3429, 429,"Misc" , "FLIR Power Switch")
 
 -- INS Panel
-defineMultipositionSwitch("INS_MODE", 11, 3421, 421, 7, 0.1,"INS" ,"INS Mode Knob OFF/SEA/GND/NAV/IFA/GYRO/GB/TEST")
+defineMultipositionSwitch("INS_MODE", 11, 3421, 421, 8, 0.1,"INS" ,"INS Mode Knob OFF/SEA/GND/NAV/IFA/GYRO/GB/TEST")
 
 -------------------------------------------------------------------
 -- LEFT CONSOLE:
@@ -252,24 +252,24 @@ definePushButton("EMS_B", 9, 3482, 482,"Throttle" , "EMS Button")
 defineToggleSwitch("MAN_FUEL_SW", 9, 3484, 484,"Throttle" , "Manual Fuel Switch")
 definePotentiometer("THROTTLE_FRICTION", 28, 3485, 485, {0, 1}, "Throttle", "Throttle Lever Friction Knob")
 definePotentiometer("NOZZLE_FRICTION", 28, 3486, 486, {0, 1}, "Throttle", "Nozzle Lever Friction Knob")
-defineToggleSwitch("MAN_FUEL_SW", 9, 3490, 490,"Throttle" , "Throttle Cutoff Lever")
-defineToggleSwitch("MAN_FUEL_SW", 28, 3489, 489,"Throttle" , "Parking Brake Lever")
+defineToggleSwitch("THROTT_CUTOFF_LV", 9, 3490, 490,"Throttle" , "Throttle Cutoff Lever")
+defineToggleSwitch("PARK_BRAKE_LV", 28, 3489, 489,"Throttle" , "Parking Brake Lever")
 definePotentiometer("NOZZLE_LEVER", 13, 3487, 487, {0, 1}, "Throttle", "Nozzle Control Lever")
 definePotentiometer("STO_LEVER", 13, 3488, 488, {0, 1}, "Throttle", "STO Stop Lever")
 
 -- Fuel Panel
-defineToggleSwitch("MAN_FUEL_SW", 9, 3504, 504,"Fuel Panel" , "Fuel Proportioner")
-defineMultipositionSwitch("FUEL_PUMP_L", 9, 3505, 505, 3, 0.5,"Fuel Panel" ,"Fuel Pump L Switch NORM/OFF/DC OPEN")
-defineMultipositionSwitch("FUEL_PUMP_R", 9, 3506, 506, 3, 0.5,"Fuel Panel" ,"Fuel Pump R Switch NORM/OFF/DC OPEN")
-defineMultipositionSwitch("PROBE", 9, 3507, 507, 3, 0.5,"Fuel Panel" ,"Air Refueling Probe Switch PRESS/OUT/IN")
+defineToggleSwitch("FUEL_PROP", 9, 3504, 504,"Fuel Panel" , "Fuel Proportioner")
+defineMultipositionSwitch("FUEL_PUMP_L", 9, 3505, 505, 3, 0.5,"Fuel Panel" ,"Fuel Pump L Switch DC OPEN/OFF/NORM")
+defineMultipositionSwitch("FUEL_PUMP_R", 9, 3506, 506, 3, 0.5,"Fuel Panel" ,"Fuel Pump R Switch DC OPEN/OFF/NORM")
+defineMultipositionSwitch("PROBE", 9, 3507, 507, 3, 0.5,"Fuel Panel" ,"Air Refueling Probe Switch IN/OUT/PRESS")
 defineToggleSwitch("FUEL_DUMP_L", 9, 3508, 508,"Fuel Panel" , "Fuel Dump L Switch")
 defineToggleSwitch("FUEL_DUMP_R", 9, 3509, 509,"Fuel Panel" , "Fuel Dump R Switch")
 
 -- External Lights Panel
-defineMultipositionSwitch("LANDING_TAXI_LIGHTS", 33, 3472, 472, 3, 0.5,"External Lights" ,"Landing/Taxi Lights Switch APRCH/HVR/OFF")
+defineMultipositionSwitch("LANDING_TAXI_LIGHTS", 33, 3472, 472, 3, 0.5,"External Lights" ,"Landing/Taxi Lights Switch OFF/HVR/APRCH")
 defineMultipositionSwitch("EXT_LIGHTS", 33, 3503, 503, 3, 0.5,"External Lights" ,"External Lights Mode Switch NORM/NVG/OFF")
 definePotentiometer("FORMATION_LIGHTS", 33, 3510, 510, {0, 1}, "External Lights", "Formation Lights Knob")
-defineMultipositionSwitch("POS_LIGHTS", 33, 3511, 511, 3, 0.5,"External Lights" ,"Position Lights Switch BRT/DIM/OFF")
+defineMultipositionSwitch("POS_LIGHTS", 33, 3511, 511, 3, 0.5,"External Lights" ,"Position Lights Switch OFF/DIM/BRT")
 defineToggleSwitch("ANTI_COLL_LIGHTS", 33, 3512, 512,"External Lights" , "Anti-Collision Lights Switch")
 defineToggleSwitch("EXT_AUX_LIGHTS", 33, 3513, 513,"External Lights" , "External Auxiliary Lights Switch")
 
@@ -289,19 +289,19 @@ defineToggleSwitch("DECS_SW", 9, 3520, 520,"Bulkhead Left" , "DECS Switch")
 -- RIGHT CONSOLE:
 -------------------------------------------------------------------
 -- Electrical Panel
-define3PosTumb("DC_TEST_SW", 1, 3609, 609,"Electric Panel" , "DC Test Switch")
-define3PosTumb("APU_GEN_SW", 1, 3610, 610,"Electric Panel" , "APU Generator Switch RESET/ON/OFF")
+defineToggleSwitch("DC_TEST_SW", 1, 3609, 609,"Electric Panel" , "DC Test Switch")
+defineMultipositionSwitch("APU_GEN_SW", 1, 3610, 610, 3, 0.5,"Electric Panel" , "APU Generator Switch OFF/ON/RESET")
 defineToggleSwitch("ENG_START_SW", 1, 3611, 611,"Electric Panel" , "Engine Start Switch")
-define3PosTumb("GEN_SW", 1, 3612, 612,"Electric Panel" , "Generator Switch  ON/OFF/TEST")
-define3PosTumb("BATT_SW", 1, 3613, 613,"Electric Panel" , "Battery Switch  ON/OFF/ALERT")
+defineMultipositionSwitch("GEN_SW", 1, 3612, 612, 3, 0.5,"Electric Panel" , "Generator Switch  TEST/OFF/ON")
+defineMultipositionSwitch("BATT_SW", 1, 3613, 613, 3, 0.5,"Electric Panel" , "Battery Switch  ALERT/OFF/ON")
 
 -- V/UHF Radio Panel
 definePotentiometer("UHF_VOL", 7, 3614, 614, {0, 1}, "UHF Radio", "V/UHF RSC Volume Knob")
 definePotentiometer("UHF_FREQ", 7, 3615, 615, {0, 1}, "UHF Radio", "V/UHF RSC Chan/Freq Knob")
-defineMultipositionSwitch("UHF_MODE", 7, 3616, 616, 6, 0.2,"UHF Radio" ,"V/UHF RSC Operational Mode Switch ZRO/OFF/TEST/TR+G/TR/ADF/CHNG PRST")
+defineMultipositionSwitch("UHF_MODE", 7, 3616, 616, 7, 0.2,"UHF Radio" ,"V/UHF RSC Operational Mode Switch ZRO/OFF/TEST/TR+G/TR/ADF/CHNG PRST")
 definePushButton("UHF_ANC_POINT", 7, 3617, 617,"UHF Radio" , "V/UHF RSC Ancillary Mode Pointer")
 definePushButton("UHF_ANC_SW", 7, 3618, 618,"UHF Radio" , "V/UHF RSC Ancillary Mode Switch")
-defineMultipositionSwitch("BOMBS_ARM_SW", 7, 3619, 619, 6, 0.15,"UHF Radio" ,"V/UHF RSC Frequency Mode Switch AJ-M/AJ/MAR/PRST/MAN/243/121")
+defineMultipositionSwitch("BOMBS_ARM_SW", 7, 3619, 619, 7, 0.15,"UHF Radio" ,"V/UHF RSC Frequency Mode Switch AJ-M/AJ/MAR/PRST/MAN/243/121")
 definePushButton("UHF_LOAD_SW", 7, 3620, 620,"UHF Radio" , "V/UHF RSC LOAD/OFST Switch")
 
 -- ACNIP
@@ -317,7 +317,7 @@ define3PosTumb("KY58_CODE_LOAD", 8, 3628, 628,"ACNIP" , "KY-58 Remote Codes Load
 -- ICS
 definePotentiometer("ICS_AUX_VOL", 4, 3629, 629, {0, 1}, "ICS", "ICS Aux Volume Knob")
 definePotentiometer("ICS_GND_VOL", 4, 3630, 630, {0, 1}, "ICS", "ICS Ground Volume Knob")
-define3PosTumb("ICS_MIC_MODE", 4, 3631, 631,"ICS" , "ICS Mic Operational Mode Switch  TEL/HOT/COLD")
+defineMultipositionSwitch("ICS_MIC_MODE", 4, 3631, 631, 3, 0.5,"ICS" , "ICS Mic Operational Mode Switch  COLD/HOT/TEL")
 
 -- IFF
 defineToggleSwitch("IFF_OPER_MODE", 8, 3632, 632,"IFF" , "IFF Operational Mode Switch")
