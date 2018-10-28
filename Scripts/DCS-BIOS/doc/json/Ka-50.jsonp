@@ -9945,54 +9945,6 @@ docdata["Ka-50"] =
                                                                      }
                                                     },
                                              "SAI": {
-                                                            "ADI_PITCH": {
-                                                                                 "category": "SAI",
-                                                                             "control_type": "analog_gauge",
-                                                                              "description": "Pitch",
-                                                                               "identifier": "ADI_PITCH",
-                                                                                   "inputs": [  ],
-                                                                                  "outputs": [ {
-                                                                                                     "address": 6384,
-                                                                                                 "description": "gauge position",
-                                                                                                        "mask": 65535,
-                                                                                                   "max_value": 65535,
-                                                                                                    "shift_by": 0,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ]
-                                                                         },
-                                                             "ADI_ROLL": {
-                                                                                 "category": "SAI",
-                                                                             "control_type": "analog_gauge",
-                                                                              "description": "Roll",
-                                                                               "identifier": "ADI_ROLL",
-                                                                                   "inputs": [  ],
-                                                                                  "outputs": [ {
-                                                                                                     "address": 6382,
-                                                                                                 "description": "gauge position",
-                                                                                                        "mask": 65535,
-                                                                                                   "max_value": 65535,
-                                                                                                    "shift_by": 0,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ]
-                                                                         },
-                                                              "ADI_YAW": {
-                                                                                 "category": "SAI",
-                                                                             "control_type": "analog_gauge",
-                                                                              "description": "Yaw",
-                                                                               "identifier": "ADI_YAW",
-                                                                                   "inputs": [  ],
-                                                                                  "outputs": [ {
-                                                                                                     "address": 6386,
-                                                                                                 "description": "gauge position",
-                                                                                                        "mask": 65535,
-                                                                                                   "max_value": 65535,
-                                                                                                    "shift_by": 0,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ]
-                                                                         },
                                                              "SAI_CTRL": {
                                                                                         "category": "SAI",
                                                                                     "control_type": "selector",
@@ -10071,6 +10023,38 @@ docdata["Ka-50"] =
                                                                                                         "type": "integer"
                                                                                              } ]
                                                                          },
+                                                            "SAI_PITCH": {
+                                                                                 "category": "SAI",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Pitch",
+                                                                               "identifier": "SAI_PITCH",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 6384,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                             "SAI_ROLL": {
+                                                                                 "category": "SAI",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Roll",
+                                                                               "identifier": "SAI_ROLL",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 6382,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
                                                         "SAI_WARN_FLAG": {
                                                                                  "category": "SAI",
                                                                              "control_type": "analog_gauge",
@@ -10083,6 +10067,22 @@ docdata["Ka-50"] =
                                                                                                         "mask": 65280,
                                                                                                    "max_value": 255,
                                                                                                     "shift_by": 8,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                              "SAI_YAW": {
+                                                                                 "category": "SAI",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Yaw",
+                                                                               "identifier": "SAI_YAW",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 6386,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ]
