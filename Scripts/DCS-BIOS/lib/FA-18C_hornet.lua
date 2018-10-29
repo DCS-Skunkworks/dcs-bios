@@ -585,9 +585,6 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	UFC_ScratchPadString2Display 	= coerce_nil_to_string(ufc.UFC_ScratchPadString2Display)
 end
 
-
-
-
 defineString("UFC_COMM1_DISPLAY", function() return UFC_Comm1Display end, 2, "Up Front Controller (UFC)", "Comm 1 Display")
 defineString("UFC_COMM2_DISPLAY", function() return UFC_Comm2Display end, 2, "Up Front Controller (UFC)", "Comm 2 Display")
 defineString("UFC_OPTION_CUEING_1", function() return UFC_OptionCueing1 end, 1, "Up Front Controller (UFC)", "Option Cueing 1")
@@ -916,7 +913,7 @@ definePotentiometer("LEFT_LOUVER", 11, 3010, 506, {0, 1}, "Environment Control L
 definePotentiometer("RIGHT_LOUVER", 11, 3011, 506, {0, 1}, "Environment Control Louver", "Right Louver") -- this is the same as left in clickabledata, seems incorrect
 
 -- 31. Landing Gear Handle and Warning Tone Silence
---create_caution_lamp(CautionLights.CPT_LTS_LDG_GEAR_HANDLE)
+defineIndicatorLight("LANDING_GEAR_HANDLE_LT", 227, "Landing Gear Handle and Warning Tone Silence", "Landing Gear Handle Light")
 defineToggleSwitch("GEAR_LEVER", 5, 3001, 226, "Landing Gear Handle and Warning Tone Silence", "Gear Lever")
 defineToggleSwitch("EMERGENCY_GEAR_ROTATE", 5, 3002, 228, "Landing Gear Handle and Warning Tone Silence", "Emergency Gear Rotate")
 definePushButton("GEAR_DOWNLOCK_OVERRIDE_BTN", 5, 3003, 229, "Landing Gear Handle and Warning Tone Silence", "Landing Gear Override")
