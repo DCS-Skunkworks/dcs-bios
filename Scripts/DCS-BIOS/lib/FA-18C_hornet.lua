@@ -1,4 +1,4 @@
--- F/A-18 Module created by AndrewW v0.5
+-- F/A-18 Module created by AndrewW v0.7 for DCS Beta 2.5.3.23788
 -- Many thanks to Capt Zeen for the pointers on analog outputs and UFC/IFEI export
 -- And of course huge thanks to [FSF]Ian for writing DCS-BIOS in the first place
 
@@ -452,10 +452,10 @@ defineIndicatorLight("RH_ADV_SPARE_RH5", 37, "RH Advisory Panel", "SPARE RH5")
 defineIndicatorLight("FIRE_APU_LT", 29, "APU Fire Warning / Extinguisher Light", "FIRE APU")
 definePushButton("APU_FIRE_BTN", 12, 3009, 30, "APU Fire Warning / Extinguisher Light", "APU Fire Warning/Extinguisher Light")
 
--- 10. Right Engine Fire Warning Extinguisher Light
-defineIndicatorLight("FIRE_RIGHT_LT", 26, " Right Engine Fire Warning Extinguisher Light", "FIRE RIGHT")
-definePushButton("RIGHT_FIRE_BTN", 12, 3011, 27, " Right Engine Fire Warning Extinguisher Light", "Right Engine/AMAD Fire Warning/Extinguisher Light")
-defineToggleSwitch("RIGHT_FIRE_BTN_COVER", 12, 3013, 28, " Right Engine Fire Warning Extinguisher Light", "Right Engine/AMAD Fire Warning Cover")
+-- 10. Right Engine Fire Warning,Extinguisher Light
+defineIndicatorLight("FIRE_RIGHT_LT", 26, "Right Engine Fire Warning,Extinguisher Light", "FIRE RIGHT")
+definePushButton("RIGHT_FIRE_BTN", 12, 3011, 27, "Right Engine Fire Warning,Extinguisher Light", "Right Engine/AMAD Fire Warning/Extinguisher Light")
+defineToggleSwitch("RIGHT_FIRE_BTN_COVER", 12, 3013, 28, "Right Engine Fire Warning,Extinguisher Light", "Right Engine/AMAD Fire Warning Cover")
 
 -- 11. Canopy Internal Jettison Handle
 defineToggleSwitch("CANOPY_JETT_HANDLE_UNLOCK", 7, 3004, 43, "Canopy Internal Jettison Handle", "Canopy Jettison Handle Unlock Button - Press to unlock")
@@ -630,18 +630,18 @@ definePushButton("RIGHT_DDI_PB_20", 36, 3030, 98, "Right DDI", "Pushbutton 20")
 defineIndicatorLight("SPIN_LT", 137, "Map Gain/Spin Recovery Panel", "Spin Light")
 defineToggleSwitch("SPIN_RECOVERY_COVER", 2, 3008, 139, "Map Gain/Spin Recovery Panel", "Spin Recovery Switch Cover, OPEN/CLOSE")
 defineToggleSwitch("SPIN_RECOVERY_SW", 2, 3009, 138, "Map Gain/Spin Recovery Panel", "Spin Recovery Switch, RCVY/NORM")
-definePotentiometer("HMD_OFF_BRT", 0, 3108, 136, {0, 1}, "Map Gain/Spin Recovery Panel", "HMD OFF/BRT Knob") -- From TODO, will change
+definePotentiometer("HMD_OFF_BRT", 58, 3001, 136, {0, 0.75}, "Map Gain/Spin Recovery Panel", "HMD OFF/BRT Knob") -- From TODO, will change
 defineTumb("IR_COOL_SW", 23, 3013, 135, 0.1, {0.0, 0.2}, nil, false, "Map Gain/Spin Recovery Panel", "IR Cooling Switch, ORIDE/NORM/OFF")
 
 -- 17. Emergency Jettison Button
 definePushButton("EMER_JETT_BTN", 23, 3004, 50, "Emergency Jettison Button", "Emergency Jettison Button")
 
 -- 18. HUD Control Panel
-define3PosTumb("HUD_SYM_REJ_SW", 34, 3001, 140, "HUD Control Panel", "HUD Symbology Reject Switch, NORM/REJ 1/REJ 2")
+defineTumb("HUD_SYM_REJ_SW", 34, 3001, 140, 0.1, {0.0, 0.2}, nil, false, "HUD Control Panel", "HUD Symbology Reject Switch, NORM/REJ 1/REJ 2")
 definePotentiometer("HUD_SYM_BRT", 34, 3002, 141, {0, 1}, "HUD Control Panel", "HUD Symbology Brightness Control Knob")
 defineToggleSwitch("HUD_SYM_BRT_SELECT", 34, 3003, 142, "HUD Control Panel", "HUD Symbology Brightness Selector Knob, DAY/NIGHT")
 definePotentiometer("HUD_BLACK_LVL", 34, 3004, 143, {0, 1}, "HUD Control Panel", "Black Level Control Knob")
-define3PosTumb("HUD_VIDEO_CONTROL_SW", 34, 3005, 144, "HUD Control Panel", "HUD Video Control Switch, W/B /VID/OFF")
+defineTumb("HUD_VIDEO_CONTROL_SW", 34, 3005, 144, 0.1, {0.0, 0.2}, nil, false, "HUD Control Panel", "HUD Video Control Switch, W/B /VID/OFF")
 definePotentiometer("HUD_BALANCE", 34, 3006, 145, {0, 1}, "HUD Control Panel", "Balance Control Knob")
 definePotentiometer("HUD_AOA_INDEXER", 34, 3007, 146, {0, 1}, "HUD Control Panel", "AOA Indexer Control Knob")
 defineToggleSwitch("HUD_ALT_SW", 34, 3008, 147, "HUD Control Panel", "Altitude Switch, BARO/RDR")
@@ -909,7 +909,7 @@ defineFloatWithValueConversion("STBY_PRESS_SET_2", 223, {0, 1}, {26, 31}, {0.0, 
 defineFloatWithValueConversion("VSI", 225, {0, 1}, {-6000.0, -4000.0, -3000.0, -2000.0, -1000.0, -500.0, 0.0, 500.0, 1000.0, 2000.0, 3000.0, 4000.0, 6000.0}, { -1.0,   -0.83,   -0.73,  -0.605,   -0.40,  -0.22, 0.0,  0.22,   0.40,  0.605,   0.73,   0.83,    1.0}, "Standby Rate of Climb Indicator", "Vertical Speed")
 
 -- 30. Environment Control Louver
-definePotentiometer("LEFT_LOUVER", 11, 3010, 506, {0, 1}, "Environment Control Louver", "Left Louver")
+definePotentiometer("LEFT_LOUVER", 11, 3010, 505, {0, 1}, "Environment Control Louver", "Left Louver")
 definePotentiometer("RIGHT_LOUVER", 11, 3011, 506, {0, 1}, "Environment Control Louver", "Right Louver") -- this is the same as left in clickabledata, seems incorrect
 
 -- 31. Landing Gear Handle and Warning Tone Silence
@@ -1132,7 +1132,8 @@ define3PosTumb("CABIN_PRESS_SW", 11, 3004, 408, "Environment Control System Pane
 definePotentiometer("CABIN_TEMP", 11, 3006, 407, {0, 1}, "Environment Control System Panel", "Cabin Temperature Knob")
 definePotentiometer("SUIT_TEMP", 11, 3007, 406, {0, 1}, "Environment Control System Panel", "Suit Temperature Knob")
 define3PosTumb("ENG_ANTIICE_SW", 12, 3014, 410, "Environment Control System Panel", "Engine Anti-Ice Switch, ON/OFF/TEST")
-defineToggleSwitch("PITOT_HEAT_SW", 3, 3016, 409, "Environment Control System Panel", "Pitot Heater Switch, ON/AUTO")
+defineToggleSwitchToggleOnly2("PITOT_HEAT_SW", 3, 3016, 409, "Environment Control System Panel", "Pitot Heater Switch, ON/AUTO")
+--defineToggleSwitch("PITOT_HEAT_SW", 3, 3016, 409, "Environment Control System Panel", "Pitot Heater Switch, ON/AUTO")
 
 -- 3. Interior Lights Panel
 definePotentiometer("CONSOLES_DIMMER", 9, 3001, 413, {0, 1}, "Interior Lights Panel", "CONSOLES Lights Dimmer")
@@ -1146,8 +1147,8 @@ defineToggleSwitch("LIGHTS_TEST_SW", 9, 3007, 416, "Interior Lights Panel", "Lig
 -- 4. AMAC Control
 
 -- 5. Sensor Panel
-define3PosTumb("FLIR_SW", 0, 3110, 439, "Sensor Panel", "FLIR Switch, ON/STBY/OFF") -- From TODO, will change
-define3PosTumb("LTD_R_SW", 0, 3111, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE/AFT") -- From TODO, will change
+defineTumb("FLIR_SW", 0, 3110, 439, 0.5, {0.0, 1.0}, nil, false, "Sensor Panel", "FLIR Switch, ON/STBY/OFF") -- From TODO, will change
+defineTumb("LTD_R_SW", 0, 3111, 441, 0.5, {0.0, 1.0}, nil, false, "Sensor Panel", "LTD/R Switch, ARM/SAFE/AFT") -- From TODO, will change
 defineToggleSwitch("LST_NFLR_SW", 0, 3112, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF") -- From TODO, will change
 defineTumb("RADAR_SW", 42, 3001, 440, 0.1, {0.0, 0.3}, nil, false, "Sensor Panel", "RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
 defineTumb("INS_SW", 44, 3001, 443, 0.1, {0.0, 0.7}, nil, false, "Sensor Panel", "INS Switch, OFF/CV/GND/NAV/IFA/GYRO/GB/TEST")
@@ -1167,7 +1168,7 @@ defineTumb("KY58_POWER_SELECT", 41, 3004, 447, 0.1, {0.0, 0.2}, nil, false, "KY-
 -- 10. Utility Light
 
 -- 11. Defog Panel
-definePotentiometer("DEFOG_HANDLE", 11, 3005, 451, {0, 1}, "ECS", "Defog Handle")
+definePotentiometer("DEFOG_HANDLE", 11, 3005, 451, {0, 1}, "Defog Panel", "Defog Handle")
 define3PosTumb("WSHIELD_ANTI_ICE_SW", 11, 3009, 452, "Defog Panel", "Windshield Anti-Ice/Rain Switch, ANTI ICE/OFF/RAIN")
 
 -- 12. Internal Canopy Switch
