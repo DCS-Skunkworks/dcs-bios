@@ -1,7 +1,3 @@
-local success1 = pcall(dofile, lfs.currentdir().."mods/aircraft/Mig-21bis/Cockpit/devices.lua")
-local success2 = pcall(dofile, lfs.currentdir().."mods/aircraft/Mig-21bis/Cockpit/command_defs.lua")
-if success1 and success2 then -- only define module if Mig-21 is installed
-
 BIOS.protocol.beginModule("MiG-21Bis", 0x2200)
 BIOS.protocol.setExportModuleAircrafts({"MiG-21Bis"})
 
@@ -26,9 +22,6 @@ local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
-
-dofile(lfs.currentdir().."mods/aircraft/Mig-21bis/Cockpit/devices.lua")
-dofile(lfs.currentdir().."mods/aircraft/Mig-21bis/Cockpit/command_defs.lua")
 
 --Clickable Controls----------------------------------------------------------------------------
 
@@ -615,8 +608,5 @@ defineFloat("H_TRI_M", 656, {0, 1}, "Center Pedestal Panel", "Cockpit Pressure G
 --PRMG/RSBN channel displays
 --ARU manual arrow (mechanical?)
 
-devices = nil
-device_commands = nil
 
 BIOS.protocol.endModule()
-end
