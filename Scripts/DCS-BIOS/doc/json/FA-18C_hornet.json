@@ -9475,15 +9475,12 @@
                                                                                                   "physical_variant": "push_button"
                                                                                            },
                                                                "UFC_COMM1_CHANNEL_SELECT": {
+                                                                                                "api_variant": "multiturn",
                                                                                                    "category": "Up Front Controller (UFC)",
-                                                                                               "control_type": "limited_dial",
+                                                                                               "control_type": "analog_dial",
                                                                                                 "description": "COMM 1 Channel Select Knob",
                                                                                                  "identifier": "UFC_COMM1_CHANNEL_SELECT",
                                                                                                      "inputs": [ {
-                                                                                                                   "description": "set the position of the dial",
-                                                                                                                     "interface": "set_state",
-                                                                                                                     "max_value": 65535
-                                                                                                               }, {
                                                                                                                       "description": "turn the dial left or right",
                                                                                                                         "interface": "variable_step",
                                                                                                                         "max_value": 65535,
@@ -9491,11 +9488,11 @@
                                                                                                                } ],
                                                                                                     "outputs": [ {
                                                                                                                        "address": 29728,
-                                                                                                                   "description": "position of the potentiometer",
+                                                                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                                           "mask": 65535,
                                                                                                                      "max_value": 65535,
                                                                                                                       "shift_by": 0,
-                                                                                                                        "suffix": "",
+                                                                                                                        "suffix": "_KNOB_POS",
                                                                                                                           "type": "integer"
                                                                                                                } ]
                                                                                            },
@@ -9569,15 +9566,12 @@
                                                                                                                } ]
                                                                                            },
                                                                "UFC_COMM2_CHANNEL_SELECT": {
+                                                                                                "api_variant": "multiturn",
                                                                                                    "category": "Up Front Controller (UFC)",
-                                                                                               "control_type": "limited_dial",
+                                                                                               "control_type": "analog_dial",
                                                                                                 "description": "COMM 2 Channel Select Knob",
                                                                                                  "identifier": "UFC_COMM2_CHANNEL_SELECT",
                                                                                                      "inputs": [ {
-                                                                                                                   "description": "set the position of the dial",
-                                                                                                                     "interface": "set_state",
-                                                                                                                     "max_value": 65535
-                                                                                                               }, {
                                                                                                                       "description": "turn the dial left or right",
                                                                                                                         "interface": "variable_step",
                                                                                                                         "max_value": 65535,
@@ -9585,11 +9579,11 @@
                                                                                                                } ],
                                                                                                     "outputs": [ {
                                                                                                                        "address": 29730,
-                                                                                                                   "description": "position of the potentiometer",
+                                                                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                                           "mask": 65535,
                                                                                                                      "max_value": 65535,
                                                                                                                       "shift_by": 0,
-                                                                                                                        "suffix": "",
+                                                                                                                        "suffix": "_KNOB_POS",
                                                                                                                           "type": "integer"
                                                                                                                } ]
                                                                                            },

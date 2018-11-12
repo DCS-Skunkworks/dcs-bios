@@ -1,0 +1,51 @@
+{
+     "Gauges": {
+                   "ACCELEROMETER": {
+                                            "category": "Gauges",
+                                        "control_type": "analog_gauge",
+                                         "description": "Accelerometer",
+                                          "identifier": "ACCELEROMETER",
+                                              "inputs": [  ],
+                                             "outputs": [ {
+                                                                "address": 33282,
+                                                            "description": "gauge position",
+                                                                   "mask": 65535,
+                                                              "max_value": 65535,
+                                                               "shift_by": 0,
+                                                                 "suffix": "",
+                                                                   "type": "integer"
+                                                        } ]
+                                    }
+               },
+    "Weapons": {
+                   "MASTER_ARM": {
+                                                "category": "Weapons",
+                                            "control_type": "selector",
+                                             "description": "MASTER ARMAMENT Switch",
+                                              "identifier": "MASTER_ARM",
+                                                  "inputs": [ {
+                                                                "description": "switch to previous or next state",
+                                                                  "interface": "fixed_step"
+                                                            }, {
+                                                                "description": "set position",
+                                                                  "interface": "set_state",
+                                                                  "max_value": 1
+                                                            }, {
+                                                                   "argument": "TOGGLE",
+                                                                "description": "Toggle switch state",
+                                                                  "interface": "action"
+                                                            } ],
+                                     "momentary_positions": "none",
+                                                 "outputs": [ {
+                                                                    "address": 33280,
+                                                                "description": "selector position",
+                                                                       "mask": 1,
+                                                                  "max_value": 1,
+                                                                   "shift_by": 0,
+                                                                     "suffix": "",
+                                                                       "type": "integer"
+                                                            } ],
+                                        "physical_variant": "toggle_switch"
+                                 }
+               }
+}
