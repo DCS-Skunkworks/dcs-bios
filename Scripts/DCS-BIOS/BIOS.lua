@@ -39,11 +39,11 @@ dofile(lfs.writedir()..[[scripts\dcs-bios\lib\SA342Minigun.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\SpitfireLFMkIX.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\M2000C.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\FA-18C_hornet.lua]])
-dofile(lfs.writedir()..[[scripts\dcs-bios\lib\F-5E.lua]])
+dofile(lfs.writedir()..[[scripts\dcs-bios\lib\F-5E-3.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\TF-51D.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\AV8BNA.lua]])
 dofile(lfs.writedir()..[[scripts\dcs-bios\lib\NS430.lua]])
-
+--dofile(lfs.writedir()..[[scripts\dcs-bios\lib\MB-339PAN.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 
 -- Prev Export functions.
