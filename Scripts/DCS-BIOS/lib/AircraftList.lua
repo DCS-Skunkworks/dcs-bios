@@ -29,7 +29,7 @@ a("SA342Mistral", true)
 a("SA342Minigun", true)
 a("M2000C", true)
 a("FA-18C_hornet", true)
-a("F-5E", true)
+a("F-5E-3", true)
 a("L-39ZA", true)
 a("AV8BNA", true)
 a("A-10A", false)
@@ -41,5 +41,6 @@ a("Su-25", false)
 a("Su-25T", false)
 a("Su-27", false)
 a("Su-33", false)
-
+a("MB-339PAN", true) --MOD
+a("VSN_F14A", false) --MOD
 
