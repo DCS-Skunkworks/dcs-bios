@@ -1,8 +1,6 @@
--- F/A-18 Module created by AndrewW v0.8 for DCS Beta 2.5.3.23954
+-- F/A-18 Module created by AndrewW v0.9 for DCS Beta 2.5.3.23954
 -- Many thanks to Capt Zeen for the pointers on analog outputs and UFC/IFEI export
 -- And of course huge thanks to [FSF]Ian for writing DCS-BIOS in the first place
-
-
 -- Added new functions by Capt Zeen to get radios frecuencies and channels
 
 
