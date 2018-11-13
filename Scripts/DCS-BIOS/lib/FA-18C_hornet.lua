@@ -1,8 +1,6 @@
--- F/A-18 Module created by AndrewW v0.7 for DCS Beta 2.5.3.23788
+-- F/A-18 Module created by AndrewW v0.9 for DCS Beta 2.5.3.23954
 -- Many thanks to Capt Zeen for the pointers on analog outputs and UFC/IFEI export
 -- And of course huge thanks to [FSF]Ian for writing DCS-BIOS in the first place
-
-
 -- Added new functions by Capt Zeen to get radios frecuencies and channels
 
 
@@ -529,8 +527,8 @@ definePushButton("UFC_ENT", 25, 3029, 122, "Up Front Controller (UFC)", "Keyboar
 definePotentiometer("UFC_COMM1_VOL", 25, 3030, 108, {0, 1}, "Up Front Controller (UFC)", "COMM 1 Volume Control Knob")
 definePotentiometer("UFC_COMM2_VOL", 25, 3031, 123, {0, 1}, "Up Front Controller (UFC)", "COMM 2 Volume Control Knob")
 definePotentiometer("UFC_BRT", 25, 3032, 109, {0, 1}, "Up Front Controller (UFC)", "Brightness Control Knob")
-definePotentiometer("UFC_COMM1_CHANNEL_SELECT", 25, 3033, 124, {0, 1}, "Up Front Controller (UFC)", "COMM 1 Channel Select Knob")
-definePotentiometer("UFC_COMM2_CHANNEL_SELECT", 25, 3034, 126, {0, 1}, "Up Front Controller (UFC)", "COMM 2 Channel Select Knob")
+defineRotary("UFC_COMM1_CHANNEL_SELECT", 25, 3033, 124, "Up Front Controller (UFC)", "COMM 1 Channel Select Knob")
+defineRotary("UFC_COMM2_CHANNEL_SELECT", 25, 3034, 126, "Up Front Controller (UFC)", "COMM 2 Channel Select Knob")
 
 local UFC_Comm1Display = ""
 local UFC_Comm2Display = ""
