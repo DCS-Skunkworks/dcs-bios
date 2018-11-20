@@ -75,7 +75,7 @@ install
 
 Get the tarball and extract it:
 	tar xzf socat.tar.gz
-	cd socat-1.7.2.0
+	cd socat-1.7.3.0
 	./configure
 	make
 	su
@@ -131,6 +131,11 @@ the file PORTING.
 
 platform specifics - redhat
 ---------------------------
+
+Install the following packages before building socat:
+  tcp_wrappers-devel
+  readline-devel
+  openssl-devel
 
 On RedHat Linux 9.0, including openssl/ssl.h might fail due to problems with
 the krb5-devel package. configure reacts with disabling openssl integration. 
@@ -190,7 +195,7 @@ platform specifics - hp-ux
 --------------------------
 
 Ancillary messages cannot be compiled in with socat: both struct msghdr and
-strutc cmsghdr are required. Compiling with -D_XOPEN_SOURCE_EXTENDED provides
+struct cmsghdr are required. Compiling with -D_XOPEN_SOURCE_EXTENDED provides
 struct msghdr but disables struct cmsghdr while -D_OPEN_SOURCE disables struct
 msghdr but disables struct cmsghdr. Please contact socat development if you
 know a solution.
@@ -252,7 +257,7 @@ correction must be performed in /usr/share/yodl/shared.yo in two places:
 license
 -------
 
-socat is distributed under the terms of the GNU GPL;
+socat is distributed under the terms of the GNU GPLv2;
 except for install-sh, which is copyright MIT, with its own license;
 
 In addition, as a special exception, the copyright holder
@@ -296,17 +301,3 @@ www.socat.org is an alternate site providing the same contents.
 public git repository:
 	git://repo.or.cz/socat.git
 	http://repo.or.cz/r/socat.git
-
-Changes 1.7.3.0 
-
-https://github.com/tech128/socat-1.7.3.0-windows
-
-Since no one else has compiled socat for windows, here it is.
-
-I used some optimizations, which should help this version of socat stand 
-out from the rest.
-
-Those optimizations were -march=i586 -flto -fomit-frame-pointer
-
-I didn't want to get too crazy, since that sometimes leads to weird 
-issues.
