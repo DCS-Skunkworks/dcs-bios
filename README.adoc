@@ -32,12 +32,27 @@ Currently, DCS-BIOS supports the following aircraft modules:
 * M-2000C (contributed by Exo7)
 * F/A-18C (contributed by AndrewW)
 * AV8BNA (contributed by BlackLibrary)
+* A-4E-C (contributed by BlackLibrary){get the Mod here: https://forums.eagle.ru/showthread.php?t=224989}
+* MB-339PAN (contributed by BlackLibrary){get the Mod here: http://www.freccetricolorivirtuali.net/mod%20ftv.htm}
 * NS430 (contributed by Capt_Zeen, extended by Imp)
 * All FlamingCliff3 Modules (A-10A;F-15C;J-11A;MiG-29A;
   MiG-29S;Su-25;Su-25T;Su-27;Su-33) are suported only with 
   CommonData like ALT, HDG,...
 
 If you want to add support for another module, please get in touch.
+
+== Mod Support
+
+If you want to add a FlamingCliff3 based Mod (eg. VSN_Mod Planes) for commondata suport.
+Add at the bottom  in \DCS-BIOS\lib\AircraftList.lua
+
+a("PlaneName", false)
+
+To get the correct Plane Name, open the control-reference page while you fly that plane. 
+In MetadataStat you find the Plane Name.
+
+For setting up the Control-reference Page is here a nice tutorial:
+https://www.youtube.com/watch?v=MoVoa-BUOkQ
 
 == Contribute
 
