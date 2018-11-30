@@ -34,11 +34,19 @@ end
 
 -- Indicator Lights
 defineIndicatorLight("OIL_LIGHT", 150, "Warning, Caution and IndicatorLights","Oil Light")
+defineIndicatorLight("AOA_GREEN", 850, "Warning, Caution and IndicatorLights","AoA Green")
+defineIndicatorLight("AOA_YELLOW", 851, "Warning, Caution and IndicatorLights","AoA Yellow")
+defineIndicatorLight("AOA_RED", 852, "Warning, Caution and IndicatorLights","AoA Red")
 
--- Control System
---defineToggleSwitch("YAW_DAMPER", 2, 3001, 323,"Control Interface" , "Yaw Damper Switch, YAW/OFF")
+-- Gauges
 defineFloat("ENGINE_RPM", 520, {0.0, 1.0}, "Gauges", "Engine RPM")
-definePotentiometer("SET_ALT", 20, 10827, 827, {0, 1}, "Main Panel", "Altimeter Setting")
+defineFloat("AOA", 840, {0.0, 1.0}, "Gauges", "Angle of Attack")
+----------------------------------------------------------------------------------------------------------------
+-- APPROACH POWER COMPENSATOR PANEL #17A
 define3PosTumb("APC_ON", 25, 10135, 135, "Electric", "APC Enable/Stby/Off")
+-- ALTIMETER PANEL #41
+definePotentiometer("SET_ALT", 20, 10827, 827, {0, 1}, "Main Panel", "Altimeter Setting")
+-- RADAR CONTROL PANEL #6
+defineMultipositionSwitch("RADAR_MODE", 6, 10073, 120, 5, 0.1,"Radar" ,"Radar Mode Switch")
 
 BIOS.protocol.endModule()
