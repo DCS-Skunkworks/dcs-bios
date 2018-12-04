@@ -28,7 +28,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 * Bf-109-K-4 (contributed by ArturDCS)
 * P-51D (contributed by pdmarsh)
 * L-39ZA (contributed by kadda11)
-* F-5E (contributed by geebeer2, extended by BlackLibrary)
+* F-5E (contributed by geebeer2, extended by BlackLibrary&Capt_Zeen)
 * M-2000C (contributed by Exo7)
 * F/A-18C (contributed by AndrewW)
 * AV8BNA (contributed by BlackLibrary)
@@ -43,7 +43,9 @@ If you want to add support for another module, please get in touch.
 
 == Mod Support
 
-If you want to add a FlamingCliff3 based Mod (eg. VSN_Mod Planes) for commondata suport.
+If you want to add a FlamingCliff3 based Mod (eg. VSN_Mod Planes) for commondata suport, you must follow
+these instructions:
+
 Add at the bottom  in \DCS-BIOS\lib\AircraftList.lua
 
 a("PlaneName", false)
@@ -51,8 +53,19 @@ a("PlaneName", false)
 To get the correct Plane Name, open the control-reference page while you fly that plane. 
 In MetadataStat you find the Plane Name.
 
-For setting up the Control-reference Page is here a nice tutorial:
-https://www.youtube.com/watch?v=MoVoa-BUOkQ
+== For setting up the Control-reference Page:
+
+1. Install Google Chrome
+2. Chrome -> "Settings" -> "More Tools" -> "Extensions", check "Developer mode"
+3. Click "Load unpacked extension..." and choose your "C:\Users\<username>\Saved Games\DCS\Scripts\DCS-BIOS\doc" folder
+4. A new extension "DCS-BIOS Control Reference Live Preview" 
+   will be visible under "Apps".
+5. Exit "Settings"
+6. Click "Apps". Your DCS-BIOS extension be there. From there you can see the controls change as you fly and manipulate the cockpit. 
+
+Remember to refresh the page if you restart a mission so that Chrome gets a new connection to DCS-BIOS.
+
+As Video: https://www.youtube.com/watch?v=MoVoa-BUOkQ
 
 == Contribute
 
