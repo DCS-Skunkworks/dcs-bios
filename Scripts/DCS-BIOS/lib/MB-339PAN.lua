@@ -32,7 +32,7 @@ local function define3PosTumb(msg, device_id, command, arg_number, category, des
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
 end
 
-defineToggleSwitch("MASTER_ARM", 26, 3475, 475,"Weapons" , "MASTER ARMAMENT Switch")
+defineToggleSwitch("MASTER_ARM", 26, 3014, 475,"Weapons" , "MASTER ARMAMENT Switch")
 defineFloat("ACCELEROMETER", 68, {0.0, 1.0}, "Gauges", "Accelerometer")
 defineFloat("ENGINE_RPM", 16, {0.0, 1.0}, "Gauges", "Engine RPM")
 

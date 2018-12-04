@@ -42,11 +42,17 @@ defineIndicatorLight("AOA_RED", 852, "Warning, Caution and IndicatorLights","AoA
 defineFloat("ENGINE_RPM", 520, {0.0, 1.0}, "Gauges", "Engine RPM")
 defineFloat("AOA", 840, {0.0, 1.0}, "Gauges", "Angle of Attack")
 ----------------------------------------------------------------------------------------------------------------
+-- Landing Gear & Tail Hook
+defineToggleSwitch("GEAR_HANDLE", 12, 3020, 8,"Gear" , "Landing Gear Handle")
+defineToggleSwitch("HOOK_HANDLE", 12, 10032, 10,"Gear" , "Landing Hook Handle")
+
+--Spoilers
+defineToggleSwitch("SPOILER_ARM", 13, 10003, 84,"Spoiler" , "Spoiler Arm Switch")
 -- APPROACH POWER COMPENSATOR PANEL #17A
-define3PosTumb("APC_ON", 25, 10135, 135, "Electric", "APC Enable/Stby/Off")
+define3PosTumb("APC_ON", 26, 10121, 135, "Electric", "APC Enable/Stby/Off")
 -- ALTIMETER PANEL #41
-definePotentiometer("SET_ALT", 20, 10827, 827, {0, 1}, "Main Panel", "Altimeter Setting")
+definePotentiometer("SET_ALT", 21, 10028, 827, {0, 1}, "Main Panel", "Altimeter Setting")
 -- RADAR CONTROL PANEL #6
-defineMultipositionSwitch("RADAR_MODE", 6, 10073, 120, 5, 0.1,"Radar" ,"Radar Mode Switch")
+defineMultipositionSwitch("RADAR_MODE", 7, 10073, 120, 5, 0.1,"Radar" ,"Radar Mode Switch")
 
 BIOS.protocol.endModule()
