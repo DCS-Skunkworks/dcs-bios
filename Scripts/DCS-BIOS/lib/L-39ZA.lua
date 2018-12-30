@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("L-39ZA", 0x3200)
-BIOS.protocol.setExportModuleAircrafts({"L-39ZA"})
+BIOS.protocol.setExportModuleAircrafts({"L-39C", "L-39ZA"})
 
 
 
