@@ -1,4 +1,18 @@
 
+####################### V 1.7.3.0: 
+
+https://github.com/tech128/socat-1.7.3.0-windows
+
+Since no one else has compiled socat for windows, here it is.
+
+I used some optimizations, which should help this version of socat stand 
+out from the rest.
+
+Those optimizations were -march=i586 -flto -fomit-frame-pointer
+
+I didn't want to get too crazy, since that sometimes leads to weird 
+issues.
+
 ####################### V 1.7.2.1:
 
 security:
@@ -139,7 +153,7 @@ security:
 	than 512 bytes.
 	Note that this could only be exploited when an attacker was able to
 	inject data into socat's command line.
-	Full credits to Felix Gröbert, Google Security Team, for finding and
+	Full credits to Felix GrÃ¶bert, Google Security Team, for finding and
 	reporting this issue
 
 ####################### V 1.7.1.2:
@@ -665,7 +679,7 @@ new features:
 
 	new options "retry", "forever", and "intervall"
 
-	option "fork" for address TCP improves `gender changer�
+	option "fork" for address TCP improves `gender changer´
 
 	options "sigint", "sigquit", and "sighup" control passing of signals to
 	sub process (thanks to David Shea who contributed to this issue)
@@ -1078,7 +1092,7 @@ solved problems and bugs:
 new features:
 	address type UDP-LISTEN now supports option fork: it internally applies
 	socket option SO_REUSEADDR so a new UDP socket can bind to port after
-	`accepting� a connection (child processes might live forever though)
+	`accepting´ a connection (child processes might live forever though)
 	(suggestion from Damjan Lango)
 
 

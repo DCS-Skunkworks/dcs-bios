@@ -41,6 +41,7 @@ a("Su-25", false)
 a("Su-25T", false)
 a("Su-27", false)
 a("Su-33", false)
---a("MB-339PAN", true) --MOD
---a("VSN_F14A", false) --MOD
+a("MB-339PAN", true) --MOD
+a("VSN_F14A", false) --MOD
+a("A-4E-C", true) --MOD
 

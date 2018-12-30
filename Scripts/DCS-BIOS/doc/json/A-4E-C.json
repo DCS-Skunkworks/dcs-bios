@@ -1,0 +1,92 @@
+{
+                                "Electric": {
+                                                "APC_ON": {
+                                                                         "category": "Electric",
+                                                                     "control_type": "selector",
+                                                                      "description": "APC Enable/Stby/Off",
+                                                                       "identifier": "APC_ON",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 2
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 33792,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 6,
+                                                                                           "max_value": 2,
+                                                                                            "shift_by": 1,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          }
+                                            },
+                                  "Gauges": {
+                                                "ENGINE_RPM": {
+                                                                      "category": "Gauges",
+                                                                  "control_type": "analog_gauge",
+                                                                   "description": "Engine RPM",
+                                                                    "identifier": "ENGINE_RPM",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 33794,
+                                                                                      "description": "gauge position",
+                                                                                             "mask": 65535,
+                                                                                        "max_value": 65535,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              }
+                                            },
+                              "Main Panel": {
+                                                "SET_ALT": {
+                                                                   "category": "Main Panel",
+                                                               "control_type": "limited_dial",
+                                                                "description": "Altimeter Setting",
+                                                                 "identifier": "SET_ALT",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the position of the dial",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 65535
+                                                                               }, {
+                                                                                      "description": "turn the dial left or right",
+                                                                                        "interface": "variable_step",
+                                                                                        "max_value": 65535,
+                                                                                   "suggested_step": 3200
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33796,
+                                                                                   "description": "position of the potentiometer",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           }
+                                            },
+    "Warning, Caution and IndicatorLights": {
+                                                "OIL_LIGHT": {
+                                                                     "category": "Warning, Caution and IndicatorLights",
+                                                                 "control_type": "led",
+                                                                  "description": "Oil Light",
+                                                                   "identifier": "OIL_LIGHT",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 33792,
+                                                                                     "description": "0 if light is off, 1 if light is on",
+                                                                                            "mask": 1,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             }
+                                            }
+}
