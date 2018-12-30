@@ -202,7 +202,7 @@ defineToggleSwitch("ARMPOS5", 15, 3005, 350,"Weapons Control" , "Armament Positi
 defineToggleSwitch("ARMPOS6", 15, 3006, 351,"Weapons Control" , "Armament Position Selector - R OUTBD, ON/OFF")
 defineToggleSwitch("ARMPOS7", 15, 3007, 352,"Weapons Control" , "Armament Position Selector - R WINGTIP, ON/OFF")
 define3PosTumb("INT_SW", 15, 3008, 340, "Weapons Control", "Interval Switch [sec], .06/.10/.14")
-defineMultipositionSwitch("BOMBS_ARM_SW", 15, 3009, 341, 3, 0.1,"Weapons Control" ,"Bombs Arm Switch, SAFE/TAIL/NOSE & TAIL/NOSE")
+defineMultipositionSwitch("BOMBS_ARM_SW", 15, 3009, 341, 4, 0.1,"Weapons Control" ,"Bombs Arm Switch, SAFE/TAIL/NOSE & TAIL/NOSE")
 defineToggleSwitch("MASTER_ARM_GUARD", 15, 3010, 342,"Weapons Control" , "Master Arm Safe Guard")
 define3PosTumb("MASTER_ARM", 15, 3011, 343,"Weapons Control" , "Master Arm Guns, GUNS MSL & CAMR/OFF/CAMR ONLY")
 defineTumb("EXT_STORE", 15, 3012, 344, 0.1, {0.0, 0.3}, nil, false, "Weapons Control", "External Stores Selector RIPL/BOMB/SAFE/RKT DISP")
