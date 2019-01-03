@@ -202,7 +202,7 @@ defineToggleSwitch("ARMPOS5", 15, 3005, 350,"Weapons Control" , "Armament Positi
 defineToggleSwitch("ARMPOS6", 15, 3006, 351,"Weapons Control" , "Armament Position Selector - R OUTBD, ON/OFF")
 defineToggleSwitch("ARMPOS7", 15, 3007, 352,"Weapons Control" , "Armament Position Selector - R WINGTIP, ON/OFF")
 define3PosTumb("INT_SW", 15, 3008, 340, "Weapons Control", "Interval Switch [sec], .06/.10/.14")
-defineMultipositionSwitch("BOMBS_ARM_SW", 15, 3009, 341, 4, 0.1,"Weapons Control" ,"Bombs Arm Switch, SAFE/TAIL/NOSE & TAIL/NOSE")
+defineTumb("BOMBS_ARM_SW", 15, 3009, 341, 0.2, {0.0, 0.8}, nil, false,"Weapons Control" ,"Bombs Arm Switch, SAFE/TAIL/NOSE & TAIL/NOSE")
 defineToggleSwitch("MASTER_ARM_GUARD", 15, 3010, 342,"Weapons Control" , "Master Arm Safe Guard")
 define3PosTumb("MASTER_ARM", 15, 3011, 343,"Weapons Control" , "Master Arm Guns, GUNS MSL & CAMR/OFF/CAMR ONLY")
 defineTumb("EXT_STORE", 15, 3012, 344, 0.1, {0.0, 0.3}, nil, false, "Weapons Control", "External Stores Selector RIPL/BOMB/SAFE/RKT DISP")
@@ -240,7 +240,7 @@ defineFloat("TDC_AZIMUTH", 318, {-1.0, 1.0}, "Gauges", "TdcControlAzimuth")
 
 -- AN/ASG-31 Sight
 defineTumb("SIGHT_MODE", 18, 3001, 40, 0.1, {0.0, 0.4}, nil, false, "Sight", "AN/ASG-31 Sight Mode Selector, OFF/MSL/A/A1 GUNS/A/A2 GUNS/MAN")
-definePotentiometer("SIGHT_DEPRESS", 18, 3002, 42, {0, 1}, "Sight", "AN/ASG-31 Sight Reticle Depression Knob")
+defineRotary("SIGHT_DEPRESS", 18, 3002, 42, "Sight", "AN/ASG-31 Sight Reticle Depression Knob")
 definePotentiometer("SIGHT_INTENS", 18, 3003, 41, {0, 1}, "Sight", "AN/ASG-31 Sight Reticle Intensity Knob")
 define3PosTumb("SIGHT_BIT", 18, 3004, 47, "Sight", "AN/ASG-31 Sight BIT Switch, BIT 1/OFF/BIT 2")
 definePushButton("SIGHT_CAGE", 18, 3007, 137, "Sight" , "AN/ASG-31 Sight Cage Switch")
