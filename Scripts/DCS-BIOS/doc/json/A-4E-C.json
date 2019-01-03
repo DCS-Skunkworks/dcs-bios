@@ -17,9 +17,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 33792,
                                                                                          "description": "selector position",
-                                                                                                "mask": 6,
+                                                                                                "mask": 384,
                                                                                            "max_value": 2,
-                                                                                            "shift_by": 1,
+                                                                                            "shift_by": 7,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -27,6 +27,22 @@
                                                           }
                                             },
                                   "Gauges": {
+                                                       "AOA": {
+                                                                      "category": "Gauges",
+                                                                  "control_type": "analog_gauge",
+                                                                   "description": "Angle of Attack",
+                                                                    "identifier": "AOA",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 33796,
+                                                                                      "description": "gauge position",
+                                                                                             "mask": 65535,
+                                                                                        "max_value": 65535,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              },
                                                 "ENGINE_RPM": {
                                                                       "category": "Gauges",
                                                                   "control_type": "analog_gauge",
@@ -43,6 +59,66 @@
                                                                                              "type": "integer"
                                                                                   } ]
                                                               }
+                                            },
+                                    "Gear": {
+                                                "GEAR_HANDLE": {
+                                                                              "category": "Gear",
+                                                                          "control_type": "selector",
+                                                                           "description": "Landing Gear Handle",
+                                                                            "identifier": "GEAR_HANDLE",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 33792,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 16,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 4,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "toggle_switch"
+                                                               },
+                                                "HOOK_HANDLE": {
+                                                                              "category": "Gear",
+                                                                          "control_type": "selector",
+                                                                           "description": "Landing Hook Handle",
+                                                                            "identifier": "HOOK_HANDLE",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 33792,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 32,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 5,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "toggle_switch"
+                                                               }
                                             },
                               "Main Panel": {
                                                 "SET_ALT": {
@@ -61,7 +137,7 @@
                                                                                    "suggested_step": 3200
                                                                                } ],
                                                                     "outputs": [ {
-                                                                                       "address": 33796,
+                                                                                       "address": 33798,
                                                                                    "description": "position of the potentiometer",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65535,
@@ -71,22 +147,128 @@
                                                                                } ]
                                                            }
                                             },
+                                   "Radar": {
+                                                "RADAR_MODE": {
+                                                                             "category": "Radar",
+                                                                         "control_type": "selector",
+                                                                          "description": "Radar Mode Switch",
+                                                                           "identifier": "RADAR_MODE",
+                                                                               "inputs": [ {
+                                                                                             "description": "switch to previous or next state",
+                                                                                               "interface": "fixed_step"
+                                                                                         }, {
+                                                                                             "description": "set position",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 4
+                                                                                         } ],
+                                                                  "momentary_positions": "none",
+                                                                              "outputs": [ {
+                                                                                                 "address": 33792,
+                                                                                             "description": "selector position",
+                                                                                                    "mask": 3584,
+                                                                                               "max_value": 4,
+                                                                                                "shift_by": 9,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ],
+                                                                     "physical_variant": "toggle_switch"
+                                                              }
+                                            },
+                                 "Spoiler": {
+                                                "SPOILER_ARM": {
+                                                                              "category": "Spoiler",
+                                                                          "control_type": "selector",
+                                                                           "description": "Spoiler Arm Switch",
+                                                                            "identifier": "SPOILER_ARM",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 33792,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 64,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 6,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "toggle_switch"
+                                                               }
+                                            },
     "Warning, Caution and IndicatorLights": {
-                                                "OIL_LIGHT": {
-                                                                     "category": "Warning, Caution and IndicatorLights",
-                                                                 "control_type": "led",
-                                                                  "description": "Oil Light",
-                                                                   "identifier": "OIL_LIGHT",
-                                                                       "inputs": [  ],
-                                                                      "outputs": [ {
-                                                                                         "address": 33792,
-                                                                                     "description": "0 if light is off, 1 if light is on",
-                                                                                            "mask": 1,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 0,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
-                                                                                 } ]
-                                                             }
+                                                 "AOA_GREEN": {
+                                                                      "category": "Warning, Caution and IndicatorLights",
+                                                                  "control_type": "led",
+                                                                   "description": "AoA Green",
+                                                                    "identifier": "AOA_GREEN",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 33792,
+                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                             "mask": 2,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 1,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              },
+                                                   "AOA_RED": {
+                                                                      "category": "Warning, Caution and IndicatorLights",
+                                                                  "control_type": "led",
+                                                                   "description": "AoA Red",
+                                                                    "identifier": "AOA_RED",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 33792,
+                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                             "mask": 8,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 3,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              },
+                                                "AOA_YELLOW": {
+                                                                      "category": "Warning, Caution and IndicatorLights",
+                                                                  "control_type": "led",
+                                                                   "description": "AoA Yellow",
+                                                                    "identifier": "AOA_YELLOW",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 33792,
+                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                             "mask": 4,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 2,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              },
+                                                 "OIL_LIGHT": {
+                                                                      "category": "Warning, Caution and IndicatorLights",
+                                                                  "control_type": "led",
+                                                                   "description": "Oil Light",
+                                                                    "identifier": "OIL_LIGHT",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 33792,
+                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                             "mask": 1,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              }
                                             }
 }
