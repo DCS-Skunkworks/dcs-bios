@@ -31,6 +31,7 @@ defineToggleSwitch("R_CANOPY_LEVER", 15, 3004, 222, "Cockpit Mech", "Right Canop
 defineToggleSwitch("AFT_CANOPY_LEVER", 15, 3005, 224, "Cockpit Mech", "Aft Canopy Lever")
 
 -- Control system
+
 definePushButton("AIRBRAKE", 3, 3004, 198, "Control System", "Airbrake Button")
 
 -- Electric system
@@ -62,7 +63,15 @@ defineToggleSwitch("N37D_CANNON", 2, 3009, 162, "Right Panel", "N-37D Cannon Swi
 defineToggleSwitch("GUN_SIGHT", 2, 3020, 163, "Right Panel", "ASP-3N Gunsight Switch")
 defineToggleSwitch("GUN_CAM", 2, 3023, 164, "Right Panel", "S-13 Gun Camera Switch")
 
--- HydroSystem
+-- Hydro System
+definePotentiometer("EMERG_FLAPS_VALVE", 12, 3001, 171, {0.0, 1.0}, "Hydro System", "Emergency Flaps Valve")
+definePotentiometer("EMERG_GEARS_VALVE", 12, 3002, 167, {0.0, 1.0}, "Hydro System", "Emergency Gears Valve")
+defineToggleSwitch("EMERG_FLAPS_VALVE_COVER", 12, 3003, 170, "Hydro System", "Emergency Flaps Valve Cover")
+defineToggleSwitch("EMERG_GEARS_VALVE_COVER", 12, 3004, 166, "Hydro System", "Emergency Gears Valve Cover")
+definePotentiometer("EMERG_SYS_FILL", 12, 3006, 186, {0.0, 1.0}, "Hydro System", "Emergency System Filling Valve")
+definePotentiometer("AIR_NET", 12, 3007, 242, {0.0, 1.0}, "Hydro System", "Air Net Valve")
+definePotentiometer("COCKPIT_FILL", 12, 3008, 241, {0.0, 1.0}, "Hydro System", "Cockpit Filling Valve")
+
 -- Gear System
 defineToggleSwitch("LANDING_GEAR", 13, 3001, 71, "Gear System", "Landing Gear Handle")
 definePushButton("GEAR_LAMP_TEST", 13, 3003, 72, "Gear System", "Gear Lamps Test Button")
@@ -74,27 +83,75 @@ defineToggleSwitch("LANDING_GEAR_COVER", 13, 3002, 85, "Gear System", "Landing G
 defineToggleSwitch("DROP_TANK_SIGNAL", 10, 3001, 82, "Fuel System", "Drop Tank Signal Switch")
 
 -- Oxygen System
+definePotentiometer("O2_SUPPLY", 9, 3001, 141, {0.0, 1.0}, "Oxygen System", "Oxygen Supply Valve")
+definePotentiometer("AIR_DILUTER", 9, 3003, 143, {-1.0, 0.0}, "Oxygen System", "Air Diluter Valve")
+definePotentiometer("O2_EMERG", 9, 3002, 243, {0.0, 1.0}, "Oxygen System", "Oxygen Emergency Valve")
+
 -- Conditioning and Heating System
+definePotentiometer("COCKPIT_AIT", 8, 3001, 187, {0.0, 1.0}, "Conditioning and Heating System", "Cockpit Air Valve")
+definePotentiometer("VENTILATION", 8, 3002, 86, {-1.0, 0.0}, "Conditioning and Heating System", "Ventilation Valve")
+
 -- Internal Lights System
+definePotentiometer("L_UV_LIGHT", 22, 3001, 184, {0.23, 0.82}, "Internal Lights System", "Left UV Light Rheostat")
+definePotentiometer("R_UV_LIGHT", 22, 3002, 185, {0.23, 0.82}, "Internal Lights System", "Right UV Light Rheostat")
+definePotentiometer("PANELS_LIGHT", 22, 3003, 220, {0.23, 0.82}, "Internal Lights System", "Panels Light Rheostat")
 
 -- Nav Lights System
 defineToggleSwitch("EXT_LIGHTS", 14, 3001, 111, "Nav Lights System", "External Lights Switch")
 defineToggleSwitch("NOSE_LIGHT", 14, 3002, 80, "Nav Lights System", "Nose Light Switch")
 
 -- Power Plant
+definePotentiometer("ENGINE_STOP", 11, 3001, 208, {0.0, 1.0}, "Power Plant", "Engine Stop Lever")
+defineToggleSwitch("ISO_VALVE", 11, 3002, 118, "Power Plant", "Isolating Valve Switch")
+
 -- Fire Extinguisher System
+defineToggleSwitch("FIRE_EX_COVER", 17, 3002, 136, "Fire Extinguisher System", "Engine Fire Extinguisher Button Cover")
+definePushButton("FIRE_EX", 17, 3003, 137, "Fire Extinguisher System", "Engine Fire Extinguisher Button")
+definePushButton("FIRE_EX_TEST", 17, 3001, 138, "Fire Extinguisher System", "Engine Fire Warning Light Test Button")
+
 -- Signal Flares
+defineToggleSwitch("SIGNAL_FLARE_SW", 28, 3001, 129, "Signal Flares", "Signal Flare Switch")
+definePushButton("SIGNAL_FLARE_YEL", 28, 3005, 130, "Signal Flares", "Signal Flare Yellow Button")
+definePushButton("SIGNAL_FLARE_GRE", 28, 3002, 131, "Signal Flares", "Signal Flare Green Button")
+definePushButton("SIGNAL_FLARE_RED", 28, 3003, 132, "Signal Flares", "Signal Flare Red Button")
+definePushButton("SIGNAL_FLARE_WHI", 28, 3004, 133, "Signal Flares", "Signal Flare White Button")
 
-
-	-- Devices
+------ Devices
 -- AGK-47B
+defineToggleSwitch("AGK_CAGE", 25, 3002, 12, "AGK-47B", "AGK-47B Artificial Horizon Cage")
+definePotentiometer("AGK_TRIM", 25, 3003, 13, {0.0, 1.0}, "AGK-47B", "AGK-47B Artificial Horizon Zero Pitch Trim Knob")
+
 -- VD-15
+definePotentiometer("QFE", 19, 3001, 30, {0.0, 1.0}, "VD-15", "Barometric Pressure QFE Knob")
+
 -- PRV-46
+defineToggleSwitch("RPV46_RANGE", 16, 3004, 36, "PRV-46", "PRV-46 Radar Altimeter Indicator Range Switch")
+defineToggleSwitch("RPV46_POWER", 16, 3003, 37, "PRV-46", "PRV-46 Radar Altimeter Indicator Power Switch")
+
 -- PDK-45
+definePotentiometer("PDK45_HEADING", 19, 3001, 34, {0.0, 1.0}, "PDK-45", "Heading Knob")
+definePushButton("PDK45_FAST_SLAVE", 28, 3003, 61, "PDK-45", "Fast Slave Button")
+
 -- CLOCK 
 -- Weapon System
+definePushButton("N37_RELOAD", 4, 3005, 92, "Weapon System", "N-37D Cannon Reload Button")
+definePushButton("NR23_RELOAD_TOP", 4, 3006, 90, "Weapon System", "NR-23 (Top) Cannon Reload Button")
+definePushButton("NR23_RELOAD_BOTTOM", 4, 3007, 91, "Weapon System", "NR-23 (Bottom) Cannon Reload Button")
+defineToggleSwitch("TACTIC_RELEASE", 4, 3008, 96, "Weapon System", "Tactical Release Switch")
+definePushButton("EMERG_RELEASE", 4, 3004, 97, "Weapon System", "Emergency Release Button")
+defineToggleSwitch("EMERG_RELEASE_COVER", 4, 3009, 104, "Weapon System", "Emergency Release Button Cover")
+
 -- Stick buttons
+definePushButton("N37_FIRE", 4, 3001, 193, "Stick Buttons", "N-37D Cannon Fire Button")
+definePushButton("WEAPON_RELEASE", 4, 3003, 195, "Stick Buttons", "Weapon Release Button")
+defineToggleSwitch("GUN_SAFE", 4, 3010, 196, "Stick Buttons", "Guns Safety Cover")
+
 -- ASP-3N Gunsight
+defineToggleSwitch("ASP3_MODE", 26, 3003, 101, "ASP-3N Gunsight", "ASP-3N Gunsight Mode")
+defineToggleSwitch("ASP3_MASK_LEVER", 26, 3011, 106, "ASP-3N Gunsight", "ASP-3N Gunsight Fixed Reticle Mask Lever")
+
+defineToggleSwitch("ASP3_COLOR", 26, 3012, 105, "ASP-3N Gunsight", "ASP-3N Gunsight Color Filter")
+
 -- ARC-5 radio compass
 -- RSI-6K radio
 
