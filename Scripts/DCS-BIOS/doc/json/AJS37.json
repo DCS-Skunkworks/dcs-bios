@@ -298,6 +298,35 @@
                                                                                  } ],
                                                              "physical_variant": "limited_rotary"
                                                       },
+                                   "CABIN_AIR_VALVE": {
+                                                                     "category": "Engine Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "Cabin Air Valve",
+                                                                   "identifier": "CABIN_AIR_VALVE",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 18060,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 32768,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 15,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      },
                                       "CB_AUTOPILOT": {
                                                                      "category": "Engine Panel",
                                                                  "control_type": "selector",
@@ -501,6 +530,31 @@
                                                                                  } ],
                                                              "physical_variant": "toggle_switch"
                                                       },
+                                            "DE-ICE": {
+                                                              "category": "Engine Panel",
+                                                          "control_type": "limited_dial",
+                                                           "description": "Windscreen De-Ice",
+                                                            "identifier": "DE-ICE",
+                                                                "inputs": [ {
+                                                                              "description": "set the position of the dial",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 65535
+                                                                          }, {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 18066,
+                                                                              "description": "position of the potentiometer",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
                                       "DME_SELECTOR": {
                                                                      "category": "Engine Panel",
                                                                  "control_type": "selector",
@@ -529,6 +583,31 @@
                                                                                             "type": "integer"
                                                                                  } ],
                                                              "physical_variant": "toggle_switch"
+                                                      },
+                                           "DRYSUIT": {
+                                                              "category": "Engine Panel",
+                                                          "control_type": "limited_dial",
+                                                           "description": "Drysuit Ventilation Adjustment",
+                                                            "identifier": "DRYSUIT",
+                                                                "inputs": [ {
+                                                                              "description": "set the position of the dial",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 65535
+                                                                          }, {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 18070,
+                                                                              "description": "position of the potentiometer",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ]
                                                       },
                                       "ENGINE_DEICE": {
                                                                      "category": "Engine Panel",
@@ -875,6 +954,31 @@
                                                                                             "type": "integer"
                                                                                  } ],
                                                              "physical_variant": "toggle_switch"
+                                                      },
+                                         "TEST_MODE": {
+                                                              "category": "Engine Panel",
+                                                          "control_type": "limited_dial",
+                                                           "description": "Maintenance Testing Mode",
+                                                            "identifier": "TEST_MODE",
+                                                                "inputs": [ {
+                                                                              "description": "set the position of the dial",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 65535
+                                                                          }, {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 18068,
+                                                                              "description": "position of the potentiometer",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ]
                                                       }
                         },
          "Error Panel": {
@@ -1488,6 +1592,566 @@
                                           }
                         },
           "FR22 Radio": {
+                                        "FR22_BASE": {
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "FR22 Base Selector",
+                                                                  "identifier": "FR22_BASE",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 10
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18062,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 15,
+                                                                                      "max_value": 10,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "limited_rotary"
+                                                     },
+                                  "FR22_CHANNEL_AG": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Channel A/G",
+                                                                  "identifier": "FR22_CHANNEL_AG",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18060,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 32,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 5,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                   "FR22_CHANNEL_B": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Channel B",
+                                                                  "identifier": "FR22_CHANNEL_B",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18060,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 64,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 6,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                  "FR22_CHANNEL_C2": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Channel C2",
+                                                                  "identifier": "FR22_CHANNEL_C2",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18060,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 256,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 8,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                  "FR22_CHANNEL_CF": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Channel C/F",
+                                                                  "identifier": "FR22_CHANNEL_CF",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18060,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 128,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 7,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                  "FR22_CHANNEL_DE": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Channel D/E",
+                                                                  "identifier": "FR22_CHANNEL_DE",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18060,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 512,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 9,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                   "FR22_CHANNEL_H": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Channel H",
+                                                                  "identifier": "FR22_CHANNEL_H",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18060,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 1,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                    "FR22_FLIGHT_0": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Flight 0",
+                                                                  "identifier": "FR22_FLIGHT_0",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18032,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 64,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 6,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                    "FR22_FLIGHT_1": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Flight 1",
+                                                                  "identifier": "FR22_FLIGHT_1",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18032,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 128,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 7,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                    "FR22_FLIGHT_2": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Flight 2",
+                                                                  "identifier": "FR22_FLIGHT_2",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18032,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 256,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 8,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                    "FR22_FLIGHT_3": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Flight 3",
+                                                                  "identifier": "FR22_FLIGHT_3",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18032,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 512,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 9,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                    "FR22_FLIGHT_4": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Flight 4",
+                                                                  "identifier": "FR22_FLIGHT_4",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18032,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 1024,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 10,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                    "FR22_FLIGHT_5": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Flight 5",
+                                                                  "identifier": "FR22_FLIGHT_5",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18032,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 2048,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 11,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                    "FR22_FLIGHT_6": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Flight 6",
+                                                                  "identifier": "FR22_FLIGHT_6",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18032,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 4096,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 12,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                    "FR22_FLIGHT_7": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Flight 7",
+                                                                  "identifier": "FR22_FLIGHT_7",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18032,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 8192,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 13,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                    "FR22_FLIGHT_8": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Flight 8",
+                                                                  "identifier": "FR22_FLIGHT_8",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18032,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 16384,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 14,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                    "FR22_FLIGHT_9": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Flight 9",
+                                                                  "identifier": "FR22_FLIGHT_9",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18032,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 32768,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 15,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                  "FR22_GROUND_COM": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Ground Intercom",
+                                                                  "identifier": "FR22_GROUND_COM",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18060,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 1024,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 10,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                       "FR22_GROUP": {
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "FR22 Group Selector",
+                                                                  "identifier": "FR22_GROUP",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 10
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18062,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 240,
+                                                                                      "max_value": 10,
+                                                                                       "shift_by": 4,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "limited_rotary"
+                                                     },
                              "FR22_INNER_LEFT_KNOB": {
                                                           "api_variant": "multiturn",
                                                              "category": "FR22 Radio",
@@ -1531,6 +2195,61 @@
                                                                                   "suffix": "_KNOB_POS",
                                                                                     "type": "integer"
                                                                          } ]
+                                                     },
+                                       "FR22_MINUS": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Minus",
+                                                                  "identifier": "FR22_MINUS",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18060,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 16,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 4,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                        "FR22_MODE": {
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "FR22 Mode Selector",
+                                                                  "identifier": "FR22_MODE",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 5
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18060,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 14336,
+                                                                                      "max_value": 5,
+                                                                                       "shift_by": 11,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "limited_rotary"
                                                      },
                              "FR22_OUTER_LEFT_KNOB": {
                                                           "api_variant": "multiturn",
@@ -1597,6 +2316,121 @@
                                                                                            "type": "integer"
                                                                                 } ],
                                                             "physical_variant": "limited_rotary"
+                                                     },
+                                   "FR22_SPECIAL_1": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Special 1",
+                                                                  "identifier": "FR22_SPECIAL_1",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18060,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 2,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 1,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                   "FR22_SPECIAL_2": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Special 2",
+                                                                  "identifier": "FR22_SPECIAL_2",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18060,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 4,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 2,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                   "FR22_SPECIAL_3": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "FR22 Radio",
+                                                                "control_type": "selector",
+                                                                 "description": "Special 3",
+                                                                  "identifier": "FR22_SPECIAL_3",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 18060,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 8,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 3,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                         "FR22_VOL": {
+                                                             "category": "FR22 Radio",
+                                                         "control_type": "limited_dial",
+                                                          "description": "Radio Volume",
+                                                           "identifier": "FR22_VOL",
+                                                               "inputs": [ {
+                                                                             "description": "set the position of the dial",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 65535
+                                                                         }, {
+                                                                                "description": "turn the dial left or right",
+                                                                                  "interface": "variable_step",
+                                                                                  "max_value": 65535,
+                                                                             "suggested_step": 3200
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                 "address": 18064,
+                                                                             "description": "position of the potentiometer",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
                                                      }
                         },
     "Flight Data Unit": {
@@ -1674,6 +2508,31 @@
                                                                                       } ],
                                                                   "physical_variant": "push_button"
                                                            },
+                                                "ALT_SET": {
+                                                                   "category": "Flight Data Unit",
+                                                               "control_type": "limited_dial",
+                                                                "description": "Altimeter Setting",
+                                                                 "identifier": "ALT_SET",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the position of the dial",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 65535
+                                                                               }, {
+                                                                                      "description": "turn the dial left or right",
+                                                                                        "interface": "variable_step",
+                                                                                        "max_value": 65535,
+                                                                                   "suggested_step": 3200
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 18050,
+                                                                                   "description": "position of the potentiometer",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
                                           "ATTITUDE_HOLD": {
                                                                        "api_variant": "momentary_last_position",
                                                                           "category": "Flight Data Unit",
@@ -1704,6 +2563,31 @@
                                                                                       } ],
                                                                   "physical_variant": "push_button"
                                                            },
+                                          "AUTO_YAW_TRIM": {
+                                                                   "category": "Flight Data Unit",
+                                                               "control_type": "limited_dial",
+                                                                "description": "Autopilot Yaw Trim",
+                                                                 "identifier": "AUTO_YAW_TRIM",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the position of the dial",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 65535
+                                                                               }, {
+                                                                                      "description": "turn the dial left or right",
+                                                                                        "interface": "variable_step",
+                                                                                        "max_value": 65535,
+                                                                                   "suggested_step": 3200
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 18056,
+                                                                                   "description": "position of the potentiometer",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
                                      "BACKUP_ALT_SETTING": {
                                                                    "category": "Flight Data Unit",
                                                                "control_type": "limited_dial",
@@ -1728,6 +2612,36 @@
                                                                                         "suffix": "",
                                                                                           "type": "integer"
                                                                                } ]
+                                                           },
+                                          "BACK_ADI_CAGE": {
+                                                                       "api_variant": "momentary_last_position",
+                                                                          "category": "Flight Data Unit",
+                                                                      "control_type": "selector",
+                                                                       "description": "Backup ADI Cage",
+                                                                        "identifier": "BACK_ADI_CAGE",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 1
+                                                                                      }, {
+                                                                                             "argument": "TOGGLE",
+                                                                                          "description": "Toggle switch state",
+                                                                                            "interface": "action"
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 18032,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 16,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 4,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "push_button"
                                                            },
                                         "CANOPY_JETTISON": {
                                                                        "api_variant": "momentary_last_position",
@@ -1783,6 +2697,31 @@
                                                                                                  "type": "integer"
                                                                                       } ],
                                                                   "physical_variant": "limited_rotary"
+                                                           },
+                                              "CLOCK_SET": {
+                                                                   "category": "Flight Data Unit",
+                                                               "control_type": "limited_dial",
+                                                                "description": "Clock Setting",
+                                                                 "identifier": "CLOCK_SET",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the position of the dial",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 65535
+                                                                               }, {
+                                                                                      "description": "turn the dial left or right",
+                                                                                        "interface": "variable_step",
+                                                                                        "max_value": 65535,
+                                                                                   "suggested_step": 3200
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 18058,
+                                                                                   "description": "position of the potentiometer",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
                                                            },
                             "COUNTERMEASURE_FAST_RELEASE": {
                                                                        "api_variant": "momentary_last_position",
@@ -1988,6 +2927,31 @@
                                                                                       } ],
                                                                   "physical_variant": "toggle_switch"
                                                            },
+                                             "HUD_BRIGHT": {
+                                                                   "category": "Flight Data Unit",
+                                                               "control_type": "limited_dial",
+                                                                "description": "HUD Brightness Knob",
+                                                                 "identifier": "HUD_BRIGHT",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the position of the dial",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 65535
+                                                                               }, {
+                                                                                      "description": "turn the dial left or right",
+                                                                                        "interface": "variable_step",
+                                                                                        "max_value": 65535,
+                                                                                   "suggested_step": 3200
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 18052,
+                                                                                   "description": "position of the potentiometer",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
                                      "HUD_GLASS_POSITION": {
                                                                           "category": "Flight Data Unit",
                                                                       "control_type": "action",
@@ -2009,6 +2973,31 @@
                                                                                                  "type": "integer"
                                                                                       } ],
                                                                   "physical_variant": "limited_rotary"
+                                                           },
+                                         "MAG_CORRECTION": {
+                                                                   "category": "Flight Data Unit",
+                                                               "control_type": "limited_dial",
+                                                                "description": "Magnetic Declination Correction",
+                                                                 "identifier": "MAG_CORRECTION",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the position of the dial",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 65535
+                                                                               }, {
+                                                                                      "description": "turn the dial left or right",
+                                                                                        "interface": "variable_step",
+                                                                                        "max_value": 65535,
+                                                                                   "suggested_step": 3200
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 18054,
+                                                                                   "description": "position of the potentiometer",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
                                                            },
                                           "MAG_DEC_COVER": {
                                                                           "category": "Flight Data Unit",
@@ -2063,6 +3052,36 @@
                                                                                                  "type": "integer"
                                                                                       } ],
                                                                   "physical_variant": "limited_rotary"
+                                                           },
+                                            "MAX_G_RESET": {
+                                                                       "api_variant": "momentary_last_position",
+                                                                          "category": "Flight Data Unit",
+                                                                      "control_type": "selector",
+                                                                       "description": "Max G Reset",
+                                                                        "identifier": "MAX_G_RESET",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 1
+                                                                                      }, {
+                                                                                             "argument": "TOGGLE",
+                                                                                          "description": "Toggle switch state",
+                                                                                            "interface": "action"
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 18032,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 8,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 3,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "push_button"
                                                            },
                                            "OXYGEN_LEVER": {
                                                                           "category": "Flight Data Unit",
@@ -2143,6 +3162,36 @@
                                                                                                  "type": "integer"
                                                                                       } ],
                                                                   "physical_variant": "toggle_switch"
+                                                           },
+                                            "ROLL_CENTER": {
+                                                                       "api_variant": "momentary_last_position",
+                                                                          "category": "Flight Data Unit",
+                                                                      "control_type": "selector",
+                                                                       "description": "Roll Centering",
+                                                                        "identifier": "ROLL_CENTER",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 1
+                                                                                      }, {
+                                                                                             "argument": "TOGGLE",
+                                                                                          "description": "Toggle switch state",
+                                                                                            "interface": "action"
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 18032,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 32,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 5,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "push_button"
                                                            },
                                                 "SLAV_SI": {
                                                                           "category": "Flight Data Unit",
@@ -3517,6 +4566,31 @@
                                                   }
                         },
                  "RWR": {
+                                   "MASTER_VOL": {
+                                                         "category": "RWR",
+                                                     "control_type": "limited_dial",
+                                                      "description": "Master Volume / Sidewinder Tone",
+                                                       "identifier": "MASTER_VOL",
+                                                           "inputs": [ {
+                                                                         "description": "set the position of the dial",
+                                                                           "interface": "set_state",
+                                                                           "max_value": 65535
+                                                                     }, {
+                                                                            "description": "turn the dial left or right",
+                                                                              "interface": "variable_step",
+                                                                              "max_value": 65535,
+                                                                         "suggested_step": 3200
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                             "address": 18072,
+                                                                         "description": "position of the potentiometer",
+                                                                                "mask": 65535,
+                                                                           "max_value": 65535,
+                                                                            "shift_by": 0,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
                             "RADAR_WARN_SELECT": {
                                                                 "category": "RWR",
                                                             "control_type": "selector",
@@ -3568,6 +4642,85 @@
                                                                                               "type": "integer"
                                                                                    } ],
                                                                "physical_variant": "limited_rotary"
+                                                        },
+                                            "IFF_CODE": {
+                                                                       "category": "Radar",
+                                                                   "control_type": "selector",
+                                                                    "description": "IFF Code",
+                                                                     "identifier": "IFF_CODE",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 10
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 18062,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 3840,
+                                                                                         "max_value": 10,
+                                                                                          "shift_by": 8,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "limited_rotary"
+                                                        },
+                                           "IFF_POWER": {
+                                                                       "category": "Radar",
+                                                                   "control_type": "selector",
+                                                                    "description": "IFF Power",
+                                                                     "identifier": "IFF_POWER",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 18060,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 16384,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 14,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "RADAR_BRIGHT": {
+                                                                "category": "Radar",
+                                                            "control_type": "limited_dial",
+                                                             "description": "Radar Brightness",
+                                                              "identifier": "RADAR_BRIGHT",
+                                                                  "inputs": [ {
+                                                                                "description": "set the position of the dial",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 65535
+                                                                            }, {
+                                                                                   "description": "turn the dial left or right",
+                                                                                     "interface": "variable_step",
+                                                                                     "max_value": 65535,
+                                                                                "suggested_step": 3200
+                                                                            } ],
+                                                                 "outputs": [ {
+                                                                                    "address": 18074,
+                                                                                "description": "position of the potentiometer",
+                                                                                       "mask": 65535,
+                                                                                  "max_value": 65535,
+                                                                                   "shift_by": 0,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ]
                                                         },
                                           "RADAR_GAIN": {
                                                                        "category": "Radar",

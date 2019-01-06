@@ -895,7 +895,7 @@ defineFloat("SAI_RATE_OF_TURN", 208, {0, 1}, "Standby Attitude Reference Indicat
 defineFloat("STBY_ASI_AIRSPEED", 217, {0, 1}, "Standby Airspeed Indicator", "Airspeed")
 
 -- 28. Standby Altimeter
-definePotentiometer("STBY_PRESS_ALT", 26, 3001, 224, {0, 1}, "Standby Altimeter", "Pressure Setting Knob")
+defineRotary("STBY_PRESS_ALT", 26, 3001, 224, "Standby Altimeter", "Pressure Setting Knob")
 defineFloat("STBY_ALT_100_FT_PTR", 218, {0, 1}, "Standby Altimeter", "100 ft pointer")
 defineFloat("STBY_ALT_10000_FT_CNT", 220, {0, 1}, "Standby Altimeter", "10000 ft count")
 defineFloatWithValueConversion("STBY_ALT_1000_FT_CNT", 219, {0, 1}, {-1.0, 0.0, 0.0, 10.0}, {0.9, 1.0, 0.0, 1.0}, "Standby Altimeter", "1000 ft count")

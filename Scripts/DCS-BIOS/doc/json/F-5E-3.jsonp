@@ -23,9 +23,9 @@ docdata["F-5E-3"] =
                                                                                    "outputs": [ {
                                                                                                       "address": 30298,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 16384,
+                                                                                                         "mask": 32768,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 14,
+                                                                                                     "shift_by": 15,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -75,11 +75,11 @@ docdata["F-5E-3"] =
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 30298,
+                                                                                                      "address": 30302,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 32768,
+                                                                                                         "mask": 4,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 15,
+                                                                                                     "shift_by": 2,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -103,7 +103,7 @@ docdata["F-5E-3"] =
                                                                                    "suggested_step": 3200
                                                                                } ],
                                                                     "outputs": [ {
-                                                                                       "address": 30338,
+                                                                                       "address": 30340,
                                                                                    "description": "position of the potentiometer",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65535,
@@ -136,9 +136,9 @@ docdata["F-5E-3"] =
                                                                        "outputs": [ {
                                                                                           "address": 30348,
                                                                                       "description": "selector position",
-                                                                                             "mask": 64,
+                                                                                             "mask": 128,
                                                                                         "max_value": 1,
-                                                                                         "shift_by": 6,
+                                                                                         "shift_by": 7,
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
@@ -194,9 +194,9 @@ docdata["F-5E-3"] =
                                                                              "outputs": [ {
                                                                                                 "address": 30348,
                                                                                             "description": "selector position",
-                                                                                                   "mask": 128,
+                                                                                                   "mask": 256,
                                                                                               "max_value": 1,
-                                                                                               "shift_by": 7,
+                                                                                               "shift_by": 8,
                                                                                                  "suffix": "",
                                                                                                    "type": "integer"
                                                                                         } ],
@@ -472,11 +472,11 @@ docdata["F-5E-3"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 30340,
+                                                                                                     "address": 30334,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 1,
+                                                                                                        "mask": 2,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 0,
+                                                                                                    "shift_by": 1,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -522,11 +522,11 @@ docdata["F-5E-3"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 30340,
+                                                                                                     "address": 30334,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 6,
+                                                                                                        "mask": 12,
                                                                                                    "max_value": 3,
-                                                                                                    "shift_by": 1,
+                                                                                                    "shift_by": 2,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -552,11 +552,11 @@ docdata["F-5E-3"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 30340,
+                                                                                                     "address": 30334,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 8,
+                                                                                                        "mask": 16,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 3,
+                                                                                                    "shift_by": 4,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -586,9 +586,9 @@ docdata["F-5E-3"] =
                                                                              "outputs": [ {
                                                                                                 "address": 30348,
                                                                                             "description": "selector position",
-                                                                                                   "mask": 512,
+                                                                                                   "mask": 1024,
                                                                                               "max_value": 1,
-                                                                                               "shift_by": 9,
+                                                                                               "shift_by": 10,
                                                                                                  "suffix": "",
                                                                                                    "type": "integer"
                                                                                         } ],
@@ -2806,7 +2806,7 @@ docdata["F-5E-3"] =
                                                                            "identifier": "TDC_AZIMUTH",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30320,
+                                                                                                 "address": 30322,
                                                                                              "description": "gauge position",
                                                                                                     "mask": 65535,
                                                                                                "max_value": 65535,
@@ -2822,7 +2822,7 @@ docdata["F-5E-3"] =
                                                                            "identifier": "TDC_RANGE",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30318,
+                                                                                                 "address": 30320,
                                                                                              "description": "gauge position",
                                                                                                     "mask": 65535,
                                                                                                "max_value": 65535,
@@ -3445,11 +3445,11 @@ docdata["F-5E-3"] =
                                                                                                  } ],
                                                                           "momentary_positions": "none",
                                                                                       "outputs": [ {
-                                                                                                         "address": 30340,
+                                                                                                         "address": 30334,
                                                                                                      "description": "selector position",
-                                                                                                            "mask": 192,
+                                                                                                            "mask": 384,
                                                                                                        "max_value": 3,
-                                                                                                        "shift_by": 6,
+                                                                                                        "shift_by": 7,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
@@ -3476,9 +3476,9 @@ docdata["F-5E-3"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 30348,
                                                                                                      "description": "selector position",
-                                                                                                            "mask": 16,
+                                                                                                            "mask": 32,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 4,
+                                                                                                        "shift_by": 5,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
@@ -3503,11 +3503,11 @@ docdata["F-5E-3"] =
                                                                                                  } ],
                                                                           "momentary_positions": "none",
                                                                                       "outputs": [ {
-                                                                                                         "address": 30340,
+                                                                                                         "address": 30344,
                                                                                                      "description": "selector position",
-                                                                                                            "mask": 32768,
+                                                                                                            "mask": 1024,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 15,
+                                                                                                        "shift_by": 10,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
@@ -3553,11 +3553,11 @@ docdata["F-5E-3"] =
                                                                                                  } ],
                                                                           "momentary_positions": "none",
                                                                                       "outputs": [ {
-                                                                                                         "address": 30340,
+                                                                                                         "address": 30334,
                                                                                                      "description": "selector position",
-                                                                                                            "mask": 24576,
+                                                                                                            "mask": 49152,
                                                                                                        "max_value": 2,
-                                                                                                        "shift_by": 13,
+                                                                                                        "shift_by": 14,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
@@ -3659,9 +3659,9 @@ docdata["F-5E-3"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 30348,
                                                                                                      "description": "selector position",
-                                                                                                            "mask": 32,
+                                                                                                            "mask": 64,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 5,
+                                                                                                        "shift_by": 6,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
@@ -3707,11 +3707,11 @@ docdata["F-5E-3"] =
                                                                                                  } ],
                                                                           "momentary_positions": "none",
                                                                                       "outputs": [ {
-                                                                                                         "address": 30340,
+                                                                                                         "address": 30334,
                                                                                                      "description": "selector position",
-                                                                                                            "mask": 6144,
+                                                                                                            "mask": 12288,
                                                                                                        "max_value": 2,
-                                                                                                        "shift_by": 11,
+                                                                                                        "shift_by": 12,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
@@ -3762,11 +3762,11 @@ docdata["F-5E-3"] =
                                                                                                  } ],
                                                                           "momentary_positions": "none",
                                                                                       "outputs": [ {
-                                                                                                         "address": 30344,
+                                                                                                         "address": 30348,
                                                                                                      "description": "selector position",
-                                                                                                            "mask": 32768,
+                                                                                                            "mask": 16,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 15,
+                                                                                                        "shift_by": 4,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
@@ -3794,9 +3794,9 @@ docdata["F-5E-3"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 30344,
                                                                                                      "description": "selector position",
-                                                                                                            "mask": 16384,
+                                                                                                            "mask": 32768,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 14,
+                                                                                                        "shift_by": 15,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
@@ -3809,11 +3809,11 @@ docdata["F-5E-3"] =
                                                                             "identifier": "IFF_REPLY_L",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 30340,
+                                                                                                  "address": 30334,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16,
+                                                                                                     "mask": 32,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 4,
+                                                                                                 "shift_by": 5,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -3825,11 +3825,11 @@ docdata["F-5E-3"] =
                                                                             "identifier": "IFF_TEST_L",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 30340,
+                                                                                                  "address": 30334,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32,
+                                                                                                     "mask": 64,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 5,
+                                                                                                 "shift_by": 6,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -4327,11 +4327,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30322,
+                                                                                                 "address": 30334,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 32768,
+                                                                                                    "mask": 1,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 15,
+                                                                                                "shift_by": 0,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -4357,11 +4357,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30322,
+                                                                                                 "address": 30318,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 512,
+                                                                                                    "mask": 1024,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 9,
+                                                                                                "shift_by": 10,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -4383,7 +4383,7 @@ docdata["F-5E-3"] =
                                                                                       "suggested_step": 3200
                                                                                   } ],
                                                                        "outputs": [ {
-                                                                                          "address": 30334,
+                                                                                          "address": 30336,
                                                                                       "description": "position of the potentiometer",
                                                                                              "mask": 65535,
                                                                                         "max_value": 65535,
@@ -4412,11 +4412,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30322,
+                                                                                                 "address": 30318,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 256,
+                                                                                                    "mask": 512,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 8,
+                                                                                                "shift_by": 9,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -4442,11 +4442,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30322,
+                                                                                                 "address": 30318,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 16384,
+                                                                                                    "mask": 32768,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 14,
+                                                                                                "shift_by": 15,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -4472,11 +4472,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30322,
+                                                                                                 "address": 30318,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 64,
+                                                                                                    "mask": 128,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 6,
+                                                                                                "shift_by": 7,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -4502,11 +4502,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30322,
+                                                                                                 "address": 30318,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 8192,
+                                                                                                    "mask": 16384,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 13,
+                                                                                                "shift_by": 14,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -4532,11 +4532,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30322,
+                                                                                                 "address": 30318,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 128,
+                                                                                                    "mask": 256,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 7,
+                                                                                                "shift_by": 8,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -4562,11 +4562,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30322,
+                                                                                                 "address": 30318,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 4096,
+                                                                                                    "mask": 8192,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 12,
+                                                                                                "shift_by": 13,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -4592,11 +4592,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30322,
+                                                                                                 "address": 30318,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 1024,
+                                                                                                    "mask": 2048,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 10,
+                                                                                                "shift_by": 11,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -4622,11 +4622,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30322,
+                                                                                                 "address": 30318,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 2048,
+                                                                                                    "mask": 4096,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 11,
+                                                                                                "shift_by": 12,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -4648,7 +4648,7 @@ docdata["F-5E-3"] =
                                                                                       "suggested_step": 3200
                                                                                   } ],
                                                                        "outputs": [ {
-                                                                                          "address": 30336,
+                                                                                          "address": 30338,
                                                                                       "description": "position of the potentiometer",
                                                                                              "mask": 65535,
                                                                                         "max_value": 65535,
@@ -4681,9 +4681,9 @@ docdata["F-5E-3"] =
                                                                                    "outputs": [ {
                                                                                                       "address": 30302,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 64,
+                                                                                                         "mask": 128,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 6,
+                                                                                                     "shift_by": 7,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -4781,9 +4781,9 @@ docdata["F-5E-3"] =
                                                                                    "outputs": [ {
                                                                                                       "address": 30302,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 48,
+                                                                                                         "mask": 96,
                                                                                                     "max_value": 3,
-                                                                                                     "shift_by": 4,
+                                                                                                     "shift_by": 5,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -4831,9 +4831,9 @@ docdata["F-5E-3"] =
                                                                                    "outputs": [ {
                                                                                                       "address": 30302,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 12,
+                                                                                                         "mask": 24,
                                                                                                     "max_value": 3,
-                                                                                                     "shift_by": 2,
+                                                                                                     "shift_by": 3,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -4906,11 +4906,11 @@ docdata["F-5E-3"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 30322,
+                                                                                                    "address": 30318,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 24,
+                                                                                                       "mask": 48,
                                                                                                   "max_value": 2,
-                                                                                                   "shift_by": 3,
+                                                                                                   "shift_by": 4,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -4936,26 +4936,23 @@ docdata["F-5E-3"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 30322,
+                                                                                                    "address": 30318,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 32,
+                                                                                                       "mask": 64,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 5,
+                                                                                                   "shift_by": 6,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
                                                                         "physical_variant": "push_button"
                                                                  },
                                                 "SIGHT_DEPRESS": {
+                                                                      "api_variant": "multiturn",
                                                                          "category": "Sight",
-                                                                     "control_type": "limited_dial",
+                                                                     "control_type": "analog_dial",
                                                                       "description": "AN/ASG-31 Sight Reticle Depression Knob",
                                                                        "identifier": "SIGHT_DEPRESS",
                                                                            "inputs": [ {
-                                                                                         "description": "set the position of the dial",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 65535
-                                                                                     }, {
                                                                                             "description": "turn the dial left or right",
                                                                                               "interface": "variable_step",
                                                                                               "max_value": 65535,
@@ -4963,11 +4960,11 @@ docdata["F-5E-3"] =
                                                                                      } ],
                                                                           "outputs": [ {
                                                                                              "address": 30324,
-                                                                                         "description": "position of the potentiometer",
+                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
                                                                                             "shift_by": 0,
-                                                                                              "suffix": "",
+                                                                                              "suffix": "_KNOB_POS",
                                                                                                 "type": "integer"
                                                                                      } ]
                                                                  },
@@ -5011,11 +5008,11 @@ docdata["F-5E-3"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 30322,
+                                                                                                    "address": 30318,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 7,
+                                                                                                       "mask": 14,
                                                                                                   "max_value": 4,
-                                                                                                   "shift_by": 0,
+                                                                                                   "shift_by": 1,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -5036,9 +5033,9 @@ docdata["F-5E-3"] =
                                                                               "outputs": [ {
                                                                                                  "address": 30464,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 15,
+                                                                                                    "mask": 240,
                                                                                                "max_value": 10,
-                                                                                                "shift_by": 0,
+                                                                                                "shift_by": 4,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -5055,11 +5052,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30448,
+                                                                                                 "address": 30464,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 61440,
+                                                                                                    "mask": 15,
                                                                                                "max_value": 10,
-                                                                                                "shift_by": 12,
+                                                                                                "shift_by": 0,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -5087,9 +5084,9 @@ docdata["F-5E-3"] =
                                                                               "outputs": [ {
                                                                                                  "address": 30464,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 128,
+                                                                                                    "mask": 256,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 7,
+                                                                                                "shift_by": 8,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -5110,11 +5107,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30464,
+                                                                                                 "address": 30448,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 96,
+                                                                                                    "mask": 49152,
                                                                                                "max_value": 3,
-                                                                                                "shift_by": 5,
+                                                                                                "shift_by": 14,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -5129,9 +5126,9 @@ docdata["F-5E-3"] =
                                                                        "outputs": [ {
                                                                                           "address": 30448,
                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                             "mask": 2048,
+                                                                                             "mask": 4096,
                                                                                         "max_value": 1,
-                                                                                         "shift_by": 11,
+                                                                                         "shift_by": 12,
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ]
@@ -5180,11 +5177,11 @@ docdata["F-5E-3"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 30464,
+                                                                                                 "address": 30448,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 16,
+                                                                                                    "mask": 8192,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 4,
+                                                                                                "shift_by": 13,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -5207,11 +5204,11 @@ docdata["F-5E-3"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 30448,
+                                                                                                     "address": 30446,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 112,
+                                                                                                        "mask": 57344,
                                                                                                    "max_value": 4,
-                                                                                                    "shift_by": 4,
+                                                                                                    "shift_by": 13,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5234,9 +5231,9 @@ docdata["F-5E-3"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 30448,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 15,
+                                                                                                        "mask": 240,
                                                                                                    "max_value": 10,
-                                                                                                    "shift_by": 0,
+                                                                                                    "shift_by": 4,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5257,11 +5254,11 @@ docdata["F-5E-3"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 30446,
+                                                                                                     "address": 30448,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 30720,
+                                                                                                        "mask": 15,
                                                                                                    "max_value": 10,
-                                                                                                    "shift_by": 11,
+                                                                                                    "shift_by": 0,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5284,9 +5281,9 @@ docdata["F-5E-3"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 30446,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 1920,
+                                                                                                        "mask": 7680,
                                                                                                    "max_value": 10,
-                                                                                                    "shift_by": 7,
+                                                                                                    "shift_by": 9,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5309,9 +5306,9 @@ docdata["F-5E-3"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 30446,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 96,
+                                                                                                        "mask": 384,
                                                                                                    "max_value": 3,
-                                                                                                    "shift_by": 5,
+                                                                                                    "shift_by": 7,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5334,9 +5331,9 @@ docdata["F-5E-3"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 30448,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 384,
+                                                                                                        "mask": 768,
                                                                                                    "max_value": 2,
-                                                                                                    "shift_by": 7,
+                                                                                                    "shift_by": 8,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5363,9 +5360,9 @@ docdata["F-5E-3"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 30448,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 512,
+                                                                                                        "mask": 1024,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 9,
+                                                                                                    "shift_by": 10,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5386,11 +5383,11 @@ docdata["F-5E-3"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 30348,
+                                                                                                     "address": 30446,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 49152,
+                                                                                                        "mask": 3,
                                                                                                    "max_value": 2,
-                                                                                                    "shift_by": 14,
+                                                                                                    "shift_by": 0,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5413,9 +5410,9 @@ docdata["F-5E-3"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 30348,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 12288,
+                                                                                                        "mask": 24576,
                                                                                                    "max_value": 3,
-                                                                                                    "shift_by": 12,
+                                                                                                    "shift_by": 13,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5441,7 +5438,7 @@ docdata["F-5E-3"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 30446,
+                                                                                                     "address": 30348,
                                                                                                  "description": "selector position",
                                                                                                         "mask": 32768,
                                                                                                    "max_value": 1,
@@ -5468,9 +5465,9 @@ docdata["F-5E-3"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 30446,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 31,
+                                                                                                        "mask": 124,
                                                                                                    "max_value": 20,
-                                                                                                    "shift_by": 0,
+                                                                                                    "shift_by": 2,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5498,9 +5495,9 @@ docdata["F-5E-3"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 30448,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 1024,
+                                                                                                        "mask": 2048,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 10,
+                                                                                                    "shift_by": 11,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5527,9 +5524,9 @@ docdata["F-5E-3"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 30348,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 2048,
+                                                                                                        "mask": 4096,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 11,
+                                                                                                    "shift_by": 12,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5557,9 +5554,9 @@ docdata["F-5E-3"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 30348,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 1024,
+                                                                                                        "mask": 2048,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 10,
+                                                                                                    "shift_by": 11,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -5777,9 +5774,9 @@ docdata["F-5E-3"] =
                                                                                "outputs": [ {
                                                                                                   "address": 30348,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 256,
+                                                                                                     "mask": 512,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 8,
+                                                                                                 "shift_by": 9,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -5921,9 +5918,9 @@ docdata["F-5E-3"] =
                                                                                "outputs": [ {
                                                                                                   "address": 30302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16384,
+                                                                                                     "mask": 32768,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 14,
+                                                                                                 "shift_by": 15,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -5937,9 +5934,9 @@ docdata["F-5E-3"] =
                                                                                "outputs": [ {
                                                                                                   "address": 30302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4096,
+                                                                                                     "mask": 8192,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 12,
+                                                                                                 "shift_by": 13,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -5953,9 +5950,9 @@ docdata["F-5E-3"] =
                                                                                "outputs": [ {
                                                                                                   "address": 30302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2048,
+                                                                                                     "mask": 4096,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 11,
+                                                                                                 "shift_by": 12,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -5969,9 +5966,9 @@ docdata["F-5E-3"] =
                                                                                "outputs": [ {
                                                                                                   "address": 30302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8192,
+                                                                                                     "mask": 16384,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 13,
+                                                                                                 "shift_by": 14,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -5985,9 +5982,9 @@ docdata["F-5E-3"] =
                                                                                "outputs": [ {
                                                                                                   "address": 30302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 256,
+                                                                                                     "mask": 512,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 8,
+                                                                                                 "shift_by": 9,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -6001,9 +5998,9 @@ docdata["F-5E-3"] =
                                                                                "outputs": [ {
                                                                                                   "address": 30302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 512,
+                                                                                                     "mask": 1024,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 9,
+                                                                                                 "shift_by": 10,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -6017,9 +6014,9 @@ docdata["F-5E-3"] =
                                                                                "outputs": [ {
                                                                                                   "address": 30302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1024,
+                                                                                                     "mask": 2048,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 10,
+                                                                                                 "shift_by": 11,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -6033,9 +6030,9 @@ docdata["F-5E-3"] =
                                                                                "outputs": [ {
                                                                                                   "address": 30302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 128,
+                                                                                                     "mask": 256,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 7,
+                                                                                                 "shift_by": 8,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -6047,11 +6044,11 @@ docdata["F-5E-3"] =
                                                                             "identifier": "RADAR_SCALE_BRIGHT",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 30302,
+                                                                                                  "address": 30318,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32768,
+                                                                                                     "mask": 1,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 15,
+                                                                                                 "shift_by": 0,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -6400,19 +6397,19 @@ docdata["F-5E-3"] =
                                                                                                }, {
                                                                                                    "description": "set position",
                                                                                                      "interface": "set_state",
-                                                                                                     "max_value": 2
+                                                                                                     "max_value": 4
                                                                                                } ],
                                                                         "momentary_positions": "none",
                                                                                     "outputs": [ {
                                                                                                        "address": 30298,
                                                                                                    "description": "selector position",
-                                                                                                          "mask": 96,
-                                                                                                     "max_value": 2,
+                                                                                                          "mask": 224,
+                                                                                                     "max_value": 4,
                                                                                                       "shift_by": 5,
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "toggle_switch"
+                                                                           "physical_variant": "limited_rotary"
                                                                     },
                                                        "EXT_STORE": {
                                                                                    "category": "Weapons Control",
@@ -6431,9 +6428,9 @@ docdata["F-5E-3"] =
                                                                                     "outputs": [ {
                                                                                                        "address": 30298,
                                                                                                    "description": "selector position",
-                                                                                                          "mask": 3072,
+                                                                                                          "mask": 6144,
                                                                                                      "max_value": 3,
-                                                                                                      "shift_by": 10,
+                                                                                                      "shift_by": 11,
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
@@ -6481,9 +6478,9 @@ docdata["F-5E-3"] =
                                                                                     "outputs": [ {
                                                                                                        "address": 30298,
                                                                                                    "description": "selector position",
-                                                                                                          "mask": 768,
+                                                                                                          "mask": 1536,
                                                                                                      "max_value": 2,
-                                                                                                      "shift_by": 8,
+                                                                                                      "shift_by": 9,
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
@@ -6510,9 +6507,9 @@ docdata["F-5E-3"] =
                                                                                     "outputs": [ {
                                                                                                        "address": 30298,
                                                                                                    "description": "selector position",
-                                                                                                          "mask": 128,
+                                                                                                          "mask": 256,
                                                                                                      "max_value": 1,
-                                                                                                      "shift_by": 7,
+                                                                                                      "shift_by": 8,
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
@@ -6540,9 +6537,9 @@ docdata["F-5E-3"] =
                                                                                     "outputs": [ {
                                                                                                        "address": 30298,
                                                                                                    "description": "selector position",
-                                                                                                          "mask": 4096,
+                                                                                                          "mask": 8192,
                                                                                                      "max_value": 1,
-                                                                                                      "shift_by": 12,
+                                                                                                      "shift_by": 13,
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
@@ -6595,9 +6592,9 @@ docdata["F-5E-3"] =
                                                                                     "outputs": [ {
                                                                                                        "address": 30298,
                                                                                                    "description": "selector position",
-                                                                                                          "mask": 8192,
+                                                                                                          "mask": 16384,
                                                                                                      "max_value": 1,
-                                                                                                      "shift_by": 13,
+                                                                                                      "shift_by": 14,
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],

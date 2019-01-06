@@ -16,6 +16,22 @@ docdata["MB-339PAN"] =
                                                                  "suffix": "",
                                                                    "type": "integer"
                                                         } ]
+                                    },
+                      "ENGINE_RPM": {
+                                            "category": "Gauges",
+                                        "control_type": "analog_gauge",
+                                         "description": "Engine RPM",
+                                          "identifier": "ENGINE_RPM",
+                                              "inputs": [  ],
+                                             "outputs": [ {
+                                                                "address": 33284,
+                                                            "description": "gauge position",
+                                                                   "mask": 65535,
+                                                              "max_value": 65535,
+                                                               "shift_by": 0,
+                                                                 "suffix": "",
+                                                                   "type": "integer"
+                                                        } ]
                                     }
                },
     "Weapons": {
