@@ -1037,10 +1037,10 @@ defineFloat("SPEED_KTS_NEED", 303, {0, 1}, "SPEED", "O - SPEED - Speed Needle")
 defineFloat("SPEED_MACH", 304, {0, 1}, "SPEED", "O - SPEED - Mach")
 
 -- TACAN
+defineTumb("TAC_CH_10_SEL", 23, 3623, 623, 0.076923, {0, 1}, nil, true, "TACAN", "I - TACAN Channel 10 Selector")
 defineTumb("TAC_MODE_SEL", 23, 3626, 626, 0.33, {0, 1}, nil, false, "TACAN", "I - TACAN Mode Select")
-defineBcdWheel("TAC_CH_10_SEL", 23, 623, nil, "TACAN", "I - TACAN Channel 10 Selector")
 defineToggleSwitch("TAC_X_Y_SEL", 23, 3624, 624, "TACAN", "I - TACAN X/Y Select")
-defineBcdWheel("TAC_CH_1_SEL", 23, 625, nil, "TACAN", "I - TACAN Channel 1 Selector")
+defineTumb("TAC_CH_1_SEL", 23, 3625, 625, 0.1, {0, 0.9}, nil, true, "TACAN", "I - TACAN Channel 1 Selector")
 
 -- TEST PANEL
 defineMultipositionSwitch("FBW_TEST_SW", 17, 3517, 517, 3, 0.5, "TEST PANEL", "I - TEST - FBW Test Switch")
