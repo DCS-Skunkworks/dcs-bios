@@ -1037,7 +1037,7 @@ defineFloat("SPEED_KTS_NEED", 303, {0, 1}, "SPEED", "O - SPEED - Speed Needle")
 defineFloat("SPEED_MACH", 304, {0, 1}, "SPEED", "O - SPEED - Mach")
 
 -- TACAN
-defineTumb("TAC_CH_10_SEL", 23, 3623, 623, 0.076923, {0, 1}, nil, true, "TACAN", "I - TACAN Channel 10 Selector")
+defineTumb("TAC_CH_10_SEL", 23, 3623, 623, 0.076923, {0, 0.923077}, nil, true, "TACAN", "I - TACAN Channel 10 Selector")
 defineTumb("TAC_MODE_SEL", 23, 3626, 626, 0.33, {0, 1}, nil, false, "TACAN", "I - TACAN Mode Select")
 defineToggleSwitch("TAC_X_Y_SEL", 23, 3624, 624, "TACAN", "I - TACAN X/Y Select")
 defineTumb("TAC_CH_1_SEL", 23, 3625, 625, 0.1, {0, 0.9}, nil, true, "TACAN", "I - TACAN Channel 1 Selector")
@@ -1086,9 +1086,10 @@ defineFloat("UHF_PRESET", 436, {0, 1}, "UHF RADIO", "O - UHF - PRESET Display")
 defineString("UHF_FREQUENCY", getUHFFrequency, 5, "UHF RADIO", "O - UHF - Frequency Report Display")
 
 -- VOR / ILS
-defineBcdWheel("VORILS_FREQ_WHOLE", 24, 616, nil, "VOR / ILS", "I - VOR/ILS Frequency Change Whole")
+--This is not working OK. Jumps over 15 & 17
+defineTumb("VORILS_FREQ_WHOLE", 24, 3616, 616, 0.1, {0, 1}, nil, true, "VOR / ILS", "I - VOR/ILS Frequency Change Whole")
 defineToggleSwitch("VORILS_PWR_DIAL", 24, 3617, 617, "VOR / ILS", "I - VOR/ILS Power Dial")
-defineBcdWheel("VORILS_FREQ_DECIMAL", 24, 618, nil, "VOR / ILS", "I - VOR/ILS Frequency Change Decimal")
+defineTumb("VORILS_FREQ_DECIMAL", 24, 3618, 618, 0.05, {0, 0.95}, nil, true, "VOR / ILS", "I - VOR/ILS Frequency Change Decimal")
 defineToggleSwitch("VORILS_TEST_DIAL", 24, 3619, 619, "VOR / ILS", "I - VOR/ILS Test Dial")
 
 -- VTB

@@ -1,1 +1,1068 @@
-[  ]
+{
+     "Circuit Breakers": {
+                              "BOOSTER_PUMP": {
+                                                             "category": "Circuit Breakers",
+                                                         "control_type": "selector",
+                                                          "description": "Booster Pump Switch",
+                                                           "identifier": "BOOSTER_PUMP",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 9216,
+                                                                             "description": "selector position",
+                                                                                    "mask": 2048,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 11,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "toggle_switch"
+                                              },
+                                  "IGNITION": {
+                                                             "category": "Circuit Breakers",
+                                                         "control_type": "selector",
+                                                          "description": "Ignition Switch",
+                                                           "identifier": "IGNITION",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 9216,
+                                                                             "description": "selector position",
+                                                                                    "mask": 4096,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 12,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "toggle_switch"
+                                              },
+                              "INSTR_LIGHTS": {
+                                                             "category": "Circuit Breakers",
+                                                         "control_type": "selector",
+                                                          "description": "Instruments and Lights Switch",
+                                                           "identifier": "INSTR_LIGHTS",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 9216,
+                                                                             "description": "selector position",
+                                                                                    "mask": 8192,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 13,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "toggle_switch"
+                                              },
+                             "TRANSFER_PUMP": {
+                                                             "category": "Circuit Breakers",
+                                                         "control_type": "selector",
+                                                          "description": "Transfer Pump Switch",
+                                                           "identifier": "TRANSFER_PUMP",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 9216,
+                                                                             "description": "selector position",
+                                                                                    "mask": 1024,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 10,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "toggle_switch"
+                                              }
+                         },
+         "Cockpit Mech": {
+                              "AFT_CANOPY_LEVER": {
+                                                                 "category": "Cockpit Mech",
+                                                             "control_type": "selector",
+                                                              "description": "Aft Canopy Lever",
+                                                               "identifier": "AFT_CANOPY_LEVER",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9216,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 8,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 3,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                             "EMERG_CANOPY_JETT": {
+                                                                 "category": "Cockpit Mech",
+                                                             "control_type": "selector",
+                                                              "description": "Emergency Canopy Jettison",
+                                                               "identifier": "EMERG_CANOPY_JETT",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9216,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 1,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 0,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                "L_CANOPY_LEVER": {
+                                                                 "category": "Cockpit Mech",
+                                                             "control_type": "selector",
+                                                              "description": "Left Canopy Lever",
+                                                               "identifier": "L_CANOPY_LEVER",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9216,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 2,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 1,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                "R_CANOPY_LEVER": {
+                                                                 "category": "Cockpit Mech",
+                                                             "control_type": "selector",
+                                                              "description": "Right Canopy Lever",
+                                                               "identifier": "R_CANOPY_LEVER",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9216,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 4,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 2,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  }
+                         },
+       "Control System": {
+                             "AIRBRAKE": {
+                                                     "api_variant": "momentary_last_position",
+                                                        "category": "Control System",
+                                                    "control_type": "selector",
+                                                     "description": "Airbrake Button",
+                                                      "identifier": "AIRBRAKE",
+                                                          "inputs": [ {
+                                                                        "description": "switch to previous or next state",
+                                                                          "interface": "fixed_step"
+                                                                    }, {
+                                                                        "description": "set position",
+                                                                          "interface": "set_state",
+                                                                          "max_value": 1
+                                                                    }, {
+                                                                           "argument": "TOGGLE",
+                                                                        "description": "Toggle switch state",
+                                                                          "interface": "action"
+                                                                    } ],
+                                             "momentary_positions": "none",
+                                                         "outputs": [ {
+                                                                            "address": 9216,
+                                                                        "description": "selector position",
+                                                                               "mask": 16,
+                                                                          "max_value": 1,
+                                                                           "shift_by": 4,
+                                                                             "suffix": "",
+                                                                               "type": "integer"
+                                                                    } ],
+                                                "physical_variant": "push_button"
+                                         }
+                         },
+      "Electric System": {
+                                      "AIR_START": {
+                                                                  "category": "Electric System",
+                                                              "control_type": "selector",
+                                                               "description": "Air Start Switch",
+                                                                "identifier": "AIR_START",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 9216,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 64,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 6,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "toggle_switch"
+                                                   },
+                                   "ENGINE_START": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Electric System",
+                                                              "control_type": "selector",
+                                                               "description": "Engine Start Button",
+                                                                "identifier": "ENGINE_START",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 9216,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 256,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 8,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "push_button"
+                                                   },
+                             "ENGINE_START_COVER": {
+                                                                  "category": "Electric System",
+                                                              "control_type": "selector",
+                                                               "description": "Engine Start Button Cover",
+                                                                "identifier": "ENGINE_START_COVER",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 9216,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 512,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 9,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "toggle_switch"
+                                                   },
+                             "PITOT_CLOCK_HEATER": {
+                                                                  "category": "Electric System",
+                                                              "control_type": "selector",
+                                                               "description": "Pitot and Clock Heater Switch",
+                                                                "identifier": "PITOT_CLOCK_HEATER",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 9216,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 128,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 7,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "toggle_switch"
+                                                   },
+                                      "V_A_METER": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Electric System",
+                                                              "control_type": "selector",
+                                                               "description": "Ampere- & Voltmeter",
+                                                                "identifier": "V_A_METER",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 9216,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 32,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 5,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "push_button"
+                                                   }
+                         },
+          "Fuel System": {
+                             "DROP_TANK_SIGNAL": {
+                                                                "category": "Fuel System",
+                                                            "control_type": "selector",
+                                                             "description": "Drop Tank Signal Switch",
+                                                              "identifier": "DROP_TANK_SIGNAL",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                     "momentary_positions": "none",
+                                                                 "outputs": [ {
+                                                                                    "address": 9220,
+                                                                                "description": "selector position",
+                                                                                       "mask": 2,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 1,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ],
+                                                        "physical_variant": "toggle_switch"
+                                                 }
+                         },
+          "Gear System": {
+                                 "GEAR_LAMP_TEST": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Gear System",
+                                                              "control_type": "selector",
+                                                               "description": "Gear Lamps Test Button",
+                                                                "identifier": "GEAR_LAMP_TEST",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 9218,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 8192,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 13,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "push_button"
+                                                   },
+                                   "LANDING_GEAR": {
+                                                                  "category": "Gear System",
+                                                              "control_type": "selector",
+                                                               "description": "Landing Gear Handle",
+                                                                "identifier": "LANDING_GEAR",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 9218,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 4096,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 12,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "toggle_switch"
+                                                   },
+                             "LANDING_GEAR_COVER": {
+                                                                  "category": "Gear System",
+                                                              "control_type": "selector",
+                                                               "description": "Landing Gear Handle Lock",
+                                                                "identifier": "LANDING_GEAR_COVER",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 9220,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 1,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 0,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "toggle_switch"
+                                                   },
+                                   "L_EMERG_GEAR": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Gear System",
+                                                              "control_type": "selector",
+                                                               "description": "Left Emergency Gear Release Handle",
+                                                                "identifier": "L_EMERG_GEAR",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 9218,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 32768,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 15,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "push_button"
+                                                   },
+                                   "R_EMERG_GEAR": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Gear System",
+                                                              "control_type": "selector",
+                                                               "description": "Right Emergency Gear Release Handle",
+                                                                "identifier": "R_EMERG_GEAR",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 9218,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 16384,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 14,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "push_button"
+                                                   }
+                         },
+    "Nav Lights System": {
+                             "EXT_LIGHTS": {
+                                                          "category": "Nav Lights System",
+                                                      "control_type": "selector",
+                                                       "description": "External Lights Switch",
+                                                        "identifier": "EXT_LIGHTS",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 1
+                                                                      }, {
+                                                                             "argument": "TOGGLE",
+                                                                          "description": "Toggle switch state",
+                                                                            "interface": "action"
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 9220,
+                                                                          "description": "selector position",
+                                                                                 "mask": 4,
+                                                                            "max_value": 1,
+                                                                             "shift_by": 2,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "toggle_switch"
+                                           },
+                             "NOSE_LIGHT": {
+                                                          "category": "Nav Lights System",
+                                                      "control_type": "selector",
+                                                       "description": "Nose Light Switch",
+                                                        "identifier": "NOSE_LIGHT",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 1
+                                                                      }, {
+                                                                             "argument": "TOGGLE",
+                                                                          "description": "Toggle switch state",
+                                                                            "interface": "action"
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 9220,
+                                                                          "description": "selector position",
+                                                                                 "mask": 8,
+                                                                            "max_value": 1,
+                                                                             "shift_by": 3,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "toggle_switch"
+                                           }
+                         },
+          "Right Panel": {
+                                      "AGK_DGMK": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "AGK-47B Artificial Horizon + DGMK-3 Switch",
+                                                               "identifier": "AGK_DGMK",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9218,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 4,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 2,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                           "ARC": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "ARC Switch",
+                                                               "identifier": "ARC",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9218,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 64,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 6,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                       "BATTERY": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Accumulator Switch",
+                                                               "identifier": "BATTERY",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9216,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 16384,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 14,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                         "BOMBS": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Bombs Switch",
+                                                               "identifier": "BOMBS",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9218,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 16,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 4,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                    "EMERG_DROP": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Emergency Drop Switch",
+                                                               "identifier": "EMERG_DROP",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9218,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 32,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 5,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                     "GENERATOR": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Generator Switch",
+                                                               "identifier": "GENERATOR",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9216,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 32768,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 15,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                       "GUN_CAM": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "S-13 Gun Camera Switch",
+                                                               "identifier": "GUN_CAM",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9218,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 2048,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 11,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                     "GUN_SIGHT": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "ASP-3N Gunsight Switch",
+                                                               "identifier": "GUN_SIGHT",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9218,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 1024,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 10,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                   "N37D_CANNON": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "N-37D Cannon Switch",
+                                                               "identifier": "N37D_CANNON",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9218,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 512,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 9,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                             "NOSE_LIGHT_MASTER": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Nose Light Master Switch",
+                                                               "identifier": "NOSE_LIGHT_MASTER",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9218,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 1,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 0,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                   "NR23_CANNON": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "NR-23 Cannon Switch",
+                                                               "identifier": "NR23_CANNON",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9218,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 256,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 8,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                         "RADIO": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Radio Switch",
+                                                               "identifier": "RADIO",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9218,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 8,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 3,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                  "RV_RADIO_ALT": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "RV-2 Radio Altimeter Switch",
+                                                               "identifier": "RV_RADIO_ALT",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9218,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 128,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 7,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  },
+                                          "TRIM": {
+                                                                 "category": "Right Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Trim Master Switch",
+                                                               "identifier": "TRIM",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 9218,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 2,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 1,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "toggle_switch"
+                                                  }
+                         }
+}
