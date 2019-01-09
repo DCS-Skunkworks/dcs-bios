@@ -23,6 +23,11 @@ local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 
+local function define3PosTumb(msg, device_id, command, arg_number, category, description)
+	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
+end
+
+-- Draw pilot = 540
 
 -- Cockpit mechanics
 defineToggleSwitch("EMERG_CANOPY_JETT", 15, 3006, 221, "Cockpit Mech", "Emergency Canopy Jettison")
@@ -31,8 +36,13 @@ defineToggleSwitch("R_CANOPY_LEVER", 15, 3004, 222, "Cockpit Mech", "Right Canop
 defineToggleSwitch("AFT_CANOPY_LEVER", 15, 3005, 224, "Cockpit Mech", "Aft Canopy Lever")
 
 -- Control system
-
-definePushButton("AIRBRAKE", 3, 3004, 198, "Control System", "Airbrake Button")
+define3PosTumb("ELEVATOR_TRIM", 3, 3002, 114, "Control System", "Elevator Trimmer Switch")
+define3PosTumb("AILERON_TRIM", 3, 3001, 142, "Control System", "Aileron Trimmer Switch")
+defineTumb("FLAPS_HANDLE", 3, 3003, 207, 0.5, {-1.0, 0.5}, nil, false, "Control System", "Wing Flaps Handle")
+defineToggleSwitch("AIRBRAKE_SW", 3, 3005, 125, "Control System", "Airbrake Switch")
+defineToggleSwitch("HYDRO_BOOST", 3, 3006, 203, "Control System", "Hydro Booster Lever")
+defineTumb("THROTTLE_FRICTION", 3, 3008, 204, 0.5, {0.5, 1.0}, nil, false, "Control System", "Throttle Friction Lever")
+definePushButton("AIRBRAKE_BT", 3, 3004, 198, "Control System", "Airbrake Button")
 
 -- Electric system
 definePushButton("V_A_METER", 2, 3007, 84, "Electric System", "Ampere- & Voltmeter")
@@ -133,6 +143,11 @@ definePotentiometer("PDK45_HEADING", 19, 3001, 34, {0.0, 1.0}, "PDK-45", "Headin
 definePushButton("PDK45_FAST_SLAVE", 28, 3003, 61, "PDK-45", "Fast Slave Button")
 
 -- CLOCK 
+defineRockerSwitch("CLOCK_LEFT_LVR", 7, 3001, 3002, 23, "Flight Status/Navigation Panel", "AChS-1 Cockpit Chronograph Left Push/Pull")
+defineRotary("CLOCK_LEFT_ROT", 7, 3003, 24, "Flight Status/Navigation Panel", "AChS-1 Cockpit Chronograph Left  Rotate")
+definePushButton("CLOCK_RIGHT_LVR", 7, 3004, 25, "Flight Status/Navigation Panel", "AChS-1 Cockpit Chronograph Right Push")
+defineRotary("CLOCK_RIGHT_ROT", 7, 3005, 26, "Flight Status/Navigation Panel", "AChS-1 Cockpit Chronograph Right Rotate")
+
 -- Weapon System
 definePushButton("N37_RELOAD", 4, 3005, 92, "Weapon System", "N-37D Cannon Reload Button")
 definePushButton("NR23_RELOAD_TOP", 4, 3006, 90, "Weapon System", "NR-23 (Top) Cannon Reload Button")
@@ -149,7 +164,9 @@ defineToggleSwitch("GUN_SAFE", 4, 3010, 196, "Stick Buttons", "Guns Safety Cover
 -- ASP-3N Gunsight
 defineToggleSwitch("ASP3_MODE", 26, 3003, 101, "ASP-3N Gunsight", "ASP-3N Gunsight Mode")
 defineToggleSwitch("ASP3_MASK_LEVER", 26, 3011, 106, "ASP-3N Gunsight", "ASP-3N Gunsight Fixed Reticle Mask Lever")
-
+definePotentiometer("ASP3_WINGSPAN_ADJ", 26, 3001, 103, {-0.5, 1.0}, "ASP-3N Gunsight", "ASP-3N Gunsight Target Wingspan Adjustment Dial")
+definePotentiometer("ASP3_BRIGHT", 26, 3004, 102, {0.0, 1.0}, "ASP-3N Gunsight", "ASP-3N Gunsight Brightness Knob")
+definePotentiometer("ASP3_DIST", 26, 3002, 201, {0.0, 1.0}, "ASP-3N Gunsight", "ASP-3N Gunsight Target Distance Knob")
 defineToggleSwitch("ASP3_COLOR", 26, 3012, 105, "ASP-3N Gunsight", "ASP-3N Gunsight Color Filter")
 
 -- ARC-5 radio compass
