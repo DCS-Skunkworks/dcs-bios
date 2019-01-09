@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("MiG-15Bis", 0x2400)
-BIOS.protocol.setExportModuleAircrafts({"MiG-15Bis"})
+BIOS.protocol.setExportModuleAircrafts({"MiG-15bis"})
 
 local documentation = moduleBeingDefined.documentation
 
