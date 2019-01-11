@@ -170,6 +170,32 @@ definePotentiometer("ASP3_DIST", 26, 3002, 201, {0.0, 1.0}, "ASP-3N Gunsight", "
 defineToggleSwitch("ASP3_COLOR", 26, 3012, 105, "ASP-3N Gunsight", "ASP-3N Gunsight Color Filter")
 
 -- ARC-5 radio compass
+definePotentiometer("ARC5_VOL", 26, 3001, 180, {0.0, 1.0}, "ARC-5", "ARC-5 Audio Volume Knob")
+defineTumb("ARC5_BAND", 26, 3004, 177, 0.5, {0.0, 1.0}, nil, false,"ARC-5" ,"ARC-5 Frequency Band Switch")
+defineTumb("ARC5_SELECT", 26, 3003, 174, 0.1, {0.0, 0.4}, nil, false,"ARC-5" ,"ARC-5 Function Selector Switch")
+define3PosTumb("ARC5_LOOP", 26, 3006, 178, "ARC-5", "ARC-5 LOOP L-R Switch")
+definePotentiometer("ARC5_TUNE", 26, 3005, 175, {0.0, 1.0}, "ARC-5 Tuning Crank")
+definePotentiometer("ARC5_LIGHT", 26, 3007, 181, {0.0, 1.0}, "ARC-5", "ARC-5 Scale Light Knob")
+defineToggleSwitch("ARC5_TGL_TFL", 29, 3002, 173, "ARC-5", "ARC-5 TLG-TLF Switch")
+definePushButton("ARC5_CONTROL", 29, 3008, 182, "ARC-5", "ARC-5 Take Control Button")
+defineToggleSwitch("ARC5_NEAR_FAR_NBD", 29, 3009, 123, "ARC-5", "ARC-5 Near/Far NDB Switch")
+defineToggleSwitch("ARC5_NBD1", 29, 3010, 146, "ARC-5", "ARC-5 NDB 1 Switch")
+defineToggleSwitch("ARC5_NBD2", 29, 3011, 147, "ARC-5", "ARC-5 NDB 2 Switch")
+defineToggleSwitch("ARC5_NBD3", 29, 3012, 148, "ARC-5", "ARC-5 NDB 3 Switch")
+
 -- RSI-6K radio
+defineRotary("RSI6K_VOL", 30, 3001, 126, "RSI-6K", "RSI-6K Audio Volume Knob")
+defineRotary("RSI6K_TRAS_FREQ", 30, 3004, 232, "RSI-6K", "RSI-6K Wave Control Handle")
+defineRotary("RSI6K_ANT_FREQ", 30, 3006, 230, "RSI-6K", "RSI-6K Antenna Control Handle")
+defineRotary("RSI6K_TRAS_FREQ_FIX", 30, 3006, 233, "RSI-6K", "RSI-6K Wave Control Handle")
+defineRotary("RSI6K_ANT_FREQ_FIX", 30, 3007, 231, "RSI-6K", "RSI-6K Antenna Control Handle")
+defineRotary("RSI6K_RECEIVE_FREQ", 30, 3003, 128, "RSI-6K", "RSI-6K Receiver Tuning Knob")
+defineToggleSwitch("RSI6K_RECEIVE", 30, 3008, 140, "RSI-6K", "RSI-6K Receive/ARC Switch")
+defineToggleSwitch("RSI6K_FORCE", 30, 3009, 240, "RSI-6K", "RSI-6K Forced Mode Switch")
+definePushButton("RSI6K_MIC", 30, 3002, 202, "RSI-6K", "Microphone Button")
+
+-- Instruments --------------------------
+defineFloat("VARIOMETER", 14, {0.0,	0.075, 0.151, 0.24,	0.352, 0.401, 0.448, 0.5, 0.553, 0.6, 0.649, 0.76, 0.848, 0.925, 1.0}, "Gauges", "Variometer")
+
 
 BIOS.protocol.endModule()
