@@ -8,7 +8,6 @@ local document = BIOS.util.document
 
 local parse_indication = BIOS.util.parse_indication
 
-
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
@@ -354,16 +353,14 @@ defineFloat("HSI_TO_FROM", 146, {0.0, 1.0}, "Gauges", "HSI To From")
 defineFloat("HSI_OFF", 143, {0.0, 1.0}, "Gauges", "HSI OFF Flag")
 defineFloat("HSI_DEV", 141, {0.0, 1.0}, "Gauges", "HSI DevDF Window")
 
-
 -- Standby Attitude Indicator
 definePushButton("SAI_CAGE", 34, 3001, 441, "Standby Attitude Indicator", "Cage SAI")
 defineRotary("SAI_PITCH_TRIM", 34, 3002, 442, "Standby Attitude Indicator", "SAI Pitch Trim")
 
-
 -- Clock
 definePushButton("CLOCK_WIND", 35, 3001, 510, "Clock", "ABU-11 Clock Winding Knob")
-defineRotary("CLOCK_WIND_ROTATRY", 34, 3002, 510, "Clock Attitude Indicator", "ABU-11 Clock Winding Rotary")
-definePushButton("CLOCK_SET", 35, 3003, 511, "Clock", "ABU-11 Clock Setting Knob")
+defineRotary("CLOCK_WIND_ROTATRY", 35, 3002, 510, "Clock Attitude Indicator", "ABU-11 Clock Winding Rotary")
+definePushButton("CLOCK_SET", 35, 3001, 511, "Clock", "ABU-11 Clock Setting Knob")
 definePushButton("ELAP_TIME", 35, 3003, 512,"Clock" , "ABU-11 Clock Elapsed Time Knob")
 defineFloat("CLOCK_CURR_H", 19, {0.0, 1.0}, "Gauges", "Clock Currtime Hours")
 defineFloat("CLOCK_CURR_M", 18, {0.0, 1.0}, "Gauges", "CLOCK Currtime Minutes")
