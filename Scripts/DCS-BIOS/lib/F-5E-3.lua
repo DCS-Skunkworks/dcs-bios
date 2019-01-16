@@ -27,6 +27,36 @@ local function define3PosTumb(msg, device_id, command, arg_number, category, des
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
 end
 
+local function getUhfFreqency()
+    local freq1 = string.format("%.0f",GetDevice(0):get_argument_value(327)):sub(3)
+    local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(328)):sub(3)
+    local freq3 = string.format("%.0f", GetDevice(0):get_argument_value(329)):sub(3)
+    local freq4 = string.format("%.0f", GetDevice(0):get_argument_value(330)):sub(3)
+	local freq5 = string.format("%.0f", GetDevice(0):get_argument_value(331)):sub(3)
+
+    return  freq1 .. freq2 .. "." .. freq3 .. freq4 .. freq5
+end
+
+local function getTacanChannel()
+    local tcn_2 = ""
+    if GetDevice(0):get_argument_value(263) == 0 then
+        tcn_2 = "0"
+    else
+    	tcn_2 = "1"    
+    end
+    local tcn_1 = string.format("%.1f", GetDevice(0):get_argument_value(264)):sub(3)
+    local tcn_0 = string.format("%.1f", GetDevice(0):get_argument_value(265)):sub(3)
+
+	local tcn_xy = ""
+	if GetDevice(0):get_argument_value(266) == 0 then
+		tcn_xy = "X"	
+		else
+		tcn_xy = "Y"
+	end
+
+    return tcn_2 .. tcn_1 .. tcn_0 .. tcn_xy
+end
+
 --Remove Pilot Arg# 775
 
 -- Indicator Lights
@@ -365,58 +395,17 @@ defineFloat("CLOCK_CURR_M", 18, {0.0, 1.0}, "Gauges", "CLOCK Currtime Minutes")
 defineFloat("CLOCK_ELAP_M", 509, {0.0, 1.0}, "Gauges", "CLOCK Elapsed Time Minutes")
 defineFloat("CLOCK_ELAP_S", 37, {0.0, 1.0}, "Gauges", "CLOCK Elapsed Time Seconds")
 
---local function getUhfFreqency()
---    local freq1 = string.format("%.0f", GetDevice(0):get_argument_value(327)*10)
---    local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(328)*10)
- --   local freq3 = string.format("%.0f", GetDevice(0):get_argument_value(329)*10)
- --   local freq4 = string.format("%.0f", GetDevice(0):get_argument_value(330)*10)
- --   local freq5 = string.format("%.0f", GetDevice(0):get_argument_value(331)*10)
---	return  freq1 .. freq2 .. "." .. freq3 .. freq4 .. freq5
---end
-
---local function getUhfFreqency()
---    local freq1 = string.format("%.2f",GetDevice(0):get_argument_value(327)):sub(3)
---    local freq2 = string.format("%1.1f", GetDevice(0):get_argument_value(328)):sub(3)
---    local freq3 = string.format("%1.1f", GetDevice(0):get_argument_value(329)):sub(3)
---    local freq4 = string.format("%1.2f", GetDevice(0):get_argument_value(330)):sub(3)
---	local freq5 = string.format("%1.2f", GetDevice(0):get_argument_value(331)):sub(3)
-
---    return  freq1 .. freq2 .. "." .. freq3 .. freq4 .. freq5
---end
-
-local function getTacanChannel()
-    local tcn_2 = ""
-    if GetDevice(0):get_argument_value(263) == 0 then
-        tcn_2 = "0"
-    else
-    	tcn_2 = "1"    
-    end
-    local tcn_1 = string.format("%.1f", GetDevice(0):get_argument_value(264)):sub(3)
-    local tcn_0 = string.format("%.1f", GetDevice(0):get_argument_value(265)):sub(3)
-
-	local tcn_xy = ""
-	if GetDevice(0):get_argument_value(266) == 0 then
-		tcn_xy = "X"	
-		else
-		tcn_xy = "Y"
-	end
-
-    return tcn_2 .. tcn_1 .. tcn_0 .. tcn_xy
-end
-
 --UHF Radio AN/ARC-164
 definePushButton("UHF_TONE_BT", 23, 3009, 310,"UHF Radio" , "UHF Radio Tone Button")
 defineToggleSwitch("UHF_SQUELCH_SW", 23, 3010, 308,"UHF Radio" , "UHF Radio Squelch Switch, ON/OFF")
 defineTumb("UHF_FUNC", 23, 3008, 311, 0.1, {0.0, 0.3}, nil, false, "UHF Radio" , "UHF Radio Function Selector Switch, OFF/MAIN/BOTH/ADF")
 defineTumb("UHF_FREQ", 23, 3007, 307, 0.1, {0.0, 0.2}, nil, false, "UHF Radio" , "UHF Radio Frequency Mode Selector Switch, MANUAL/PRESET/GUARD")
 defineTumb("UHF_PRE", 23, 3001, 300, 0.05, {0.0, 1.0}, nil, false, "UHF Radio" , "UHF Radio Preset Channel Selector Knob")
----------------------------------------------
-defineFixedStepTumb("UHF_100", 23, 3002, 327, 0.1, {0.0, 0.3}, {-0.1, 0.1}, nil, "UHF Radio" , "UHF Radio 100 MHz Frequency Selector Knob")
-defineFixedStepTumb("UHF_10", 23, 3003, 328, 0.1, {0.0, 1.0}, {-0.1, 0.1}, nil, "UHF Radio" , "UHF Radio 10 MHz Frequency Selector Knob")
-defineFixedStepTumb("UHF_1", 23, 3004, 329, 0.1, {0.0, 1.0}, {-0.1, 0.1}, nil, "UHF Radio" , "UHF Radio 1 MHz Frequency Selector Knob")
-defineFixedStepTumb("UHF_01", 23, 3005, 330, 0.1, {0.0, 1.0}, {-0.1, 0.1}, nil, "UHF Radio" , "UHF Radio 0.1 MHz Frequency Selector Knob")
-defineFixedStepTumb("UHF_0025", 23, 3006, 331, 0.25, {0.0, 1.0}, {-0.25, 0.25}, nil, "UHF Radio" , "UHF Radio 0.025 MHz Frequency Selector Knob")
-----------------------------------------------
+defineTumb("UHF_100", 23, 3002, 327, 0.1, {0.0, 0.3}, nil, false, "UHF Radio" , "UHF Radio 100 MHz Frequency Selector Knob")
+defineTumb("UHF_10", 23, 3003, 328, 0.1, {0.0, 1.0}, nil, false, "UHF Radio" , "UHF Radio 10 MHz Frequency Selector Knob")
+defineTumb("UHF_1", 23, 3004, 329, 0.1, {0.0, 1.0}, nil, false, "UHF Radio" , "UHF Radio 1 MHz Frequency Selector Knob")
+defineTumb("UHF_01", 23, 3005, 330, 0.1, {0.0, 1.0}, nil, false, "UHF Radio" , "UHF Radio 0.1 MHz Frequency Selector Knob")
+defineTumb("UHF_0025", 23, 3006, 331, 0.25, {0.0, 1.0}, nil, false, "UHF Radio" , "UHF Radio 0.025 MHz Frequency Selector Knob")
 definePotentiometer("UHF_VOL", 23, 3011, 309, {0, 1}, "UHF Radio", "UHF Radio Volume Knob")
 defineMultipositionSwitch("UHF_ANT", 23, 3016, 336, 3, 0.5, "UHF Radio", "UHF Radio Antenna Selector Switch, UPPER/AUTO/LOWER")
 definePushButton("UHF_MIC_BT", 24, 3001, 135,"UHF Radio" , "UHF Radio Microphone Button")
@@ -428,7 +417,7 @@ defineFloat("UHF_10_G", 303, {0.0, 1.0}, "Gauges", "UHF Radio 10MHz")
 defineFloat("UHF_1_G", 304, {0.0, 1.0}, "Gauges", "UHF Radio 1MHz")
 defineFloat("UHF_01_G", 305, {0.0, 1.0}, "Gauges", "UHF Radio 0.1MHz")
 defineFloat("UHF_0025_G", 306, {0.0, 1.0}, "Gauges", "UHF Radio 0.025MHz")
---defineString("UHF_FREQUENCY", getUhfFreqency, 7, "UHF Radio", "UHF Radio Frequency")
+defineString("UHF_FREQUENCY", getUhfFreqency, 7, "UHF Radio", "UHF Radio Frequency")
 
 
 --TACAN
@@ -436,9 +425,9 @@ defineIndicatorLight("TACAN_TEST", 260, "TACAN Panel", "TACAN Test Indicator Lig
 defineFixedStepTumb("TACAN_10", 41, 3001, 256, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Left Channel Selector")
 defineFixedStepTumb("TACAN_1", 41, 3002, 257, 0.1, {0, 1}, {-0.1, 0.1}, nil, "TACAN Panel", "Right Channel Selector")
 defineToggleSwitch("TACAN_XY", 41, 3003, 266, "TACAN Panel", "TACAN Channel X/Y Toggle")
-defineMultipositionSwitch("TACAN_MODE", 41, 3004, 262, 4, 0.1,"TACAN Panel", "TACAN Mode Dial")
+defineMultipositionSwitch("TACAN_MODE", 41, 3006, 262, 4, 0.1,"TACAN Panel", "TACAN Mode Dial")
 definePotentiometer("TACAN_VOL", 41, 3005, 261, {0, 1}, "TACAN Panel", "TACAN Signal Volume")
-definePushButton("TACAN_HSI", 41, 3006, 259,"TACAN Panel" , "TACAN Signal on HSI Test Button")
+definePushButton("TACAN_HSI", 41, 3004, 259,"TACAN Panel" , "TACAN Signal on HSI Test Button")
 defineString("TACAN_CHANNEL", getTacanChannel, 4, "TACAN Panel", "TACAN Channel")
 
 BIOS.protocol.endModule()
