@@ -50,6 +50,7 @@ defineToggleSwitch("AIR_START", 1, 3005, 149, "Electric System", "Air Start Swit
 defineToggleSwitch("PITOT_CLOCK_HEATER", 1, 3011, 81, "Electric System", "Pitot and Clock Heater Switch")
 definePushButton("ENGINE_START", 1, 3003, 200, "Electric System", "Engine Start Button")
 defineToggleSwitch("ENGINE_START_COVER", 1, 3004, 214, "Electric System", "Engine Start Button Cover")
+defineFloat("V_A_METER_G", 83, {-1.0, 0.0, 1.0}, "Electric System", "Volt Amper Meter Gauge")
 
 -- Circuit Breakers
 defineToggleSwitch("TRANSFER_PUMP", 1, 3017, 117, "Circuit Breakers", "Transfer Pump Switch")
@@ -91,6 +92,7 @@ defineToggleSwitch("LANDING_GEAR_COVER", 12, 3002, 85, "Gear System", "Landing G
 
 -- Fuel System
 defineToggleSwitch("DROP_TANK_SIGNAL", 9, 3001, 82, "Fuel System", "Drop Tank Signal Switch")
+defineFloat("FUEL_QUANTITY", 47, {0.0, 0.047, 0.136, 0.22, 0.38, 0.52, 0.631, 0.755, 0.869, 0.921, 1.0}, "Fuel System", "Fuel Quantity")
 
 -- Oxygen System
 definePotentiometer("O2_SUPPLY", 8, 3001, 141, {0.0, 1.0}, "Oxygen System", "Oxygen Supply Valve")
@@ -130,6 +132,12 @@ definePushButton("SIGNAL_FLARE_WHI", 27, 3004, 133, "Signal Flares", "Signal Fla
 -- AGK-47B
 defineToggleSwitch("AGK_CAGE", 24, 3002, 12, "AGK-47B", "AGK-47B Artificial Horizon Cage")
 definePotentiometer("AGK_TRIM", 24, 3003, 13, {0.0, 1.0}, "AGK-47B", "AGK-47B Artificial Horizon Zero Pitch Trim Knob")
+defineFloat("AGK_ROLL", 6, {-1.0, 1.0}, "AGK-47B", "AGK-47B Roll Gauge")
+defineFloat("AGK_PITCH", 7, {1.0, -1.0}, "AGK-47B", "AGK-47B Pitch Gauge")
+defineFloat("AGK_FLAG", 11, {0.0, 1.0}, "AGK-47B", "AGK-47B Failure Flag")
+defineFloat("AGK_SLIP", 8, {-1.0, 1.0}, "AGK-47B", "AGK-47B Sideslip Gauge")
+defineFloat("AGK_TURN", 9, {-1.0, 1.0}, "AGK-47B", "AGK-47B Turn Gauge")
+defineFloat("AGK_HORIZON", 10, {-1.0, 1.0}, "AGK-47B", "AGK-47B Horizon Gauge")
 
 -- VD-15
 definePotentiometer("BARO_PRESS", 18, 3001, 30, {0.0, 1.0}, "VD-15", "Barometric Pressure QFE Knob")
@@ -137,16 +145,26 @@ definePotentiometer("BARO_PRESS", 18, 3001, 30, {0.0, 1.0}, "VD-15", "Barometric
 -- PRV-46
 defineToggleSwitch("RPV46_RANGE", 15, 3004, 36, "PRV-46", "PRV-46 Radar Altimeter Indicator Range Switch")
 defineToggleSwitch("RPV46_POWER", 15, 3003, 37, "PRV-46", "PRV-46 Radar Altimeter Indicator Power Switch")
+defineFloat("RPV46_RALT", 35, {-1.0, 0.0, 1.0}, "PRV-46", "PRV-46 Radar Altimeter Gauge")
 
 -- PDK-45
 definePotentiometer("PDK45_HEADING", 20, 3001, 34, {0.0, 1.0}, "PDK-45", "Heading Knob")
 definePushButton("PDK45_FAST_SLAVE", 20, 3003, 61, "PDK-45", "Fast Slave Button")
+defineFloat("PDK45_HDG_SCALE", 32, {1.0, 0.0}, "PDK-45", "Heading Scale")
+defineFloat("PDK45_HDG", 33, {0.0, 1.0}, "PDK-45", "Heading")
 
 -- CLOCK
 defineRockerSwitch("CLOCK_LEFT_LVR", 6, 3001, 3001, 3002, 3002, 23, "Clock", "AChS-1 Cockpit Chronograph Left Push/Pull")
 defineRotary("CLOCK_LEFT_ROT", 6, 3003, 24, "Clock", "AChS-1 Cockpit Chronograph Left  Rotate")
 definePushButton("CLOCK_RIGHT_LVR", 6, 3004, 25, "Clock", "AChS-1 Cockpit Chronograph Right Push")
 defineRotary("CLOCK_RIGHT_ROT", 6, 3005, 26, "Clock", "AChS-1 Cockpit Chronograph Right Rotate")
+defineFloat("CLOCK_CUR_H", 15, {0.0, 1.0}, "Clock", "CLOCK currtime hours")
+defineFloat("CLOCK_CUR_M", 16, {0.0, 1.0}, "Clock", "CLOCK currtime minutes")
+defineFloat("CLOCK_FLY_STATUS", 22, {0.5, 0.0}, "Clock", "CLOCK flight time meter status")
+defineFloat("CLOCK_FLY_H", 18, {0.0, 1.0}, "Clock", "CLOCK fly hours")
+defineFloat("CLOCK_FLY_M", 19, {0.0, 1.0}, "Clock", "CLOCK fly minutes")
+defineFloat("CLOCK_SEC_M", 20, {1.0, 0.0}, "Clock", "CLOCK seconds meter time minutes")
+defineFloat("CLOCK_SEC_S", 17, {0.0, 1.0}, "Clock", "CLOCK seconds meter time seconds")
 
 -- Weapon System
 definePushButton("N37_RELOAD", 3, 3005, 92, "Weapon System", "N-37D Cannon Reload Button")
@@ -155,6 +173,12 @@ definePushButton("NR23_RELOAD_BOTTOM", 3, 3007, 91, "Weapon System", "NR-23 (Bot
 defineToggleSwitch("TACTIC_RELEASE", 3, 3008, 96, "Weapon System", "Tactical Release Switch")
 definePushButton("EMERG_RELEASE", 3, 3004, 97, "Weapon System", "Emergency Release Button")
 defineToggleSwitch("EMERG_RELEASE_COVER", 3, 3009, 104, "Weapon System", "Emergency Release Button Cover")
+defineIndicatorLight("N37_READY_L", 95, "Weapon System", "N37D Ready Indicator Light")
+defineIndicatorLight("NR23_TOP_READY_L", 93, "Weapon System", "NR23 TOP Ready Indicator Light")
+defineIndicatorLight("NR23_BOTTOM_READY_L", 94, "Weapon System", "NR23 BOTTOM Ready Indicator Light")
+defineIndicatorLight("TACTIC_RELEASE_L", 100, "Weapon System", "Tactical Release Indicator Light")
+defineIndicatorLight("L_BOMB_L", 98, "Weapon System", "Left BOMB Indicator Light")
+defineIndicatorLight("R_BOMB_L", 99, "Weapon System", "Right BOMB Indicator Light")
 
 -- Stick buttons
 definePushButton("N37_FIRE", 3, 3001, 193, "Stick Buttons", "N-37D Cannon Fire Button")
@@ -199,5 +223,8 @@ defineFloat("VARIOMETER", 14, {0.0,	0.075, 0.151, 0.24,	0.352, 0.401, 0.448, 0.5
 defineFloat("ALT_KM", 28, {0.0, 1.0}, "Gauges", "Altimeter km")
 defineFloat("ALT_M", 29, {0.0, 1.0}, "Gauges", "Altimeter km")
 defineFloat("ALT_PRESS", 31, {-0.0535, 0.0, 1.0}, "Gauges", "Altimeter Pressure")
+defineFloat("IAS", 4, {0.0, 1.0}, "Gauges", "IAS")
+defineFloat("TAS", 5, {0.0, 1.0}, "Gauges", "TAS")
+defineFloat("MACH", 27, {0.12,	0.215,	1.0}, "Gauges", "Mach")
 
 BIOS.protocol.endModule()
