@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("SA342M", 0x5800)
-BIOS.protocol.setExportModuleAircrafts({"SA342M"})
+BIOS.protocol.setExportModuleAircrafts({"SA342M", "SA342Minigun", "SA342Mistral", "SA342L"})
 
 local documentation = moduleBeingDefined.documentation
 

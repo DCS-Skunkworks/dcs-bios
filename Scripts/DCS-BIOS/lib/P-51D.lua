@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("P-51D", 0x5000)
-BIOS.protocol.setExportModuleAircrafts({"P-51D"})
+BIOS.protocol.setExportModuleAircrafts({"P-51D", "TF-51D"})
 
 local documentation = moduleBeingDefined.documentation
 

@@ -21,6 +21,7 @@ local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
+
 --[[--Weapon System--]]--
 defineToggleSwitch("TRIGGER_SAFETY_BRACKET", 2, 3300, 8, "Weapon System", "Trigger Safety Bracket")
 defineToggleSwitch("WEAPON_RELEASE_COVER", 2, 3302, 260, "Weapon System", "Weapon Emergency Release Cover")
@@ -161,7 +162,7 @@ defineTumb("JAMMER_BAND_SELECTOR", 28, 3025, 318, 0.1, {0.0, 0.4}, nil, false, "
 defineTumb("COUNTERMEASURE_MODE_SELECTOR", 28, 3026, 319, 0.1, {0.0, 0.4}, nil, false, "Countermeasures", "Countermeasure Operation Mode Selector")
 defineTumb("COUNTERMEASURE_STREAK_MODE_SELECTOR", 28, 3027, 320, 0.1, {0.0, 0.1}, nil, false, "Countermeasures", "Countermeasure Streak Mode Selector")
 defineTumb("COUNTERMEASURE_CHAFF_FLARES_SELECTOR", 28, 3028, 322, 0.1, {0.0, 0.2}, nil, false, "Countermeasures", "Countermeasure Chaff/Flares Selector")
-defineTumb("COUNTERMEASURE_RELEASE_MODE", 22, 3001, 184, 1, {-1, 1}, nil, false, "Countermeasures", "Countermeasure Release Mode")
+defineTumb("COUNTERMEASURE_RELEASE_MODE", 22, 3001, 184, 1, {-1, 1}, nil, false, "Countermeasures", "Countermeasure Release Mode") --3030
 
 --[[--FR22 Radio--]]--
 defineRotary("FR22_INNER_LEFT_KNOB", 31, 3003, 171, "FR22 Radio", "Radio Frequency Knob Inner Left")
@@ -306,5 +307,56 @@ local function getCICMDHDG()
      return returnValue
 end
 defineIntegerFromGetter("CI_COMMAND_HEADING_VALUE", getCICMDHDG, 65000, "Gauge Values", "CI Commanded Heading Value")
+
+
+ ---- added by Warlord
+definePushButton("MAX_G_RESET", 25, 3722, 175, "Flight Data Unit", "Max G Reset")
+definePushButton("BACK_ADI_CAGE", 25, 3720, 123, "Flight Data Unit", "Backup ADI Cage")
+definePushButton("ROLL_CENTER", 25, 3305, 212, "Flight Data Unit", "Roll Centering")
+definePotentiometer("ALT_SET", 25, 3306, 2005, {0, 1},"Flight Data Unit" , "Altimeter Setting")
+definePotentiometer("HUD_BRIGHT", 25, 3409, 180, {0, 1},"Flight Data Unit" , "HUD Brightness Knob")
+definePotentiometer("MAG_CORRECTION", 25, 3724, 1201, {0, 1},"Flight Data Unit" , "Magnetic Declination Correction")
+definePotentiometer("AUTO_YAW_TRIM", 25, 3732, 211, {0, 1},"Flight Data Unit" , "Autopilot Yaw Trim")
+definePotentiometer("CLOCK_SET", 25, 3801, 135, {0, 1},"Flight Data Unit" , "Clock Setting")
+
+definePushButton("FR22_FLIGHT_0", 34, 3210,372, "FR22 Radio", "Flight 0")
+definePushButton("FR22_FLIGHT_1", 34, 3211,373, "FR22 Radio", "Flight 1")
+definePushButton("FR22_FLIGHT_2", 34, 3212,374, "FR22 Radio", "Flight 2")
+definePushButton("FR22_FLIGHT_3", 34, 3213,375, "FR22 Radio", "Flight 3")
+definePushButton("FR22_FLIGHT_4", 34, 3214,376, "FR22 Radio", "Flight 4")
+definePushButton("FR22_FLIGHT_5", 34, 3215,377, "FR22 Radio", "Flight 5")
+definePushButton("FR22_FLIGHT_6", 34, 3216,378, "FR22 Radio", "Flight 6")
+definePushButton("FR22_FLIGHT_7", 34, 3217,379, "FR22 Radio", "Flight 7")
+definePushButton("FR22_FLIGHT_8", 34, 3218,380, "FR22 Radio", "Flight 8")
+definePushButton("FR22_FLIGHT_9", 34, 3219,381, "FR22 Radio", "Flight 9")
+definePushButton("FR22_CHANNEL_H", 34, 3200,362, "FR22 Radio", "Channel H")
+definePushButton("FR22_SPECIAL_1", 34, 3201,363, "FR22 Radio", "Special 1")
+definePushButton("FR22_SPECIAL_2", 34, 3202,364, "FR22 Radio", "Special 2")
+definePushButton("FR22_SPECIAL_3", 34, 3203,365, "FR22 Radio", "Special 3")
+definePushButton("FR22_MINUS", 34, 3204,366, "FR22 Radio", "Minus")
+definePushButton("FR22_CHANNEL_AG", 34, 3205,367, "FR22 Radio", "Channel A/G")
+definePushButton("FR22_CHANNEL_B", 34, 3206,368, "FR22 Radio", "Channel B")
+definePushButton("FR22_CHANNEL_CF", 34, 3207,369, "FR22 Radio", "Channel C/F")
+definePushButton("FR22_CHANNEL_C2", 34, 3208,370, "FR22 Radio", "Channel C2")
+definePushButton("FR22_CHANNEL_DE", 34, 3209,371, "FR22 Radio", "Channel D/E")
+definePushButton("FR22_GROUND_COM", 34, 3011,382, "FR22 Radio", "Ground Intercom")
+defineTumb("FR22_MODE", 34, 3110, 386, 0.1, {0.0, 0.5}, nil, false, "FR22 Radio", "FR22 Mode Selector")
+defineTumb("FR22_BASE", 34, 3230, 2002, 0.1, {0.0, 1.0}, nil, false, "FR22 Radio", "FR22 Base Selector")
+defineTumb("FR22_GROUP", 34, 3307, 360, 0.1, {0.0, 1.0}, nil, false, "FR22 Radio", "FR22 Group Selector")
+defineRotary("FR22_VOL", 21, 3112, 385, "FR22 Radio" , "Radio Volume")
+
+defineToggleSwitch("IFF_POWER", 21, 3000, 308, "Radar", "IFF Power")
+defineTumb("IFF_CODE", 21, 3000, 309, 0.1, {0.0, 1.0}, nil, false, "Radar", "IFF Code")
+definePotentiometer("DE-ICE", 21, 3912, 286, {0, 1},"Engine Panel" , "Windscreen De-Ice")
+definePotentiometer("TEST_MODE", 21, 3913, 675, {0, 1},"Engine Panel" , "Maintenance Testing Mode")
+definePotentiometer("DRYSUIT", 21, 3917, 396, {0, 1},"Engine Panel" , "Drysuit Ventilation Adjustment")
+defineToggleSwitch("CABIN_AIR_VALVE", 21, 3000, 398, "Engine Panel", "Cabin Air Valve")
+
+definePotentiometer("MASTER_VOL", 27, 3006, 399, {0, 1},"RWR" , "Master Volume / Sidewinder Tone")
+definePotentiometer("RADAR_BRIGHT", 5, 3923, 391, {0, 1},"Radar" , "Radar Brightness")
+
+--found no argument
+-- elements["SnabbresM-PTR"] = default_button(_("Snabbresning"), devices.FLIGHTDATAUNIT, 3091, 0) left bottom radar display
+-- elements["PNT_CLOCK_RIGHT"] = default_button(_("Stopwatch Start/Stop/Reset"),devices.FLIGHTDATAUNIT, 3802, 0) right upper clock
 
 BIOS.protocol.endModule()
