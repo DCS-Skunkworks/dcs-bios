@@ -15,7 +15,7 @@ function highlightThis() {
 }
 
 $(function() {
-	var moduleSelect = $("<select>");
+	var moduleSelect = $("<select>");	
 	_.each(docdata, function(value, key) {
 		moduleSelect.append($("<option>").attr("value", key).text(key));
 	});
@@ -519,6 +519,7 @@ $(function() {
 				});
 			}
 		}
+		
 		
 		return div;
 	};
