@@ -82,6 +82,11 @@ defineToggleSwitch("EMERG_GEARS_VALVE_COVER", 11, 3004, 166, "Hydro System", "Em
 definePotentiometer("EMERG_SYS_FILL", 11, 3006, 186, {0.0, 1.0}, "Hydro System", "Emergency System Filling Valve")
 definePotentiometer("AIR_NET", 11, 3007, 242, {0.0, 1.0}, "Hydro System", "Air Net Valve")
 definePotentiometer("COCKPIT_FILL", 11, 3008, 241, {0.0, 1.0}, "Hydro System", "Cockpit Filling Valve")
+defineFloat("HYDRO_PRESS_MAIN", 168, {0.0, 1.0}, "Hydro System", "Hydraulic Pressure Main")
+defineFloat("HYDRO_PRESS_GAIN", 139, {0.0, 1.0}, "Hydro System", "Hydraulic Pressure Gain")
+defineFloat("HYDRO_PRESS_FLAPS", 169, {0.0, 1.0}, "Hydro System", "Hydraulic Pressure Air Flaps")
+defineFloat("HYDRO_PRESS_GEARS", 165, {0.0, 1.0}, "Hydro System", "Hydraulic Pressure Air Gears")
+defineFloat("HYDRO_PRESS_MAIN_AIR", 172, {0.0, 1.0}, "Hydro System", "Hydraulic Pressure Main Air")
 
 -- Gear System
 defineToggleSwitch("LANDING_GEAR", 12, 3001, 71, "Gear System", "Landing Gear Handle")
@@ -89,6 +94,8 @@ definePushButton("GEAR_LAMP_TEST", 12, 3003, 72, "Gear System", "Gear Lamps Test
 definePushButton("R_EMERG_GEAR", 12, 3005, 210, "Gear System", "Right Emergency Gear Release Handle")
 definePushButton("L_EMERG_GEAR", 12, 3004, 209, "Gear System", "Left Emergency Gear Release Handle")
 defineToggleSwitch("LANDING_GEAR_COVER", 12, 3002, 85, "Gear System", "Landing Gear Handle Lock")
+defineFloat("BRAKE_PRESS_L", 121, {0.0, 1.0}, "Gear System", "Left Brake Pressure")
+defineFloat("BRAKE_PRESS_R", 122, {0.0, 1.0}, "Gear System", "Right Brake Pressure")
 
 -- Fuel System
 defineToggleSwitch("DROP_TANK_SIGNAL", 9, 3001, 82, "Fuel System", "Drop Tank Signal Switch")
@@ -98,6 +105,9 @@ defineFloat("FUEL_QUANTITY", 47, {0.0, 0.047, 0.136, 0.22, 0.38, 0.52, 0.631, 0.
 definePotentiometer("O2_SUPPLY", 8, 3001, 141, {0.0, 1.0}, "Oxygen System", "Oxygen Supply Valve")
 definePotentiometer("AIR_DILUTER", 8, 3003, 143, {-1.0, 0.0}, "Oxygen System", "Air Diluter Valve")
 definePotentiometer("O2_EMERG", 8, 3002, 243, {0.0, 1.0}, "Oxygen System", "Oxygen Emergency Valve")
+defineFloat("O2_PRESS", 48, {0.0, 1.0}, "Oxygen System", "Oxygen Pressure")
+defineFloat("O2_FLOW_BLINK", 60, {0.0, 1.0}, "Oxygen System", "Flow Blinker")
+defineFloat("O2_FLOW_PRESS", 49, {0.0, 0.9, 1.0}, "Oxygen System", "Flow Pressure")
 
 -- Conditioning and Heating System
 definePotentiometer("COCKPIT_AIT", 7, 3001, 187, {0.0, 1.0}, "Conditioning and Heating System", "Cockpit Air Valve")
@@ -107,6 +117,7 @@ definePotentiometer("VENTILATION", 7, 3002, 86, {-1.0, 0.0}, "Conditioning and H
 definePotentiometer("L_UV_LIGHT", 21, 3001, 184, {0.23, 0.82}, "Internal Lights System", "Left UV Light Rheostat")
 definePotentiometer("R_UV_LIGHT", 21, 3002, 185, {0.23, 0.82}, "Internal Lights System", "Right UV Light Rheostat")
 definePotentiometer("PANELS_LIGHT", 21, 3003, 220, {0.23, 0.82}, "Internal Lights System", "Panels Light Rheostat")
+defineFloat("LAMP_LIGHT", 244, {0.0, 1.0}, "Internal Lights System", "Lamps Lightness") --???
 
 -- Nav Lights System
 defineToggleSwitch("EXT_LIGHTS", 13, 3001, 111, "Nav Lights System", "External Lights Switch")
@@ -192,6 +203,7 @@ definePotentiometer("ASP3_WINGSPAN_ADJ", 25, 3001, 103, {-0.5, 1.0}, "ASP-3N Gun
 definePotentiometer("ASP3_BRIGHT", 25, 3004, 102, {0.0, 1.0}, "ASP-3N Gunsight", "ASP-3N Gunsight Brightness Knob")
 definePotentiometer("ASP3_DIST", 25, 3002, 201, {0.0, 1.0}, "ASP-3N Gunsight", "ASP-3N Gunsight Target Distance Knob")
 defineToggleSwitch("ASP3_COLOR", 25, 3012, 105, "ASP-3N Gunsight", "ASP-3N Gunsight Color Filter")
+defineFloat("ASP3_RANGE", 245, {0.0, 1.0}, "ASP-3N Gunsight", "ASP-3N Gunsight Range")
 
 -- ARC-5 radio compass
 definePotentiometer("ARC5_VOL", 28, 3001, 180, {0.0, 1.0}, "ARC-5", "ARC-5 Audio Volume Knob")
@@ -206,6 +218,11 @@ defineToggleSwitch("ARC5_NEAR_FAR_NBD", 28, 3009, 123, "ARC-5", "ARC-5 Near/Far 
 defineToggleSwitch("ARC5_NBD1", 28, 3010, 146, "ARC-5", "ARC-5 NDB 1 Switch")
 defineToggleSwitch("ARC5_NBD2", 28, 3011, 147, "ARC-5", "ARC-5 NDB 2 Switch")
 defineToggleSwitch("ARC5_NBD3", 28, 3012, 148, "ARC-5", "ARC-5 NDB 3 Switch")
+defineFloat("ARC5_BAND", 238, {0.0, 0.4}, "ARC-5", "ARC-5 Band")
+defineFloat("ARC5_TUNE_METER", 176, {0.0, 1.0}, "ARC-5", "ARC-5 Tuning Meter")
+defineFloat("ARC5_TUNE", 175, {0.0, 1.0}, "ARC-5", "ARC-5 Tuning")
+defineFloat("ARC5_BEARING", 38, {0.0, 1.0}, "ARC-5", "ARC-5 Bearing")
+defineFloat("ARC5_FREQ", 239, {0.0,	0.0695,	0.14, 0.2865, 0.43, 0.7155, 1.0}, "ARC-5", "ARC-5 Freq Scale")
 
 -- RSI-6K radio
 defineRotary("RSI6K_VOL", 29, 3001, 126, "RSI-6K", "RSI-6K Audio Volume Knob")
@@ -217,6 +234,11 @@ defineRotary("RSI6K_RECEIVE_FREQ", 29, 3003, 128, "RSI-6K", "RSI-6K Receiver Tun
 defineToggleSwitch("RSI6K_RECEIVE", 29, 3008, 140, "RSI-6K", "RSI-6K Receive/ARC Switch")
 defineToggleSwitch("RSI6K_FORCE", 29, 3009, 240, "RSI-6K", "RSI-6K Forced Mode Switch")
 definePushButton("RSI6K_MIC", 29, 3002, 202, "RSI-6K", "Microphone Button")
+defineFloat("RSI6K_ANT_POWER", 235, {0.0, 1.0}, "RSI-6K", "RSI-6K Antenna Power")
+defineFloat("RSI6K_RECEIVE_KNOB", 128, {0.0, 1.0}, "RSI-6K", "RSI-6K Receiver Knob")
+defineFloat("RSI6K_RECEIVE_IND", 127, {0.036, 0.961}, "RSI-6K", "RSI-6K Receiver Ind")
+defineFloat("RSI6K_RECEIVE_GAUGE", 144, {0.026, 0.957}, "RSI-6K", "RSI-6K Receiver Gauge")
+
 
 -- Instruments --------------------------
 defineFloat("VARIOMETER", 14, {0.0,	0.075, 0.151, 0.24,	0.352, 0.401, 0.448, 0.5, 0.553, 0.6, 0.649, 0.76, 0.848, 0.925, 1.0}, "Gauges", "Variometer")
@@ -226,5 +248,14 @@ defineFloat("ALT_PRESS", 31, {-0.0535, 0.0, 1.0}, "Gauges", "Altimeter Pressure"
 defineFloat("IAS", 4, {0.0, 1.0}, "Gauges", "IAS")
 defineFloat("TAS", 5, {0.0, 1.0}, "Gauges", "TAS")
 defineFloat("MACH", 27, {0.12,	0.215,	1.0}, "Gauges", "Mach")
+defineFloat("CANOPY_AIR_VALVE", 188, {0.0, 1.0}, "Gauges", "Canopy Air Valve Indication")
+defineFloat("COCKPIT_ALT", 39, {0.008,	1.0}, "Gauges", "Cockpit Altitude")
+defineFloat("PRESS_DIFF", 40, {0.0,	0.243, 1.0}, "Gauges", "Pressure Difference")
+defineFloat("ENG_TACHO", 42, {0.0, 1.0}, "Gauges", "Engine Tachometer")
+defineFloat("ENG_TEMP", 41, {0.0, 1.0}, "Gauges", "Engine Temperature")
+defineFloat("OIL_TEMP", 45, {0.0, 1.0}, "Gauges", "Oil Temperature")
+defineFloat("OIL_PRESS", 44, {0.0, 1.0}, "Gauges", "Oil Pressure")
+defineFloat("ENG_FUEL_PRESS", 43, {0.0, 1.0}, "Gauges", "Engine Fuel Pressure")
+defineFloat("FUEL_PRESS", 46, {0.0, 1.0}, "Gauges", "Fuel Pressure")
 
 BIOS.protocol.endModule()
