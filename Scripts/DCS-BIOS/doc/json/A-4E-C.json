@@ -17,14 +17,41 @@
                                                                           "outputs": [ {
                                                                                              "address": 33792,
                                                                                          "description": "selector position",
-                                                                                                "mask": 384,
+                                                                                                "mask": 1536,
                                                                                            "max_value": 2,
-                                                                                            "shift_by": 7,
+                                                                                            "shift_by": 9,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
                                                                  "physical_variant": "limited_rotary"
                                                           }
+                                            },
+                         "External Lights": {
+                                                "MASTER_LIGHT": {
+                                                                               "category": "External Lights",
+                                                                           "control_type": "selector",
+                                                                            "description": "Master Lighting ON/OFF/Momentary",
+                                                                             "identifier": "MASTER_LIGHT",
+                                                                                 "inputs": [ {
+                                                                                               "description": "switch to previous or next state",
+                                                                                                 "interface": "fixed_step"
+                                                                                           }, {
+                                                                                               "description": "set position",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 2
+                                                                                           } ],
+                                                                    "momentary_positions": "none",
+                                                                                "outputs": [ {
+                                                                                                   "address": 33792,
+                                                                                               "description": "selector position",
+                                                                                                      "mask": 49152,
+                                                                                                 "max_value": 2,
+                                                                                                  "shift_by": 14,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "limited_rotary"
+                                                                }
                                             },
                                   "Gauges": {
                                                        "AOA": {
@@ -89,35 +116,6 @@
                                                                                                      "type": "integer"
                                                                                           } ],
                                                                       "physical_variant": "toggle_switch"
-                                                               },
-                                                "HOOK_HANDLE": {
-                                                                              "category": "Gear",
-                                                                          "control_type": "selector",
-                                                                           "description": "Landing Hook Handle",
-                                                                            "identifier": "HOOK_HANDLE",
-                                                                                "inputs": [ {
-                                                                                              "description": "switch to previous or next state",
-                                                                                                "interface": "fixed_step"
-                                                                                          }, {
-                                                                                              "description": "set position",
-                                                                                                "interface": "set_state",
-                                                                                                "max_value": 1
-                                                                                          }, {
-                                                                                                 "argument": "TOGGLE",
-                                                                                              "description": "Toggle switch state",
-                                                                                                "interface": "action"
-                                                                                          } ],
-                                                                   "momentary_positions": "none",
-                                                                               "outputs": [ {
-                                                                                                  "address": 33792,
-                                                                                              "description": "selector position",
-                                                                                                     "mask": 32,
-                                                                                                "max_value": 1,
-                                                                                                 "shift_by": 5,
-                                                                                                   "suffix": "",
-                                                                                                     "type": "integer"
-                                                                                          } ],
-                                                                      "physical_variant": "toggle_switch"
                                                                }
                                             },
                               "Main Panel": {
@@ -165,14 +163,70 @@
                                                                               "outputs": [ {
                                                                                                  "address": 33792,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 3584,
+                                                                                                    "mask": 14336,
                                                                                                "max_value": 4,
-                                                                                                "shift_by": 9,
+                                                                                                "shift_by": 11,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
-                                                                     "physical_variant": "toggle_switch"
+                                                                     "physical_variant": "limited_rotary"
                                                               }
+                                            },
+                              "Speedbrake": {
+                                                "SPEED_B_EMERG": {
+                                                                                "category": "Speedbrake",
+                                                                            "control_type": "selector",
+                                                                             "description": "Speedbrake emergency",
+                                                                              "identifier": "SPEED_B_EMERG",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 2
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 33792,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 192,
+                                                                                                  "max_value": 2,
+                                                                                                   "shift_by": 6,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "limited_rotary"
+                                                                 },
+                                                   "SPEED_B_SW": {
+                                                                                "category": "Speedbrake",
+                                                                            "control_type": "selector",
+                                                                             "description": "Speedbrake switch",
+                                                                              "identifier": "SPEED_B_SW",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 33792,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 32,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 5,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 }
                                             },
                                  "Spoiler": {
                                                 "SPOILER_ARM": {
@@ -196,9 +250,9 @@
                                                                                "outputs": [ {
                                                                                                   "address": 33792,
                                                                                               "description": "selector position",
-                                                                                                     "mask": 64,
+                                                                                                     "mask": 256,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 6,
+                                                                                                 "shift_by": 8,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ],

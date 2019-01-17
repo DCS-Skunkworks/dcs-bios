@@ -5168,11 +5168,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 30468,
+                                                                                                    "address": 30474,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 240,
+                                                                                                       "mask": 61440,
                                                                                                   "max_value": 10,
-                                                                                                   "shift_by": 4,
+                                                                                                   "shift_by": 12,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -5189,11 +5189,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 30468,
+                                                                                                    "address": 30474,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 15,
+                                                                                                       "mask": 3840,
                                                                                                   "max_value": 10,
-                                                                                                   "shift_by": 0,
+                                                                                                   "shift_by": 8,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -5206,7 +5206,7 @@
                                                                        "identifier": "TACAN_CHANNEL",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 30472,
+                                                                                             "address": 30480,
                                                                                          "description": "TACAN Channel",
                                                                                           "max_length": 4,
                                                                                               "suffix": "",
@@ -5233,11 +5233,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 30468,
+                                                                                                    "address": 30476,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 1024,
+                                                                                                       "mask": 4,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 10,
+                                                                                                   "shift_by": 2,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -5258,11 +5258,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 30468,
+                                                                                                    "address": 30476,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 768,
+                                                                                                       "mask": 3,
                                                                                                   "max_value": 3,
-                                                                                                   "shift_by": 8,
+                                                                                                   "shift_by": 0,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -5300,7 +5300,7 @@
                                                                                          "suggested_step": 3200
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                             "address": 30470,
+                                                                                             "address": 30478,
                                                                                          "description": "position of the potentiometer",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -5342,12 +5342,16 @@
                                "UHF Radio": {
                                                       "UHF_0025": {
                                                                                  "category": "UHF Radio",
-                                                                             "control_type": "discrete_dial",
+                                                                             "control_type": "selector",
                                                                               "description": "UHF Radio 0.025 MHz Frequency Selector Knob",
                                                                                "identifier": "UHF_0025",
                                                                                    "inputs": [ {
                                                                                                  "description": "switch to previous or next state",
                                                                                                    "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 4
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
@@ -5359,16 +5363,20 @@
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
-                                                                         "physical_variant": "infinite_rotary"
+                                                                         "physical_variant": "limited_rotary"
                                                                   },
                                                         "UHF_01": {
                                                                                  "category": "UHF Radio",
-                                                                             "control_type": "discrete_dial",
+                                                                             "control_type": "selector",
                                                                               "description": "UHF Radio 0.1 MHz Frequency Selector Knob",
                                                                                "identifier": "UHF_01",
                                                                                    "inputs": [ {
                                                                                                  "description": "switch to previous or next state",
                                                                                                    "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 10
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
@@ -5380,16 +5388,20 @@
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
-                                                                         "physical_variant": "infinite_rotary"
+                                                                         "physical_variant": "limited_rotary"
                                                                   },
                                                          "UHF_1": {
                                                                                  "category": "UHF Radio",
-                                                                             "control_type": "discrete_dial",
+                                                                             "control_type": "selector",
                                                                               "description": "UHF Radio 1 MHz Frequency Selector Knob",
                                                                                "identifier": "UHF_1",
                                                                                    "inputs": [ {
                                                                                                  "description": "switch to previous or next state",
                                                                                                    "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 10
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
@@ -5401,16 +5413,20 @@
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
-                                                                         "physical_variant": "infinite_rotary"
+                                                                         "physical_variant": "limited_rotary"
                                                                   },
                                                         "UHF_10": {
                                                                                  "category": "UHF Radio",
-                                                                             "control_type": "discrete_dial",
+                                                                             "control_type": "selector",
                                                                               "description": "UHF Radio 10 MHz Frequency Selector Knob",
                                                                                "identifier": "UHF_10",
                                                                                    "inputs": [ {
                                                                                                  "description": "switch to previous or next state",
                                                                                                    "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 10
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
@@ -5422,16 +5438,20 @@
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
-                                                                         "physical_variant": "infinite_rotary"
+                                                                         "physical_variant": "limited_rotary"
                                                                   },
                                                        "UHF_100": {
                                                                                  "category": "UHF Radio",
-                                                                             "control_type": "discrete_dial",
+                                                                             "control_type": "selector",
                                                                               "description": "UHF Radio 100 MHz Frequency Selector Knob",
                                                                                "identifier": "UHF_100",
                                                                                    "inputs": [ {
                                                                                                  "description": "switch to previous or next state",
                                                                                                    "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 3
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
@@ -5443,7 +5463,7 @@
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
-                                                                         "physical_variant": "infinite_rotary"
+                                                                         "physical_variant": "limited_rotary"
                                                                   },
                                                        "UHF_ANT": {
                                                                                  "category": "UHF Radio",
@@ -5523,6 +5543,20 @@
                                                                                                         "type": "integer"
                                                                                              } ],
                                                                          "physical_variant": "limited_rotary"
+                                                                  },
+                                                 "UHF_FREQUENCY": {
+                                                                          "category": "UHF Radio",
+                                                                      "control_type": "display",
+                                                                       "description": "UHF Radio Frequency",
+                                                                        "identifier": "UHF_FREQUENCY",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 30468,
+                                                                                          "description": "UHF Radio Frequency",
+                                                                                           "max_length": 7,
+                                                                                               "suffix": "",
+                                                                                                 "type": "string"
+                                                                                      } ]
                                                                   },
                                                       "UHF_FUNC": {
                                                                                  "category": "UHF Radio",

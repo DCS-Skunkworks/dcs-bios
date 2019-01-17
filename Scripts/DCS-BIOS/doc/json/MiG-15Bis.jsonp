@@ -20,7 +20,7 @@ docdata["MiG-15Bis"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 9254,
+                                                                                             "address": 9276,
                                                                                          "description": "selector position",
                                                                                                 "mask": 256,
                                                                                            "max_value": 1,
@@ -37,7 +37,7 @@ docdata["MiG-15Bis"] =
                                                                 "identifier": "AGK_FLAG",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
-                                                                                      "address": 9262,
+                                                                                      "address": 9284,
                                                                                   "description": "gauge position",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -53,7 +53,7 @@ docdata["MiG-15Bis"] =
                                                                 "identifier": "AGK_HORIZON",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
-                                                                                      "address": 9268,
+                                                                                      "address": 9290,
                                                                                   "description": "gauge position",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -69,7 +69,7 @@ docdata["MiG-15Bis"] =
                                                                 "identifier": "AGK_PITCH",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
-                                                                                      "address": 9260,
+                                                                                      "address": 9282,
                                                                                   "description": "gauge position",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -85,7 +85,7 @@ docdata["MiG-15Bis"] =
                                                                 "identifier": "AGK_ROLL",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
-                                                                                      "address": 9258,
+                                                                                      "address": 9280,
                                                                                   "description": "gauge position",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -101,7 +101,7 @@ docdata["MiG-15Bis"] =
                                                                 "identifier": "AGK_SLIP",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
-                                                                                      "address": 9264,
+                                                                                      "address": 9286,
                                                                                   "description": "gauge position",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -126,7 +126,7 @@ docdata["MiG-15Bis"] =
                                                                                   "suggested_step": 3200
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                      "address": 9256,
+                                                                                      "address": 9278,
                                                                                   "description": "position of the potentiometer",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -142,7 +142,7 @@ docdata["MiG-15Bis"] =
                                                                 "identifier": "AGK_TURN",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
-                                                                                      "address": 9266,
+                                                                                      "address": 9288,
                                                                                   "description": "gauge position",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -154,29 +154,36 @@ docdata["MiG-15Bis"] =
                                        },
                               "ARC-5": {
                                                    "ARC5_BAND": {
-                                                                               "category": "ARC-5",
-                                                                           "control_type": "selector",
-                                                                            "description": "ARC-5 Frequency Band Switch",
-                                                                             "identifier": "ARC5_BAND",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 2
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 9306,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 6,
-                                                                                                 "max_value": 2,
-                                                                                                  "shift_by": 1,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "limited_rotary"
+                                                                        "category": "ARC-5",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "ARC-5 Band",
+                                                                      "identifier": "ARC5_BAND",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 9338,
+                                                                                        "description": "gauge position",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
+                                                                },
+                                                "ARC5_BEARING": {
+                                                                        "category": "ARC-5",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "ARC-5 Bearing",
+                                                                      "identifier": "ARC5_BEARING",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 9344,
+                                                                                        "description": "gauge position",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
                                                                 },
                                                 "ARC5_CONTROL": {
                                                                             "api_variant": "momentary_last_position",
@@ -198,7 +205,7 @@ docdata["MiG-15Bis"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 9306,
+                                                                                                   "address": 9328,
                                                                                                "description": "selector position",
                                                                                                       "mask": 512,
                                                                                                  "max_value": 1,
@@ -207,6 +214,22 @@ docdata["MiG-15Bis"] =
                                                                                                       "type": "integer"
                                                                                            } ],
                                                                        "physical_variant": "push_button"
+                                                                },
+                                                   "ARC5_FREQ": {
+                                                                        "category": "ARC-5",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "ARC-5 Freq Scale",
+                                                                      "identifier": "ARC5_FREQ",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 9346,
+                                                                                        "description": "gauge position",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
                                                                 },
                                                   "ARC5_LIGHT": {
                                                                         "category": "ARC-5",
@@ -224,7 +247,7 @@ docdata["MiG-15Bis"] =
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 9312,
+                                                                                            "address": 9336,
                                                                                         "description": "position of the potentiometer",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -248,7 +271,7 @@ docdata["MiG-15Bis"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 9306,
+                                                                                                   "address": 9328,
                                                                                                "description": "selector position",
                                                                                                       "mask": 192,
                                                                                                  "max_value": 2,
@@ -277,7 +300,7 @@ docdata["MiG-15Bis"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 9306,
+                                                                                                   "address": 9328,
                                                                                                "description": "selector position",
                                                                                                       "mask": 2048,
                                                                                                  "max_value": 1,
@@ -306,7 +329,7 @@ docdata["MiG-15Bis"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 9306,
+                                                                                                   "address": 9328,
                                                                                                "description": "selector position",
                                                                                                       "mask": 4096,
                                                                                                  "max_value": 1,
@@ -335,7 +358,7 @@ docdata["MiG-15Bis"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 9306,
+                                                                                                   "address": 9328,
                                                                                                "description": "selector position",
                                                                                                       "mask": 8192,
                                                                                                  "max_value": 1,
@@ -364,7 +387,7 @@ docdata["MiG-15Bis"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 9306,
+                                                                                                   "address": 9328,
                                                                                                "description": "selector position",
                                                                                                       "mask": 1024,
                                                                                                  "max_value": 1,
@@ -389,7 +412,7 @@ docdata["MiG-15Bis"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 9306,
+                                                                                                   "address": 9328,
                                                                                                "description": "selector position",
                                                                                                       "mask": 56,
                                                                                                  "max_value": 4,
@@ -418,7 +441,7 @@ docdata["MiG-15Bis"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 9306,
+                                                                                                   "address": 9328,
                                                                                                "description": "selector position",
                                                                                                       "mask": 256,
                                                                                                  "max_value": 1,
@@ -427,6 +450,38 @@ docdata["MiG-15Bis"] =
                                                                                                       "type": "integer"
                                                                                            } ],
                                                                        "physical_variant": "toggle_switch"
+                                                                },
+                                                   "ARC5_TUNE": {
+                                                                        "category": "ARC-5",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "ARC-5 Tuning",
+                                                                      "identifier": "ARC5_TUNE",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 9342,
+                                                                                        "description": "gauge position",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
+                                                                },
+                                             "ARC5_TUNE_METER": {
+                                                                        "category": "ARC-5",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "ARC-5 Tuning Meter",
+                                                                      "identifier": "ARC5_TUNE_METER",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 9340,
+                                                                                        "description": "gauge position",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
                                                                 },
                                                     "ARC5_VOL": {
                                                                         "category": "ARC-5",
@@ -444,7 +499,7 @@ docdata["MiG-15Bis"] =
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 9308,
+                                                                                            "address": 9332,
                                                                                         "description": "position of the potentiometer",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -470,7 +525,7 @@ docdata["MiG-15Bis"] =
                                                                                 "suggested_step": 3200
                                                                             } ],
                                                                  "outputs": [ {
-                                                                                    "address": 9310,
+                                                                                    "address": 9334,
                                                                                 "description": "position of the potentiometer",
                                                                                        "mask": 65535,
                                                                                   "max_value": 65535,
@@ -497,7 +552,7 @@ docdata["MiG-15Bis"] =
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 9302,
+                                                                                            "address": 9324,
                                                                                         "description": "position of the potentiometer",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -525,7 +580,7 @@ docdata["MiG-15Bis"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 9306,
+                                                                                                   "address": 9328,
                                                                                                "description": "selector position",
                                                                                                       "mask": 1,
                                                                                                  "max_value": 1,
@@ -551,7 +606,7 @@ docdata["MiG-15Bis"] =
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 9304,
+                                                                                            "address": 9326,
                                                                                         "description": "position of the potentiometer",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -579,7 +634,7 @@ docdata["MiG-15Bis"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 9298,
+                                                                                                   "address": 9320,
                                                                                                "description": "selector position",
                                                                                                       "mask": 32768,
                                                                                                  "max_value": 1,
@@ -608,7 +663,7 @@ docdata["MiG-15Bis"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 9298,
+                                                                                                   "address": 9320,
                                                                                                "description": "selector position",
                                                                                                       "mask": 16384,
                                                                                                  "max_value": 1,
@@ -617,6 +672,22 @@ docdata["MiG-15Bis"] =
                                                                                                       "type": "integer"
                                                                                            } ],
                                                                        "physical_variant": "toggle_switch"
+                                                                },
+                                                  "ASP3_RANGE": {
+                                                                        "category": "ASP-3N Gunsight",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "ASP-3N Gunsight Range",
+                                                                      "identifier": "ASP3_RANGE",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 9330,
+                                                                                        "description": "gauge position",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
                                                                 },
                                            "ASP3_WINGSPAN_ADJ": {
                                                                         "category": "ASP-3N Gunsight",
@@ -634,7 +705,7 @@ docdata["MiG-15Bis"] =
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 9300,
+                                                                                            "address": 9322,
                                                                                         "description": "position of the potentiometer",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -770,7 +841,7 @@ docdata["MiG-15Bis"] =
                                                                      "identifier": "CLOCK_CUR_H",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 9284,
+                                                                                           "address": 9306,
                                                                                        "description": "gauge position",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -786,7 +857,7 @@ docdata["MiG-15Bis"] =
                                                                      "identifier": "CLOCK_CUR_M",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 9286,
+                                                                                           "address": 9308,
                                                                                        "description": "gauge position",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -802,7 +873,7 @@ docdata["MiG-15Bis"] =
                                                                      "identifier": "CLOCK_FLY_H",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 9290,
+                                                                                           "address": 9312,
                                                                                        "description": "gauge position",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -818,7 +889,7 @@ docdata["MiG-15Bis"] =
                                                                      "identifier": "CLOCK_FLY_M",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 9292,
+                                                                                           "address": 9314,
                                                                                        "description": "gauge position",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -834,7 +905,7 @@ docdata["MiG-15Bis"] =
                                                                      "identifier": "CLOCK_FLY_STATUS",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 9288,
+                                                                                           "address": 9310,
                                                                                        "description": "gauge position",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -855,7 +926,7 @@ docdata["MiG-15Bis"] =
                                                                                           } ],
                                                                    "momentary_positions": "first_and_last",
                                                                                "outputs": [ {
-                                                                                                  "address": 9254,
+                                                                                                  "address": 9276,
                                                                                               "description": "selector position",
                                                                                                      "mask": 12288,
                                                                                                 "max_value": 2,
@@ -878,7 +949,7 @@ docdata["MiG-15Bis"] =
                                                                                        "suggested_step": 3200
                                                                                    } ],
                                                                         "outputs": [ {
-                                                                                           "address": 9280,
+                                                                                           "address": 9302,
                                                                                        "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -907,7 +978,7 @@ docdata["MiG-15Bis"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 9254,
+                                                                                                  "address": 9276,
                                                                                               "description": "selector position",
                                                                                                      "mask": 16384,
                                                                                                 "max_value": 1,
@@ -930,7 +1001,7 @@ docdata["MiG-15Bis"] =
                                                                                        "suggested_step": 3200
                                                                                    } ],
                                                                         "outputs": [ {
-                                                                                           "address": 9282,
+                                                                                           "address": 9304,
                                                                                        "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -946,7 +1017,7 @@ docdata["MiG-15Bis"] =
                                                                      "identifier": "CLOCK_SEC_M",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 9294,
+                                                                                           "address": 9316,
                                                                                        "description": "gauge position",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -962,7 +1033,7 @@ docdata["MiG-15Bis"] =
                                                                      "identifier": "CLOCK_SEC_S",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 9296,
+                                                                                           "address": 9318,
                                                                                        "description": "gauge position",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -1107,7 +1178,7 @@ docdata["MiG-15Bis"] =
                                                                                   "suggested_step": 3200
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                      "address": 9242,
+                                                                                      "address": 9262,
                                                                                   "description": "position of the potentiometer",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -1132,7 +1203,7 @@ docdata["MiG-15Bis"] =
                                                                                   "suggested_step": 3200
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                      "address": 9244,
+                                                                                      "address": 9264,
                                                                                   "description": "position of the potentiometer",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -1522,7 +1593,7 @@ docdata["MiG-15Bis"] =
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 9254,
+                                                                                               "address": 9276,
                                                                                            "description": "selector position",
                                                                                                   "mask": 2,
                                                                                              "max_value": 1,
@@ -1551,7 +1622,7 @@ docdata["MiG-15Bis"] =
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 9254,
+                                                                                               "address": 9276,
                                                                                            "description": "selector position",
                                                                                                   "mask": 1,
                                                                                              "max_value": 1,
@@ -1581,7 +1652,7 @@ docdata["MiG-15Bis"] =
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 9254,
+                                                                                               "address": 9276,
                                                                                            "description": "selector position",
                                                                                                   "mask": 4,
                                                                                              "max_value": 1,
@@ -1629,7 +1700,7 @@ docdata["MiG-15Bis"] =
                                                                      "identifier": "FUEL_QUANTITY",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 9234,
+                                                                                           "address": 9248,
                                                                                        "description": "gauge position",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -1640,120 +1711,296 @@ docdata["MiG-15Bis"] =
                                                                }
                                        },
                              "Gauges": {
-                                               "ALT_KM": {
-                                                                 "category": "Gauges",
-                                                             "control_type": "analog_gauge",
-                                                              "description": "Altimeter km",
-                                                               "identifier": "ALT_KM",
-                                                                   "inputs": [  ],
-                                                                  "outputs": [ {
-                                                                                     "address": 9330,
-                                                                                 "description": "gauge position",
-                                                                                        "mask": 65535,
-                                                                                   "max_value": 65535,
-                                                                                    "shift_by": 0,
-                                                                                      "suffix": "",
-                                                                                        "type": "integer"
-                                                                             } ]
-                                                         },
-                                                "ALT_M": {
-                                                                 "category": "Gauges",
-                                                             "control_type": "analog_gauge",
-                                                              "description": "Altimeter km",
-                                                               "identifier": "ALT_M",
-                                                                   "inputs": [  ],
-                                                                  "outputs": [ {
-                                                                                     "address": 9332,
-                                                                                 "description": "gauge position",
-                                                                                        "mask": 65535,
-                                                                                   "max_value": 65535,
-                                                                                    "shift_by": 0,
-                                                                                      "suffix": "",
-                                                                                        "type": "integer"
-                                                                             } ]
-                                                         },
-                                            "ALT_PRESS": {
-                                                                 "category": "Gauges",
-                                                             "control_type": "analog_gauge",
-                                                              "description": "Altimeter Pressure",
-                                                               "identifier": "ALT_PRESS",
-                                                                   "inputs": [  ],
-                                                                  "outputs": [ {
-                                                                                     "address": 9334,
-                                                                                 "description": "gauge position",
-                                                                                        "mask": 65535,
-                                                                                   "max_value": 65535,
-                                                                                    "shift_by": 0,
-                                                                                      "suffix": "",
-                                                                                        "type": "integer"
-                                                                             } ]
-                                                         },
-                                                  "IAS": {
-                                                                 "category": "Gauges",
-                                                             "control_type": "analog_gauge",
-                                                              "description": "IAS",
-                                                               "identifier": "IAS",
-                                                                   "inputs": [  ],
-                                                                  "outputs": [ {
-                                                                                     "address": 9336,
-                                                                                 "description": "gauge position",
-                                                                                        "mask": 65535,
-                                                                                   "max_value": 65535,
-                                                                                    "shift_by": 0,
-                                                                                      "suffix": "",
-                                                                                        "type": "integer"
-                                                                             } ]
-                                                         },
-                                                 "MACH": {
-                                                                 "category": "Gauges",
-                                                             "control_type": "analog_gauge",
-                                                              "description": "Mach",
-                                                               "identifier": "MACH",
-                                                                   "inputs": [  ],
-                                                                  "outputs": [ {
-                                                                                     "address": 9340,
-                                                                                 "description": "gauge position",
-                                                                                        "mask": 65535,
-                                                                                   "max_value": 65535,
-                                                                                    "shift_by": 0,
-                                                                                      "suffix": "",
-                                                                                        "type": "integer"
-                                                                             } ]
-                                                         },
-                                                  "TAS": {
-                                                                 "category": "Gauges",
-                                                             "control_type": "analog_gauge",
-                                                              "description": "TAS",
-                                                               "identifier": "TAS",
-                                                                   "inputs": [  ],
-                                                                  "outputs": [ {
-                                                                                     "address": 9338,
-                                                                                 "description": "gauge position",
-                                                                                        "mask": 65535,
-                                                                                   "max_value": 65535,
-                                                                                    "shift_by": 0,
-                                                                                      "suffix": "",
-                                                                                        "type": "integer"
-                                                                             } ]
-                                                         },
-                                           "VARIOMETER": {
-                                                                 "category": "Gauges",
-                                                             "control_type": "analog_gauge",
-                                                              "description": "Variometer",
-                                                               "identifier": "VARIOMETER",
-                                                                   "inputs": [  ],
-                                                                  "outputs": [ {
-                                                                                     "address": 9328,
-                                                                                 "description": "gauge position",
-                                                                                        "mask": 65535,
-                                                                                   "max_value": 65535,
-                                                                                    "shift_by": 0,
-                                                                                      "suffix": "",
-                                                                                        "type": "integer"
-                                                                             } ]
-                                                         }
+                                                     "ALT_KM": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Altimeter km",
+                                                                     "identifier": "ALT_KM",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9372,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                      "ALT_M": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Altimeter km",
+                                                                     "identifier": "ALT_M",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9374,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                  "ALT_PRESS": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Altimeter Pressure",
+                                                                     "identifier": "ALT_PRESS",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9376,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                           "CANOPY_AIR_VALVE": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Canopy Air Valve Indication",
+                                                                     "identifier": "CANOPY_AIR_VALVE",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9384,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                "COCKPIT_ALT": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Cockpit Altitude",
+                                                                     "identifier": "COCKPIT_ALT",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9386,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                             "ENG_FUEL_PRESS": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Engine Fuel Pressure",
+                                                                     "identifier": "ENG_FUEL_PRESS",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9398,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                  "ENG_TACHO": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Engine Tachometer",
+                                                                     "identifier": "ENG_TACHO",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9390,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                   "ENG_TEMP": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Engine Temperature",
+                                                                     "identifier": "ENG_TEMP",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9392,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                 "FUEL_PRESS": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Fuel Pressure",
+                                                                     "identifier": "FUEL_PRESS",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9400,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                        "IAS": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "IAS",
+                                                                     "identifier": "IAS",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9378,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                       "MACH": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Mach",
+                                                                     "identifier": "MACH",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9382,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                  "OIL_PRESS": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Oil Pressure",
+                                                                     "identifier": "OIL_PRESS",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9396,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                   "OIL_TEMP": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Oil Temperature",
+                                                                     "identifier": "OIL_TEMP",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9394,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                 "PRESS_DIFF": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Pressure Difference",
+                                                                     "identifier": "PRESS_DIFF",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9388,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                        "TAS": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "TAS",
+                                                                     "identifier": "TAS",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9380,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                 "VARIOMETER": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Variometer",
+                                                                     "identifier": "VARIOMETER",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 9370,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               }
                                        },
                         "Gear System": {
+                                                "BRAKE_PRESS_L": {
+                                                                         "category": "Gear System",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Left Brake Pressure",
+                                                                       "identifier": "BRAKE_PRESS_L",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 9244,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                "BRAKE_PRESS_R": {
+                                                                         "category": "Gear System",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Right Brake Pressure",
+                                                                       "identifier": "BRAKE_PRESS_R",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 9246,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
                                                "GEAR_LAMP_TEST": {
                                                                              "api_variant": "momentary_last_position",
                                                                                 "category": "Gear System",
@@ -2086,9 +2333,105 @@ docdata["MiG-15Bis"] =
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
+                                                                      },
+                                                 "HYDRO_PRESS_FLAPS": {
+                                                                              "category": "Hydro System",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "Hydraulic Pressure Air Flaps",
+                                                                            "identifier": "HYDRO_PRESS_FLAPS",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 9238,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                  "HYDRO_PRESS_GAIN": {
+                                                                              "category": "Hydro System",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "Hydraulic Pressure Gain",
+                                                                            "identifier": "HYDRO_PRESS_GAIN",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 9236,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                 "HYDRO_PRESS_GEARS": {
+                                                                              "category": "Hydro System",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "Hydraulic Pressure Air Gears",
+                                                                            "identifier": "HYDRO_PRESS_GEARS",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 9240,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                  "HYDRO_PRESS_MAIN": {
+                                                                              "category": "Hydro System",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "Hydraulic Pressure Main",
+                                                                            "identifier": "HYDRO_PRESS_MAIN",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 9234,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                              "HYDRO_PRESS_MAIN_AIR": {
+                                                                              "category": "Hydro System",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "Hydraulic Pressure Main Air",
+                                                                            "identifier": "HYDRO_PRESS_MAIN_AIR",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 9242,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
                                                                       }
                                        },
              "Internal Lights System": {
+                                             "LAMP_LIGHT": {
+                                                                   "category": "Internal Lights System",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "Lamps Lightness",
+                                                                 "identifier": "LAMP_LIGHT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 9272,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
                                              "L_UV_LIGHT": {
                                                                    "category": "Internal Lights System",
                                                                "control_type": "limited_dial",
@@ -2105,7 +2448,7 @@ docdata["MiG-15Bis"] =
                                                                                    "suggested_step": 3200
                                                                                } ],
                                                                     "outputs": [ {
-                                                                                       "address": 9246,
+                                                                                       "address": 9266,
                                                                                    "description": "position of the potentiometer",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65535,
@@ -2130,7 +2473,7 @@ docdata["MiG-15Bis"] =
                                                                                    "suggested_step": 3200
                                                                                } ],
                                                                     "outputs": [ {
-                                                                                       "address": 9250,
+                                                                                       "address": 9270,
                                                                                    "description": "position of the potentiometer",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65535,
@@ -2155,7 +2498,7 @@ docdata["MiG-15Bis"] =
                                                                                    "suggested_step": 3200
                                                                                } ],
                                                                     "outputs": [ {
-                                                                                       "address": 9248,
+                                                                                       "address": 9268,
                                                                                    "description": "position of the potentiometer",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65535,
@@ -2226,81 +2569,129 @@ docdata["MiG-15Bis"] =
                                                          }
                                        },
                       "Oxygen System": {
-                                           "AIR_DILUTER": {
-                                                                  "category": "Oxygen System",
-                                                              "control_type": "limited_dial",
-                                                               "description": "Air Diluter Valve",
-                                                                "identifier": "AIR_DILUTER",
-                                                                    "inputs": [ {
-                                                                                  "description": "set the position of the dial",
-                                                                                    "interface": "set_state",
-                                                                                    "max_value": 65535
-                                                                              }, {
-                                                                                     "description": "turn the dial left or right",
-                                                                                       "interface": "variable_step",
-                                                                                       "max_value": 65535,
-                                                                                  "suggested_step": 3200
-                                                                              } ],
-                                                                   "outputs": [ {
-                                                                                      "address": 9238,
-                                                                                  "description": "position of the potentiometer",
-                                                                                         "mask": 65535,
-                                                                                    "max_value": 65535,
-                                                                                     "shift_by": 0,
-                                                                                       "suffix": "",
-                                                                                         "type": "integer"
-                                                                              } ]
-                                                          },
-                                              "O2_EMERG": {
-                                                                  "category": "Oxygen System",
-                                                              "control_type": "limited_dial",
-                                                               "description": "Oxygen Emergency Valve",
-                                                                "identifier": "O2_EMERG",
-                                                                    "inputs": [ {
-                                                                                  "description": "set the position of the dial",
-                                                                                    "interface": "set_state",
-                                                                                    "max_value": 65535
-                                                                              }, {
-                                                                                     "description": "turn the dial left or right",
-                                                                                       "interface": "variable_step",
-                                                                                       "max_value": 65535,
-                                                                                  "suggested_step": 3200
-                                                                              } ],
-                                                                   "outputs": [ {
-                                                                                      "address": 9240,
-                                                                                  "description": "position of the potentiometer",
-                                                                                         "mask": 65535,
-                                                                                    "max_value": 65535,
-                                                                                     "shift_by": 0,
-                                                                                       "suffix": "",
-                                                                                         "type": "integer"
-                                                                              } ]
-                                                          },
-                                             "O2_SUPPLY": {
-                                                                  "category": "Oxygen System",
-                                                              "control_type": "limited_dial",
-                                                               "description": "Oxygen Supply Valve",
-                                                                "identifier": "O2_SUPPLY",
-                                                                    "inputs": [ {
-                                                                                  "description": "set the position of the dial",
-                                                                                    "interface": "set_state",
-                                                                                    "max_value": 65535
-                                                                              }, {
-                                                                                     "description": "turn the dial left or right",
-                                                                                       "interface": "variable_step",
-                                                                                       "max_value": 65535,
-                                                                                  "suggested_step": 3200
-                                                                              } ],
-                                                                   "outputs": [ {
-                                                                                      "address": 9236,
-                                                                                  "description": "position of the potentiometer",
-                                                                                         "mask": 65535,
-                                                                                    "max_value": 65535,
-                                                                                     "shift_by": 0,
-                                                                                       "suffix": "",
-                                                                                         "type": "integer"
-                                                                              } ]
-                                                          }
+                                             "AIR_DILUTER": {
+                                                                    "category": "Oxygen System",
+                                                                "control_type": "limited_dial",
+                                                                 "description": "Air Diluter Valve",
+                                                                  "identifier": "AIR_DILUTER",
+                                                                      "inputs": [ {
+                                                                                    "description": "set the position of the dial",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 65535
+                                                                                }, {
+                                                                                       "description": "turn the dial left or right",
+                                                                                         "interface": "variable_step",
+                                                                                         "max_value": 65535,
+                                                                                    "suggested_step": 3200
+                                                                                } ],
+                                                                     "outputs": [ {
+                                                                                        "address": 9252,
+                                                                                    "description": "position of the potentiometer",
+                                                                                           "mask": 65535,
+                                                                                      "max_value": 65535,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                                "O2_EMERG": {
+                                                                    "category": "Oxygen System",
+                                                                "control_type": "limited_dial",
+                                                                 "description": "Oxygen Emergency Valve",
+                                                                  "identifier": "O2_EMERG",
+                                                                      "inputs": [ {
+                                                                                    "description": "set the position of the dial",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 65535
+                                                                                }, {
+                                                                                       "description": "turn the dial left or right",
+                                                                                         "interface": "variable_step",
+                                                                                         "max_value": 65535,
+                                                                                    "suggested_step": 3200
+                                                                                } ],
+                                                                     "outputs": [ {
+                                                                                        "address": 9254,
+                                                                                    "description": "position of the potentiometer",
+                                                                                           "mask": 65535,
+                                                                                      "max_value": 65535,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                           "O2_FLOW_BLINK": {
+                                                                    "category": "Oxygen System",
+                                                                "control_type": "analog_gauge",
+                                                                 "description": "Flow Blinker",
+                                                                  "identifier": "O2_FLOW_BLINK",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 9258,
+                                                                                    "description": "gauge position",
+                                                                                           "mask": 65535,
+                                                                                      "max_value": 65535,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                           "O2_FLOW_PRESS": {
+                                                                    "category": "Oxygen System",
+                                                                "control_type": "analog_gauge",
+                                                                 "description": "Flow Pressure",
+                                                                  "identifier": "O2_FLOW_PRESS",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 9260,
+                                                                                    "description": "gauge position",
+                                                                                           "mask": 65535,
+                                                                                      "max_value": 65535,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                                "O2_PRESS": {
+                                                                    "category": "Oxygen System",
+                                                                "control_type": "analog_gauge",
+                                                                 "description": "Oxygen Pressure",
+                                                                  "identifier": "O2_PRESS",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 9256,
+                                                                                    "description": "gauge position",
+                                                                                           "mask": 65535,
+                                                                                      "max_value": 65535,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                               "O2_SUPPLY": {
+                                                                    "category": "Oxygen System",
+                                                                "control_type": "limited_dial",
+                                                                 "description": "Oxygen Supply Valve",
+                                                                  "identifier": "O2_SUPPLY",
+                                                                      "inputs": [ {
+                                                                                    "description": "set the position of the dial",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 65535
+                                                                                }, {
+                                                                                       "description": "turn the dial left or right",
+                                                                                         "interface": "variable_step",
+                                                                                         "max_value": 65535,
+                                                                                    "suggested_step": 3200
+                                                                                } ],
+                                                                     "outputs": [ {
+                                                                                        "address": 9250,
+                                                                                    "description": "position of the potentiometer",
+                                                                                           "mask": 65535,
+                                                                                      "max_value": 65535,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            }
                                        },
                              "PDK-45": {
                                            "PDK45_FAST_SLAVE": {
@@ -2323,7 +2714,7 @@ docdata["MiG-15Bis"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 9254,
+                                                                                                  "address": 9276,
                                                                                               "description": "selector position",
                                                                                                      "mask": 2048,
                                                                                                 "max_value": 1,
@@ -2340,7 +2731,7 @@ docdata["MiG-15Bis"] =
                                                                      "identifier": "PDK45_HDG",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 9278,
+                                                                                           "address": 9300,
                                                                                        "description": "gauge position",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -2356,7 +2747,7 @@ docdata["MiG-15Bis"] =
                                                                      "identifier": "PDK45_HDG_SCALE",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 9276,
+                                                                                           "address": 9298,
                                                                                        "description": "gauge position",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -2381,7 +2772,7 @@ docdata["MiG-15Bis"] =
                                                                                        "suggested_step": 3200
                                                                                    } ],
                                                                         "outputs": [ {
-                                                                                           "address": 9274,
+                                                                                           "address": 9296,
                                                                                        "description": "position of the potentiometer",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -2411,7 +2802,7 @@ docdata["MiG-15Bis"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 9254,
+                                                                                             "address": 9276,
                                                                                          "description": "selector position",
                                                                                                 "mask": 1024,
                                                                                            "max_value": 1,
@@ -2428,7 +2819,7 @@ docdata["MiG-15Bis"] =
                                                                 "identifier": "RPV46_RALT",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
-                                                                                      "address": 9272,
+                                                                                      "address": 9294,
                                                                                   "description": "gauge position",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -2456,7 +2847,7 @@ docdata["MiG-15Bis"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 9254,
+                                                                                             "address": 9276,
                                                                                          "description": "selector position",
                                                                                                 "mask": 512,
                                                                                            "max_value": 1,
@@ -2484,7 +2875,7 @@ docdata["MiG-15Bis"] =
                                                                                   "suggested_step": 3200
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                      "address": 9252,
+                                                                                      "address": 9274,
                                                                                   "description": "position of the potentiometer",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -2537,7 +2928,7 @@ docdata["MiG-15Bis"] =
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 9318,
+                                                                                              "address": 9352,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -2559,12 +2950,28 @@ docdata["MiG-15Bis"] =
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 9322,
+                                                                                              "address": 9356,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
                                                                                              "shift_by": 0,
                                                                                                "suffix": "_KNOB_POS",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                               "RSI6K_ANT_POWER": {
+                                                                          "category": "RSI-6K",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "RSI-6K Antenna Power",
+                                                                        "identifier": "RSI6K_ANT_POWER",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 9362,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 65535,
+                                                                                            "max_value": 65535,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ]
                                                                   },
@@ -2587,7 +2994,7 @@ docdata["MiG-15Bis"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 9306,
+                                                                                                     "address": 9328,
                                                                                                  "description": "selector position",
                                                                                                         "mask": 32768,
                                                                                                    "max_value": 1,
@@ -2617,7 +3024,7 @@ docdata["MiG-15Bis"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 9326,
+                                                                                                     "address": 9360,
                                                                                                  "description": "selector position",
                                                                                                         "mask": 1,
                                                                                                    "max_value": 1,
@@ -2646,7 +3053,7 @@ docdata["MiG-15Bis"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 9306,
+                                                                                                     "address": 9328,
                                                                                                  "description": "selector position",
                                                                                                         "mask": 16384,
                                                                                                    "max_value": 1,
@@ -2669,12 +3076,60 @@ docdata["MiG-15Bis"] =
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 9324,
+                                                                                              "address": 9358,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
                                                                                              "shift_by": 0,
                                                                                                "suffix": "_KNOB_POS",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                           "RSI6K_RECEIVE_GAUGE": {
+                                                                          "category": "RSI-6K",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "RSI-6K Receiver Gauge",
+                                                                        "identifier": "RSI6K_RECEIVE_GAUGE",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 9368,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 65535,
+                                                                                            "max_value": 65535,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                             "RSI6K_RECEIVE_IND": {
+                                                                          "category": "RSI-6K",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "RSI-6K Receiver Ind",
+                                                                        "identifier": "RSI6K_RECEIVE_IND",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 9366,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 65535,
+                                                                                            "max_value": 65535,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                            "RSI6K_RECEIVE_KNOB": {
+                                                                          "category": "RSI-6K",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "RSI-6K Receiver Knob",
+                                                                        "identifier": "RSI6K_RECEIVE_KNOB",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 9364,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 65535,
+                                                                                            "max_value": 65535,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ]
                                                                   },
@@ -2691,7 +3146,7 @@ docdata["MiG-15Bis"] =
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 9316,
+                                                                                              "address": 9350,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -2713,7 +3168,7 @@ docdata["MiG-15Bis"] =
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 9320,
+                                                                                              "address": 9354,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -2735,7 +3190,7 @@ docdata["MiG-15Bis"] =
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 9314,
+                                                                                              "address": 9348,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -3174,7 +3629,7 @@ docdata["MiG-15Bis"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 9254,
+                                                                                                  "address": 9276,
                                                                                               "description": "selector position",
                                                                                                      "mask": 32,
                                                                                                 "max_value": 1,
@@ -3204,7 +3659,7 @@ docdata["MiG-15Bis"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 9254,
+                                                                                                  "address": 9276,
                                                                                               "description": "selector position",
                                                                                                      "mask": 64,
                                                                                                 "max_value": 1,
@@ -3233,7 +3688,7 @@ docdata["MiG-15Bis"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 9254,
+                                                                                                  "address": 9276,
                                                                                               "description": "selector position",
                                                                                                      "mask": 8,
                                                                                                 "max_value": 1,
@@ -3263,7 +3718,7 @@ docdata["MiG-15Bis"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 9254,
+                                                                                                  "address": 9276,
                                                                                               "description": "selector position",
                                                                                                      "mask": 128,
                                                                                                 "max_value": 1,
@@ -3293,7 +3748,7 @@ docdata["MiG-15Bis"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 9254,
+                                                                                                  "address": 9276,
                                                                                               "description": "selector position",
                                                                                                      "mask": 16,
                                                                                                 "max_value": 1,
@@ -3324,7 +3779,7 @@ docdata["MiG-15Bis"] =
                                                                                         } ],
                                                                  "momentary_positions": "none",
                                                                              "outputs": [ {
-                                                                                                "address": 9298,
+                                                                                                "address": 9320,
                                                                                             "description": "selector position",
                                                                                                    "mask": 8192,
                                                                                               "max_value": 1,
@@ -3354,7 +3809,7 @@ docdata["MiG-15Bis"] =
                                                                                         } ],
                                                                  "momentary_positions": "none",
                                                                              "outputs": [ {
-                                                                                                "address": 9298,
+                                                                                                "address": 9320,
                                                                                             "description": "selector position",
                                                                                                    "mask": 2048,
                                                                                               "max_value": 1,
@@ -3384,7 +3839,7 @@ docdata["MiG-15Bis"] =
                                                                                         } ],
                                                                  "momentary_positions": "none",
                                                                              "outputs": [ {
-                                                                                                "address": 9298,
+                                                                                                "address": 9320,
                                                                                             "description": "selector position",
                                                                                                    "mask": 4096,
                                                                                               "max_value": 1,
@@ -3412,7 +3867,7 @@ docdata["MiG-15Bis"] =
                                                                                  "suggested_step": 3200
                                                                              } ],
                                                                   "outputs": [ {
-                                                                                     "address": 9270,
+                                                                                     "address": 9292,
                                                                                  "description": "position of the potentiometer",
                                                                                         "mask": 65535,
                                                                                    "max_value": 65535,
@@ -3443,7 +3898,7 @@ docdata["MiG-15Bis"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 9298,
+                                                                                                     "address": 9320,
                                                                                                  "description": "selector position",
                                                                                                         "mask": 8,
                                                                                                    "max_value": 1,
@@ -3472,7 +3927,7 @@ docdata["MiG-15Bis"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 9298,
+                                                                                                     "address": 9320,
                                                                                                  "description": "selector position",
                                                                                                         "mask": 16,
                                                                                                    "max_value": 1,
@@ -3489,7 +3944,7 @@ docdata["MiG-15Bis"] =
                                                                         "identifier": "L_BOMB_L",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 9298,
+                                                                                              "address": 9320,
                                                                                           "description": "0 if light is off, 1 if light is on",
                                                                                                  "mask": 512,
                                                                                             "max_value": 1,
@@ -3505,7 +3960,7 @@ docdata["MiG-15Bis"] =
                                                                         "identifier": "N37_READY_L",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 9298,
+                                                                                              "address": 9320,
                                                                                           "description": "0 if light is off, 1 if light is on",
                                                                                                  "mask": 32,
                                                                                             "max_value": 1,
@@ -3534,7 +3989,7 @@ docdata["MiG-15Bis"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 9254,
+                                                                                                     "address": 9276,
                                                                                                  "description": "selector position",
                                                                                                         "mask": 32768,
                                                                                                    "max_value": 1,
@@ -3551,7 +4006,7 @@ docdata["MiG-15Bis"] =
                                                                         "identifier": "NR23_BOTTOM_READY_L",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 9298,
+                                                                                              "address": 9320,
                                                                                           "description": "0 if light is off, 1 if light is on",
                                                                                                  "mask": 128,
                                                                                             "max_value": 1,
@@ -3580,7 +4035,7 @@ docdata["MiG-15Bis"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 9298,
+                                                                                                     "address": 9320,
                                                                                                  "description": "selector position",
                                                                                                         "mask": 2,
                                                                                                    "max_value": 1,
@@ -3610,7 +4065,7 @@ docdata["MiG-15Bis"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 9298,
+                                                                                                     "address": 9320,
                                                                                                  "description": "selector position",
                                                                                                         "mask": 1,
                                                                                                    "max_value": 1,
@@ -3627,7 +4082,7 @@ docdata["MiG-15Bis"] =
                                                                         "identifier": "NR23_TOP_READY_L",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 9298,
+                                                                                              "address": 9320,
                                                                                           "description": "0 if light is off, 1 if light is on",
                                                                                                  "mask": 64,
                                                                                             "max_value": 1,
@@ -3643,7 +4098,7 @@ docdata["MiG-15Bis"] =
                                                                         "identifier": "R_BOMB_L",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 9298,
+                                                                                              "address": 9320,
                                                                                           "description": "0 if light is off, 1 if light is on",
                                                                                                  "mask": 1024,
                                                                                             "max_value": 1,
@@ -3671,7 +4126,7 @@ docdata["MiG-15Bis"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 9298,
+                                                                                                     "address": 9320,
                                                                                                  "description": "selector position",
                                                                                                         "mask": 4,
                                                                                                    "max_value": 1,
@@ -3688,7 +4143,7 @@ docdata["MiG-15Bis"] =
                                                                         "identifier": "TACTIC_RELEASE_L",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 9298,
+                                                                                              "address": 9320,
                                                                                           "description": "0 if light is off, 1 if light is on",
                                                                                                  "mask": 256,
                                                                                             "max_value": 1,
