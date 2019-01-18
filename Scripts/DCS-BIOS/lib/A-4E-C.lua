@@ -44,27 +44,46 @@ defineIndicatorLight("APC_LIGHT", 147, "Warning, Caution and IndicatorLights","A
 defineFloat("ENGINE_RPM", 520, {0.0, 1.0}, "Gauges", "Engine RPM")
 defineFloat("AOA", 840, {0.0, 1.0}, "Gauges", "Angle of Attack")
 ----------------------------------------------------------------------------------------------------------------
--- Landing Gear & Tail Hook
+--ELECTRIC SYSTEM
+defineToggleSwitch("MASTER_ARM", 3, 3002, 709,"Electric System" , "Master Armament")
+defineToggleSwitch("EMERG_GEN_BY", 3, 3022, 1061,"Electric System" , "Emergency Generator Bypass")
+defineToggleSwitch("EMERG_GEN_DEPL", 3, 3023, 1243,"Electric System" , "Emergency Generator Deploy")
+
+--CLOCK
+definePushButton("STOPWATCH_BTN", 5, 3104, 146, "Clock" , "Stopwatch Button")
+
+-- GEAR
 defineToggleSwitch("GEAR_HANDLE", 12, 3020, 8,"Gear" , "Landing Gear Handle")
 --defineToggleSwitch("HOOK_HANDLE", 12, 10032, 10,"Gear" , "Landing Hook Handle")
+defineToggleSwitch("EMERG_GEAR_HANDLE", 12, 3036, 1240,"Gear" , "Emergency Gear Release")
 
---Speedbrake
-defineToggleSwitch("SPEED_B_SW", 10, 3024, 85, "Speedbrake" , "Speedbrake switch")
-define3PosTumb("SPEED_B_EMERG", 10, 3035, 128, "Speedbrake", "Speedbrake emergency")
+--AIRBRAKES
+defineToggleSwitch("SPEED_B_SW", 10, 3024, 85, "Airbrake" , "Speedbrake switch")
+define3PosTumb("SPEED_B_EMERG", 10, 3035, 128, "Airbrake", "Speedbrake emergency")
 
---Spoilers
+--FLAPS
+
+
+--SPOILERS
 defineToggleSwitch("SPOILER_ARM", 13, 3017, 84,"Spoiler" , "Spoiler Arm Switch")
 
--- APPROACH POWER COMPENSATOR PANEL #17A
-define3PosTumb("APC_ON", 26, 10121, 135, "Electric", "APC Enable/Stby/Off")
+--CANOPY
+--defineToggleSwitch("CANOPY", 14, --, 0,"Canopy" , "Canopy")
 
--- ALTIMETER PANEL #41
-definePotentiometer("SET_ALT", 21, 3019, 827, {0, 1}, "Main Panel", "Altimeter Setting")
+--ENGINE
+define3PosTumb("THROTTLE", 17, 3087, 80, "Engine", "Throttle")
+defineToggleSwitch("STARTER", 17, 3013, 100,"Engine" , "Starter switch")
 
--- RADAR CONTROL PANEL #6
+-- APPROACH POWER COMPENSATOR PANEL (AFCS)
+define3PosTumb("APC_ON", 26, 10121, 135, "AFCS", "APC Enable/Stby/Off")
+
+-- AVIONICS
+definePotentiometer("SET_ALT", 21, 3019, 827, {0, 1}, "Avionics", "Altimeter Setting")
+
+-- RADAR
 defineTumb("RADAR_MODE", 7, 3063, 120, 0.1, {0.0, 0.4}, nil, false, "Radar" ,"Radar Mode Switch")
 
---EXTERNAL LIGHTS #24
+--EXT_LIGHTS
 define3PosTumb("MASTER_LIGHT", 24, 3073, 83, "External Lights", "Master Lighting ON/OFF/Momentary")
 
 BIOS.protocol.endModule()
