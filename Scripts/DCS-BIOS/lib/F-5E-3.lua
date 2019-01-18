@@ -106,7 +106,7 @@ defineToggleSwitch("SW_BATTERY", 3, 3001, 387,"Electric" , "Battery Switch")
 defineToggleSwitch("L_GENERATOR", 3, 3002, 388,"Electric" , "Generator Left")
 defineToggleSwitch("R_GENERATOR", 3, 3004, 389,"Electric" , "Generator Right")
 defineToggleSwitch("PITOT_HEATER", 3, 3006, 375,"Electric" , "Pitot Heater")
-define3PosTumb("F_O2_SW", 3, 3007, 383, "Electric", "Fuel & Oxygen Switch, GAGE TEST/OFF/QTY CHECK")
+define3PosTumb("F_O2_SW", 3, 3007, 230, "Electric", "Fuel & Oxygen Switch, GAGE TEST/OFF/QTY CHECK")
 
 -- Fuel System
 defineToggleSwitch("L_SHUTOFF_S", 4, 3001, 360,"Fuel" , "Left Fuel Shutoff Switch, OPEN/CLOSED")
@@ -114,7 +114,7 @@ defineToggleSwitch("R_SHUTOFF_S", 4, 3002, 362,"Fuel" , "Right Fuel Shutoff Swit
 defineToggleSwitch("EXT_PYLON_SW", 4, 3003, 378,"Fuel" , "Ext Fuel Pylons Switch, ON/OFF")
 defineToggleSwitch("EXT_CENTER_SW", 4, 3004, 377,"Fuel" , "Ext Fuel Cl Switch, ON/OFF")
 defineToggleSwitch("CROSSFEED", 4, 3005, 381,"Fuel" , "Crossfeed Switch, OPEN/CLOSED")
-define3PosTumb("AUTOBAL", 4, 3006, 230, "Fuel", "Autobalance Switch, LEFT/NEUT/RIGHT")
+define3PosTumb("AUTOBAL", 4, 3006, 383, "Fuel", "Autobalance Switch, LEFT/NEUT/RIGHT")
 defineToggleSwitch("L_BOOSTPUMP", 4, 3008, 380,"Fuel" , "Left Boost Pump Switch, ON/OFF")
 defineToggleSwitch("R_BOOSTPUMP", 4, 3009, 382,"Fuel" , "Right Boost Pump Switch, ON/OFF")
 defineToggleSwitch("L_SHUTOFF_C", 4, 3010, 359,"Fuel" , "Left Fuel Shutoff Switch Cover, OPEN/CLOSED")
