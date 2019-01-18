@@ -106,7 +106,7 @@ defineToggleSwitch("SW_BATTERY", 3, 3001, 387,"Electric" , "Battery Switch")
 defineToggleSwitch("L_GENERATOR", 3, 3002, 388,"Electric" , "Generator Left")
 defineToggleSwitch("R_GENERATOR", 3, 3004, 389,"Electric" , "Generator Right")
 defineToggleSwitch("PITOT_HEATER", 3, 3006, 375,"Electric" , "Pitot Heater")
-define3PosTumb("F_O2_SW", 3, 3007, 230, "Electric", "Fuel & Oxygen Switch, GAGE TEST/OFF/QTY CHECK")
+define3PosTumb("F_O2_SW", 3, 3007, 383, "Electric", "Fuel & Oxygen Switch, GAGE TEST/OFF/QTY CHECK")
 
 -- Fuel System
 defineToggleSwitch("L_SHUTOFF_S", 4, 3001, 360,"Fuel" , "Left Fuel Shutoff Switch, OPEN/CLOSED")
