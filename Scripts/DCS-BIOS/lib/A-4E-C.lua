@@ -76,6 +76,9 @@ defineToggleSwitch("STARTER", 17, 3013, 100,"Engine" , "Starter switch")
 
 -- APPROACH POWER COMPENSATOR PANEL (AFCS)
 define3PosTumb("APC_ON", 26, 10121, 135, "AFCS", "APC Enable/Stby/Off")
+defineToggleSwitch("AFCS_SBY", 26, 3088, 160,"AFCS" , "AFCS Standby")
+defineToggleSwitch("AFCS_ENGAGE", 26, 3089, 161,"AFCS" , "AFCS Engage")
+
 
 -- AVIONICS
 definePotentiometer("SET_ALT", 21, 3019, 827, {0, 1}, "Avionics", "Altimeter Setting")
