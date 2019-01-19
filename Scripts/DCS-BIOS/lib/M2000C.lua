@@ -787,7 +787,6 @@ defineTumb("RAD_IFF_CODE-3_SEL", 11, 3602, 602, 0.1, {0, 0.9}, nil, false, "IFF"
 defineTumb("RAD_IFF_CODE-2_SEL", 11, 3603, 603, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_INT -  Code-2 Selector")
 defineTumb("RAD_IFF_CODE-1_SEL", 11, 3604, 604, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_INT -  Code-1 Selector")
 
-defineToggleSwitch("NWS_IFF_INTERR_BTN", 22, 3807, 807, "IFF", "I - IFF_INT - Nose Wheel Steering / IFF Interrogation Button")
 defineTumb("MODE-1_10_SEL", 4, 3377, 377, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_REP - Mode-1 Tens Selector")
 defineTumb("MODE-1_1_SEL", 4, 3378, 378, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_REP - Mode-1 Ones Selector")
 defineTumb("MODE-3A_1K_SEL", 4, 3379, 379, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_REP - Mode-3A Thousands Selector")
