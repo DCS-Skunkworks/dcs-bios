@@ -17,9 +17,6 @@ local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local defineToggleSwitchToggleOnly = BIOS.util.defineToggleSwitchToggleOnly
-local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
-local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 local defineString = BIOS.util.defineString
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
@@ -33,6 +30,31 @@ defineToggleSwitch("BATTERY", 1, 315, 300,"Electric" , "BATTERY Power Switch")
 defineToggleSwitch("GENERATOR1", 1, 10316, 301,"Electric" , "GENERATOR 1 Switch")
 defineToggleSwitch("GENERATOR2", 1, 10317, 302,"Electric" , "GENERATOR 2 Switch")
 defineToggleSwitch("EMERG_POWER", 1, 10318, 303,"Electric" , "AC Power Emer Switch")
+
+--CONTROLS
+defineToggleSwitch("FLIGHT_CONTR", 2, 10400, 232,"Controls" , "Flight Controls Lock/Unlock")
+defineToggleSwitch("PARK_BRK", 2, 855, 263,"Controls" , "Parking Brake Handle")
+definePushButton("START_ENG", 2, 12000, 239,"Controls" , "START ENGINE Button")
+
+--GEAR
+defineToggleSwitch("D_LOCK_OVER", 4, 10165, 379,"Gear" , "DOWN-LOCK OVERRIDE Switch")
+defineToggleSwitch("GEAR_LEVER", 4, 68, 4,"Gear" , "GEAR Lever Up/Down")
+
+--LIGHTS
+defineToggleSwitch("NAV_L_FLASH", 6, 10168, 41,"Lights" , "NAV Light Flash/Steady Switch")
+defineToggleSwitch("NAV_L_DIM", 6, 175, 40,"Lights" , "NAV Light BRT/DIM Switch")
+defineToggleSwitch("STROBE_L", 6, 10170, 39,"Lights" , "BCN Strobo On/Off")
+defineToggleSwitch("TAXI_L", 6, 328, 321,"Lights" , "TAXI Light Switch")
+
+--CANOPY
+definePushButton("SAVE_PIN_CANOPY", 7, 10162, 377,"Canopy" , "Seat Safety Pin To Canopy")
+definePushButton("SAVE_PIN_SEAT", 7, 10163, 376,"Canopy" , "Seat Safety Pin To Seat")
+defineToggleSwitch("PARTIAL_OPEN", 7, 10175, 183,"Canopy" , "Partial Opening Device")
+defineToggleSwitch("CANOPY_L", 7, 71, 182,"Canopy" , "Canopy Lock/Unlock")
+
+--HSI
+defineRotary("HDG_SET", 11, 3003, 362, "HSI", "Heading Set Knob")
+defineRotary("CRS_SET", 11, 3002, 353, "HSI", "Course Set Knob")
 
 --ADI
 defineRotary("CLOCK_WIND_ROTATRY", 12, 3001, 15, "ADI", "ADI Pitch Trim Knob")
@@ -61,14 +83,19 @@ defineToggleSwitch("SMK_COLOR", 17, 10332, 332,"Smokes" , "Smoke Color Switch")
 --SOUND_SYSTEM
 defineToggleSwitch("WARN_SILENCE", 19, 10164, 382,"Sound System" , "WARNING SILENCE")
  
---FLT
-defineToggleSwitch("FLT_HDG", 23, 10184, 333,"FLT" , "FLT DIR HDG Button")
-defineToggleSwitch("FLT_GS_ARM", 23, 10185, 334,"FLT" , "FLT DIR GS ARM Button")
-defineToggleSwitch("FLT_STBY", 23, 10186, 335,"FLT" , "FLT DIR STBY Button")
-defineToggleSwitch("FLT_RADIO_NAV", 23, 10187, 336,"FLT" , "FLT DIR RADIO NAV Button")
-defineToggleSwitch("FLT_GS", 23, 10188, 337,"FLT" , "FLT DIR GS Button")
-defineToggleSwitch("FLT_ALT_HOLD", 23, 10189, 338,"FLT" , "FLT DIR ALT HOLD Button")
- 
+--NAV
+defineToggleSwitch("FLT_HDG", 23, 10184, 333,"NAV" , "FLT DIR HDG Button")
+defineToggleSwitch("FLT_GS_ARM", 23, 10185, 334,"NAV" , "FLT DIR GS ARM Button")
+defineToggleSwitch("FLT_STBY", 23, 10186, 335,"NAV" , "FLT DIR STBY Button")
+defineToggleSwitch("FLT_RADIO_NAV", 23, 10187, 336,"NAV" , "FLT DIR RADIO NAV Button")
+defineToggleSwitch("FLT_GS", 23, 10188, 337,"NAV" , "FLT DIR GS Button")
+defineToggleSwitch("FLT_ALT_HOLD", 23, 10189, 338,"NAV" , "FLT DIR ALT HOLD Button")
+defineToggleSwitch("GPS", 23, 10180, 345,"NAV" , "GPS On/Off")
+defineToggleSwitch("TACAN", 23, 10181, 346,"NAV" , "TACAN On/Off")
+defineToggleSwitch("VOR", 23, 10182, 347,"NAV" , "VOR On/Off")
+defineToggleSwitch("RNAV", 23, 10183, 348,"NAV" , "RNAV On/Off")
+defineToggleSwitch("NAV", 23, 3001, 384,"NAV" , "NAV On/Off")
+
 --WEAPONS
 defineToggleSwitch("MASTER_ARM", 26, 3014, 475,"Weapons" , "MASTER ARMAMENT Switch")
 
