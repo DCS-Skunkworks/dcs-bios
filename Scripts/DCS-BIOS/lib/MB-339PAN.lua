@@ -17,8 +17,7 @@ local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local defineString = BIOS.util.defineString
-local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
+--local defineString = BIOS.util.defineString
 local defineFloat = BIOS.util.defineFloat
 
 local function define3PosTumb(msg, device_id, command, arg_number, category, description)
@@ -45,6 +44,10 @@ defineToggleSwitch("NAV_L_FLASH", 6, 10168, 41,"Lights" , "NAV Light Flash/Stead
 defineToggleSwitch("NAV_L_DIM", 6, 175, 40,"Lights" , "NAV Light BRT/DIM Switch")
 defineToggleSwitch("STROBE_L", 6, 10170, 39,"Lights" , "BCN Strobo On/Off")
 defineToggleSwitch("TAXI_L", 6, 328, 321,"Lights" , "TAXI Light Switch")
+definePotentiometer("FORMATION_L", 6, 3014, 502, {0, 0.99}, "Lights", "FORMATION LIGHTS Knob")
+definePotentiometer("INSTRUMENTS_L", 6, 10171, 503, {0, 1}, "Lights", "INSTRUMENTS LIGHTS Knob")
+definePotentiometer("FLOOD_L", 6, 3016, 504, {0, 1}, "Lights", "FLOOD LIGHTS Knob")
+definePotentiometer("CONSOLE_L", 6, 10172, 505, {0, 1}, "Lights", "CONSOLE LIGHTS Knob")
 
 --CANOPY
 definePushButton("SAVE_PIN_CANOPY", 7, 10162, 377,"Canopy" , "Seat Safety Pin To Canopy")
@@ -58,6 +61,9 @@ defineRotary("CRS_SET", 11, 3002, 353, "HSI", "Course Set Knob")
 
 --ADI
 defineRotary("CLOCK_WIND_ROTATRY", 12, 3001, 15, "ADI", "ADI Pitch Trim Knob")
+
+--ALTIMETER
+defineRotary("PRESS_ALT", 13, 3002, 241, "Altimeter", "Press Altimeter Knob")
 
 --GUARD SWITCHES
 defineToggleSwitch("BUS_RESET_SW", 14, 10150, 231,"Guard Switches" , "BUS RESET Switch")
@@ -99,7 +105,15 @@ defineToggleSwitch("NAV", 23, 3001, 384,"NAV" , "NAV On/Off")
 --WEAPONS
 defineToggleSwitch("MASTER_ARM", 26, 3014, 475,"Weapons" , "MASTER ARMAMENT Switch")
 
+--FUEL SYSTEMS
+defineTumb("FUEL_QUANT", 27, 3008, 257, 0.1, {0.0, 0.4}, nil, false,"Fuel Systems" , "Fuel Quantity Selector Knob")
+definePushButton("FUEL_TEST", 27, 10411, 258,"Fuel Systems" , "Fuel Test Button")
+defineToggleSwitch("FUEL_TRANSFER", 27, 10152, 249,"Fuel Systems" , "TIP/PYLON Fuel Transfer Switch")
+
 --GAUGES
 defineFloat("ENGINE_RPM", 16, {0.0, 1.0}, "Gauges", "Engine RPM")
+
+--Indicator Lights
+defineIndicatorLight("TACAN_LIGHT", 369, "Indicator Lights","TACAN Light")
 
 BIOS.protocol.endModule()
