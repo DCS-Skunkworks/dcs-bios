@@ -3064,33 +3064,24 @@ docdata["FA-18C_hornet"] =
                                                                                   "physical_variant": "limited_rotary"
                                                                            },
                                                            "FUEL_DUMP_SW": {
-                                                                                          "category": "Fuel Panel",
-                                                                                      "control_type": "selector",
-                                                                                       "description": "Fuel Dump Switch, ON/OFF",
-                                                                                        "identifier": "FUEL_DUMP_SW",
-                                                                                            "inputs": [ {
-                                                                                                          "description": "switch to previous or next state",
-                                                                                                            "interface": "fixed_step"
-                                                                                                      }, {
-                                                                                                          "description": "set position",
-                                                                                                            "interface": "set_state",
-                                                                                                            "max_value": 1
-                                                                                                      }, {
-                                                                                                             "argument": "TOGGLE",
-                                                                                                          "description": "Toggle switch state",
-                                                                                                            "interface": "action"
-                                                                                                      } ],
-                                                                               "momentary_positions": "none",
-                                                                                           "outputs": [ {
-                                                                                                              "address": 29874,
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 16384,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 14,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                                      } ],
-                                                                                  "physical_variant": "toggle_switch"
+                                                                                   "category": "Fuel Panel",
+                                                                               "control_type": "toggle_switch",
+                                                                                "description": "Fuel Dump Switch, ON/OFF",
+                                                                                 "identifier": "FUEL_DUMP_SW",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 29874,
+                                                                                                   "description": "switch position -- 0 = off, 1 = on",
+                                                                                                          "mask": 16384,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 14,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
                                                                            },
                                                                "PROBE_SW": {
                                                                                           "category": "Fuel Panel",
