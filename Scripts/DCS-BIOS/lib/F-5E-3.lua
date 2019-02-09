@@ -23,15 +23,6 @@ local function define3PosTumb(msg, device_id, command, arg_number, category, des
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
 end
 
-local function getUhfFreqency()
-    local freq1 = (GetDevice(0):get_argument_value(327))
-    local freq2 = (GetDevice(0):get_argument_value(328))
-    local freq3 = (GetDevice(0):get_argument_value(329))
-    local freq4 = (GetDevice(0):get_argument_value(330))
-    local freq5 = (GetDevice(0):get_argument_value(331))
-   return  freq1 .. freq2 .. "." .. freq3 .. freq4 .. freq5
-end
-
 local function getTacanChannel()
     local tcn_2 = ""
     if GetDevice(0):get_argument_value(263) == 0 then
@@ -382,7 +373,7 @@ defineRotary("SAI_PITCH_TRIM", 34, 3002, 442, "Standby Attitude Indicator", "SAI
 
 -- Clock
 definePushButton("CLOCK_WIND", 35, 3001, 510, "Clock", "ABU-11 Clock Winding Knob")
-defineRotary("CLOCK_WIND_ROTATRY", 35, 3002, 510, "Clock Attitude Indicator", "ABU-11 Clock Winding Rotary")
+defineRotary("CLOCK_WIND_ROTATRY", 35, 3002, 510, "Clock", "ABU-11 Clock Winding Rotary")
 definePushButton("CLOCK_SET", 35, 3001, 511, "Clock", "ABU-11 Clock Setting Knob")
 definePushButton("ELAP_TIME", 35, 3003, 512,"Clock" , "ABU-11 Clock Elapsed Time Knob")
 defineFloat("CLOCK_CURR_H", 19, {0.0, 1.0}, "Gauges", "Clock Currtime Hours")
@@ -412,7 +403,7 @@ defineFloat("UHF_10", 303, {0.0, 1.0}, "Gauges", "UHF Radio 10MHz")
 defineFloat("UHF_1", 304, {0.0, 1.0}, "Gauges", "UHF Radio 1MHz")
 defineFloat("UHF_01", 305, {0.0, 1.0}, "Gauges", "UHF Radio 0.1MHz")
 defineFloat("UHF_0025", 306, {0.0, 1.0}, "Gauges", "UHF Radio 0.025MHz")
-defineString("UHF_FREQUENCY", getUhfFreqency, 6, "UHF Radio", "UHF Radio Frequency")
+defineString("UHF_FREQUENCY", getUhfFrequency, 6, "UHF Radio", "UHF Radio Frequency")
 
 --TACAN
 defineIndicatorLight("TACAN_TEST", 260, "TACAN Panel", "TACAN Test Indicator Light")
