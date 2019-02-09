@@ -403,7 +403,6 @@ defineFloat("UHF_10", 303, {0.0, 1.0}, "Gauges", "UHF Radio 10MHz")
 defineFloat("UHF_1", 304, {0.0, 1.0}, "Gauges", "UHF Radio 1MHz")
 defineFloat("UHF_01", 305, {0.0, 1.0}, "Gauges", "UHF Radio 0.1MHz")
 defineFloat("UHF_0025", 306, {0.0, 1.0}, "Gauges", "UHF Radio 0.025MHz")
-defineString("UHF_FREQUENCY", getUhfFrequency, 6, "UHF Radio", "UHF Radio Frequency")
 
 --TACAN
 defineIndicatorLight("TACAN_TEST", 260, "TACAN Panel", "TACAN Test Indicator Light")
