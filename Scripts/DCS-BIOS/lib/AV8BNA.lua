@@ -9,7 +9,7 @@ local document = BIOS.util.document
 local parse_indication = BIOS.util.parse_indication
 
 
---local defineIndicatorLight = BIOS.util.defineIndicatorLight
+local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineTumb = BIOS.util.defineTumb
@@ -350,5 +350,50 @@ definePotentiometer("FLOOD_L_CAN_T", 28, 3159, 159, {-1, 1}, "Flood Lamps", "Flo
 defineToggleSwitch("CANOPY_HAND_L", 28, 3801, 801,"CANOPY" , "Canopy Handle Left")
 defineToggleSwitch("CANOPY_HAND_R", 28, 3802, 802,"CANOPY" , "Canopy Handle Right")
 defineToggleSwitch("CANOPY_LOCK", 28, 3803, 803,"CANOPY" , "Canopy Locking Lever")
+
+-------------------------------------------------------------------
+-- Indicator Lights
+-------------------------------------------------------------------
+--MIP INNER LEFT
+defineIndicatorLight("MC_LIGHT", 196, "Warning, Caution and IndicatorLights","MasterCaution Lamp")
+defineIndicatorLight("MW_LIGHT", 197, "Warning, Caution and IndicatorLights","MasterWarning Lamp")
+defineIndicatorLight("LFUEL_LIGHT", 326, "Warning, Caution and IndicatorLights","Left Fuel Lamp")
+defineIndicatorLight("RFUEL_LIGHT", 327, "Warning, Caution and IndicatorLights","Right Fuel Lamp")
+defineIndicatorLight("15SEK_LIGHT", 328, "Warning, Caution and IndicatorLights","15 Sek Lamp")
+defineIndicatorLight("MFS_LIGHT", 329, "Warning, Caution and IndicatorLights","MFS Lamp")
+defineIndicatorLight("BINGO_LIGHT", 330, "Warning, Caution and IndicatorLights","Bingo Lamp")
+defineIndicatorLight("H2O_LIGHT", 331, "Warning, Caution and IndicatorLights","H2O Lamp")
+--MIP RIGHT SIDE
+defineIndicatorLight("FIRE_LIGHT", 334, "Warning, Caution and IndicatorLights","Fire Lamp")
+defineIndicatorLight("LAW_LIGHT", 335, "Warning, Caution and IndicatorLights","LAW Lamp")
+defineIndicatorLight("FLAPS_LIGHT", 336, "Warning, Caution and IndicatorLights","Flaps Lamp")
+defineIndicatorLight("LTANK_LIGHT", 337, "Warning, Caution and IndicatorLights","Left Tank Lamp")
+defineIndicatorLight("RTANK_LIGHT", 338, "Warning, Caution and IndicatorLights","Right Tank Lamp")
+defineIndicatorLight("HHYD_LIGHT", 339, "Warning, Caution and IndicatorLights","HHYD Lamp")
+defineIndicatorLight("GEAR_LIGHT", 340, "Warning, Caution and IndicatorLights","Gear Lamp")
+defineIndicatorLight("OT_LIGHT", 341, "Warning, Caution and IndicatorLights","OT Lamp")
+defineIndicatorLight("JPTL_LIGHT", 342, "Warning, Caution and IndicatorLights","JPTL Lamp")
+defineIndicatorLight("EFC_LIGHT", 343, "Warning, Caution and IndicatorLights","EFC Lamp")
+defineIndicatorLight("GEN_LIGHT", 344, "Warning, Caution and IndicatorLights","GEN Lamp")
+--EYEBROW LIGHTS RIGHT SIGHT
+defineIndicatorLight("SAM_LIGHT", 276, "Warning, Caution and IndicatorLights","SAM Lamp")
+defineIndicatorLight("CW_LIGHT", 277, "Warning, Caution and IndicatorLights","CW Lamp")
+defineIndicatorLight("AI_LIGHT", 278, "Warning, Caution and IndicatorLights","AI Lamp")
+defineIndicatorLight("AAA_LIGHT", 279, "Warning, Caution and IndicatorLights","AAA Lamp")
+--MIP OUTER LEFT SIDE
+defineIndicatorLight("NAV_LIGHT", 283, "Warning, Caution and IndicatorLights","NAV Lamp")
+defineIndicatorLight("VSTOL_LIGHT", 285, "Warning, Caution and IndicatorLights","VSTOL Lamp")
+defineIndicatorLight("AG_LIGHT", 451, "Warning, Caution and IndicatorLights","A/G Lamp")
+defineIndicatorLight("SEL_LIGHT", 451, "Warning, Caution and IndicatorLights","SEL Lamp")
+defineIndicatorLight("CMBT_LIGHT", 452, "Warning, Caution and IndicatorLights","CMBT Lamp")
+defineIndicatorLight("STO_LIGHT", 453, "Warning, Caution and IndicatorLights","STO Lamp")
+--CANOPY FRAME
+defineIndicatorLight("LEFT_LIGHT", 750, "Warning, Caution and IndicatorLights","Left Lamp Canopy")
+defineIndicatorLight("READY_LIGHT", 751, "Warning, Caution and IndicatorLights","Ready Lamp Canopy")
+defineIndicatorLight("RIGHT_LIGHT", 752, "Warning, Caution and IndicatorLights","Right Lamp Canopy")
+--GEAR LEVER
+defineIndicatorLight("GEAR_LEVER_LIGHT", 446, "Warning, Caution and IndicatorLights","Red Gear Lever Lamp")
+--CAUTION PANEL (from upper left to lower right)
+defineIndicatorLight("OXY_LIGHT", 560, "Warning, Caution and IndicatorLights","OXY Warning Light")
 
 BIOS.protocol.endModule()
