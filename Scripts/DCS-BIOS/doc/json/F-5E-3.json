@@ -563,101 +563,69 @@
                                                                   }
                                             },
                                    "Clock": {
-                                                 "CLOCK_SET": {
-                                                                          "api_variant": "momentary_last_position",
-                                                                             "category": "Clock",
-                                                                         "control_type": "selector",
-                                                                          "description": "ABU-11 Clock Setting Knob",
-                                                                           "identifier": "CLOCK_SET",
-                                                                               "inputs": [ {
-                                                                                             "description": "switch to previous or next state",
-                                                                                               "interface": "fixed_step"
-                                                                                         }, {
-                                                                                             "description": "set position",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 1
-                                                                                         }, {
-                                                                                                "argument": "TOGGLE",
-                                                                                             "description": "Toggle switch state",
-                                                                                               "interface": "action"
-                                                                                         } ],
-                                                                  "momentary_positions": "none",
-                                                                              "outputs": [ {
-                                                                                                 "address": 30348,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 2048,
-                                                                                               "max_value": 1,
-                                                                                                "shift_by": 11,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "push_button"
-                                                              },
-                                                "CLOCK_WIND": {
-                                                                          "api_variant": "momentary_last_position",
-                                                                             "category": "Clock",
-                                                                         "control_type": "selector",
-                                                                          "description": "ABU-11 Clock Winding Knob",
-                                                                           "identifier": "CLOCK_WIND",
-                                                                               "inputs": [ {
-                                                                                             "description": "switch to previous or next state",
-                                                                                               "interface": "fixed_step"
-                                                                                         }, {
-                                                                                             "description": "set position",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 1
-                                                                                         }, {
-                                                                                                "argument": "TOGGLE",
-                                                                                             "description": "Toggle switch state",
-                                                                                               "interface": "action"
-                                                                                         } ],
-                                                                  "momentary_positions": "none",
-                                                                              "outputs": [ {
-                                                                                                 "address": 30348,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 1024,
-                                                                                               "max_value": 1,
-                                                                                                "shift_by": 10,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "push_button"
-                                                              },
-                                                 "ELAP_TIME": {
-                                                                          "api_variant": "momentary_last_position",
-                                                                             "category": "Clock",
-                                                                         "control_type": "selector",
-                                                                          "description": "ABU-11 Clock Elapsed Time Knob",
-                                                                           "identifier": "ELAP_TIME",
-                                                                               "inputs": [ {
-                                                                                             "description": "switch to previous or next state",
-                                                                                               "interface": "fixed_step"
-                                                                                         }, {
-                                                                                             "description": "set position",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 1
-                                                                                         }, {
-                                                                                                "argument": "TOGGLE",
-                                                                                             "description": "Toggle switch state",
-                                                                                               "interface": "action"
-                                                                                         } ],
-                                                                  "momentary_positions": "none",
-                                                                              "outputs": [ {
-                                                                                                 "address": 30348,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 4096,
-                                                                                               "max_value": 1,
-                                                                                                "shift_by": 12,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "push_button"
-                                                              }
-                                            },
-                "Clock Attitude Indicator": {
+                                                         "CLOCK_SET": {
+                                                                                  "api_variant": "momentary_last_position",
+                                                                                     "category": "Clock",
+                                                                                 "control_type": "selector",
+                                                                                  "description": "ABU-11 Clock Setting Knob",
+                                                                                   "identifier": "CLOCK_SET",
+                                                                                       "inputs": [ {
+                                                                                                     "description": "switch to previous or next state",
+                                                                                                       "interface": "fixed_step"
+                                                                                                 }, {
+                                                                                                     "description": "set position",
+                                                                                                       "interface": "set_state",
+                                                                                                       "max_value": 1
+                                                                                                 }, {
+                                                                                                        "argument": "TOGGLE",
+                                                                                                     "description": "Toggle switch state",
+                                                                                                       "interface": "action"
+                                                                                                 } ],
+                                                                          "momentary_positions": "none",
+                                                                                      "outputs": [ {
+                                                                                                         "address": 30348,
+                                                                                                     "description": "selector position",
+                                                                                                            "mask": 2048,
+                                                                                                       "max_value": 1,
+                                                                                                        "shift_by": 11,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ],
+                                                                             "physical_variant": "push_button"
+                                                                      },
+                                                        "CLOCK_WIND": {
+                                                                                  "api_variant": "momentary_last_position",
+                                                                                     "category": "Clock",
+                                                                                 "control_type": "selector",
+                                                                                  "description": "ABU-11 Clock Winding Knob",
+                                                                                   "identifier": "CLOCK_WIND",
+                                                                                       "inputs": [ {
+                                                                                                     "description": "switch to previous or next state",
+                                                                                                       "interface": "fixed_step"
+                                                                                                 }, {
+                                                                                                     "description": "set position",
+                                                                                                       "interface": "set_state",
+                                                                                                       "max_value": 1
+                                                                                                 }, {
+                                                                                                        "argument": "TOGGLE",
+                                                                                                     "description": "Toggle switch state",
+                                                                                                       "interface": "action"
+                                                                                                 } ],
+                                                                          "momentary_positions": "none",
+                                                                                      "outputs": [ {
+                                                                                                         "address": 30348,
+                                                                                                     "description": "selector position",
+                                                                                                            "mask": 1024,
+                                                                                                       "max_value": 1,
+                                                                                                        "shift_by": 10,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ],
+                                                                             "physical_variant": "push_button"
+                                                                      },
                                                 "CLOCK_WIND_ROTATRY": {
                                                                            "api_variant": "multiturn",
-                                                                              "category": "Clock Attitude Indicator",
+                                                                              "category": "Clock",
                                                                           "control_type": "analog_dial",
                                                                            "description": "ABU-11 Clock Winding Rotary",
                                                                             "identifier": "CLOCK_WIND_ROTATRY",
@@ -676,6 +644,36 @@
                                                                                                    "suffix": "_KNOB_POS",
                                                                                                      "type": "integer"
                                                                                           } ]
+                                                                      },
+                                                         "ELAP_TIME": {
+                                                                                  "api_variant": "momentary_last_position",
+                                                                                     "category": "Clock",
+                                                                                 "control_type": "selector",
+                                                                                  "description": "ABU-11 Clock Elapsed Time Knob",
+                                                                                   "identifier": "ELAP_TIME",
+                                                                                       "inputs": [ {
+                                                                                                     "description": "switch to previous or next state",
+                                                                                                       "interface": "fixed_step"
+                                                                                                 }, {
+                                                                                                     "description": "set position",
+                                                                                                       "interface": "set_state",
+                                                                                                       "max_value": 1
+                                                                                                 }, {
+                                                                                                        "argument": "TOGGLE",
+                                                                                                     "description": "Toggle switch state",
+                                                                                                       "interface": "action"
+                                                                                                 } ],
+                                                                          "momentary_positions": "none",
+                                                                                      "outputs": [ {
+                                                                                                         "address": 30348,
+                                                                                                     "description": "selector position",
+                                                                                                            "mask": 4096,
+                                                                                                       "max_value": 1,
+                                                                                                        "shift_by": 12,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ],
+                                                                             "physical_variant": "push_button"
                                                                       }
                                             },
                                  "Cockpit": {
@@ -2930,11 +2928,27 @@
                                                                                                     "type": "integer"
                                                                                          } ]
                                                                      },
-                                                       "UHF_0025_G": {
+                                                         "UHF_0025": {
                                                                              "category": "Gauges",
                                                                          "control_type": "analog_gauge",
                                                                           "description": "UHF Radio 0.025MHz",
-                                                                           "identifier": "UHF_0025_G",
+                                                                           "identifier": "UHF_0025",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 30468,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                           "UHF_01": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "UHF Radio 0.1MHz",
+                                                                           "identifier": "UHF_01",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                  "address": 30466,
@@ -2946,11 +2960,11 @@
                                                                                                     "type": "integer"
                                                                                          } ]
                                                                      },
-                                                         "UHF_01_G": {
+                                                            "UHF_1": {
                                                                              "category": "Gauges",
                                                                          "control_type": "analog_gauge",
-                                                                          "description": "UHF Radio 0.1MHz",
-                                                                           "identifier": "UHF_01_G",
+                                                                          "description": "UHF Radio 1MHz",
+                                                                           "identifier": "UHF_1",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                  "address": 30464,
@@ -2962,43 +2976,11 @@
                                                                                                     "type": "integer"
                                                                                          } ]
                                                                      },
-                                                        "UHF_100_G": {
-                                                                             "category": "Gauges",
-                                                                         "control_type": "analog_gauge",
-                                                                          "description": "UHF Radio 100MHz",
-                                                                           "identifier": "UHF_100_G",
-                                                                               "inputs": [  ],
-                                                                              "outputs": [ {
-                                                                                                 "address": 30458,
-                                                                                             "description": "gauge position",
-                                                                                                    "mask": 65535,
-                                                                                               "max_value": 65535,
-                                                                                                "shift_by": 0,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ]
-                                                                     },
-                                                         "UHF_10_G": {
+                                                           "UHF_10": {
                                                                              "category": "Gauges",
                                                                          "control_type": "analog_gauge",
                                                                           "description": "UHF Radio 10MHz",
-                                                                           "identifier": "UHF_10_G",
-                                                                               "inputs": [  ],
-                                                                              "outputs": [ {
-                                                                                                 "address": 30460,
-                                                                                             "description": "gauge position",
-                                                                                                    "mask": 65535,
-                                                                                               "max_value": 65535,
-                                                                                                "shift_by": 0,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ]
-                                                                     },
-                                                          "UHF_1_G": {
-                                                                             "category": "Gauges",
-                                                                         "control_type": "analog_gauge",
-                                                                          "description": "UHF Radio 1MHz",
-                                                                           "identifier": "UHF_1_G",
+                                                                           "identifier": "UHF_10",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                  "address": 30462,
@@ -3010,14 +2992,30 @@
                                                                                                     "type": "integer"
                                                                                          } ]
                                                                      },
-                                                       "UHF_CHAN_G": {
+                                                          "UHF_100": {
                                                                              "category": "Gauges",
                                                                          "control_type": "analog_gauge",
-                                                                          "description": "UHF Radio Channel",
-                                                                           "identifier": "UHF_CHAN_G",
+                                                                          "description": "UHF Radio 100MHz",
+                                                                           "identifier": "UHF_100",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30456,
+                                                                                                 "address": 30460,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                  "UHF_PRESET_CHAN": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "UHF Preset Radio Channel",
+                                                                           "identifier": "UHF_PRESET_CHAN",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 30458,
                                                                                              "description": "gauge position",
                                                                                                     "mask": 65535,
                                                                                                "max_value": 65535,
@@ -5168,11 +5166,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 30474,
+                                                                                                    "address": 30470,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 61440,
+                                                                                                       "mask": 240,
                                                                                                   "max_value": 10,
-                                                                                                   "shift_by": 12,
+                                                                                                   "shift_by": 4,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -5189,11 +5187,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 30474,
+                                                                                                    "address": 30470,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 3840,
+                                                                                                       "mask": 15,
                                                                                                   "max_value": 10,
-                                                                                                   "shift_by": 8,
+                                                                                                   "shift_by": 0,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -5206,7 +5204,7 @@
                                                                        "identifier": "TACAN_CHANNEL",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 30480,
+                                                                                             "address": 30474,
                                                                                          "description": "TACAN Channel",
                                                                                           "max_length": 4,
                                                                                               "suffix": "",
@@ -5233,11 +5231,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 30476,
+                                                                                                    "address": 30470,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 4,
+                                                                                                       "mask": 1024,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 2,
+                                                                                                   "shift_by": 10,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -5258,11 +5256,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 30476,
+                                                                                                    "address": 30470,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 3,
+                                                                                                       "mask": 768,
                                                                                                   "max_value": 3,
-                                                                                                   "shift_by": 0,
+                                                                                                   "shift_by": 8,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -5275,7 +5273,7 @@
                                                                        "identifier": "TACAN_TEST",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 30452,
+                                                                                             "address": 30454,
                                                                                          "description": "0 if light is off, 1 if light is on",
                                                                                                 "mask": 16384,
                                                                                            "max_value": 1,
@@ -5300,7 +5298,7 @@
                                                                                          "suggested_step": 3200
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                             "address": 30478,
+                                                                                             "address": 30472,
                                                                                          "description": "position of the potentiometer",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -5328,7 +5326,7 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 30452,
+                                                                                                    "address": 30454,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 32768,
                                                                                                   "max_value": 1,
@@ -5340,418 +5338,410 @@
                                                                  }
                                             },
                                "UHF Radio": {
-                                                      "UHF_0025": {
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Radio 0.025 MHz Frequency Selector Knob",
-                                                                               "identifier": "UHF_0025",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 4
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30452,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 1792,
-                                                                                                   "max_value": 4,
-                                                                                                    "shift_by": 8,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "limited_rotary"
-                                                                  },
-                                                        "UHF_01": {
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Radio 0.1 MHz Frequency Selector Knob",
-                                                                               "identifier": "UHF_01",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 10
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30452,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 240,
-                                                                                                   "max_value": 10,
-                                                                                                    "shift_by": 4,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "limited_rotary"
-                                                                  },
-                                                         "UHF_1": {
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Radio 1 MHz Frequency Selector Knob",
-                                                                               "identifier": "UHF_1",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 10
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30452,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 15,
-                                                                                                   "max_value": 10,
-                                                                                                    "shift_by": 0,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "limited_rotary"
-                                                                  },
-                                                        "UHF_10": {
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Radio 10 MHz Frequency Selector Knob",
-                                                                               "identifier": "UHF_10",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 10
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30450,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 30720,
-                                                                                                   "max_value": 10,
-                                                                                                    "shift_by": 11,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "limited_rotary"
-                                                                  },
-                                                       "UHF_100": {
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Radio 100 MHz Frequency Selector Knob",
-                                                                               "identifier": "UHF_100",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 3
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30450,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 1536,
-                                                                                                   "max_value": 3,
-                                                                                                    "shift_by": 9,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "limited_rotary"
-                                                                  },
-                                                       "UHF_ANT": {
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Radio Antenna Selector Switch, UPPER/AUTO/LOWER",
-                                                                               "identifier": "UHF_ANT",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 2
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30452,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 6144,
-                                                                                                   "max_value": 2,
-                                                                                                    "shift_by": 11,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "toggle_switch"
-                                                                  },
-                                                      "UHF_DOOR": {
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "Hinged Access Door, OPEN/CLOSE",
-                                                                               "identifier": "UHF_DOOR",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 1
-                                                                                             }, {
-                                                                                                    "argument": "TOGGLE",
-                                                                                                 "description": "Toggle switch state",
-                                                                                                   "interface": "action"
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30450,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 32768,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 15,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "toggle_switch"
-                                                                  },
-                                                      "UHF_FREQ": {
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Radio Frequency Mode Selector Switch, MANUAL/PRESET/GUARD",
-                                                                               "identifier": "UHF_FREQ",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 2
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30450,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 12,
-                                                                                                   "max_value": 2,
-                                                                                                    "shift_by": 2,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "limited_rotary"
-                                                                  },
-                                                 "UHF_FREQUENCY": {
-                                                                          "category": "UHF Radio",
-                                                                      "control_type": "display",
-                                                                       "description": "UHF Radio Frequency",
-                                                                        "identifier": "UHF_FREQUENCY",
-                                                                            "inputs": [  ],
-                                                                           "outputs": [ {
-                                                                                              "address": 30468,
-                                                                                          "description": "UHF Radio Frequency",
-                                                                                           "max_length": 7,
-                                                                                               "suffix": "",
-                                                                                                 "type": "string"
-                                                                                      } ]
-                                                                  },
-                                                      "UHF_FUNC": {
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Radio Function Selector Switch, OFF/MAIN/BOTH/ADF",
-                                                                               "identifier": "UHF_FUNC",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 3
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30450,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 3,
-                                                                                                   "max_value": 3,
-                                                                                                    "shift_by": 0,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "limited_rotary"
-                                                                  },
-                                                    "UHF_MIC_BT": {
-                                                                              "api_variant": "momentary_last_position",
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Radio Microphone Button",
-                                                                               "identifier": "UHF_MIC_BT",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 1
-                                                                                             }, {
-                                                                                                    "argument": "TOGGLE",
-                                                                                                 "description": "Toggle switch state",
-                                                                                                   "interface": "action"
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30348,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 32768,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 15,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "push_button"
-                                                                  },
-                                                       "UHF_PRE": {
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Radio Preset Channel Selector Knob",
-                                                                               "identifier": "UHF_PRE",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 20
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30450,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 496,
-                                                                                                   "max_value": 20,
-                                                                                                    "shift_by": 4,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "limited_rotary"
-                                                                  },
-                                                   "UHF_PRE_SET": {
-                                                                              "api_variant": "momentary_last_position",
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Preset Channel Set Button",
-                                                                               "identifier": "UHF_PRE_SET",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 1
-                                                                                             }, {
-                                                                                                    "argument": "TOGGLE",
-                                                                                                 "description": "Toggle switch state",
-                                                                                                   "interface": "action"
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30452,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 8192,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 13,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "push_button"
-                                                                  },
-                                                "UHF_SQUELCH_SW": {
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Radio Squelch Switch, ON/OFF",
-                                                                               "identifier": "UHF_SQUELCH_SW",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 1
-                                                                                             }, {
-                                                                                                    "argument": "TOGGLE",
-                                                                                                 "description": "Toggle switch state",
-                                                                                                   "interface": "action"
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30348,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 16384,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 14,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "toggle_switch"
-                                                                  },
-                                                   "UHF_TONE_BT": {
-                                                                              "api_variant": "momentary_last_position",
-                                                                                 "category": "UHF Radio",
-                                                                             "control_type": "selector",
-                                                                              "description": "UHF Radio Tone Button",
-                                                                               "identifier": "UHF_TONE_BT",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 1
-                                                                                             }, {
-                                                                                                    "argument": "TOGGLE",
-                                                                                                 "description": "Toggle switch state",
-                                                                                                   "interface": "action"
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 30348,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 8192,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 13,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "push_button"
-                                                                  },
-                                                       "UHF_VOL": {
-                                                                          "category": "UHF Radio",
-                                                                      "control_type": "limited_dial",
-                                                                       "description": "UHF Radio Volume Knob",
-                                                                        "identifier": "UHF_VOL",
-                                                                            "inputs": [ {
-                                                                                          "description": "set the position of the dial",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 65535
-                                                                                      }, {
-                                                                                             "description": "turn the dial left or right",
-                                                                                               "interface": "variable_step",
-                                                                                               "max_value": 65535,
-                                                                                          "suggested_step": 3200
-                                                                                      } ],
-                                                                           "outputs": [ {
-                                                                                              "address": 30454,
-                                                                                          "description": "position of the potentiometer",
-                                                                                                 "mask": 65535,
-                                                                                            "max_value": 65535,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ]
-                                                                  }
+                                                "UHF_0025MHZ_SEL": {
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Radio 0.025 MHz Frequency Selector Knob",
+                                                                                "identifier": "UHF_0025MHZ_SEL",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 4
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30454,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 1792,
+                                                                                                    "max_value": 4,
+                                                                                                     "shift_by": 8,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "limited_rotary"
+                                                                   },
+                                                  "UHF_01MHZ_SEL": {
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Radio 0.1 MHz Frequency Selector Knob",
+                                                                                "identifier": "UHF_01MHZ_SEL",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 10
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30454,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 240,
+                                                                                                    "max_value": 10,
+                                                                                                     "shift_by": 4,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "limited_rotary"
+                                                                   },
+                                                 "UHF_100MHZ_SEL": {
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Radio 100 MHz Frequency Selector Knob",
+                                                                                "identifier": "UHF_100MHZ_SEL",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 3
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30450,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 1536,
+                                                                                                    "max_value": 3,
+                                                                                                     "shift_by": 9,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "limited_rotary"
+                                                                   },
+                                                  "UHF_10MHZ_SEL": {
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Radio 10 MHz Frequency Selector Knob",
+                                                                                "identifier": "UHF_10MHZ_SEL",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 10
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30450,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 30720,
+                                                                                                    "max_value": 10,
+                                                                                                     "shift_by": 11,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "limited_rotary"
+                                                                   },
+                                                   "UHF_1MHZ_SEL": {
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Radio 1 MHz Frequency Selector Knob",
+                                                                                "identifier": "UHF_1MHZ_SEL",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 10
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30454,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 15,
+                                                                                                    "max_value": 10,
+                                                                                                     "shift_by": 0,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "limited_rotary"
+                                                                   },
+                                                        "UHF_ANT": {
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Radio Antenna Selector Switch, UPPER/AUTO/LOWER",
+                                                                                "identifier": "UHF_ANT",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 2
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30454,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 6144,
+                                                                                                    "max_value": 2,
+                                                                                                     "shift_by": 11,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "toggle_switch"
+                                                                   },
+                                                       "UHF_DOOR": {
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "Hinged Access Door, OPEN/CLOSE",
+                                                                                "identifier": "UHF_DOOR",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30450,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 32768,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 15,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "toggle_switch"
+                                                                   },
+                                                       "UHF_FREQ": {
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Radio Frequency Mode Selector Switch, MANUAL/PRESET/GUARD",
+                                                                                "identifier": "UHF_FREQ",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 2
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30450,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 12,
+                                                                                                    "max_value": 2,
+                                                                                                     "shift_by": 2,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "limited_rotary"
+                                                                   },
+                                                       "UHF_FUNC": {
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Radio Function Selector Switch, OFF/MAIN/BOTH/ADF",
+                                                                                "identifier": "UHF_FUNC",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 3
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30450,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 3,
+                                                                                                    "max_value": 3,
+                                                                                                     "shift_by": 0,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "limited_rotary"
+                                                                   },
+                                                     "UHF_MIC_BT": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Radio Microphone Button",
+                                                                                "identifier": "UHF_MIC_BT",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30348,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 32768,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 15,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "push_button"
+                                                                   },
+                                                 "UHF_PRESET_SEL": {
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Radio Preset Channel Selector Knob",
+                                                                                "identifier": "UHF_PRESET_SEL",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 20
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30450,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 496,
+                                                                                                    "max_value": 20,
+                                                                                                     "shift_by": 4,
+                                                                                                       "suffix": "_INT",
+                                                                                                         "type": "integer"
+                                                                                              }, {
+                                                                                                      "address": 30452,
+                                                                                                  "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
+                                                                                                   "max_length": 2,
+                                                                                                       "suffix": "_STR",
+                                                                                                         "type": "string"
+                                                                                              } ],
+                                                                          "physical_variant": "limited_rotary"
+                                                                   },
+                                                    "UHF_PRE_SET": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Preset Channel Set Button",
+                                                                                "identifier": "UHF_PRE_SET",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30454,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 8192,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 13,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "push_button"
+                                                                   },
+                                                 "UHF_SQUELCH_SW": {
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Radio Squelch Switch, ON/OFF",
+                                                                                "identifier": "UHF_SQUELCH_SW",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30348,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 16384,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 14,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "toggle_switch"
+                                                                   },
+                                                    "UHF_TONE_BT": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "UHF Radio",
+                                                                              "control_type": "selector",
+                                                                               "description": "UHF Radio Tone Button",
+                                                                                "identifier": "UHF_TONE_BT",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 30348,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 8192,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 13,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "push_button"
+                                                                   },
+                                                        "UHF_VOL": {
+                                                                           "category": "UHF Radio",
+                                                                       "control_type": "limited_dial",
+                                                                        "description": "UHF Radio Volume Knob",
+                                                                         "identifier": "UHF_VOL",
+                                                                             "inputs": [ {
+                                                                                           "description": "set the position of the dial",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 65535
+                                                                                       }, {
+                                                                                              "description": "turn the dial left or right",
+                                                                                                "interface": "variable_step",
+                                                                                                "max_value": 65535,
+                                                                                           "suggested_step": 3200
+                                                                                       } ],
+                                                                            "outputs": [ {
+                                                                                               "address": 30456,
+                                                                                           "description": "position of the potentiometer",
+                                                                                                  "mask": 65535,
+                                                                                             "max_value": 65535,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   }
                                             },
     "Warning, Caution and IndicatorLights": {
                                                  "AIR_DATA_COMPUTER": {
