@@ -352,7 +352,7 @@ defineToggleSwitch("CANOPY_HAND_R", 28, 3802, 802,"CANOPY" , "Canopy Handle Righ
 defineToggleSwitch("CANOPY_LOCK", 28, 3803, 803,"CANOPY" , "Canopy Locking Lever")
 
 -------------------------------------------------------------------
--- Indicator Lights
+-- Indicator Lights & Gauges
 -------------------------------------------------------------------
 --MIP INNER LEFT
 defineIndicatorLight("MC_LIGHT", 196, "Warning, Caution and IndicatorLights","MasterCaution Lamp")
@@ -441,5 +441,26 @@ defineIndicatorLight("ENG_EXC_WLIGHT", 603, "Warning, Caution and IndicatorLight
 defineIndicatorLight("P_NOGO_WLIGHT", 604, "Warning, Caution and IndicatorLights","P NOGO Warning Light")
 defineIndicatorLight("CW_JAM_WLIGHT", 605, "Warning, Caution and IndicatorLights","CW JAM Warning Light")
 defineIndicatorLight("REPLY_WLIGHT", 606, "Warning, Caution and IndicatorLights","REPLY Warning Light")
+--ENGINE DISPLAY
+defineFloat("DUCT1", 253, {0.0, 1.0}, "Gauges", "Duct 1. Drum Digit")
+defineFloat("DUCT2", 254, {0.0, 1.0}, "Gauges", "Duct 2. Drum Digit")
+defineFloat("DUCT3", 255, {0.0, 1.0}, "Gauges", "Duct 3. Drum Digit")
+defineFloat("RPM1", 256, {0.0, 1.0}, "Gauges", "RPM 1. Drum Digit")
+defineFloat("RPM2", 257, {0.0, 1.0}, "Gauges", "RPM 2. Drum Digit")
+defineFloat("RPM3", 258, {0.0, 1.0}, "Gauges", "RPM 3. Drum Digit")
+defineFloat("RPM4", 259, {0.0, 1.0}, "Gauges", "RPM 4. Drum Digit")
+defineFloat("FF1", 260, {0.0, 1.0}, "Gauges", "FF 1. Drum Digit")
+defineFloat("FF2", 261, {0.0, 1.0}, "Gauges", "FF 2. Drum Digit")
+defineFloat("FF3", 262, {0.0, 1.0}, "Gauges", "FF 3. Drum Digit")
+defineFloat("JPT1", 263, {0.0, 1.0}, "Gauges", "JPT 1. Drum Digit")
+defineFloat("JPT2", 264, {0.0, 1.0}, "Gauges", "JPT 2. Drum Digit")
+defineFloat("JPT3", 265, {0.0, 1.0}, "Gauges", "JPT 3. Drum Digit")
+defineFloat("STAB_ARROW", 266, {-1.0, 1.0}, "STAB Arrow up/down Drum Digit")
+defineFloat("STAB1", 267, {0.0, 1.0}, "Gauges", "STAB 1. Drum Digit")
+defineFloat("STAB2", 268, {0.0, 1.0}, "Gauges", "STAB 2. Drum Digit")
+defineFloat("H2O1", 269, {0.0, 1.0}, "Gauges", "H2O 1. Drum Digit")
+defineFloat("H2O2", 270, {0.0, 1.0}, "Gauges", "H2O 2. Drum Digit")
+defineFloat("NOZZLE_POINTER", 271, {0.0, 1.0}, "Gauges", "Nozzle Pointer")
+defineIndicatorLight("H2O_CONTROL_LIGHT", 331, "Warning, Caution and IndicatorLights","H2O Control Lamp")
 
 BIOS.protocol.endModule()

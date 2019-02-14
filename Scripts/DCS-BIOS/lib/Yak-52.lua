@@ -14,6 +14,11 @@ local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFloat = BIOS.util.defineFloat
 
+-- Fore Pit
+definePushButton("WBRAKES_LOCK", 2, 3028, 4,"Joystick" , "Wheel Brakes Lock")
+defineToggleSwitch("SMOKE", 6, 3039, 190,"Joystick" , "Smoke Apparat")
+
+
 --Gauges
 defineFloat("FRONT_ACCEL_MINUTE", 42, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Minute")
 defineFloat("FRONT_ACCEL_MIN", 44, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Min")
