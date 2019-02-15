@@ -17,7 +17,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 --local defineString = BIOS.util.defineString
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
---local defineFloat = BIOS.util.defineFloat
+local defineFloat = BIOS.util.defineFloat
 
 local function define3PosTumb(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
@@ -354,7 +354,7 @@ defineToggleSwitch("CANOPY_LOCK", 28, 3803, 803,"CANOPY" , "Canopy Locking Lever
 -------------------------------------------------------------------
 -- Indicator Lights & Gauges
 -------------------------------------------------------------------
---MIP INNER LEFT
+---MIP INNER LEFT
 defineIndicatorLight("MC_LIGHT", 196, "Warning, Caution and IndicatorLights","MasterCaution Lamp")
 defineIndicatorLight("MW_LIGHT", 197, "Warning, Caution and IndicatorLights","MasterWarning Lamp")
 defineIndicatorLight("LFUEL_LIGHT", 326, "Warning, Caution and IndicatorLights","Left Fuel Lamp")
@@ -363,7 +363,7 @@ defineIndicatorLight("15SEK_LIGHT", 328, "Warning, Caution and IndicatorLights",
 defineIndicatorLight("MFS_LIGHT", 329, "Warning, Caution and IndicatorLights","MFS Lamp")
 defineIndicatorLight("BINGO_LIGHT", 330, "Warning, Caution and IndicatorLights","Bingo Lamp")
 defineIndicatorLight("H2O_LIGHT", 331, "Warning, Caution and IndicatorLights","H2O Lamp")
---MIP RIGHT SIDE
+---MIP RIGHT SIDE
 defineIndicatorLight("FIRE_LIGHT", 334, "Warning, Caution and IndicatorLights","Fire Lamp")
 defineIndicatorLight("LAW_LIGHT", 335, "Warning, Caution and IndicatorLights","LAW Lamp")
 defineIndicatorLight("FLAPS_LIGHT", 336, "Warning, Caution and IndicatorLights","Flaps Lamp")
@@ -375,25 +375,25 @@ defineIndicatorLight("OT_LIGHT", 341, "Warning, Caution and IndicatorLights","OT
 defineIndicatorLight("JPTL_LIGHT", 342, "Warning, Caution and IndicatorLights","JPTL Lamp")
 defineIndicatorLight("EFC_LIGHT", 343, "Warning, Caution and IndicatorLights","EFC Lamp")
 defineIndicatorLight("GEN_LIGHT", 344, "Warning, Caution and IndicatorLights","GEN Lamp")
---EYEBROW LIGHTS RIGHT SIGHT
+---EYEBROW LIGHTS RIGHT SIGHT
 defineIndicatorLight("SAM_LIGHT", 276, "Warning, Caution and IndicatorLights","SAM Lamp")
 defineIndicatorLight("CW_LIGHT", 277, "Warning, Caution and IndicatorLights","CW Lamp")
 defineIndicatorLight("AI_LIGHT", 278, "Warning, Caution and IndicatorLights","AI Lamp")
 defineIndicatorLight("AAA_LIGHT", 279, "Warning, Caution and IndicatorLights","AAA Lamp")
---MIP OUTER LEFT SIDE
+---MIP OUTER LEFT SIDE
 defineIndicatorLight("NAV_LIGHT", 283, "Warning, Caution and IndicatorLights","NAV Lamp")
 defineIndicatorLight("VSTOL_LIGHT", 285, "Warning, Caution and IndicatorLights","VSTOL Lamp")
 defineIndicatorLight("AG_LIGHT", 451, "Warning, Caution and IndicatorLights","A/G Lamp")
 defineIndicatorLight("SEL_LIGHT", 451, "Warning, Caution and IndicatorLights","SEL Lamp")
 defineIndicatorLight("CMBT_LIGHT", 452, "Warning, Caution and IndicatorLights","CMBT Lamp")
 defineIndicatorLight("STO_LIGHT", 453, "Warning, Caution and IndicatorLights","STO Lamp")
---CANOPY FRAME
+---CANOPY FRAME
 defineIndicatorLight("LEFT_LIGHT", 750, "Warning, Caution and IndicatorLights","Left Lamp Canopy")
 defineIndicatorLight("READY_LIGHT", 751, "Warning, Caution and IndicatorLights","Ready Lamp Canopy")
 defineIndicatorLight("RIGHT_LIGHT", 752, "Warning, Caution and IndicatorLights","Right Lamp Canopy")
---GEAR LEVER
+---GEAR LEVER
 defineIndicatorLight("GEAR_LEVER_LIGHT", 446, "Warning, Caution and IndicatorLights","Red Gear Lever Lamp")
---CAUTION PANEL (from upper left to lower right)
+---CAUTION PANEL (from upper left to lower right)
 defineIndicatorLight("OXY_WLIGHT", 560, "Warning, Caution and IndicatorLights","OXY Warning Light")
 defineIndicatorLight("WSLD_WLIGHT", 561, "Warning, Caution and IndicatorLights","WSLD Warning Light")
 defineIndicatorLight("HYD1_WLIGHT", 562, "Warning, Caution and IndicatorLights","HYD 1 Warning Light")
@@ -441,7 +441,7 @@ defineIndicatorLight("ENG_EXC_WLIGHT", 603, "Warning, Caution and IndicatorLight
 defineIndicatorLight("P_NOGO_WLIGHT", 604, "Warning, Caution and IndicatorLights","P NOGO Warning Light")
 defineIndicatorLight("CW_JAM_WLIGHT", 605, "Warning, Caution and IndicatorLights","CW JAM Warning Light")
 defineIndicatorLight("REPLY_WLIGHT", 606, "Warning, Caution and IndicatorLights","REPLY Warning Light")
---ENGINE DISPLAY
+---ENGINE DISPLAY
 defineFloat("DUCT1", 253, {0.0, 1.0}, "Gauges", "Duct 1. Drum Digit")
 defineFloat("DUCT2", 254, {0.0, 1.0}, "Gauges", "Duct 2. Drum Digit")
 defineFloat("DUCT3", 255, {0.0, 1.0}, "Gauges", "Duct 3. Drum Digit")
@@ -462,5 +462,100 @@ defineFloat("H2O1", 269, {0.0, 1.0}, "Gauges", "H2O 1. Drum Digit")
 defineFloat("H2O2", 270, {0.0, 1.0}, "Gauges", "H2O 2. Drum Digit")
 defineFloat("NOZZLE_POINTER", 271, {0.0, 1.0}, "Gauges", "Nozzle Pointer")
 defineIndicatorLight("H2O_CONTROL_LIGHT", 331, "Warning, Caution and IndicatorLights","H2O Control Lamp")
+---FUEL PANEL DISPLAY
+defineFloat("FUEL_FLAG", 365, {0.0, 1.0}, "Gauges", "FUEL ON/OFF Flag")
+defineFloat("TOT_FUEL1", 366, {0.0, 1.0}, "Gauges", "TOT FUEL 1. Drum Digit")
+defineFloat("TOT_FUEL2", 367, {0.0, 1.0}, "Gauges", "TOT FUEL 2. Drum Digit")
+defineFloat("TOT_FUEL3", 368, {0.0, 1.0}, "Gauges", "TOT FUEL 3. Drum Digit")
+defineFloat("TOT_FUEL4", 369, {0.0, 1.0}, "Gauges", "TOT FUEL 4. Drum Digit")
+defineFloat("TOT_FUEL5", 370, {0.0, 1.0}, "Gauges", "TOT FUEL 5. Drum Digit")
+defineFloat("LBS_L1", 371, {0.0, 1.0}, "Gauges", "LBS Left 1. Drum Digit")
+defineFloat("LBS_L2", 372, {0.0, 1.0}, "Gauges", "LBS Left 2. Drum Digit")
+defineFloat("LBS_L3", 373, {0.0, 1.0}, "Gauges", "LBS Left 3. Drum Digit")
+defineFloat("LBS_L4", 374, {0.0, 1.0}, "Gauges", "LBS Left 4. Drum Digit")
+defineFloat("LBS_R1", 375, {0.0, 1.0}, "Gauges", "LBS Right 1. Drum Digit")
+defineFloat("LBS_R2", 376, {0.0, 1.0}, "Gauges", "LBS Right 2. Drum Digit")
+defineFloat("LBS_R3", 377, {0.0, 1.0}, "Gauges", "LBS Right 3. Drum Digit")
+defineFloat("LBS_R4", 378, {0.0, 1.0}, "Gauges", "LBS Right 4. Drum Digit")
+defineFloat("BINGO1", 381, {0.0, 1.0}, "Gauges", "BINGO 1. Drum Digit")
+defineFloat("BINGO2", 382, {0.0, 1.0}, "Gauges", "BINGO 2. Drum Digit")
+defineFloat("BINGO3", 383, {0.0, 1.0}, "Gauges", "BINGO 3. Drum Digit")
+defineFloat("BINGO4", 384, {0.0, 1.0}, "Gauges", "BINGO 4. Drum Digit")
+---UPPER AMARMENT PANEL
+defineFloat("MODE_GAUGE", 385, {0.0, 1.0}, "Gauges", "MODE Drum Digit")
+defineFloat("FUZ1", 386, {0.0, 1.0}, "Gauges", "Fuze 1. Drum Digit")
+defineFloat("FUZ2", 387, {0.0, 1.0}, "Gauges", "Fuze 2. Drum Digit")
+defineFloat("INVT1", 392, {0.0, 1.0}, "Gauges", "InVT x 10 1. Drum Digit")
+defineFloat("INVT2", 393, {0.0, 1.0}, "Gauges", "InVT x 10 2. Drum Digit")
+defineFloat("INVT3", 394, {0.0, 1.0}, "Gauges", "InVT x 10 3. Drum Digit")
+defineFloat("MULT_GAUGE", 391, {0.0, 1.0}, "Gauges", "Multiplicator Drum Digit")
+defineFloat("QTY1", 389, {0.0, 1.0}, "Gauges", "Quantity 1. Drum Digit")
+defineFloat("QTY2", 390, {0.0, 1.0}, "Gauges", "Quantity 2. Drum Digit")
+---LOWER AMARMENT PANEL
+defineFloat("SET_FLAG1", 406, {0.0, 1.0}, "Gauges", "SET FLAG 1 Gauge")
+defineFloat("SET_FLAG2", 408, {0.0, 1.0}, "Gauges", "SET FLAG 2 Gauge")
+defineFloat("SET_FLAG3", 410, {0.0, 1.0}, "Gauges", "SET FLAG 3 Gauge")
+defineFloat("SET_FLAG4", 412, {0.0, 1.0}, "Gauges", "SET FLAG 4 Gauge")
+defineFloat("SET_FLAG5", 414, {0.0, 1.0}, "Gauges", "SET FLAG 5 Gauge")
+defineFloat("SET_FLAG6", 416, {0.0, 1.0}, "Gauges", "SET FLAG 6 Gauge")
+defineFloat("SET_FLAG7", 418, {0.0, 1.0}, "Gauges", "SET FLAG 7 Gauge")
+---GEAR PANEL DISPLAY --STATUS LIGHTS--
+defineIndicatorLight("NOSE_GEAR_Y", 462, "Warning, Caution and IndicatorLights","Nose Gear Yellow Light")
+defineIndicatorLight("NOSE_GEAR_G", 463, "Warning, Caution and IndicatorLights","Nose Gear Green Light")
+defineIndicatorLight("LEFT_GEAR_Y", 464, "Warning, Caution and IndicatorLights","Left Gear Yellow Light")
+defineIndicatorLight("LEFT_GEAR_G", 465, "Warning, Caution and IndicatorLights","Left Gear Green Light")
+defineIndicatorLight("RIGHT_GEAR_Y", 466, "Warning, Caution and IndicatorLights","Right Gear Yellow Light")
+defineIndicatorLight("RIGHT_GEAR_G", 467, "Warning, Caution and IndicatorLights","Right Gear Green Light")
+defineIndicatorLight("MAIN_GEAR_Y", 469, "Warning, Caution and IndicatorLights","Main Gear Yellow Light")
+defineIndicatorLight("MAIN_GEAR_G", 468, "Warning, Caution and IndicatorLights","Main Gear Green Light")
+---BRAKE/ HYD DISPLAY
+defineFloat("BRAKE1", 550, {0.0, 1.0}, "Gauges", "Brake 1. Drum Digit")
+defineFloat("BRAKE2", 551, {0.0, 1.0}, "Gauges", "Brake 2. Drum Digit")
+defineFloat("BRAKE3", 552, {0.0, 1.0}, "Gauges", "Brake 3. Drum Digit")
+defineFloat("HYD11", 553, {0.0, 1.0}, "Gauges", "Hydraulic 1 1. Drum Digit")
+defineFloat("HYD12", 554, {0.0, 1.0}, "Gauges", "Hydraulic 1 2. Drum Digit")
+defineFloat("HYD13", 555, {0.0, 1.0}, "Gauges", "Hydraulic 1 3. Drum Digit")
+defineFloat("HYD21", 556, {0.0, 1.0}, "Gauges", "Hydraulic 2 1. Drum Digit")
+defineFloat("HYD22", 557, {0.0, 1.0}, "Gauges", "Hydraulic 2 2. Drum Digit")
+defineFloat("HYD23", 558, {0.0, 1.0}, "Gauges", "Hydraulic 2 3. Drum Digit")
+---FLAP POSITION DISPLAY
+defineFloat("FLAP_POS1", 455, {0.0, 1.0}, "Gauges", "Flap Position 1. Drum Digit")
+defineFloat("FLAP_POS2", 456, {0.0, 1.0}, "Gauges", "Flap Position 2. Drum Digit")
+defineFloat("ADI_PITCH", 349, {-1, 1}, "Gauges", "ADI Pitch")
+defineFloat("ADI_BANK", 348, {-1, 1}, "Gauges", "ADI Bank")
+defineFloat("ADI_FLAG", 347, {0, 1}, "Gauges", "ADI OFF Flag")
+defineFloat("KNT_POINTER_S", 346, {0, 1}, "Gauges", "Speed knt Pointer Short")
+defineFloat("KNT_POINTER_L", 345, {0, 1}, "Gauges", "Speed knt Pointer Long")
+defineFloat("ALT_POINTER", 352, {0, 1}, "Gauges", "Altimeter Pointer")
+defineFloat("ALT_10000FT_CNT", 353, {0, 1}, "Gauges", "Altimeter 10000 FT Counter")
+defineFloat("ALT_1000FT_CNT", 354, {0, 1}, "Gauges", "Altimeter 1000 FT Counter")
+defineFloat("ALT_100FT_CNT", 355, {0, 1}, "Gauges", "Altimeter 100 FT Counter")
+defineFloat("ALT_PRESSURE1", 356, {0, 1}, "Gauges", "Altimeter Pressure Digit 1")
+defineFloat("ALT_PRESSURE2", 357, {0, 1}, "Gauges", "Altimeter Pressure Digit 2")
+defineFloat("ALT_PRESSURE3", 358, {0, 1}, "Gauges", "Altimeter Pressure Digit 3")
+defineFloat("ALT_PRESSURE4", 359, {0, 1}, "Gauges", "Altimeter Pressure Digit 4")
+defineFloat("AOA_FLAG", 360, {0, 1}, "Gauges", "Speed knt Pointer Short")
+defineFloat("AOA_POINTER", 361, {-0.1, 0.2}, "Gauges", "Speed knt Pointer Long")
+defineFloat("VVI", 362, {-1, 1}, "Gauges", "Vertical Velocity Indicator")
+defineFloat("SLIP_IND", 363, {-1, 1}, "Gauges", "Slip Indicator Ball")
+---SIDE PANELS LEFT
+defineFloat("AILERON_NEEDLE", 473, {-1, 1}, "Gauges", "Aileron Needle")
+defineFloat("RUDDER_NEEDLE", 474, {-1, 1}, "Gauges", "Rudder Needle")
+---SIDE PANELS RIGHT
+defineFloat("CABIN_PRESS", 607, {0, 1}, "Gauges", "Cabin Pressure Pointer")
+defineFloat("VOLT_METER", 608, {0, 1}, "Gauges", "Volt Meter Pointer")
+---COMPASS
+defineFloat("COMPASS_NS", 753, {0, 1}, "Gauges", "Compassrose N-S")
+defineFloat("COMPASS_UD", 754, {-1, 1}, "Gauges", "Compassrose Up/Down")
+defineFloat("COMPASS_BANK", 755, {-1, 1}, "Gauges", "Compassrose Bank")
+---CLOCK
+defineFloat("CLOCK_HH", 759, {0, 1}, "Gauges", "Clock Hours")
+defineFloat("CLOCK_MM", 760, {0, 1}, "Gauges", "Clock Minutes")
+defineFloat("CLOCK_SS", 761, {0, 1}, "Gauges", "Clock Seconds")
+--CABIN LIGHTNING
+defineFloat("FLOOD_LIGHTS", 180, {0, 1}, "Gauges", "Flood Lightning Intensity")
+defineFloat("MIP_LIGHTS", 182, {0, 1}, "Gauges", "MIP Backlight Intensity")
+defineFloat("SIDEPANEL_LIGHTS", 183, {0, 1}, "Gauges", "Sidepanel Lightning Intensity")
+defineFloat("COMPASS_LIGHTS", 184, {0, 1}, "Gauges", "Compass Lightning Intensity")
 
 BIOS.protocol.endModule()
