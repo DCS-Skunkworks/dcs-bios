@@ -185,7 +185,7 @@ local function getRadarAlt()
 	if digit4 == "10" then digit4 = " " end
 	return digit1 .. digit2 .. digit3 .. digit4
 end
-defineString("RALT_DISPLAY", getRadarAlt, 4, "Radar Altimeter", "Display")
+defineString("RALT_DISPLAY", getRadarAlt, 4, "Radar Altimeter", "Radar Altitude")
 
 -- clickabledata.lua:
 
