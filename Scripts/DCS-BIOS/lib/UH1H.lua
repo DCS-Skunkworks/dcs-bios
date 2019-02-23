@@ -22,6 +22,7 @@ local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- MAIN_PANEL/electric_system_gauges.lua:
 defineFloat("DC_VOLTAGE", 526, {0, 1}, "WTF", "DC Voltage")
@@ -174,18 +175,18 @@ defineIndicatorLight("RALT_HI_LAMP", 465, "Radar Altimeter", "HI Lamp")
 defineFloat("RALT_LO_IDX", 444, {0, 1}, "Radar Altimeter", "LO Index")
 defineFloat("RALT_HI_IDX", 466, {0, 1}, "Radar Altimeter", "HI Index")
 local function getRadarAlt()
-	local function a(n) return GetDevice(0):get_argument_value(n) end
-	local digit1 = string.format("%.0f", a(468)*10)
-	if digit1 == "10" then digit1 = " " end
-	local digit2 = string.format("%.0f", a(469)*10)
-	if digit2 == "10" then digit2 = " " end
-	local digit3 = string.format("%.0f", a(470)*10)
-	if digit3 == "10" then digit3 = " " end
-	local digit4 = string.format("%.0f", a(471)*10)
-	if digit4 == "10" then digit4 = " " end
-	return digit1 .. digit2 .. digit3 .. digit4
+    local function a(n) return GetDevice(0):get_argument_value(n) end
+    local digit1 = string.format("%.0f", a(468)10)
+    if digit1 == "10" then digit1 = " " end
+    local digit2 = string.format("%.0f", a(469)10)
+    if digit2 == "10" then digit2 = " " end
+    local digit3 = string.format("%.0f", a(470)10)
+    if digit3 == "10" then digit3 = " " end
+    local digit4 = string.format("%.0f", a(471)10)
+    if digit4 == "10" then digit4 = " " end
+    return tonumber(digit1 .. digit2 .. digit3 .. digit4)
 end
-defineString("RALT_DISPLAY", getRadarAlt, 4, "Radar Altimeter", "Display")
+defineIntegerFromGetter("RALT_DISPLAY", getRadarAlt, 65000, "Radar Altimeter", "Radar Altitude Display")
 
 -- clickabledata.lua:
 
@@ -311,8 +312,6 @@ definePushButton("IFF_REPLY_TEST", 17, 3017, 74, "IFF", "REPLY Push to Test")
 definePotentiometer("IFF_REPLY_DIM", 17, 3020, 78, {0.0, 1.0}, "IFF", "IFF Reply Dim")
 definePushButton("IFF_TEST_TEST", 17, 3018, 75, "IFF", "TEST Push to Test")
 definePotentiometer("IFF_TEST_DIM", 17, 3021, 79, {0.0, 1.0}, "IFF", "TEST Reply Dim")
-
-
 
 defineToggleSwitchToggleOnly("CLOCK_ADJUST_PULL", 30, 3001, 131, "Clock", "Adjustment Dial Pull")
 defineRotary("CLOCK_ADJUST", 30, 3002, 130, "Clock", "Adjustment Dial")
