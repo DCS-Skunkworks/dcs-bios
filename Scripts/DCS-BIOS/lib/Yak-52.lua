@@ -29,7 +29,9 @@ definePushButton("ACCEL_BTN", 6, 3001, 45,"Fore Main Panel" , "Stall Warning Tes
 defineRotary("ALT_KNOB", 6, 3004, 114, "Fore Main Panel", "Altimeter Knob")
 defineRotary("AHORIZON_ZERO", 6, 3012, 143, "Fore Main Panel", "Artificial Horizon Zeroing")
 definePushButton("AHORIZON_LOCK", 6, 3020, 145,"Fore Main Panel" , "Artificial Horizon LOCK Button")
-
+defineToggleSwitch("UCE_LOCK", 2, 3002, 33,"Fore Main Panel" , "Undercarriage Extension Lock")
+defineRotary("HSI_KNOB", 22, 3001, 155, "Fore Main Panel", "HSI Knob")
+definePushButton("VOLTAMP_BTN", 15, 3001, 176,"Fore Main Panel" , "Voltamperemeter Button")
 ---Gauges
 defineFloat("FRONT_ACCEL_MINUTE", 42, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Minute")
 defineFloat("FRONT_ACCEL_MIN", 44, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Min")
