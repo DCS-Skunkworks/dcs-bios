@@ -184,7 +184,6 @@ local function getRadarAlt()
     local digit3 = string.format("%.0f", a(470)(10))
     if digit3 == "10" then digit3 = " " end
     local digit4 = string.format("%.0f", a(471)(10))
-    if digit4 == "10" then digit4 = " " end
     return tonumber(digit1 .. digit2 .. digit3 .. digit4)
 end
 defineIntegerFromGetter("RALT_DISPLAY", getRadarAlt, 65000, "Radar Altimeter", "Radar Altitude Display")
