@@ -1,9 +1,7 @@
--- F/A-18 Module created by AndrewW v0.9 for DCS Beta 2.5.3.23954
+-- F/A-18 Module created by AndrewW v1.0 for DCS Beta 2.5.4.26368
 -- Many thanks to Capt Zeen for the pointers on analog outputs and UFC/IFEI export
 -- And of course huge thanks to [FSF]Ian for writing DCS-BIOS in the first place
 -- Added new functions by Capt Zeen to get radios frecuencies and channels
-
-
 
 BIOS.protocol.beginModule("FA-18C_hornet", 0x7400)
 BIOS.protocol.setExportModuleAircrafts({"FA-18C_hornet"})
@@ -1039,7 +1037,7 @@ defineToggleSwitch("INT_WNG_TANK_SW", 6, 3001, 340, "Exterior Lights Panel", "In
 
 -- 5. Fuel Panel
 define3PosTumb("PROBE_SW", 6, 3002, 341, "Fuel Panel", "Probe Control Switch, EXTEND/RETRACT/EMERG EXTD")
-defineToggleSwitch("FUEL_DUMP_SW", 6, 3003, 344, "Fuel Panel", "Fuel Dump Switch, ON/OFF")
+defineToggleSwitchToggleOnly2("FUEL_DUMP_SW", 6, 3003, 344, "Fuel Panel", "Fuel Dump Switch, ON/OFF")
 define3PosTumb("EXT_CNT_TANK_SW", 6, 3004, 343, "Fuel Panel", "External Centerline Tank Fuel Control Switch, STOP/NORM/ORIDE")
 define3PosTumb("EXT_WNG_TANK_SW", 6, 3005, 342, "Fuel Panel", "External Wing Tanks Fuel Control Switch, STOP/NORM/ORIDE")
 
@@ -1131,7 +1129,6 @@ definePotentiometer("CABIN_TEMP", 11, 3006, 407, {0, 1}, "Environment Control Sy
 definePotentiometer("SUIT_TEMP", 11, 3007, 406, {0, 1}, "Environment Control System Panel", "Suit Temperature Knob")
 define3PosTumb("ENG_ANTIICE_SW", 12, 3014, 410, "Environment Control System Panel", "Engine Anti-Ice Switch, ON/OFF/TEST")
 defineToggleSwitchToggleOnly2("PITOT_HEAT_SW", 3, 3016, 409, "Environment Control System Panel", "Pitot Heater Switch, ON/AUTO")
---defineToggleSwitch("PITOT_HEAT_SW", 3, 3016, 409, "Environment Control System Panel", "Pitot Heater Switch, ON/AUTO")
 
 -- 3. Interior Lights Panel
 definePotentiometer("CONSOLES_DIMMER", 9, 3001, 413, {0, 1}, "Interior Lights Panel", "CONSOLES Lights Dimmer")

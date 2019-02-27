@@ -1,8 +1,6 @@
 BIOS.protocol.beginModule("L-39ZA", 0x3200)
 BIOS.protocol.setExportModuleAircrafts({"L-39C", "L-39ZA"})
 
-
-
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -28,18 +26,13 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 -- Barometric altimeter VD-20
 defineFloat("VD20", 52, {0, 1}, "instruments l-39","Altimeter KM")-- Kilometers gauge on VD-20
 
-
-
 -- Radar altimeter RV-5
 defineFloat("RV_5_RALT", 58, {0, 1}, "instruments l-39","Radio Altimeter")
-
-
 
 -- VARIOMETER
 defineFloat("Variometer", 74, {-1,1}, "instruments l-39","Variometer")
 defineFloat("Variometer_turn", 75, {-1, 1}, "instruments l-39","Roll indication variometre")
 defineFloat("Variometer_sideslip", 76, {-1, 1},"instruments l-39","Sideslip Variometer")
-
 
 -- ARTI HORIZ (KPP)
 defineFloat("KPP_1273K_roll", 38, {-1, 1}, "instruments l-39","KPP Roll")
@@ -53,8 +46,6 @@ defineFloat("KPP_Localizer_Beacon", 37, {0, 1}, "instruments l-39","LOC KPP")-- 
 defineFloat("KPP_SDU_Roll_Fwd", 32, {-1, 1}, "instruments l-39","SDU Roll KPP")-- SDU roll indication on KPP
 defineFloat("KPP_SDU_Pitch_Fwd", 33, {-1, 1}, "instruments l-39","SDU Pitch KPP")-- SDU pitch indicator on KPP
 
-
-
 -- NPP (HSI)
 defineFloat("HSI_heading", 41, {0, 1}, "instruments l-39","Heading indication")-- heading indication
 defineFloat("HSI_commanded_course_needle", 42, {1.0, 0.0}, "instruments l-39","Commanded course Needle")
@@ -64,50 +55,33 @@ defineFloat("HSI_Alt_Deviation_Bar", 45, {-0.8, 0.8}, "instruments l-39","GLIDE"
 defineFloat("HSI_Glide_Beacon", 46, {0, 1}, "instruments l-39","GLIDE HSI FLAG")-- GLIDE beacon
 defineFloat("HSI_Localizer_Beacon", 44, {0, 1}, "instruments l-39","LOC HSI FLAG")-- LOC beacon
 
-
-
 --RSBN
 defineFloat("RSBN_Range_1", 64, {0, 1}, "instruments l-39","Range RSBN 1KM")-- range indication by 1 KM
 defineFloat("RSBN_Range_10", 65, {0, 1}, "instruments l-39","Range RSBN 10KM")-- range indication by 10 KM
 defineFloat("RSBN_Range_100", 66, {0, 1}, "instruments l-39","Range RSBN 100KM")-- range indication by 100 KM
-
-
-
 
 --AIRSPEED AND MACH
 defineFloat("IAS", 49, {0, 1}, "instruments l-39","V indicated")-- indicated air speed
 defineFloat("TAS", 50, {0, 1}, "instruments l-39","V true")-- true air speed
 defineFloat("MACH", 51, {0, 1}, "instruments l-39","Number of MACH")-- number of Mach
 
-
-
 -- RKL-41
 defineFloat("RKL_41_needle", 77, {0, 1}, "instruments l-39","RKL Indicator")
-
-
 
 -- electric interface
 defineFloat("Voltmeter", 92, {0,	1}, "instruments l-39","VOLTMETER")
 defineFloat("Ampermeter", 93, {0,	1}, "instruments l-39","AMPERMETER")
 
-
-
 -- oxygen interface
 defineFloat("FwdOxygenPressure", 301, {0, 1}, "instruments l-39","Oxygene pressure")-- oxygene pressure indicator
 defineFloat("FwdFlowBlinker", 302, {0,	1}, "instruments l-39","Breathing blikers")-- breathing blinkers
 
-
-
 -- accelerometer
 defineFloat("Acceleration", 86, {0,	1}, "instruments l-39","G indicator")-- G indicator
-
-
 
 -- Cockpit pressure
 defineFloat("CockpitAltFwd", 95, {0, 1}, "instruments l-39","Cockpit altitude")-- cabine altitude
 defineFloat("PressDiffFwd", 96, {0,	1}, "instruments l-39","Differantial cockpit altitude")-- differantial cabine pressure
-
-
 
 ---Hydro Pressure
 defineFloat("MainHydro_PRESS", 198, {0, 1}, "instruments l-39","Main hydrolic pressure")-- main hydrolic system pressure indicator
@@ -116,12 +90,9 @@ defineFloat("BrakeLMainHydro_PRESS", 98, {0, 1}, "instruments l-39","Left brake 
 defineFloat("BrakeRMainHydro_PRESS", 99, {0, 1}, "instruments l-39","Right brake pressure")-- main hydrolic right brake pressure indicator
 defineFloat("BrakeAuxHydro_PRESS", 100, {0, 1}, "instruments l-39","Emergency brakes pressure")-- aux hydrolic brakes system pressure indicator
 
-
-
 -- Fuel 
 defineFloat("Fuel_Quantity", 91, {0, 1}, "instruments l-39","Fuel Quantity")-- fuel quantity indicator
 defineFloat("Fuel_Press", 81, {0, 1}, "instruments l-39","Fuel pressure")-- fuel pressure indicator
-
 
 -- ENGINE
 defineFloat("Fan_RPM", 85, {0, 1}, "instruments l-39","Low pressure compressor RPM")-- low pressure compressor rpm indicator
@@ -129,19 +100,14 @@ defineFloat("Compressor_RPM", 84, {0, 1}, "instruments l-39","High pressure comp
 defineFloat("Engine_Temp", 90, {0, 1}, "instruments l-39","T4")-- turbine temperature indicator
 defineFloat("EngineVibration", 94, {0, 1}, "instruments l-39","Vibrations indicator")-- engine vibrations indicator
 
-
-
 -- OIL
 defineFloat("Oil_Temp", 83, {0, 1}, "instruments l-39","Oil temperature")-- oil temperature indicator
 defineFloat("Oil_Press", 82, {0, 1}, "instruments l-39","Oil pressure")-- oil pressure indicator
-
-  
   
 -- TRIM
 defineFloat("PitchTrimInd", 247, {-1, 1}, "instruments l-39","Pitch trim indicator") -- pitch trim indicator
 
 ------------------------------------ L-39 Lights --------------------------------------------------------------------
-
 
 --- Elec syst lamps
 defineIndicatorLight("MRP_56_lamp", 18, "l-39 lamps","MRP 56")
@@ -239,8 +205,6 @@ defineIndicatorLight("FwdMasterDanger_lamp", 253, "l-39 lamps","SARTS")
 
 --- Radio control
 defineIndicatorLight("FwdRadioUnderControl_lamp", 562, "l-39 lamps","Control radio")
-
-
 
 --Clickable Controls
 

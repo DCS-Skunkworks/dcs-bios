@@ -12,16 +12,10 @@ local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
-local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local defineToggleSwitchToggleOnly = BIOS.util.defineToggleSwitchToggleOnly
-local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
-local defineFixedStepInput = BIOS.util.defineFixedStepInput
-local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
-local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 
 local function define3PosTumb(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)

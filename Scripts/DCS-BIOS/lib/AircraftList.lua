@@ -30,6 +30,8 @@ a("SA342Minigun", true)
 a("M2000C", true)
 a("FA-18C_hornet", true)
 a("F-5E-3", true)
+a("Christen Eagle I", true)
+a("Yak-52", true)
 a("L-39C", true)
 a("L-39ZA", true)
 a("AV8BNA", true)
@@ -45,5 +47,6 @@ a("Su-33", false)
 a("MB-339PAN", true) --MOD
 a("VSN_F14A", false) --MOD
 a("VSN_E2D", false) --MOD
+a("VSN_Eurofighter", false) --MOD
 a("A-4E-C", true) --MOD
 
