@@ -32,6 +32,9 @@ definePushButton("AHORIZON_LOCK", 6, 3020, 145,"Fore Main Panel" , "Artificial H
 defineToggleSwitch("UCE_LOCK", 2, 3002, 33,"Fore Main Panel" , "Undercarriage Extension Lock")
 defineRotary("HSI_KNOB", 22, 3001, 155, "Fore Main Panel", "HSI Knob")
 definePushButton("VOLTAMP_BTN", 15, 3001, 176,"Fore Main Panel" , "Voltamperemeter Button")
+definePushButton("FUEL_GAUGE_TEST", 16, 3001, 177,"Fore Main Panel" , "Fuel Gauge Test Button")
+defineToggleSwitch("FUEL_GAUGE_DIM", 16, 3002, 178,"Fore Main Panel" , "Fuel Gauge Dimmer")
+
 ---Gauges
 defineFloat("FRONT_ACCEL_MINUTE", 42, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Minute")
 defineFloat("FRONT_ACCEL_MIN", 44, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Min")
