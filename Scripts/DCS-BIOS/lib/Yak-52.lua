@@ -18,6 +18,7 @@ local defineIndicatorLight = BIOS.util.defineIndicatorLight
 --Remove Pilot Arg# 165
 
 --- Fore Pit
+    -- Fore Main Panel
 definePushButton("WBRAKES_LOCK", 2, 3028, 4,"Fore Main Panel" , "Wheel Brakes Lock")
 defineToggleSwitch("SMOKE", 6, 3039, 190,"Fore Main Panel" , "Smoke Apparat")
 defineToggleSwitch("STARTER_COVER", 3, 3035, 13,"Fore Main Panel" , "Starter Button Cover")
@@ -34,6 +35,15 @@ defineRotary("HSI_KNOB", 22, 3001, 155, "Fore Main Panel", "HSI Knob")
 definePushButton("VOLTAMP_BTN", 15, 3001, 176,"Fore Main Panel" , "Voltamperemeter Button")
 definePushButton("FUEL_GAUGE_TEST", 16, 3001, 177,"Fore Main Panel" , "Fuel Gauge Test Button")
 defineToggleSwitch("FUEL_GAUGE_DIM", 16, 3002, 178,"Fore Main Panel" , "Fuel Gauge Dimmer")
+
+    -- Starboard Circuit Breakers Panel
+defineToggleSwitch("CB_BATTERY", 4, 3001, 96,"Circuit Breakers" , "Battery Selector")
+defineToggleSwitch("CB_GENERATOR", 4, 3004, 97,"Circuit Breakers" , "Generator CB")
+defineToggleSwitch("CB_IGNITION", 4, 3007, 98,"Circuit Breakers" , "Ignition CB")
+defineToggleSwitch("CB_PITOT", 4, 3010, 99,"Circuit Breakers" , "Pitot Heater CB")
+definePushButton("CB_OILDIL", 4, 3016, 232,"Circuit Breakers" , "Oil Dilution Button")
+defineToggleSwitch("CB_E_HEAT", 4, 3018, 233,"Circuit Breakers" , "SSKUA-1 Heater CB")
+defineToggleSwitch("CB_STALL", 4, 3021, 234,"Circuit Breakers" , "SSKUA-1 CB")
 
 ---Gauges
 defineFloat("FRONT_ACCEL_MINUTE", 42, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Minute")
