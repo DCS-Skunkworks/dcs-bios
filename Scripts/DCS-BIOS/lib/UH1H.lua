@@ -177,13 +177,13 @@ defineFloat("RALT_HI_IDX", 466, {0, 1}, "Radar Altimeter", "HI Index")
 
 local function getRadarAlt()
     local function a(n) return GetDevice(0):get_argument_value(n) end
-    local digit1 = string.format("%.0f", a(468)(10))
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(468)*10)
     if digit1 == "10" then digit1 = " " end
-    local digit2 = string.format("%.0f", a(469)(10))
+    local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(469)*10)
     if digit2 == "10" then digit2 = " " end
-    local digit3 = string.format("%.0f", a(470)(10))
+    local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(470)*10)
     if digit3 == "10" then digit3 = " " end
-    local digit4 = string.format("%.0f", a(471)(10))
+    local digit4 = string.format("%.0f", GetDevice(0):get_argument_value(471)*10)
     if digit4 == "10" then digit4 = " " end
     return tonumber(digit1 .. digit2 .. digit3 .. digit4)
 end
