@@ -59,6 +59,35 @@ docdata["Yak-52"] =
                                                                                            } ],
                                                                        "physical_variant": "toggle_switch"
                                                                 },
+                                                  "CB_E_INSTR": {
+                                                                               "category": "Circuit Breakers",
+                                                                           "control_type": "selector",
+                                                                            "description": "Engine Instrumentation CB",
+                                                                             "identifier": "CB_E_INSTR",
+                                                                                 "inputs": [ {
+                                                                                               "description": "switch to previous or next state",
+                                                                                                 "interface": "fixed_step"
+                                                                                           }, {
+                                                                                               "description": "set position",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 1
+                                                                                           }, {
+                                                                                                  "argument": "TOGGLE",
+                                                                                               "description": "Toggle switch state",
+                                                                                                 "interface": "action"
+                                                                                           } ],
+                                                                    "momentary_positions": "none",
+                                                                                "outputs": [ {
+                                                                                                   "address": 8200,
+                                                                                               "description": "selector position",
+                                                                                                      "mask": 1024,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 10,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "toggle_switch"
+                                                                },
                                                 "CB_GENERATOR": {
                                                                                "category": "Circuit Breakers",
                                                                            "control_type": "selector",
@@ -112,6 +141,35 @@ docdata["Yak-52"] =
                                                                                                       "mask": 1,
                                                                                                  "max_value": 1,
                                                                                                   "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "toggle_switch"
+                                                                },
+                                                 "CB_INTERCOM": {
+                                                                               "category": "Circuit Breakers",
+                                                                           "control_type": "selector",
+                                                                            "description": "Intercom CB",
+                                                                             "identifier": "CB_INTERCOM",
+                                                                                 "inputs": [ {
+                                                                                               "description": "switch to previous or next state",
+                                                                                                 "interface": "fixed_step"
+                                                                                           }, {
+                                                                                               "description": "set position",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 1
+                                                                                           }, {
+                                                                                                  "argument": "TOGGLE",
+                                                                                               "description": "Toggle switch state",
+                                                                                                 "interface": "action"
+                                                                                           } ],
+                                                                    "momentary_positions": "none",
+                                                                                "outputs": [ {
+                                                                                                   "address": 8200,
+                                                                                               "description": "selector position",
+                                                                                                      "mask": 64,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 6,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -176,6 +234,93 @@ docdata["Yak-52"] =
                                                                                            } ],
                                                                        "physical_variant": "toggle_switch"
                                                                 },
+                                                    "CB_RADIO": {
+                                                                               "category": "Circuit Breakers",
+                                                                           "control_type": "selector",
+                                                                            "description": "Radio CB",
+                                                                             "identifier": "CB_RADIO",
+                                                                                 "inputs": [ {
+                                                                                               "description": "switch to previous or next state",
+                                                                                                 "interface": "fixed_step"
+                                                                                           }, {
+                                                                                               "description": "set position",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 1
+                                                                                           }, {
+                                                                                                  "argument": "TOGGLE",
+                                                                                               "description": "Toggle switch state",
+                                                                                                 "interface": "action"
+                                                                                           } ],
+                                                                    "momentary_positions": "none",
+                                                                                "outputs": [ {
+                                                                                                   "address": 8200,
+                                                                                               "description": "selector position",
+                                                                                                      "mask": 32,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 5,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "toggle_switch"
+                                                                },
+                                                      "CB_RDF": {
+                                                                               "category": "Circuit Breakers",
+                                                                           "control_type": "selector",
+                                                                            "description": "RDF CB",
+                                                                             "identifier": "CB_RDF",
+                                                                                 "inputs": [ {
+                                                                                               "description": "switch to previous or next state",
+                                                                                                 "interface": "fixed_step"
+                                                                                           }, {
+                                                                                               "description": "set position",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 1
+                                                                                           }, {
+                                                                                                  "argument": "TOGGLE",
+                                                                                               "description": "Toggle switch state",
+                                                                                                 "interface": "action"
+                                                                                           } ],
+                                                                    "momentary_positions": "none",
+                                                                                "outputs": [ {
+                                                                                                   "address": 8200,
+                                                                                               "description": "selector position",
+                                                                                                      "mask": 2048,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 11,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "toggle_switch"
+                                                                },
+                                                      "CB_SDG": {
+                                                                               "category": "Circuit Breakers",
+                                                                           "control_type": "selector",
+                                                                            "description": "SDG CB",
+                                                                             "identifier": "CB_SDG",
+                                                                                 "inputs": [ {
+                                                                                               "description": "switch to previous or next state",
+                                                                                                 "interface": "fixed_step"
+                                                                                           }, {
+                                                                                               "description": "set position",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 1
+                                                                                           }, {
+                                                                                                  "argument": "TOGGLE",
+                                                                                               "description": "Toggle switch state",
+                                                                                                 "interface": "action"
+                                                                                           } ],
+                                                                    "momentary_positions": "none",
+                                                                                "outputs": [ {
+                                                                                                   "address": 8200,
+                                                                                               "description": "selector position",
+                                                                                                      "mask": 4096,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 12,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "toggle_switch"
+                                                                },
                                                     "CB_STALL": {
                                                                                "category": "Circuit Breakers",
                                                                            "control_type": "selector",
@@ -200,6 +345,93 @@ docdata["Yak-52"] =
                                                                                                       "mask": 16,
                                                                                                  "max_value": 1,
                                                                                                   "shift_by": 4,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "toggle_switch"
+                                                                },
+                                                       "CB_UC": {
+                                                                               "category": "Circuit Breakers",
+                                                                           "control_type": "selector",
+                                                                            "description": "U/C CB",
+                                                                             "identifier": "CB_UC",
+                                                                                 "inputs": [ {
+                                                                                               "description": "switch to previous or next state",
+                                                                                                 "interface": "fixed_step"
+                                                                                           }, {
+                                                                                               "description": "set position",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 1
+                                                                                           }, {
+                                                                                                  "argument": "TOGGLE",
+                                                                                               "description": "Toggle switch state",
+                                                                                                 "interface": "action"
+                                                                                           } ],
+                                                                    "momentary_positions": "none",
+                                                                                "outputs": [ {
+                                                                                                   "address": 8200,
+                                                                                               "description": "selector position",
+                                                                                                      "mask": 256,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 8,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "toggle_switch"
+                                                                },
+                                                "CB_UMFORMER1": {
+                                                                               "category": "Circuit Breakers",
+                                                                           "control_type": "selector",
+                                                                            "description": "PT-200 CB",
+                                                                             "identifier": "CB_UMFORMER1",
+                                                                                 "inputs": [ {
+                                                                                               "description": "switch to previous or next state",
+                                                                                                 "interface": "fixed_step"
+                                                                                           }, {
+                                                                                               "description": "set position",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 1
+                                                                                           }, {
+                                                                                                  "argument": "TOGGLE",
+                                                                                               "description": "Toggle switch state",
+                                                                                                 "interface": "action"
+                                                                                           } ],
+                                                                    "momentary_positions": "none",
+                                                                                "outputs": [ {
+                                                                                                   "address": 8200,
+                                                                                               "description": "selector position",
+                                                                                                      "mask": 512,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 9,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "toggle_switch"
+                                                                },
+                                                "CB_UMFORMER2": {
+                                                                               "category": "Circuit Breakers",
+                                                                           "control_type": "selector",
+                                                                            "description": "PAG-1 CB",
+                                                                             "identifier": "CB_UMFORMER2",
+                                                                                 "inputs": [ {
+                                                                                               "description": "switch to previous or next state",
+                                                                                                 "interface": "fixed_step"
+                                                                                           }, {
+                                                                                               "description": "set position",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 1
+                                                                                           }, {
+                                                                                                  "argument": "TOGGLE",
+                                                                                               "description": "Toggle switch state",
+                                                                                                 "interface": "action"
+                                                                                           } ],
+                                                                    "momentary_positions": "none",
+                                                                                "outputs": [ {
+                                                                                                   "address": 8200,
+                                                                                               "description": "selector position",
+                                                                                                      "mask": 128,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 7,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -1449,11 +1681,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_ARC15_LIGHT",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8306,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8192,
+                                                                                                     "mask": 32,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 13,
+                                                                                                 "shift_by": 5,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1467,9 +1699,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4,
+                                                                                                     "mask": 1024,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 2,
+                                                                                                 "shift_by": 10,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1483,9 +1715,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2,
+                                                                                                     "mask": 512,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 1,
+                                                                                                 "shift_by": 9,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1497,11 +1729,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_GEN_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 256,
+                                                                                                     "mask": 1,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 8,
+                                                                                                 "shift_by": 0,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1513,11 +1745,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_GYRO_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1024,
+                                                                                                     "mask": 4,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 10,
+                                                                                                 "shift_by": 2,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1529,11 +1761,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_L_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8200,
+                                                                                                  "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 256,
+                                                                                                     "mask": 1,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 8,
+                                                                                                 "shift_by": 0,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1547,9 +1779,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8200,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32,
+                                                                                                     "mask": 8192,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 5,
+                                                                                                 "shift_by": 13,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1561,11 +1793,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_MAXG_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 512,
+                                                                                                     "mask": 2,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 9,
+                                                                                                 "shift_by": 1,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1579,9 +1811,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 128,
+                                                                                                     "mask": 32768,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 7,
+                                                                                                 "shift_by": 15,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1593,11 +1825,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_N_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8200,
+                                                                                                  "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 512,
+                                                                                                     "mask": 2,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 9,
+                                                                                                 "shift_by": 1,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1611,9 +1843,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8200,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 64,
+                                                                                                     "mask": 16384,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 6,
+                                                                                                 "shift_by": 14,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1625,11 +1857,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_PITOT_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4096,
+                                                                                                     "mask": 16,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 12,
+                                                                                                 "shift_by": 4,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1641,11 +1873,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_R_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8200,
+                                                                                                  "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1024,
+                                                                                                     "mask": 4,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 10,
+                                                                                                 "shift_by": 2,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1659,9 +1891,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8200,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 128,
+                                                                                                     "mask": 32768,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 7,
+                                                                                                 "shift_by": 15,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1675,9 +1907,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 64,
+                                                                                                     "mask": 16384,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 6,
+                                                                                                 "shift_by": 14,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1689,11 +1921,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_STALL_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2048,
+                                                                                                     "mask": 8,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 11,
+                                                                                                 "shift_by": 3,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1707,9 +1939,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32,
+                                                                                                     "mask": 8192,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 5,
+                                                                                                 "shift_by": 13,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1723,9 +1955,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8,
+                                                                                                     "mask": 2048,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 3,
+                                                                                                 "shift_by": 11,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1739,9 +1971,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16,
+                                                                                                     "mask": 4096,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 4,
+                                                                                                 "shift_by": 12,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1755,9 +1987,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32,
+                                                                                                     "mask": 8192,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 5,
+                                                                                                 "shift_by": 13,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1771,9 +2003,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 64,
+                                                                                                     "mask": 16384,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 6,
+                                                                                                 "shift_by": 14,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1787,9 +2019,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 128,
+                                                                                                     "mask": 32768,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 7,
+                                                                                                 "shift_by": 15,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1801,11 +2033,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_35_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8306,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 256,
+                                                                                                     "mask": 1,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 8,
+                                                                                                 "shift_by": 0,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1817,11 +2049,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_40_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8306,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 512,
+                                                                                                     "mask": 2,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 9,
+                                                                                                 "shift_by": 1,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1833,11 +2065,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_45_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8306,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1024,
+                                                                                                     "mask": 4,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 10,
+                                                                                                 "shift_by": 2,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1849,11 +2081,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_50_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8306,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2048,
+                                                                                                     "mask": 8,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 11,
+                                                                                                 "shift_by": 3,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1865,11 +2097,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_60_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8306,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4096,
+                                                                                                     "mask": 16,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 12,
+                                                                                                 "shift_by": 4,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1881,11 +2113,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_ARC15_LIGHT",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8306,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16384,
+                                                                                                     "mask": 64,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 14,
+                                                                                                 "shift_by": 6,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1899,9 +2131,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8,
+                                                                                                     "mask": 2048,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 3,
+                                                                                                 "shift_by": 11,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1913,11 +2145,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_EMPTY_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 256,
+                                                                                                     "mask": 1,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 8,
+                                                                                                 "shift_by": 0,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1931,9 +2163,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16,
+                                                                                                     "mask": 4096,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 4,
+                                                                                                 "shift_by": 12,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1947,9 +2179,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8,
+                                                                                                     "mask": 2048,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 3,
+                                                                                                 "shift_by": 11,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1961,11 +2193,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_12_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 512,
+                                                                                                     "mask": 2,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 9,
+                                                                                                 "shift_by": 1,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1977,11 +2209,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_15_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1024,
+                                                                                                     "mask": 4,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 10,
+                                                                                                 "shift_by": 2,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1993,11 +2225,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_20_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2048,
+                                                                                                     "mask": 8,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 11,
+                                                                                                 "shift_by": 3,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2009,11 +2241,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_25_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4096,
+                                                                                                     "mask": 16,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 12,
+                                                                                                 "shift_by": 4,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2025,11 +2257,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_30_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8192,
+                                                                                                     "mask": 32,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 13,
+                                                                                                 "shift_by": 5,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2041,11 +2273,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_35_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16384,
+                                                                                                     "mask": 64,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 14,
+                                                                                                 "shift_by": 6,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2057,11 +2289,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_40_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32768,
+                                                                                                     "mask": 128,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 15,
+                                                                                                 "shift_by": 7,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2075,9 +2307,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1,
+                                                                                                     "mask": 256,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 0,
+                                                                                                 "shift_by": 8,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2091,9 +2323,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2,
+                                                                                                     "mask": 512,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 1,
+                                                                                                 "shift_by": 9,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2107,9 +2339,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8304,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4,
+                                                                                                     "mask": 1024,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 2,
+                                                                                                 "shift_by": 10,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2123,9 +2355,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2,
+                                                                                                     "mask": 512,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 1,
+                                                                                                 "shift_by": 9,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2139,9 +2371,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4,
+                                                                                                     "mask": 1024,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 2,
+                                                                                                 "shift_by": 10,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2155,9 +2387,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1,
+                                                                                                     "mask": 256,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 0,
+                                                                                                 "shift_by": 8,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2171,9 +2403,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16,
+                                                                                                     "mask": 4096,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 4,
+                                                                                                 "shift_by": 12,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2185,11 +2417,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_L_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8200,
+                                                                                                  "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16384,
+                                                                                                     "mask": 64,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 14,
+                                                                                                 "shift_by": 6,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2201,11 +2433,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_L_GEAR_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8200,
+                                                                                                  "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2048,
+                                                                                                     "mask": 8,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 11,
+                                                                                                 "shift_by": 3,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2217,11 +2449,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_MAXG_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8192,
+                                                                                                     "mask": 32,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 13,
+                                                                                                 "shift_by": 5,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2235,9 +2467,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32,
+                                                                                                     "mask": 8192,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 5,
+                                                                                                 "shift_by": 13,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2249,11 +2481,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_N_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8200,
+                                                                                                  "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32768,
+                                                                                                     "mask": 128,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 15,
+                                                                                                 "shift_by": 7,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2265,11 +2497,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_N_GEAR_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8200,
+                                                                                                  "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4096,
+                                                                                                     "mask": 16,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 12,
+                                                                                                 "shift_by": 4,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2283,9 +2515,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 64,
+                                                                                                     "mask": 16384,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 6,
+                                                                                                 "shift_by": 14,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2299,9 +2531,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1,
+                                                                                                     "mask": 256,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 0,
+                                                                                                 "shift_by": 8,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2313,11 +2545,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_R_GEAR_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8200,
+                                                                                                  "address": 8300,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8192,
+                                                                                                     "mask": 32,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 13,
+                                                                                                 "shift_by": 5,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2329,11 +2561,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_SPEED_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32768,
+                                                                                                     "mask": 128,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 15,
+                                                                                                 "shift_by": 7,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2347,9 +2579,9 @@ docdata["Yak-52"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 128,
+                                                                                                     "mask": 32768,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 7,
+                                                                                                 "shift_by": 15,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2361,11 +2593,11 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_STALL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8302,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16384,
+                                                                                                     "mask": 64,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 14,
+                                                                                                 "shift_by": 6,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
