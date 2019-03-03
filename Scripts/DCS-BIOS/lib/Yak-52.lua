@@ -45,6 +45,27 @@ definePushButton("CB_OILDIL", 4, 3016, 232,"Circuit Breakers" , "Oil Dilution Bu
 defineToggleSwitch("CB_E_HEAT", 4, 3018, 233,"Circuit Breakers" , "SSKUA-1 Heater CB")
 defineToggleSwitch("CB_STALL", 4, 3021, 234,"Circuit Breakers" , "SSKUA-1 CB")
 
+    -- Port Wall
+
+	-- Port Circuit Breakers Panel
+defineToggleSwitch("CB_RADIO", 4, 3024, 226,"Circuit Breakers" , "Radio CB")
+defineToggleSwitch("CB_INTERCOM", 4, 3027, 225,"Circuit Breakers" , "Intercom CB")
+defineToggleSwitch("CB_UMFORMER2", 4, 3030, 224,"Circuit Breakers" , "PAG-1 CB")
+defineToggleSwitch("CB_UC", 4, 3033, 223,"Circuit Breakers" , "U/C CB")
+defineToggleSwitch("CB_UMFORMER1", 4, 3036, 222,"Circuit Breakers" , "PT-200 CB")
+defineToggleSwitch("CB_E_INSTR", 4, 3013, 221,"Circuit Breakers" , "Engine Instrumentation CB")
+defineToggleSwitch("CB_RDF", 4, 3039, 220,"Circuit Breakers" , "RDF CB")
+defineToggleSwitch("CB_SDG", 4, 3042, 219,"Circuit Breakers" , "SDG CB")
+
+    -- Starboard Wall
+	
+    -- Canopy Controls	
+	
+	
+--------------------------------------------------------------------------------------------------------
+--- Aft Pit
+
+
 ---Gauges
 defineFloat("FRONT_ACCEL_MINUTE", 42, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Minute")
 defineFloat("FRONT_ACCEL_MIN", 44, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Min")
