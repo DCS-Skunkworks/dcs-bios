@@ -1088,7 +1088,7 @@ defineString("UHF_FREQUENCY", getUHFFrequency, 5, "UHF RADIO", "O - UHF - Freque
 
 -- VOR / ILS
 --This is not working OK. Jumps over 15 & 17
-defineTumb("VORILS_FREQ_WHOLE", 24, 3616, 616, 0.1, {0, 1}, nil, true, "VOR / ILS", "I - VOR/ILS Frequency Change Whole")
+defineTumb("VORILS_FREQ_WHOLE", 24, 3616, 616, 1.0/11.0, {0, 1}, nil, true, "VOR / ILS", "I - VOR/ILS Frequency Change Whole")
 defineToggleSwitch("VORILS_PWR_DIAL", 24, 3617, 617, "VOR / ILS", "I - VOR/ILS Power Dial")
 defineTumb("VORILS_FREQ_DECIMAL", 24, 3618, 618, 0.05, {0, 0.95}, nil, true, "VOR / ILS", "I - VOR/ILS Frequency Change Decimal")
 defineToggleSwitch("VORILS_TEST_DIAL", 24, 3619, 619, "VOR / ILS", "I - VOR/ILS Test Dial")

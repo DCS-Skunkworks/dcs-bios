@@ -383,7 +383,7 @@ defineIndicatorLight("AAA_LIGHT", 279, "Warning, Caution and IndicatorLights","A
 ---MIP OUTER LEFT SIDE
 defineIndicatorLight("NAV_LIGHT", 283, "Warning, Caution and IndicatorLights","NAV Lamp")
 defineIndicatorLight("VSTOL_LIGHT", 285, "Warning, Caution and IndicatorLights","VSTOL Lamp")
-defineIndicatorLight("AG_LIGHT", 451, "Warning, Caution and IndicatorLights","A/G Lamp")
+defineIndicatorLight("AG_LIGHT", 281, "Warning, Caution and IndicatorLights","A/G Lamp")
 defineIndicatorLight("SEL_LIGHT", 451, "Warning, Caution and IndicatorLights","SEL Lamp")
 defineIndicatorLight("CMBT_LIGHT", 452, "Warning, Caution and IndicatorLights","CMBT Lamp")
 defineIndicatorLight("STO_LIGHT", 453, "Warning, Caution and IndicatorLights","STO Lamp")
