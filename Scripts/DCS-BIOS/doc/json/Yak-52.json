@@ -1,4 +1,104 @@
 {
+                                "BAKLAN-5": {
+                                                "RADIO_KHZ": {
+                                                                  "api_variant": "multiturn",
+                                                                     "category": "BAKLAN-5",
+                                                                 "control_type": "analog_dial",
+                                                                  "description": "Radio Tune khz",
+                                                                   "identifier": "RADIO_KHZ",
+                                                                       "inputs": [ {
+                                                                                        "description": "turn the dial left or right",
+                                                                                          "interface": "variable_step",
+                                                                                          "max_value": 65535,
+                                                                                     "suggested_step": 3200
+                                                                                 } ],
+                                                                      "outputs": [ {
+                                                                                         "address": 8204,
+                                                                                     "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                            "mask": 65535,
+                                                                                       "max_value": 65535,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "_KNOB_POS",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             },
+                                                "RADIO_MHZ": {
+                                                                  "api_variant": "multiturn",
+                                                                     "category": "BAKLAN-5",
+                                                                 "control_type": "analog_dial",
+                                                                  "description": "Radio Tune mhz",
+                                                                   "identifier": "RADIO_MHZ",
+                                                                       "inputs": [ {
+                                                                                        "description": "turn the dial left or right",
+                                                                                          "interface": "variable_step",
+                                                                                          "max_value": 65535,
+                                                                                     "suggested_step": 3200
+                                                                                 } ],
+                                                                      "outputs": [ {
+                                                                                         "address": 8202,
+                                                                                     "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                            "mask": 65535,
+                                                                                       "max_value": 65535,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "_KNOB_POS",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             },
+                                                 "RADIO_SQ": {
+                                                                            "category": "BAKLAN-5",
+                                                                        "control_type": "selector",
+                                                                         "description": "Radio Squelch",
+                                                                          "identifier": "RADIO_SQ",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                "address": 8206,
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 1,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "toggle_switch"
+                                                             },
+                                                "RADIO_VOL": {
+                                                                     "category": "BAKLAN-5",
+                                                                 "control_type": "limited_dial",
+                                                                  "description": "Radio Volume Knob",
+                                                                   "identifier": "RADIO_VOL",
+                                                                       "inputs": [ {
+                                                                                     "description": "set the position of the dial",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 65535
+                                                                                 }, {
+                                                                                        "description": "turn the dial left or right",
+                                                                                          "interface": "variable_step",
+                                                                                          "max_value": 65535,
+                                                                                     "suggested_step": 3200
+                                                                                 } ],
+                                                                      "outputs": [ {
+                                                                                         "address": 8200,
+                                                                                     "description": "position of the potentiometer",
+                                                                                            "mask": 65535,
+                                                                                       "max_value": 65535,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             }
+                                            },
                         "Circuit Breakers": {
                                                   "CB_BATTERY": {
                                                                                "category": "Circuit Breakers",
@@ -19,11 +119,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8192,
+                                                                                                   "address": 8206,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 16384,
+                                                                                                      "mask": 2,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 14,
+                                                                                                  "shift_by": 1,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -48,11 +148,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8206,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 8,
+                                                                                                      "mask": 64,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 3,
+                                                                                                  "shift_by": 6,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -77,11 +177,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8210,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 1024,
+                                                                                                      "mask": 1,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 10,
+                                                                                                  "shift_by": 0,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -106,11 +206,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8192,
+                                                                                                   "address": 8206,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 32768,
+                                                                                                      "mask": 4,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 15,
+                                                                                                  "shift_by": 2,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -135,11 +235,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8206,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 1,
+                                                                                                      "mask": 8,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 0,
+                                                                                                  "shift_by": 3,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -164,11 +264,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8206,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 64,
+                                                                                                      "mask": 4096,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 6,
+                                                                                                  "shift_by": 12,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -194,11 +294,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8206,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 4,
+                                                                                                      "mask": 32,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 2,
+                                                                                                  "shift_by": 5,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -223,11 +323,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8206,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 2,
+                                                                                                      "mask": 16,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 1,
+                                                                                                  "shift_by": 4,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -252,11 +352,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8206,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 32,
+                                                                                                      "mask": 2048,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 5,
+                                                                                                  "shift_by": 11,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -281,11 +381,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8210,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 2048,
+                                                                                                      "mask": 2,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 11,
+                                                                                                  "shift_by": 1,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -310,11 +410,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8210,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 4096,
+                                                                                                      "mask": 4,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 12,
+                                                                                                  "shift_by": 2,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -339,11 +439,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8206,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 16,
+                                                                                                      "mask": 128,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 4,
+                                                                                                  "shift_by": 7,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -368,11 +468,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8206,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 256,
+                                                                                                      "mask": 16384,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 8,
+                                                                                                  "shift_by": 14,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -397,11 +497,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8206,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 512,
+                                                                                                      "mask": 32768,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 9,
+                                                                                                  "shift_by": 15,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -426,11 +526,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 8200,
+                                                                                                   "address": 8206,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 128,
+                                                                                                      "mask": 8192,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 7,
+                                                                                                  "shift_by": 13,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -678,6 +778,31 @@
                                                                                               } ],
                                                                           "physical_variant": "limited_rotary"
                                                                    },
+                                                    "PRIMER_PUMP": {
+                                                                                  "category": "Fore Main Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Primer Pump Selector OFF/Trunk/Cylinders",
+                                                                                "identifier": "PRIMER_PUMP",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 2
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 8192,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 49152,
+                                                                                                    "max_value": 2,
+                                                                                                     "shift_by": 14,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "limited_rotary"
+                                                                   },
                                                           "SMOKE": {
                                                                                   "category": "Fore Main Panel",
                                                                               "control_type": "selector",
@@ -894,7 +1019,7 @@
                                                                                "identifier": "FRONT_ACCEL_MAX",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8206,
+                                                                                                     "address": 8216,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -910,7 +1035,7 @@
                                                                                "identifier": "FRONT_ACCEL_MIN",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8204,
+                                                                                                     "address": 8214,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -926,7 +1051,7 @@
                                                                                "identifier": "FRONT_ACCEL_MINUTE",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8202,
+                                                                                                     "address": 8212,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -942,7 +1067,7 @@
                                                                                "identifier": "FRONT_AH_BANK",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8242,
+                                                                                                     "address": 8252,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -958,7 +1083,7 @@
                                                                                "identifier": "FRONT_AH_PITCH",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8244,
+                                                                                                     "address": 8254,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -974,7 +1099,7 @@
                                                                                "identifier": "FRONT_AH_SLIP",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8246,
+                                                                                                     "address": 8256,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -990,7 +1115,7 @@
                                                                                "identifier": "FRONT_AIRSPEED",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8214,
+                                                                                                     "address": 8224,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1006,7 +1131,7 @@
                                                                                "identifier": "FRONT_ALT100",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8218,
+                                                                                                     "address": 8228,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1022,7 +1147,7 @@
                                                                                "identifier": "FRONT_ALT1000",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8220,
+                                                                                                     "address": 8230,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1038,7 +1163,7 @@
                                                                                "identifier": "FRONT_ALT_PRESS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8222,
+                                                                                                     "address": 8232,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1054,7 +1179,7 @@
                                                                                "identifier": "FRONT_CYL_TEMP",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8288,
+                                                                                                     "address": 8298,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1070,7 +1195,7 @@
                                                                                "identifier": "FRONT_FUEL_PRESS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8280,
+                                                                                                     "address": 8290,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1086,7 +1211,7 @@
                                                                                "identifier": "FRONT_OIL_PRESS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8276,
+                                                                                                     "address": 8286,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1102,7 +1227,7 @@
                                                                                "identifier": "FRONT_OIL_TEMP",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8278,
+                                                                                                     "address": 8288,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1118,7 +1243,7 @@
                                                                                "identifier": "FRONT_PNEU_MAIN_PRESS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8292,
+                                                                                                     "address": 8302,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1134,7 +1259,7 @@
                                                                                "identifier": "FRONT_PNEU_STBY_PRESS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8294,
+                                                                                                     "address": 8304,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1150,7 +1275,7 @@
                                                                                "identifier": "FRONT_SLIP",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8234,
+                                                                                                     "address": 8244,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1166,7 +1291,7 @@
                                                                                "identifier": "FRONT_TACHO",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8254,
+                                                                                                     "address": 8264,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1182,7 +1307,7 @@
                                                                                "identifier": "FRONT_TURN",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8232,
+                                                                                                     "address": 8242,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1198,7 +1323,7 @@
                                                                                "identifier": "FRONT_UGR4K_BCN_CRS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8268,
+                                                                                                     "address": 8278,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1214,7 +1339,7 @@
                                                                                "identifier": "FRONT_UGR4K_CURR_CRS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8264,
+                                                                                                     "address": 8274,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1230,7 +1355,7 @@
                                                                                "identifier": "FRONT_UGR4K_SET_CRS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8266,
+                                                                                                     "address": 8276,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1246,7 +1371,7 @@
                                                                                "identifier": "FRONT_VARIOMETER",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8230,
+                                                                                                     "address": 8240,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1262,7 +1387,7 @@
                                                                                "identifier": "MANIFOLD_PRESS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8258,
+                                                                                                     "address": 8268,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1278,7 +1403,7 @@
                                                                                "identifier": "MANIFOLD_TEMP",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8260,
+                                                                                                     "address": 8270,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1294,7 +1419,7 @@
                                                                                "identifier": "REAR_ACCEL_MAX",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8212,
+                                                                                                     "address": 8222,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1310,7 +1435,7 @@
                                                                                "identifier": "REAR_ACCEL_MIN",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8210,
+                                                                                                     "address": 8220,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1326,7 +1451,7 @@
                                                                                "identifier": "REAR_ACCEL_MINUTE",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8208,
+                                                                                                     "address": 8218,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1342,7 +1467,7 @@
                                                                                "identifier": "REAR_AH_BANK",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8248,
+                                                                                                     "address": 8258,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1358,7 +1483,7 @@
                                                                                "identifier": "REAR_AH_PITCH",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8250,
+                                                                                                     "address": 8260,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1374,7 +1499,7 @@
                                                                                "identifier": "REAR_AH_SLIP",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8252,
+                                                                                                     "address": 8262,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1390,7 +1515,7 @@
                                                                                "identifier": "REAR_AIRSPEED",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8216,
+                                                                                                     "address": 8226,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1406,7 +1531,7 @@
                                                                                "identifier": "REAR_ALT100",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8224,
+                                                                                                     "address": 8234,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1422,7 +1547,7 @@
                                                                                "identifier": "REAR_ALT1000",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8226,
+                                                                                                     "address": 8236,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1438,7 +1563,7 @@
                                                                                "identifier": "REAR_ALT_PRESS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8228,
+                                                                                                     "address": 8238,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1454,7 +1579,7 @@
                                                                                "identifier": "REAR_CYL_TEMP",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8290,
+                                                                                                     "address": 8300,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1470,7 +1595,7 @@
                                                                                "identifier": "REAR_FUEL_PRESS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8286,
+                                                                                                     "address": 8296,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1486,7 +1611,7 @@
                                                                                "identifier": "REAR_OIL_PRESS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8282,
+                                                                                                     "address": 8292,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1502,7 +1627,7 @@
                                                                                "identifier": "REAR_OIL_TEMP",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8284,
+                                                                                                     "address": 8294,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1518,7 +1643,7 @@
                                                                                "identifier": "REAR_PNEU_MAIN_PRESS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8296,
+                                                                                                     "address": 8306,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1534,7 +1659,7 @@
                                                                                "identifier": "REAR_PNEU_STBY_PRESS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8298,
+                                                                                                     "address": 8308,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1550,7 +1675,7 @@
                                                                                "identifier": "REAR_SLIP",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8240,
+                                                                                                     "address": 8250,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1566,7 +1691,7 @@
                                                                                "identifier": "REAR_TACHO",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8256,
+                                                                                                     "address": 8266,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1582,7 +1707,7 @@
                                                                                "identifier": "REAR_TURN",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8238,
+                                                                                                     "address": 8248,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1598,7 +1723,7 @@
                                                                                "identifier": "REAR_UGR4K_BCN_CRS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8274,
+                                                                                                     "address": 8284,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1614,7 +1739,7 @@
                                                                                "identifier": "REAR_UGR4K_CURR_CRS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8270,
+                                                                                                     "address": 8280,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1630,7 +1755,7 @@
                                                                                "identifier": "REAR_UGR4K_SET_CRS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8272,
+                                                                                                     "address": 8282,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1646,7 +1771,7 @@
                                                                                "identifier": "REAR_VARIOMETER",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8236,
+                                                                                                     "address": 8246,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1662,7 +1787,7 @@
                                                                                "identifier": "VOLTMETER_G",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 8262,
+                                                                                                     "address": 8272,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -1672,6 +1797,153 @@
                                                                                              } ]
                                                                          }
                                             },
+                               "Port Wall": {
+                                                "PNEM_VALVE": {
+                                                                   "api_variant": "multiturn",
+                                                                      "category": "Port Wall",
+                                                                  "control_type": "analog_dial",
+                                                                   "description": "Pneumatic System Master Valve",
+                                                                    "identifier": "PNEM_VALVE",
+                                                                        "inputs": [ {
+                                                                                         "description": "turn the dial left or right",
+                                                                                           "interface": "variable_step",
+                                                                                           "max_value": 65535,
+                                                                                      "suggested_step": 3200
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                          "address": 8208,
+                                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                             "mask": 65535,
+                                                                                        "max_value": 65535,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "_KNOB_POS",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              }
+                                            },
+                          "Starboard Wall": {
+                                                "MIXHEAT": {
+                                                                          "category": "Starboard Wall",
+                                                                      "control_type": "selector",
+                                                                       "description": "Carburettor Heater Lever",
+                                                                        "identifier": "MIXHEAT",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 1
+                                                                                      }, {
+                                                                                             "argument": "TOGGLE",
+                                                                                          "description": "Toggle switch state",
+                                                                                            "interface": "action"
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 8210,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 8,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 3,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "toggle_switch"
+                                                           }
+                                            },
+                       "Throttle Quadrant": {
+                                                  "FUEL_COCK": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "Throttle Quadrant",
+                                                                          "control_type": "selector",
+                                                                           "description": "Fuel Cock",
+                                                                            "identifier": "FUEL_COCK",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 8206,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 1024,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 10,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                "INTERCOM_TX": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "Throttle Quadrant",
+                                                                          "control_type": "selector",
+                                                                           "description": "Intercom Button",
+                                                                            "identifier": "INTERCOM_TX",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 8206,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 512,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 9,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                   "RADIO_TX": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "Throttle Quadrant",
+                                                                          "control_type": "selector",
+                                                                           "description": "Radio Button",
+                                                                            "identifier": "RADIO_TX",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 8206,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 256,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 8,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               }
+                                            },
     "Warning, Caution and IndicatorLights": {
                                                      "F_ARC15_LIGHT": {
                                                                               "category": "Warning, Caution and IndicatorLights",
@@ -1680,11 +1952,11 @@
                                                                             "identifier": "F_ARC15_LIGHT",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8306,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32,
+                                                                                                     "mask": 4096,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 5,
+                                                                                                 "shift_by": 12,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1696,11 +1968,11 @@
                                                                             "identifier": "F_FLAPS_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1024,
+                                                                                                     "mask": 2,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 10,
+                                                                                                 "shift_by": 1,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1712,11 +1984,11 @@
                                                                             "identifier": "F_FLAPS_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 512,
+                                                                                                     "mask": 1,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 9,
+                                                                                                 "shift_by": 0,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1728,11 +2000,11 @@
                                                                             "identifier": "F_GEN_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1,
+                                                                                                     "mask": 128,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 0,
+                                                                                                 "shift_by": 7,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1744,11 +2016,11 @@
                                                                             "identifier": "F_GYRO_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4,
+                                                                                                     "mask": 512,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 2,
+                                                                                                 "shift_by": 9,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1760,11 +2032,11 @@
                                                                             "identifier": "F_L_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8210,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1,
+                                                                                                     "mask": 128,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 0,
+                                                                                                 "shift_by": 7,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1776,11 +2048,11 @@
                                                                             "identifier": "F_L_GEAR_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8200,
+                                                                                                  "address": 8210,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8192,
+                                                                                                     "mask": 16,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 13,
+                                                                                                 "shift_by": 4,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1792,11 +2064,11 @@
                                                                             "identifier": "F_MAXG_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2,
+                                                                                                     "mask": 256,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 1,
+                                                                                                 "shift_by": 8,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1808,11 +2080,11 @@
                                                                             "identifier": "F_METAL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32768,
+                                                                                                     "mask": 64,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 15,
+                                                                                                 "shift_by": 6,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1824,11 +2096,11 @@
                                                                             "identifier": "F_N_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8210,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2,
+                                                                                                     "mask": 256,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 1,
+                                                                                                 "shift_by": 8,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1840,11 +2112,11 @@
                                                                             "identifier": "F_N_GEAR_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8200,
+                                                                                                  "address": 8210,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16384,
+                                                                                                     "mask": 32,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 14,
+                                                                                                 "shift_by": 5,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1856,11 +2128,11 @@
                                                                             "identifier": "F_PITOT_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16,
+                                                                                                     "mask": 2048,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 4,
+                                                                                                 "shift_by": 11,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1872,11 +2144,11 @@
                                                                             "identifier": "F_R_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8210,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4,
+                                                                                                     "mask": 512,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 2,
+                                                                                                 "shift_by": 9,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1888,11 +2160,11 @@
                                                                             "identifier": "F_R_GEAR_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8200,
+                                                                                                  "address": 8210,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32768,
+                                                                                                     "mask": 64,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 15,
+                                                                                                 "shift_by": 6,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1904,11 +2176,11 @@
                                                                             "identifier": "F_SPEED_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16384,
+                                                                                                     "mask": 32,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 14,
+                                                                                                 "shift_by": 5,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1920,11 +2192,11 @@
                                                                             "identifier": "F_STALL_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8,
+                                                                                                     "mask": 1024,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 3,
+                                                                                                 "shift_by": 10,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1936,11 +2208,11 @@
                                                                             "identifier": "F_STALL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8192,
+                                                                                                     "mask": 16,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 13,
+                                                                                                 "shift_by": 4,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1952,11 +2224,11 @@
                                                                             "identifier": "L_FUEL_12_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2048,
+                                                                                                     "mask": 4,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 11,
+                                                                                                 "shift_by": 2,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1968,11 +2240,11 @@
                                                                             "identifier": "L_FUEL_15_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4096,
+                                                                                                     "mask": 8,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 12,
+                                                                                                 "shift_by": 3,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -1984,11 +2256,11 @@
                                                                             "identifier": "L_FUEL_20_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8192,
+                                                                                                     "mask": 16,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 13,
+                                                                                                 "shift_by": 4,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2000,11 +2272,11 @@
                                                                             "identifier": "L_FUEL_25_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16384,
+                                                                                                     "mask": 32,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 14,
+                                                                                                 "shift_by": 5,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2016,11 +2288,11 @@
                                                                             "identifier": "L_FUEL_30_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32768,
+                                                                                                     "mask": 64,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 15,
+                                                                                                 "shift_by": 6,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2032,11 +2304,11 @@
                                                                             "identifier": "L_FUEL_35_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8306,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1,
+                                                                                                     "mask": 128,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 0,
+                                                                                                 "shift_by": 7,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2048,11 +2320,11 @@
                                                                             "identifier": "L_FUEL_40_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8306,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2,
+                                                                                                     "mask": 256,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 1,
+                                                                                                 "shift_by": 8,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2064,11 +2336,11 @@
                                                                             "identifier": "L_FUEL_45_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8306,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4,
+                                                                                                     "mask": 512,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 2,
+                                                                                                 "shift_by": 9,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2080,11 +2352,11 @@
                                                                             "identifier": "L_FUEL_50_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8306,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8,
+                                                                                                     "mask": 1024,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 3,
+                                                                                                 "shift_by": 10,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2096,11 +2368,11 @@
                                                                             "identifier": "L_FUEL_60_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8306,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16,
+                                                                                                     "mask": 2048,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 4,
+                                                                                                 "shift_by": 11,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2112,11 +2384,11 @@
                                                                             "identifier": "R_ARC15_LIGHT",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8306,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 64,
+                                                                                                     "mask": 8192,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 6,
+                                                                                                 "shift_by": 13,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2128,11 +2400,11 @@
                                                                             "identifier": "R_BATT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2048,
+                                                                                                     "mask": 4,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 11,
+                                                                                                 "shift_by": 2,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2144,11 +2416,11 @@
                                                                             "identifier": "R_EMPTY_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1,
+                                                                                                     "mask": 128,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 0,
+                                                                                                 "shift_by": 7,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2160,11 +2432,11 @@
                                                                             "identifier": "R_FLAPS_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4096,
+                                                                                                     "mask": 8,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 12,
+                                                                                                 "shift_by": 3,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2176,11 +2448,11 @@
                                                                             "identifier": "R_FLAPS_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2048,
+                                                                                                     "mask": 4,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 11,
+                                                                                                 "shift_by": 2,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2192,11 +2464,11 @@
                                                                             "identifier": "R_FUEL_12_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2,
+                                                                                                     "mask": 256,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 1,
+                                                                                                 "shift_by": 8,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2208,11 +2480,11 @@
                                                                             "identifier": "R_FUEL_15_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4,
+                                                                                                     "mask": 512,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 2,
+                                                                                                 "shift_by": 9,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2224,11 +2496,11 @@
                                                                             "identifier": "R_FUEL_20_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8,
+                                                                                                     "mask": 1024,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 3,
+                                                                                                 "shift_by": 10,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2240,11 +2512,11 @@
                                                                             "identifier": "R_FUEL_25_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16,
+                                                                                                     "mask": 2048,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 4,
+                                                                                                 "shift_by": 11,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2256,11 +2528,11 @@
                                                                             "identifier": "R_FUEL_30_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32,
+                                                                                                     "mask": 4096,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 5,
+                                                                                                 "shift_by": 12,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2272,11 +2544,11 @@
                                                                             "identifier": "R_FUEL_35_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 64,
+                                                                                                     "mask": 8192,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 6,
+                                                                                                 "shift_by": 13,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2288,11 +2560,11 @@
                                                                             "identifier": "R_FUEL_40_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 128,
+                                                                                                     "mask": 16384,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 7,
+                                                                                                 "shift_by": 14,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2304,11 +2576,11 @@
                                                                             "identifier": "R_FUEL_45_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 256,
+                                                                                                     "mask": 32768,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 8,
+                                                                                                 "shift_by": 15,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2320,11 +2592,11 @@
                                                                             "identifier": "R_FUEL_50_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 512,
+                                                                                                     "mask": 1,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 9,
+                                                                                                 "shift_by": 0,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2336,11 +2608,11 @@
                                                                             "identifier": "R_FUEL_60_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8304,
+                                                                                                  "address": 8314,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1024,
+                                                                                                     "mask": 2,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 10,
+                                                                                                 "shift_by": 1,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2352,11 +2624,11 @@
                                                                             "identifier": "R_FUEL_L_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 512,
+                                                                                                     "mask": 1,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 9,
+                                                                                                 "shift_by": 0,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2368,11 +2640,11 @@
                                                                             "identifier": "R_FUEL_R_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1024,
+                                                                                                     "mask": 2,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 10,
+                                                                                                 "shift_by": 1,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2384,11 +2656,11 @@
                                                                             "identifier": "R_GEN_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 256,
+                                                                                                     "mask": 32768,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 8,
+                                                                                                 "shift_by": 15,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2400,11 +2672,11 @@
                                                                             "identifier": "R_GYRO_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4096,
+                                                                                                     "mask": 8,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 12,
+                                                                                                 "shift_by": 3,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2416,11 +2688,11 @@
                                                                             "identifier": "R_L_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8210,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 64,
+                                                                                                     "mask": 8192,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 6,
+                                                                                                 "shift_by": 13,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2432,11 +2704,11 @@
                                                                             "identifier": "R_L_GEAR_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8210,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8,
+                                                                                                     "mask": 1024,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 3,
+                                                                                                 "shift_by": 10,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2448,11 +2720,11 @@
                                                                             "identifier": "R_MAXG_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32,
+                                                                                                     "mask": 4096,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 5,
+                                                                                                 "shift_by": 12,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2464,11 +2736,11 @@
                                                                             "identifier": "R_METAL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 8192,
+                                                                                                     "mask": 16,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 13,
+                                                                                                 "shift_by": 4,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2480,11 +2752,11 @@
                                                                             "identifier": "R_N_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8210,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 128,
+                                                                                                     "mask": 16384,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 7,
+                                                                                                 "shift_by": 14,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2496,11 +2768,11 @@
                                                                             "identifier": "R_N_GEAR_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8210,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16,
+                                                                                                     "mask": 2048,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 4,
+                                                                                                 "shift_by": 11,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2512,11 +2784,11 @@
                                                                             "identifier": "R_PITOT_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 16384,
+                                                                                                     "mask": 32,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 14,
+                                                                                                 "shift_by": 5,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2528,11 +2800,11 @@
                                                                             "identifier": "R_R_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8210,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 256,
+                                                                                                     "mask": 32768,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 8,
+                                                                                                 "shift_by": 15,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2544,11 +2816,11 @@
                                                                             "identifier": "R_R_GEAR_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8300,
+                                                                                                  "address": 8210,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32,
+                                                                                                     "mask": 4096,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 5,
+                                                                                                 "shift_by": 12,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2560,11 +2832,11 @@
                                                                             "identifier": "R_SPEED_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 128,
+                                                                                                     "mask": 16384,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 7,
+                                                                                                 "shift_by": 14,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2576,11 +2848,11 @@
                                                                             "identifier": "R_STALL_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8312,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 32768,
+                                                                                                     "mask": 64,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 15,
+                                                                                                 "shift_by": 6,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2592,11 +2864,11 @@
                                                                             "identifier": "R_STALL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8302,
+                                                                                                  "address": 8310,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 64,
+                                                                                                     "mask": 8192,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 6,
+                                                                                                 "shift_by": 13,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
