@@ -207,7 +207,7 @@ local function getFlareCount()
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(406)*10)
     return tonumber(digit1 .. digit2)
 end
-defineIntegerFromGetter("CM_FLARECNT_DISPLAY", getFlareCount, 65000, "CMDS", "Flare Counter Display")
+defineIntegerFromGetter("CM_FLARECNT_DISPLAY", getFlareCount, 60, "CMDS", "Flare Counter Display")
 
 local function getChaffCount()
     local function a(n) return GetDevice(0):get_argument_value(n) end
@@ -215,7 +215,7 @@ local function getChaffCount()
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(402)*10)
     return tonumber(digit1 .. digit2)
 end
-defineIntegerFromGetter("CM_CHAFFCNT_DISPLAY", getChaffCount, 65000, "CMDS", "Chaff Counter Display")
+defineIntegerFromGetter("CM_CHAFFCNT_DISPLAY", getChaffCount, 60, "CMDS", "Chaff Counter Display")
 
 -- Jettison System
 defineToggleSwitch("EMER_JETT_COVER", 14, 3001, 364,"Jettison" , "Emergency All Jettison Button Cover, OPEN")

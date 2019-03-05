@@ -484,7 +484,7 @@ local function getFlareCount()
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(461)*10)
     return tonumber(digit1 .. digit2)
 end
-defineIntegerFromGetter("CM_FLARECNT_DISPLAY", getFlareCount, 65000, "Countermeasures", "Flare Counter Display")
+defineIntegerFromGetter("CM_FLARECNT_DISPLAY", getFlareCount, 60, "Countermeasures", "Flare Counter Display")
 defineFixedStepInput("CM_FLARECNT", 50, 3004, {-1, 1}, "Countermeasures", "Flare Counter Decrease/Increase")
 
 definePushButton("CM_CHAFFCNT_RESET", 50, 3007, 455, "Countermeasures", "Chaff Counter Reset Button")
@@ -494,7 +494,7 @@ local function getChaffCount()
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(463)*10)
     return tonumber(digit1 .. digit2)
 end
-defineIntegerFromGetter("CM_CHAFFCNT_DISPLAY", getChaffCount, 65000, "Countermeasures", "Chaff Counter Display")
+defineIntegerFromGetter("CM_CHAFFCNT_DISPLAY", getChaffCount, 60, "Countermeasures", "Chaff Counter Display")
 defineFixedStepInput("CM_CHAFFCNT", 50, 3008, {-1, 1}, "Countermeasures", "Chaff Counter Decrease/Increase")
 
 defineToggleSwitch("RADAR_ALT_PWR", 13, 3007, 449, "Overhead Panel", "Radar Altimeter Power")

@@ -26,7 +26,7 @@ definePushButton("FRONT_STARTER", 3, 3039, 14,"Fore Main Panel" , "Fore Starter 
 defineTumb("FRONT_MAGNET_SEL", 3, 3003, 10, 0.1, {0.0, 0.3}, nil, false, "Fore Main Panel", "Fore Magnet Selector")
 definePushButton("FRONT_LAMP_TEST", 4, 3049, 8,"Fore Main Panel" , "Fore Lamp Test Button")
 definePushButton("FRONT_STALL_TEST", 17, 3001, 41,"Fore Main Panel" , "Fore Stall Warning Test Button")
-definePushButton("FRONT_ACCEL_BTN", 6, 3001, 45,"Fore Main Panel" , "Fore Stall Warning Test Button")
+definePushButton("FRONT_ACCEL_BTN", 6, 3001, 45,"Fore Main Panel" , "Fore Accelerometer Button")
 defineRotary("FRONT_ALT_KNOB", 6, 3004, 114, "Fore Main Panel", "Fore Altimeter Knob")
 defineRotary("FRONT_AHORIZON_ZERO", 6, 3012, 143, "Fore Main Panel", "Fore Artificial Horizon Zeroing")
 definePushButton("FRONT_AHORIZON_LOCK", 6, 3020, 145,"Fore Main Panel" , "Fore Artificial Horizon LOCK Button")
@@ -52,7 +52,7 @@ defineToggleSwitch("FRONT_CB_STALL", 4, 3021, 234,"Circuit Breakers" , "Fore SSK
 ----- Port Wall
 definePushButton("FRONT_RADIO_TX", 24, 3001, 192,"Throttle Quadrant" , "Fore Radio Button")
 definePushButton("FRONT_INTERCOM_TX", 24, 3023, 194,"Throttle Quadrant" , "Fore Intercom Button")
-definePushButton("FRONT_FUEL_COCK", 3, 3047, 286,"Throttle Quadrant" , "Fore Fuel Cock")
+definePushButton("FRONT_FUEL_COCK", 3, 3047, 286,"Port Wall" , "Fore Fuel Cock")
 defineRotary("FRONT_PNEM_VALVE", 6,  3041, 230, "Port Wall", "Fore Pneumatic System Master Valve")
 ----- Port Circuit Breakers Panel
 defineToggleSwitch("FRONT_CB_RADIO", 4, 3024, 226,"Circuit Breakers" , "Fore Radio CB")
@@ -79,6 +79,20 @@ defineToggleSwitch("REAR_STARTER_COVER", 3, 3036, 15,"Rear Main Panel" , "Rear S
 definePushButton("REAR_STARTER", 3, 3040, 16,"Rear Main Panel" , "Rear Starter Button")
 defineToggleSwitch("REAR_UCE_LOCK", 2, 3005, 35,"Rear Main Panel" , "Rear Undercarriage Extension Lock")
 definePushButton("REAR_LAMP_TEST", 4, 3099, 9,"Rear Main Panel" , "Rear Lamp Test Button")
+definePushButton("REAR_ACCEL_BTN", 6, 3002, 49,"Rear Main Panel" , "Rear Accelerometer Button")
+defineRotary("REAR_ALT_KNOB", 6, 3007, 118, "Rear Main Panel", "Rear Altimeter Knob")
+defineRotary("REAR_AHORIZON_ZERO", 6, 3015, 149, "Rear Main Panel", "Rear Artificial Horizon Zeroing")
+definePushButton("REAR_AHORIZON_LOCK", 6, 3021, 151,"Rear Main Panel" , "Rear Artificial Horizon LOCK Button")
+defineRotary("REAR_HSI_KNOB", 22, 3001, 279, "Rear Main Panel", "Rear HSI Knob")
+----- Starboard Trainer Panel
+defineToggleSwitch("REAR_CB_TPANEL_MASTER", 4, 3051, 100,"Circuit Breakers" , "Rear Trainer Master CB")
+defineToggleSwitch("REAR_CB_TPANEL_SPEED", 4, 3057, 101,"Circuit Breakers" , "Rear Trainer Speedo CB")
+defineToggleSwitch("REAR_CB_TPANEL_AH", 4, 3054, 102,"Circuit Breakers" , "Rear Trainer AH CB")
+defineToggleSwitch("REAR_CB_TPANEL_STAT", 4, 3060, 103,"Circuit Breakers" , "Rear Trainer Statistics CB")
+----- Port Wall
+definePushButton("REAR_RADIO_TX", 24, 3051, 196,"Throttle Quadrant" , "Rear Radio Button")
+definePushButton("REAR_INTERCOM_TX", 24, 3052, 197,"Throttle Quadrant" , "Rear Intercom Button")
+definePushButton("REAR_FUEL_COCK", 3, 3048, 287,"Port Wall" , "Rear Fuel Cock")
 
 ---Gauges
 defineFloat("FRONT_ACCEL_MINUTE", 42, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Minute")

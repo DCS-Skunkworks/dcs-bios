@@ -16,18 +16,13 @@ local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
---local defineString = BIOS.util.defineString
 local defineFloat = BIOS.util.defineFloat
-
-local function define3PosTumb(msg, device_id, command, arg_number, category, description)
-	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
-end
 
 --ELECTRIC_SYSTEMS
 defineToggleSwitch("BATTERY", 1, 315, 300,"Electric" , "BATTERY Power Switch")
 defineToggleSwitch("GENERATOR1", 1, 10316, 301,"Electric" , "GENERATOR 1 Switch")
 defineToggleSwitch("GENERATOR2", 1, 10317, 302,"Electric" , "GENERATOR 2 Switch")
-defineToggleSwitch("EMERG_POWER", 1, 10318, 303,"Electric" , "AC Power Emer Switch")
+defineToggleSwitch("EMERG_POWER", 1, 10318, 303,"Electric" , "AC Power Emergency Switch")
 defineFloat("GENERATOR1_IND", 380, {0.0, 1.0}, "Electric", "GENERATOR 1 Indicator")
 defineFloat("GENERATOR2_IND", 381, {0.0, 1.0}, "Electric", "GENERATOR 2 Indicator")
 
@@ -93,28 +88,28 @@ defineFloat("HSI_TO_FROM1", 367, {0.0, 1.0}, "HSI", "HSI To - From 1")
 defineFloat("HSI_TO_FROM2", 368, {0.0, 1.0}, "HSI", "HSI To - From 2")
 
 --GPS
-definePushButton("GPS_ROW1", 11, 10211, nil,"HSI" , "GPS Row 1 Selector")
-definePushButton("GPS_ROW2", 11, 10212, nil,"HSI" , "GPS Row 2 Selector")
-definePushButton("GPS_ROW3", 11, 10213, nil,"HSI" , "GPS Row 3 Selector")
-definePushButton("GPS_ROW4", 11, 10214, nil,"HSI" , "GPS Row 4 Selector")
-definePushButton("GPS_MARK", 11, 10207, nil,"HSI" , "GPS MARK")
-definePushButton("GPS_SET", 11, 10203, nil,"HSI" , "GPS SET")
-definePushButton("GPS_BRT", 11, 10204, nil,"HSI" , "GPS BRT")
-definePushButton("GPS_MINUS", 11, 10205, nil,"HSI" , "GPS -")
-definePushButton("GPS_PLUS", 11, 10206, nil,"HSI" , "GPS +")
-definePushButton("GPS_NR1", 11, 10191, nil,"HSI" , "GPS N.1")
-definePushButton("GPS_NR2", 11, 10192, nil,"HSI" , "GPS N.2")
-definePushButton("GPS_NR3", 11, 10193, nil,"HSI" , "GPS N.3")
-definePushButton("GPS_NR4", 11, 10194, nil,"HSI" , "GPS N.4")
-definePushButton("GPS_NR5", 11, 10195, nil,"HSI" , "GPS N.5")
-definePushButton("GPS_NR6", 11, 10196, nil,"HSI" , "GPS N.6")
-definePushButton("GPS_NR7", 11, 10197, nil,"HSI" , "GPS N.7")
-definePushButton("GPS_NR8", 11, 10198, nil,"HSI" , "GPS N.8")
-definePushButton("GPS_NR9", 11, 10199, nil,"HSI" , "GPS N.9")
-definePushButton("GPS_NR0", 11, 10200, nil,"HSI" , "GPS N.0")
-definePushButton("GPS_CLR", 11, 10201, nil,"HSI" , "GPS CLR")
-definePushButton("GPS_ENT", 11, 10202, nil,"HSI" , "GPS ENT")
-definePushButton("GPS_MODE", 11, 10215, nil,"HSI" , "GPS MODE")
+--definePushButton("GPS_ROW1", 11, 10211, nil,"HSI" , "GPS Row 1 Selector")
+--definePushButton("GPS_ROW2", 11, 10212, nil,"HSI" , "GPS Row 2 Selector")
+--definePushButton("GPS_ROW3", 11, 10213, nil,"HSI" , "GPS Row 3 Selector")
+--definePushButton("GPS_ROW4", 11, 10214, nil,"HSI" , "GPS Row 4 Selector")
+--definePushButton("GPS_MARK", 11, 10207, nil,"HSI" , "GPS MARK")
+--definePushButton("GPS_SET", 11, 10203, nil,"HSI" , "GPS SET")
+--definePushButton("GPS_BRT", 11, 10204, nil,"HSI" , "GPS BRT")
+--definePushButton("GPS_MINUS", 11, 10205, nil,"HSI" , "GPS -")
+--definePushButton("GPS_PLUS", 11, 10206, nil,"HSI" , "GPS +")
+--definePushButton("GPS_NR1", 11, 10191, nil,"HSI" , "GPS N.1")
+--definePushButton("GPS_NR2", 11, 10192, nil,"HSI" , "GPS N.2")
+--definePushButton("GPS_NR3", 11, 10193, nil,"HSI" , "GPS N.3")
+--definePushButton("GPS_NR4", 11, 10194, nil,"HSI" , "GPS N.4")
+--definePushButton("GPS_NR5", 11, 10195, nil,"HSI" , "GPS N.5")
+--definePushButton("GPS_NR6", 11, 10196, nil,"HSI" , "GPS N.6")
+--definePushButton("GPS_NR7", 11, 10197, nil,"HSI" , "GPS N.7")
+--definePushButton("GPS_NR8", 11, 10198, nil,"HSI" , "GPS N.8")
+--definePushButton("GPS_NR9", 11, 10199, nil,"HSI" , "GPS N.9")
+--definePushButton("GPS_NR0", 11, 10200, nil,"HSI" , "GPS N.0")
+--definePushButton("GPS_CLR", 11, 10201, nil,"HSI" , "GPS CLR")
+--definePushButton("GPS_ENT", 11, 10202, nil,"HSI" , "GPS ENT")
+--definePushButton("GPS_MODE", 11, 10215, nil,"HSI" , "GPS MODE")
 
 --ADI
 defineRotary("CLOCK_WIND_ROTATRY", 12, 3001, 15, "ADI", "ADI Pitch Trim Knob")
@@ -207,7 +202,7 @@ defineTumb("FUEL_QUANT", 27, 3008, 257, 0.1, {0.0, 0.4}, nil, false,"Fuel System
 definePushButton("FUEL_TEST", 27, 10411, 258,"Fuel Systems" , "Fuel Test Button")
 defineToggleSwitch("FUEL_TRANSFER", 27, 10152, 249,"Fuel Systems" , "TIP/PYLON Fuel Transfer Switch")
 defineFloat("FUEL_TOTAL", 312, {0.0, 1.0}, "Fuel Systems", "Total Fuel")
-defineFloat("FUEL_FLOW", 312, {0.0, 0.62}, "Fuel Systems", "Fuel Flow")
+defineFloat("FUEL_FLOW", 265, {0.0, 0.62}, "Fuel Systems", "Fuel Flow")
 
 --GAUGES
 defineFloat("FLAPS_IND", 1, {0.0, 1.0}, "Gauges", "Flaps Indicator")
@@ -286,6 +281,6 @@ defineIndicatorLight("WARN_STEER", 254, "Indicator Lights","Steering Warning")
 defineIndicatorLight("WARN_ANTI_SKID", 255, "Indicator Lights","Anti Skid Warning")
 defineIndicatorLight("WARN_OVERHEAT", 256, "Indicator Lights","Overheat Warning")
 defineIndicatorLight("SMK_WHITE_IND", 62, {0.0, 1.0}, "Indicator Lights", "White Smoke Indicator")
-defineIndicatorLight("SMK_COLOR_IND", 62, {0.0, 1.0}, "Indicator Lights", "Color Smoke Indicator")
+defineIndicatorLight("SMK_COLOR_IND", 63, {0.0, 1.0}, "Indicator Lights", "Color Smoke Indicator")
 
 BIOS.protocol.endModule()
