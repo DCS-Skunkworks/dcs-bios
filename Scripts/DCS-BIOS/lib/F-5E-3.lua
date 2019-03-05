@@ -18,6 +18,7 @@ local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 local defineString = BIOS.util.defineString
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 local function define3PosTumb(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
@@ -199,6 +200,22 @@ defineFloat("CHAFF_COUNT_10", 401, {0.0, 1.0}, "Gauges", "Chaff Drum Counter 10"
 defineFloat("CHAFF_COUNT_1", 402, {0.0, 1.0}, "Gauges", "Chaff Drum Counter 1")
 defineFloat("FL_COUNT_10", 405, {0.0, 1.0}, "Gauges", "Flare Drum Counter 10")
 defineFloat("FL_COUNT_1", 406, {0.0, 1.0}, "Gauges", "Flare Drum Counter 1")
+
+local function getFlareCount()
+    local function a(n) return GetDevice(0):get_argument_value(n) end
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(405)*10)
+    local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(406)*10)
+    return tonumber(digit1 .. digit2)
+end
+defineIntegerFromGetter("CM_FLARECNT_DISPLAY", getFlareCount, 65000, "CMDS", "Flare Counter Display")
+
+local function getChaffCount()
+    local function a(n) return GetDevice(0):get_argument_value(n) end
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(401)*10)
+    local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(402)*10)
+    return tonumber(digit1 .. digit2)
+end
+defineIntegerFromGetter("CM_CHAFFCNT_DISPLAY", getChaffCount, 65000, "CMDS", "Chaff Counter Display")
 
 -- Jettison System
 defineToggleSwitch("EMER_JETT_COVER", 14, 3001, 364,"Jettison" , "Emergency All Jettison Button Cover, OPEN")

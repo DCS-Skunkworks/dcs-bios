@@ -479,20 +479,23 @@ definePushButton("CM_ARMED_TEST", 50, 3010, 457, "Countermeasures", "Armed Lamp 
 
 definePushButton("CM_FLARECNT_RESET", 50, 3003, 453, "Countermeasures", "Flare Counter Reset Button")
 local function getFlareCount()
-	local function a(n) return GetDevice(0):get_argument_value(n) end
-	return string.format("%.0f%.0f", a(460)*10, a(461)*10)
+    local function a(n) return GetDevice(0):get_argument_value(n) end
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(460)*10)
+    local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(461)*10)
+    return tonumber(digit1 .. digit2)
 end
-defineString("CM_FLARECNT_DISPLAY", getFlareCount, 2, "Countermeasures", "Flare Counter")
+defineIntegerFromGetter("CM_FLARECNT_DISPLAY", getFlareCount, 65000, "Countermeasures", "Flare Counter Display")
 defineFixedStepInput("CM_FLARECNT", 50, 3004, {-1, 1}, "Countermeasures", "Flare Counter Decrease/Increase")
 
 definePushButton("CM_CHAFFCNT_RESET", 50, 3007, 455, "Countermeasures", "Chaff Counter Reset Button")
 local function getChaffCount()
-	local function a(n) return GetDevice(0):get_argument_value(n) end
-	return string.format("%.0f%.0f", a(462)*10, a(463)*10)
+    local function a(n) return GetDevice(0):get_argument_value(n) end
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(462)*10)
+    local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(463)*10)
+    return tonumber(digit1 .. digit2)
 end
-defineString("CM_CHAFFCNT_DISPLAY", getChaffCount, 2, "Countermeasures", "Chaff Counter")
+defineIntegerFromGetter("CM_CHAFFCNT_DISPLAY", getChaffCount, 65000, "Countermeasures", "Chaff Counter Display")
 defineFixedStepInput("CM_CHAFFCNT", 50, 3008, {-1, 1}, "Countermeasures", "Chaff Counter Decrease/Increase")
-
 
 defineToggleSwitch("RADAR_ALT_PWR", 13, 3007, 449, "Overhead Panel", "Radar Altimeter Power")
 defineRotary("RADAR_ALT_LO", 13, 3002, 445, "Front Dash", "Radar Altimeter Low Setting")
