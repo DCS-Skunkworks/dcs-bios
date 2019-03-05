@@ -10,7 +10,6 @@ local document = BIOS.util.document
 
 local parse_indication = BIOS.util.parse_indication
 
-
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
