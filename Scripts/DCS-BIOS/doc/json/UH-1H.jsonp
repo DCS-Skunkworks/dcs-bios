@@ -3538,16 +3538,18 @@ docdata["UH-1H"] =
                                                                            },
                                                     "CM_CHAFFCNT_DISPLAY": {
                                                                                    "category": "Countermeasures",
-                                                                               "control_type": "display",
-                                                                                "description": "Chaff Counter",
+                                                                               "control_type": "metadata",
+                                                                                "description": "Chaff Counter Display",
                                                                                  "identifier": "CM_CHAFFCNT_DISPLAY",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
                                                                                                        "address": 5406,
-                                                                                                   "description": "Chaff Counter",
-                                                                                                    "max_length": 2,
+                                                                                                   "description": "Chaff Counter Display",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65000,
+                                                                                                      "shift_by": 0,
                                                                                                         "suffix": "",
-                                                                                                          "type": "string"
+                                                                                                          "type": "integer"
                                                                                                } ]
                                                                            },
                                                       "CM_CHAFFCNT_RESET": {
@@ -3593,16 +3595,18 @@ docdata["UH-1H"] =
                                                                            },
                                                     "CM_FLARECNT_DISPLAY": {
                                                                                    "category": "Countermeasures",
-                                                                               "control_type": "display",
-                                                                                "description": "Flare Counter",
+                                                                               "control_type": "metadata",
+                                                                                "description": "Flare Counter Display",
                                                                                  "identifier": "CM_FLARECNT_DISPLAY",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
                                                                                                        "address": 5404,
-                                                                                                   "description": "Flare Counter",
-                                                                                                    "max_length": 2,
+                                                                                                   "description": "Flare Counter Display",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65000,
+                                                                                                      "shift_by": 0,
                                                                                                         "suffix": "",
-                                                                                                          "type": "string"
+                                                                                                          "type": "integer"
                                                                                                } ]
                                                                            },
                                                       "CM_FLARECNT_RESET": {
