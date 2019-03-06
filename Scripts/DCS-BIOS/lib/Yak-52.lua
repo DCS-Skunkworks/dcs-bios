@@ -15,6 +15,10 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 
+local function define3PosTumb(msg, device_id, command, arg_number, category, description)
+	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
+end
+
 --Remove Pilot Arg# 165
 
 --- Fore Pit
@@ -36,6 +40,11 @@ definePushButton("FRONT_VOLTAMP_BTN", 15, 3001, 176,"Fore Main Panel" , "Fore Vo
 definePushButton("FRONT_FUEL_GAUGE_TEST", 16, 3001, 177,"Fore Main Panel" , "Fore Fuel Gauge Test Button")
 defineToggleSwitch("FRONT_FUEL_GAUGE_DIM", 16, 3002, 178,"Fore Main Panel" , "Fore Fuel Gauge Dimmer")
 defineTumb("FRONT_PRIMER_PUMP", 3, 3044, 76, 1.0, {-1.0, 1.0}, nil, false, "Fore Main Panel", "Fore Primer Pump Selector OFF/Trunk/Cylinders")
+----- Clock
+definePushButton("FRONT_CLOCK_PUSH_L", 6, 3023, 119,"Fore Main Panel" , "Fore Clock Left Push Button")
+defineRotary("FRONT_CLOCK_ROTATE_L", 22, 3024, 120, "Fore Main Panel", "Fore Clock Left Rotate Knob")
+definePushButton("FRONT_CLOCK_PUSH_R", 6, 3025, 121,"Fore Main Panel" , "Fore Clock Right Push Button")
+defineRotary("FRONT_CLOCK_ROTATE_R", 22, 3026, 122, "Fore Main Panel", "Fore Clock Right Rotate Knob")
 ----- BAKLAN-5
 definePotentiometer("FRONT_RADIO_VOL", 24, 3002,  90, {0, 1}, "BAKLAN-5", "Fore Radio Volume Knob")
 defineRotary("FRONT_RADIO_MHZ", 24, 3011, 88, "BAKLAN-5", "Fore Radio Tune mhz")
@@ -52,6 +61,9 @@ defineToggleSwitch("FRONT_CB_STALL", 4, 3021, 234,"Circuit Breakers" , "Fore SSK
 ----- Port Wall
 definePushButton("FRONT_RADIO_TX", 24, 3001, 192,"Throttle Quadrant" , "Fore Radio Button")
 definePushButton("FRONT_INTERCOM_TX", 24, 3023, 194,"Throttle Quadrant" , "Fore Intercom Button")
+definePotentiometer("FRONT_PROP_LEVER", 3, 3019, 198, {0, 1}, "Throttle Quadrant", "Fore Airscrew Lever")
+definePotentiometer("FRONT_FRIC_LEVER", 3, 3027, 210, {0, 1}, "Throttle Quadrant", "Fore Left Frictioner Lever")
+defineRotary("FRONT_TRIM_WHEEL", 2, 3032, 228, "Port Wall", "Fore Elevator Trim Wheel")
 definePushButton("FRONT_FUEL_COCK", 3, 3047, 286,"Port Wall" , "Fore Fuel Cock")
 defineRotary("FRONT_PNEM_VALVE", 6,  3041, 230, "Port Wall", "Fore Pneumatic System Master Valve")
 ----- Port Circuit Breakers Panel
@@ -64,10 +76,27 @@ defineToggleSwitch("FRONT_CB_E_INSTR", 4, 3013, 221,"Circuit Breakers" , "Fore E
 defineToggleSwitch("FRONT_CB_RDF", 4, 3039, 220,"Circuit Breakers" , "Fore RDF CB")
 defineToggleSwitch("FRONT_CB_SDG", 4, 3042, 219,"Circuit Breakers" , "Fore SDG CB")
 ----- Starboard Wall
-defineToggleSwitch("FRONT_MIXHEAT", 3, 3060, 238,"Starboard Wall" , "Fore Carburettor Heater Lever")	
+definePotentiometer("FRONT_WRADIATOR", 3, 3051, 235, {0, 1}, "Louvers Quadrant", "Fore Cooling Flaps Lever")
+definePotentiometer("FRONT_ORADIATOR", 3, 3054, 236, {0, 1}, "Louvers Quadrant", "Fore Oil Radiator Lever")
+definePotentiometer("FRONT_FRIC_R_LEVER", 3, 3057, 237, {0, 1}, "Louvers Quadrant", "Fore Right Frictioner Lever")
+defineToggleSwitch("FRONT_MIXHEAT", 3, 3060, 238,"Starboard Wall" , "Fore Carburettor Heater Lever")
+defineRotary("FRONT_EMER_VALVE", 6, 3044, 239, "Starboard Wall", "Fore Pneumatic Emergency Valve 1")
+defineToggleSwitch("FRONT_SDG_HEMI", 20, 3001, 258,"GMK-1A" , "Fore Gyro Hemisphere Selector")
+defineTumb("FRONT_SDG_MODE", 20, 3003, 259, 2.0, {-1.0, 1.0}, nil, false, "GMK-1A", "Fore Gyro Mode MC/GC")
+define3PosTumb("FRONT_SDG_CONTROL", 20, 3005, 260, "GMK-1A", "Fore Gyro Test Switch, 0 deg/OFF/300deg")
+define3PosTumb("FRONT_SDG_COURSE", 20, 3007, 261, "GMK-1A", "Fore Gyro Heading Selector, Counter-Clockwise/OFF/Clockwise")
+defineRotary("FRONT_SDG_LAT", 20, 3009, 262, "GMK-1A", "Fore Gyro Latitude Selector")
+defineTumb("FRONT_RDF_CHANNEL", 21, 3022, 244, 0.1, {0.0, 0.5}, nil, false, "ARK-15M", "Fore RDF Channel Selector")
+defineToggleSwitch("FRONT_RDF_LISTEN", 21, 3007, 245,"ARK-15M" , "Fore RDF Listen Mode")
+defineToggleSwitch("FRONT_RDF_MODE12", 21, 3019, 246,"ARK-15M" , "Fore RDF Mode")
+definePotentiometer("FRONT_RDF_VOLUME", 21, 3001, 247, {0, 1}, "ARK-15M", "Fore RDF Volume")
+definePushButton("FRONT_RDF_MODE3", 21, 3004, 248,"ARK-15M" , "Fore RDF Loop")
+definePushButton("FRONT_RDF_CSWITCH", 21, 3010, 249,"ARK-15M" , "Fore RDF Control")
+defineToggleSwitch("FRONT_CB_ADF", 21, 3025, 104,"ARK-15M" , "Fore ADF Marker")
 ----- Canopy Controls	
-	
-	
+defineToggleSwitch("FRONT_HATCH_L", 2, 3051, 267,"Canopy" , "Fore Left Canopy Lever")
+definePushButton("FRONT_HATCH_R", 2, 3062, 288,"Canopy" , "Fore Right Canopy Lever")
+definePushButton("FRONT_HATCH_JET", 2, 3059, 266,"Canopy" , "Fore Canopy Jettison")
 --------------------------------------------------------------------------------------------------------
 --- Rear Pit
 ----- Rear Main Panel
@@ -84,6 +113,11 @@ defineRotary("REAR_ALT_KNOB", 6, 3007, 118, "Rear Main Panel", "Rear Altimeter K
 defineRotary("REAR_AHORIZON_ZERO", 6, 3015, 149, "Rear Main Panel", "Rear Artificial Horizon Zeroing")
 definePushButton("REAR_AHORIZON_LOCK", 6, 3021, 151,"Rear Main Panel" , "Rear Artificial Horizon LOCK Button")
 defineRotary("REAR_HSI_KNOB", 22, 3001, 279, "Rear Main Panel", "Rear HSI Knob")
+----- Clock
+definePushButton("REAR_CLOCK_PUSH_L", 6, 3027, 131,"Rear Main Panel" , "Rear Clock Left Push Button")
+defineRotary("REAR_CLOCK_ROTATE_L", 22, 3028, 132, "Rear Main Panel", "Rear Clock Left Rotate Knob")
+definePushButton("REAR_CLOCK_PUSH_R", 6, 3029, 133,"Rear Main Panel" , "Rear Clock Right Push Button")
+defineRotary("REAR_CLOCK_ROTATE_R", 22, 3030, 134, "Rear Main Panel", "Rear Clock Right Rotate Knob")
 ----- Starboard Trainer Panel
 defineToggleSwitch("REAR_CB_TPANEL_MASTER", 4, 3051, 100,"Circuit Breakers" , "Rear Trainer Master CB")
 defineToggleSwitch("REAR_CB_TPANEL_SPEED", 4, 3057, 101,"Circuit Breakers" , "Rear Trainer Speedo CB")
@@ -92,9 +126,26 @@ defineToggleSwitch("REAR_CB_TPANEL_STAT", 4, 3060, 103,"Circuit Breakers" , "Rea
 ----- Port Wall
 definePushButton("REAR_RADIO_TX", 24, 3051, 196,"Throttle Quadrant" , "Rear Radio Button")
 definePushButton("REAR_INTERCOM_TX", 24, 3052, 197,"Throttle Quadrant" , "Rear Intercom Button")
+definePotentiometer("REAR_PROP_LEVER", 3, 3022, 199, {0, 1}, "Throttle Quadrant", "Rear Airscrew Lever")
+definePotentiometer("REAR_FRIC_LEVER", 3, 3030, 211, {0, 1}, "Throttle Quadrant", "Rear Left Frictioner Lever")
+defineRotary("REAR_TRIM_WHEEL", 2, 3035, 229, "Port Wall", "Rear Elevator Trim Wheel")
 definePushButton("REAR_FUEL_COCK", 3, 3048, 287,"Port Wall" , "Rear Fuel Cock")
+defineToggleSwitch("REAR_CB_BRAKES_CUT", 2, 3040, 293,"Circuit Breakers" , "Rear Wheel Brakes Purge CB")
+----- Starboard Wall
+defineRotary("REAR_EMER_VALVE", 6, 3047, 241, "Starboard Wall", "Rear Pneumatic Emergency Valve 2")
+defineTumb("REAR_RDF_CHANNEL", 21, 3072, 251, 0.1, {0.0, 0.5}, nil, false, "ARK-15M", "Rear RDF Channel Selector")
+defineToggleSwitch("REAR_RDF_LISTEN", 21, 3057, 252,"ARK-15M" , "Rear RDF Listen Mode")
+defineToggleSwitch("REAR_RDF_MODE12", 21, 3069, 253,"ARK-15M" , "Rear RDF Mode")
+definePotentiometer("REAR_RDF_VOLUME", 21, 3051, 254, {0, 1}, "ARK-15M", "Rear RDF Volume")
+definePushButton("REAR_RDF_MODE3", 21, 3054, 255,"ARK-15M" , "Rear RDF Loop")
+definePushButton("REAR_RDF_CSWITCH", 21, 3060, 256,"ARK-15M" , "Rear RDF Control")
+defineToggleSwitch("REAR_CB_ADF", 21, 3075, 105,"ARK-15M" , "Rear ADF Marker")
+----- Canopy Controls
+defineToggleSwitch("REAR_HATCH_L", 2, 3054, 271,"Canopy" , "Rear Left Canopy Lever")
+definePushButton("REAR_HATCH_R", 2, 3063, 289,"Canopy" , "Rear Right Canopy Lever")
+definePushButton("REAR_HATCH_JET", 2, 3060, 270,"Canopy" , "Rear Canopy Jettison")
 
----Gauges
+--- Gauges
 defineFloat("FRONT_ACCEL_MINUTE", 42, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Minute")
 defineFloat("FRONT_ACCEL_MIN", 44, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Min")
 defineFloat("FRONT_ACCEL_MAX", 43, {-0.6, 0.9}, "Gauges", "Fore Accelerometer Max")
@@ -145,7 +196,7 @@ defineFloat("FRONT_PNEU_STBY_PRESS", 38, {0.0, 1.0}, "Gauges", "Fore Pneumatic S
 defineFloat("REAR_PNEU_MAIN_PRESS", 39, {0.0, 1.0}, "Gauges", "Rear Pneumatic Main Pressure Gauge")
 defineFloat("REAR_PNEU_STBY_PRESS", 40, {0.0, 1.0}, "Gauges", "Rear Pneumatic Standby Pressure Gauge")
 
---Warning, Caution and IndicatorLights
+--- Warning, Caution and IndicatorLights
 defineIndicatorLight("F_L_GEAR_UP", 17, "Warning, Caution and IndicatorLights","Front Left Gear UP Lamp (red)")
 defineIndicatorLight("F_N_GEAR_UP", 18, "Warning, Caution and IndicatorLights","Front Nose Gear UP Lamp (red)")
 defineIndicatorLight("F_R_GEAR_UP", 19, "Warning, Caution and IndicatorLights","Front Right Gear UP Lamp (red)")
