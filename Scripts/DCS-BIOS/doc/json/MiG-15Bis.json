@@ -1,7 +1,7 @@
 {
-                            "AGK 47B": {
+                             "AGK47B": {
                                               "AGK_CAGE": {
-                                                                         "category": "AGK 47B",
+                                                                         "category": "AGK47B",
                                                                      "control_type": "selector",
                                                                       "description": "AGK-47B Artificial Horizon Cage",
                                                                        "identifier": "AGK_CAGE",
@@ -30,7 +30,7 @@
                                                                  "physical_variant": "toggle_switch"
                                                           },
                                               "AGK_FLAG": {
-                                                                  "category": "AGK 47B",
+                                                                  "category": "AGK47B",
                                                               "control_type": "analog_gauge",
                                                                "description": "AGK-47B Failure Flag",
                                                                 "identifier": "AGK_FLAG",
@@ -46,7 +46,7 @@
                                                                               } ]
                                                           },
                                            "AGK_HORIZON": {
-                                                                  "category": "AGK 47B",
+                                                                  "category": "AGK47B",
                                                               "control_type": "analog_gauge",
                                                                "description": "AGK-47B Horizon Gauge",
                                                                 "identifier": "AGK_HORIZON",
@@ -62,7 +62,7 @@
                                                                               } ]
                                                           },
                                              "AGK_PITCH": {
-                                                                  "category": "AGK 47B",
+                                                                  "category": "AGK47B",
                                                               "control_type": "analog_gauge",
                                                                "description": "AGK-47B Pitch Gauge",
                                                                 "identifier": "AGK_PITCH",
@@ -78,7 +78,7 @@
                                                                               } ]
                                                           },
                                               "AGK_ROLL": {
-                                                                  "category": "AGK 47B",
+                                                                  "category": "AGK47B",
                                                               "control_type": "analog_gauge",
                                                                "description": "AGK-47B Roll Gauge",
                                                                 "identifier": "AGK_ROLL",
@@ -94,7 +94,7 @@
                                                                               } ]
                                                           },
                                               "AGK_SLIP": {
-                                                                  "category": "AGK 47B",
+                                                                  "category": "AGK47B",
                                                               "control_type": "analog_gauge",
                                                                "description": "AGK-47B Sideslip Gauge",
                                                                 "identifier": "AGK_SLIP",
@@ -109,8 +109,33 @@
                                                                                          "type": "integer"
                                                                               } ]
                                                           },
+                                              "AGK_TRIM": {
+                                                                  "category": "AGK47B",
+                                                              "control_type": "limited_dial",
+                                                               "description": "AGK-47B Artificial Horizon Zero Pitch Trim Knob",
+                                                                "identifier": "AGK_TRIM",
+                                                                    "inputs": [ {
+                                                                                  "description": "set the position of the dial",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 65535
+                                                                              }, {
+                                                                                     "description": "turn the dial left or right",
+                                                                                       "interface": "variable_step",
+                                                                                       "max_value": 65535,
+                                                                                  "suggested_step": 3200
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                      "address": 9278,
+                                                                                  "description": "position of the potentiometer",
+                                                                                         "mask": 65535,
+                                                                                    "max_value": 65535,
+                                                                                     "shift_by": 0,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
                                               "AGK_TURN": {
-                                                                  "category": "AGK 47B",
+                                                                  "category": "AGK47B",
                                                               "control_type": "analog_gauge",
                                                                "description": "AGK-47B Turn Gauge",
                                                                 "identifier": "AGK_TURN",
@@ -126,36 +151,9 @@
                                                                               } ]
                                                           }
                                        },
-                            "AGK-47B": {
-                                           "AGK_TRIM": {
-                                                               "category": "AGK-47B",
-                                                           "control_type": "limited_dial",
-                                                            "description": "AGK-47B Artificial Horizon Zero Pitch Trim Knob",
-                                                             "identifier": "AGK_TRIM",
-                                                                 "inputs": [ {
-                                                                               "description": "set the position of the dial",
-                                                                                 "interface": "set_state",
-                                                                                 "max_value": 65535
-                                                                           }, {
-                                                                                  "description": "turn the dial left or right",
-                                                                                    "interface": "variable_step",
-                                                                                    "max_value": 65535,
-                                                                               "suggested_step": 3200
-                                                                           } ],
-                                                                "outputs": [ {
-                                                                                   "address": 9278,
-                                                                               "description": "position of the potentiometer",
-                                                                                      "mask": 65535,
-                                                                                 "max_value": 65535,
-                                                                                  "shift_by": 0,
-                                                                                    "suffix": "",
-                                                                                      "type": "integer"
-                                                                           } ]
-                                                       }
-                                       },
-                              "ARC-5": {
+                               "ARC5": {
                                                    "ARC5_BAND": {
-                                                                        "category": "ARC-5",
+                                                                        "category": "ARC5",
                                                                     "control_type": "analog_gauge",
                                                                      "description": "ARC-5 Band",
                                                                       "identifier": "ARC5_BAND",
@@ -171,7 +169,7 @@
                                                                                     } ]
                                                                 },
                                                 "ARC5_BEARING": {
-                                                                        "category": "ARC-5",
+                                                                        "category": "ARC5",
                                                                     "control_type": "analog_gauge",
                                                                      "description": "ARC-5 Bearing",
                                                                       "identifier": "ARC5_BEARING",
@@ -188,7 +186,7 @@
                                                                 },
                                                 "ARC5_CONTROL": {
                                                                             "api_variant": "momentary_last_position",
-                                                                               "category": "ARC-5",
+                                                                               "category": "ARC5",
                                                                            "control_type": "selector",
                                                                             "description": "ARC-5 Take Control Button",
                                                                              "identifier": "ARC5_CONTROL",
@@ -217,7 +215,7 @@
                                                                        "physical_variant": "push_button"
                                                                 },
                                                    "ARC5_FREQ": {
-                                                                        "category": "ARC-5",
+                                                                        "category": "ARC5",
                                                                     "control_type": "analog_gauge",
                                                                      "description": "ARC-5 Freq Scale",
                                                                       "identifier": "ARC5_FREQ",
@@ -233,7 +231,7 @@
                                                                                     } ]
                                                                 },
                                                   "ARC5_LIGHT": {
-                                                                        "category": "ARC-5",
+                                                                        "category": "ARC5",
                                                                     "control_type": "limited_dial",
                                                                      "description": "ARC-5 Scale Light Knob",
                                                                       "identifier": "ARC5_LIGHT",
@@ -258,7 +256,7 @@
                                                                                     } ]
                                                                 },
                                                    "ARC5_LOOP": {
-                                                                               "category": "ARC-5",
+                                                                               "category": "ARC5",
                                                                            "control_type": "selector",
                                                                             "description": "ARC-5 LOOP L-R Switch",
                                                                              "identifier": "ARC5_LOOP",
@@ -283,7 +281,7 @@
                                                                        "physical_variant": "limited_rotary"
                                                                 },
                                                    "ARC5_NBD1": {
-                                                                               "category": "ARC-5",
+                                                                               "category": "ARC5",
                                                                            "control_type": "selector",
                                                                             "description": "ARC-5 NDB 1 Switch",
                                                                              "identifier": "ARC5_NBD1",
@@ -312,7 +310,7 @@
                                                                        "physical_variant": "toggle_switch"
                                                                 },
                                                    "ARC5_NBD2": {
-                                                                               "category": "ARC-5",
+                                                                               "category": "ARC5",
                                                                            "control_type": "selector",
                                                                             "description": "ARC-5 NDB 2 Switch",
                                                                              "identifier": "ARC5_NBD2",
@@ -341,7 +339,7 @@
                                                                        "physical_variant": "toggle_switch"
                                                                 },
                                                    "ARC5_NBD3": {
-                                                                               "category": "ARC-5",
+                                                                               "category": "ARC5",
                                                                            "control_type": "selector",
                                                                             "description": "ARC-5 NDB 3 Switch",
                                                                              "identifier": "ARC5_NBD3",
@@ -370,7 +368,7 @@
                                                                        "physical_variant": "toggle_switch"
                                                                 },
                                            "ARC5_NEAR_FAR_NBD": {
-                                                                               "category": "ARC-5",
+                                                                               "category": "ARC5",
                                                                            "control_type": "selector",
                                                                             "description": "ARC-5 Near/Far NDB Switch",
                                                                              "identifier": "ARC5_NEAR_FAR_NBD",
@@ -399,7 +397,7 @@
                                                                        "physical_variant": "toggle_switch"
                                                                 },
                                                  "ARC5_SELECT": {
-                                                                               "category": "ARC-5",
+                                                                               "category": "ARC5",
                                                                            "control_type": "selector",
                                                                             "description": "ARC-5 Function Selector Switch",
                                                                              "identifier": "ARC5_SELECT",
@@ -424,7 +422,7 @@
                                                                        "physical_variant": "limited_rotary"
                                                                 },
                                                 "ARC5_TGL_TFL": {
-                                                                               "category": "ARC-5",
+                                                                               "category": "ARC5",
                                                                            "control_type": "selector",
                                                                             "description": "ARC-5 TLG-TLF Switch",
                                                                              "identifier": "ARC5_TGL_TFL",
@@ -453,7 +451,7 @@
                                                                        "physical_variant": "toggle_switch"
                                                                 },
                                                    "ARC5_TUNE": {
-                                                                        "category": "ARC-5",
+                                                                        "category": "ARC5",
                                                                     "control_type": "analog_gauge",
                                                                      "description": "ARC-5 Tuning",
                                                                       "identifier": "ARC5_TUNE",
@@ -469,7 +467,7 @@
                                                                                     } ]
                                                                 },
                                              "ARC5_TUNE_METER": {
-                                                                        "category": "ARC-5",
+                                                                        "category": "ARC5",
                                                                     "control_type": "analog_gauge",
                                                                      "description": "ARC-5 Tuning Meter",
                                                                       "identifier": "ARC5_TUNE_METER",
@@ -485,7 +483,7 @@
                                                                                     } ]
                                                                 },
                                                     "ARC5_VOL": {
-                                                                        "category": "ARC-5",
+                                                                        "category": "ARC5",
                                                                     "control_type": "limited_dial",
                                                                      "description": "ARC-5 Audio Volume Knob",
                                                                       "identifier": "ARC5_VOL",
@@ -510,35 +508,9 @@
                                                                                     } ]
                                                                 }
                                        },
-                 "ARC-5 Tuning Crank": {
-                                           "ARC5_TUNE": {
-                                                                "category": "ARC-5 Tuning Crank",
-                                                            "control_type": "limited_dial",
-                                                              "identifier": "ARC5_TUNE",
-                                                                  "inputs": [ {
-                                                                                "description": "set the position of the dial",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 65535
-                                                                            }, {
-                                                                                   "description": "turn the dial left or right",
-                                                                                     "interface": "variable_step",
-                                                                                     "max_value": 65535,
-                                                                                "suggested_step": 3200
-                                                                            } ],
-                                                                 "outputs": [ {
-                                                                                    "address": 9334,
-                                                                                "description": "position of the potentiometer",
-                                                                                       "mask": 65535,
-                                                                                  "max_value": 65535,
-                                                                                   "shift_by": 0,
-                                                                                     "suffix": "",
-                                                                                       "type": "integer"
-                                                                            } ]
-                                                        }
-                                       },
-                    "ASP-3N Gunsight": {
+                     "ASP3N Gunsight": {
                                                  "ASP3_BRIGHT": {
-                                                                        "category": "ASP-3N Gunsight",
+                                                                        "category": "ASP3N Gunsight",
                                                                     "control_type": "limited_dial",
                                                                      "description": "ASP-3N Gunsight Brightness Knob",
                                                                       "identifier": "ASP3_BRIGHT",
@@ -563,7 +535,7 @@
                                                                                     } ]
                                                                 },
                                                   "ASP3_COLOR": {
-                                                                               "category": "ASP-3N Gunsight",
+                                                                               "category": "ASP3N Gunsight",
                                                                            "control_type": "selector",
                                                                             "description": "ASP-3N Gunsight Color Filter",
                                                                              "identifier": "ASP3_COLOR",
@@ -592,7 +564,7 @@
                                                                        "physical_variant": "toggle_switch"
                                                                 },
                                                    "ASP3_DIST": {
-                                                                        "category": "ASP-3N Gunsight",
+                                                                        "category": "ASP3N Gunsight",
                                                                     "control_type": "limited_dial",
                                                                      "description": "ASP-3N Gunsight Target Distance Knob",
                                                                       "identifier": "ASP3_DIST",
@@ -617,7 +589,7 @@
                                                                                     } ]
                                                                 },
                                              "ASP3_MASK_LEVER": {
-                                                                               "category": "ASP-3N Gunsight",
+                                                                               "category": "ASP3N Gunsight",
                                                                            "control_type": "selector",
                                                                             "description": "ASP-3N Gunsight Fixed Reticle Mask Lever",
                                                                              "identifier": "ASP3_MASK_LEVER",
@@ -646,7 +618,7 @@
                                                                        "physical_variant": "toggle_switch"
                                                                 },
                                                    "ASP3_MODE": {
-                                                                               "category": "ASP-3N Gunsight",
+                                                                               "category": "ASP3N Gunsight",
                                                                            "control_type": "selector",
                                                                             "description": "ASP-3N Gunsight Mode",
                                                                              "identifier": "ASP3_MODE",
@@ -675,7 +647,7 @@
                                                                        "physical_variant": "toggle_switch"
                                                                 },
                                                   "ASP3_RANGE": {
-                                                                        "category": "ASP-3N Gunsight",
+                                                                        "category": "ASP3N Gunsight",
                                                                     "control_type": "analog_gauge",
                                                                      "description": "ASP-3N Gunsight Range",
                                                                       "identifier": "ASP3_RANGE",
@@ -691,7 +663,7 @@
                                                                                     } ]
                                                                 },
                                            "ASP3_WINGSPAN_ADJ": {
-                                                                        "category": "ASP-3N Gunsight",
+                                                                        "category": "ASP3N Gunsight",
                                                                     "control_type": "limited_dial",
                                                                      "description": "ASP-3N Gunsight Target Wingspan Adjustment Dial",
                                                                       "identifier": "ASP3_WINGSPAN_ADJ",
@@ -2694,10 +2666,10 @@
                                                                                 } ]
                                                             }
                                        },
-                             "PDK-45": {
+                              "PDK45": {
                                            "PDK45_FAST_SLAVE": {
                                                                            "api_variant": "momentary_last_position",
-                                                                              "category": "PDK-45",
+                                                                              "category": "PDK45",
                                                                           "control_type": "selector",
                                                                            "description": "Fast Slave Button",
                                                                             "identifier": "PDK45_FAST_SLAVE",
@@ -2726,7 +2698,7 @@
                                                                       "physical_variant": "push_button"
                                                                },
                                                   "PDK45_HDG": {
-                                                                       "category": "PDK-45",
+                                                                       "category": "PDK45",
                                                                    "control_type": "analog_gauge",
                                                                     "description": "Heading",
                                                                      "identifier": "PDK45_HDG",
@@ -2742,7 +2714,7 @@
                                                                                    } ]
                                                                },
                                             "PDK45_HDG_SCALE": {
-                                                                       "category": "PDK-45",
+                                                                       "category": "PDK45",
                                                                    "control_type": "analog_gauge",
                                                                     "description": "Heading Scale",
                                                                      "identifier": "PDK45_HDG_SCALE",
@@ -2758,7 +2730,7 @@
                                                                                    } ]
                                                                },
                                               "PDK45_HEADING": {
-                                                                       "category": "PDK-45",
+                                                                       "category": "PDK45",
                                                                    "control_type": "limited_dial",
                                                                     "description": "Heading Knob",
                                                                      "identifier": "PDK45_HEADING",
@@ -2783,9 +2755,9 @@
                                                                                    } ]
                                                                }
                                        },
-                             "PRV-46": {
+                              "PRV46": {
                                            "RPV46_POWER": {
-                                                                         "category": "PRV-46",
+                                                                         "category": "PRV46",
                                                                      "control_type": "selector",
                                                                       "description": "PRV-46 Radar Altimeter Indicator Power Switch",
                                                                        "identifier": "RPV46_POWER",
@@ -2814,7 +2786,7 @@
                                                                  "physical_variant": "toggle_switch"
                                                           },
                                             "RPV46_RALT": {
-                                                                  "category": "PRV-46",
+                                                                  "category": "PRV46",
                                                               "control_type": "analog_gauge",
                                                                "description": "PRV-46 Radar Altimeter Gauge",
                                                                 "identifier": "RPV46_RALT",
@@ -2830,7 +2802,7 @@
                                                                               } ]
                                                           },
                                            "RPV46_RANGE": {
-                                                                         "category": "PRV-46",
+                                                                         "category": "PRV46",
                                                                      "control_type": "selector",
                                                                       "description": "PRV-46 Radar Altimeter Indicator Range Switch",
                                                                        "identifier": "RPV46_RANGE",
@@ -2915,10 +2887,10 @@
                                                                  "physical_variant": "toggle_switch"
                                                           }
                                        },
-                             "RSI-6K": {
+                              "RSI6K": {
                                                 "RSI6K_ANT_FREQ": {
                                                                        "api_variant": "multiturn",
-                                                                          "category": "RSI-6K",
+                                                                          "category": "RSI6K",
                                                                       "control_type": "analog_dial",
                                                                        "description": "RSI-6K Antenna Control Handle",
                                                                         "identifier": "RSI6K_ANT_FREQ",
@@ -2940,7 +2912,7 @@
                                                                   },
                                             "RSI6K_ANT_FREQ_FIX": {
                                                                        "api_variant": "multiturn",
-                                                                          "category": "RSI-6K",
+                                                                          "category": "RSI6K",
                                                                       "control_type": "analog_dial",
                                                                        "description": "RSI-6K Antenna Control Handle",
                                                                         "identifier": "RSI6K_ANT_FREQ_FIX",
@@ -2961,7 +2933,7 @@
                                                                                       } ]
                                                                   },
                                                "RSI6K_ANT_POWER": {
-                                                                          "category": "RSI-6K",
+                                                                          "category": "RSI6K",
                                                                       "control_type": "analog_gauge",
                                                                        "description": "RSI-6K Antenna Power",
                                                                         "identifier": "RSI6K_ANT_POWER",
@@ -2977,7 +2949,7 @@
                                                                                       } ]
                                                                   },
                                                    "RSI6K_FORCE": {
-                                                                                 "category": "RSI-6K",
+                                                                                 "category": "RSI6K",
                                                                              "control_type": "selector",
                                                                               "description": "RSI-6K Forced Mode Switch",
                                                                                "identifier": "RSI6K_FORCE",
@@ -3007,7 +2979,7 @@
                                                                   },
                                                      "RSI6K_MIC": {
                                                                               "api_variant": "momentary_last_position",
-                                                                                 "category": "RSI-6K",
+                                                                                 "category": "RSI6K",
                                                                              "control_type": "selector",
                                                                               "description": "Microphone Button",
                                                                                "identifier": "RSI6K_MIC",
@@ -3036,7 +3008,7 @@
                                                                          "physical_variant": "push_button"
                                                                   },
                                                  "RSI6K_RECEIVE": {
-                                                                                 "category": "RSI-6K",
+                                                                                 "category": "RSI6K",
                                                                              "control_type": "selector",
                                                                               "description": "RSI-6K Receive/ARC Switch",
                                                                                "identifier": "RSI6K_RECEIVE",
@@ -3066,7 +3038,7 @@
                                                                   },
                                             "RSI6K_RECEIVE_FREQ": {
                                                                        "api_variant": "multiturn",
-                                                                          "category": "RSI-6K",
+                                                                          "category": "RSI6K",
                                                                       "control_type": "analog_dial",
                                                                        "description": "RSI-6K Receiver Tuning Knob",
                                                                         "identifier": "RSI6K_RECEIVE_FREQ",
@@ -3087,7 +3059,7 @@
                                                                                       } ]
                                                                   },
                                            "RSI6K_RECEIVE_GAUGE": {
-                                                                          "category": "RSI-6K",
+                                                                          "category": "RSI6K",
                                                                       "control_type": "analog_gauge",
                                                                        "description": "RSI-6K Receiver Gauge",
                                                                         "identifier": "RSI6K_RECEIVE_GAUGE",
@@ -3103,7 +3075,7 @@
                                                                                       } ]
                                                                   },
                                              "RSI6K_RECEIVE_IND": {
-                                                                          "category": "RSI-6K",
+                                                                          "category": "RSI6K",
                                                                       "control_type": "analog_gauge",
                                                                        "description": "RSI-6K Receiver Ind",
                                                                         "identifier": "RSI6K_RECEIVE_IND",
@@ -3119,7 +3091,7 @@
                                                                                       } ]
                                                                   },
                                             "RSI6K_RECEIVE_KNOB": {
-                                                                          "category": "RSI-6K",
+                                                                          "category": "RSI6K",
                                                                       "control_type": "analog_gauge",
                                                                        "description": "RSI-6K Receiver Knob",
                                                                         "identifier": "RSI6K_RECEIVE_KNOB",
@@ -3136,7 +3108,7 @@
                                                                   },
                                                "RSI6K_TRAS_FREQ": {
                                                                        "api_variant": "multiturn",
-                                                                          "category": "RSI-6K",
+                                                                          "category": "RSI6K",
                                                                       "control_type": "analog_dial",
                                                                        "description": "RSI-6K Wave Control Handle",
                                                                         "identifier": "RSI6K_TRAS_FREQ",
@@ -3158,7 +3130,7 @@
                                                                   },
                                            "RSI6K_TRAS_FREQ_FIX": {
                                                                        "api_variant": "multiturn",
-                                                                          "category": "RSI-6K",
+                                                                          "category": "RSI6K",
                                                                       "control_type": "analog_dial",
                                                                        "description": "RSI-6K Wave Control Handle",
                                                                         "identifier": "RSI6K_TRAS_FREQ_FIX",
@@ -3180,7 +3152,7 @@
                                                                   },
                                                      "RSI6K_VOL": {
                                                                        "api_variant": "multiturn",
-                                                                          "category": "RSI-6K",
+                                                                          "category": "RSI6K",
                                                                       "control_type": "analog_dial",
                                                                        "description": "RSI-6K Audio Volume Knob",
                                                                         "identifier": "RSI6K_VOL",
