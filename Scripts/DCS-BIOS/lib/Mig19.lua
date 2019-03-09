@@ -28,7 +28,7 @@ defineToggleSwitch("AIRBRAKE_SW", 4, 3316, 316, "Throttle", "Airbrake Switch")
 definePushButton("AFTERBURN_DIS", 2, 3317, 317, "Throttle", "Mil-power Limit/Afterburner Disable")
 definePushButton("AFTERBURN_EN", 2, 3318, 318, "Throttle", "Afterburner Enable")
 
--- MAIN INSTRUMENTS PANEL:
+-- MAIN INSTRUMENTS PANEL
 define3PosTumb("GEAR_LEVER", 4, 3330, 330, "Landing Gear Panel", "Landing Gear Lever, Down/Neutral/Up")
 defineToggleSwitch("GEAR_LOCK", 4, 3331, 331, "Landing Gear Panel", "Landing Gear Lever Lock")
 definePushButton("GEAR_LIGHT_TEST", 10, 3333, 333, "Landing Gear Panel", "PPS-2 Landing Gear Lights Test Button - Push to test")
@@ -36,6 +36,24 @@ defineToggleSwitch("EMERG_BRAKE", 4, 3301, 301, "Landing Gear Panel", "Emergency
 defineToggleSwitch("NOSE_GEAR_BRAKE", 4, 3302, 302, "Landing Gear Panel", "Nose Gear Brake System On/Off")
 
 define3PosTumb("NOSE_LIGHTS", 5, 3262, 262, "Exterior Lights Panel", "Nose Lights Switch, LANDING/OFF/TAXI")
+
+definePushButton("GIK1_ALIGN", 9, 3224, 224, "Flight Instruments Panel", "GIK-1 Needle Alignment")
+definePushButton("ARU2V_LAMP_TEST", 4, 3300, 300, "Flight Instruments Panel", "ARU-2V Lamp Test Button")
+defineRotary("GIK1_CRS_SEL", 9, 3359, 3359, "Flight Instruments Panel", "GIK-1 Course Selector")
+definePotentiometer("AGI1_TRIM", 9, 3360, 360, {-1, 1}, "Flight Instruments Panel", "AGI-1 Artificial Horizon Pitch Trim Knob")
+defineToggleSwitch("AGI1_CAGE", 9, 3361, 361, "Landing Gear Panel", "AGI-1 Artificial Horizon Cage Button - Push to cage")
+defineRotary("BALT_PRESS_SEL", 9, 3362, 362, "Flight Instruments Panel", "Barometric Altimeter Setting (bars)")
+defineRotary("CLOCK_R_KNOB_TURN", 9, 3364, 364, "Flight Instruments Panel", "AChS-1 Chronograph Right Knob (Turn)")
+definePushButton("CLOCK_R_KNOB_PRESS", 4, 3508, 508, "Flight Instruments Panel", "AChS-1 Chronograph Right Knob (Press)")
+defineRotary("CLOCK_L_KNOB_TURN", 9, 3365, 3645, "Flight Instruments Panel", "AChS-1 Chronograph Left Knob (Turn)")
+define3PosTumb("CLOCK_L_KNOB_PRESS", 9, 3366, 366, "Flight Instruments Panel", "AChS-1 Chronograph Left Knob (PRESS)")
+definePushButton("GMETER_RESET", 9, 3515, 515, "Flight Instruments Panel", "AM-10 Accelerometer Min/Max G Reset Button")
+
+-- GUNSIGHTS
+defineToggleSwitch("ASP5_CAGE", 11, 3355, 355, "Gunsights", "ASP-5 Sight Cage/Uncage")
+defineRotary("ASP5_WINGSPAN", 11, 3356, 356, "Gunsights", "ASP-5 Target Wingspan Selector")
+defineRotary("ASP5_BOMB_MIL", 11, 3357, 357, "Gunsights", "ASP-5 Bomb Mil Deflection Setting")
+definePotentiometer("ASP5_BRIGHT", 11, 3358, 358, {0, 1}, "Gunsights", "ASP-5 Brightness")
 
 -- RP-5 IZUMRUD
 defineToggleSwitch("RP5_TELEMETRY", 14, 3263, 263, "Radar", "RP-5 Radar/Telemetry Selector")
@@ -62,6 +80,31 @@ defineToggleSwitch("R_ENG_OIL_CUT", 2, 3250, 250, "Bulkhead Panel 2", "Right Eng
 defineToggleSwitch("L_ENG_OIL_CUT", 2, 3251, 251, "Bulkhead Panel 2", "Left Engine Oil Cutoff")
 defineToggleSwitch("R_ENG_BURNER_CUT", 2, 3252, 252, "Bulkhead Panel 2", "Right Engine Afterburner Cut")
 defineToggleSwitch("L_ENG_BURNER_CUT", 2, 3253, 253, "Bulkhead Panel 2", "Left Engine Afterburner Cut")
+
+-- Bulkhead Panel 3
+defineToggleSwitch("ARU2_MODE", 4, 3254, 254, "Bulkhead Panel 3", "ARU-2 Operational Mode (Auto/Manual)")
+define3PosTumb("ARU2_MANUAL", 4, 3255, 255, "Bulkhead Panel 3", "ARU-2 Manual Arm Selector")
+defineToggleSwitch("TP19_BRAKECUTE_COVER", 4, 3274, 274, "Bulkhead Panel 3", "TP-19 Braking Parachute Jettison Button Cover")
+definePushButton("TP19_BRAKECUTE_JETT", 4, 3275, 275, "Bulkhead Panel 3", "TP-19 Braking Parachute Jettison Button - Press to jettison drag chute")
+definePushButton("WARN_BTN", 9, 3276, 276, "Bulkhead Panel 3", "Warning Button")
+
+definePushButton("FUEL_TANK_WARN_BTN", 2, 3279, 279, "Bulkhead Panel 4", "Fuel Tanks 2,3,4 Warning Lamps Test Button")
+definePushButton("ENG_FIRE_TEST_BTN", 2, 3280, 280, "Bulkhead Panel 4", "Engine Fire Lamp Test Button")
+defineToggleSwitch("L_ENG_FUELCUT_COVER", 2, 3281, 281, "Bulkhead Panel 4", "Left Engine Fuel Cutoff Cover")
+defineToggleSwitch("R_ENG_FUELCUT_COVER", 2, 3282, 282, "Bulkhead Panel 4", "Right Engine Fuel Cutoff Cover")
+definePushButton("L_ENG_FUELCUT", 2, 3285, 285, "Bulkhead Panel 4", "Left Engine Fuel Cutoff")
+definePushButton("R_ENG_FUELCUT", 2, 3286, 286, "Bulkhead Panel 4", "Right Engine Fuel Cutoff")
+defineToggleSwitch("FIRE_EX_COVER", 2, 3283, 283, "Bulkhead Panel 4", "Fire Extinguisher Cover")
+definePushButton("FIRE_EX", 2, 3284, 284, "Bulkhead Panel 4", "Fire Extinguisher")
+
+defineToggleSwitch("L_ENG_START_COVER", 2, 3270, 270, "Bulkhead Panel 5", "Left Engine Start Button Cover")
+defineToggleSwitch("R_ENG_START_COVER", 2, 3271, 271, "Bulkhead Panel 5", "Right Engine Start Button Cover")
+definePushButton("L_ENG_START", 2, 3272, 272, "Bulkhead Panel 4", "Left Engine Start")
+definePushButton("R_ENG_START", 2, 3273, 273, "Bulkhead Panel 4", "Right Engine Start")
+defineToggleSwitch("L_ENG_AIR_START_COVER", 2, 3277, 277, "Bulkhead Panel 5", "Left Engine Air Start Button Cover")
+defineToggleSwitch("R_ENG_AIR_START_COVER", 2, 3278, 278, "Bulkhead Panel 5", "Right Engine Air Start Button Cover")
+definePushButton("L_ENG_AIR_START", 2, 3328, 328, "Bulkhead Panel 4", "Left Air Engine Start")
+definePushButton("R_ENG_AIR_START", 2, 3329, 329, "Bulkhead Panel 4", "Right Air Engine Start")
 
 -- RIGHT INSTRUMENTS PANEL
 defineToggleSwitch("RADIO_EMERG_PW_SW", 3, 3200, 200, "Bulkhead Panel 1", "Radios Emergency Power")
