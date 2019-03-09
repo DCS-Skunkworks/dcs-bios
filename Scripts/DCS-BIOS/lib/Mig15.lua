@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("MiG-15Bis", 0x2400)
-BIOS.protocol.setExportModuleAircrafts({"MiG-15bis"})
+BIOS.protocol.setExportModuleAircrafts({"MiG-15Bis"})
 
 local documentation = moduleBeingDefined.documentation
 
@@ -135,14 +135,14 @@ definePushButton("SIGNAL_FLARE_WHI", 27, 3004, 133, "Signal Flares", "Signal Fla
 
 ------ Devices
 -- AGK-47B
-defineToggleSwitch("AGK_CAGE", 24, 3002, 12, "AGK-47B", "AGK-47B Artificial Horizon Cage")
+defineToggleSwitch("AGK_CAGE", 24, 3002, 12, "AGK 47B", "AGK-47B Artificial Horizon Cage")
 definePotentiometer("AGK_TRIM", 24, 3003, 13, {0.0, 1.0}, "AGK-47B", "AGK-47B Artificial Horizon Zero Pitch Trim Knob")
-defineFloat("AGK_ROLL", 6, {-1.0, 1.0}, "AGK-47B", "AGK-47B Roll Gauge")
-defineFloat("AGK_PITCH", 7, {1.0, -1.0}, "AGK-47B", "AGK-47B Pitch Gauge")
-defineFloat("AGK_FLAG", 11, {0.0, 1.0}, "AGK-47B", "AGK-47B Failure Flag")
-defineFloat("AGK_SLIP", 8, {-1.0, 1.0}, "AGK-47B", "AGK-47B Sideslip Gauge")
-defineFloat("AGK_TURN", 9, {-1.0, 1.0}, "AGK-47B", "AGK-47B Turn Gauge")
-defineFloat("AGK_HORIZON", 10, {-1.0, 1.0}, "AGK-47B", "AGK-47B Horizon Gauge")
+defineFloat("AGK_ROLL", 6, {-1.0, 1.0}, "AGK 47B", "AGK-47B Roll Gauge")
+defineFloat("AGK_PITCH", 7, {1.0, -1.0}, "AGK 47B", "AGK-47B Pitch Gauge")
+defineFloat("AGK_FLAG", 11, {0.0, 1.0}, "AGK 47B", "AGK-47B Failure Flag")
+defineFloat("AGK_SLIP", 8, {-1.0, 1.0}, "AGK 47B", "AGK-47B Sideslip Gauge")
+defineFloat("AGK_TURN", 9, {-1.0, 1.0}, "AGK 47B", "AGK-47B Turn Gauge")
+defineFloat("AGK_HORIZON", 10, {-1.0, 1.0}, "AGK 47B", "AGK-47B Horizon Gauge")
 
 -- VD-15
 definePotentiometer("BARO_PRESS", 18, 3001, 30, {0.0, 1.0}, "VD-15", "Barometric Pressure QFE Knob")
