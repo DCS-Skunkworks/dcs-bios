@@ -1,7 +1,7 @@
 {
-                            "AGK-47B": {
+                            "AGK 47B": {
                                               "AGK_CAGE": {
-                                                                         "category": "AGK-47B",
+                                                                         "category": "AGK 47B",
                                                                      "control_type": "selector",
                                                                       "description": "AGK-47B Artificial Horizon Cage",
                                                                        "identifier": "AGK_CAGE",
@@ -30,7 +30,7 @@
                                                                  "physical_variant": "toggle_switch"
                                                           },
                                               "AGK_FLAG": {
-                                                                  "category": "AGK-47B",
+                                                                  "category": "AGK 47B",
                                                               "control_type": "analog_gauge",
                                                                "description": "AGK-47B Failure Flag",
                                                                 "identifier": "AGK_FLAG",
@@ -46,7 +46,7 @@
                                                                               } ]
                                                           },
                                            "AGK_HORIZON": {
-                                                                  "category": "AGK-47B",
+                                                                  "category": "AGK 47B",
                                                               "control_type": "analog_gauge",
                                                                "description": "AGK-47B Horizon Gauge",
                                                                 "identifier": "AGK_HORIZON",
@@ -62,7 +62,7 @@
                                                                               } ]
                                                           },
                                              "AGK_PITCH": {
-                                                                  "category": "AGK-47B",
+                                                                  "category": "AGK 47B",
                                                               "control_type": "analog_gauge",
                                                                "description": "AGK-47B Pitch Gauge",
                                                                 "identifier": "AGK_PITCH",
@@ -78,7 +78,7 @@
                                                                               } ]
                                                           },
                                               "AGK_ROLL": {
-                                                                  "category": "AGK-47B",
+                                                                  "category": "AGK 47B",
                                                               "control_type": "analog_gauge",
                                                                "description": "AGK-47B Roll Gauge",
                                                                 "identifier": "AGK_ROLL",
@@ -94,7 +94,7 @@
                                                                               } ]
                                                           },
                                               "AGK_SLIP": {
-                                                                  "category": "AGK-47B",
+                                                                  "category": "AGK 47B",
                                                               "control_type": "analog_gauge",
                                                                "description": "AGK-47B Sideslip Gauge",
                                                                 "identifier": "AGK_SLIP",
@@ -109,33 +109,8 @@
                                                                                          "type": "integer"
                                                                               } ]
                                                           },
-                                              "AGK_TRIM": {
-                                                                  "category": "AGK-47B",
-                                                              "control_type": "limited_dial",
-                                                               "description": "AGK-47B Artificial Horizon Zero Pitch Trim Knob",
-                                                                "identifier": "AGK_TRIM",
-                                                                    "inputs": [ {
-                                                                                  "description": "set the position of the dial",
-                                                                                    "interface": "set_state",
-                                                                                    "max_value": 65535
-                                                                              }, {
-                                                                                     "description": "turn the dial left or right",
-                                                                                       "interface": "variable_step",
-                                                                                       "max_value": 65535,
-                                                                                  "suggested_step": 3200
-                                                                              } ],
-                                                                   "outputs": [ {
-                                                                                      "address": 9278,
-                                                                                  "description": "position of the potentiometer",
-                                                                                         "mask": 65535,
-                                                                                    "max_value": 65535,
-                                                                                     "shift_by": 0,
-                                                                                       "suffix": "",
-                                                                                         "type": "integer"
-                                                                              } ]
-                                                          },
                                               "AGK_TURN": {
-                                                                  "category": "AGK-47B",
+                                                                  "category": "AGK 47B",
                                                               "control_type": "analog_gauge",
                                                                "description": "AGK-47B Turn Gauge",
                                                                 "identifier": "AGK_TURN",
@@ -150,6 +125,33 @@
                                                                                          "type": "integer"
                                                                               } ]
                                                           }
+                                       },
+                            "AGK-47B": {
+                                           "AGK_TRIM": {
+                                                               "category": "AGK-47B",
+                                                           "control_type": "limited_dial",
+                                                            "description": "AGK-47B Artificial Horizon Zero Pitch Trim Knob",
+                                                             "identifier": "AGK_TRIM",
+                                                                 "inputs": [ {
+                                                                               "description": "set the position of the dial",
+                                                                                 "interface": "set_state",
+                                                                                 "max_value": 65535
+                                                                           }, {
+                                                                                  "description": "turn the dial left or right",
+                                                                                    "interface": "variable_step",
+                                                                                    "max_value": 65535,
+                                                                               "suggested_step": 3200
+                                                                           } ],
+                                                                "outputs": [ {
+                                                                                   "address": 9278,
+                                                                               "description": "position of the potentiometer",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       }
                                        },
                               "ARC-5": {
                                                    "ARC5_BAND": {
