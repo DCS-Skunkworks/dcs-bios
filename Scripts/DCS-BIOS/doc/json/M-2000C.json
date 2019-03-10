@@ -3867,12 +3867,15 @@
                                                                       } ]
                                                   },
                                    "HSI_VAD_SEL": {
-                                                       "api_variant": "multiturn",
                                                           "category": "HSI",
-                                                      "control_type": "analog_dial",
+                                                      "control_type": "limited_dial",
                                                        "description": "I - HSI - VAD Selector",
                                                         "identifier": "HSI_VAD_SEL",
                                                             "inputs": [ {
+                                                                          "description": "set the position of the dial",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 65535
+                                                                      }, {
                                                                              "description": "turn the dial left or right",
                                                                                "interface": "variable_step",
                                                                                "max_value": 65535,
@@ -3880,11 +3883,11 @@
                                                                       } ],
                                                            "outputs": [ {
                                                                               "address": 29310,
-                                                                          "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                          "description": "position of the potentiometer",
                                                                                  "mask": 65535,
                                                                             "max_value": 65535,
                                                                              "shift_by": 0,
-                                                                               "suffix": "_KNOB_POS",
+                                                                               "suffix": "",
                                                                                  "type": "integer"
                                                                       } ]
                                                   }
