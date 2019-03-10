@@ -15,7 +15,7 @@ local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineString = BIOS.util.defineString
-local defineRockerSwitch = BIOS.util.defineRockerSwitch
+local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 
 local function define3PosTumb(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
@@ -35,6 +35,7 @@ definePushButton("GEAR_LIGHT_TEST", 10, 3333, 333, "Landing Gear Panel", "PPS-2 
 defineToggleSwitch("EMERG_BRAKE", 4, 3301, 301, "Landing Gear Panel", "Emergency Brake")
 defineToggleSwitch("NOSE_GEAR_BRAKE", 4, 3302, 302, "Landing Gear Panel", "Nose Gear Brake System On/Off")
 
+defineMultipositionSwitch("NAV_LIGHTS", 5, 3261, 261, 5, 0.2,"Exterior Lights Panel" ,"Navigation Lights")
 define3PosTumb("NOSE_LIGHTS", 5, 3262, 262, "Exterior Lights Panel", "Nose Lights Switch, LANDING/OFF/TAXI")
 
 definePushButton("GIK1_ALIGN", 9, 3224, 224, "Flight Instruments Panel", "GIK-1 Needle Alignment")
@@ -81,7 +82,6 @@ defineToggleSwitch("L_ENG_OIL_CUT", 2, 3251, 251, "Bulkhead Panel 2", "Left Engi
 defineToggleSwitch("R_ENG_BURNER_CUT", 2, 3252, 252, "Bulkhead Panel 2", "Right Engine Afterburner Cut")
 defineToggleSwitch("L_ENG_BURNER_CUT", 2, 3253, 253, "Bulkhead Panel 2", "Left Engine Afterburner Cut")
 
--- Bulkhead Panel 3
 defineToggleSwitch("ARU2_MODE", 4, 3254, 254, "Bulkhead Panel 3", "ARU-2 Operational Mode (Auto/Manual)")
 define3PosTumb("ARU2_MANUAL", 4, 3255, 255, "Bulkhead Panel 3", "ARU-2 Manual Arm Selector")
 defineToggleSwitch("TP19_BRAKECUTE_COVER", 4, 3274, 274, "Bulkhead Panel 3", "TP-19 Braking Parachute Jettison Button Cover")
@@ -103,8 +103,69 @@ definePushButton("L_ENG_START", 2, 3272, 272, "Bulkhead Panel 4", "Left Engine S
 definePushButton("R_ENG_START", 2, 3273, 273, "Bulkhead Panel 4", "Right Engine Start")
 defineToggleSwitch("L_ENG_AIR_START_COVER", 2, 3277, 277, "Bulkhead Panel 5", "Left Engine Air Start Button Cover")
 defineToggleSwitch("R_ENG_AIR_START_COVER", 2, 3278, 278, "Bulkhead Panel 5", "Right Engine Air Start Button Cover")
-definePushButton("L_ENG_AIR_START", 2, 3328, 328, "Bulkhead Panel 4", "Left Air Engine Start")
-definePushButton("R_ENG_AIR_START", 2, 3329, 329, "Bulkhead Panel 4", "Right Air Engine Start")
+definePushButton("L_ENG_AIR_START", 2, 3328, 328, "Bulkhead Panel 5", "Left Air Engine Start")
+definePushButton("R_ENG_AIR_START", 2, 3329, 329, "Bulkhead Panel 5", "Right Air Engine Start")
+
+defineMultipositionSwitch("ASP5_AIM_MODE", 7, 3344, 344, 3, 0.1,"Armament Sight Panel" ,"ASP-5 Sight Aiming Mode")
+defineToggleSwitch("ASP5_OP_MODE", 11, 3345, 345, "Armament Sight Panel", "ASP-5 Sight Operational Mode (Radar/Optic)")
+defineToggleSwitch("BOMB_REL_MODE", 7, 3346, 346, "Armament Sight Panel", "Bomb Release Mode (Single/Auto)")
+
+define3PosTumb("ROCKET_SLAVO_MODE", 7, 3336, 336, "Rocket Pod Panel", "Rockets Salvo Mode Selector")
+defineToggleSwitch("ROCKET_COUNTER_MODE", 7, 3337, 337, "Rocket Pod Panel", "Rockets Counter Mode (day/night)")
+
+defineToggleSwitch("RADAR_ECCM", 14, 3338, 338, "Radar Control Panel", "RP-5 Radar ECCM Mode Switch, ON/OFF")
+definePushButton("RADAR_BIT_TEST", 14, 3339, 339, "Radar Control Panel", "RP-5 Radar Built-In Test (BIT) Button - Press 2 seconds to start test")
+defineToggleSwitch("RADAR_GAUGE_MODE", 14, 3340, 340, "Radar Control Panel", "RP-5 Radar Gauge Display Mode Switch, VOLTAGE/AIR PRESSURE")
+defineMultipositionSwitch("RADAR_MODE", 14, 3341, 341, 3, 0.5,"Radar Control Panel" ,"RP-5 Radar Mode Control Switch, ON/STANDBY/OFF")
+defineRotary("RADAR_ANT_ELEVATION", 14, 3342, 3342, "Flight Instruments Panel", "RP-5 Radar Electronic Horizon Elevation Adjustment Knob")
+defineToggleSwitch("RADAR_SCR_MODE", 14, 3343, 343, "Radar Control Panel", "RP-5 Radar Screen Mode Switch, DAY/NIGHT")
+defineToggleSwitch("RADAR_TGT_LOCK", 14, 3434, 434, "Radar Control Panel", "RP-5 Radar Target Lock Switch (AR-18-16 Tracking Antenna), ON/OFF")
+definePotentiometer("RADAR_SCR_BRIGHT", 14, 3468, 468, {0, 1}, "Radar Control Panel", "RP-5 Radar Screen Brightness Adjustment Knob")
+
+defineToggleSwitch("ARU2V_OP_MODE", 4, 3254, 254, "Flight Control", "Elevator Control (ARU-2V) Mode (Automatic/Manual)")
+define3PosTumb("ARU2V_MAN_SET", 4, 3255, 255, "Flight Control", "Elevator Control Manual Mode Selector (Long/Short)")
+defineToggleSwitch("ELEVATOR_ACT_SEL", 4, 3256, 256, "Flight Control", "Elevator Actuator Switch, HYDRAULIC(BU-14M BOOSTER)/ELECTRIC(MUS-2 SYSTEM)")
+define3PosTumb("AILERON_TRIM", 4, 3257, 257, "Flight Control", "Aileron Trimmer Switch, LEFT/RIGHT")
+defineToggleSwitch("AILERON_HYDRO", 4, 3258, 258, "Flight Control", "BU-13M Aileron Hydraulic Booster Switch, ON/OFF")
+defineTumb("FLAPS_LAND", 4, 3306, 306, 1, {0.0, 1.0}, nil, false, "Flight Control", "Flaps Landing")
+defineTumb("FLAPS_TAKEOFF", 4, 3307, 307, 1, {0.0, 1.0}, nil, false, "Flight Control", "Flaps Take Off")
+defineTumb("FLAPS_OFF", 4, 3308, 308, 1, {0.0, 1.0}, nil, false, "Flight Control", "Flaps Off")
+definePushButton("FLAPS_BTN_RESET", 4, 3309, 309, "Flight Control", "Flaps buttons reset")
+
+defineMultipositionSwitch("RADAR_ALT_SEL", 9, 3334, 334, 10, 0.1,"Flight Instruments" ,"RV-5 Radio Altimeter Minimum Altitude Selector")
+defineToggleSwitch("PITOT_SEL", 9, 3269, 269, "Flight Instruments", "Pitot Tube Selector, MAIN(PVD-4)/EMERGENCY(TP-156)")
+
+defineRotary("OXY_FLOW", 8, 3303, 303, "Environment", "Oxygen shut-off valve")
+define3PosTumb("OXY_MODE", 8, 3304, 304, "Environment", "Suit Oxygen Supply Lever, AUTOMATIC TURN-OFF/N(EUTRAL)/SUIT TURN-ON")
+defineToggleSwitch("OXY_CONTROL", 8, 3305, 305, "Environment", "Oxygen-Air Diluter Lever, MIXTURE/100% O2")
+
+defineToggleSwitch("ANTI_FREZZE", 8, 3291, 291, "Unknown", "Canopy Front Anti Freeze")
+
+defineToggleSwitch("FLARE_DISP", 7, 3259, 259, "Signal Flares Panel", "EKSR-46 Signal Flare Dispenser Switch, OFF/ARMED")
+definePushButton("FLARE_YELLOW", 7, 3287, 287, "Signal Flares Panel", "EKSR-46 Yellow Signal Flare Release Button")
+definePushButton("FLARE_GREEN", 7, 3288, 288, "Signal Flares Panel", "EKSR-46 Green Signal Flare Release Button")
+definePushButton("FLARE_RED", 7, 3289, 289, "Signal Flares Panel", "EKSR-46 Red Signal Flare Release Button")
+definePushButton("FLARE_WHITE", 7, 3290, 290, "Signal Flares Panel", "EKSR-46 White Signal Flare Release Button")
+
+defineTumb("BEACON_SEL", 20, 3260, 260, 1, {0.0, 1.0}, nil, false, "Jettison Panel", "Near/Far Beacon")
+defineToggleSwitch("BRAKE_PARA_BTN_COVER", 4, 3292, 292, "Jettison Panel", "TP-19 Braking Parachute Deploy Button Cover")
+definePushButton("BRAKE_PARA_BTN", 4, 3293, 293, "Jettison Panel", "TP-19 Braking Parachute Deploy Button - Press to deploy drag chute")
+defineToggleSwitch("FUEL_BOMBS_JETT_COVER", 7, 3294, 294, "Jettison Panel", "Fuel Tanks/Bombs Jettison Button Cover")
+definePushButton("FUEL_BOMBS_JETT", 7, 3295, 295, "Jettison Panel", "Fuel Tanks/Bombs Jettison")
+definePushButton("L_GUN_ARM", 7, 3296, 296, "Jettison Panel", "Left Gun Arm")
+definePushButton("R_GUN_ARM", 7, 3297, 297, "Jettison Panel", "Right Gun Arm")
+defineToggleSwitch("ROCKET_JETT_COVER", 7, 3298, 298, "Jettison Panel", "Rocket pods Jettison Button Cover")
+definePushButton("ROCKET_JETT", 7, 3299, 299, "Jettison Panel", "Rocket pods Jettison")
+
+defineTumb("RADIO_PRE1", 17, 3319, 319, 1, {0.0, 1.0}, nil, false, "Radio RSIU4V", "RSIU-4V Preset Radio Channel 1")
+defineTumb("RADIO_PRE2", 17, 3320, 320, 1, {0.0, 1.0}, nil, false, "Radio RSIU4V", "RSIU-4V Preset Radio Channel 2")
+defineTumb("RADIO_PRE3", 17, 3321, 321, 1, {0.0, 1.0}, nil, false, "Radio RSIU4V", "RSIU-4V Preset Radio Channel 3")
+defineTumb("RADIO_PRE4", 17, 3322, 322, 1, {0.0, 1.0}, nil, false, "Radio RSIU4V", "RSIU-4V Preset Radio Channel 4")
+defineTumb("RADIO_PRE5", 17, 3323, 323, 1, {0.0, 1.0}, nil, false, "Radio RSIU4V", "RSIU-4V Preset Radio Channel 5")
+defineTumb("RADIO_PRE6", 17, 3324, 324, 1, {0.0, 1.0}, nil, false, "Radio RSIU4V", "RSIU-4V Preset Radio Channel 6")
+defineToggleSwitch("RADIO_OPT_MODE", 17, 3325, 325, "Radio RSIU4V", "RSIU-4V Audio Output: ADF/Radio")
+defineToggleSwitch("RADIO_ON_OFF", 17, 3326, 326, "Radio RSIU4V", "RSIU-4V Interference Suppression Switch, ON/OFF")
+definePotentiometer("RADIO_VOL", 17, 3327, 327, {0, 1}, "Radio RSIU4V", "RSIU-4V Volume Control Knob")
 
 -- RIGHT INSTRUMENTS PANEL
 defineToggleSwitch("RADIO_EMERG_PW_SW", 3, 3200, 200, "Bulkhead Panel 1", "Radios Emergency Power")
@@ -128,7 +189,27 @@ defineToggleSwitch("R_GUN_PW_SW", 3, 3219, 219, "Bulkhead Panel 1", "Right Gun E
 defineToggleSwitch("GUN_CAM_CPT_PW_SW", 3, 3220, 220, "Bulkhead Panel 1", "Cockpit Gun Camera Power")
 defineToggleSwitch("GUN_CAM_NOSE_PW_SW", 3, 3221, 221, "Bulkhead Panel 1", "Nose Gun Camera Power")
 
+definePotentiometer("ARUFOSH_LAMP_L", 6, 3226, 226, {0, 1}, "Bulkhead Panel 2", "RUFO-45 Left Side ARUFOSH UV Lamp Intensity Control Knob")
+definePotentiometer("ARUFOSH_LAMP_R", 6, 3227, 227, {0, 1}, "Bulkhead Panel 2", "RUFO-45 Right Side ARUFOSH UV Lamp Intensity Control Knob")
+defineToggleSwitch("IFF_SELFDESTRUCT_COVER", 16, 3265, 265, "Bulkhead Panel 2", "SRO-2 IFF Self-destruct Button Cover")
+defineToggleSwitch("IFF_SELFDESTRUCT", 16, 3266, 266, "Bulkhead Panel 2", "SRO-2 IFF Self-destruct Button - Press to activate self-destruction")
+defineToggleSwitch("IFF_PW_COVER", 16, 3267, 267, "Bulkhead Panel 2", "SRO-2 IFF Power Switch Cover")
+defineToggleSwitch("IFF_PW", 16, 3268, 268, "Bulkhead Panel 2", "SRO-2 IFF Power Switch, ON/OFF")
 
+defineMultipositionSwitch("ARK5_CHAN_SEL", 20, 3335, 335, 2, 0.5,"ARK5 Panel" ,"ARK-5 NEAR Frequency Band Selector Switch")
+defineToggleSwitch("ARK5_RECV_MODE", 20, 3347, 347, "ARK5 Panel", "ARK-5 Receiver Mode Switch, TLG(Telegraph)/TLF(Telephony)")
+defineMultipositionSwitch("ARK5_FREQ_SEL", 20, 3348, 348, 2, 0.5,"ARK5 Panel" ,"ARK-5 FAR/NDB Frequency Band Selector Switch")
+defineMultipositionSwitch("ARK5_MODE", 20, 3349, 349, 3, 0.1,"ARK5 Panel" ,"ARK-5 Function Selector Switch, OFF/COMP/ANT./LOOP")
+defineToggleSwitch("ARK5_ANT_MOV", 20, 3350, 350, "ARK5 Panel", "ARK-5 Loop Antenna Rotation Switch, L(EFT)/R(IGHT)")
+definePotentiometer("ARK5_INST_LIGHT", 20, 3351, 351, {0, 1}, "ARK5 Panel", "ARK-5 Frequency Scale Backlight Knob")
+definePotentiometer("ARK5_VOL", 20, 3352, 352, {0, 1}, "ARK5 Panel", "ARK-5 Audio Volume Knob")
+defineRotary("ARK5_FREQ_ZUNE", 20, 3353, 3353, "ARK5 Panel", "ARK-5 Frequency Fine Tuning Handle")
+
+defineToggleSwitch("EMERG_GEAR", 4, 3222, 222, "Right Console", "Landing Gear Emergency Deployment")
+defineToggleSwitch("EMERG_FLAPS", 4, 3223, 223, "Right Console", "Flaps Emergency Deployment")
+definePotentiometer("CPT_PRESS_LEVER", 8, 3228, 228, {0, 1}, "Right Console", "Cockpit Pressurization Lever")
+define3PosTumb("CPT_TEMP", 8, 3241, 241, "Right Console", "Cockpit Temperature Select")
+defineToggleSwitch("CPT_VENT_SW", 8, 3225, 225, "Right Console", "Cockpit Ventilation Switch, OPEN/CLOSE")
 
 defineToggleSwitch("CB_LOCK", 3, 3230, 230, "Circuit Breakers", "Circuit Breakers Panel Lock")
 defineToggleSwitch("CB_LIGHTS", 3, 3231, 231, "Circuit Breakers", "Aircraft External Lights Circuit Breaker")
@@ -149,11 +230,15 @@ defineToggleSwitch("CANOPY_PRESS", 4, 3431, 431, "Canopy", "Canopy Pressurizatio
 defineToggleSwitch("EMERG_CANOPY", 4, 3229, 229, "Canopy", "Canopy Pressurization Switch")
 
 -- Warning, Caution and IndicatorLights
+defineIndicatorLight("IFF_SELFDESTRUCT_LAMP", 205, "Warning, Caution and IndicatorLights","SRO-2 Self-destruction Lamp (red)")
 defineIndicatorLight("L_GEAR_DOWN", 489, "Warning, Caution and IndicatorLights","Left Gear UP Lamp (red)")
 defineIndicatorLight("N_GEAR_DOWN", 490, "Warning, Caution and IndicatorLights","Nose Gear UP Lamp (red)")
 defineIndicatorLight("R_GEAR_DOWN", 491, "Warning, Caution and IndicatorLights","Right Gear UP Lamp (red)")
 defineIndicatorLight("L_GEAR_DOWN", 492, "Warning, Caution and IndicatorLights","Left Gear DOWN Lamp (green)")
 defineIndicatorLight("N_GEAR_DOWN", 493, "Warning, Caution and IndicatorLights","Nose Gear DOWN Lamp (green)")
 defineIndicatorLight("R_GEAR_DOWN", 494, "Warning, Caution and IndicatorLights","Right Gear DOWN Lamp (green)")
+
+-- Gauges
+--defineFloat("OXY_VOLUME", 274, {0, 1}, "Environment Control Panel", "Oxygen Volume (0 to 5 liters)")
 
 BIOS.protocol.endModule()
