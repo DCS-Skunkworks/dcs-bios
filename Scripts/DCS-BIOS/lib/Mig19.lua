@@ -238,7 +238,15 @@ defineIndicatorLight("L_GEAR_DOWN", 492, "Warning, Caution and IndicatorLights",
 defineIndicatorLight("N_GEAR_DOWN", 493, "Warning, Caution and IndicatorLights","Nose Gear DOWN Lamp (green)")
 defineIndicatorLight("R_GEAR_DOWN", 494, "Warning, Caution and IndicatorLights","Right Gear DOWN Lamp (green)")
 
--- Gauges
---defineFloat("OXY_VOLUME", 274, {0, 1}, "Environment Control Panel", "Oxygen Volume (0 to 5 liters)")
+-- Gauges 
+defineFloat("ARK5_FREQ_SCALE", 354, {-1, 1}, "Gauges", "ARK5 Frequency Scale")
+defineFloat("VOLT_MANOMETER_GAUGE", 370, {0.0, 0.3}, "Gauges", "Voltmeter/Manometer Gauge")
+defineFloat("OXY_PRESS_GAUGE", 371, {0, 1}, "Gauges", "IK-18 Oxygen Pressure")
+defineFloat("BARO_ALT_1000", 372, {0, 1}, "Gauges", "VD-20 Barometric Altimeter 1000m")
+defineFloat("BARO_ALT_100", 373, {0, 1}, "Gauges", "VD-20 Barometric Altimeter 100m")
+defineFloat("EMERG_GEAR_PRESS_GAUGE", 406, {0, 1}, "Gauges", "MA-80 Pneumatic Air Pressure Emergency Landing Gear")
+defineFloat("HYD_SYS_GAUGE", 407, {0, 1}, "Gauges", "MA-250 Hydraulic System Pressure")
+defineFloat("EMERG_FLAPS_PRESS_GAUGE", 408, {0, 1}, "Gauges", "MA-250 Pneumatic Air Pressure Emergency Flaps")
+defineFloat("PNEU_SYS_GAUGE", 409, {0, 1}, "Gauges", "MA-250 Pneumatic System Air")
 
 BIOS.protocol.endModule()
