@@ -52,6 +52,8 @@
 -- 		Bug Fixes : Export displays functions
 --					New Arg Numbers
 --
+-- v1.21 by WarLord
+--		Bug Fixes
 -----------------------------------------------------------
 
 
@@ -762,7 +764,7 @@ defineString("FUEL_FLOW", getFuelFlow, 3, "FUEL SYSTEM", "O - FUEL - Fuel Flow D
 defineFloat("GMETER_NEEDLE", 347, {-1, 1}, "G-METER", "O - ACC - G Needle")
 
 -- HSI
-defineRotary("HSI_VAD_SEL", 2, 3340, 340, "HSI", "I - HSI - VAD Selector")
+definePotentiometer("HSI_VAD_SEL", 2, 3340, 340, {0, 1}, "HSI", "I - HSI - VAD Selector")
 defineTumb("HSI_MODE_SEL_SW", 2, 3341, 341, 0.2, {0, 1}, nil, false, "HSI", "I - HSI - Mode Selector Switch")
 defineFloat("HSI_HDG", 333, {0, 1}, "HSI", "O - HSI - AP Heading (Green Arrow)")
 defineFloat("HSI_D_NEEDLE", 334, {0, 1}, "HSI", "O - HSI - COURSE (Double Needle)")
