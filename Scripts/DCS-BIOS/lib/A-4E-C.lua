@@ -201,7 +201,15 @@ defineFloat("CURRTIME_SECS", 442, {0,1}, "Clock", "Current Seconds")
 defineFloat("STOPWATCH_MINS", 144, {0,1}, "Clock", "Stopwatch Minutes")
 defineFloat("STOPWATCH_SECS", 145, {0,1}, "Clock", "Stopwatch Seconds")
 
-
+--ECM panel
+defineIndicatorLight("RWR_LIGHT", 373, "ECM panel", "Glareshield RWR Light")
+defineIndicatorLight("ECM_TEST_UP_U", 514, "ECM panel", "ECM Test Upper U")
+defineIndicatorLight("ECM_TEST_UP_LL", 515, "ECM panel", "ECM Test Upper LL")
+defineIndicatorLight("ECM_TEST_UP_LR", 516, "ECM panel", "ECM Test Upper LR")
+defineIndicatorLight("ECM_TEST_LOW_UL", 517, "ECM panel", "ECM Test Lower UL")
+defineIndicatorLight("ECM_TEST_LOW_UR", 518, "ECM panel", "ECM Test Lower UR")
+defineIndicatorLight("ECM_TEST_LOW_LL", 519, "ECM panel", "ECM Test Lower LL")
+defineIndicatorLight("ECM_TEST_LOW_LR", 500, "ECM panel", "ECM Test Lower LR")
 
 -----------------------
 ------CONTROLS---------
@@ -227,11 +235,11 @@ defineToggleSwitch("gunpod_c", 2, 3010, 392, "Gunpods", "Center Enable")
 defineToggleSwitch("gunpod_r", 2, 3011, 393, "Gunpods", "Right Enable")
 
 --Countermeasures
-defineMultipositionSwitch("cm_bank", 2, 3106, 522, 3, 1, "Countermeasures", "Bank Select")
-defineToggleSwitch("cm_auto", 2, 3107, 523, "Countermeasures", "Auto Mode Toggle")
-defineRotary("cm_adj1", 2, 3108, 524, "Countermeasures", "Bank 1 Adjust")
-defineRotary("cm_adj2", 2, 3109, 525, "Countermeasures", "Bank 2 Adjust")
-defineToggleSwitch("cm_pwr", 2, 3110, 530, "Countermeasures", "Power Toggle")
+defineMultipositionSwitch("cm_bank", 34, 3106, 522, 3, 1, "Countermeasures", "Bank Select")
+definePushButton("cm_auto", 34, 3107, 523, "Countermeasures", "Auto Pushbutton")
+defineRotary("cm_adj1", 34, 3108, 524, "Countermeasures", "Bank 1 Adjust")
+defineRotary("cm_adj2", 34, 3109, 525, "Countermeasures", "Bank 2 Adjust")
+defineToggleSwitch("cm_pwr", 34, 3110, 530, "Countermeasures", "Power Toggle")
 defineFloat("CM_BANK1_Xx", 526, {0,1}, "Countermeasures", "Bank 1 10's")
 defineFloat("CM_BANK1_xX", 527, {0,1}, "Countermeasures", "Bank 1 1's")
 defineFloat("CM_BANK2_Xx", 528, {0,1}, "Countermeasures", "Bank 2 10's")
@@ -255,6 +263,7 @@ defineToggleSwitch("arm_master", 3, 3002, 709, "ArmamentPanel", "Master armament
 defineToggleSwitch("radar_planprofile", 7, 3055, 721, "RadarScope", "Radar Plan/Profile")
 defineToggleSwitch("radar_range", 7, 3056, 722, "RadarScope", "Radar Long/Short Range")
 defineMultipositionSwitch("bdhi_mode", 20, 3044, 724, 3, 1.0, "BDHI", "BDHI mode")
+definePotentiometer("shrike_volume", 2, 3126, 726, {0,1}, "ArmamentPanel", "Shrike Volume Knob")
 
 --AFCS Panel
 defineToggleSwitch("afcs_standby", 26, 3088, 160, "AFCS", "AFCS standby")
@@ -334,7 +343,6 @@ definePotentiometer("intlight_console", 21, 3083, 107, {0,1}, "Lights", "Console
 defineMultipositionSwitch("intlight_brightness", 24, 3084, 108, 3, 1, "Lights", "Console Light Intensity")
 definePotentiometer("intlight_whiteflood", 21, 3081, 110, {0,1}, "Lights", "White Floodlight Control")
 
-
 --UHF Radio
 defineMultipositionSwitch("arc51_freq_preset", 27, 3101, 361, 20, 0.05, "UHF Radio", "ARC-51 UHF Preset Channel")
 definePotentiometer("arc51_volume", 27, 3099, 365, {0,1}, "UHF Radio", "ARC-51 UHF Volume")
@@ -349,8 +357,16 @@ defineMultipositionSwitch("arc51_mode", 27, 3097, 372, 4, 0.1, "UHF Radio", "ARC
 defineToggleSwitch("emer_gear_release", 12, 3036, 1240, "T Handles", "Emergency gear release")
 defineToggleSwitch("emer_bomb_release", 2, 3027, 1241, "T Handles", "Emergency bomb release")
 defineToggleSwitch("emer_gen_deploy", 3, 3023, 1243, "T Handles", "Emergency generator deploy")
-
 defineToggleSwitch("emer_gen_bypass", 3, 3022, 1061, "T Handles", "Emergency generator bypass")
 
+-- ECM panel
+defineToggleSwitch("ecm_audio", 33, 3115, 503, "ECM Panel", "Audio APR/25 - APR/27")
+defineToggleSwitch("ecm_apr25_pw", 33, 3114, 504, "ECM Panel", "APR/25 on/off")
+defineToggleSwitch("ecm_apr27_pw", 33, 3116, 501, "ECM Panel", "APR/27 on/off")
+definePushButton("ecm_apr27_test", 33, 3117, 507, "ECM Panel", "APR/27 test")
+definePushButton("ecm_apr27_light", 33, 3118, 510, "ECM Panel", "APR/27 light")
+definePotentiometer("ecm_prf_volume", 33, 3119, 506, {-0.8,0.8}, "ECM Panel", "PRF volume (inner knob)")
+definePotentiometer("ecm_msl_volume", 33, 3120, 505, {-0.8,0.8}, "ECM Panel", "MSL volume (outer knob)")
+defineMultipositionSwitch("ecm_selector", 33, 3121, 502, 4, 0.33, "ECM Panel", "ECM selector knob")
 
 BIOS.protocol.endModule()
