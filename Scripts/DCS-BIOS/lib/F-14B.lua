@@ -24,6 +24,8 @@ local function define3PosTumb(msg, device_id, command, arg_number, category, des
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
 end
 
-
+-- Hydraulics
+defineToggleSwitch("HYD_TRANS_PUMP_SW", 12, 3001, 629, "Hydraulics", "Hydraulic Transfer Pump Switch")
+defineToggleSwitch("HYD_TRANS_PUMP_COVER", 12, 3002, 630, "Hydraulics", "Hydraulic Transfer Pump Switch Cover")
 
 BIOS.protocol.endModule()
