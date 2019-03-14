@@ -3258,6 +3258,38 @@
                                                                        }
                                             },
                                   "Gauges": {
+                                                  "AGI1_ART_HORIZON_BANK": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "AGI-1 Artificial Horizon Bank",
+                                                                                 "identifier": "AGI1_ART_HORIZON_BANK",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5732,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                 "AGI1_ART_HORIZON_PITCH": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "AGI-1 Artificial Horizon Pitch",
+                                                                                 "identifier": "AGI1_ART_HORIZON_PITCH",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5730,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
                                                            "AIRSPEED_IAS": {
                                                                                    "category": "Gauges",
                                                                                "control_type": "analog_gauge",
@@ -3274,6 +3306,22 @@
                                                                                                           "type": "integer"
                                                                                                } ]
                                                                            },
+                                                           "AIRSPEED_TAS": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "KUS-2000 Airspeed TAS",
+                                                                                 "identifier": "AIRSPEED_TAS",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5714,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
                                                         "ARK5_FREQ_SCALE": {
                                                                                    "category": "Gauges",
                                                                                "control_type": "analog_gauge",
@@ -3282,6 +3330,22 @@
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
                                                                                                        "address": 5696,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                        "ARU2V_STABI_IND": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "ARU-2V Stabilizer Positin Indicator",
+                                                                                 "identifier": "ARU2V_STABI_IND",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5734,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3322,6 +3386,102 @@
                                                                                                           "type": "integer"
                                                                                                } ]
                                                                            },
+                                                         "CLOCK_FLIGHT_H": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Clock Flight Time Hours",
+                                                                                 "identifier": "CLOCK_FLIGHT_H",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5722,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                         "CLOCK_FLIGHT_M": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Clock Flight Time Minutes",
+                                                                                 "identifier": "CLOCK_FLIGHT_M",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5724,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                                "CLOCK_H": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Clock Hours",
+                                                                                 "identifier": "CLOCK_H",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5726,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                                "CLOCK_M": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Clock Minutes",
+                                                                                 "identifier": "CLOCK_M",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5728,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                            "EGT_GAUGE_L": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Dual Engine EGT Left Gauge",
+                                                                                 "identifier": "EGT_GAUGE_L",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5736,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                            "EGT_GAUGE_R": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Dual Engine EGT Right Gauge",
+                                                                                 "identifier": "EGT_GAUGE_R",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5738,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
                                                 "EMERG_FLAPS_PRESS_GAUGE": {
                                                                                    "category": "Gauges",
                                                                                "control_type": "analog_gauge",
@@ -3329,7 +3489,7 @@
                                                                                  "identifier": "EMERG_FLAPS_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5724,
+                                                                                                       "address": 5756,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3345,7 +3505,7 @@
                                                                                  "identifier": "EMERG_GEAR_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5720,
+                                                                                                       "address": 5752,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3361,7 +3521,23 @@
                                                                                  "identifier": "EUP53_TURN",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5714,
+                                                                                                       "address": 5716,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                               "FUEL_IND": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Fuel Gauge",
+                                                                                 "identifier": "FUEL_IND",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5748,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3425,7 +3601,39 @@
                                                                                  "identifier": "HYD_SYS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5722,
+                                                                                                       "address": 5754,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                                  "L_RPM": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Left RPM Gauge",
+                                                                                 "identifier": "L_RPM",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5742,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                               "MACH_IND": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Machmeter",
+                                                                                 "identifier": "MACH_IND",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5746,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3457,7 +3665,7 @@
                                                                                  "identifier": "PNEU_SYS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5726,
+                                                                                                       "address": 5758,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3473,7 +3681,23 @@
                                                                                  "identifier": "RADAR_ALT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5718,
+                                                                                                       "address": 5720,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                                  "R_RPM": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Right RPM Gauge",
+                                                                                 "identifier": "R_RPM",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5744,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3489,7 +3713,39 @@
                                                                                  "identifier": "SLIP_INDICATORS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5716,
+                                                                                                       "address": 5718,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                             "VARIOMETER": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "VAR-150 Variometer",
+                                                                                 "identifier": "VARIOMETER",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5740,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                              "VOLTMETER": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "V-1 Voltmeter",
+                                                                                 "identifier": "VOLTMETER",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5750,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,

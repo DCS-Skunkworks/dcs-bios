@@ -1,0 +1,62 @@
+{
+    "Hydraulics": {
+                      "HYD_TRANS_PUMP_COVER": {
+                                                             "category": "Hydraulics",
+                                                         "control_type": "selector",
+                                                          "description": "Hydraulic Transfer Pump Switch Cover",
+                                                           "identifier": "HYD_TRANS_PUMP_COVER",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 4608,
+                                                                             "description": "selector position",
+                                                                                    "mask": 2,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 1,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "toggle_switch"
+                                              },
+                         "HYD_TRANS_PUMP_SW": {
+                                                             "category": "Hydraulics",
+                                                         "control_type": "selector",
+                                                          "description": "Hydraulic Transfer Pump Switch",
+                                                           "identifier": "HYD_TRANS_PUMP_SW",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                  "momentary_positions": "none",
+                                                              "outputs": [ {
+                                                                                 "address": 4608,
+                                                                             "description": "selector position",
+                                                                                    "mask": 1,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ],
+                                                     "physical_variant": "toggle_switch"
+                                              }
+                  }
+}
