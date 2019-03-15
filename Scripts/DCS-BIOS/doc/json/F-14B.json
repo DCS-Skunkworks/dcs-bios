@@ -1,62 +1,301 @@
 {
-    "Hydraulics": {
-                      "HYD_TRANS_PUMP_COVER": {
-                                                             "category": "Hydraulics",
-                                                         "control_type": "selector",
-                                                          "description": "Hydraulic Transfer Pump Switch Cover",
-                                                           "identifier": "HYD_TRANS_PUMP_COVER",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 1
-                                                                         }, {
-                                                                                "argument": "TOGGLE",
-                                                                             "description": "Toggle switch state",
-                                                                               "interface": "action"
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 4608,
-                                                                             "description": "selector position",
-                                                                                    "mask": 2,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 1,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "toggle_switch"
-                                              },
-                         "HYD_TRANS_PUMP_SW": {
-                                                             "category": "Hydraulics",
-                                                         "control_type": "selector",
-                                                          "description": "Hydraulic Transfer Pump Switch",
-                                                           "identifier": "HYD_TRANS_PUMP_SW",
-                                                               "inputs": [ {
-                                                                             "description": "switch to previous or next state",
-                                                                               "interface": "fixed_step"
-                                                                         }, {
-                                                                             "description": "set position",
-                                                                               "interface": "set_state",
-                                                                               "max_value": 1
-                                                                         }, {
-                                                                                "argument": "TOGGLE",
-                                                                             "description": "Toggle switch state",
-                                                                               "interface": "action"
-                                                                         } ],
-                                                  "momentary_positions": "none",
-                                                              "outputs": [ {
-                                                                                 "address": 4608,
-                                                                             "description": "selector position",
-                                                                                    "mask": 1,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 0,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ],
-                                                     "physical_variant": "toggle_switch"
-                                              }
-                  }
+            "AICS": {
+                        "P_INLET_RAMPS_L": {
+                                                          "category": "AICS",
+                                                      "control_type": "selector",
+                                                       "description": "Pilot Stow Inlet Ramps Left Switch",
+                                                        "identifier": "P_INLET_RAMPS_L",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 1
+                                                                      }, {
+                                                                             "argument": "TOGGLE",
+                                                                          "description": "Toggle switch state",
+                                                                            "interface": "action"
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 4608,
+                                                                          "description": "selector position",
+                                                                                 "mask": 128,
+                                                                            "max_value": 1,
+                                                                             "shift_by": 7,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "toggle_switch"
+                                           },
+                        "P_INLET_RAMPS_R": {
+                                                          "category": "AICS",
+                                                      "control_type": "selector",
+                                                       "description": "Pilot Stow Inlet Ramps Right Switch",
+                                                        "identifier": "P_INLET_RAMPS_R",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 1
+                                                                      }, {
+                                                                             "argument": "TOGGLE",
+                                                                          "description": "Toggle switch state",
+                                                                            "interface": "action"
+                                                                      } ],
+                                               "momentary_positions": "none",
+                                                           "outputs": [ {
+                                                                              "address": 4608,
+                                                                          "description": "selector position",
+                                                                                 "mask": 256,
+                                                                            "max_value": 1,
+                                                                             "shift_by": 8,
+                                                                               "suffix": "",
+                                                                                 "type": "integer"
+                                                                      } ],
+                                                  "physical_variant": "toggle_switch"
+                                           }
+                    },
+      "Hydraulics": {
+                        "P_HYD_EMERG_FCONTR_COVER": {
+                                                                   "category": "Hydraulics",
+                                                               "control_type": "selector",
+                                                                "description": "Pilot Hydraulic Emergency Flight Control Switch Cover",
+                                                                 "identifier": "P_HYD_EMERG_FCONTR_COVER",
+                                                                     "inputs": [ {
+                                                                                   "description": "switch to previous or next state",
+                                                                                     "interface": "fixed_step"
+                                                                               }, {
+                                                                                   "description": "set position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 1
+                                                                               }, {
+                                                                                      "argument": "TOGGLE",
+                                                                                   "description": "Toggle switch state",
+                                                                                     "interface": "action"
+                                                                               } ],
+                                                        "momentary_positions": "none",
+                                                                    "outputs": [ {
+                                                                                       "address": 4608,
+                                                                                   "description": "selector position",
+                                                                                          "mask": 16,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 4,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ],
+                                                           "physical_variant": "toggle_switch"
+                                                    },
+                           "P_HYD_EMERG_FCONTR_SW": {
+                                                                   "category": "Hydraulics",
+                                                               "control_type": "selector",
+                                                                "description": "Pilot Hydraulic Emergency Flight Control Switch",
+                                                                 "identifier": "P_HYD_EMERG_FCONTR_SW",
+                                                                     "inputs": [ {
+                                                                                   "description": "switch to previous or next state",
+                                                                                     "interface": "fixed_step"
+                                                                               }, {
+                                                                                   "description": "set position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 1
+                                                                               }, {
+                                                                                      "argument": "TOGGLE",
+                                                                                   "description": "Toggle switch state",
+                                                                                     "interface": "action"
+                                                                               } ],
+                                                        "momentary_positions": "none",
+                                                                    "outputs": [ {
+                                                                                       "address": 4608,
+                                                                                   "description": "selector position",
+                                                                                          "mask": 8,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 3,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ],
+                                                           "physical_variant": "toggle_switch"
+                                                    },
+                                 "P_HYD_HAND_PUMP": {
+                                                                   "category": "Hydraulics",
+                                                               "control_type": "selector",
+                                                                "description": "Pilot Hydraulic Hand Pump",
+                                                                 "identifier": "P_HYD_HAND_PUMP",
+                                                                     "inputs": [ {
+                                                                                   "description": "switch to previous or next state",
+                                                                                     "interface": "fixed_step"
+                                                                               }, {
+                                                                                   "description": "set position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 1
+                                                                               }, {
+                                                                                      "argument": "TOGGLE",
+                                                                                   "description": "Toggle switch state",
+                                                                                     "interface": "action"
+                                                                               } ],
+                                                        "momentary_positions": "none",
+                                                                    "outputs": [ {
+                                                                                       "address": 4608,
+                                                                                   "description": "selector position",
+                                                                                          "mask": 32,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 5,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ],
+                                                           "physical_variant": "toggle_switch"
+                                                    },
+                                   "P_HYD_ISOL_SW": {
+                                                                   "category": "Hydraulics",
+                                                               "control_type": "selector",
+                                                                "description": "Pilot Hydraulic Isolation Switch",
+                                                                 "identifier": "P_HYD_ISOL_SW",
+                                                                     "inputs": [ {
+                                                                                   "description": "switch to previous or next state",
+                                                                                     "interface": "fixed_step"
+                                                                               }, {
+                                                                                   "description": "set position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 1
+                                                                               }, {
+                                                                                      "argument": "TOGGLE",
+                                                                                   "description": "Toggle switch state",
+                                                                                     "interface": "action"
+                                                                               } ],
+                                                        "momentary_positions": "none",
+                                                                    "outputs": [ {
+                                                                                       "address": 4608,
+                                                                                   "description": "selector position",
+                                                                                          "mask": 4,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 2,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ],
+                                                           "physical_variant": "toggle_switch"
+                                                    },
+                          "P_HYD_TRANS_PUMP_COVER": {
+                                                                   "category": "Hydraulics",
+                                                               "control_type": "selector",
+                                                                "description": "Pilot Hydraulic Transfer Pump Switch Cover",
+                                                                 "identifier": "P_HYD_TRANS_PUMP_COVER",
+                                                                     "inputs": [ {
+                                                                                   "description": "switch to previous or next state",
+                                                                                     "interface": "fixed_step"
+                                                                               }, {
+                                                                                   "description": "set position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 1
+                                                                               }, {
+                                                                                      "argument": "TOGGLE",
+                                                                                   "description": "Toggle switch state",
+                                                                                     "interface": "action"
+                                                                               } ],
+                                                        "momentary_positions": "none",
+                                                                    "outputs": [ {
+                                                                                       "address": 4608,
+                                                                                   "description": "selector position",
+                                                                                          "mask": 2,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 1,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ],
+                                                           "physical_variant": "toggle_switch"
+                                                    },
+                             "P_HYD_TRANS_PUMP_SW": {
+                                                                   "category": "Hydraulics",
+                                                               "control_type": "selector",
+                                                                "description": "Pilot Hydraulic Transfer Pump Switch",
+                                                                 "identifier": "P_HYD_TRANS_PUMP_SW",
+                                                                     "inputs": [ {
+                                                                                   "description": "switch to previous or next state",
+                                                                                     "interface": "fixed_step"
+                                                                               }, {
+                                                                                   "description": "set position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 1
+                                                                               }, {
+                                                                                      "argument": "TOGGLE",
+                                                                                   "description": "Toggle switch state",
+                                                                                     "interface": "action"
+                                                                               } ],
+                                                        "momentary_positions": "none",
+                                                                    "outputs": [ {
+                                                                                       "address": 4608,
+                                                                                   "description": "selector position",
+                                                                                          "mask": 1,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ],
+                                                           "physical_variant": "toggle_switch"
+                                                    }
+                    },
+    "MASTER RESET": {
+                        "P_MASTER RESET": {
+                                                      "api_variant": "momentary_last_position",
+                                                         "category": "MASTER RESET",
+                                                     "control_type": "selector",
+                                                      "description": "Pilot MASTER RESET",
+                                                       "identifier": "P_MASTER RESET",
+                                                           "inputs": [ {
+                                                                         "description": "switch to previous or next state",
+                                                                           "interface": "fixed_step"
+                                                                     }, {
+                                                                         "description": "set position",
+                                                                           "interface": "set_state",
+                                                                           "max_value": 1
+                                                                     }, {
+                                                                            "argument": "TOGGLE",
+                                                                         "description": "Toggle switch state",
+                                                                           "interface": "action"
+                                                                     } ],
+                                              "momentary_positions": "none",
+                                                          "outputs": [ {
+                                                                             "address": 4608,
+                                                                         "description": "selector position",
+                                                                                "mask": 64,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 6,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ],
+                                                 "physical_variant": "push_button"
+                                          }
+                    },
+      "Wing Sweep": {
+                        "P_EMERG_WING_SWEEP_COVER": {
+                                                                   "category": "Wing Sweep",
+                                                               "control_type": "selector",
+                                                                "description": "Pilot Emergency Wing Sweep Handle Cover",
+                                                                 "identifier": "P_EMERG_WING_SWEEP_COVER",
+                                                                     "inputs": [ {
+                                                                                   "description": "switch to previous or next state",
+                                                                                     "interface": "fixed_step"
+                                                                               }, {
+                                                                                   "description": "set position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 1
+                                                                               }, {
+                                                                                      "argument": "TOGGLE",
+                                                                                   "description": "Toggle switch state",
+                                                                                     "interface": "action"
+                                                                               } ],
+                                                        "momentary_positions": "none",
+                                                                    "outputs": [ {
+                                                                                       "address": 4608,
+                                                                                   "description": "selector position",
+                                                                                          "mask": 512,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 9,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ],
+                                                           "physical_variant": "toggle_switch"
+                                                    }
+                    }
 }

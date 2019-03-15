@@ -3322,6 +3322,22 @@
                                                                                                           "type": "integer"
                                                                                                } ]
                                                                            },
+                                                     "ARK5P_SIG_STRENGTH": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "ARK-5P Signal Strength Meter",
+                                                                                 "identifier": "ARK5P_SIG_STRENGTH",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5776,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
                                                         "ARK5_FREQ_SCALE": {
                                                                                    "category": "Gauges",
                                                                                "control_type": "analog_gauge",
@@ -3378,6 +3394,38 @@
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
                                                                                                        "address": 5702,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                          "BRAKE_PRESS_L": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Dual Pointer Brake Pressure Indicator Left",
+                                                                                 "identifier": "BRAKE_PRESS_L",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5758,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                          "BRAKE_PRESS_R": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Dual Pointer Brake Pressure Indicator Right",
+                                                                                 "identifier": "BRAKE_PRESS_R",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5760,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3450,6 +3498,38 @@
                                                                                                           "type": "integer"
                                                                                                } ]
                                                                            },
+                                                          "CPT_ALTIMETER": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Cabin Altitude",
+                                                                                 "identifier": "CPT_ALTIMETER",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5752,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                         "CPT_DIFF_PRESS": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Cabin Differential Pressure",
+                                                                                 "identifier": "CPT_DIFF_PRESS",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5754,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
                                                             "EGT_GAUGE_L": {
                                                                                    "category": "Gauges",
                                                                                "control_type": "analog_gauge",
@@ -3489,7 +3569,7 @@
                                                                                  "identifier": "EMERG_FLAPS_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5756,
+                                                                                                       "address": 5772,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3505,7 +3585,7 @@
                                                                                  "identifier": "EMERG_GEAR_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5752,
+                                                                                                       "address": 5768,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3594,6 +3674,38 @@
                                                                                                           "type": "integer"
                                                                                                } ]
                                                                            },
+                                                                "G_METER": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "G-Meter",
+                                                                                 "identifier": "G_METER",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5764,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                        "HYD_BOOST_PRESS": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Booster Hydraulic System Pressure",
+                                                                                 "identifier": "HYD_BOOST_PRESS",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5762,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
                                                           "HYD_SYS_GAUGE": {
                                                                                    "category": "Gauges",
                                                                                "control_type": "analog_gauge",
@@ -3601,7 +3713,7 @@
                                                                                  "identifier": "HYD_SYS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5754,
+                                                                                                       "address": 5770,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3658,6 +3770,22 @@
                                                                                                           "type": "integer"
                                                                                                } ]
                                                                            },
+                                                            "OXY_SYS_ALT": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Oxygen System Altitude",
+                                                                                 "identifier": "OXY_SYS_ALT",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5756,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
                                                          "PNEU_SYS_GAUGE": {
                                                                                    "category": "Gauges",
                                                                                "control_type": "analog_gauge",
@@ -3665,7 +3793,7 @@
                                                                                  "identifier": "PNEU_SYS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5758,
+                                                                                                       "address": 5774,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3714,6 +3842,22 @@
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
                                                                                                        "address": 5718,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                             "TARGET_DIS": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Target Distance Gauge",
+                                                                                 "identifier": "TARGET_DIS",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5766,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
