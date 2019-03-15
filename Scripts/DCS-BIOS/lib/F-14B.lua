@@ -9,8 +9,8 @@ local parse_indication = BIOS.util.parse_indication
 
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
---local definePotentiometer = BIOS.util.definePotentiometer
---local defineRotary = BIOS.util.defineRotary
+local definePotentiometer = BIOS.util.definePotentiometer
+local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 --local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
@@ -32,8 +32,8 @@ defineToggleSwitch("P_HYD_EMERG_FCONTR_SW", 12, 3003, 928, "Hydraulics", "Pilot 
 defineToggleSwitch("P_HYD_EMERG_FCONTR_COVER", 12, 3004, 615, "Hydraulics", "Pilot Hydraulic Emergency Flight Control Switch Cover")
 defineToggleSwitch("P_HYD_HAND_PUMP", 12, 3006, 632, "Hydraulics", "Pilot Hydraulic Hand Pump")
 
--- MASTER RESET
-definePushButton("P_MASTER RESET", 22, 3058, 1071, "MASTER RESET", "Pilot MASTER RESET")
+-- Master Reset
+definePushButton("P_MASTER RESET", 22, 3058, 1071, "Master Reset", "Pilot MASTER RESET")
 
 -- AICS
 defineToggleSwitch("P_INLET_RAMPS_L", 13, 3007, 2100, "AICS", "Pilot Stow Inlet Ramps Left Switch")
@@ -41,5 +41,11 @@ defineToggleSwitch("P_INLET_RAMPS_R", 13, 3008, 2101, "AICS", "Pilot Stow Inlet 
 
 -- Wing Sweep
 defineToggleSwitch("P_EMERG_WING_SWEEP_COVER", 16, 3029, 317, "Wing Sweep", "Pilot Emergency Wing Sweep Handle Cover")
+definePotentiometer("P_EMERG_WING_SWEEP_LEVER", 16, 3031, 384, {0, 1}, "Wing Sweep", "Emergency Wing Sweep Handle")
+defineToggleSwitch("P_EMERG_WING_SWEEP_POP", 12, 3030, 15096, "Wing Sweep", "Emergency Wing Sweep Handle Pop out")
+
+--Radar Altimeter
+definePushButton("P_RADAR_ALT_BIT", 29, 3489, 16020, "Radar Altimeter", "Pilot Radar Altimeter BIT Test Button")
+defineRotary("P_RADAR_ALT_KNOB", 29, 3490, 308, "Radar Altimeter", "Pilot Radar Altimeter Control Knob")
 
 BIOS.protocol.endModule()
