@@ -279,6 +279,6 @@ defineFloat("EMERG_GEAR_PRESS_GAUGE", 406, {0, 1}, "Gauges", "MA-80 Pneumatic Ai
 defineFloat("HYD_SYS_GAUGE", 407, {0, 1}, "Gauges", "MA-250 Hydraulic System Pressure")
 defineFloat("EMERG_FLAPS_PRESS_GAUGE", 408, {0, 1}, "Gauges", "MA-250 Pneumatic Air Pressure Emergency Flaps")
 defineFloat("PNEU_SYS_GAUGE", 409, {0, 1}, "Gauges", "MA-250 Pneumatic System Air")
-defineFloat("ARK5P_SIG_STRENGTH", 410, {0, 0.3}, "Gauges", "ARK-5P Signal Strength Meter")
+defineFloat("ARK5P_SIG_STRENGTH", 410, {0, 0.6}, "Gauges", "ARK-5P Signal Strength Meter")
 
 BIOS.protocol.endModule()
