@@ -28,7 +28,7 @@ end
 defineToggleSwitch("P_HYD_TRANS_PUMP_SW", 12, 3001, 629, "Hydraulics", "Pilot Hydraulic Transfer Pump Switch")
 defineToggleSwitch("P_HYD_TRANS_PUMP_COVER", 12, 3002, 630, "Hydraulics", "Pilot Hydraulic Transfer Pump Switch Cover")
 defineToggleSwitch("P_HYD_ISOL_SW", 12, 3005, 631, "Hydraulics", "Pilot Hydraulic Isolation Switch")
-defineToggleSwitch("P_HYD_EMERG_FCONTR_SW", 12, 3003, 928, "Hydraulics", "Pilot Hydraulic Emergency Flight Control Switch")
+define3PosTumb("P_HYD_EMERG_FCONTR_SW", 12, 3003, 928, "Hydraulics", "Pilot Hydraulic Emergency Flight Control Switch")
 defineToggleSwitch("P_HYD_EMERG_FCONTR_COVER", 12, 3004, 615, "Hydraulics", "Pilot Hydraulic Emergency Flight Control Switch Cover")
 defineToggleSwitch("P_HYD_HAND_PUMP", 12, 3006, 632, "Hydraulics", "Pilot Hydraulic Hand Pump")
 
@@ -47,5 +47,24 @@ defineToggleSwitch("P_EMERG_WING_SWEEP_POP", 12, 3030, 15096, "Wing Sweep", "Eme
 --Radar Altimeter
 definePushButton("P_RADAR_ALT_BIT", 29, 3489, 16020, "Radar Altimeter", "Pilot Radar Altimeter BIT Test Button")
 defineRotary("P_RADAR_ALT_KNOB", 29, 3490, 308, "Radar Altimeter", "Pilot Radar Altimeter Control Knob")
+
+-- Airspeed Indicator
+
+-- Altimeter
+-- RIO Altimeter
+-- Gear
+-- Hook
+-- Brakes
+
+-- SAS
+defineToggleSwitch("P_AFCS_PITCH", 21, 3034, 2106, "SAS", "Pilot AFCS Stability Augmentation - Pitch")
+defineToggleSwitch("P_AFCS_ROLL", 21, 3035, 2107, "SAS", "Pilot AFCS Stability Augmentation - Roll")
+defineToggleSwitch("P_AFCS_YAW", 21, 3036, 2108, "SAS", "Pilot AFCS Stability Augmentation - Yaw")
+
+-- Autopilot
+define3PosTumb("P_AUTOP_VECTOR_CARRIER", 21, 3037, 2109, "Autopilot", "Pilot Autopilot - Vector / Automatic Carrier Landing")
+defineToggleSwitch("P_AUTOP_ALT", 21, 3038, 2110, "Autopilot", "Pilot Autopilot - Altitude Hold")
+define3PosTumb("P_AUTOP_HDG", 21, 3039, 2109, "Autopilot", "Pilot Autopilot - Heading / Ground Track")
+defineToggleSwitch("P_AUTOP_ENGAGE", 21, 3040, 2110, "Autopilot", "Pilot Autopilot - Engage")
 
 BIOS.protocol.endModule()
