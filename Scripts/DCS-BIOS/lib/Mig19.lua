@@ -283,6 +283,11 @@ defineFloat("EMERG_FLAPS_PRESS_GAUGE", 408, {0, 1}, "Gauges", "MA-250 Pneumatic 
 defineFloat("PNEU_SYS_GAUGE", 409, {0, 1}, "Gauges", "MA-250 Pneumatic System Air")
 defineFloat("ARK5P_SIG_STRENGTH", 410, {0, 0.6}, "Gauges", "ARK-5P Signal Strength Meter")
 defineFloat("ARK5P_FREQ_150", 413, {0, 1}, "Gauges", "ARK-5P Frequency Range 150-310")
-defineFloat("ARK5P_FREQ_640", 414, {0, 1}, "Gauges", "ARK-5P Frequency Range 640-1300")
+defineFloat("ARK5P_FREQ_310", 414, {0, 1}, "Gauges", "ARK-5P Frequency Range 310-640")
+defineFloat("ARK5P_FREQ_640", 415, {0, 1}, "Gauges", "ARK-5P Frequency Range 640-1300")
+defineFloat("ASP5N_TRG_SPAN", 416, {0, 0.7}, "Gauges", "ASP-5N Target Span Selection Scale")
+defineFloat("ASP5N_DIVE_ANGLE", 417, {0, 1}, "Gauges", "ASP-5N Dive Angle Selection Scale")
+defineFloat("USB1_L_AMMO_COUNT", 418, {0, 1}, "Gauges", "USB-1 Left Cannon Ammo Counter")
+defineFloat("USB1_R_AMMO_COUNT", 419, {0, 1}, "Gauges", "USB-1 Right Cannon Ammo Counter")
 
 BIOS.protocol.endModule()
