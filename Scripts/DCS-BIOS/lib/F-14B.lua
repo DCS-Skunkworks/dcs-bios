@@ -13,7 +13,7 @@ local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
---local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
+local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 --local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 --local defineString = BIOS.util.defineString
 --local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
@@ -52,7 +52,6 @@ defineRotary("PLT_RADAR_ALT_KNOB", 29, 3490, 308, "Radar Altimeter", "Pilot Rada
 
 -- Altimeter
 -- RIO Altimeter
-
 -- Gear
 definePushButton("PLT_LAUNCHBAR_ABORT", 17, 3659, 497, "Gear", "Pilot Launch Bar Abort")
 defineToggleSwitch("PLT_LAUNCHBAR_ABORT_COVER", 17, 3660, 496, "Gear", "Pilot Launch Bar Abort Switch Cover")
@@ -88,6 +87,34 @@ defineToggleSwitch("PLT_ASY_THRUST_LIMIT_COVER", 19, 3055, 16005, "Engine", "Pil
 defineToggleSwitch("PLT_ASY_THRUST_LIMIT_COVER", 19, 3054, 16006, "Engine", "Pilot Asymmetric Thrust Limiter Cover")
 
 -- Fire System
+-- Fuel system
+-- Electrics
+define3PosTumb("PLT_L_GEN_SW", 14, 3009, 937, "Electrics", "Pilot Left Generator Switch")
+define3PosTumb("PLT_R_GEN_SW", 14, 3010, 936, "Electrics", "Pilot Right Generator Switch")
+defineToggleSwitch("PLT_EMERG_GEN_COVER", 14, 3011, 927, "Electrics", "Emergency Generator Switch Cover")
+defineToggleSwitch("PLT_EMERG_GEN_SW", 14, 3012, 926, "Electrics", "Emergency Generator Switch")
+
+-- TACAN CMD
+defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "TACAN", "Pilot TACAN CMD Button")
+defineToggleSwitch("RIO_TACAN_CMD_BUTTON", 47, 3325, 135, "TACAN", "RIO TACAN CMD Button")
+
+-- TACAN Pilot Panel
+defineTumb("PLT_TACAN_MODE", 47, 3326, 2041, 0.25, {0.0, 1.25}, nil, false, "TACAN", "Pilot TACAN Mode")
+definePotentiometer("PLT_TACAN_VOLUME", 47, 3328, 2036, {0.0, 1.0}, "TACAN", "Pilot TACAN Volume")
+defineFixedStepTumb("PLT_TACAN_MODE_NORMAL_INV", 47, 3335, 2042, 2, {0, 1}, {-1, 1}, nil, "TACAN", "Pilot TACAN Mode Normal/Inverse")
+defineFixedStepTumb("PLT_TACAN_CHANNEL", 47, 3336, 2043, 2, {0, 1}, {-1, 1}, nil, "TACAN", "Pilot TACAN Channel X/Y")
+definePushButton("PLT_TACAN_BIT", 47, 3334, 2115, "TACAN", "Pilot TACAN Bit")
+defineTumb("PLT_TACAN_DIAL_TENS", 47, 3330, 8888, 1/12, {0.0, 1.08333333333}, nil, false, "TACAN", "Pilot TACAN Channel Wheel (Tens)")
+defineTumb("PLT_TACAN_DIAL_ONES", 47, 3332, 8889, 1/9, {0.0, 1.11111111111}, nil, false, "TACAN", "Pilot TACAN Channel Lever (Ones)")
+
+-- TACAN RIO Panel
+defineTumb("RIO_TACAN_MODE", 47, 3338, 374, 0.25, {0.0, 1.25}, nil, false, "TACAN", "RIO TACAN Mode")
+definePotentiometer("RIO_TACAN_VOLUME", 47, 3340, 375, {0.0, 1.0}, "TACAN", "RIO TACAN Volume")
+defineToggleSwitch("RIO_TACAN_MODE_NORMAL_INV", 47, 3347, 373, "TACAN", "RIO TACAN Mode Normal/Inverse")
+defineToggleSwitch("RIO_TACAN_CHANNEL", 47, 3348, 372, "TACAN", "RIO TACAN Channel X/Y")
+definePushButton("RIO_TACAN_BIT", 47, 3346, 371, "TACAN", "RIO TACAN Bit")
+defineTumb("RIO_TACAN_DIAL_TENS", 47, 3342, 8891, 1/12, {0.0, 1.08333333333}, nil, false, "TACAN", "RIO TACAN Channel Wheel (Tens)")
+defineTumb("RIO_TACAN_DIAL_ONES", 47, 3344, 8890, 1/9, {0.0, 1.11111111111}, nil, false, "TACAN", "RIO TACAN Channel Lever (Ones)")
 
 -- UHF ARC-159
 defineTumb("PLT_UHF1_FREQ_MODE", 3, 3375, 2033, 0.5, {0.0, 1.5}, nil, false, "UHF 1", "Pilot UHF ARC-159 Freq Mode GUARD/MANUAL/PRESET")
