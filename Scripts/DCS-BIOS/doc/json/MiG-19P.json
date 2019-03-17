@@ -3265,7 +3265,7 @@
                                                                                  "identifier": "AGI1_ART_HORIZON_BANK",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5734,
+                                                                                                       "address": 5748,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3281,7 +3281,7 @@
                                                                                  "identifier": "AGI1_ART_HORIZON_PITCH",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5732,
+                                                                                                       "address": 5746,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3297,7 +3297,7 @@
                                                                                  "identifier": "AIRSPEED_IAS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5714,
+                                                                                                       "address": 5722,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3313,7 +3313,7 @@
                                                                                  "identifier": "AIRSPEED_TAS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5716,
+                                                                                                       "address": 5724,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3329,7 +3329,23 @@
                                                                                  "identifier": "ARK5P_FREQ_150",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5782,
+                                                                                                       "address": 5800,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                         "ARK5P_FREQ_310": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "ARK-5P Frequency Range 310-640",
+                                                                                 "identifier": "ARK5P_FREQ_310",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5802,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3345,7 +3361,7 @@
                                                                                  "identifier": "ARK5P_FREQ_640",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5784,
+                                                                                                       "address": 5804,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3361,7 +3377,7 @@
                                                                                  "identifier": "ARK5P_SIG_STRENGTH",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5780,
+                                                                                                       "address": 5798,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3377,7 +3393,7 @@
                                                                                  "identifier": "ARK5_FREQ_SCALE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5696,
+                                                                                                       "address": 5702,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3393,7 +3409,39 @@
                                                                                  "identifier": "ARU2V_STABI_IND",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5736,
+                                                                                                       "address": 5750,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                       "ASP5N_DIVE_ANGLE": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "ASP-5N Dive Angle Selection Scale",
+                                                                                 "identifier": "ASP5N_DIVE_ANGLE",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5808,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                         "ASP5N_TRG_SPAN": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "ASP-5N Target Span Selection Scale",
+                                                                                 "identifier": "ASP5N_TRG_SPAN",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5806,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3409,7 +3457,7 @@
                                                                                  "identifier": "BARO_ALT_100",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5704,
+                                                                                                       "address": 5712,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3425,7 +3473,7 @@
                                                                                  "identifier": "BARO_ALT_1000",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5702,
+                                                                                                       "address": 5710,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3441,7 +3489,7 @@
                                                                                  "identifier": "BARO_ALT_SEL",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5706,
+                                                                                                       "address": 5714,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3457,7 +3505,7 @@
                                                                                  "identifier": "BRAKE_PRESS_L",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5762,
+                                                                                                       "address": 5776,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3473,7 +3521,23 @@
                                                                                  "identifier": "BRAKE_PRESS_R",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5764,
+                                                                                                       "address": 5778,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                              "CLOCK_DAY": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Clock Daytime",
+                                                                                 "identifier": "CLOCK_DAY",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5744,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3489,7 +3553,7 @@
                                                                                  "identifier": "CLOCK_FLIGHT_H",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5724,
+                                                                                                       "address": 5732,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3505,7 +3569,7 @@
                                                                                  "identifier": "CLOCK_FLIGHT_M",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5726,
+                                                                                                       "address": 5734,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3521,7 +3585,7 @@
                                                                                  "identifier": "CLOCK_H",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5728,
+                                                                                                       "address": 5736,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3537,7 +3601,23 @@
                                                                                  "identifier": "CLOCK_M",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5730,
+                                                                                                       "address": 5738,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                                "CLOCK_S": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Clock Seconds",
+                                                                                 "identifier": "CLOCK_S",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5740,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3553,7 +3633,7 @@
                                                                                  "identifier": "CPT_ALTIMETER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5756,
+                                                                                                       "address": 5770,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3569,7 +3649,7 @@
                                                                                  "identifier": "CPT_DIFF_PRESS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5758,
+                                                                                                       "address": 5772,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3585,7 +3665,7 @@
                                                                                  "identifier": "EGT_GAUGE_L",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5738,
+                                                                                                       "address": 5752,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3601,7 +3681,7 @@
                                                                                  "identifier": "EGT_GAUGE_R",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5740,
+                                                                                                       "address": 5754,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3617,7 +3697,7 @@
                                                                                  "identifier": "EMERG_FLAPS_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5776,
+                                                                                                       "address": 5794,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3633,7 +3713,7 @@
                                                                                  "identifier": "EMERG_GEAR_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5772,
+                                                                                                       "address": 5790,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3649,7 +3729,7 @@
                                                                                  "identifier": "EUP53_TURN",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5718,
+                                                                                                       "address": 5726,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3665,7 +3745,7 @@
                                                                                  "identifier": "FUEL_FLOW_IND",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5752,
+                                                                                                       "address": 5766,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3681,7 +3761,7 @@
                                                                                  "identifier": "FUEL_IND",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5750,
+                                                                                                       "address": 5764,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3697,7 +3777,7 @@
                                                                                  "identifier": "GIK_CRS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5710,
+                                                                                                       "address": 5718,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3713,7 +3793,7 @@
                                                                                  "identifier": "GIK_HDG",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5708,
+                                                                                                       "address": 5716,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3729,7 +3809,7 @@
                                                                                  "identifier": "GIK_NDB",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5712,
+                                                                                                       "address": 5720,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3745,7 +3825,39 @@
                                                                                  "identifier": "G_METER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5768,
+                                                                                                       "address": 5782,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                      "G_METER_L_POINTER": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "G-Meter Left Record Pointer",
+                                                                                 "identifier": "G_METER_L_POINTER",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5786,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                      "G_METER_R_POINTER": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "G-Meter Right Record Pointer",
+                                                                                 "identifier": "G_METER_R_POINTER",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5784,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3761,7 +3873,7 @@
                                                                                  "identifier": "HYD_BOOST_PRESS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5766,
+                                                                                                       "address": 5780,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3777,7 +3889,7 @@
                                                                                  "identifier": "HYD_SYS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5774,
+                                                                                                       "address": 5792,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3793,7 +3905,7 @@
                                                                                  "identifier": "L_RPM",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5744,
+                                                                                                       "address": 5758,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3809,7 +3921,23 @@
                                                                                  "identifier": "MACH_IND",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5748,
+                                                                                                       "address": 5762,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                     "OXY_FLOW_INDICATOR": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "IK-18 Oxygen Flow Indicator",
+                                                                                 "identifier": "OXY_FLOW_INDICATOR",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5708,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3825,7 +3953,7 @@
                                                                                  "identifier": "OXY_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5700,
+                                                                                                       "address": 5706,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3841,7 +3969,7 @@
                                                                                  "identifier": "OXY_SYS_ALT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5760,
+                                                                                                       "address": 5774,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3857,7 +3985,7 @@
                                                                                  "identifier": "PNEU_SYS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5778,
+                                                                                                       "address": 5796,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3873,7 +4001,7 @@
                                                                                  "identifier": "RADAR_ALT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5722,
+                                                                                                       "address": 5730,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3889,7 +4017,7 @@
                                                                                  "identifier": "R_RPM",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5746,
+                                                                                                       "address": 5760,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3905,7 +4033,23 @@
                                                                                  "identifier": "SLIP_INDICATORS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5720,
+                                                                                                       "address": 5728,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                            "STOPWATCH_S": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Stopwatch Seconds",
+                                                                                 "identifier": "STOPWATCH_S",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5742,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3921,7 +4065,39 @@
                                                                                  "identifier": "TARGET_DIS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5770,
+                                                                                                       "address": 5788,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                      "USB1_L_AMMO_COUNT": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "USB-1 Left Cannon Ammo Counter",
+                                                                                 "identifier": "USB1_L_AMMO_COUNT",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5810,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                      "USB1_R_AMMO_COUNT": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "USB-1 Right Cannon Ammo Counter",
+                                                                                 "identifier": "USB1_R_AMMO_COUNT",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5812,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3937,7 +4113,7 @@
                                                                                  "identifier": "VARIOMETER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5742,
+                                                                                                       "address": 5756,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3953,7 +4129,7 @@
                                                                                  "identifier": "VOLTMETER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5754,
+                                                                                                       "address": 5768,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3969,7 +4145,7 @@
                                                                                  "identifier": "VOLT_MANOMETER_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5698,
+                                                                                                       "address": 5704,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -5560,69 +5736,853 @@
                                                                }
                                             },
     "Warning, Caution and IndicatorLights": {
-                                                "IFF_SELFDESTRUCT_LAMP": {
-                                                                                 "category": "Warning, Caution and IndicatorLights",
-                                                                             "control_type": "led",
-                                                                              "description": "SRO-2 Self-destruction Lamp (red)",
-                                                                               "identifier": "IFF_SELFDESTRUCT_LAMP",
-                                                                                   "inputs": [  ],
-                                                                                  "outputs": [ {
-                                                                                                     "address": 5694,
-                                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                                        "mask": 64,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 6,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ]
-                                                                         },
-                                                          "L_GEAR_DOWN": {
-                                                                                 "category": "Warning, Caution and IndicatorLights",
-                                                                             "control_type": "led",
-                                                                              "description": "Left Gear DOWN Lamp (green)",
-                                                                               "identifier": "L_GEAR_DOWN",
-                                                                                   "inputs": [  ],
-                                                                                  "outputs": [ {
-                                                                                                     "address": 5694,
-                                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                                        "mask": 1024,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 10,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ]
-                                                                         },
-                                                          "N_GEAR_DOWN": {
-                                                                                 "category": "Warning, Caution and IndicatorLights",
-                                                                             "control_type": "led",
-                                                                              "description": "Nose Gear DOWN Lamp (green)",
-                                                                               "identifier": "N_GEAR_DOWN",
-                                                                                   "inputs": [  ],
-                                                                                  "outputs": [ {
-                                                                                                     "address": 5694,
-                                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                                        "mask": 2048,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 11,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ]
-                                                                         },
-                                                          "R_GEAR_DOWN": {
-                                                                                 "category": "Warning, Caution and IndicatorLights",
-                                                                             "control_type": "led",
-                                                                              "description": "Right Gear DOWN Lamp (green)",
-                                                                               "identifier": "R_GEAR_DOWN",
-                                                                                   "inputs": [  ],
-                                                                                  "outputs": [ {
-                                                                                                     "address": 5694,
-                                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                                        "mask": 4096,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 12,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ]
-                                                                         }
+                                                  "AILERON_TRIM_NEUTRAL_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Aileron Trim Neutral Lamp (green)",
+                                                                                     "identifier": "AILERON_TRIM_NEUTRAL_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5694,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 1024,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 10,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "AIRBRAKE_DOWN": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Airbrake Deployed Lamp (green)",
+                                                                                     "identifier": "AIRBRAKE_DOWN",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5694,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 8192,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 13,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "ARK5P_PW_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "ARK-5P On/Off Lamp (green)",
+                                                                                     "identifier": "ARK5P_PW_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 1024,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 10,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                "ARU2V_TAKEOFF_LAND_POS_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "ARU-2V Take-off/Landing Position Lamp (green)",
+                                                                                     "identifier": "ARU2V_TAKEOFF_LAND_POS_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 2,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 1,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                           "BEACON_MARK_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Beacon Marker Lamp (green)",
+                                                                                     "identifier": "BEACON_MARK_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 1,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                         "BOMB_FUSE_ARM_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Bomb Fuse Armed Lamp (red)",
+                                                                                     "identifier": "BOMB_FUSE_ARM_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 1,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                            "DROP_TANK_EMPTY": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "External Drop Tank Empty Lamp (green)",
+                                                                                     "identifier": "DROP_TANK_EMPTY",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 8,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 3,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                                "ENGINE_FIRE": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Engine Fire Lamp (red)",
+                                                                                     "identifier": "ENGINE_FIRE",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5694,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 512,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 9,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                                 "FLAPS_DOWN": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Flaps Deployed Lamp (green)",
+                                                                                     "identifier": "FLAPS_DOWN",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5694,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4096,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 12,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "FUEL_550_REST": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Fuel Tank 1 550 Liters Lamp (red)",
+                                                                                     "identifier": "FUEL_550_REST",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4096,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 12,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                          "FUEL_TANK_1_EMPTY": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Fuel Tank 1 Empty Lamp (red)",
+                                                                                     "identifier": "FUEL_TANK_1_EMPTY",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 2048,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 11,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                          "FUEL_TANK_2_EMPTY": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Fuel Tank 2 Empty Lamp (green)",
+                                                                                     "identifier": "FUEL_TANK_2_EMPTY",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5694,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 256,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 8,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                        "FUEL_TANK_3_4_EMPTY": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Fuel Tanks 3 and 4 Empty Lamp (green)",
+                                                                                     "identifier": "FUEL_TANK_3_4_EMPTY",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5694,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 128,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 7,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                            "GEAR_MOVE_LIGHT": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Gear in Transit Lamp (red)",
+                                                                                     "identifier": "GEAR_MOVE_LIGHT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5694,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 2048,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 11,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                        "GUNSIGHT_BREAK_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Gunsight BREAK Lamp (red)",
+                                                                                     "identifier": "GUNSIGHT_BREAK_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 128,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 7,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                         "GUNSIGHT_LOCK_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Gunsight LOCK Lamp (green)",
+                                                                                     "identifier": "GUNSIGHT_LOCK_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 64,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 6,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                         "HYD_LOW_PRESS_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Main Hydraulic System Low Pressure Lamp (red)",
+                                                                                     "identifier": "HYD_LOW_PRESS_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 8192,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 13,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                      "IFF_SELFDESTRUCT_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "SRO-2 Self-destruction Lamp (red)",
+                                                                                     "identifier": "IFF_SELFDESTRUCT_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5694,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 64,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 6,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                               "L_CANNON_ARM": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Left Cannon Armed Lamp (red)",
+                                                                                     "identifier": "L_CANNON_ARM",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 2,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 1,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                             "L_CONSOLE_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Left Console Lamp (White)",
+                                                                                     "identifier": "L_CONSOLE_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5700,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 32,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 5,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                                "L_ENGINE_AB": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Left Afterburner Lamp (green)",
+                                                                                     "identifier": "L_ENGINE_AB",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 128,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 7,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                               "L_ENGINE_MIL": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Left Engine Mil Power Lamp (green)",
+                                                                                     "identifier": "L_ENGINE_MIL",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 8,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 3,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                             "L_ENG_AIRSTART": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Left Engine Airstart Lamp (red)",
+                                                                                     "identifier": "L_ENG_AIRSTART",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 16384,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 14,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "L_ENG_OIL_LOW": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Left Engine Low Oil pressure Lamp (red)",
+                                                                                     "identifier": "L_ENG_OIL_LOW",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 512,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 9,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                                "L_GEAR_DOWN": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Left Gear DOWN Lamp (green)",
+                                                                                     "identifier": "L_GEAR_DOWN",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5700,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 512,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 9,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                                 "L_GEN_FAIL": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Left Generator Failture Lamp (red)",
+                                                                                     "identifier": "L_GEN_FAIL",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 32,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 5,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                                "L_WING_LOAD": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Left External Wing Load Lamp (green)",
+                                                                                     "identifier": "L_WING_LOAD",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 16,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 4,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                                "N_GEAR_DOWN": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Nose Gear DOWN Lamp (green)",
+                                                                                     "identifier": "N_GEAR_DOWN",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5700,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 1024,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 10,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                    "PITCH_TRIM_NEUTRAL_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Pitch Trim Neutral Lamp (green)",
+                                                                                     "identifier": "PITCH_TRIM_NEUTRAL_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5694,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 32768,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 15,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                           "RADAR_BREAK_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Radar BREAK Lamp (red)",
+                                                                                     "identifier": "RADAR_BREAK_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 512,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 9,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                            "RADAR_EMIT_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Radar Emitting Lamp (green)",
+                                                                                     "identifier": "RADAR_EMIT_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5694,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 16384,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 14,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                            "RADAR_LOCK_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Radar LOCK Lamp (green)",
+                                                                                     "identifier": "RADAR_LOCK_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 256,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 8,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                        "RADAR_OVERHEAT_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Radar Overheat Lamp (TURN OFF RADAR) (red)",
+                                                                                     "identifier": "RADAR_OVERHEAT_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 2,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "ROCKET_1_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "1 Rocket Installed Lamp (yellow)",
+                                                                                     "identifier": "ROCKET_1_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4096,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 12,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "ROCKET_2_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "2 Rockets Installed Lamp (yellow)",
+                                                                                     "identifier": "ROCKET_2_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 8192,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 13,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "ROCKET_3_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "3 Rockets Installed Lamp (yellow)",
+                                                                                     "identifier": "ROCKET_3_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 16384,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 14,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "ROCKET_4_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "4 Rockets Installed Lamp (yellow)",
+                                                                                     "identifier": "ROCKET_4_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 32768,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 15,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "ROCKET_5_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "5 Rockets Installed Lamp (yellow)",
+                                                                                     "identifier": "ROCKET_5_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5700,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 1,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "ROCKET_6_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "6 Rockets Installed Lamp (yellow)",
+                                                                                     "identifier": "ROCKET_6_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5700,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 2,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 1,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "ROCKET_7_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "7 Rockets Installed Lamp (yellow)",
+                                                                                     "identifier": "ROCKET_7_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5700,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 2,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "ROCKET_8_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "8 Rockets Installed Lamp (yellow)",
+                                                                                     "identifier": "ROCKET_8_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5700,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 8,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 3,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                           "ROCKET_INST_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Rockets Installed Lamp (green)",
+                                                                                     "identifier": "ROCKET_INST_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 2048,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 11,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                               "R_CANNON_ARM": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Right Cannon Armed Lamp (red)",
+                                                                                     "identifier": "R_CANNON_ARM",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 2,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                             "R_CONSOLE_LAMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Right Console Lamp (White)",
+                                                                                     "identifier": "R_CONSOLE_LAMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5700,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 16,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 4,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                                "R_ENGINE_AB": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Right Afterburner Lamp (green)",
+                                                                                     "identifier": "R_ENGINE_AB",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 256,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 8,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                               "R_ENGINE_MIL": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Right Engine Mil Power Lamp (green)",
+                                                                                     "identifier": "R_ENGINE_MIL",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 16,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 4,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                             "R_ENG_AIRSTART": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Right Engine Airstart Lamp (red)",
+                                                                                     "identifier": "R_ENG_AIRSTART",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 32768,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 15,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "R_ENG_OIL_LOW": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Right Engine Low Oil pressure Lamp (red)",
+                                                                                     "identifier": "R_ENG_OIL_LOW",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 1024,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 10,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                                "R_GEAR_DOWN": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Right Gear DOWN Lamp (green)",
+                                                                                     "identifier": "R_GEAR_DOWN",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5700,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 2048,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 11,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                                 "R_GEN_FAIL": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Right Generator Failture Lamp (red)",
+                                                                                     "identifier": "R_GEN_FAIL",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5696,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 64,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 6,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                                "R_WING_LOAD": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Right External Wing Load Power Lamp (green)",
+                                                                                     "identifier": "R_WING_LOAD",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5698,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 32,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 5,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                             "SRO2B_RWR_LOCK": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Radar Warning Receiver LOCK Lamp (red)",
+                                                                                     "identifier": "SRO2B_RWR_LOCK",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5700,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 8192,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 13,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                               "SRO2B_RWR_PW": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Radar Warning Receiver Power Lamp (red)",
+                                                                                     "identifier": "SRO2B_RWR_PW",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5700,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4096,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 12,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               }
                                             }
 }
