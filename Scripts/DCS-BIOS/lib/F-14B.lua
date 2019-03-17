@@ -52,7 +52,11 @@ defineRotary("PLT_RADAR_ALT_KNOB", 29, 3490, 308, "Radar Altimeter", "Pilot Rada
 
 -- Altimeter
 -- RIO Altimeter
+
 -- Gear
+definePushButton("PLT_LAUNCHBAR_ABORT", 17, 3659, 497, "Gear", "Pilot Launch Bar Abort")
+defineToggleSwitch("PLT_LAUNCHBAR_ABORT_COVER", 17, 3660, 496, "Gear", "Pilot Launch Bar Abort Switch Cover")
+
 -- Hook
 -- Brakes
 define3PosTumb("PLT_ANTI_SKID_SW", 17, 3014, 1072, "Brakes", "Anti-Skid Spoiler BK Switch")
@@ -99,10 +103,44 @@ definePotentiometer("PLT_UHF1_VOL", 3, 3359, 2031, {0.0, 1.0}, "UHF 1", "Pilot U
 definePotentiometer("RIO_UHF1_VOL", 3, 3361, 383, {0.0, 1.0}, "UHF 1", "RIO UHF ARC-159 Volume")
 definePotentiometer("PLT_UHF1_BRIGHTNESS", 3, 3363, 2027, {0.0, 1.0}, "UHF 1", "Pilot UHF ARC-159 Display Brightness")
 
+-- VHF/UHF ARC-182 ("V/UHF 2")
+defineTumb("RIO_VUHF_FREQ_MODE", 4, 3417, 353, 0.2, {0.0, 1.2}, nil, false, "VUHF", "RIO VHF/UHF ARC-182 Frequency Mode 243 MAN G PRESET READ LOAD")
+defineTumb("RIO_VUHF_MODE", 4, 3413, 358, 0.25, {0.0, 1.25}, nil, false, "VUHF", "RIO VHF/UHF ARC-182 MODE OFF T/R T/R&G DF TEST")
+defineTumb("RIO_VUHF_PRESETS", 4, 3415, 352, 0.0833333333, {0.0, 1.666666666}, nil, false, "VUHF", "RIO VHF/UHF ARC-182 Preset Channel Selector")
+defineToggleSwitch("RIO_VUHF_FM_AM", 4, 3419, 359, "VUHF", "RIO VHF/UHF ARC-182 Preset Channel Selector")
+defineToggleSwitch("RIO_VUHF_FM_AM", 4, 3407, 351, "VUHF", "RIO VHF/UHF ARC-182 Squelch Switch")
+define3PosTumb("RIO_VUHF_110_DIAL", 4, 3409, 354, "VUHF", "RIO VUHF ARC-182 100MHz & 10MHz Dial")
+define3PosTumb("RIO_VUHF_1_DIAL", 4, 3410, 355, "VUHF", "RIO VUHF ARC-182 1MHz Dial")
+define3PosTumb("RIO_VUHF_01_DIAL", 4, 3411, 356, "VUHF", "RIO VUHF ARC-182 0.1MHz Dial")
+define3PosTumb("RIO_VUHF_025_DIAL", 4, 3412, 357, "VUHF", "RIO VUHF ARC-182 0.025MHz Dial")
+definePotentiometer("RIO_VUHF_VOL", 4, 3401, 350, {0.0, 1.0}, "VUHF", "RIO VUHF ARC-182 Volume")
+definePotentiometer("PLT_VUHF_VOL", 4, 3403, 2038, {0.0, 1.0}, "VUHF", "Pilot VUHF ARC-182 Volume")
+definePotentiometer("RIO_VUHF_BRIGHTNESS", 4, 3405, 360, {0.0, 1.0}, "VUHF", "RIO VUHF ARC-182 Display Brightness")
+
+-- KY-28
+defineTumb("RIO_KY28_POWER", 2, 3423, 116, 0.5, {0.0, 1.5}, nil, false, "KY-28", "RIO KY-28 Power Mode")
+defineTumb("RIO_KY28_RADIO_SELECTOR", 2, 3425, 115, 0.5, {0.0, 1.5}, nil, false, "KY-28", "RIO KY-28 Radio Selector")
+defineToggleSwitch("RIO_KY28_FLIPCOVER", 2, 3595, 150, "KY-28", "RIO KY-28 ZEROIZE Cover")
+defineToggleSwitch("RIO_KY28_ZEROIZE", 2, 3427, 361, "KY-28", "RIO KY-28 ZEROIZE")
+
+-- UHF/VHF/UHF Pilot/RIO Remote Display
+definePotentiometer("PLT_UHF_REMOTE_BRIGHTNESS", 3, 3350, 1031, {0.0, 1.0}, "UHF 1", "Pilot UHF ARC-159 Remote Display Brightness")
+definePotentiometer("RIO_UHF_REMOTE_BRIGHTNESS", 3, 3353, 406, {0.0, 1.0}, "UHF 1", "RIO UHF ARC-159 Remote Display Brightness")
+definePotentiometer("PLT_VUHF_REMOTE_BRIGHTNESS", 4, 3356, 1030, {0.0, 1.0}, "VUHF", "Pilot VHF/UHF Radio Remote Display Brightness")
+defineToggleSwitch("PLT_UHF_DISPLAY_TEST", 2, 3352, 15004, "UHF 1", "Pilot UHF ARC-159 Radio Remote Display Test")
+defineToggleSwitch("RIO_UHF_DISPLAY_TEST", 3, 3355, 405, "UHF 1", "RIO UHF ARC-159 Radio Remote Display Test")
+defineToggleSwitch("PLT_VUHF_DISPLAY_TEST", 3, 3355, 15003, "VUHF", "Pilot VHF/UHF ARC-182 Radio Remote Display Test")
+
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("PLT_AOA_SLOW", 3760, "Warning, Caution and IndicatorLights","Pilot AOA Slow (green)")
 defineIndicatorLight("PLT_AOA_OPT", 3761, "Warning, Caution and IndicatorLights","Pilot AOA Optimum (yellow)")
 defineIndicatorLight("PLT_AOA_FAST", 3762, "Warning, Caution and IndicatorLights","Pilot AOA Fast (red)")
+defineIndicatorLight("PLT_TACAN_GO", 8050, "Warning, Caution and IndicatorLights","Pilot TACAN GO Light (green)")
+defineIndicatorLight("PLT_TACAN_NOGO", 8051, "Warning, Caution and IndicatorLights","Pilot TACAN NOGO Light (red)")
+defineIndicatorLight("PLT_GEAR_LIGHT", 15001, "Warning, Caution and IndicatorLights","Pilot Landing Gear Light (red)")
+defineIndicatorLight("PLT_REFUELPROBE_LIGHT", 15002, "Warning, Caution and IndicatorLights","Pilot Refuel Probe Light (red)")
+defineIndicatorLight("PLT_MASTERTEST_GO", 15010, "Warning, Caution and IndicatorLights","Pilot MASTER TEST GO Light (green)")
+defineIndicatorLight("PLT_MASTERTEST_NOGO", 15011, "Warning, Caution and IndicatorLights","Pilot MASTER TEST NOGO Light (red)")
 defineIndicatorLight("PLT_WARN_LGEN", 15016, "Warning, Caution and IndicatorLights","Pilot Warning Lamp Left Generator (yellow)")
 defineIndicatorLight("PLT_WARN_LOILHOT", 15017, "Warning, Caution and IndicatorLights","Pilot Warning Lamp Left Oil Hot (yellow)")
 defineIndicatorLight("PLT_WARN_LFUELPRESS", 15018, "Warning, Caution and IndicatorLights","Pilot Warning Lamp Left Fuel Pressure (yellow)")
@@ -152,5 +190,11 @@ defineIndicatorLight("PLT_WARN_LENGSEC", 15061, "Warning, Caution and IndicatorL
 defineIndicatorLight("PLT_WARN_RATS", 15062, "Warning, Caution and IndicatorLights","Pilot Warning Lamp RATS (green)")
 defineIndicatorLight("PLT_WARN_STARTVALVE", 15063, "Warning, Caution and IndicatorLights","Pilot Warning Lamp Start Valve (yellow)")
 defineIndicatorLight("PLT_WARN_RENGSEC", 15064, "Warning, Caution and IndicatorLights","Pilot Warning Lamp Right Engine Secondary (yellow)")
+defineIndicatorLight("PLT_HOOK_LIGHT", 15090, "Warning, Caution and IndicatorLights","Pilot Hook Light (red)")
+
+defineIndicatorLight("RIO_IFF_TEST_LIGHT", 8052, "Warning, Caution and IndicatorLights","RIO IFF Test Light (green)")
+defineIndicatorLight("RIO_IFF_REPLY_LIGHT", 8053, "Warning, Caution and IndicatorLights","RIO IFF Reply Light (green)")
+defineIndicatorLight("RIO_TACAN_GO", 8893, "Warning, Caution and IndicatorLights","RIO TACAN GO Light (green)")
+defineIndicatorLight("RIO_TACAN_NOGO", 8892, "Warning, Caution and IndicatorLights","RIO TACAN NOGO Light (red)")
 
 BIOS.protocol.endModule()
