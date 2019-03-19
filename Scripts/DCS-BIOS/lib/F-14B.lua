@@ -33,7 +33,7 @@ defineToggleSwitch("PLT_HYD_EMERG_FCONTR_COVER", 12, 3004, 615, "Hydraulics", "P
 defineToggleSwitch("PLT_HYD_HAND_PUMP", 12, 3006, 632, "Hydraulics", "Pilot Hydraulic Hand Pump")
 
 -- Master Reset
-definePushButton("PLT_MASTER RESET", 22, 3058, 1071, "Master Reset", "Pilot MASTER RESET")
+definePushButton("PLT_MASTER_RESET", 22, 3058, 1071, "Master Reset", "Pilot MASTER RESET")
 
 -- AICS
 defineToggleSwitch("PLT_INLET_RAMPS_L", 13, 3007, 2100, "AICS", "Pilot Stow Inlet Ramps Left Switch")
@@ -41,22 +41,36 @@ defineToggleSwitch("PLT_INLET_RAMPS_R", 13, 3008, 2101, "AICS", "Pilot Stow Inle
 
 -- Wing Sweep
 defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_COVER", 16, 3029, 317, "Wing Sweep", "Pilot Emergency Wing Sweep Handle Cover")
-definePotentiometer("PLT_EMERG_WING_SWEEPLT_LEVER", 16, 3031, 384, {0, 1}, "Wing Sweep", "Emergency Wing Sweep Handle")
-defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_POP", 12, 3030, 15096, "Wing Sweep", "Emergency Wing Sweep Handle Pop out")
+definePotentiometer("PLT_EMERG_WING_SWEEPLT_LEVER", 16, 3031, 384, {0, 1}, "Wing Sweep", "Pilot Emergency Wing Sweep Handle")
+defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_POP", 12, 3030, 15096, "Wing Sweep", "Pilot Emergency Wing Sweep Handle Pop out")
 
 --Radar Altimeter
 definePushButton("PLT_RADAR_ALT_BIT", 29, 3489, 16020, "Radar Altimeter", "Pilot Radar Altimeter BIT Test Button")
 defineRotary("PLT_RADAR_ALT_KNOB", 29, 3490, 308, "Radar Altimeter", "Pilot Radar Altimeter Control Knob")
 
 -- Airspeed Indicator
+definePushButton("PLT_AIRSPD_KNOB_PUSH", 27, 3492, 2127, "Airspeed Indicator", "Pilot Airspeed Indicator Bug Push Knob")
+defineRotary("PLT_AIRSPD_KNOB", 27, 3491, 310, "Airspeed Indicator", "Pilot Airspeed Indicator Bug Knob")
 
 -- Altimeter
+define3PosTumb("PLT_ALTIMETER_MODE", 28, 3487, 307, "Altimeter", "Pilot Altimeter Mode Switch")
+definePotentiometer("PLT_ALTIMETER_KNOB", 28, 3486, 306, {0, 1}, "Altimeter", "Pilot Altimeter Pressure Setting")
+
 -- RIO Altimeter
+define3PosTumb("RIO_ALTIMETER_MODE", 28, 3490, 20307, "Altimeter", "RIO Altimeter Mode Switch")
+definePotentiometer("RIO_ALTIMETER_KNOB", 28, 3489, 20306, {0, 1}, "Altimeter", "RIO Altimeter Pressure Setting")
+
 -- Gear
+defineToggleSwitch("PLT_GEAR_LEVER", 17, 3016, 326, "Gear", "Pilot Landing Gear Lever")
+defineToggleSwitch("PLT_GEAR_LEVER_EMERG", 17, 3633, 16015, "Gear", "Pilot Landing Gear Lever RB emergency extend")
 definePushButton("PLT_LAUNCHBAR_ABORT", 17, 3659, 497, "Gear", "Pilot Launch Bar Abort")
 defineToggleSwitch("PLT_LAUNCHBAR_ABORT_COVER", 17, 3660, 496, "Gear", "Pilot Launch Bar Abort Switch Cover")
+define3PosTumb("PLT_NOSE_STRUT_SW", 17, 3019, 1075, "Gear", "Pilot Nose Strut Compression Switch")
 
 -- Hook
+defineToggleSwitch("PLT_HOOK_LEVER", 17, 3021, 238, "Gear", "Pilot Hook Extension Handle")
+defineToggleSwitch("PLT_HOOK_LEVER_EMERG", 17, 3022, 15078, "Gear", "Pilot Hook Extension Handle RB cycle emergency mode")
+
 -- Brakes
 define3PosTumb("PLT_ANTI_SKID_SW", 17, 3014, 1072, "Brakes", "Anti-Skid Spoiler BK Switch")
 defineToggleSwitch("PLT_PARK_BRAKE", 17, 3013, 237, "Brakes", "Pilot Parking Brake Handle")
@@ -84,7 +98,7 @@ define3PosTumb("PLT_ENGINE_CRANK", 19, 3051, 2102, "Engine", "Pilot Engine Crank
 defineToggleSwitch("PLT_ENGINE_MODE_L", 19, 3052, 16007, "Engine", "Pilot Left Engine Mode")
 defineToggleSwitch("PLT_ENGINE_MODE_R", 19, 3053, 16008, "Engine", "Pilot Right Engine Mode")
 defineToggleSwitch("PLT_ASY_THRUST_LIMIT_COVER", 19, 3055, 16005, "Engine", "Pilot Asymmetric Thrust Limiter Cover")
-defineToggleSwitch("PLT_ASY_THRUST_LIMIT_COVER", 19, 3054, 16006, "Engine", "Pilot Asymmetric Thrust Limiter Cover")
+defineToggleSwitch("PLT_ASY_THRUST_LIMIT", 19, 3054, 16006, "Engine", "Pilot Asymmetric Thrust Limiter")
 
 -- Fire System
 -- Fuel system
@@ -93,6 +107,19 @@ define3PosTumb("PLT_L_GEN_SW", 14, 3009, 937, "Electrics", "Pilot Left Generator
 define3PosTumb("PLT_R_GEN_SW", 14, 3010, 936, "Electrics", "Pilot Right Generator Switch")
 defineToggleSwitch("PLT_EMERG_GEN_COVER", 14, 3011, 927, "Electrics", "Emergency Generator Switch Cover")
 defineToggleSwitch("PLT_EMERG_GEN_SW", 14, 3012, 926, "Electrics", "Emergency Generator Switch")
+
+--Light Panel
+defineToggleSwitch("PLT_HOOK_BYPASS", 25, 3653, 915, "Light Panel", "Pilot Hook Bypass")
+
+-- DISPLAY Panel: Power
+defineToggleSwitch("PLT_VDI_PW_SW", 42, 3214, 1010, "DISPLAY", "Pilot VDI Power On/Off")
+defineToggleSwitch("PLT_HUD_PW_SW", 40, 3213, 1009, "DISPLAY", "Pilot HUD Power On/Off")
+defineToggleSwitch("PLT_HSD_PW_SW", 41, 3215, 1008, "DISPLAY", "Pilot HSD/ECMD Power On/Off")
+
+-- DISPLAY Panel: Steer CMD
+-- DISPLAY Panel: HSD
+define3PosTumb("PLT_HSD_DIS_MODE", 41, 3235, 1016, "DISPLAY", "Pilot HSD Display Mode")
+defineToggleSwitch("PLT_HSD_ECM_OVER", 41, 3239, 1017, "DISPLAY", "HSD ECM Override")
 
 -- TACAN CMD
 defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "TACAN", "Pilot TACAN CMD Button")
