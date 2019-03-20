@@ -280,6 +280,47 @@ defineToggleSwitch("RIO_UHF_DISPLAY_TEST", 3, 3355, 405, "UHF 1", "RIO UHF ARC-1
 defineToggleSwitch("PLT_VUHF_DISPLAY_TEST", 3, 3355, 15003, "VUHF", "Pilot VHF/UHF ARC-182 Radio Remote Display Test")
 
 -- DECM Panel
+defineMultipositionSwitch("RIO_DECM_PW_MODE", 53, 3252, 151, 6, 0.2, "DECM Panel" ,"RIO DECM ALQ-100 Power/Mode")
+definePotentiometer("RIO_DECM_VOL", 53, 3253, 9950, {0.0, 1.0}, "DECM Panel", "RIO DECM ALQ-100 Volume")
+
+-- RWR Control Panel ALR-67
+definePotentiometer("PLT_RWR_BRIGHT", 54, 3261, 16011, {0.0, 1.0}, "RWR Control Panel", "Pilot AN/ALR-67 Display Brightness")
+definePotentiometer("RIO_RWR_BRIGHT", 54, 3263, 376, {0.0, 1.0}, "RWR Control Panel", "RIO AN/ALR-67 Display Brightness")
+defineMultipositionSwitch("RIO_RWR_DIS_TYP", 53, 3257, 2136, 5, 0.25, "DECM Panel" ,"RIO AN/ALR-67 Display Type")
+define3PosTumb("RIO_RWR_MODE", 53, 3256, 2137, "DECM Panel", "RIO AN/ALR-67 Mode")
+define3PosTumb("RIO_RWR_TEST", 53, 3261, 2140, "DECM Panel", "RIO AN/ALR-67 Mode")
+defineToggleSwitch("RIO_RWR_PW", 53, 3259, 2139, "DECM Panel", "RIO AN/ALR-67 Power")
+definePotentiometer("RIO_RWR_VOL", 54, 3254, 2138, {0.0, 1.0}, "DECM Panel", "RIO AN/ALR-67 Volume")
+
+-- AN/ALE-39 Mode Panel
+define3PosTumb("RIO_CMDS_PW", 5, 3267, 390, "CMDS", "RIO AN/ALE-37 Power/Mode")
+define3PosTumb("RIO_CMDS_DISP_CHAFF", 5, 3269, 389, "CMDS", "RIO AN/ALE-37 Chaff Dispense")
+define3PosTumb("RIO_CMDS_DISP_FLAR", 5, 3270, 388, "CMDS", "RIO AN/ALE-37 Flare Dispense")
+define3PosTumb("RIO_CMDS_DISP_JAMMER", 5, 3271, 387, "CMDS", "RIO AN/ALE-37 Jammer Dispense")
+define3PosTumb("RIO_CMDS_FLAREMODE", 5, 3272, 398, "CMDS", "RIO AN/ALE-37 Flare Mode")
+definePushButton("RIO_CMDS_FLARE_SALVO", 5, 3272, 391, "CMDS", "RIO AN/ALE-37 Flare Salvo")
+definePotentiometer("RIO_CMDS_COUNT_CHAFF", 5, 3275, 386, {0.0, 1.0}, "CMDS", "AN/ALE-37 Chaff Counter")
+definePotentiometer("RIO_CMDS_COUNT_FLARE", 5, 3277, 385, {0.0, 1.0}, "CMDS", "AN/ALE-37 Flare Counter")
+definePotentiometer("RIO_CMDS_COUNT_JAMMER", 5, 3279, 399, {0.0, 1.0}, "CMDS", "AN/ALE-37 Jammer Counter")
+
+-- AN/ALE-39 Program Panel
+defineFixedStepTumb("RIO_CMDS_LOAD_TYP_L10", 5, 3281, 206, 3, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO AN/ALE-37 L10 Load Type")
+defineFixedStepTumb("RIO_CMDS_LOAD_TYP_L20", 5, 3283, 207, 3, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO AN/ALE-37 L20 Load Type")
+defineFixedStepTumb("RIO_CMDS_LOAD_TYP_R10", 5, 3285, 209, 3, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO AN/ALE-37 R10 Load Type")
+defineFixedStepTumb("RIO_CMDS_LOAD_TYP_R20", 5, 3287, 208, 3, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO AN/ALE-37 R20 Load Type")
+defineFixedStepTumb("RIO_CMDS_CHAFF_BURST_QUAN", 5, 3298, 214, 6, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO Chaff Burst Quantity")
+defineFixedStepTumb("RIO_CMDS_CHAFF_BURST_INTER", 5, 3300, 215, 6, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO Chaff Burst Interval")
+defineFixedStepTumb("RIO_CMDS_CHAFF_SALVO_QUAN", 5, 3302, 203, 6, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO Chaff Salvo Quantity")
+defineFixedStepTumb("RIO_CMDS_CHAFF_SALVO_INTER", 5, 3304, 202, 6, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO Chaff Salvo Interval")
+defineFixedStepTumb("RIO_CMDS_FLARE_QUAN", 5, 3306, 205, 6, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO Flare Quantity")
+defineFixedStepTumb("RIO_CMDS_FLARE_INTER", 5, 3308, 210, 5, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO Flare Interval")
+defineFixedStepTumb("RIO_CMDS_JAMM_QUAN", 5, 3295, 204, 4, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO AN/ALE-37 Jammer Quantity")
+defineFixedStepTumb("RIO_CMDS_JAMM_INTER_UNIT", 5, 3289, 211, 10, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO Jammer Interval Units")
+defineFixedStepTumb("RIO_CMDS_JAMM_INTER_10", 5, 3291, 212, 10, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO Jammer Interval Tens")
+defineFixedStepTumb("RIO_CMDS_JAMM_INTER_100", 5, 3293, 213, 10, {0, 1}, {-1, 1}, nil, "CMDS Program", "RIO Jammer Interval Hundreds")
+definePushButton("RIO_CMDS_PROG_RESET", 5, 3297, 216, "CMDS", "RIO AN/ALE-37 Programmer Reset")
+
+-- INS
 
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("PLT_JETT_LIGHT", 701, "Warning, Caution and IndicatorLights","Pilot Emergency Stores Jettison Light (red)")
