@@ -14,11 +14,8 @@ local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
---local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
---local defineString = BIOS.util.defineString
---local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
+local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
---local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 local function define3PosTumb(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
@@ -87,6 +84,8 @@ define3PosTumb("PLT_AUTOPLT_HDG", 21, 3039, 2111, "Autopilot", "Pilot Autopilot 
 defineToggleSwitch("PLT_AUTOPLT_ENGAGE", 21, 3040, 2112, "Autopilot", "Pilot Autopilot - Engage")
 
 -- Flaps
+definePotentiometer("PLT_FLAPS_LEVER", 18, 3044, 225, {0, 1}, "Flaps", "Pilot Flaps Lever")
+
 -- Engine
 defineToggleSwitch("PLT_ENGINE_FUEL_CUT_L", 19, 3128, 12300, "Engine", "Pilot Left Engine Fuel Cutoff")
 defineToggleSwitch("PLT_ENGINE_FUEL_CUT_R", 19, 3129, 12301, "Engine", "Pilot Right Engine Fuel Cutoff")
@@ -101,25 +100,98 @@ defineToggleSwitch("PLT_ASY_THRUST_LIMIT_COVER", 19, 3055, 16005, "Engine", "Pil
 defineToggleSwitch("PLT_ASY_THRUST_LIMIT", 19, 3054, 16006, "Engine", "Pilot Asymmetric Thrust Limiter")
 
 -- Fire System
--- Fuel system
+--definePushButton("PLT_FIRE_EX_BOTTLE_L", devices.FIRE, 3059, 15083, "Gear", "Pilot Fire Ext Bottle - Left") missing device
+--definePushButton("PLT_FIRE_EX_BOTTLE_R", devices.FIRE, 3060, 15082, "Gear", "Pilot Fire Ext Bottle - Right")
+
+-- Fuel System
+defineToggleSwitch("PLT_FUEL_SHUTOFF_R", 20, 3061, 1044, "Fuel System", "Pilot Fuel Shutoff - Right")
+defineToggleSwitch("PLT_FUEL_SHUTOFF_L", 20, 3062, 15081, "Fuel System", "Pilot Fuel Shutoff - Left")
+defineToggleSwitch("PLT_FUEL_FEED_COVER", 20, 3064, 1094, "Fuel System", "Pilot Fuel Feed Cover")
+define3PosTumb("PLT_FUEL_FEED", 20, 3065, 1095, "Fuel System", "Pilot Fuel Feed")
+define3PosTumb("PLT_FUEL_WING_EXT_TRANS", 20, 3066, 1001, "Fuel System", "Pilot Fuel Wing/Ext Trans")
+defineToggleSwitch("PLT_FUEL_DUMP", 20, 3067, 1074, "Fuel System", "Pilot Fuel Dump")
+define3PosTumb("PLT_REFUEL_PROBE", 20, 3068, 1073, "Fuel System", "Pilot Refuel Probe")
+define3PosTumb("PLT_FUEL_QUANT_SEL", 20, 3063, 1076, "Fuel System", "Pilot Fuel Quantity Selector")
+definePotentiometer("PLT_BINGO_FUEL_KNOB", 20, 3069, 1050, {0, 1}, "Flaps", "Pilot BINGO Fuel Level Knob")
+
 -- Electrics
 define3PosTumb("PLT_L_GEN_SW", 14, 3009, 937, "Electrics", "Pilot Left Generator Switch")
 define3PosTumb("PLT_R_GEN_SW", 14, 3010, 936, "Electrics", "Pilot Right Generator Switch")
-defineToggleSwitch("PLT_EMERG_GEN_COVER", 14, 3011, 927, "Electrics", "Emergency Generator Switch Cover")
-defineToggleSwitch("PLT_EMERG_GEN_SW", 14, 3012, 926, "Electrics", "Emergency Generator Switch")
+defineToggleSwitch("PLT_EMERG_GEN_COVER", 14, 3011, 927, "Electrics", "Pilot Emergency Generator Switch Cover")
+defineToggleSwitch("PLT_EMERG_GEN_SW", 14, 3012, 926, "Electrics", "Pilot Emergency Generator Switch")
 
---Light Panel
+-- Cockpit Mechanics
+defineToggleSwitch("PLT_CANOPY_JETT", 11, 3184, 224, "Cockpit Mechanics", "Pilot Canopy Jettison")
+defineToggleSwitch("RIO_CANOPY_JETT", 11, 3184, 2051, "Cockpit Mechanics", "RIO Canopy Jettison")
+defineToggleSwitch("RIO_EJECT_CMD", 11, 3185, 2049, "Cockpit Mechanics", "RIO Ejection CMD Lever")
+defineToggleSwitch("PLT_EJECT_SEAT_SAFE", 11, 3186, 404, "Cockpit Mechanics", "Pilot Ejection Seat Safety")
+defineToggleSwitch("RIO_EJECT_SEAT_SAFE", 11, 3187, 498, "Cockpit Mechanics", "RIO Ejection Seat Safety")
+defineToggleSwitch("RIO_STORAGE_BOX", 11, 3599, 122, "Cockpit Mechanics", "RIO Storage Box")
+
+-- Enivornment Control
+defineToggleSwitch("PLT_OXY_ON", 11, 3190, 8114, "Enivornment Control", "Pilot Oxygen On")
+defineToggleSwitch("RIO_OXY_ON", 11, 3191, 119, "Enivornment Control", "RIO Oxygen On")
+defineToggleSwitch("PLT_CABIN_PRESS_DUMP", 11, 3192, 939, "Enivornment Control", "Pilot Cabin Pressure Dump")
+definePushButton("PLT_AIR_SOURCE_RAM", 11, 3193, 929, "Enivornment Control", "Pilot Air Source Ram")
+definePushButton("PLT_AIR_SOURCE_OFF", 11, 3194, 933, "Enivornment Control", "Pilot Air Source Off")
+definePushButton("PLT_AIR_SOURCE_L", 11, 3195, 930, "Enivornment Control", "Pilot Air Left Engine")
+definePushButton("PLT_AIR_SOURCE_R", 11, 3196, 931, "Enivornment Control", "Pilot Air Right Engine")
+definePushButton("PLT_AIR_SOURCE_BOTH", 11, 3197, 932, "Enivornment Control", "Pilot Air Both Engines")
+define3PosTumb("PLT_WINDSHIELD_AIR", 11, 3634, 942, "Enivornment Control", "Pilot Wind Shield Air")
+defineMultipositionSwitch("PLT_TEMP", 11, 3635, 950, 9, 0.125,"Enivornment Control" ,"Pilot Cabin Temperature Switch")
+defineToggleSwitch("PLT_TEMP_AUTO_MAN", 11, 3636, 940, "Enivornment Control", "Pilot Temperature Auto/Man")
+defineToggleSwitch("PLT_RAM_AIR", 11, 3637, 938, "Enivornment Control", "Pilot Ram Air")
+
+-- BIT Panel
+defineTumb("PLT_BIT_SWITCH", 10, 3076, 934, 1/11, {0.0, 1.0}, nil, false, "BIT Panel", "Pilot Master Test Selector (LB to rotate)")
+defineToggleSwitch("PLT_BIT_SWITCH_PUSH", 10, 3077, 15098, "BIT Panel", "Pilot Master Test Selector (RB to pull/push)")
+
+-- Light Panel
 defineToggleSwitch("PLT_HOOK_BYPASS", 25, 3653, 915, "Light Panel", "Pilot Hook Bypass")
+defineToggleSwitch("PLT_TAXI_LIGHT", 11, 3171, 918, "Light Panel", "Pilot Taxi Light")
+define3PosTumb("PLT_FLOOD_LIGHT_RED", 11, 3172, 924, "Light Panel", "Pilot Red Flood Light")
+define3PosTumb("PLT_FLOOD_LIGHT_WH", 11, 3173, 921, "Light Panel", "Pilot White Flood Light")
+define3PosTumb("PLT_POS_LIGHT_WING", 11, 3174, 913, "Light Panel", "Pilot Position Lights Wings")
+define3PosTumb("PLT_POS_LIGHT_TAIL", 11, 3175, 916, "Light Panel", "Pilot Position Lights Tail")
+defineToggleSwitch("PLT_POS_LIGHT_FLASH", 11, 3176, 919, "Light Panel", "Pilot Position Lights Flash")
+defineToggleSwitch("PLT_ANTICOL_LIGHT", 11, 3177, 923, "Light Panel", "Pilot Anti-Collision Lights")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_ACM", 11, 3649, 15005, 9, 0.125,"Light Panel" ,"Pilot ACM Panel Light Intensity")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_INDEXER", 25, 3212, 15006, 9, 0.125,"Light Panel" ,"Pilot AoA Indexer Light Intensity")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_INSTRUMENT", 11, 3650, 15007, 9, 0.125,"Light Panel" ,"Pilot Instrument Light Intensity")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_CANSOLE", 11, 3651, 15008, 9, 0.125,"Light Panel" ,"Pilot Console Light Intensity")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_FORMATION", 11, 3652, 15009, 9, 0.125,"Light Panel" ,"Pilot Formation Light Intensity")
+
+-- Light panel RIO
+define3PosTumb("RIO_FLOOD_LIGHT_RED", 11, 3693, 194, "Light Panel", "RIO Red Flood Light")
+define3PosTumb("RIO_FLOOD_LIGHT_WH", 11, 3694, 159, "Light Panel", "RIO White Flood Light")
+defineMultipositionSwitch("RIO_LIGHT_INTENT_INSTRUMENT", 11, 3695, 193, 9, 0.125,"Light Panel" ,"RIO Instrument Light Intensity")
+defineMultipositionSwitch("RIO_LIGHT_INTENT_CANSOLE", 11, 3696, 192, 9, 0.125,"Light Panel" ,"RIO Console Light Intensity")
 
 -- DISPLAY Panel: Power
-defineToggleSwitch("PLT_VDI_PW_SW", 42, 3214, 1010, "DISPLAY", "Pilot VDI Power On/Off")
-defineToggleSwitch("PLT_HUD_PW_SW", 40, 3213, 1009, "DISPLAY", "Pilot HUD Power On/Off")
-defineToggleSwitch("PLT_HSD_PW_SW", 41, 3215, 1008, "DISPLAY", "Pilot HSD/ECMD Power On/Off")
+defineToggleSwitch("PLT_VDI_PW_SW", 42, 3214, 1010, "Display", "Pilot VDI Power On/Off")
+defineToggleSwitch("PLT_HUD_PW_SW", 40, 3213, 1009, "Display", "Pilot HUD Power On/Off")
+defineToggleSwitch("PLT_HSD_PW_SW", 41, 3215, 1008, "Display", "Pilot HSD/ECMD Power On/Off")
 
 -- DISPLAY Panel: Steer CMD
+definePushButton("PLT_NAV_STEER_TACAN", 46, 3314, 1002, "Display", "Pilot Navigation Steer Commands: TACAN")
+definePushButton("PLT_NAV_STEER_DEST", 46, 3315, 1003, "Display", "Pilot Navigation Steer Commands: Destination")
+definePushButton("PLT_NAV_STEER_AWL", 46, 3316, 1004, "Display", "Pilot Navigation Steer Commands: AWL PCD")
+definePushButton("PLT_NAV_STEER_VECTOR", 46, 3317, 1005, "Display", "Pilot Navigation Steer Commands: Vector")
+definePushButton("PLT_NAV_STEER_MAN", 46, 3318, 1006, "Display", "Pilot Navigation Steer Commands: Manual")
+
 -- DISPLAY Panel: HSD
-define3PosTumb("PLT_HSD_DIS_MODE", 41, 3235, 1016, "DISPLAY", "Pilot HSD Display Mode")
-defineToggleSwitch("PLT_HSD_ECM_OVER", 41, 3239, 1017, "DISPLAY", "HSD ECM Override")
+define3PosTumb("PLT_HSD_DIS_MODE", 41, 3235, 1016, "Display", "Pilot HSD Display Mode")
+defineToggleSwitch("PLT_HSD_ECM_OVER", 41, 3239, 1017, "Display", "Pilot HSD ECM Override")
+
+-- HSD
+definePotentiometer("PLT_HSD_KNOB_HDG", 41, 3241, 1039, {0.0, 1.0}, "HSD", "Pilot HSD Selected Heading")
+definePotentiometer("PLT_HSD_KNOB_CRS", 41, 3242, 1040, {0.0, 1.0}, "HSD", "Pilot HSD Selected Course")
+definePotentiometer("PLT_HSD_BRIGHT", 41, 3240, 1043, {0.0, 1.0}, "HSD", "Pilot HSD Brightness")
+definePushButton("PLT_HSD_TEST", 41, 3243, 1041, "HSD", "Pilot HSD Test")
+
+-- ECMD
+definePotentiometer("RIO_ECMD_BRIGHT", 41, 3245, 2023, {0.0, 1.0}, "ECMD", "RIO ECMD Brightness")
+definePushButton("RIO_ECMD_TEST", 41, 3246, 2024, "ECMD", "RIO ECMD Test")
 
 -- TACAN CMD
 defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "TACAN", "Pilot TACAN CMD Button")
@@ -142,6 +214,28 @@ defineToggleSwitch("RIO_TACAN_CHANNEL", 47, 3348, 372, "TACAN", "RIO TACAN Chann
 definePushButton("RIO_TACAN_BIT", 47, 3346, 371, "TACAN", "RIO TACAN Bit")
 defineTumb("RIO_TACAN_DIAL_TENS", 47, 3342, 8891, 1/12, {0.0, 1.08333333333}, nil, false, "TACAN", "RIO TACAN Channel Wheel (Tens)")
 defineTumb("RIO_TACAN_DIAL_ONES", 47, 3344, 8890, 1/9, {0.0, 1.11111111111}, nil, false, "TACAN", "RIO TACAN Channel Lever (Ones)")
+
+-- AN/ARA-63 Panel
+defineToggleSwitch("PLT_ARA63_PW", 48, 3319, 910, "ANARA63 Panel", "Rilot TACAN Channel X/Y")
+definePushButton("PLT_ARA63_BIT", 48, 3321, 911, "ANARA63 Panel", "Rilot AN/ARA-63 BIT Button")
+defineMultipositionSwitch("PLT_ARA63_CHAN", 11, 3322, 912, 20, 1/19,"ANARA63 Panel" ,"Pilot AN/ARA-63 Channel Knob")
+
+-- Pilot TONE VOLUME Panel
+definePotentiometer("PLT_ALR67_VOL", 2, 3395, 2040, {0.0, 1.0}, "Volume Panel", "Pilot ALR-67 Volume")
+definePotentiometer("PLT_AIM9_VOL", 2, 3397, 2039, {0.0, 1.0}, "Volume Panel", "Pilot Sidewinder Volume")
+
+-- ICS Pilot
+definePotentiometer("PLT_ICS_VOL", 2, 3380, 2048, {0.0, 1.0}, "ICS", "Pilot ICS Volume")
+defineMultipositionSwitch("PLT_ICS_AMP_SEL", 2, 3382, 2045, 3, 0.5, "ICS" ,"Pilot ICS Amplifier Selector")
+define3PosTumb("PLT_ICS_FUNC_SEL", 2, 3383, 2044, "ICS", "Pilot ICS Function Selector")
+
+-- ICS RIO
+definePotentiometer("RIO_ICS_VOL", 2, 3387, 400, {0.0, 1.0}, "ICS", "RIO ICS Volume")
+defineMultipositionSwitch("RIO_ICS_AMP_SEL", 2, 3389, 401, 3, 0.5, "ICS" ,"RIO ICS Amplifier Selector")
+define3PosTumb("RIO_ICS_FUNC_SEL", 2, 3390, 402, "ICS", "RIO ICS Function Selector")
+define3PosTumb("RIO_ICS_XMTR_SEL", 2, 3399, 381, "ICS", "RIO XMTR SEL Switch")
+define3PosTumb("RIO_ICS_UHF_LWR", 2, 3598, 380, "ICS", "RIO V/UHF 2 ANT Switch")
+define3PosTumb("RIO_ICS_KY_MODE", 2, 3597, 382, "ICS", "RIO KY MODE Switch")
 
 -- UHF ARC-159
 defineTumb("PLT_UHF1_FREQ_MODE", 3, 3375, 2033, 0.5, {0.0, 1.5}, nil, false, "UHF 1", "Pilot UHF ARC-159 Freq Mode GUARD/MANUAL/PRESET")
@@ -185,7 +279,10 @@ defineToggleSwitch("PLT_UHF_DISPLAY_TEST", 2, 3352, 15004, "UHF 1", "Pilot UHF A
 defineToggleSwitch("RIO_UHF_DISPLAY_TEST", 3, 3355, 405, "UHF 1", "RIO UHF ARC-159 Radio Remote Display Test")
 defineToggleSwitch("PLT_VUHF_DISPLAY_TEST", 3, 3355, 15003, "VUHF", "Pilot VHF/UHF ARC-182 Radio Remote Display Test")
 
+-- DECM Panel
+
 -- Warning, Caution and IndicatorLights
+defineIndicatorLight("PLT_JETT_LIGHT", 701, "Warning, Caution and IndicatorLights","Pilot Emergency Stores Jettison Light (red)")
 defineIndicatorLight("PLT_AOA_SLOW", 3760, "Warning, Caution and IndicatorLights","Pilot AOA Slow (green)")
 defineIndicatorLight("PLT_AOA_OPT", 3761, "Warning, Caution and IndicatorLights","Pilot AOA Optimum (yellow)")
 defineIndicatorLight("PLT_AOA_FAST", 3762, "Warning, Caution and IndicatorLights","Pilot AOA Fast (red)")
@@ -195,6 +292,8 @@ defineIndicatorLight("PLT_GEAR_LIGHT", 15001, "Warning, Caution and IndicatorLig
 defineIndicatorLight("PLT_REFUELPROBE_LIGHT", 15002, "Warning, Caution and IndicatorLights","Pilot Refuel Probe Light (red)")
 defineIndicatorLight("PLT_MASTERTEST_GO", 15010, "Warning, Caution and IndicatorLights","Pilot MASTER TEST GO Light (green)")
 defineIndicatorLight("PLT_MASTERTEST_NOGO", 15011, "Warning, Caution and IndicatorLights","Pilot MASTER TEST NOGO Light (red)")
+defineIndicatorLight("PLT_R_ENG_FIRE", 15014, "Warning, Caution and IndicatorLights","Pilot Right Engine Fire Light (red)")
+defineIndicatorLight("PLT_L_ENG_FIRE", 15015, "Warning, Caution and IndicatorLights","Pilot Left Engine Fire Light (red)") 
 defineIndicatorLight("PLT_WARN_LGEN", 15016, "Warning, Caution and IndicatorLights","Pilot Warning Lamp Left Generator (yellow)")
 defineIndicatorLight("PLT_WARN_LOILHOT", 15017, "Warning, Caution and IndicatorLights","Pilot Warning Lamp Left Oil Hot (yellow)")
 defineIndicatorLight("PLT_WARN_LFUELPRESS", 15018, "Warning, Caution and IndicatorLights","Pilot Warning Lamp Left Fuel Pressure (yellow)")
@@ -245,6 +344,8 @@ defineIndicatorLight("PLT_WARN_RATS", 15062, "Warning, Caution and IndicatorLigh
 defineIndicatorLight("PLT_WARN_STARTVALVE", 15063, "Warning, Caution and IndicatorLights","Pilot Warning Lamp Start Valve (yellow)")
 defineIndicatorLight("PLT_WARN_RENGSEC", 15064, "Warning, Caution and IndicatorLights","Pilot Warning Lamp Right Engine Secondary (yellow)")
 defineIndicatorLight("PLT_HOOK_LIGHT", 15090, "Warning, Caution and IndicatorLights","Pilot Hook Light (red)")
+defineIndicatorLight("PLT_RADAR_ALT_LIGHT", 19107, "Warning, Caution and IndicatorLights","Pilot Radar Altimeter Warning Light (red)")
+defineIndicatorLight("PLT_RADAR_ALT_TEST_LIGHT", 19108, "Warning, Caution and IndicatorLights","Pilot Radar Altimeter Test Light (red)")
 
 defineIndicatorLight("RIO_IFF_TEST_LIGHT", 8052, "Warning, Caution and IndicatorLights","RIO IFF Test Light (green)")
 defineIndicatorLight("RIO_IFF_REPLY_LIGHT", 8053, "Warning, Caution and IndicatorLights","RIO IFF Reply Light (green)")
