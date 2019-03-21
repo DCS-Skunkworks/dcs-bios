@@ -16,6 +16,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 local function define3PosTumb(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
@@ -321,6 +322,46 @@ defineFixedStepTumb("RIO_CMDS_JAMM_INTER_100", 5, 3293, 213, 10, {0, 1}, {-1, 1}
 definePushButton("RIO_CMDS_PROG_RESET", 5, 3297, 216, "CMDS", "RIO AN/ALE-37 Programmer Reset")
 
 -- INS
+defineMultipositionSwitch("RIO_TID_MODE_NAV", 50, 3106, 50, 7, 0.1666667, "INS" ,"RIO TID Navigation Mode")
+defineMultipositionSwitch("RIO_TID_MODE_DEST", 46, 3106, 50, 8, 0.142857, "INS" ,"RIO TID Destination Mode")
+
+-- AHRS / Compass  (COMP Panel)
+definePotentiometer("PLT_AHRS_HDG_KNOB", 51, 3433, 904, {-1.0, 1.0}, "AHRS", "Pilot Compass HDG Slave Knob")
+definePushButton("PLT_AHRS_HDG_PUSH", 51, 3432, 16014, "AHRS", "Pilot Compass HDG Slave Push")
+define3PosTumb("PLT_AHRS_MODE", 51, 3434, 905, "AHRS", "Pilot Compass Mode")
+defineToggleSwitch("PLT_AHRS_HEMISPHERE", 51, 3436, 906, "AHRS", "Pilot Compass N-S Hemisphere")
+definePotentiometer("PLT_AHRS_LAT", 51, 3438, 909, {0.0, 1.0}, "AHRS", "Pilot Compass LAT Correction")
+
+-- Spoiler Overrides
+defineToggleSwitch("PLT_SPOIL_OVER_COVER_INBOARD", 14, 3428, 902, "Spoiler", "Pilot Inboard Spoiler Override Cover")
+defineToggleSwitch("PLT_SPOIL_OVER_COVER_OUTBOARD", 14, 3429, 903, "Spoiler", "Pilot Outboard Spoiler Override Cover")
+defineToggleSwitch("PLT_SPOIL_OVER_INBOARD", 14, 3430, 908, "Spoiler", "Pilot Inboard Spoiler Override")
+defineToggleSwitch("PLT_SPOIL_OVER_OUTBOARD", 14, 3431, 907, "Spoiler", "Pilot Outboard Spoiler Override")
+
+-- Gun Elevation
+definePotentiometer("PLT_GUN_ELEV_ADJUST", 55, 3131, 1000, {0.0, 1.0}, "Gun", "Pilot Gun Elevation Lead Adjustment")
+definePotentiometer("PLT_GUN_AMMU_COUNT_ADJUST", 55, 3132, 1022, {0.0, 1.0}, "Gun", "Pilot Gun Ammunition Counter Adjustment")
+
+-- DISPLAY Panel
+definePotentiometer("PLT_HUD_PITCH_BRIGHT", 40, 3223, 1007, {0.0, 1.0}, "Display", "Pilot HUD Pitch Ladder Brightness")
+defineToggleSwitch("PLT_VDI_MODE_DISP", 42, 3224, 1019, "Display", "Pilot VDI Display Mode")
+defineToggleSwitch("PLT_VDI_MODE_LAND", 42, 3225, 1018, "Display", "Pilot VDI Landing Mode")
+defineToggleSwitch("PLT_HUD_DECLUTTER", 40, 3226, 1021, "Display", "Pilot HUD De-clutter On/Off")
+defineToggleSwitch("PLT_HUD_MODE_AWL", 40, 3227, 1020, "Display", "Pilot HUD AWL Mode")
+definePushButton("PLT_HUD_MODE_TAKEOFF", 40, 3216, 1015, "Display", "Pilot HUD Take-Off Mode")
+definePushButton("PLT_HUD_MODE_CRUISE", 40, 3217, 1014, "Display", "Pilot HUD Cruise Mode")
+definePushButton("PLT_HUD_MODE_A2A", 40, 3218, 1013, "Display", "Pilot HUD Air-to-Air Mode")
+definePushButton("PLT_HUD_MODE_A2G", 40, 3219, 1012, "Display", "Pilot HUD Air-to-Ground Mode")
+definePushButton("PLT_HUD_MODE_LAND", 40, 3220, 1011, "Display", "Pilot HUD Landing Mode")
+
+-- Standby ADI
+definePushButton("PLT_STDBYAI_UNCAGE", 30, 3545, 1032, "Standby ADI", "Pilot Standby ADI Push to uncage")
+definePotentiometer("PLT_STDBYAI_TRIM", 30, 3546, 19101, {0.0, 1.0}, "Standby ADI", "Pilot Standby ADI Knob")
+definePushButton("RIO_STDBYAI_UNCAGE", 30, 3547, 6155, "Standby ADI", "RIO Standby ADI Push to uncage")
+definePotentiometer("RIO_STDBYAI_TRIM", 30, 3548, 6156, {0.0, 1.0}, "Standby ADI", "RIO Standby ADI Knob")
+definePushButton("PLT_ACCEL_RESET", 24, 3488, 228, "Display", "Pilot Accelerometer Reset")
+
+-- VDI & HUD Indicator Controls
 
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("PLT_JETT_LIGHT", 701, "Warning, Caution and IndicatorLights","Pilot Emergency Stores Jettison Light (red)")
@@ -329,6 +370,16 @@ defineIndicatorLight("PLT_AOA_OPT", 3761, "Warning, Caution and IndicatorLights"
 defineIndicatorLight("PLT_AOA_FAST", 3762, "Warning, Caution and IndicatorLights","Pilot AOA Fast (red)")
 defineIndicatorLight("PLT_TACAN_GO", 8050, "Warning, Caution and IndicatorLights","Pilot TACAN GO Light (green)")
 defineIndicatorLight("PLT_TACAN_NOGO", 8051, "Warning, Caution and IndicatorLights","Pilot TACAN NOGO Light (red)")
+defineIndicatorLight("PLT_HUD_LIGHT_WHEELS", 9350, "Warning, Caution and IndicatorLights","Pilot HUD Light Wheels (red)")
+defineIndicatorLight("PLT_HUD_LIGHT_BRAKES", 9351, "Warning, Caution and IndicatorLights","Pilot HUD Light Brakes (red)")
+defineIndicatorLight("PLT_HUD_LIGHT_ACLSAP", 9352, "Warning, Caution and IndicatorLights","Pilot HUD Light ACLS/AP (yellow)")
+defineIndicatorLight("PLT_HUD_LIGHT_NWS", 9353, "Warning, Caution and IndicatorLights","Pilot HUD Light NWS Enga (yellow)")
+defineIndicatorLight("PLT_HUD_LIGHT_AUTOTHR", 9354, "Warning, Caution and IndicatorLights","Pilot HUD Light Auto Throttle (yellow)")
+defineIndicatorLight("PLT_HUD_LIGHT_RStall", 9355, "Warning, Caution and IndicatorLights","Pilot HUD Right Stall (red)")
+defineIndicatorLight("PLT_HUD_LIGHT_LStall", 9356, "Warning, Caution and IndicatorLights","Pilot HUD Left Stall (red)")
+defineIndicatorLight("PLT_HUD_LIGHT_SAM", 9357, "Warning, Caution and IndicatorLights","Pilot HUD SAM (red)")
+defineIndicatorLight("PLT_HUD_LIGHT_AAA", 9358, "Warning, Caution and IndicatorLights","Pilot HUD AAA (red)")
+defineIndicatorLight("PLT_HUD_LIGHT_AI", 9359, "Warning, Caution and IndicatorLights","Pilot HUD AI (red)")
 defineIndicatorLight("PLT_GEAR_LIGHT", 15001, "Warning, Caution and IndicatorLights","Pilot Landing Gear Light (red)")
 defineIndicatorLight("PLT_REFUELPROBE_LIGHT", 15002, "Warning, Caution and IndicatorLights","Pilot Refuel Probe Light (red)")
 defineIndicatorLight("PLT_MASTERTEST_GO", 15010, "Warning, Caution and IndicatorLights","Pilot MASTER TEST GO Light (green)")
@@ -392,5 +443,14 @@ defineIndicatorLight("RIO_IFF_TEST_LIGHT", 8052, "Warning, Caution and Indicator
 defineIndicatorLight("RIO_IFF_REPLY_LIGHT", 8053, "Warning, Caution and IndicatorLights","RIO IFF Reply Light (green)")
 defineIndicatorLight("RIO_TACAN_GO", 8893, "Warning, Caution and IndicatorLights","RIO TACAN GO Light (green)")
 defineIndicatorLight("RIO_TACAN_NOGO", 8892, "Warning, Caution and IndicatorLights","RIO TACAN NOGO Light (red)")
+
+-- Gauges 
+defineFloat("PLT_AHRS_LAT_DIAL", 6500, {0, 1}, "Gauges", "Pilot Compass LAT Correction Dial")  --(COMP Panel)
+defineFloat("PLT_ACM_TURN_IND", 6501, {-1, 1}, "Gauges", "Pilot ACM Turn Indicator")
+defineFloat("PLT_ACM_SLIP_BALL", 6500, {-1, 1}, "Gauges", "Pilot ACM Slip Ball")
+defineFloat("PLT_STDBYAI_OFF_FLAG", 19100, {0, 1}, "Gauges", "Pilot Standby ADI Off Flag")
+defineFloat("RIO_STDBYAI_OFF_FLAG", 19900, {0, 1}, "Gauges", "RIO Standby ADI Off Flag")
+defineFloat("RIO_STDBYAI_PITCH", 3333, {-1, 1}, "Gauges", "RIO Standby ADI Pitch")
+defineFloat("RIO_STDBYAI_ROLL", 19901, {-1, 1}, "Gauges", "RIO Standby ADI Roll")
 
 BIOS.protocol.endModule()
