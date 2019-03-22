@@ -1,6 +1,7 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
+local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -21,6 +22,62 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local function define3PosTumb(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
 end
+
+function getARC159_High_Frequency()
+	--Export : 225000192.000000
+	local arc_159 = GetDevice(3)
+	local freq = tostring(arc_159:get_frequency())
+	freq = string.sub(freq, 1, 3)
+	return tonumber(freq)	
+end
+function getARC159_Decimal_1_Low_Frequency()
+	--Export : 225975
+	local arc_159 = GetDevice(3)
+	local freq = tostring(arc_159:get_frequency())
+	--Get the 9
+	freq = string.sub(freq, 4, 4)
+	return tonumber(freq)	
+end
+
+function getARC159_Decimal_2_Low_Frequency()
+	--Export : 225975192.000000
+	--00 25 50 75
+	local arc_159 = GetDevice(3)
+	local freq = tostring(arc_159:get_frequency())
+	--Get the 75
+	freq = string.sub(freq, 5, 6)
+	return tonumber(freq)	
+end
+
+defineIntegerFromGetter("PLT_UHF_LOW2_FREQ", getARC159_Decimal_2_Low_Frequency, 100, "UHF 1", "Pilot Low ARC-159 Frequency")
+defineIntegerFromGetter("PLT_UHF_LOW1_FREQ", getARC159_Decimal_1_Low_Frequency, 10, "UHF 1", "Pilot Low ARC-159 Frequency")
+defineIntegerFromGetter("PLT_UHF_HIGH_FREQ", getARC159_High_Frequency, 400, "UHF 1", "Pilot High ARC-159 Frequency")
+
+moduleBeingDefined.inputProcessors["SET_UHF_FREQ"] = function(freq)
+	freq = freq:gsub("%.", "")
+	freq = tonumber(freq)
+	if type(freq) == "nil" then return end
+	
+	GetDevice(3):set_frequency(freq*1000)
+end
+
+function getARC182_High_Frequency()
+	--Export : 225000192.000000
+	local arc_182 = GetDevice(4)
+	local freq = tostring(arc_182:get_frequency())
+	freq = string.sub(freq, 1, 3)
+	return tonumber(freq)	
+end
+function getARC182_Low_Frequency()
+	--Export : 225000192.000000
+	local arc_182 = GetDevice(4)
+	local freq = tostring(arc_182:get_frequency())
+	freq = string.sub(freq, 4, 6)
+	return tonumber(freq)	
+end
+
+defineIntegerFromGetter("VUHF_LOW_FREQ", getARC182_Low_Frequency, 999, "VUHF", "Low VHF UHF ARC-182 Frequency")
+defineIntegerFromGetter("VUHF_HIGH_FREQ", getARC182_High_Frequency, 400, "VUHF", "High VHF UHF ARC-182 Frequency")
 
 -- Hydraulics
 defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_SW", 12, 3001, 629, "Hydraulics", "Pilot Hydraulic Transfer Pump Switch")
@@ -362,6 +419,21 @@ definePotentiometer("RIO_STDBYAI_TRIM", 30, 3548, 6156, {0.0, 1.0}, "Standby ADI
 definePushButton("PLT_ACCEL_RESET", 24, 3488, 228, "Display", "Pilot Accelerometer Reset")
 
 -- VDI & HUD Indicator Controls
+-- Under HUD / Master Arm / Gun/Weapons Panel
+-- RIO TID
+-- RIO HCU
+-- RIO DDD
+-- RIO RADAR Panel
+-- RIO TCS Controls
+-- RIO Armament Panel
+-- Computer Address Panel (CAP)
+-- Datalink
+-- IFF Panel
+
+-- LIQUID Cooling
+define3PosTumb("RIO_LIQUD_COOL", 39, 3681, 95, "Radar Panel", "RIO Liquid Cooling Switch")
+
+-- LANTIRN
 
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("PLT_JETT_LIGHT", 701, "Warning, Caution and IndicatorLights","Pilot Emergency Stores Jettison Light (red)")
