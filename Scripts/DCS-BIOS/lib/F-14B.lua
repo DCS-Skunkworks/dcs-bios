@@ -18,10 +18,86 @@ local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 --local defineString = BIOS.util.defineString
 --local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
---local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 local function define3PosTumb(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
+end
+
+function getARC159_High_Frequency()
+	--Export : 225000192.000000
+	local arc_159 = GetDevice(3)
+	local freq = tostring(arc_159:get_frequency())
+	freq = string.sub(freq, 1, 3)
+	return tonumber(freq)	
+end
+function getARC159_Decimal_DIAL3_Frequency()
+	--Export : 225975
+	local arc_159 = GetDevice(3)
+	local freq = tostring(arc_159:get_frequency())
+	--Get the 9
+	freq = string.sub(freq, 4, 4)
+	return tonumber(freq)	
+end
+
+function getARC159_Decimal_DIAL4_Frequency()
+	--Export : 225975192.000000
+	--00 25 50 75
+	local arc_159 = GetDevice(3)
+	local freq = tostring(arc_159:get_frequency())
+	--Get the 75
+	freq = string.sub(freq, 5, 6)
+	return tonumber(freq)	
+end
+
+defineIntegerFromGetter("PLT_UHF_DIAL4_FREQ", getARC159_Decimal_DIAL4_Frequency, 100, "UHF 1", "Pilot Dial 4 ARC-159 Frequency")
+defineIntegerFromGetter("PLT_UHF_DIAL3_FREQ", getARC159_Decimal_DIAL3_Frequency, 10, "UHF 1", "Pilot Dial 3 ARC-159 Frequency")
+defineIntegerFromGetter("PLT_UHF_HIGH_FREQ", getARC159_High_Frequency, 400, "UHF 1", "Pilot High ARC-159 Frequency")
+
+moduleBeingDefined.inputProcessors["SET_UHF_FREQ"] = function(freq)
+	freq = freq:gsub("%.", "")
+	freq = tonumber(freq)
+	if type(freq) == "nil" then return end
+	
+	GetDevice(3):set_frequency(freq*1000)
+end
+
+function getARC182_High_Frequency()
+	--Export : 225000192.000000
+	local arc_182 = GetDevice(4)
+	local freq = tostring(arc_182:get_frequency())
+	freq = string.sub(freq, 1, 3)
+	return tonumber(freq)	
+end
+function getARC182_Decimal_DIAL3_Frequency()
+	--Export : 225975
+	local arc_182 = GetDevice(4)
+	local freq = tostring(arc_182:get_frequency())
+	--Get the 9
+	freq = string.sub(freq, 4, 4)
+	return tonumber(freq)	
+end
+
+function getARC182_Decimal_DIAL4_Frequency()
+	--Export : 225975192.000000
+	--00 25 50 75
+	local arc_182 = GetDevice(4)
+	local freq = tostring(arc_182:get_frequency())
+	--Get the 75
+	freq = string.sub(freq, 5, 6)
+	return tonumber(freq)	
+end
+
+defineIntegerFromGetter("RIO_VUHF_DIAL4_FREQ", getARC182_Decimal_DIAL4_Frequency, 100, "VUHF", "RIO Dial 4 ARC-182 Frequency")
+defineIntegerFromGetter("RIO_VUHF_DIAL3_FREQ", getARC182_Decimal_DIAL3_Frequency, 10, "VUHF", "RIO Dial 3 ARC-182 Frequency")
+defineIntegerFromGetter("RIO_VUHF_HIGH_FREQ", getARC182_High_Frequency, 400, "VUHF", "RIO High ARC-182 Frequency")
+
+moduleBeingDefined.inputProcessors["SET_VUHF_FREQ"] = function(freq)
+	freq = freq:gsub("%.", "")
+	freq = tonumber(freq)
+	if type(freq) == "nil" then return end
+	
+	GetDevice(4):set_frequency(freq*1000)
 end
 
 -- Hydraulics

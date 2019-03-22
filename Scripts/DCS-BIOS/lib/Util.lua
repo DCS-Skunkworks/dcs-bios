@@ -91,7 +91,10 @@ BIOS.util.MemoryAllocation = {
 function BIOS.util.MemoryAllocation:setValue(value)
 	-- ignore nil values (on MP servers with player export disabled, some values are not available)
 	if value == nil then return end
-	
+	if value ~= value then
+		-- check for NaN
+		return
+	end
 	assert(self.maxValue)
 	assert(value)
 	value = math.floor(value)
@@ -103,6 +106,7 @@ function BIOS.util.MemoryAllocation:setValue(value)
 		BIOS.log(string.format("value %f is too large for address %d mask %d", value, self.address, self.mask))
 		return
 	end
+	BIOS.log(string.format("Error : value is negative or NaN %f ", value))
 	assert(value >= 0)
 	assert(value <= self.maxValue)
 	if self.value ~= value then
