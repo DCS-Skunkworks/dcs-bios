@@ -448,6 +448,10 @@ definePotentiometer("PLT_HUD_BRIGHT", 40, 3233, 1037, {0.0, 1.0}, "HUD", "Pilot 
 --definePushButton("PLT_VDI_FILTER", 42, 3234, XXXXX, "HUD", "Pilot VDI Filter") missing arg
 
 -- Under HUD / Master Arm / Gun/Weapons Panel
+defineToggleSwitch("PLT_MASTER_ARM_COVER", 55, 3135, 1046, "Weapons Panel", "Pilot Master Arm Cover")
+define3PosTumb("PLT_MASTER_ARM_SW", 55, 3136, 1047, "Weapons Panel", "Pilot Master Arm Switch")
+defineToggleSwitch("PLT_ACM_COVER", 55, 3133, 1049, "Weapons Panel", "Pilot ACM Cover")
+
 -- RIO TID
 
 -- RIO HCU
