@@ -99,14 +99,14 @@ function BIOS.util.MemoryAllocation:setValue(value)
 	assert(value)
 	value = math.floor(value)
 	if value < 0 then
-		BIOS.log(string.format("value %f is too small for address %d mask %d", value, self.address, self.mask))
+		BIOS.log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	if value > self.maxValue then
-		BIOS.log(string.format("value %f is too large for address %d mask %d", value, self.address, self.mask))
+		BIOS.log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
 		return
 	end
-	BIOS.log(string.format("Error : value is negative or NaN %f ", value))
+	BIOS.log(string.format("Util.lua: Assert failed => assert(value >= 0) : %f ", value))
 	assert(value >= 0)
 	assert(value <= self.maxValue)
 	if self.value ~= value then
