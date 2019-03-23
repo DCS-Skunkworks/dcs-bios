@@ -1016,6 +1016,13 @@ defineToggleSwitch("UHF_COVER", 54, 3014, 734, "UHF Radio", "Load Button Cover")
 defineString("UHF_FREQUENCY", getUHFFrequency, 7, "UHF Radio", "UHF Frequency Display")
 defineString("UHF_PRESET", getUHFPreset, 2, "UHF Radio", "UHF Preset Display")
 
+moduleBeingDefined.inputProcessors["SET_UHF"] = function(freq)
+	freq = freq:gsub("%.", "")
+	freq = tonumber(freq)
+	if type(freq) == "nil" then return end
+	
+	GetDevice(54):set_frequency(freq*1000)
+end
 
 defineSetCommandTumb("VHFAM_PRESET", 55, 3001, 137, 0.01, {0.0, 0.19}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "VHF AM Radio", "Preset Channel Selector")
 defineMultipositionSwitch("VHFAM_MODE", 55, 3003, 138, 3, 0.1, "VHF AM Radio", "Mode OFF/TR/DF")
