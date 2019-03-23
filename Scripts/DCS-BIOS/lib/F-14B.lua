@@ -451,6 +451,17 @@ definePotentiometer("PLT_HUD_BRIGHT", 40, 3233, 1037, {0.0, 1.0}, "HUD", "Pilot 
 defineToggleSwitch("PLT_MASTER_ARM_COVER", 55, 3135, 1046, "Weapons Panel", "Pilot Master Arm Cover")
 define3PosTumb("PLT_MASTER_ARM_SW", 55, 3136, 1047, "Weapons Panel", "Pilot Master Arm Switch")
 defineToggleSwitch("PLT_ACM_COVER", 55, 3133, 1049, "Weapons Panel", "Pilot ACM Cover")
+definePushButton("PLT_ACM_JETT", 55, 3138, 1048, "Weapons Panel", "Pilot ACM Jettison")
+definePushButton("PLT_MASTER_CAUTION_RESET", 55, 3056, 9199, "Weapons Panel", "Pilot Master Caution Reset")
+definePushButton("PLT_GUN_RATE", 55, 3130, 16000, "Weapons Panel", "Pilot Gun Rate")
+definePushButton("PLT_SIDEWINDER_COOL", 55, 3139, 16001, "Weapons Panel", "Pilot Sidewinder Cool")
+definePushButton("PLT_MISSLE_PREP", 55, 3140, 16002, "Weapons Panel", "Pilot Missile Prepare")
+definePushButton("PLT_MISSLE_MODE", 55, 3141, 16003, "Weapons Panel", "Pilot Missile Mode")
+definePushButton("PLT_EMERG_STORE_JETT", 55, 3142, 239, "Weapons Panel", "Pilot Emergency Stores Jettison")
+definePotentiometer("PLT_CLOCK_WIND", 26, 3042, 1051, {0.0, 1.0}, "Weapons Panel", "Pilot Clock Wind")
+definePushButton("PLT_CLOCK_TIMER", 26, 3043, 1000, "Weapons Panel", "Pilot Clock Timer Start/Stop/Reset")
+definePotentiometer("RIO_CLOCK_WIND", 26, 3697, 1052, {0.0, 1.0}, "Weapons Panel", "RIO Clock Wind")
+definePushButton("RIO_CLOCK_TIMER", 26, 3698, 1053, "Weapons Panel", "RIO Clock Timer Start/Stop/Reset")
 
 -- RIO TID
 
@@ -484,6 +495,18 @@ defineIndicatorLight("PLT_AOA_OPT", 3761, "Warning, Caution and IndicatorLights"
 defineIndicatorLight("PLT_AOA_FAST", 3762, "Warning, Caution and IndicatorLights","Pilot AOA Fast (red)")
 defineIndicatorLight("PLT_TACAN_GO", 8050, "Warning, Caution and IndicatorLights","Pilot TACAN GO Light (green)")
 defineIndicatorLight("PLT_TACAN_NOGO", 8051, "Warning, Caution and IndicatorLights","Pilot TACAN NOGO Light (red)")
+defineIndicatorLight("PLT_MASTER_CAUTION", 9200, "Warning, Caution and IndicatorLights","Pilot Weapon Panel Master Caution Light (red)")
+defineIndicatorLight("PLT_HOT_TRIGGER", 9201, "Warning, Caution and IndicatorLights","Pilot Weapon Panel Hot Trigger Light (red)")
+defineIndicatorLight("PLT_COLLISION_LIGHT", 9202, "Warning, Caution and IndicatorLights","Pilot Weapon Panel Collision Light (green)")
+defineIndicatorLight("PLT_SEAM_LOCK", 9203, "Warning, Caution and IndicatorLights","Pilot Weapon Panel SEAM Lock Light (green)")
+defineIndicatorLight("PLT_GUN_RATE_HIGH", 9204, "Warning, Caution and IndicatorLights","Pilot Weapon Panel Gunrate High Light (red)")
+defineIndicatorLight("PLT_GUN_RATE_LOW", 9205, "Warning, Caution and IndicatorLights","Pilot Weapon Panel Gunrate Low Light (red)")
+defineIndicatorLight("PLT_SW_COOL_ON", 9206, "Warning, Caution and IndicatorLights","Pilot Weapon Panel Sidewinder Cooling ON Light (red)")
+defineIndicatorLight("PLT_SW_COOL_OFF", 9207, "Warning, Caution and IndicatorLights","Pilot Weapon Panel Sidewinder Cooling OFF Light (red)")
+defineIndicatorLight("PLT_MSL_PREP_ON", 9208, "Warning, Caution and IndicatorLights","Pilot Weapon Panel Missle Prepare ON Light (red)")
+defineIndicatorLight("PLT_MSL_PREP_OFF", 9209, "Warning, Caution and IndicatorLights","Pilot Weapon Panel Missle Prepare OFF Light (red)")
+defineIndicatorLight("PLT_MSL_MODE_NORM", 9210, "Warning, Caution and IndicatorLights","Pilot Weapon Panel Missle Mode Normal Light (red)")
+defineIndicatorLight("PLT_MSL_MODE_BORE", 9211, "Warning, Caution and IndicatorLights","Pilot Weapon Panel Missle Mode Boresight Light (red)")
 defineIndicatorLight("PLT_HUD_LIGHT_WHEELS", 9350, "Warning, Caution and IndicatorLights","Pilot HUD Light Wheels (red)")
 defineIndicatorLight("PLT_HUD_LIGHT_BRAKES", 9351, "Warning, Caution and IndicatorLights","Pilot HUD Light Brakes (red)")
 defineIndicatorLight("PLT_HUD_LIGHT_ACLSAP", 9352, "Warning, Caution and IndicatorLights","Pilot HUD Light ACLS/AP (yellow)")
@@ -553,6 +576,7 @@ defineIndicatorLight("PLT_HOOK_LIGHT", 15090, "Warning, Caution and IndicatorLig
 defineIndicatorLight("PLT_RADAR_ALT_LIGHT", 19107, "Warning, Caution and IndicatorLights","Pilot Radar Altimeter Warning Light (red)")
 defineIndicatorLight("PLT_RADAR_ALT_TEST_LIGHT", 19108, "Warning, Caution and IndicatorLights","Pilot Radar Altimeter Test Light (red)")
 
+
 defineIndicatorLight("RIO_TID_SCREEN_LIGHT", 3450, "Warning, Caution and IndicatorLights","RIO TID Screen Light (light green)")
 defineIndicatorLight("RIO_IFF_TEST_LIGHT", 8052, "Warning, Caution and IndicatorLights","RIO IFF Test Light (green)")
 defineIndicatorLight("RIO_IFF_REPLY_LIGHT", 8053, "Warning, Caution and IndicatorLights","RIO IFF Reply Light (green)")
@@ -560,10 +584,76 @@ defineIndicatorLight("RIO_TACAN_GO", 8893, "Warning, Caution and IndicatorLights
 defineIndicatorLight("RIO_TACAN_NOGO", 8892, "Warning, Caution and IndicatorLights","RIO TACAN NOGO Light (red)")
 
 -- Gauges 
+defineFloat("PLT_FUEL_LEFT_1K", 6000, {0, 1}, "Gauges", "Pilot Fuel Left 1000")
+defineFloat("PLT_FUEL_LEFT_100", 6001, {0, 1}, "Gauges", "Pilot Fuel Left 100")
+defineFloat("PLT_FUEL_LEFT_10", 6002, {0, 1}, "Gauges", "Pilot Fuel Left 10")
+defineFloat("PLT_FUEL_LEFT_1", 6003, {0, 1}, "Gauges", "Pilot Fuel Left 1")
+local function getPLTFuelLeft()
+    local function a(n) return GetDevice(0):get_argument_value(n) end
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(6000)*10)
+    local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(6001)*10)
+	local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(6002)*10)
+    local digit4 = string.format("%.0f", GetDevice(0):get_argument_value(6003)*10)
+    return tonumber(digit1 .. digit2 .. digit3 .. digit4)
+end
+defineIntegerFromGetter("PLT_FUEL_LEFT_DISP", getPLTFuelLeft, 9999, "Gauges", "Pilot Fuel Left Display")
+
+defineFloat("PLT_FUEL_RIGHT_1K", 6004, {0, 1}, "Gauges", "Pilot Fuel Right 1000")
+defineFloat("PLT_FUEL_RIGHT_100", 6005, {0, 1}, "Gauges", "Pilot Fuel Right 100")
+defineFloat("PLT_FUEL_RIGHT_10", 6006, {0, 1}, "Gauges", "Pilot Fuel Right 10")
+defineFloat("PLT_FUEL_RIGHT_1", 6007, {0, 1}, "Gauges", "Pilot Fuel Right 1")
+local function getPLTFuelRight()
+    local function a(n) return GetDevice(0):get_argument_value(n) end
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(6004)*10)
+    local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(6005)*10)
+	local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(6006)*10)
+    local digit4 = string.format("%.0f", GetDevice(0):get_argument_value(6007)*10)
+    return tonumber(digit1 .. digit2 .. digit3 .. digit4)
+end
+defineIntegerFromGetter("PLT_FUEL_RIGHT_DISP", getPLTFuelRight, 9999, "Gauges", "Pilot Fuel Right Display")
+
+defineFloat("PLT_FUEL_TOTAL_10K", 6010, {0, 1}, "Gauges", "Pilot Fuel Total 10000")
+defineFloat("PLT_FUEL_TOTAL_1K", 6011, {0, 1}, "Gauges", "Pilot Fuel Total 1000")
+defineFloat("PLT_FUEL_TOTAL_100", 6012, {0, 1}, "Gauges", "Pilot Fuel Total 100")
+defineFloat("PLT_FUEL_TOTAL_10", 6013, {0, 1}, "Gauges", "Pilot Fuel Total 10")
+defineFloat("PLT_FUEL_TOTAL_1", 6014, {0, 1}, "Gauges", "Pilot Fuel Total 1")
+local function getPLTFuelTotal()
+    local function a(n) return GetDevice(0):get_argument_value(n) end
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(6010)*10)
+    local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(6011)*10)
+	local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(6012)*10)
+    local digit4 = string.format("%.0f", GetDevice(0):get_argument_value(6013)*10)
+	local digit5 = string.format("%.0f", GetDevice(0):get_argument_value(6014)*10)
+    return tonumber(digit1 .. digit2 .. digit3 .. digit4 .. digit5)
+end
+defineIntegerFromGetter("PLT_FUEL_TOTAL_DISP", getPLTFuelTotal, 59999, "Gauges", "Pilot Fuel Total Display")
+
+defineFloat("PLT_FUEL_BINGO_10K", 6020, {0, 1}, "Gauges", "Pilot Fuel Bingo 10000")
+defineFloat("PLT_FUEL_BINGO_1K", 6021, {0, 1}, "Gauges", "Pilot Fuel Bingo 1000")
+defineFloat("PLT_FUEL_BINGO_100", 6022, {0, 1}, "Gauges", "Pilot Fuel Bingo 100")
+defineFloat("PLT_FUEL_BINGO_10", 6023, {0, 1}, "Gauges", "Pilot Fuel Bingo 10")
+defineFloat("PLT_FUEL_BINGO_1", 6024, {0, 1}, "Gauges", "Pilot Fuel Bingo 1")
 defineFloat("PLT_AHRS_LAT_DIAL", 6500, {0, 1}, "Gauges", "Pilot Compass LAT Correction Dial")  --(COMP Panel)
 defineFloat("PLT_ACM_TURN_IND", 6501, {-1, 1}, "Gauges", "Pilot ACM Turn Indicator")
 defineFloat("PLT_ACM_SLIP_BALL", 6500, {-1, 1}, "Gauges", "Pilot ACM Slip Ball")
 defineFloat("PLT_STDBYAI_OFF_FLAG", 19100, {0, 1}, "Gauges", "Pilot Standby ADI Off Flag")
+
+defineFloat("RIO_FUEL_TOTAL_10K", 2117, {0, 1}, "Gauges", "RIO Fuel Total 10000")
+defineFloat("RIO_FUEL_TOTAL_1K", 2118, {0, 1}, "Gauges", "RIO Fuel Total 1000")
+defineFloat("RIO_FUEL_TOTAL_100", 2119, {0, 1}, "Gauges", "RIO Fuel Total 100")
+defineFloat("RIO_FUEL_TOTAL_10", 2120, {0, 1}, "Gauges", "RIO Fuel Total 10")
+defineFloat("RIO_FUEL_TOTAL_1", 2135, {0, 1}, "Gauges", "RIO Fuel Total 1")
+local function getRIOFuelTotal()
+    local function a(n) return GetDevice(0):get_argument_value(n) end
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(2117)*10)
+    local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(2118)*10)
+	local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(2119)*10)
+    local digit4 = string.format("%.0f", GetDevice(0):get_argument_value(2120)*10)
+	local digit5 = string.format("%.0f", GetDevice(0):get_argument_value(2135)*10)
+    return tonumber(digit1 .. digit2 .. digit3 .. digit4 .. digit5)
+end
+defineIntegerFromGetter("RIO_FUEL_TOTAL_DISP", getRIOFuelTotal, 65535, "Gauges", "RIO Fuel Total Display")
+
 defineFloat("RIO_STDBYAI_OFF_FLAG", 19900, {0, 1}, "Gauges", "RIO Standby ADI Off Flag")
 defineFloat("RIO_STDBYAI_PITCH", 3333, {-1, 1}, "Gauges", "RIO Standby ADI Pitch")
 defineFloat("RIO_STDBYAI_ROLL", 19901, {-1, 1}, "Gauges", "RIO Standby ADI Roll")
