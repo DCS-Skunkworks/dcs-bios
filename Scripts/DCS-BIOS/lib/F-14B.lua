@@ -464,6 +464,20 @@ definePotentiometer("RIO_CLOCK_WIND", 26, 3697, 1052, {0.0, 1.0}, "Weapons Panel
 definePushButton("RIO_CLOCK_TIMER", 26, 3698, 1053, "Weapons Panel", "RIO Clock Timer Start/Stop/Reset")
 
 -- RIO TID
+defineMultipositionSwitch("RIO_TID_MODE", 43, 3112, 2005, 4, 0.33333, "TID" ,"RIO TID Mode")
+defineMultipositionSwitch("RIO_TID_RANGE", 43, 3113, 2006, 5, 0.5, "TID" ,"RIO TID Range")
+definePushButton("RIO_TID_NON_ATTK", 43, 3114, 226, "TID", "RIO TID Non Attack")
+definePushButton("RIO_TID_JAM_STROBE", 43, 3115, 1118, "TID", "RIO TID Jam Strobe")
+definePushButton("RIO_TID_DATA_LINK", 43, 3116, 1117, "TID", "RIO TID Data Link")
+definePushButton("RIO_TID_SYM_ELEM", 43, 3117, 1116, "TID", "RIO TID Sym Elem")
+definePushButton("RIO_TID_ALT_NUM", 43, 3118, 1115, "TID", "RIO TID Alt Num")
+definePushButton("RIO_TID_RID_DSBL", 43, 3119, 2004, "TID", "RIO TID Reject Image Device disable")
+definePushButton("RIO_TID_LAUNCH_ZONE", 43, 3120, 2113, "TID", "RIO TID Launch Zone")
+definePushButton("RIO_TID_VEL_VECTOR", 43, 3121, 2114, "TID", "RIO TID Velocity Vector")
+definePushButton("RIO_TID_CLSN", 43, 3122, 52, "TID", "RIO TID Collision Steering")
+definePushButton("RIO_TID_TRACKHOLD", 43, 3123, 53, "TID", "RIO TID Track Hold")
+definePotentiometer("RIO_TID_BRIGHT", 43, 3124, 48, {0.0, 1.0}, "TID", "RIO TID Brightness")
+definePotentiometer("RIO_TID_CONTRAST", 43, 3125, 49, {0.0, 1.0}, "TID", "RIO TID Contrast")
 
 -- RIO HCU
 defineToggleSwitch("RIO_HCU_TCS", 58, 3096, 2007, "HCU", "RIO HCU TCS Mode")
@@ -476,17 +490,103 @@ definePushButton("RIO_HCU_PW_RESET", 39, 3631, 2013, "HCU", "RIO HCU Power Reset
 definePushButton("RIO_HCU_LIGHT_TEST", 39, 3632, 2014, "HCU", "RIO HCU Light Test")
 
 -- RIO DDD
+definePushButton("RIO_RADAR_5", 39, 3450, 40, "DDD", "RIO Radar 5 NM")
+definePushButton("RIO_RADAR_10", 39, 3451, 41, "DDD", "RIO Radar 10 NM")
+definePushButton("RIO_RADAR_20", 39, 3452, 42, "DDD", "RIO Radar 20 NM")
+definePushButton("RIO_RADAR_50", 39, 3453, 43, "DDD", "RIO Radar 50 NM")
+definePushButton("RIO_RADAR_100", 39, 3454, 44, "DDD", "RIO Radar 100 NM")
+definePushButton("RIO_RADAR_200", 39, 3455, 45, "DDD", "RIO Radar 200 NM")
+--definePushButton("RIO_DDD_FILTER", 39, 3456, XXX, "DDD", "RIO DDD Filter") Missing agr
+definePushButton("RIO_RADAR_PULSE", 39, 3457, 10, "DDD", "RIO Radar Pulse Search")
+definePushButton("RIO_RADAR_TWSMAN", 39, 3458, 11, "DDD", "RIO Track While Scan Manual")
+definePushButton("RIO_RADAR_TWSAUTO", 39, 3459, 12, "DDD", "RIO Track While Scan Auto")
+definePushButton("RIO_RADAR_RWS", 39, 3460, 13, "DDD", "RIO Track While Scan")
+definePushButton("RIO_RADAR_PDSRCH", 39, 3461, 14, "DDD", "RIO Radar Pulse Doppler Search")
+definePushButton("RIO_RADAR_PSTT", 39, 3462, 15, "DDD", "RIO Radar Pulse Single Target Track")
+definePushButton("RIO_RADAR_PDSTT", 39, 3463, 9916, "DDD", "RIO Radar Pulse Doppler Target Track")
+definePushButton("RIO_DDD_IFF", 39, 3464, 17, "DDD", "RIO DDD Interrogate Friend or Foe")
+definePushButton("RIO_DDD_IR", 39, 3465, 18, "DDD", "RIO DDD Infrared")
+definePushButton("RIO_DDD_RADAR", 39, 3466, 19, "DDD", "RIO DDD Radar")
+definePushButton("RIO_CCM_SPL", 39, 3673, 1812, "DDD", "RIO CCM SPL")
+definePushButton("RIO_CCM_ALT_DIFF", 39, 3674, 1813, "DDD", "RIO CCM ALT DIFF")
+definePushButton("RIO_CCM_VGS", 39, 3675, 1814, "DDD", "RIO CCM VGS")
+definePotentiometer("RIO_RADAR_IR_GAIN", 39, 3473, 20, {0.0, 1.0}, "DDD", "RIO Radar IR Gain")
+definePotentiometer("RIO_RADAR_IR_VOL", 39, 3474, 21, {0.0, 1.0}, "DDD", "RIO Radar IR Volume")
+definePotentiometer("RIO_RADAR_IR_THERESHOLD", 39, 3475, 22, {0.0, 1.0}, "DDD", "RIO Radar IR Threshold")
+definePotentiometer("RIO_DDD_BRIGHT", 39, 3476, 23, {0.0, 1.0}, "DDD", "RIO DDD Brightness")
+definePotentiometer("RIO_DDD_PULSE_VID", 39, 3477, 24, {0.0, 1.0}, "DDD", "RIO DDD Pulse Video")
+definePotentiometer("RIO_DDD_ERASE", 39, 3478, 25, {0.0, 1.0}, "DDD", "RIO DDD Erase")
+definePotentiometer("RIO_DDD_PULSE_GAIN", 39, 3479, 26, {0.0, 1.0}, "DDD", "RIO Pulse Gain")
+definePotentiometer("RIO_ACM_THERESHOLD", 39, 3480, 27, {0.0, 1.0}, "DDD", "RIO ACM Threshold")
+definePotentiometer("RIO_RADAR_JAMJET", 39, 3481, 28, {0.0, 1.0}, "DDD", "RIO JAM/JET")
+definePotentiometer("RIO_PD_THERESHOLD_CLUTTER", 39, 3482, 29, {0.0, 1.0}, "DDD", "RIO PD Threshold Clutter")
+definePotentiometer("RIO_PD_THERESHOLD_CLEAR", 39, 3483, 30, {0.0, 1.0}, "DDD", "RIO PD Threshold Clear")
+define3PosTumb("RIO_DDD_ASPECT", 39, 3467, 34, "DDD", "RIO DDD Aspect")
+define3PosTumb("RIO_DDD_VC_SCALE", 39, 3468, 35, "DDD", "RIO DDD Closing Velocity Scale")
+define3PosTumb("RIO_DDD_TGTS", 39, 3469, 36, "DDD", "RIO DDD Target Size")
+define3PosTumb("RIO_DDD_MLC", 39, 3470, 37, "DDD", "RIO DDD Main Lobe Clutter Filter")
+defineToggleSwitch("RIO_DDD_AGC", 39, 3471, 38, "DDD", "RIO DDD Automatic Gain Control")
+defineToggleSwitch("RIO_DDD_PARA_AMP", 39, 3472, 3900, "DDD", "RIO DDD Parametric Amplifier")
+
 -- RIO RADAR Panel
+defineMultipositionSwitch("RIO_RADAR_ELE_BARS", 39, 3442, 79, 4, 0.33333, "Radar" ,"RIO Radar Elevation Scan")
+defineMultipositionSwitch("RIO_RADAR_AZI_SCAN", 39, 3443, 80, 4, 0.33333, "Radar" ,"RIO Radar Azimuth Scan")
+definePotentiometer("RIO_RADAR_ELE_CENTER", 39, 3446, 81, {0.0, 1.0}, "Radar", "RIO Radar Elevation Center")
+definePotentiometer("RIO_RADAR_AZI_CENTER", 39, 3447, 82, {0.0, 1.0}, "Radar", "RIO Radar Azimuth Center")
+defineToggleSwitch("RIO_RADAR_STABI", 39, 3449, 83, "Radar", "RIO Radar Stabilize")
+define3PosTumb("RIO_RADAR_VSL", 39, 3448, 84, "Radar", "RIO Radar VSL Switch")
+
 -- RIO TCS Controls
+define3PosTumb("RIO_TCS_ACQ", 37, 3495, 87, "TCS", "RIO TCS Acquisition")
+defineToggleSwitch("RIO_TCS_FOV", 37, 3494, 88, "TCS", "RIO TCS FOV")
+define3PosTumb("RIO_TCS_SLAVE", 37, 3496, 89, "TCS", "RIO TCS Slave")
+define3PosTumb("RIO_RECORD_PW", 37, 3604, 90, "TCS", "RIO Record Power")
+defineMultipositionSwitch("RIO_RECORD_MODE", 37, 3605, 91, 5, 1.0/4.0, "TCS" ,"RIO Record Mode")
+definePotentiometer("RIO_RECORD_RESET", 37, 3609, 16016, {0.0, 1.0}, "Radar", "RIO Record Reset")
+
 -- RIO Armament Panel
+
 -- Computer Address Panel (CAP)
+defineMultipositionSwitch("RIO_CAP_CATRGORY", 23, 3530, 98, 6, 0.2, "CAP" ,"RIO CAP Category")
+definePushButton("RIO_CAP_BTN_4", 23, 3521, 123, "CAP", "RIO CAP Button 4")
+definePushButton("RIO_CAP_BTN_5", 23, 3522, 124, "CAP", "RIO CAP Button 5")
+definePushButton("RIO_CAP_BTN_3", 23, 3520, 125, "CAP", "RIO CAP Button 3")
+definePushButton("RIO_CAP_BTN_2", 23, 3519, 126, "CAP", "RIO CAP Button 2")
+definePushButton("RIO_CAP_BTN_1", 23, 3518, 127, "CAP", "RIO CAP Button 1")
+definePushButton("RIO_CAP_BTN_TNG", 23, 3528, 128, "CAP", "RIO CAP Button TNG NBR")
+definePushButton("RIO_CAP_BTN_10", 23, 3527, 129, "CAP", "RIO CAP Button 10")
+definePushButton("RIO_CAP_BTN_9", 23, 3526, 130, "CAP", "RIO CAP Button 9")
+definePushButton("RIO_CAP_BTN_8", 23, 3525, 131, "CAP", "RIO CAP Button 8")
+definePushButton("RIO_CAP_BTN_7", 23, 3524, 132, "CAP", "RIO CAP Button 7")
+definePushButton("RIO_CAP_BTN_6", 23, 3523, 133, "CAP", "RIO CAP Button 6")
+definePushButton("RIO_CAP_BTN_PGM_RESTRT", 23, 3529, 134, "CAP", "RIO CAP Button PGM RSTRT")
+definePushButton("RIO_CAP_LONG_6", 23, 3541, 136, "CAP", "RIO CAP LONG 6")
+definePushButton("RIO_CAP_LAT_1", 23, 3536, 137, "CAP", "RIO CAP LAT 1")
+definePushButton("RIO_CAP_NBR_2", 23, 3537, 138, "CAP", "RIO CAP NBR 2")
+definePushButton("RIO_CAP_7", 23, 3542, 139, "CAP", "RIO CAP 7")
+definePushButton("RIO_CAP_HDG_8", 23, 3543, 140, "CAP", "RIO CAP HDG 8")
+definePushButton("RIO_CAP_SPD_3", 23, 3538, 141, "CAP", "RIO CAP SPD 3")
+definePushButton("RIO_CAP_ALT_4", 23, 3539, 142, "CAP", "RIO CAP ALT 4")
+definePushButton("RIO_CAP_9", 23, 3544, 143, "CAP", "RIO CAP 9")
+definePushButton("RIO_CAP_BRG_0", 23, 3535, 144, "CAP", "RIO CAP BRG 0")
+definePushButton("RIO_CAP_RNG_5", 23, 3540, 145, "CAP", "RIO CAP RNG 5")
+definePushButton("RIO_CAP_NE", 23, 3533, 146, "CAP", "RIO CAP N+E")
+definePushButton("RIO_CAP_SW", 23, 3532, 147, "CAP", "RIO CAP S-W")
+definePushButton("RIO_CAP_CLEAR", 23, 3531, 148, "CAP", "RIO CAP Clear")
+definePushButton("RIO_CAP_ENTER", 23, 3534, 149, "CAP", "RIO CAP Enter")
+
 -- Datalink
 -- IFF Panel
 
 -- LIQUID Cooling
 define3PosTumb("RIO_LIQUD_COOL", 39, 3681, 95, "Radar Panel", "RIO Liquid Cooling Switch")
 
--- LANTIRN
+-- LANTIRN (Panel Arg:666)
+defineMultipositionSwitch("RIO_LANTIRN_PW", 38, 3676, 667, 3, 1.0/2.0, "LANTIRN" ,"RIO LANTIRN Power")
+defineToggleSwitch("RIO_LANTIRN_LASER_ARM", 38, 3516, 668, "LANTIRN", "RIO LANTIRN Laser Arm Switch")
+definePushButton("RIO_LANTIRN_TCS_SEL", 38, 3498, 670, "LANTIRN", "RIO Video Output Toggle (TCS/LANTIRN)")
+definePushButton("RIO_LANTIRN_TCS_SEL", 38, 3691, 669, "LANTIRN", "RIO LANTIRN Operate Mode (Unstow)")
+definePushButton("RIO_LANTIRN_IBIT", 38, 3677, 671, "LANTIRN", "RIO LANTIRN IBIT")
 
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("PLT_JETT_LIGHT", 701, "Warning, Caution and IndicatorLights","Pilot Emergency Stores Jettison Light (red)")
