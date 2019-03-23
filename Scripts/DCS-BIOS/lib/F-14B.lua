@@ -23,62 +23,6 @@ local function define3PosTumb(msg, device_id, command, arg_number, category, des
 	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
 end
 
-function getARC159_High_Frequency()
-	--Export : 225000192.000000
-	local arc_159 = GetDevice(3)
-	local freq = tostring(arc_159:get_frequency())
-	freq = string.sub(freq, 1, 3)
-	return tonumber(freq)	
-end
-function getARC159_Decimal_1_Low_Frequency()
-	--Export : 225975
-	local arc_159 = GetDevice(3)
-	local freq = tostring(arc_159:get_frequency())
-	--Get the 9
-	freq = string.sub(freq, 4, 4)
-	return tonumber(freq)	
-end
-
-function getARC159_Decimal_2_Low_Frequency()
-	--Export : 225975192.000000
-	--00 25 50 75
-	local arc_159 = GetDevice(3)
-	local freq = tostring(arc_159:get_frequency())
-	--Get the 75
-	freq = string.sub(freq, 5, 6)
-	return tonumber(freq)	
-end
-
-defineIntegerFromGetter("PLT_UHF_LOW2_FREQ", getARC159_Decimal_2_Low_Frequency, 100, "UHF 1", "Pilot Low ARC-159 Frequency")
-defineIntegerFromGetter("PLT_UHF_LOW1_FREQ", getARC159_Decimal_1_Low_Frequency, 10, "UHF 1", "Pilot Low ARC-159 Frequency")
-defineIntegerFromGetter("PLT_UHF_HIGH_FREQ", getARC159_High_Frequency, 400, "UHF 1", "Pilot High ARC-159 Frequency")
-
-moduleBeingDefined.inputProcessors["SET_UHF_FREQ"] = function(freq)
-	freq = freq:gsub("%.", "")
-	freq = tonumber(freq)
-	if type(freq) == "nil" then return end
-	
-	GetDevice(3):set_frequency(freq*1000)
-end
-
-function getARC182_High_Frequency()
-	--Export : 225000192.000000
-	local arc_182 = GetDevice(4)
-	local freq = tostring(arc_182:get_frequency())
-	freq = string.sub(freq, 1, 3)
-	return tonumber(freq)	
-end
-function getARC182_Low_Frequency()
-	--Export : 225000192.000000
-	local arc_182 = GetDevice(4)
-	local freq = tostring(arc_182:get_frequency())
-	freq = string.sub(freq, 4, 6)
-	return tonumber(freq)	
-end
-
-defineIntegerFromGetter("VUHF_LOW_FREQ", getARC182_Low_Frequency, 999, "VUHF", "Low VHF UHF ARC-182 Frequency")
-defineIntegerFromGetter("VUHF_HIGH_FREQ", getARC182_High_Frequency, 400, "VUHF", "High VHF UHF ARC-182 Frequency")
-
 -- Hydraulics
 defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_SW", 12, 3001, 629, "Hydraulics", "Pilot Hydraulic Transfer Pump Switch")
 defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_COVER", 12, 3002, 630, "Hydraulics", "Pilot Hydraulic Transfer Pump Switch Cover")
@@ -309,6 +253,44 @@ definePotentiometer("PLT_UHF1_VOL", 3, 3359, 2031, {0.0, 1.0}, "UHF 1", "Pilot U
 definePotentiometer("RIO_UHF1_VOL", 3, 3361, 383, {0.0, 1.0}, "UHF 1", "RIO UHF ARC-159 Volume")
 definePotentiometer("PLT_UHF1_BRIGHTNESS", 3, 3363, 2027, {0.0, 1.0}, "UHF 1", "Pilot UHF ARC-159 Display Brightness")
 
+function getARC159_High_Frequency()
+	--Export : 225000192.000000
+	local arc_159 = GetDevice(3)
+	local freq = tostring(arc_159:get_frequency())
+	freq = string.sub(freq, 1, 3)
+	return tonumber(freq)	
+end
+function getARC159_Decimal_DIAL3_Frequency()
+	--Export : 225975
+	local arc_159 = GetDevice(3)
+	local freq = tostring(arc_159:get_frequency())
+	--Get the 9
+	freq = string.sub(freq, 4, 4)
+	return tonumber(freq)	
+end
+
+function getARC159_Decimal_DIAL4_Frequency()
+	--Export : 225975192.000000
+	--00 25 50 75
+	local arc_159 = GetDevice(3)
+	local freq = tostring(arc_159:get_frequency())
+	--Get the 75
+	freq = string.sub(freq, 5, 6)
+	return tonumber(freq)	
+end
+
+defineIntegerFromGetter("PLT_UHF_DIAL4_FREQ", getARC159_Decimal_DIAL4_Frequency, 100, "UHF 1", "Pilot Dial 4 ARC-159 Frequency")
+defineIntegerFromGetter("PLT_UHF_DIAL3_FREQ", getARC159_Decimal_DIAL3_Frequency, 10, "UHF 1", "Pilot Dial 3 ARC-159 Frequency")
+defineIntegerFromGetter("PLT_UHF_HIGH_FREQ", getARC159_High_Frequency, 400, "UHF 1", "Pilot High ARC-159 Frequency")
+
+moduleBeingDefined.inputProcessors["SET_UHF_FREQ"] = function(freq)
+	freq = freq:gsub("%.", "")
+	freq = tonumber(freq)
+	if type(freq) == "nil" then return end
+	
+	GetDevice(3):set_frequency(freq*1000)
+end
+
 -- VHF/UHF ARC-182 ("V/UHF 2")
 defineTumb("RIO_VUHF_FREQ_MODE", 4, 3417, 353, 0.2, {0.0, 1.2}, nil, false, "VUHF", "RIO VHF/UHF ARC-182 Frequency Mode 243 MAN G PRESET READ LOAD")
 defineTumb("RIO_VUHF_MODE", 4, 3413, 358, 0.25, {0.0, 1.25}, nil, false, "VUHF", "RIO VHF/UHF ARC-182 MODE OFF T/R T/R&G DF TEST")
@@ -322,6 +304,44 @@ define3PosTumb("RIO_VUHF_025_DIAL", 4, 3412, 357, "VUHF", "RIO VUHF ARC-182 0.02
 definePotentiometer("RIO_VUHF_VOL", 4, 3401, 350, {0.0, 1.0}, "VUHF", "RIO VUHF ARC-182 Volume")
 definePotentiometer("PLT_VUHF_VOL", 4, 3403, 2038, {0.0, 1.0}, "VUHF", "Pilot VUHF ARC-182 Volume")
 definePotentiometer("RIO_VUHF_BRIGHTNESS", 4, 3405, 360, {0.0, 1.0}, "VUHF", "RIO VUHF ARC-182 Display Brightness")
+
+function getARC182_High_Frequency()
+	--Export : 225000192.000000
+	local arc_182 = GetDevice(4)
+	local freq = tostring(arc_182:get_frequency())
+	freq = string.sub(freq, 1, 3)
+	return tonumber(freq)	
+end
+function getARC182_Decimal_DIAL3_Frequency()
+	--Export : 225975
+	local arc_182 = GetDevice(4)
+	local freq = tostring(arc_182:get_frequency())
+	--Get the 9
+	freq = string.sub(freq, 4, 4)
+	return tonumber(freq)	
+end
+
+function getARC182_Decimal_DIAL4_Frequency()
+	--Export : 225975192.000000
+	--00 25 50 75
+	local arc_182 = GetDevice(4)
+	local freq = tostring(arc_182:get_frequency())
+	--Get the 75
+	freq = string.sub(freq, 5, 6)
+	return tonumber(freq)	
+end
+
+defineIntegerFromGetter("RIO_VUHF_DIAL4_FREQ", getARC182_Decimal_DIAL4_Frequency, 100, "VUHF", "RIO Dial 4 ARC-182 Frequency")
+defineIntegerFromGetter("RIO_VUHF_DIAL3_FREQ", getARC182_Decimal_DIAL3_Frequency, 10, "VUHF", "RIO Dial 3 ARC-182 Frequency")
+defineIntegerFromGetter("RIO_VUHF_HIGH_FREQ", getARC182_High_Frequency, 400, "VUHF", "RIO High ARC-182 Frequency")
+
+moduleBeingDefined.inputProcessors["SET_VUHF_FREQ"] = function(freq)
+	freq = freq:gsub("%.", "")
+	freq = tonumber(freq)
+	if type(freq) == "nil" then return end
+	
+	GetDevice(4):set_frequency(freq*1000)
+end
 
 -- KY-28
 defineTumb("RIO_KY28_POWER", 2, 3423, 116, 0.5, {0.0, 1.5}, nil, false, "KY-28", "RIO KY-28 Power Mode")
@@ -419,9 +439,27 @@ definePotentiometer("RIO_STDBYAI_TRIM", 30, 3548, 6156, {0.0, 1.0}, "Standby ADI
 definePushButton("PLT_ACCEL_RESET", 24, 3488, 228, "Display", "Pilot Accelerometer Reset")
 
 -- VDI & HUD Indicator Controls
+defineToggleSwitch("PLT_HUD_FILTER", 40, 3228, 1033, "HUD", "Pilot HUD Filter")
+definePotentiometer("PLT_HUD_TRIM", 42, 3229, 1034, {0.0, 1.0}, "HUD", "Pilot HUD TRIM")
+definePotentiometer("PLT_VSDI_TRIM", 42, 3230, 1035, {0.0, 1.0}, "HUD", "Pilot VSDI Screen Trim")
+definePotentiometer("PLT_VDI_CONTRAST", 42, 3231, 1038, {0.0, 1.0}, "HUD", "Pilot VDI Screen Contrast")
+definePotentiometer("PLT_VSDI_BRIGHT", 42, 3232, 1036, {0.0, 1.0}, "HUD", "Pilot VSDI Screen Brightness")
+definePotentiometer("PLT_HUD_BRIGHT", 40, 3233, 1037, {0.0, 1.0}, "HUD", "Pilot HUD Brightness")
+--definePushButton("PLT_VDI_FILTER", 42, 3234, XXXXX, "HUD", "Pilot VDI Filter") missing arg
+
 -- Under HUD / Master Arm / Gun/Weapons Panel
 -- RIO TID
+
 -- RIO HCU
+defineToggleSwitch("RIO_HCU_TCS", 58, 3096, 2007, "HCU", "RIO HCU TCS Mode")
+defineToggleSwitch("RIO_HCU_RADAR", 58, 3097, 2008, "HCU", "RIO HCU Radar Mode")
+defineToggleSwitch("RIO_HCU_DDD", 58, 3098, 2009, "HCU", "RIO HCU DDD Mode")
+defineToggleSwitch("RIO_HCU_TID", 58, 3099, 2010, "HCU", "RIO HCU TID Mode")
+define3PosTumb("RIO_HCU_TVIR_SW", 37, 3100, 2011, "HCU", "RIO HCU TV/IR Switch")
+define3PosTumb("RIO_HCU_WCS", 39, 3101, 2012, "HCU", "RIO HCU WCS Switch")
+definePushButton("RIO_HCU_PW_RESET", 39, 3631, 2013, "HCU", "RIO HCU Power Reset")
+definePushButton("RIO_HCU_LIGHT_TEST", 39, 3632, 2014, "HCU", "RIO HCU Light Test")
+
 -- RIO DDD
 -- RIO RADAR Panel
 -- RIO TCS Controls
@@ -511,6 +549,7 @@ defineIndicatorLight("PLT_HOOK_LIGHT", 15090, "Warning, Caution and IndicatorLig
 defineIndicatorLight("PLT_RADAR_ALT_LIGHT", 19107, "Warning, Caution and IndicatorLights","Pilot Radar Altimeter Warning Light (red)")
 defineIndicatorLight("PLT_RADAR_ALT_TEST_LIGHT", 19108, "Warning, Caution and IndicatorLights","Pilot Radar Altimeter Test Light (red)")
 
+defineIndicatorLight("RIO_TID_SCREEN_LIGHT", 3450, "Warning, Caution and IndicatorLights","RIO TID Screen Light (light green)")
 defineIndicatorLight("RIO_IFF_TEST_LIGHT", 8052, "Warning, Caution and IndicatorLights","RIO IFF Test Light (green)")
 defineIndicatorLight("RIO_IFF_REPLY_LIGHT", 8053, "Warning, Caution and IndicatorLights","RIO IFF Reply Light (green)")
 defineIndicatorLight("RIO_TACAN_GO", 8893, "Warning, Caution and IndicatorLights","RIO TACAN GO Light (green)")
