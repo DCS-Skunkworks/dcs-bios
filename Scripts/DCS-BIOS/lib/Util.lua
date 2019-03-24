@@ -106,7 +106,6 @@ function BIOS.util.MemoryAllocation:setValue(value)
 		BIOS.log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
 		return
 	end
-	BIOS.log(string.format("Util.lua: Assert failed => assert(value >= 0) : %f ", value))
 	assert(value >= 0)
 	assert(value <= self.maxValue)
 	if self.value ~= value then
