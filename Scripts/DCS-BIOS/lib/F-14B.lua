@@ -828,6 +828,8 @@ defineFloat("PLT_RADARALTI_NEEDLE", 103, {0, 1}, "Gauges", "PILOT Radar Altimter
 defineFloat("PLT_ALTIMETER_NEEDLE", 104, {0, 1}, "Gauges", "PILOT Altimter Needle Barometric")
 defineFloat("PLT_VSI_NEEDLE", 106, {-1, 1}, "Gauges", "PILOT Vertical Velocity Indicator Needle")
 defineFloat("PLT_COMP_SYNC_NEEDLE", 412, {-1, 1}, "Gauges", "PILOT Compass Sync Indicator Needle")	--(COMP Panel)
+defineFloat("PLT_FUEL_AFT_L", 1054, {0, 1}, "Gauges", "PILOT Fuel AFT & L")
+defineFloat("PLT_FUEL_FWD_R", 1055, {0, 1}, "Gauges", "PILOT Fuel FWD & R")
 defineFloat("PLT_FUEL_LEFT_1K", 6000, {0, 1}, "Gauges", "PILOT Fuel Left 1000")
 defineFloat("PLT_FUEL_LEFT_100", 6001, {0, 1}, "Gauges", "PILOT Fuel Left 100")
 defineFloat("PLT_FUEL_LEFT_10", 6002, {0, 1}, "Gauges", "PILOT Fuel Left 10")
@@ -882,6 +884,8 @@ defineFloat("PLT_ACM_TURN_IND", 6501, {-1, 1}, "Gauges", "PILOT ACM Turn Indicat
 defineFloat("PLT_ACM_SLIP_BALL", 6500, {-1, 1}, "Gauges", "PILOT ACM Slip Ball")
 defineFloat("PLT_COMPBALL_HORIZONTAL", 6502, {0, 1}, "Gauges", "PILOT Compassball Horizontal")
 defineFloat("PLT_COMPBALL_VERTICAL", 6503, {-1, 1}, "Gauges", "PILOT Compassball Vertical")
+defineFloat("PLT_BRAKE_PRESS_L", 9260, {0, 1}, "Gauges", "PILOT Brake Pressure Left")
+defineFloat("PLT_BRAKE_PRESS_R", 9260, {0, 1}, "Gauges", "PILOT Brake Pressure Right")
 defineFloat("PLT_STDBYAI_OFF_FLAG", 19100, {0, 1}, "Gauges", "PILOT Standby ADI Off Flag")
 
 -- Gauges RIO
