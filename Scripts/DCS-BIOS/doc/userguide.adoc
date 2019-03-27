@@ -79,7 +79,7 @@ No matter what you wish to connect to your Arduino board, its more than probable
 
 == Connecting your First Panel
 
-The purpose of this next section is to demonstrate how easy it is to use DCS-BIOS to create a working switch panel and have it connect to your DCS aircraft.   
+The purpose of this next section is to demonstrate how easy it is to use DCS-BIOS to create a working switch panel and have it connect to your DCS aircraft. As an example, we will use a button and an indicator from the A-10C, but the principles are the same for other aircraft.
 
 
 === Before you start
@@ -96,7 +96,7 @@ The following prerequisites are necessary for the successful completion of this 
 ==== Equipment
 We will assume you have access to the following:
 
-* A computer that has DCS: World installed with access to the internet and a free USB port
+* A computer that has DCS: World and the A-10C module installed with access to the internet and a free USB port
 * An Arduino board (the http://arduino.cc/en/Main/ArduinoBoardUno[Arduino UNO] is a good choice for beginners)
 * A momentary on push button (the kind that stays on as long as you are pressing it) 
 * An LED (any colour and/or size) but not one of those super high powered, go blind if you look at it, types. 
@@ -236,7 +236,7 @@ Along the top of the web page, there are "filters" in the form of drop down menu
 You have the choice of what aircraft you would like to work with, the type of information you would like displayed (basic or advanced) and every single panel on the aircraft you chose to work with.
 Stay away from the advanced tab until you know what you are doing.
 
-* Select "Up Front Controller" in the "Category Filter" dropdown menu.
+* Select "A-10C" in the "Module" dropdown menu and "UFC" as "Category Filter".
 
 The first entry should be the one for the Master Caution Light.
 
@@ -274,8 +274,8 @@ The word "PIN' gets replaced with 13.
 The line of code for the LED Master Caution warning should change as follows:
 [source,c++]
 ----
-DcsBios::LED masterCaution(0x108e, 0x0008, PIN); 
-DcsBios::LED masterCaution(0x108e, 0x0008, 13);
+DcsBios::LED masterCaution(0x1012, 0x0800, PIN);
+DcsBios::LED masterCaution(0x1012, 0x0800, 13);
 ----
 When you have completed these changes, the beginning of your sketch should look like this:
 [source,c++]
@@ -285,7 +285,7 @@ When you have completed these changes, the beginning of your sketch should look 
 
 /**** Paste your code below here ****/
 
-DcsBios::LED masterCaution(0x108e, 0x0008, 13);
+DcsBios::LED masterCaution(0x1012, 0x0800, 13);
 DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", 10);
 
 /**** Do not change anything below this line ****/
@@ -401,7 +401,7 @@ This section takes a closer look at the different parts of the MasterCaution exa
 #define DCSBIOS_IRQ_SERIAL // <1>
 #include "DcsBios.h" // <2>
 
-DcsBios::LED masterCaution(0x108e, 0x0008, 13); // <3>
+DcsBios::LED masterCaution(0x1012, 0x0800, 13); // <3>
 DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", 10); // <4>
 
 void setup() {
@@ -431,7 +431,7 @@ Recall the following part from the MasterCaution example:
 [source,c++]
 ----
 DcsBios::Switch2Pos masterCautionBtn("UFC_MASTER_CAUTION", 10);
-DcsBios::LED masterCautionLED("MASTER_CAUTION", 13);
+DcsBios::LED masterCaution(0x1012, 0x0800, 13);
 ----
 
 Unless you are doing something more advanced such as using something other than a serial port to talk to your DCS computer, this is the only part you need be concerned with.
@@ -491,7 +491,8 @@ For example, the volume controls on the A-10C intercom panel have one DCS-BIOS c
 
 NOTE: To make sense of the following, select "Advanced" in the "View" dropdown box at the top of the page.
 
-An _input interface_ describes the means by which controls in the cockpit can be manipulated..Types of input interfaces
+An _input interface_ describes the means by which controls in the cockpit can be manipulated.
+.Types of input interfaces
 
 set_state:: If a control supports the _set_state_ interface, its current state can be set by sending it a number as an argument.
 For example, you can set the TACAN mode dial in the A-10C to the `A A REC` position by sending `TACAN_MODE 3`.
@@ -634,7 +635,7 @@ Connect the rotary switch so that it connects the Arduino pin for the currently 
 .Reference Documentation Code Examples
 [source,c++]
 ----
-const byte aapSteerptPins[3] = {PIN_0, ... ,PIN_2};
+const byte aapSteerptPins[3] = {PIN_0, PIN_1, PIN_2};
 DcsBios::SwitchMultiPos aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);
 ----
 
@@ -752,7 +753,7 @@ image::LED.png[500, 500]
 .Reference Documentation Code Example
 [source,c++]
 ----
-DcsBios::LED tacanTest(0x10ca, 0x0400, PIN);
+DcsBios::LED tacanTest(0x10da, 0x0400, PIN);
 ----
 
 NOTE: Arduino boards are only capable of providing 40mA of current per pin.
@@ -814,10 +815,10 @@ It will be passed the new value as an argument.
 .Reference Documentation Code Example
 [source,c++]
 ----
-void onAltMslFtChange(unsigned int newValue) {
+void onAlt10000ftCntChange(unsigned int newValue) {
     /* your code here */
 }
-DcsBios::IntegerBuffer altMslFtBuffer(0x0408, 0xffff, 0, onAltMslFtChange);
+DcsBios::IntegerBuffer alt10000ftCntBuffer(0x1080, 0xffff, 0, onAlt10000ftCntChange);
 ----
 
 
@@ -843,7 +844,7 @@ It will be passed the new value as an argument.
 void onUhfFrequencyChange(char* newValue) {
     /* your code here */
 }
-DcsBios::StringBuffer<7> uhfFrequencyBuffer(0x1170, onUhfFrequencyChange);
+DcsBios::StringBuffer<7> uhfFrequencyBuffer(0x1180, onUhfFrequencyChange);
 ----
 
 == Aircraft-Specific Notes
