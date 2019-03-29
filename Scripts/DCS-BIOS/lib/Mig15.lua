@@ -145,7 +145,7 @@ defineFloat("AGK_TURN", 9, {-1.0, 1.0}, "AGK47B", "AGK-47B Turn Gauge")
 defineFloat("AGK_HORIZON", 10, {-1.0, 1.0}, "AGK47B", "AGK-47B Horizon Gauge")
 
 -- VD-15
-definePotentiometer("BARO_PRESS", 18, 3001, 30, {0.0, 1.0}, "VD-15", "Barometric Pressure QFE Knob")
+definePotentiometer("BARO_PRESS", 18, 3001, 30, {0.0, 1.0}, "VD15", "Barometric Pressure QFE Knob")
 
 -- PRV-46
 defineToggleSwitch("RPV46_RANGE", 15, 3004, 36, "PRV46", "PRV-46 Radar Altimeter Indicator Range Switch")
