@@ -18,7 +18,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 
--- Hide Pilot Arg 1000 / Instructor Arg 1002
+-- remove Arg# Pilot 1000 / Instructor 1002
 
 -- Electrical Panel
 defineToggleSwitch("FRONT_BATT_MASTER_SW", 2, 3001, 315, "Electrical Panel", "FRONT Battery Master Switch")

@@ -23,7 +23,8 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
--- HIDE Stick = 33
+-- remove Arg# Stick 33
+
 -- Extra Functions
 local function defineIndicatorLightMulti1(msg, arg_number, category, description)
 	local value = moduleBeingDefined.memoryMap:allocateInt {
