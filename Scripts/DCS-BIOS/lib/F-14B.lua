@@ -20,16 +20,13 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
-function defineIndicatorLightMulti1(msg, arg_number, category, description)
+local function defineIndicatorLightMulti1(msg, arg_number, category, description)
 	local value = moduleBeingDefined.memoryMap:allocateInt {
 		maxValue = 1
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.4 then
-			value:setValue(0)
-			end
-		if dev0:get_argument_value(arg_number) > 0.6 then
+		if dev0:get_argument_value(arg_number) < 0.4 or > 0.6 then
 			value:setValue(0)
 		else
 		    value:setValue(1)
@@ -37,16 +34,13 @@ function defineIndicatorLightMulti1(msg, arg_number, category, description)
 	end
 end
 
-function defineIndicatorLightMulti2(msg, arg_number, category, description)
+local function defineIndicatorLightMulti2(msg, arg_number, category, description)
 	local value = moduleBeingDefined.memoryMap:allocateInt {
 		maxValue = 1
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.8 then
-			value:setValue(0)
-			end
-		if dev0:get_argument_value(arg_number) > 0.99 then
+		if dev0:get_argument_value(arg_number) < 0.8 or > 0.99 then
 			value:setValue(0)
 		else
 		    value:setValue(1)
