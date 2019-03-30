@@ -1,4 +1,4 @@
-BIOS.protocol.beginModule("FW-190D9", 0x3400)
+BIOS.protocol.beginModule("FW-190D9", 0x4000)
 BIOS.protocol.setExportModuleAircrafts({"FW-190D9"})
 
 local documentation = moduleBeingDefined.documentation
