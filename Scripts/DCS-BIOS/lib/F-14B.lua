@@ -26,12 +26,29 @@ local function defineIndicatorLightMulti1(msg, arg_number, category, description
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.4 or > 0.6 then
+		if dev0:get_argument_value(arg_number) < 0.4 or dev0:get_argument_value(arg_number) > 0.6 then
 			value:setValue(0)
 		else
 		    value:setValue(1)
 		end
 	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "Multi Led Color 1",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 1,
+			  description = "0 if light is off, 1 if light is on"
+			}
+		}
+	}
 end
 
 local function defineIndicatorLightMulti2(msg, arg_number, category, description)
@@ -40,12 +57,29 @@ local function defineIndicatorLightMulti2(msg, arg_number, category, description
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.8 or > 0.99 then
+		if dev0:get_argument_value(arg_number) < 0.8 or dev0:get_argument_value(arg_number) > 0.99 then
 			value:setValue(0)
 		else
 		    value:setValue(1)
 		end
 	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "Multi Led Color 2",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 1,
+			  description = "0 if light is off, 1 if light is on"
+			}
+		}
+	}
 end
 
 --HIDE Stick = 33
