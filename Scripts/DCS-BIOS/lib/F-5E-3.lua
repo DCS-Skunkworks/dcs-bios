@@ -19,10 +19,8 @@ local defineString = BIOS.util.defineString
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+local define3PosTumb = BIOS.util.define3PosTumb
 
-local function define3PosTumb(msg, device_id, command, arg_number, category, description)
-	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
-end
 
 local function getTacanChannel()
     local tcn_2 = ""

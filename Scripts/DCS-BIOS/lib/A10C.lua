@@ -53,7 +53,7 @@ local function defineRadioWheel(msg, device_id, command1, command2, command_args
 	end
 end
 
-local function define3PosTumb(msg, device_id, command, arg_number, category, description)
+local function define3PosTumb1(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 0.1, {0.0, 0.2}, nil, false, category, description)
 end
 
@@ -828,7 +828,7 @@ defineToggleSwitch("GND_SAFE_OVERRIDE", 12, 3003, 710, "Misc", "Ground Safety Ov
 
 defineFixedStepTumb("IFF_CODE", 43, 3007, 199, 0.1, {0.0, 0.3}, {1, -1}, nil, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
 defineTumb("IFF_MASTER", 43, 3008, 200, 0.1, {0, 0.4}, nil, true, "IFF", "IFF Master: OFF - STBY - LOW - NORM - EMER")
-define3PosTumb("IFF_OUT_AUDIO_LIGHT", 43, 3009, 301, "IFF", "IFF Out: LIGHT - OFF - AUDIO")
+define3PosTumb1("IFF_OUT_AUDIO_LIGHT", 43, 3009, 301, "IFF", "IFF Out: LIGHT - OFF - AUDIO")
 defineTumb("IFF_TEST_M1", 43, 3010, 202, 1, {-1, 1}, nil, true, "IFF", "Test M-1")
 defineTumb("IFF_TEST_M2", 43, 3011, 203, 1, {-1, 1}, nil, true, "IFF", "Test M-2")
 defineTumb("IFF_TEST_M3", 43, 3012, 204, 1, {-1, 1}, nil, true, "IFF", "Test M-3")
@@ -859,10 +859,10 @@ defineFloat("CABIN_PRESS_ALT", 281, {0, 1}, "Environment Control Panel", "Cabin 
 definePushButton("ENVCP_OXY_TEST", 41, 3001, 275, "Environment Control Panel", "Oxygen Indicator Test")
 defineToggleSwitch("ENVCP_WINDSHIELD_DEFOG", 41, 3002, 276, "Environment Control Panel", "Windshield Defog/Deice")
 definePotentiometer("ENVCP_CANOPY_DEFOG", 41, 3003, 277, {0.0, 1.0}, "Environment Control Panel", "Canopy Defog")
-define3PosTumb("ENVCP_WRRW", 41, 3004, 278, "Environment Control Panel", "Windshield Rain Removal/Wash")
+define3PosTumb1("ENVCP_WRRW", 41, 3004, 278, "Environment Control Panel", "Windshield Rain Removal/Wash")
 defineToggleSwitch("ENVCP_PITOT_HEAT", 41, 3005, 279, "Environment Control Panel", "Pitot Heat")
 defineToggleSwitch("ENVCP_BLEED_AIR", 41, 3006, 280, "Environment Control Panel", "Bleed Air")
---define3PosTumb("ENVCP_TEMP_PRESS", 41, 3007, 282, "Environment Control Panel", "Temperature/Pressure Control")
+--define3PosTumb1("ENVCP_TEMP_PRESS", 41, 3007, 282, "Environment Control Panel", "Temperature/Pressure Control")
 defineTumb("ENVCP_TEMP_PRESS", 41, 3007, 282, 1, {-1, 1}, nil, false, "Environment Control Panel", "Temperature/Pressure Control")
 local dummyAlloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 7 }
 defineToggleSwitch("ENVCP_AIR_SUPPLY", 41, 3008, 283, "Environment Control Panel", "Main Air Supply")
@@ -938,11 +938,11 @@ defineToggleSwitch("LCP_ACCEL_COMP", 49, 3004, 295, "Light System Control Panel"
 definePotentiometer("LCP_FLOOD", 49, 3005, 296, {0, 1}, "Light System Control Panel", "Flood Lights")
 definePotentiometer("LCP_CONSOLE", 49, 3006, 297, {0, 1}, "Light System Control Panel", "Console Lights")
 
-define3PosTumb("LANDING_LIGHTS", 49, 3014, 655, "Landing Gear and Flap Control Panel", "Landing Lights TAXI/OFF/LAND")
+define3PosTumb1("LANDING_LIGHTS", 49, 3014, 655, "Landing Gear and Flap Control Panel", "Landing Lights TAXI/OFF/LAND")
 
 definePotentiometer("ALCP_RSIL", 49, 3015, 193, {0, 1}, "Auxiliary Light Control Panel", "Refuel Status Indexer Lights")
 definePotentiometer("ALCP_WPNSTA", 49, 3016, 195, {0, 1}, "Auxiliary Light Control Panel", "Weapon Station Lights (No Function)")
-define3PosTumb("ALCP_NVIS_LTS", 49, 3017, 194, "Auxiliary Light Control Panel", "Nightvision Lights")
+define3PosTumb1("ALCP_NVIS_LTS", 49, 3017, 194, "Auxiliary Light Control Panel", "Nightvision Lights")
 definePotentiometer("ALCP_RCVR_LTS", 49, 3018, 116, {0, 1}, "Auxiliary Light Control Panel", "Refueling Lighting Dial")
 defineToggleSwitch("ALCP_HARSSAS", 38, 3031, 196, "Auxiliary Light Control Panel", "HARS-SAS Override/Norm")
 definePushButton("ALCP_FDBA_TEST", 24, 3004, 198, "Auxiliary Light Control Panel", "Fire Detect Bleed Air Test")
@@ -951,7 +951,7 @@ definePushButton("ALCP_FDBA_TEST", 24, 3004, 198, "Auxiliary Light Control Panel
 defineToggleSwitch("FIRE_LENG_PULL", 50, 3001, 102, "Glare Shield", "Left Engine Fire T-Handle")
 defineToggleSwitch("FIRE_APU_PULL", 50, 3002, 103, "Glare Shield", "APU Fire T-Handle")
 defineToggleSwitch("FIRE_RENG_PULL", 50, 3003, 104, "Glare Shield", "Right Engine Fire T-Handle")
-define3PosTumb("FIRE_EXT_DISCH", 50, 3004, 105, "Glare Shield", "Fire Extinguisher Discharge Left/Off/Right")
+define3PosTumb1("FIRE_EXT_DISCH", 50, 3004, 105, "Glare Shield", "Fire Extinguisher Discharge Left/Off/Right")
 
 defineVariableStepTumb("HSI_CRS_KNOB", 45, 3002, 44, 1.0, "HSI", "Course Select Knob")
 defineVariableStepTumb("HSI_HDG_KNOB", 45, 3001, 45, 1.0, "HSI", "Heading Select Knob")
@@ -1004,7 +1004,7 @@ defineTumb("UHF_10MHZ_SEL", 54, 3003, 163, 0.1, {0.0, 0.9}, nil, false, "UHF Rad
 defineTumb("UHF_1MHZ_SEL", 54, 3004, 164, 0.1, {0.0, 0.9}, nil, false, "UHF Radio", "UHF 1MHz Selector")
 defineTumb("UHF_POINT1MHZ_SEL", 54, 3005, 165, 0.1, {0.0, 0.9}, nil, false, "UHF Radio", "UHF 0.1MHz Selector")
 defineTumb("UHF_POINT25_SEL", 54, 3006, 166, 0.1, {0.0, 0.3}, {"00", "25", "50", "75"}, false, "UHF Radio", "UHF 0.25MHz Selector")
-define3PosTumb("UHF_MODE", 54, 3007, 167, "UHF Radio", "Frequency Mode Dial MNL/PRESET/GRD")
+define3PosTumb1("UHF_MODE", 54, 3007, 167, "UHF Radio", "Frequency Mode Dial MNL/PRESET/GRD")
 defineTumb("UHF_FUNCTION", 54, 3008, 168, 0.1, {0.0, 0.3}, nil, false, "UHF Radio", "UHF Function Dial OFF/MAIN/BOTH/ADF")
 defineTumb("UHF_T_TONE", 54, 3009, 169, 1, {-1, 1}, nil, false, "UHF Radio", "T-Tone Button")
 defineToggleSwitch("UHF_SQUELCH", 54, 3010, 170, "UHF Radio", "Squelch Switch")
@@ -1099,7 +1099,7 @@ definePushButton("INT_CALL", 58, 3020, 240, "Intercom Panel", "Call Button")
 definePushButton("HARS_FAST_ERECT", 44, 3001, 711, "HARS", "HARS Fast Erect Button")
 defineToggleSwitch("HARS_SLAVE_DG", 44, 3002, 270, "HARS", "HARS SLAVE-DG Mode")
 defineToggleSwitch("HARS_NS", 44, 3003, 273, "HARS", "HARS N/S toggle switch")
-define3PosTumb("HARS_MAGVAR", 44, 3004, 272, "HARS", "HARS MAG VAR")
+define3PosTumb1("HARS_MAGVAR", 44, 3004, 272, "HARS", "HARS MAG VAR")
 definePotentiometer("HARS_LATITUDE", 44, 3005, 271, {0, 1}, "HARS", "HARS Latitude Dial")
 definePotentiometer("HARS_HDG", 44, 3007, 268, {0, 1}, "HARS", "HARS Heading")
 definePushButton("HARS_PTS", 44, 3006, 267, "HARS", "HARS Push-to-Sync")

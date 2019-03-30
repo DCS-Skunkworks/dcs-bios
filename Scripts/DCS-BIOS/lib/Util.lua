@@ -314,6 +314,12 @@ function BIOS.util.definePushButton(msg, device_id, device_command, arg_number, 
 	docentry.api_variant = "momentary_last_position"
 end
 
+function BIOS.util.define3PosTumb(msg, device_id, command, arg_number, category, description)
+	BIOS.util.defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
+	local docentry = moduleBeingDefined.documentation[category][msg]
+	docentry.physical_variant = "3 Position Switch"
+end
+
 function BIOS.util.definePotentiometer(msg, device_id, command, arg_number, limits, category, description)
 	--moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return string.format("%.4f", dev0:get_argument_value(arg_number)) end
 	if limits == nil then limits = {0.0, 1.0} end

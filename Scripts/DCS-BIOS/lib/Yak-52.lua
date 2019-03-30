@@ -14,10 +14,7 @@ local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
-
-local function define3PosTumb(msg, device_id, command, arg_number, category, description)
-	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
-end
+local define3PosTumb = BIOS.util.define3PosTumb
 
 --Remove Pilot Arg# 165
 

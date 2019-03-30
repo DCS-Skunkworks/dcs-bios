@@ -13,13 +13,9 @@ local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
+local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
-
-local function define3PosTumb(msg, device_id, command, arg_number, category, description)
-	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
-end
 
 -- Draw pilot = 540
 
@@ -178,12 +174,12 @@ definePushButton("NR23_RELOAD_BOTTOM", 3, 3007, 91, "Weapon System", "NR-23 (Bot
 defineToggleSwitch("TACTIC_RELEASE", 3, 3008, 96, "Weapon System", "Tactical Release Switch")
 definePushButton("EMERG_RELEASE", 3, 3004, 97, "Weapon System", "Emergency Release Button")
 defineToggleSwitch("EMERG_RELEASE_COVER", 3, 3009, 104, "Weapon System", "Emergency Release Button Cover")
-defineIndicatorLight("N37_READY_L", 95, "Weapon System", "N37D Ready Indicator Light")
-defineIndicatorLight("NR23_TOP_READY_L", 93, "Weapon System", "NR23 TOP Ready Indicator Light")
-defineIndicatorLight("NR23_BOTTOM_READY_L", 94, "Weapon System", "NR23 BOTTOM Ready Indicator Light")
-defineIndicatorLight("TACTIC_RELEASE_L", 100, "Weapon System", "Tactical Release Indicator Light")
-defineIndicatorLight("L_BOMB_L", 98, "Weapon System", "Left BOMB Indicator Light")
-defineIndicatorLight("R_BOMB_L", 99, "Weapon System", "Right BOMB Indicator Light")
+defineIndicatorLight("N37_READY_L", 95, "Weapon System", "N37D Ready Indicator Light (red)")
+defineIndicatorLight("NR23_TOP_READY_L", 93, "Weapon System", "NR23 TOP Ready Indicator Light (red)")
+defineIndicatorLight("NR23_BOTTOM_READY_L", 94, "Weapon System", "NR23 BOTTOM Ready Indicator Light (red)")
+defineIndicatorLight("TACTIC_RELEASE_L", 100, "Weapon System", "Tactical Release Indicator Light (red)")
+defineIndicatorLight("L_BOMB_L", 98, "Weapon System", "Left BOMB Indicator Light (green)")
+defineIndicatorLight("R_BOMB_L", 99, "Weapon System", "Right BOMB Indicator Light (green)")
 
 -- Stick buttons
 definePushButton("N37_FIRE", 3, 3001, 193, "Stick Buttons", "N-37D Cannon Fire Button")
@@ -217,6 +213,7 @@ defineFloat("ARC5_TUNE_METER", 176, {0.0, 1.0}, "ARC5", "ARC-5 Tuning Meter")
 defineFloat("ARC5_TUNE", 175, {0.0, 1.0}, "ARC5", "ARC-5 Tuning")
 defineFloat("ARC5_BEARING", 38, {0.0, 1.0}, "ARC5", "ARC-5 Bearing")
 defineFloat("ARC5_FREQ", 239, {0.0,	0.0695,	0.14, 0.2865, 0.43, 0.7155, 1.0}, "ARC5", "ARC-5 Freq Scale")
+defineIndicatorLight("ARC5_PW_LIGHT", 183, "ARC5", "ARC-5 Power Light (green)")	
 
 -- RSI-6K Radio
 defineRotary("RSI6K_VOL", 29, 3001, 126, "RSI6K", "RSI-6K Audio Volume Knob")
@@ -234,7 +231,7 @@ defineFloat("RSI6K_RECEIVE_IND", 127, {0.036, 0.961}, "RSI6K", "RSI-6K Receiver 
 defineFloat("RSI6K_RECEIVE_GAUGE", 144, {0.026, 0.957}, "RSI6K", "RSI-6K Receiver Gauge")
 
 
--- Instruments --------------------------
+-- Instruments
 defineFloat("VARIOMETER", 14, {0.0,	0.075, 0.151, 0.24,	0.352, 0.401, 0.448, 0.5, 0.553, 0.6, 0.649, 0.76, 0.848, 0.925, 1.0}, "Gauges", "Variometer")
 defineFloat("ALT_KM", 28, {0.0, 1.0}, "Gauges", "Altimeter km")
 defineFloat("ALT_M", 29, {0.0, 1.0}, "Gauges", "Altimeter km")
@@ -251,5 +248,25 @@ defineFloat("OIL_TEMP", 45, {0.0, 1.0}, "Gauges", "Oil Temperature")
 defineFloat("OIL_PRESS", 44, {0.0, 1.0}, "Gauges", "Oil Pressure")
 defineFloat("ENG_FUEL_PRESS", 43, {0.0, 1.0}, "Gauges", "Engine Fuel Pressure")
 defineFloat("FUEL_PRESS", 46, {0.0, 1.0}, "Gauges", "Fuel Pressure")
+
+-- Warning, Caution and IndicatorLights
+defineIndicatorLight("FIRE_TEST_LIGHT", 135, "Warning, Caution and IndicatorLights","Fire Alarm Test Light (red)")
+defineIndicatorLight("ISO_VALVE_LIGHT", 119, "Warning, Caution and IndicatorLights", "Isolating Valve Indicator Light (green)")	
+defineIndicatorLight("AIRBRAKE_LIGHT", 124, "Warning, Caution and IndicatorLights", "Airbrake Light (green)")
+defineIndicatorLight("FUEL2_EMPTY_LIGHT", 50, "Warning, Caution and IndicatorLights", "Fuel Tank 2 Empty Warning Light (green)")		
+defineIndicatorLight("FUEL_LINE_LIGHT", 51, "Warning, Caution and IndicatorLights","Fuel Line Warning Light (red)")
+defineIndicatorLight("FUEL_WING_EMPTY_LIGHT", 52, "Warning, Caution and IndicatorLights", "Fuel Tank Wing Empty Warning Light (green)")
+defineIndicatorLight("GEAR_WARN_LIGHT", 53, "Warning, Caution and IndicatorLights", "Landing Gear Warning Light (white)")
+defineIndicatorLight("BEACON_ALARM_LIGHT", 54, "Warning, Caution and IndicatorLights","Radio Beacon Alarm Light (red)")
+defineIndicatorLight("FUEL_300_LIGHT", 56, "Warning, Caution and IndicatorLights","Fuel 300L Warning Light (red)")
+defineIndicatorLight("GEN_OFF_LIGHT", 57, "Warning, Caution and IndicatorLights","Generator OFF Warning Light (red)")
+defineIndicatorLight("ING_LIGHT", 58, "Warning, Caution and IndicatorLights","Ingnition Warning Light (red)")
+defineIndicatorLight("FLAPS_LIGHT", 59, "Warning, Caution and IndicatorLights", "Flaps Warning Light (green)")
+defineIndicatorLight("L_GEAR_UP", 74, "Warning, Caution and IndicatorLights","Left Gear UP Lamp (red)")
+defineIndicatorLight("N_GEAR_UP", 76, "Warning, Caution and IndicatorLights","Nose Gear UP Lamp (red)")
+defineIndicatorLight("R_GEAR_UP", 78, "Warning, Caution and IndicatorLights","Right Gear UP Lamp (red)")
+defineIndicatorLight("L_GEAR_DOWN", 75, "Warning, Caution and IndicatorLights","Left Gear DOWN Lamp (green)")
+defineIndicatorLight("N_GEAR_DOWN", 77, "Warning, Caution and IndicatorLights","Nose Gear DOWN Lamp (green)")
+defineIndicatorLight("R_GEAR_DOWN", 79, "Warning, Caution and IndicatorLights","Right Gear DOWN Lamp (green)")
 
 BIOS.protocol.endModule()

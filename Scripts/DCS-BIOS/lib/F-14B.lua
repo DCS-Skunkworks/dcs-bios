@@ -14,13 +14,44 @@ local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
+local define3PosTumb = BIOS.util.define3PosTumb
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
-local function define3PosTumb(msg, device_id, command, arg_number, category, description)
-	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
+function defineIndicatorLightMulti1(msg, arg_number, category, description)
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 1
+	}
+	assert(value.shiftBy ~= nil)
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		if dev0:get_argument_value(arg_number) < 0.4 then
+			value:setValue(0)
+			end
+		if dev0:get_argument_value(arg_number) > 0.6 then
+			value:setValue(0)
+		else
+		    value:setValue(1)
+		end
+	end
+end
+
+function defineIndicatorLightMulti2(msg, arg_number, category, description)
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 1
+	}
+	assert(value.shiftBy ~= nil)
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		if dev0:get_argument_value(arg_number) < 0.8 then
+			value:setValue(0)
+			end
+		if dev0:get_argument_value(arg_number) > 0.99 then
+			value:setValue(0)
+		else
+		    value:setValue(1)
+		end
+	end
 end
 
 --HIDE Stick = 33
@@ -774,6 +805,7 @@ defineIndicatorLight("RIO_FLOOD_LIGHTS", 1804, "Warning, Caution and IndicatorLi
 defineIndicatorLight("RIO_PANEL_LIGHTS", 1805, "Warning, Caution and IndicatorLights","RIO Panel Lights (red) inverted")
 defineIndicatorLight("RIO_INSTRUMENT_LIGHTS", 1806, "Warning, Caution and IndicatorLights","RIO Instrument Lights (red) inverted")
 defineIndicatorLight("RIO_FLOOD_LIGHTS_W", 1807, "Warning, Caution and IndicatorLights","RIO White Flood Lights (white)")
+defineIndicatorLight("RIO_ACLS_TEST_LIGHT", 2016, "Warning, Caution and IndicatorLights","RIO ACLS Test Light (green)")
 defineIndicatorLight("RIO_CAD_OXYLOW", 2199, "Warning, Caution and IndicatorLights","RIO CAD OXY LOW Light (green)")
 defineIndicatorLight("RIO_MASTERCAUTION_LIGHT", 2200, "Warning, Caution and IndicatorLights","RIO MASTER CAUTION Light (red)")
 defineIndicatorLight("RIO_IFF_LIGHT", 2201, "Warning, Caution and IndicatorLights","RIO IFF Light (green)")	
@@ -840,6 +872,112 @@ defineIndicatorLight("RIO_IFF_TEST_LIGHT", 8052, "Warning, Caution and Indicator
 defineIndicatorLight("RIO_IFF_REPLY_LIGHT", 8053, "Warning, Caution and IndicatorLights","RIO IFF Reply Light (green)")
 defineIndicatorLight("RIO_TACAN_GO", 8893, "Warning, Caution and IndicatorLights","RIO TACAN GO Light (green)")
 defineIndicatorLight("RIO_TACAN_NOGO", 8892, "Warning, Caution and IndicatorLights","RIO TACAN NOGO Light (red)")
+defineIndicatorLight("RIO_DDD_LIGHTS_ANTTRK", 11503, "Warning, Caution and IndicatorLights","RIO DDD ANT TRK Light (green)")
+defineIndicatorLight("RIO_DDD_LIGHTS_RDROT", 11504, "Warning, Caution and IndicatorLights","RIO DDD RDROT Light (green)")
+defineIndicatorLight("RIO_DDD_LIGHTS_JAT", 11505, "Warning, Caution and IndicatorLights","RIO DDD JAT Light (green)")
+defineIndicatorLight("RIO_DDD_LIGHTS_IROT", 11506, "Warning, Caution and IndicatorLights","RIO DDD IROT Light (green)")
+defineIndicatorLightMulti1("RIO_TID_STBY_LIGHT_1", 490, "Warning, Caution and IndicatorLights","RIO TDI Standby Light (green)")
+defineIndicatorLightMulti2("RIO_TID_STBY_LIGHT_2", 490, "Warning, Caution and IndicatorLights","RIO TDI Standby Light (blue)")
+defineIndicatorLightMulti1("RIO_TID_READY_LIGHT_1", 491, "Warning, Caution and IndicatorLights","RIO TDI Ready Light (green)")
+defineIndicatorLightMulti2("RIO_TID_READY_LIGHT_2", 491, "Warning, Caution and IndicatorLights","RIO TDI Ready Light (blue)")
+defineIndicatorLightMulti1("RIO_LAUNCH_LIGHT_1", 492, "Warning, Caution and IndicatorLights","RIO Launch Light (red)")
+defineIndicatorLightMulti2("RIO_LAUNCH_LIGHT_2", 492, "Warning, Caution and IndicatorLights","RIO Launch Light (green)")
+defineIndicatorLightMulti1("RIO_DECM_LIGHT", 493, "Warning, Caution and IndicatorLights","RIO DECM Standby Light (yellow)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_CLEAR_1", 5550, "Warning, Caution and IndicatorLights","RIO CAP CLEAR Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_CLEAR_2", 5550, "Warning, Caution and IndicatorLights","RIO CAP CLEAR Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_SW_1", 5551, "Warning, Caution and IndicatorLights","RIO CAP SW Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_SW_2", 5551, "Warning, Caution and IndicatorLights","RIO CAP SW Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_NE_1", 5552, "Warning, Caution and IndicatorLights","RIO CAP NE Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_NE_2", 5552, "Warning, Caution and IndicatorLights","RIO CAP NE Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_ENTER_1", 5553, "Warning, Caution and IndicatorLights","RIO CAP ENTER Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_ENTER_2", 5553, "Warning, Caution and IndicatorLights","RIO CAP ENTER Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_1_1", 5554, "Warning, Caution and IndicatorLights","RIO CAP 1 Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_1_2", 5554, "Warning, Caution and IndicatorLights","RIO CAP 1 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_2_1", 5555, "Warning, Caution and IndicatorLights","RIO CAP 2 Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_2_2", 5555, "Warning, Caution and IndicatorLights","RIO CAP 2 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_3_1", 5556, "Warning, Caution and IndicatorLights","RIO CAP 3 Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_3_2", 5556, "Warning, Caution and IndicatorLights","RIO CAP 3 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_4_1", 5557, "Warning, Caution and IndicatorLights","RIO CAP 4 Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_4_2", 5557, "Warning, Caution and IndicatorLights","RIO CAP 4 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_5_1", 5558, "Warning, Caution and IndicatorLights","RIO CAP 5 Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_5_2", 5558, "Warning, Caution and IndicatorLights","RIO CAP 5 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_6_1", 5559, "Warning, Caution and IndicatorLights","RIO CAP 6 Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_6_2", 5559, "Warning, Caution and IndicatorLights","RIO CAP 6 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_7_1", 5560, "Warning, Caution and IndicatorLights","RIO CAP 7 Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_7_2", 5560, "Warning, Caution and IndicatorLights","RIO CAP 7 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_8_1", 5561, "Warning, Caution and IndicatorLights","RIO CAP 8 Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_8_2", 5561, "Warning, Caution and IndicatorLights","RIO CAP 8 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_9_1", 5562, "Warning, Caution and IndicatorLights","RIO CAP 9 Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_9_2", 5562, "Warning, Caution and IndicatorLights","RIO CAP 9 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_0_1", 5563, "Warning, Caution and IndicatorLights","RIO CAP 0 Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_0_2", 5563, "Warning, Caution and IndicatorLights","RIO CAP 0 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_BTN6", 5564, "Warning, Caution and IndicatorLights","RIO CAP BTN 6 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_BTN7", 5565, "Warning, Caution and IndicatorLights","RIO CAP BTN 7 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_BTN8", 5566, "Warning, Caution and IndicatorLights","RIO CAP BTN 8 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_BTN9", 5567, "Warning, Caution and IndicatorLights","RIO CAP BTN 9 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_BTN1", 5568, "Warning, Caution and IndicatorLights","RIO CAP BTN 1 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_BTN2", 5569, "Warning, Caution and IndicatorLights","RIO CAP BTN 2 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_BTN3", 5570, "Warning, Caution and IndicatorLights","RIO CAP BTN 3 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_BTN4", 5571, "Warning, Caution and IndicatorLights","RIO CAP BTN 4 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_BTN5", 5572, "Warning, Caution and IndicatorLights","RIO CAP BTN 5 Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_TNG_NBR_1", 5573, "Warning, Caution and IndicatorLights","RIO CAP TNG NBR Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_TNG_NBR_2", 5573, "Warning, Caution and IndicatorLights","RIO CAP TNG NBR Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_PGM_RESTART_1", 5574, "Warning, Caution and IndicatorLights","RIO CAP PGM Restart Light (red)")
+defineIndicatorLightMulti2("RIO_CAP_LIGHT_PGM_RESTART_2", 5574, "Warning, Caution and IndicatorLights","RIO CAP PGM Restart Light (green)")
+defineIndicatorLightMulti1("RIO_CAP_LIGHT_BTN10", 5590, "Warning, Caution and IndicatorLights","RIO CAP BTN 10 Light (green)")
+defineIndicatotLightMulti1("RIO_DDD_LIGHT_RDR_1", 6111, "Warning, Caution and IndicatorLights","RIO DDD RDR Light (red)")
+defineIndicatotLightMulti2("RIO_DDD_LIGHT_RDR_2", 6111, "Warning, Caution and IndicatorLights","RIO DDD RDR Light (green)")
+defineIndicatotLightMulti1("RIO_DDD_LIGHT_IR_1", 6112, "Warning, Caution and IndicatorLights","RIO DDD IR Light (red)")
+defineIndicatotLightMulti2("RIO_DDD_LIGHT_IR_2", 6112, "Warning, Caution and IndicatorLights","RIO DDD IR Light (green)")
+defineIndicatotLightMulti1("RIO_DDD_LIGHT_IFF_1", 6113, "Warning, Caution and IndicatorLights","RIO DDD IFF Light (red)")
+defineIndicatotLightMulti2("RIO_DDD_LIGHT_IFF_2", 6113, "Warning, Caution and IndicatorLights","RIO DDD IFF Light (green)")
+defineIndicatotLightMulti1("RIO_DDD_LIGHT_PDSTT_1", 6114, "Warning, Caution and IndicatorLights","RIO DDD PDSTT Light (red)")
+defineIndicatotLightMulti2("RIO_DDD_LIGHT_PDSTT_2", 6114, "Warning, Caution and IndicatorLights","RIO DDD PDSTT Light (green)")
+defineIndicatotLightMulti1("RIO_DDD_LIGHT_PSTT_1", 6115, "Warning, Caution and IndicatorLights","RIO DDD PULSE STT Light (red)")
+defineIndicatotLightMulti2("RIO_DDD_LIGHT_PSTT_2", 6115, "Warning, Caution and IndicatorLights","RIO DDD PULSE STT Light (green)")
+defineIndicatotLightMulti1("RIO_DDD_LIGHT_PDSEARCH_1", 6116, "Warning, Caution and IndicatorLights","RIO DDD PDSEARCH Light (red)")
+defineIndicatotLightMulti2("RIO_DDD_LIGHT_PDSEARCH_2", 6116, "Warning, Caution and IndicatorLights","RIO DDD PDSEARCH Light (green)")
+defineIndicatotLightMulti1("RIO_DDD_LIGHT_RWS_1", 6117, "Warning, Caution and IndicatorLights","RIO DDD RWS Light (red)")
+defineIndicatotLightMulti2("RIO_DDD_LIGHT_RWS_2", 6117, "Warning, Caution and IndicatorLights","RIO DDD RWS Light (green)")
+defineIndicatotLightMulti1("RIO_DDD_LIGHT_TWS_AUTO_1", 6118, "Warning, Caution and IndicatorLights","RIO DDD TWS AUTO Light (red)")
+defineIndicatotLightMulti2("RIO_DDD_LIGHT_TWS_AUTO_2", 6118, "Warning, Caution and IndicatorLights","RIO DDD TWS AUTO Light (green)")
+defineIndicatotLightMulti1("RIO_DDD_LIGHT_TWS_MAN_1", 6119, "Warning, Caution and IndicatorLights","RIO DDD TWS MAN Light (red)")
+defineIndicatotLightMulti2("RIO_DDD_LIGHT_TWS_MAN_2", 6119, "Warning, Caution and IndicatorLights","RIO DDD TWS MAN Light (green)")
+defineIndicatotLightMulti1("RIO_DDD_LIGHT_PSEARCH_1", 6120, "Warning, Caution and IndicatorLights","RIO DDD PSEARCH Light (red)")
+defineIndicatotLightMulti2("RIO_DDD_LIGHT_PSEARCH_2", 6120, "Warning, Caution and IndicatorLights","RIO DDD PSEARCH Light (green)")
+defineIndicatotLightMulti1("RIO_CCM_LIGHT_SPL_1", 6121, "Warning, Caution and IndicatorLights","RIO CCM SPL Light (red)")
+defineIndicatotLightMulti2("RIO_CCM_LIGHT_SPL_2", 6121, "Warning, Caution and IndicatorLights","RIO CCM SPL Light (green)")
+defineIndicatotLightMulti1("RIO_CCM_LIGHT_ALTOFF_1", 6122, "Warning, Caution and IndicatorLights","RIO CCM ALT OFF Light (red)")
+defineIndicatotLightMulti2("RIO_CCM_LIGHT_ALTOFF_2", 6122, "Warning, Caution and IndicatorLights","RIO CCM ALT OFF Light (green)")
+defineIndicatotLightMulti1("RIO_CCM_LIGHT_VGS_1", 6123, "Warning, Caution and IndicatorLights","RIO CCM VGS Light (red)")
+defineIndicatotLightMulti2("RIO_CCM_LIGHT_VGS_2", 6123, "Warning, Caution and IndicatorLights","RIO CCM VGS Light (green)")
+defineIndicatotLightMulti1("RIO_TID_TRACKHOLD_LIGHT", 6125, "Warning, Caution and IndicatorLights","RIO TID TRACKHOLD Light (red)")
+defineIndicatotLightMulti1("RIO_TID_CLSN_LIGHT_1", 6126, "Warning, Caution and IndicatorLights","RIO TID CLSN Light (red)")
+defineIndicatotLightMulti2("RIO_TID_CLSN_LIGHT_2", 6126, "Warning, Caution and IndicatorLights","RIO TID CLSN Light (green)")
+defineIndicatotLightMulti1("RIO_TID_LIGHT_RIDDSBL_1", 6127, "Warning, Caution and IndicatorLights","RIO TID RID DSBL Light (red)")
+defineIndicatotLightMulti2("RIO_TID_LIGHT_RIDDSBL_2", 6127, "Warning, Caution and IndicatorLights","RIO TID RID DSBL Light (green)")
+defineIndicatotLightMulti1("RIO_TID_LIGHT_ALTNUM_1", 6128, "Warning, Caution and IndicatorLights","RIO TID ALT NUM Light (red)")
+defineIndicatotLightMulti2("RIO_TID_LIGHT_ALTNUM_2", 6128, "Warning, Caution and IndicatorLights","RIO TID ALT NUM Light (green)")
+defineIndicatotLightMulti1("RIO_TID_LIGHT_SYMELEM_1", 6129, "Warning, Caution and IndicatorLights","RIO TID SYM ELEM Light (red)")
+defineIndicatotLightMulti2("RIO_TID_LIGHT_SYMELEM_2", 6129, "Warning, Caution and IndicatorLights","RIO TID SYM ELEM Light (green)")
+defineIndicatotLightMulti1("RIO_TID_LIGHT_DATALINK_1", 6130, "Warning, Caution and IndicatorLights","RIO TID DATALINK Light (red)")
+defineIndicatotLightMulti2("RIO_TID_LIGHT_DATALINK_2", 6130, "Warning, Caution and IndicatorLights","RIO TID DATALINK Light (green)")
+defineIndicatotLightMulti1("RIO_TID_LIGHT_JAM_1", 6131, "Warning, Caution and IndicatorLights","RIO TID JAM STROBE Light (red)")
+defineIndicatotLightMulti2("RIO_TID_LIGHT_JAM_2", 6131, "Warning, Caution and IndicatorLights","RIO TID JAM STROBE Light (green)")
+defineIndicatotLightMulti1("RIO_TID_LIGHT_NONATTK_1", 6132, "Warning, Caution and IndicatorLights","RIO TID NON ATTK Light (red)")
+defineIndicatotLightMulti2("RIO_TID_LIGHT_NONATTK_2", 6132, "Warning, Caution and IndicatorLights","RIO TID NON ATTK Light (green)")
+defineIndicatotLightMulti1("RIO_TID_LIGHT_LZ_1", 6133, "Warning, Caution and IndicatorLights","RIO TID LAUNCH ZONE Light (red)")
+defineIndicatotLightMulti2("RIO_TID_LIGHT_LZ_2", 6133, "Warning, Caution and IndicatorLights","RIO TID LAUNCH ZONE Light (green)")
+defineIndicatotLightMulti1("RIO_TID_LIGHT_VELVEC_1", 6134, "Warning, Caution and IndicatorLights","RIO TID VEL VECTOR Light (red)")
+defineIndicatotLightMulti2("RIO_TID_LIGHT_VELVEC_2", 6134, "Warning, Caution and IndicatorLights","RIO TID VEL VECTOR Light (green)")
+defineIndicatotLightMulti1("RIO_HCU_LIGHT_TVIR_1", 6135, "Warning, Caution and IndicatorLights","RIO HCU IR/TV Light (red)")
+defineIndicatotLightMulti2("RIO_HCU_LIGHT_TVIR_2", 6135, "Warning, Caution and IndicatorLights","RIO HCU IR/TV Light (green)")
+defineIndicatotLightMulti1("RIO_HCU_LIGHT_RDR_1", 6136, "Warning, Caution and IndicatorLights","RIO HCU RDR Light (red)")
+defineIndicatotLightMulti2("RIO_HCU_LIGHT_RDR_2", 6136, "Warning, Caution and IndicatorLights","RIO HCU RDR Light (green)")
+defineIndicatotLightMulti1("RIO_HCU_LIGHT_DDD_1", 6137, "Warning, Caution and IndicatorLights","RIO HCU DDD CURSOR Light (red)")
+defineIndicatotLightMulti2("RIO_HCU_LIGHT_DDD_2", 6137, "Warning, Caution and IndicatorLights","RIO HCU DDD CURSOR Light (green)")
+defineIndicatotLightMulti1("RIO_HCU_LIGHT_TID_1", 6138, "Warning, Caution and IndicatorLights","RIO HCU TID CURSOR  Light (red)")
+defineIndicatotLightMulti2("RIO_HCU_LIGHT_TID_2", 6138, "Warning, Caution and IndicatorLights","RIO HCU TID CURSOR  Light (green)")	
 
 -- Gauges PLT
 defineFloat("PLT_RADARALTI_NEEDLE", 103, {0, 1}, "Gauges", "PILOT Radar Altimeter Needle")

@@ -16,10 +16,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
-
-local function define3PosTumb(msg, device_id, command, arg_number, category, description)
-	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
-end
+local define3PosTumb = BIOS.util.define3PosTumb
 
 -------------------------------------------------------------------
 -- MAIN INSTRUMENT PANEL:
