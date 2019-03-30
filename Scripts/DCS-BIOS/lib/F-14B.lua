@@ -1,6 +1,9 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
+-- Made by WarLord (aka BlackLibrary) and ArturDCS
+-- v 1.0
+
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -20,6 +23,8 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
+-- HIDE Stick = 33
+-- Extra Functions
 local function defineIndicatorLightMulti1(msg, arg_number, category, description)
 	local value = moduleBeingDefined.memoryMap:allocateInt {
 		maxValue = 1
@@ -82,7 +87,101 @@ local function defineIndicatorLightMulti2(msg, arg_number, category, description
 	}
 end
 
---HIDE Stick = 33
+local function defineIndicatorLightLANTTop(msg, arg_number, category, description)
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 1
+	}
+	assert(value.shiftBy ~= nil)
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		if dev0:get_argument_value(arg_number) < 0.24 or dev0:get_argument_value(arg_number) > 0.49 then
+			value:setValue(0)
+		else
+		    value:setValue(1)
+		end
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "LANTRIN Led Top",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 1,
+			  description = "0 if light is off, 1 if light is on"
+			}
+		}
+	}
+end
+
+local function defineIndicatorLightLANT(msg, arg_number, category, description)
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 1
+	}
+	assert(value.shiftBy ~= nil)
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		if dev0:get_argument_value(arg_number) < 0.49 or dev0:get_argument_value(arg_number) > 0.54 then
+			value:setValue(0)
+		else
+		    value:setValue(1)
+		end
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "LANTRIN Led Booth",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 1,
+			  description = "0 if light is off, 1 if light is on"
+			}
+		}
+	}
+end
+
+local function defineIndicatorLightLANTBottom(msg, arg_number, category, description)
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 1
+	}
+	assert(value.shiftBy ~= nil)
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		if dev0:get_argument_value(arg_number) < 0.55 or dev0:get_argument_value(arg_number) > 0.99 then
+			value:setValue(0)
+		else
+		    value:setValue(1)
+		end
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "LANTRIN Led Bottom",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 1,
+			  description = "0 if light is off, 1 if light is on"
+			}
+		}
+	}
+end
+
+----------------------------------------- BIOS-Profile
+
 
 -- Hydraulics
 defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_SW", 12, 3001, 629, "Hydraulics", "PILOT Hydraulic Transfer Pump Switch")
@@ -713,6 +812,26 @@ defineToggleSwitch("RIO_LANTIRN_LASER_ARM", 38, 3516, 668, "LANTIRN", "RIO LANTI
 definePushButton("RIO_LANTIRN_TCS_SEL", 38, 3498, 670, "LANTIRN", "RIO Video Output Toggle (TCS/LANTIRN)")
 definePushButton("RIO_LANTIRN_TCS_SEL", 38, 3691, 669, "LANTIRN", "RIO LANTIRN Operate Mode (Unstow)")
 definePushButton("RIO_LANTIRN_IBIT", 38, 3677, 671, "LANTIRN", "RIO LANTIRN IBIT")
+defineIndicatorLightLANTTop("RIO_LANTIRN_1_OPER", 673, "LANTIRN","RIO LANTIRN STBY Light (TOP) (green)")
+defineIndicatorLightLANT("RIO_LANTIRN_2_OPERSTBY", 673, "LANTIRN","RIO LANTIRN OPER STBY Light (BOOTH) (green)")
+defineIndicatorLightLANTBottom("RIO_LANTIRN_3_STBY", 673, "LANTIRN","RIO LANTIRN STBY Light (BOTTOM) (green)")
+defineIndicatorLightLANTTop("RIO_LANTIRN_1_IMU", 674, "LANTIRN","RIO LANTIRN IMU Light (TOP) (green)")
+defineIndicatorLightLANT("RIO_LANTIRN_2_IMUGPS", 674, "LANTIRN","RIO LANTIRN IMU GPS Light (BOOTH) (green)")
+defineIndicatorLightLANTBottom("RIO_LANTIRN_3_GPS", 674, "LANTIRN","RIO LANTIRN GPS Light (BOTTOM) (green)")
+defineIndicatorLightLANTTop("RIO_LANTIRN_1_LGP", 675, "LANTIRN","RIO LANTIRN LGP Light (TOP) (green)")
+defineIndicatorLightLANT("RIO_LANTIRN_2_LGPFLIR", 675, "LANTIRN","RIO LANTIRN LGP FLIR Light (BOOTH) (green)")
+defineIndicatorLightLANTBottom("RIO_LANTIRN_3_FLIR", 675, "LANTIRN","RIO LANTIRN FLIR Light (BOTTOM) (green)")
+defineIndicatorLightLANTTop("RIO_LANTIRN_1_MUX", 676, "LANTIRN","RIO LANTIRN MUX Light (TOP) (green)")
+defineIndicatorLightLANT("RIO_LANTIRN_2_MUXEGU", 676, "LANTIRN","RIO LANTIRN MUX EGU Light (BOOTH) (green)")
+defineIndicatorLightLANTBottom("RIO_LANTIRN_3_EGU", 676, "LANTIRN","RIO LANTIRN EGU Light (BOTTOM) (green)")
+defineIndicatorLightLANTTop("RIO_LANTIRN_1_LASER", 677, "LANTIRN","RIO LANTIRN SERVO Light (TOP) (green)")
+defineIndicatorLightLANT("RIO_LANTIRN_2_LASERSERVO", 677, "LANTIRN","RIO LANTIRN LASER SERVO Light (BOOTH) (green)")
+defineIndicatorLightLANTBottom("RIO_LANTIRN_3_SERVO", 677, "LANTIRN","RIO LANTIRN SERVO Light (BOTTOM) (green)")
+defineIndicatorLightLANTTop("RIO_LANTIRN_1_FLIR", 678, "LANTIRN","RIO LANTIRN FLIR Light (TOP) (green)")
+defineIndicatorLightLANT("RIO_LANTIRN_2_FLIRTCS", 678, "LANTIRN","RIO LANTIRN FLIR TCS Light (BOOTH) (green)")
+defineIndicatorLightLANTBottom("RIO_LANTIRN_3_TCS", 678, "LANTIRN","RIO LANTIRN TCS Light (BOTTOM) (green)")
+defineIndicatorLightMulti1("RIO_LANTIRN_IBIT", 679, "LANTIRN","RIO LANTIRN IBIT Light (green)")
+defineIndicatorLightMulti1("RIO_LANTIRN_LASERARMED", 680, "LANTIRN","RIO LANTIRN LASER ARMED Light (green)")	
 
 -- Warning, Caution and IndicatorLights PLT
 defineIndicatorLight("PLT_TACAN_COMAND_PLT", 290, "Warning, Caution and IndicatorLights","PILOT TACAN Command Light PLT (green)")
@@ -1005,7 +1124,7 @@ defineIndicatorLightMulti2("RIO_HCU_LIGHT_RDR_2", 6136, "Warning, Caution and In
 defineIndicatorLightMulti1("RIO_HCU_LIGHT_DDD_1", 6137, "Warning, Caution and IndicatorLights","RIO HCU DDD CURSOR Light (red)")
 defineIndicatorLightMulti2("RIO_HCU_LIGHT_DDD_2", 6137, "Warning, Caution and IndicatorLights","RIO HCU DDD CURSOR Light (green)")
 defineIndicatorLightMulti1("RIO_HCU_LIGHT_TID_1", 6138, "Warning, Caution and IndicatorLights","RIO HCU TID CURSOR  Light (red)")
-defineIndicatorLightMulti2("RIO_HCU_LIGHT_TID_2", 6138, "Warning, Caution and IndicatorLights","RIO HCU TID CURSOR  Light (green)")	
+defineIndicatorLightMulti2("RIO_HCU_LIGHT_TID_2", 6138, "Warning, Caution and IndicatorLights","RIO HCU TID CURSOR  Light (green)")
 
 -- Gauges PLT
 defineFloat("PLT_RADARALTI_NEEDLE", 103, {0, 1}, "Gauges", "PILOT Radar Altimeter Needle")

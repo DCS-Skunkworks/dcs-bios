@@ -19,6 +19,7 @@ local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
 local defineTumb = BIOS.util.defineTumb
+local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineToggleSwitchToggleOnly = BIOS.util.defineToggleSwitchToggleOnly
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
@@ -69,11 +70,6 @@ function parse_indication(indicator_id)  -- Thanks to [FSF]Ian code
 		ret[name] = value
 	end
 	return ret
-end
-
-
-local function define3PosTumb(msg, device_id, command, arg_number, category, description)
-	defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
 end
 
 function defineEmergencyParkingBrake(msg, device_id, emergency_command, park_command, arg_number, category, description)
@@ -448,10 +444,10 @@ defineIndicatorLight("RH_ADV_SPARE_RH5", 37, "RH Advisory Panel", "SPARE RH5")
 defineIndicatorLight("FIRE_APU_LT", 29, "APU Fire Warning / Extinguisher Light", "FIRE APU")
 definePushButton("APU_FIRE_BTN", 12, 3009, 30, "APU Fire Warning / Extinguisher Light", "APU Fire Warning/Extinguisher Light")
 
--- 10. Right Engine Fire Warning,Extinguisher Light
-defineIndicatorLight("FIRE_RIGHT_LT", 26, "Right Engine Fire Warning,Extinguisher Light", "FIRE RIGHT")
-definePushButton("RIGHT_FIRE_BTN", 12, 3011, 27, "Right Engine Fire Warning,Extinguisher Light", "Right Engine/AMAD Fire Warning/Extinguisher Light")
-defineToggleSwitch("RIGHT_FIRE_BTN_COVER", 12, 3013, 28, "Right Engine Fire Warning,Extinguisher Light", "Right Engine/AMAD Fire Warning Cover")
+-- 10. Right Engine Fire Warning / Extinguisher Light
+defineIndicatorLight("FIRE_RIGHT_LT", 26, " Right Engine Fire Warning / Extinguisher Light", "FIRE RIGHT")
+definePushButton("RIGHT_FIRE_BTN", 12, 3011, 27, " Right Engine Fire Warning / Extinguisher Light", "Right Engine/AMAD Fire Warning/Extinguisher Light")
+defineToggleSwitch("RIGHT_FIRE_BTN_COVER", 12, 3013, 28, " Right Engine Fire Warning / Extinguisher Light", "Right Engine/AMAD Fire Warning Cover")
 
 -- 11. Canopy Internal Jettison Handle
 defineToggleSwitch("CANOPY_JETT_HANDLE_UNLOCK", 7, 3004, 43, "Canopy Internal Jettison Handle", "Canopy Jettison Handle Unlock Button - Press to unlock")
