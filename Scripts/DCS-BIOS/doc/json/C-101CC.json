@@ -1,0 +1,647 @@
+{
+                 "ADI": {
+                            "BACK_ATTITUDE_TEST": {
+                                                              "api_variant": "momentary_last_position",
+                                                                 "category": "ADI",
+                                                             "control_type": "selector",
+                                                              "description": "BACK ATTITUDE TEST",
+                                                               "identifier": "BACK_ATTITUDE_TEST",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 13826,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 256,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 8,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "push_button"
+                                                  }
+                        },
+       "CAWS Lighting": {
+                             "BACK_CAWS_BRIGHT_DIM": {
+                                                                    "category": "CAWS Lighting",
+                                                                "control_type": "selector",
+                                                                 "description": "BACK CAWS Panel Bright/Dim",
+                                                                  "identifier": "BACK_CAWS_BRIGHT_DIM",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 13826,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 32,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 5,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "toggle_switch"
+                                                     },
+                                   "BACK_LAMP_TEST": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "CAWS Lighting",
+                                                                "control_type": "selector",
+                                                                 "description": "BACK Lamp Test",
+                                                                  "identifier": "BACK_LAMP_TEST",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 13826,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 64,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 6,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                            "FRONT_CAWS_BRIGHT_DIM": {
+                                                                    "category": "CAWS Lighting",
+                                                                "control_type": "selector",
+                                                                 "description": "FRONT CAWS Panel Bright/Dim",
+                                                                  "identifier": "FRONT_CAWS_BRIGHT_DIM",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 13826,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 8,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 3,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "toggle_switch"
+                                                     },
+                                  "FRONT_LAMP_TEST": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "CAWS Lighting",
+                                                                "control_type": "selector",
+                                                                 "description": "FRONT Lamp Test",
+                                                                  "identifier": "FRONT_LAMP_TEST",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 13826,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 16,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 4,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     }
+                        },
+    "Electrical Panel": {
+                                  "BACK_ESS_BUS_BTN": {
+                                                                  "api_variant": "momentary_last_position",
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "BACK ESS BUS Transfer",
+                                                                   "identifier": "BACK_ESS_BUS_BTN",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13826,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 4,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 2,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "push_button"
+                                                      },
+                                "BACK_ESS_BUS_COVER": {
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "BACK ESS BUS Cover",
+                                                                   "identifier": "BACK_ESS_BUS_COVER",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13826,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 2,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 1,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      },
+                               "BACK_L_BATT_ISO_BTN": {
+                                                                  "api_variant": "momentary_last_position",
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "BACK Left Battery Isolation Button",
+                                                                   "identifier": "BACK_L_BATT_ISO_BTN",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 16384,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 14,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "push_button"
+                                                      },
+                             "BACK_L_BATT_ISO_COVER": {
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "BACK Left Battery Isolation Cover",
+                                                                   "identifier": "BACK_L_BATT_ISO_COVER",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 8192,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 13,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      },
+                               "BACK_R_BATT_ISO_BTN": {
+                                                                  "api_variant": "momentary_last_position",
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "BACK Right Battery Isolation Button",
+                                                                   "identifier": "BACK_R_BATT_ISO_BTN",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13826,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 1,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "push_button"
+                                                      },
+                             "BACK_R_BATT_ISO_COVER": {
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "BACK Right Battery Isolation Cover",
+                                                                   "identifier": "BACK_R_BATT_ISO_COVER",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 32768,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 15,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      },
+                                 "FRONT_AC_INVERTER": {
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "FRONT AC Inverter Norm/Alt",
+                                                                   "identifier": "FRONT_AC_INVERTER",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 256,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 8,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      },
+                              "FRONT_BATT_MASTER_SW": {
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "FRONT Battery Master Switch",
+                                                                   "identifier": "FRONT_BATT_MASTER_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 1,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      },
+                                  "FRONT_DC_BUS_TIE": {
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "FRONT DC Bus Tie",
+                                                                   "identifier": "FRONT_DC_BUS_TIE",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 32,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 5,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      },
+                                 "FRONT_ESS_BUS_BTN": {
+                                                                  "api_variant": "momentary_last_position",
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "FRONT ESS BUS Transfer",
+                                                                   "identifier": "FRONT_ESS_BUS_BTN",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 128,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 7,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "push_button"
+                                                      },
+                               "FRONT_ESS_BUS_COVER": {
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "FRONT ESS BUS Cover",
+                                                                   "identifier": "FRONT_ESS_BUS_COVER",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 64,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 6,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      },
+                                      "FRONT_GEN_SW": {
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "FRONT Generator ON/OFF/RESET",
+                                                                   "identifier": "FRONT_GEN_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 2
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 1536,
+                                                                                       "max_value": 2,
+                                                                                        "shift_by": 9,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "3 Position Switch"
+                                                      },
+                                 "FRONT_GEN_TEST_SW": {
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "FRONT Generator GROUND FAULT/OVERVOLTAGE Test",
+                                                                   "identifier": "FRONT_GEN_TEST_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 2
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 6144,
+                                                                                       "max_value": 2,
+                                                                                        "shift_by": 11,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "3 Position Switch"
+                                                      },
+                              "FRONT_L_BATT_ISO_BTN": {
+                                                                  "api_variant": "momentary_last_position",
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "FRONT Left Battery Isolation Button",
+                                                                   "identifier": "FRONT_L_BATT_ISO_BTN",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 4,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 2,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "push_button"
+                                                      },
+                            "FRONT_L_BATT_ISO_COVER": {
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "FRONT Left Battery Isolation Cover",
+                                                                   "identifier": "FRONT_L_BATT_ISO_COVER",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 2,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 1,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      },
+                              "FRONT_R_BATT_ISO_BTN": {
+                                                                  "api_variant": "momentary_last_position",
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "FRONT Right Battery Isolation Button",
+                                                                   "identifier": "FRONT_R_BATT_ISO_BTN",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 16,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 4,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "push_button"
+                                                      },
+                            "FRONT_R_BATT_ISO_COVER": {
+                                                                     "category": "Electrical Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "FRONT Right Battery Isolation Cover",
+                                                                   "identifier": "FRONT_R_BATT_ISO_COVER",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13824,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 8,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 3,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      }
+                        }
+}
