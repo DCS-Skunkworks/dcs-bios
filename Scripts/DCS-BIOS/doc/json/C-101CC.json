@@ -1,35 +1,403 @@
 {
                  "ADI": {
-                            "BACK_ATTITUDE_TEST": {
-                                                              "api_variant": "momentary_last_position",
-                                                                 "category": "ADI",
-                                                             "control_type": "selector",
-                                                              "description": "BACK ATTITUDE TEST",
-                                                               "identifier": "BACK_ATTITUDE_TEST",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             }, {
-                                                                                 "description": "set position",
-                                                                                   "interface": "set_state",
-                                                                                   "max_value": 1
-                                                                             }, {
-                                                                                    "argument": "TOGGLE",
-                                                                                 "description": "Toggle switch state",
-                                                                                   "interface": "action"
-                                                                             } ],
-                                                      "momentary_positions": "none",
-                                                                  "outputs": [ {
-                                                                                     "address": 13826,
-                                                                                 "description": "selector position",
-                                                                                        "mask": 256,
-                                                                                   "max_value": 1,
-                                                                                    "shift_by": 8,
-                                                                                      "suffix": "",
-                                                                                        "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
-                                                  }
+                              "BACK_BAK_ADI_CAGE_BNT": {
+                                                                   "api_variant": "momentary_last_position",
+                                                                      "category": "ADI",
+                                                                  "control_type": "selector",
+                                                                   "description": "BACK Cage Standby Attitude Indicator Button",
+                                                                    "identifier": "BACK_BAK_ADI_CAGE_BNT",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                           "momentary_positions": "none",
+                                                                       "outputs": [ {
+                                                                                          "address": 13826,
+                                                                                      "description": "selector position",
+                                                                                             "mask": 1024,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 10,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ],
+                                                              "physical_variant": "push_button"
+                                                       },
+                             "BACK_BAK_ADI_CAGE_KNOB": {
+                                                            "api_variant": "multiturn",
+                                                               "category": "ADI",
+                                                           "control_type": "analog_dial",
+                                                            "description": "BACK Cage Standby Attitude Indicator Knob",
+                                                             "identifier": "BACK_BAK_ADI_CAGE_KNOB",
+                                                                 "inputs": [ {
+                                                                                  "description": "turn the dial left or right",
+                                                                                    "interface": "variable_step",
+                                                                                    "max_value": 65535,
+                                                                               "suggested_step": 3200
+                                                                           } ],
+                                                                "outputs": [ {
+                                                                                   "address": 13830,
+                                                                               "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "_KNOB_POS",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                  "BACK_PRI_ADI_TEST": {
+                                                                   "api_variant": "momentary_last_position",
+                                                                      "category": "ADI",
+                                                                  "control_type": "selector",
+                                                                   "description": "BACK Primary ADI Test",
+                                                                    "identifier": "BACK_PRI_ADI_TEST",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                           "momentary_positions": "none",
+                                                                       "outputs": [ {
+                                                                                          "address": 13826,
+                                                                                      "description": "selector position",
+                                                                                             "mask": 256,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 8,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ],
+                                                              "physical_variant": "push_button"
+                                                       },
+                             "FRONT_BAK_ADI_CAGE_BNT": {
+                                                                   "api_variant": "momentary_last_position",
+                                                                      "category": "ADI",
+                                                                  "control_type": "selector",
+                                                                   "description": "FRONT Cage Standby Attitude Indicator Button",
+                                                                    "identifier": "FRONT_BAK_ADI_CAGE_BNT",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                           "momentary_positions": "none",
+                                                                       "outputs": [ {
+                                                                                          "address": 13826,
+                                                                                      "description": "selector position",
+                                                                                             "mask": 512,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 9,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ],
+                                                              "physical_variant": "push_button"
+                                                       },
+                            "FRONT_BAK_ADI_CAGE_KNOB": {
+                                                            "api_variant": "multiturn",
+                                                               "category": "ADI",
+                                                           "control_type": "analog_dial",
+                                                            "description": "FRONT Cage Standby Attitude Indicator Knob",
+                                                             "identifier": "FRONT_BAK_ADI_CAGE_KNOB",
+                                                                 "inputs": [ {
+                                                                                  "description": "turn the dial left or right",
+                                                                                    "interface": "variable_step",
+                                                                                    "max_value": 65535,
+                                                                               "suggested_step": 3200
+                                                                           } ],
+                                                                "outputs": [ {
+                                                                                   "address": 13828,
+                                                                               "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "_KNOB_POS",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                 "FRONT_PRI_ADI_TEST": {
+                                                                   "api_variant": "momentary_last_position",
+                                                                      "category": "ADI",
+                                                                  "control_type": "selector",
+                                                                   "description": "FRONT Primary ADI Test",
+                                                                    "identifier": "FRONT_PRI_ADI_TEST",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                           "momentary_positions": "none",
+                                                                       "outputs": [ {
+                                                                                          "address": 13826,
+                                                                                      "description": "selector position",
+                                                                                             "mask": 128,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 7,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ],
+                                                              "physical_variant": "push_button"
+                                                       }
+                        },
+           "Altimeter": {
+                             "BACK_ALTIMETER_KNOB": {
+                                                            "category": "Altimeter",
+                                                        "control_type": "limited_dial",
+                                                         "description": "BACK Altimeter Baro Adjust",
+                                                          "identifier": "BACK_ALTIMETER_KNOB",
+                                                              "inputs": [ {
+                                                                            "description": "set the position of the dial",
+                                                                              "interface": "set_state",
+                                                                              "max_value": 65535
+                                                                        }, {
+                                                                               "description": "turn the dial left or right",
+                                                                                 "interface": "variable_step",
+                                                                                 "max_value": 65535,
+                                                                            "suggested_step": 3200
+                                                                        } ],
+                                                             "outputs": [ {
+                                                                                "address": 13834,
+                                                                            "description": "position of the potentiometer",
+                                                                                   "mask": 65535,
+                                                                              "max_value": 65535,
+                                                                               "shift_by": 0,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                            "FRONT_ALTIMETER_KNOB": {
+                                                            "category": "Altimeter",
+                                                        "control_type": "limited_dial",
+                                                         "description": "FRONT Altimeter Baro Adjust",
+                                                          "identifier": "FRONT_ALTIMETER_KNOB",
+                                                              "inputs": [ {
+                                                                            "description": "set the position of the dial",
+                                                                              "interface": "set_state",
+                                                                              "max_value": 65535
+                                                                        }, {
+                                                                               "description": "turn the dial left or right",
+                                                                                 "interface": "variable_step",
+                                                                                 "max_value": 65535,
+                                                                            "suggested_step": 3200
+                                                                        } ],
+                                                             "outputs": [ {
+                                                                                "address": 13832,
+                                                                            "description": "position of the potentiometer",
+                                                                                   "mask": 65535,
+                                                                              "max_value": 65535,
+                                                                               "shift_by": 0,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    }
+                        },
+          "CAWS Alert": {
+                             "BACK_CAWS_CAUTION_RESET": {
+                                                                    "api_variant": "momentary_last_position",
+                                                                       "category": "CAWS Alert",
+                                                                   "control_type": "selector",
+                                                                    "description": "BACK Caution Alert Reset",
+                                                                     "identifier": "BACK_CAWS_CAUTION_RESET",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 13836,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 1,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "push_button"
+                                                        },
+                               "BACK_CAWS_FAULT_RESET": {
+                                                                    "api_variant": "momentary_last_position",
+                                                                       "category": "CAWS Alert",
+                                                                   "control_type": "selector",
+                                                                    "description": "BACK Fault Alert Reset",
+                                                                     "identifier": "BACK_CAWS_FAULT_RESET",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 13826,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 16384,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 14,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "push_button"
+                                                        },
+                                "BACK_CAWS_FIRE_RESET": {
+                                                                    "api_variant": "momentary_last_position",
+                                                                       "category": "CAWS Alert",
+                                                                   "control_type": "selector",
+                                                                    "description": "BACK Fire Alert Reset",
+                                                                     "identifier": "BACK_CAWS_FIRE_RESET",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 13826,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 32768,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 15,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "push_button"
+                                                        },
+                            "FRONT_CAWS_CAUTION_RESET": {
+                                                                    "api_variant": "momentary_last_position",
+                                                                       "category": "CAWS Alert",
+                                                                   "control_type": "selector",
+                                                                    "description": "FRONT Caution Alert Reset",
+                                                                     "identifier": "FRONT_CAWS_CAUTION_RESET",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 13826,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 8192,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 13,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "push_button"
+                                                        },
+                              "FRONT_CAWS_FAULT_RESET": {
+                                                                    "api_variant": "momentary_last_position",
+                                                                       "category": "CAWS Alert",
+                                                                   "control_type": "selector",
+                                                                    "description": "FRONT Fault Alert Reset",
+                                                                     "identifier": "FRONT_CAWS_FAULT_RESET",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 13826,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 2048,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 11,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "push_button"
+                                                        },
+                               "FRONT_CAWS_FIRE_RESET": {
+                                                                    "api_variant": "momentary_last_position",
+                                                                       "category": "CAWS Alert",
+                                                                   "control_type": "selector",
+                                                                    "description": "FRONT Fire Alert Reset",
+                                                                     "identifier": "FRONT_CAWS_FIRE_RESET",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 13826,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 4096,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 12,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "push_button"
+                                                        }
                         },
        "CAWS Lighting": {
                              "BACK_CAWS_BRIGHT_DIM": {
@@ -150,6 +518,176 @@
                                                                                 } ],
                                                             "physical_variant": "push_button"
                                                      }
+                        },
+        "CRS HDG Bugs": {
+                            "FRONT_CRS_KNOB": {
+                                                      "category": "CRS HDG Bugs",
+                                                  "control_type": "limited_dial",
+                                                   "description": "FRONT Course Knob",
+                                                    "identifier": "FRONT_CRS_KNOB",
+                                                        "inputs": [ {
+                                                                      "description": "set the position of the dial",
+                                                                        "interface": "set_state",
+                                                                        "max_value": 65535
+                                                                  }, {
+                                                                         "description": "turn the dial left or right",
+                                                                           "interface": "variable_step",
+                                                                           "max_value": 65535,
+                                                                      "suggested_step": 3200
+                                                                  } ],
+                                                       "outputs": [ {
+                                                                          "address": 13842,
+                                                                      "description": "position of the potentiometer",
+                                                                             "mask": 65535,
+                                                                        "max_value": 65535,
+                                                                         "shift_by": 0,
+                                                                           "suffix": "",
+                                                                             "type": "integer"
+                                                                  } ]
+                                              },
+                            "FRONT_HDG_KNOB": {
+                                                      "category": "CRS HDG Bugs",
+                                                  "control_type": "limited_dial",
+                                                   "description": "FRONT Heading Knob",
+                                                    "identifier": "FRONT_HDG_KNOB",
+                                                        "inputs": [ {
+                                                                      "description": "set the position of the dial",
+                                                                        "interface": "set_state",
+                                                                        "max_value": 65535
+                                                                  }, {
+                                                                         "description": "turn the dial left or right",
+                                                                           "interface": "variable_step",
+                                                                           "max_value": 65535,
+                                                                      "suggested_step": 3200
+                                                                  } ],
+                                                       "outputs": [ {
+                                                                          "address": 13844,
+                                                                      "description": "position of the potentiometer",
+                                                                             "mask": 65535,
+                                                                        "max_value": 65535,
+                                                                         "shift_by": 0,
+                                                                           "suffix": "",
+                                                                             "type": "integer"
+                                                                  } ]
+                                              }
+                        },
+              "Canopy": {
+                             "BACK_CANOPY_LOCK": {
+                                                                "category": "Canopy",
+                                                            "control_type": "selector",
+                                                             "description": "BACK Canopy Locking Handle",
+                                                              "identifier": "BACK_CANOPY_LOCK",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                     "momentary_positions": "none",
+                                                                 "outputs": [ {
+                                                                                    "address": 13836,
+                                                                                "description": "selector position",
+                                                                                       "mask": 16,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 4,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ],
+                                                        "physical_variant": "toggle_switch"
+                                                 },
+                             "BACK_CANOPY_SAFE": {
+                                                                "category": "Canopy",
+                                                            "control_type": "selector",
+                                                             "description": "BACK Canopy Safety Catch",
+                                                              "identifier": "BACK_CANOPY_SAFE",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                     "momentary_positions": "none",
+                                                                 "outputs": [ {
+                                                                                    "address": 13836,
+                                                                                "description": "selector position",
+                                                                                       "mask": 8,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 3,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ],
+                                                        "physical_variant": "toggle_switch"
+                                                 },
+                            "FRONT_CANOPY_LOCK": {
+                                                                "category": "Canopy",
+                                                            "control_type": "selector",
+                                                             "description": "FRONT Canopy Locking Handle",
+                                                              "identifier": "FRONT_CANOPY_LOCK",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                     "momentary_positions": "none",
+                                                                 "outputs": [ {
+                                                                                    "address": 13836,
+                                                                                "description": "selector position",
+                                                                                       "mask": 4,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 2,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ],
+                                                        "physical_variant": "toggle_switch"
+                                                 },
+                            "FRONT_CANOPY_SAFE": {
+                                                                "category": "Canopy",
+                                                            "control_type": "selector",
+                                                             "description": "FRONT Canopy Safety Catch",
+                                                              "identifier": "FRONT_CANOPY_SAFE",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                     "momentary_positions": "none",
+                                                                 "outputs": [ {
+                                                                                    "address": 13836,
+                                                                                "description": "selector position",
+                                                                                       "mask": 2,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 1,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ],
+                                                        "physical_variant": "toggle_switch"
+                                                 }
                         },
     "Electrical Panel": {
                                   "BACK_ESS_BUS_BTN": {
@@ -643,5 +1181,67 @@
                                                                                  } ],
                                                              "physical_variant": "toggle_switch"
                                                       }
+                        },
+             "G Meter": {
+                             "BACK_GMETER_RESET": {
+                                                              "api_variant": "momentary_last_position",
+                                                                 "category": "G Meter",
+                                                             "control_type": "selector",
+                                                              "description": "BACK Reset Max/Min Needles",
+                                                               "identifier": "BACK_GMETER_RESET",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 13836,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 64,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 6,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "push_button"
+                                                  },
+                            "FRONT_GMETER_RESET": {
+                                                              "api_variant": "momentary_last_position",
+                                                                 "category": "G Meter",
+                                                             "control_type": "selector",
+                                                              "description": "FRONT Reset Max/Min Needles",
+                                                               "identifier": "FRONT_GMETER_RESET",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                      "momentary_positions": "none",
+                                                                  "outputs": [ {
+                                                                                     "address": 13836,
+                                                                                 "description": "selector position",
+                                                                                        "mask": 32,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 5,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ],
+                                                         "physical_variant": "push_button"
+                                                  }
                         }
 }
