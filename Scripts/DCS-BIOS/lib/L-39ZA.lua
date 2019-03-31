@@ -160,7 +160,7 @@ defineIndicatorLight("FwdRemain150_lamp", 4, "l-39 lamps","Remain 150Kg")
 defineIndicatorLight("FwdDoNotStart_lamp", 7, "l-39 lamps","Do not start")
 defineIndicatorLight("FwdFuelFilter_lamp", 26, "l-39 lamps","Fuel Filter")
 defineIndicatorLight("FwdWingTanks_lamp", 14, "l-39 lamps","Wing Tanks Empty")
-if L-39ZA then 
+if L_39ZA then 
 defineIndicatorLight("FwdWingTanks_lamp", 13, "l-39 lamps","Wing Tanks Empty")
 end
 
