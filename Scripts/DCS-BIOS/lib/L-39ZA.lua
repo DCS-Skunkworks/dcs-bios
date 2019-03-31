@@ -19,6 +19,11 @@ local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitc
 
+
+----- 2do
+
+
+
 -----------------------------------L-39 GAUGES--------------------------------------------------
 -- Barometric altimeter VD-20
 defineFloat("VD20", 52, {0, 1}, "instruments l-39","Altimeter KM")-- Kilometers gauge on VD-20
@@ -155,7 +160,7 @@ defineIndicatorLight("FwdRemain150_lamp", 4, "l-39 lamps","Remain 150Kg")
 defineIndicatorLight("FwdDoNotStart_lamp", 7, "l-39 lamps","Do not start")
 defineIndicatorLight("FwdFuelFilter_lamp", 26, "l-39 lamps","Fuel Filter")
 defineIndicatorLight("FwdWingTanks_lamp", 14, "l-39 lamps","Wing Tanks Empty")
-if L_39ZA then 
+if L-39ZA then 
 defineIndicatorLight("FwdWingTanks_lamp", 13, "l-39 lamps","Wing Tanks Empty")
 end
 
@@ -203,6 +208,8 @@ defineIndicatorLight("FwdMasterDanger_lamp", 253, "l-39 lamps","SARTS")
 --- Radio control
 defineIndicatorLight("FwdRadioUnderControl_lamp", 562, "l-39 lamps","Control radio")
 
+---2 do end
+
 
 ------------------------------------ L-39 Clickable Controls --------------------------------------------------------------------
 
@@ -214,9 +221,7 @@ defineToggleSwitch("NET_SW",  4,3004, 502,"Electric System", "Net Switch, ON/OFF
 defineToggleSwitch("EMERG_ENG_INST_PW",  4,3072, 169,"Electric System", "Emergency Engine Instruments Power Switch, ON/OFF")
 definePushButton("FWD_TURBO_BTN",  4,3005, 315,"Electric System", "Turbo Button")
 defineToggleSwitch("FWD_TURBO_SW_COVER",  4,3006, 314,"Electric System", "Turbo Button Cover, Open/Close")
-
-
-
+----- 2do
 defineToggleSwitch("AftTurboSw",  4,3007, 142,"Electric System", "AftTurboSw")
 defineToggleSwitch("AftTurboSwCover",  4,3008, 142,"Electric System", "AftTurboSwCover")
 defineToggleSwitch("StopTurboSw",  4,3009, 142,"Electric System", "Main Generator Switch, ON/OFF")
@@ -235,22 +240,23 @@ defineToggleSwitch("FwdEmergFuelSw",  4,3021, 142,"Electric System", "FwdEmergFu
 defineToggleSwitch("FwdEmergFuelSwCover",  4,3022, 142,"Electric System", "FwdEmergFuelSwCover")
 defineToggleSwitch("AftEmergFuelSw",  4,3023, 142,"Electric System", "AftEmergFuelSw")
 defineToggleSwitch("AftEmergFuelSwCover",  4,3024, 142,"AftEmergFuelSwCover")
-defineToggleSwitch("CB_Engine",  4,3025, 142,"Electric System", "CB_Engine")
-defineToggleSwitch("CB_AGD_GMK",  4,3026, 142,"Electric System", "CB_AGD_GMK")
-defineToggleSwitch("CB_Converter1Sw",  4,3027, 142,"Electric System", "CB_Converter1Sw")
-defineToggleSwitch("CB_Converter2Sw",  4,3028, 142,"Electric System", "CB_Converter2Sw")
-defineToggleSwitch("CB_RTL",  4,3029, 142,"Electric System", "CB_RTL")
-defineToggleSwitch("CB_MRP_RV",  4,3030, 142,"Electric System", "CB_MRP_RV")
-defineToggleSwitch("CB_ISKRA",  4,3031, 142,"Electric System", "CB_ISKRA")
-defineToggleSwitch("CB_EMERG_SRO",  4,3032, 142,"Electric System", "CB_EMERG_SRO")
-defineToggleSwitch("CB_EMERG_ISKRA",  4,3033, 142,"Electric System", "CB_EMERG_ISKRA")
-defineToggleSwitch("CB_WingTanks",  4,3034, 142,"Electric System", "CB_WingTanks")
-defineToggleSwitch("CB_RIO",  4,3035, 142,"Electric System", "CB_RIO")
-defineToggleSwitch("CB_SDU",  4,3036, 142,"Electric System", "CB_SDU")
-defineToggleSwitch("CB_HeatingSensorAOA",  4,3037, 142,"Electric System", "CB_HeatingSensorAOA")
-defineToggleSwitch("CB_Weapon",  4,3038, 142,"Electric System", "CB_Weapon")
-defineToggleSwitch("CB_Tanks",  4,3039, 142,"Electric System", "CB_Tanks")
+---2 do end
 
+defineToggleSwitch("CB_ENGINE",  4,3025, 144,"Electric System", "CB Engine")
+defineToggleSwitch("CB_AGD_GMK",  4,3026, 145,"Electric System", "CB AGD-GMK")
+defineToggleSwitch("CB_INVERT1",  4,3027, 146,"Electric System", "CB Inverter 1 (AC 115V)")
+defineToggleSwitch("CB_INVERT2",  4,3028, 147,"Electric System", "CB Inverter 2 (AC 115V)")
+defineToggleSwitch("CB_RTL",  4,3029, 148,"Electric System", "CB RDO (ICS and Radio)")
+defineToggleSwitch("CB_MRP_RV",  4,3030, 149,"Electric System", "CB MRP-RV (Marker Beacon Receiver and Radio Altimeter)")
+defineToggleSwitch("CB_ISKRA",  4,3031, 150,"Electric System", "CB RSBN (ISKRA)")
+defineToggleSwitch("CB_EMERG_SRO",  4,3032, 151,"Electric System", "CB IFF (SRO) Emergency Connection")
+defineToggleSwitch("CB_EMERG_ISKRA",  4,3033, 152,"Electric System", "CB RSBN (ISKRA) Emergency Connection")
+defineToggleSwitch("CB_WING_TANKS",  4,3034, 153,"Electric System", "CB Wing Tanks")
+defineToggleSwitch("CB_RIO",  4,3035, 154,"Electric System", "CB RIO-3 De-Icing Signal")
+defineToggleSwitch("CB_SDU",  4,3036, 155,"Electric System", "CB SDU")
+defineToggleSwitch("CB_HEAT_SENSOR_AOA",  4,3037, 628,"Electric System", "CB Heating Sensor AOA")
+defineToggleSwitch("CB_WEAPON",  4,3038, 629,"Electric System", "CB Weapon")
+--defineToggleSwitch("CB_TANKS",  4,3039, XXX,"Electric System", "CB Tanks")
 defineToggleSwitch("CB_AIR_COND",  4,3040, 211,"Electric System", "CB Air Conditioning")
 defineToggleSwitch("CB_ANTI_ICE",  4,3041, 212,"Electric System", "CB Anti-Ice")
 defineToggleSwitch("CB_PITOT_L",  4,3042, 213,"Electric System", "CB Pitot Left")
@@ -265,27 +271,25 @@ defineToggleSwitch("CB_SIGNALING",  4,3050, 221,"Electric System", "CB Signaling
 defineToggleSwitch("CB_NAV_LIGHTS",  4,3051, 222,"Electric System", "CB Nav. Lights")
 defineToggleSwitch("CB_SPOTLIGHT_L",  4,3052, 223,"Electric System", "CB Spotlight Left")
 defineToggleSwitch("CB_SPOTLIGHT_R",  4,3053, 224,"Electric System", "CB Spotlight Right")
+defineToggleSwitch("CB_LIGHT_RED",  4,3054, 225,"Electric System", "CB Red Lights")
+defineToggleSwitch("CB_LIGHT_WHITE",  4,3055, 226,"Electric System", "CB White Lights")
+defineToggleSwitch("CB_START_PANEL",  4,3056, 227,"Electric System", "CB Start Panel")
+defineToggleSwitch("CB_BOOST_PUMP",  4,3057, 228,"Electric System", "CB Booster Pump")
+defineToggleSwitch("CB_INGNITION_1",  4,3058, 229,"Electric System", "CB Ignition 1")
+defineToggleSwitch("CB_INGNITION_2",  4,3059, 230,"Electric System", "CB Ignition 2")
+defineToggleSwitch("CB_ENG_INSTR",  4,3060, 231,"Electric System", "CB Engine Instruments")
+defineToggleSwitch("CB_FIRE",  4,3061, 232,"Electric System", "CB Fire")
+defineToggleSwitch("CB_EMERG_JETT",  4,3062, 233,"Electric System", "CB Emergency Jettison")
+defineToggleSwitch("CB_SARPP",  4,3063, 234,"Electric System", "CB SARPP")
+defineToggleSwitch("CB_SEAT_INSTRUCTOR",  4,3064, 503,"Electric System", "CB Seat Instructor")
+defineToggleSwitch("CB_SIGNAL_INSTRUCTOR",  4,3065, 504,"Electric System", "CB Signal Instructor")
+defineToggleSwitch("CB_WEAPON_INSTRUCTOR",  4,3066, 505,"Electric System", "CB Weapon Instructor")
+defineToggleSwitch("CB_GROUND_INTCOM",  4,3067, 512,"Electric System", "CB Ground Intercom")
 
-
-
-defineToggleSwitch("CB_LightRed",  4,3054, 142,"Electric System", "CB_LightRed")
-defineToggleSwitch("CB_LightWhite",  4,3055, 142,"Electric System", "CB_LightWhite")
-defineToggleSwitch("CB_StartPanel",  4,3056, 142,"Electric System", "CB_StartPanel")
-defineToggleSwitch("CB_BoosterPump",  4,3057, 142,"Electric System", "CB_BoosterPump")
-defineToggleSwitch("CB_Ignition1",  4,3058, 142,"Electric System", "CB_Ignition1")
-defineToggleSwitch("CB_Ignition2",  4,3059, 142,"Electric System", "CB_Ignition2")
-defineToggleSwitch("CB_EngineInstruments",  4,3060, 142,"Electric System", "CB_EngineInstruments")
-defineToggleSwitch("CB_Fire",  4,3061, 142,"Electric System", "CB_Fire")
-defineToggleSwitch("CB_EmergJettison",  4,3062, 142,"Electric System", "CB_EmergJettison")
-defineToggleSwitch("CB_SARPP",  4,3063, 142,"Electric System", "CB_SARPP")
-defineToggleSwitch("CB_Seat_Instructor",  4,3064, 142,"Electric System", "CB_Seat_Instructor")
-defineToggleSwitch("CB_Signal_Instructor",  4,3065, 142,"Electric System", "CB_Signal_Instructor")
-defineToggleSwitch("CB_Weapon_Instructor",  4,3066, 142,"Electric System", "CB_Weapon_Instructor")
-defineToggleSwitch("CB_Ground_SPU",  4,3067, 142,"Electric System", "CB_Ground_SPU")
-defineToggleSwitch("LeftPitotHeatingOn",  4,3068, 142,"Electric System", "LeftPitotHeatingOn")
-defineToggleSwitch("LeftPitotHeatingOff",  4,3069, 142,"Electric System", "LeftPitotHeatingOff")
-defineToggleSwitch("RightPitotHeatingOn",  4,3070, 142,"Electric System", "RightPitotHeatingOn")
-defineToggleSwitch("RightPitotHeatingOff",  4,3071, 142,"Electric System", "RightPitotHeatingOff")
+definePushButton("PITOT_HEAT_ON_L",  4,3068, 294,"Electric System", "Standby (Left) Pitot Tube Heating ON Button")
+definePushButton("PITOT_HEAT_OFF_L",  4,3069, 295,"Electric System", "Standby (Left) Pitot Tube Heating OFF Button")
+definePushButton("PITOT_HEAT_ON_R",  4,3070, 292,"Electric System", "Main (Right) Pitot Tube Heating ON Button")
+definePushButton("PITOT_HEAT_OFF_R",  4,3071, 293,"Electric System", "Main (Right) Pitot Tube Heating OFF Button")
 
   
 BIOS.protocol.endModule()

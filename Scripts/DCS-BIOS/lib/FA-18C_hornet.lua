@@ -402,10 +402,10 @@ defineIndicatorLight("AOA_INDEXER_HIGH", 4, "Angle of Attack Indexer Lights", "A
 defineIndicatorLight("AOA_INDEXER_NORMAL", 5, "Angle of Attack Indexer Lights", "AOA Indexer Normal")
 defineIndicatorLight("AOA_INDEXER_LOW", 6, "Angle of Attack Indexer Lights", "AOA Indexer Low")
 
--- 4. Left Engine Fire Warning/Extinguisher Light
-defineIndicatorLight("FIRE_LEFT_LT", 10, "Left Engine Fire Warning/Extinguisher Light", "FIRE LEFT")
-definePushButton("LEFT_FIRE_BTN", 12, 3010, 11, "Left Engine Fire Warning/Extinguisher Light", "Left Engine/AMAD Fire Warning/Extinguisher Light")
-defineToggleSwitch("LEFT_FIRE_BTN_COVER", 12, 3012, 12, "Left Engine Fire Warning/Extinguisher Light", "Left Engine/AMAD Fire Warning Cover")
+-- 4. Left Engine Fire Warning / Extinguisher Light
+defineIndicatorLight("FIRE_LEFT_LT", 10, "Left Engine Fire Warning / Extinguisher Light", "FIRE LEFT")
+definePushButton("LEFT_FIRE_BTN", 12, 3010, 11, "Left Engine Fire Warning / Extinguisher Light", "Left Engine/AMAD Fire Warning/Extinguisher Light")
+defineToggleSwitch("LEFT_FIRE_BTN_COVER", 12, 3012, 12, "Left Engine Fire Warning / Extinguisher Light", "Left Engine/AMAD Fire Warning Cover")
 
 -- 5. Master Caution Light
 defineIndicatorLight("MASTER_CAUTION_LT", 13, "Master Caution Light", "MASTER CAUTION")
