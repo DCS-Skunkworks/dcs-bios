@@ -265,7 +265,7 @@
                                            "CB_AGD_GMK": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_AGD_GMK",
+                                                                     "description": "CB AGD-GMK",
                                                                       "identifier": "CB_AGD_GMK",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -312,9 +312,9 @@
                                                                          "outputs": [ {
                                                                                             "address": 12904,
                                                                                         "description": "selector position",
-                                                                                               "mask": 1024,
+                                                                                               "mask": 512,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 10,
+                                                                                           "shift_by": 9,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -341,9 +341,9 @@
                                                                          "outputs": [ {
                                                                                             "address": 12904,
                                                                                         "description": "selector position",
-                                                                                               "mask": 2048,
+                                                                                               "mask": 1024,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 11,
+                                                                                           "shift_by": 10,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -370,19 +370,19 @@
                                                                          "outputs": [ {
                                                                                             "address": 12904,
                                                                                         "description": "selector position",
-                                                                                               "mask": 32768,
+                                                                                               "mask": 16384,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 15,
+                                                                                           "shift_by": 14,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                       "CB_BoosterPump": {
+                                        "CB_BOOST_PUMP": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_BoosterPump",
-                                                                      "identifier": "CB_BoosterPump",
+                                                                     "description": "CB Booster Pump",
+                                                                      "identifier": "CB_BOOST_PUMP",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
                                                                                           "interface": "fixed_step"
@@ -399,9 +399,9 @@
                                                                          "outputs": [ {
                                                                                             "address": 12906,
                                                                                         "description": "selector position",
-                                                                                               "mask": 2048,
+                                                                                               "mask": 1024,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 11,
+                                                                                           "shift_by": 10,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -428,67 +428,9 @@
                                                                          "outputs": [ {
                                                                                             "address": 12906,
                                                                                         "description": "selector position",
-                                                                                               "mask": 8,
+                                                                                               "mask": 4,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 3,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                      "CB_Converter1Sw": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "CB_Converter1Sw",
-                                                                      "identifier": "CB_Converter1Sw",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12902,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 8192,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 13,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                      "CB_Converter2Sw": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "CB_Converter2Sw",
-                                                                      "identifier": "CB_Converter2Sw",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12902,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 16384,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 14,
+                                                                                           "shift_by": 2,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -497,7 +439,7 @@
                                        "CB_EMERG_ISKRA": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_EMERG_ISKRA",
+                                                                     "description": "CB RSBN (ISKRA) Emergency Connection",
                                                                       "identifier": "CB_EMERG_ISKRA",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -523,10 +465,39 @@
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
+                                        "CB_EMERG_JETT": {
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "CB Emergency Jettison",
+                                                                      "identifier": "CB_EMERG_JETT",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12906,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 32768,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 15,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
                                          "CB_EMERG_SRO": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_EMERG_SRO",
+                                                                     "description": "CB IFF (SRO) Emergency Connection",
                                                                       "identifier": "CB_EMERG_SRO",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -552,40 +523,11 @@
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                     "CB_EmergJettison": {
+                                            "CB_ENGINE": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_EmergJettison",
-                                                                      "identifier": "CB_EmergJettison",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12908,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 1,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                            "CB_Engine": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "CB_Engine",
-                                                                      "identifier": "CB_Engine",
+                                                                     "description": "CB Engine",
+                                                                      "identifier": "CB_ENGINE",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
                                                                                           "interface": "fixed_step"
@@ -610,11 +552,40 @@
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                 "CB_EngineInstruments": {
+                                         "CB_ENG_INSTR": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_EngineInstruments",
-                                                                      "identifier": "CB_EngineInstruments",
+                                                                     "description": "CB Engine Instruments",
+                                                                      "identifier": "CB_ENG_INSTR",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12906,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 8192,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 13,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                              "CB_FIRE": {
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "CB Fire",
+                                                                      "identifier": "CB_FIRE",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
                                                                                           "interface": "fixed_step"
@@ -634,35 +605,6 @@
                                                                                                "mask": 16384,
                                                                                           "max_value": 1,
                                                                                            "shift_by": 14,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                              "CB_Fire": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "CB_Fire",
-                                                                      "identifier": "CB_Fire",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12906,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 32768,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 15,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -689,19 +631,19 @@
                                                                          "outputs": [ {
                                                                                             "address": 12906,
                                                                                         "description": "selector position",
-                                                                                               "mask": 4,
+                                                                                               "mask": 2,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 2,
+                                                                                           "shift_by": 1,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                        "CB_Ground_SPU": {
+                                     "CB_GROUND_INTCOM": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_Ground_SPU",
-                                                                      "identifier": "CB_Ground_SPU",
+                                                                     "description": "CB Ground Intercom",
+                                                                      "identifier": "CB_GROUND_INTCOM",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
                                                                                           "interface": "fixed_step"
@@ -718,19 +660,19 @@
                                                                          "outputs": [ {
                                                                                             "address": 12908,
                                                                                         "description": "selector position",
-                                                                                               "mask": 32,
+                                                                                               "mask": 16,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 5,
+                                                                                           "shift_by": 4,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                  "CB_HeatingSensorAOA": {
+                                   "CB_HEAT_SENSOR_AOA": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_HeatingSensorAOA",
-                                                                      "identifier": "CB_HeatingSensorAOA",
+                                                                     "description": "CB Heating Sensor AOA",
+                                                                      "identifier": "CB_HEAT_SENSOR_AOA",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
                                                                                           "interface": "fixed_step"
@@ -755,10 +697,126 @@
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
+                                       "CB_INGNITION_1": {
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "CB Ignition 1",
+                                                                      "identifier": "CB_INGNITION_1",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12906,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 2048,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 11,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                       "CB_INGNITION_2": {
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "CB Ignition 2",
+                                                                      "identifier": "CB_INGNITION_2",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12906,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 4096,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 12,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                           "CB_INVERT1": {
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "CB Inverter 1 (AC 115V)",
+                                                                      "identifier": "CB_INVERT1",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12902,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 8192,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 13,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                           "CB_INVERT2": {
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "CB Inverter 2 (AC 115V)",
+                                                                      "identifier": "CB_INVERT2",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12902,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 16384,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 14,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
                                              "CB_ISKRA": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_ISKRA",
+                                                                     "description": "CB RSBN (ISKRA)",
                                                                       "identifier": "CB_ISKRA",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -784,11 +842,11 @@
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                         "CB_Ignition1": {
+                                         "CB_LIGHT_RED": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_Ignition1",
-                                                                      "identifier": "CB_Ignition1",
+                                                                     "description": "CB Red Lights",
+                                                                      "identifier": "CB_LIGHT_RED",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
                                                                                           "interface": "fixed_step"
@@ -805,48 +863,19 @@
                                                                          "outputs": [ {
                                                                                             "address": 12906,
                                                                                         "description": "selector position",
-                                                                                               "mask": 4096,
+                                                                                               "mask": 128,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 12,
+                                                                                           "shift_by": 7,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                         "CB_Ignition2": {
+                                       "CB_LIGHT_WHITE": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_Ignition2",
-                                                                      "identifier": "CB_Ignition2",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12906,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 8192,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 13,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                          "CB_LightRed": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "CB_LightRed",
-                                                                      "identifier": "CB_LightRed",
+                                                                     "description": "CB White Lights",
+                                                                      "identifier": "CB_LIGHT_WHITE",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
                                                                                           "interface": "fixed_step"
@@ -871,39 +900,10 @@
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                        "CB_LightWhite": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "CB_LightWhite",
-                                                                      "identifier": "CB_LightWhite",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12906,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 512,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 9,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
                                             "CB_MRP_RV": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_MRP_RV",
+                                                                     "description": "CB MRP-RV (Marker Beacon Receiver and Radio Altimeter)",
                                                                       "identifier": "CB_MRP_RV",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -950,9 +950,9 @@
                                                                          "outputs": [ {
                                                                                             "address": 12906,
                                                                                         "description": "selector position",
-                                                                                               "mask": 32,
+                                                                                               "mask": 16,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 5,
+                                                                                           "shift_by": 4,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -979,9 +979,9 @@
                                                                          "outputs": [ {
                                                                                             "address": 12904,
                                                                                         "description": "selector position",
-                                                                                               "mask": 4096,
+                                                                                               "mask": 2048,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 12,
+                                                                                           "shift_by": 11,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -1008,9 +1008,9 @@
                                                                          "outputs": [ {
                                                                                             "address": 12904,
                                                                                         "description": "selector position",
-                                                                                               "mask": 8192,
+                                                                                               "mask": 4096,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 13,
+                                                                                           "shift_by": 12,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -1037,9 +1037,9 @@
                                                                          "outputs": [ {
                                                                                             "address": 12904,
                                                                                         "description": "selector position",
-                                                                                               "mask": 16384,
+                                                                                               "mask": 8192,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 14,
+                                                                                           "shift_by": 13,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -1048,7 +1048,7 @@
                                                "CB_RIO": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_RIO",
+                                                                     "description": "CB RIO-3 De-Icing Signal",
                                                                       "identifier": "CB_RIO",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -1077,7 +1077,7 @@
                                                "CB_RTL": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_RTL",
+                                                                     "description": "CB RDO (ICS and Radio)",
                                                                       "identifier": "CB_RTL",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -1106,7 +1106,7 @@
                                              "CB_SARPP": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_SARPP",
+                                                                     "description": "CB SARPP",
                                                                       "identifier": "CB_SARPP",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -1124,9 +1124,9 @@
                                                                          "outputs": [ {
                                                                                             "address": 12908,
                                                                                         "description": "selector position",
-                                                                                               "mask": 2,
+                                                                                               "mask": 1,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 1,
+                                                                                           "shift_by": 0,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -1135,7 +1135,7 @@
                                                "CB_SDU": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_SDU",
+                                                                     "description": "CB SDU",
                                                                       "identifier": "CB_SDU",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -1182,6 +1182,35 @@
                                                                          "outputs": [ {
                                                                                             "address": 12906,
                                                                                         "description": "selector position",
+                                                                                               "mask": 1,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                   "CB_SEAT_INSTRUCTOR": {
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "CB Seat Instructor",
+                                                                      "identifier": "CB_SEAT_INSTRUCTOR",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12908,
+                                                                                        "description": "selector position",
                                                                                                "mask": 2,
                                                                                           "max_value": 1,
                                                                                            "shift_by": 1,
@@ -1211,9 +1240,38 @@
                                                                          "outputs": [ {
                                                                                             "address": 12906,
                                                                                         "description": "selector position",
-                                                                                               "mask": 16,
+                                                                                               "mask": 8,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 4,
+                                                                                           "shift_by": 3,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                 "CB_SIGNAL_INSTRUCTOR": {
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "CB Signal Instructor",
+                                                                      "identifier": "CB_SIGNAL_INSTRUCTOR",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12908,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 4,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 2,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -1240,9 +1298,9 @@
                                                                          "outputs": [ {
                                                                                             "address": 12906,
                                                                                         "description": "selector position",
-                                                                                               "mask": 64,
+                                                                                               "mask": 32,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 6,
+                                                                                           "shift_by": 5,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -1269,9 +1327,9 @@
                                                                          "outputs": [ {
                                                                                             "address": 12906,
                                                                                         "description": "selector position",
-                                                                                               "mask": 128,
+                                                                                               "mask": 64,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 7,
+                                                                                           "shift_by": 6,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -1296,123 +1354,36 @@
                                                                                     } ],
                                                              "momentary_positions": "none",
                                                                          "outputs": [ {
-                                                                                            "address": 12906,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 1,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                   "CB_Seat_Instructor": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "CB_Seat_Instructor",
-                                                                      "identifier": "CB_Seat_Instructor",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12908,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 4,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 2,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                 "CB_Signal_Instructor": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "CB_Signal_Instructor",
-                                                                      "identifier": "CB_Signal_Instructor",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12908,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 8,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 3,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                        "CB_StartPanel": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "CB_StartPanel",
-                                                                      "identifier": "CB_StartPanel",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12906,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 1024,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 10,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                             "CB_Tanks": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "CB_Tanks",
-                                                                      "identifier": "CB_Tanks",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
                                                                                             "address": 12904,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 32768,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 15,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                       "CB_START_PANEL": {
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "CB Start Panel",
+                                                                      "identifier": "CB_START_PANEL",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12906,
                                                                                         "description": "selector position",
                                                                                                "mask": 512,
                                                                                           "max_value": 1,
@@ -1422,11 +1393,11 @@
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                            "CB_Weapon": {
+                                            "CB_WEAPON": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_Weapon",
-                                                                      "identifier": "CB_Weapon",
+                                                                     "description": "CB Weapon",
+                                                                      "identifier": "CB_WEAPON",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
                                                                                           "interface": "fixed_step"
@@ -1451,11 +1422,11 @@
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                 "CB_Weapon_Instructor": {
+                                 "CB_WEAPON_INSTRUCTOR": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_Weapon_Instructor",
-                                                                      "identifier": "CB_Weapon_Instructor",
+                                                                     "description": "CB Weapon Instructor",
+                                                                      "identifier": "CB_WEAPON_INSTRUCTOR",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
                                                                                           "interface": "fixed_step"
@@ -1472,19 +1443,19 @@
                                                                          "outputs": [ {
                                                                                             "address": 12908,
                                                                                         "description": "selector position",
-                                                                                               "mask": 16,
+                                                                                               "mask": 8,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 4,
+                                                                                           "shift_by": 3,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                         "CB_WingTanks": {
+                                        "CB_WING_TANKS": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "CB_WingTanks",
-                                                                      "identifier": "CB_WingTanks",
+                                                                     "description": "CB Wing Tanks",
+                                                                      "identifier": "CB_WING_TANKS",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
                                                                                           "interface": "fixed_step"
@@ -1858,64 +1829,6 @@
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                  "LeftPitotHeatingOff": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "LeftPitotHeatingOff",
-                                                                      "identifier": "LeftPitotHeatingOff",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12908,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 128,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 7,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                   "LeftPitotHeatingOn": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "LeftPitotHeatingOn",
-                                                                      "identifier": "LeftPitotHeatingOn",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12908,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 64,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 6,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
                                           "MAIN_GEN_SW": {
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
@@ -1974,11 +1887,12 @@
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                 "RightPitotHeatingOff": {
+                                     "PITOT_HEAT_OFF_L": {
+                                                                     "api_variant": "momentary_last_position",
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "RightPitotHeatingOff",
-                                                                      "identifier": "RightPitotHeatingOff",
+                                                                     "description": "Standby (Left) Pitot Tube Heating OFF Button",
+                                                                      "identifier": "PITOT_HEAT_OFF_L",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
                                                                                           "interface": "fixed_step"
@@ -1995,19 +1909,20 @@
                                                                          "outputs": [ {
                                                                                             "address": 12908,
                                                                                         "description": "selector position",
-                                                                                               "mask": 512,
+                                                                                               "mask": 64,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 9,
+                                                                                           "shift_by": 6,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "toggle_switch"
+                                                                "physical_variant": "push_button"
                                                          },
-                                  "RightPitotHeatingOn": {
+                                     "PITOT_HEAT_OFF_R": {
+                                                                     "api_variant": "momentary_last_position",
                                                                         "category": "Electric System",
                                                                     "control_type": "selector",
-                                                                     "description": "RightPitotHeatingOn",
-                                                                      "identifier": "RightPitotHeatingOn",
+                                                                     "description": "Main (Right) Pitot Tube Heating OFF Button",
+                                                                      "identifier": "PITOT_HEAT_OFF_R",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
                                                                                           "interface": "fixed_step"
@@ -2030,7 +1945,67 @@
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "toggle_switch"
+                                                                "physical_variant": "push_button"
+                                                         },
+                                      "PITOT_HEAT_ON_L": {
+                                                                     "api_variant": "momentary_last_position",
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "Standby (Left) Pitot Tube Heating ON Button",
+                                                                      "identifier": "PITOT_HEAT_ON_L",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12908,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 32,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 5,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "push_button"
+                                                         },
+                                      "PITOT_HEAT_ON_R": {
+                                                                     "api_variant": "momentary_last_position",
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "Main (Right) Pitot Tube Heating ON Button",
+                                                                      "identifier": "PITOT_HEAT_ON_R",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12908,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 128,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 7,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "push_button"
                                                          },
                                           "StopTurboSw": {
                                                                         "category": "Electric System",
