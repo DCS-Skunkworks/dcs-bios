@@ -92,6 +92,15 @@ defineToggleSwitch("BACK_LIGHTS_STORM", 3, 3417, 249, "Cockpit Lighting", "BACK 
 definePotentiometer("BACK_LIGHTS_CONSOLE", 3, 3418, 251, {0, 1}, "Cockpit Lighting", "BACK Console Integral Lights")
 definePotentiometer("BACK_LIGHTS_INSTR", 3, 3419, 250, {0, 1}, "Cockpit Lighting", "BACK Instrument Lights")
 
--- EXTERNAL LIGHTING 
+-- EXTERNAL LIGHTING
+defineToggleSwitch("FRONT_LIGHTS_ANTI_COL", 3, 3106, 366, "External Lights", "FRONT Anti-Collision Becon Switch")
+define3PosTumb("FRONT_LIGHTS_NAV", 3, 3107, 368, "External Lights", "FRONT Navigation Lights Switch")
+define3PosTumb("FRONT_LIGHTS_FOR", 3, 3108, 367, "External Lights", "FRONT Formation Lights Switch")
+define3PosTumb("FRONT_LIGHTS_TAXI_L", 3, 3109, 329, "External Lights", "FRONT Left Taxi/Landing Lights Switch")
+define3PosTumb("FRONT_LIGHTS_TAXI_R", 3, 3110, 330, "External Lights", "FRONT Right Taxi/Landing Lights Switch")
+defineToggleSwitch("BACK_LIGHTS_PRIO_TAXI_L", 3, 3420, 941, "External Lights", "BACK Left Taxi/Landing Lights Forward Cockpit Priority")
+defineToggleSwitch("BACK_LIGHTS_PRIO_TAXI_R", 3, 3421, 942, "External Lights", "BACK Right Taxi/Landing Lights Forward Cockpit Priority")
+
+-- FUEL PANEL 
  
 BIOS.protocol.endModule()
