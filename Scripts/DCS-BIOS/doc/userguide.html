@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>DCS-BIOS User Guide</title>
+  <meta charset="UTF-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Asciidoctor 1.5.4">
+  <title>DCS-BIOS User Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -518,1549 +518,1749 @@ table.CodeRay td.code>pre{padding:0}
 </style>
 </head>
 <body class="article toc2 toc-right">
-<div id="header">
-<h1>DCS-BIOS User Guide</h1>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_introduction">Introduction</a>
-<ul class="sectlevel2">
-<li><a href="#_why_use_dcs_bios">Why Use DCS-BIOS?</a></li>
-</ul>
-</li>
-<li><a href="#_connecting_your_first_panel">Connecting your First Panel</a>
-<ul class="sectlevel2">
-<li><a href="#_before_you_start">Before you start</a></li>
-<li><a href="#_our_step_by_step_instructions">Our Step by Step Instructions:</a></li>
-</ul>
-</li>
-<li><a href="#_a_closer_look_at_the_dcs_bios_arduino_library">A Closer Look at The DCS-BIOS Arduino Library</a>
-<ul class="sectlevel2">
-<li><a href="#_the_mastercaution_example_sketch">The MasterCaution Example Sketch</a></li>
-<li><a href="#_using_the_control_reference_documentation">Using the Control-Reference Documentation</a></li>
-</ul>
-</li>
-<li><a href="#_arduino_library_reference">Arduino Library Reference</a>
-<ul class="sectlevel2">
-<li><a href="#_switch2pos">Switch2Pos</a></li>
-<li><a href="#_switch3pos">Switch3Pos</a></li>
-<li><a href="#_switchmultipos">SwitchMultiPos</a></li>
-<li><a href="#_potentiometer">Potentiometer</a></li>
-<li><a href="#_rotaryencoder">RotaryEncoder</a></li>
-<li><a href="#_actionbutton">ActionButton</a></li>
-<li><a href="#_led">LED</a></li>
-<li><a href="#_servooutput">ServoOutput</a></li>
-<li><a href="#_integerbuffer">IntegerBuffer</a></li>
-<li><a href="#_stringbuffer">StringBuffer</a></li>
-</ul>
-</li>
-<li><a href="#_aircraft_specific_notes">Aircraft-Specific Notes</a>
-<ul class="sectlevel2">
-<li><a href="#_a_10c">A-10C</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>Welcome to the DCS-BIOS User Guide.</p>
-</div>
-<div class="paragraph">
-<p>This manual will explain how you can use DCS-BIOS to connect the clickable cockpit of a DCS: World aircraft to real-world hardware such as toggle switches, push buttons, rotary encoders, potentiometers and displays.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+  <div id="header">
+    <h1>DCS-BIOS User Guide</h1>
+    <div id="toc" class="toc2">
+      <div id="toctitle">Table of Contents</div>
+      <ul class="sectlevel1">
+        <li><a href="#_introduction">Introduction</a>
+          <ul class="sectlevel2">
+            <li><a href="#_why_use_dcs_bios">Why Use DCS-BIOS?</a></li>
+          </ul>
+        </li>
+        <li><a href="#_connecting_your_first_panel">Connecting your First Panel</a>
+          <ul class="sectlevel2">
+            <li><a href="#_before_you_start">Before you start</a></li>
+            <li><a href="#_our_step_by_step_instructions">Our Step by Step Instructions:</a></li>
+          </ul>
+        </li>
+        <li><a href="#_a_closer_look_at_the_dcs_bios_arduino_library">A Closer Look at The DCS-BIOS Arduino Library</a>
+          <ul class="sectlevel2">
+            <li><a href="#_the_mastercaution_example_sketch">The MasterCaution Example Sketch</a></li>
+            <li><a href="#_using_the_control_reference_documentation">Using the Control-Reference Documentation</a></li>
+          </ul>
+        </li>
+        <li><a href="#_arduino_library_reference">Arduino Library Reference</a>
+          <ul class="sectlevel2">
+            <li><a href="#_switch2pos">Switch2Pos</a></li>
+            <li><a href="#_switch3pos">Switch3Pos</a></li>
+            <li><a href="#_switchmultipos">SwitchMultiPos</a></li>
+            <li><a href="#_potentiometer">Potentiometer</a></li>
+            <li><a href="#_rotaryencoder">RotaryEncoder</a></li>
+            <li><a href="#_actionbutton">ActionButton</a></li>
+            <li><a href="#_led">LED</a></li>
+            <li><a href="#_servooutput">ServoOutput</a></li>
+            <li><a href="#_integerbuffer">IntegerBuffer</a></li>
+            <li><a href="#_stringbuffer">StringBuffer</a></li>
+          </ul>
+        </li>
+        <li><a href="#_aircraft_specific_notes">Aircraft-Specific Notes</a>
+          <ul class="sectlevel2">
+            <li><a href="#_a_10c">A-10C</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div id="preamble">
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>Welcome to the DCS-BIOS User Guide.</p>
+        </div>
+        <div class="paragraph">
+          <p>This manual will explain how you can use DCS-BIOS to connect the clickable
+            cockpit of a DCS: World aircraft to real-world hardware such as toggle
+            switches, push buttons, rotary encoders, potentiometers and displays.</p>
+        </div>
+        <div class="admonitionblock note">
+          <table>
+            <tr>
+              <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If you want to add a new aircraft module or use your own software with DCS-BIOS, please refer to the Developer Guide.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_introduction">Introduction</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>So you want to build a panel for your DCS: World aircraft.
-Whether you own a CNC machine or just a drill and a hot glue gun, you probably have some idea of how to use the tools available to you to mount controls such as push buttons, toggle switches, rotary encoders and potentiometers to a faceplate.</p>
-</div>
-<div class="paragraph">
-<p>Once you have done that, you need a way to connect these controls to your DCS: World aircraft.
-If your aircraft is supported by DCS-BIOS, read on to find out if DCS-BIOS is right for you.</p>
-</div>
-<div class="sect2">
-<h3 id="_why_use_dcs_bios">Why Use DCS-BIOS?</h3>
-<div class="paragraph">
-<p>The Home Cockpit section on the ED forums provides numerous examples of how to connect a switch panel to DCS.
-This section explains why you should pick DCS-BIOS over the alternatives.</p>
-</div>
-<div class="sect3">
-<h4 id="_dcs_bios_is_easy_to_use">DCS-BIOS is "easy to use".</h4>
-<div class="paragraph">
-<p>You&#8217;ve heard of people trying to learn Lua just to write their own <code>Export.lua</code> file.
-In many cases this was an exercise in frustration.
-DCS-BIOS was produced so you don&#8217;t have to worry about learning how to make your own Lua files.
-<strong>If you can connect two wires together, copy and paste text and follow step-by-step instructions, you can make a functioning panel.</strong></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dcs_bios_is_fully_documented">DCS-BIOS is fully documented</h4>
-<div class="paragraph">
-<p>We understand the frustrations when you try to build something or use something that has little or no instructions.
-This document was produced to ensure you have the help you need.
-It was written in easy to understand terminology aimed specifically at the novice.
-You do not have to be a programmer or an electrical engineer to understand it.
-After you read this User Guide, you will be able to connect a simple switch panel to DCS.</p>
-</div>
-<div class="paragraph">
-<p>If you do have a programming background or simply want to know more, we have a Developer Guide that explains the internal workings of DCS-BIOS in greater detail.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_no_noticeable_performance_impact">No noticeable performance impact</h4>
-<div class="paragraph">
-<p>On a low-end system (running DCS at 10 to 15 fps), we did not notice any measurable performance impact.
-On a high-end system, running DCS-BIOS reduced the framerate from 55 fps to 52 fps (about 5% slower).
-The additional computation it requires of your PC or its precious resources is negligible.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dcs_bios_will_protect_your_switch_panel_from_ed_updates">DCS-BIOS will protect your switch panel from ED updates</h4>
-<div class="paragraph">
-<p>"So ED just broke my switch panel with their latest update".
-DCS-BIOS will not let that happen.
-DCS-BIOS isolates your switch panel from the impact of any changes that Eagle Dynamics might introduce in an update.
-In the extremely rare event that Eagle Dynamics does make a change that breaks something, we will ensure DCS-BIOS is immediately updated.
-Your panels will always maintain their functionality.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dcs_bios_has_an_extremely_efficient_protocol_design">DCS-BIOS has an extremely efficient protocol design</h4>
-<div class="paragraph">
-<p>The communication protocol that DCS-BIOS uses to talk to your panel was designed with slow serial ports in mind.
-Your indicators, gauges and displays will never stutter or lag during a flurry of activity in the cockpit.
-Pressing the signal lamp test button when spooling up the engines, or when half your caution lights panel is blinking after a SAM hit will have no impact on how fast your cockpit instruments respond.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dcs_bios_covers_everything">DCS-BIOS covers everything.</h4>
-<div class="paragraph">
-<p>There are a variety of interface boards available that allow you to connect switches or rotary encoders or maybe even both to DCS.
-DCS-BIOS however, extends way beyond any solution you might presently find.
-In fact, it is the most comprehensive means of connecting your switch panel to any combination of your DCS aircrafts' buttons, switches, rotary encoders, potentiometers, push buttons, three way switches etc., etc.
-In short, if it can be manipulated using Lua, DCS-BIOS supports it.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dcs_bios_makes_use_of_the_extremely_popular_arduino_ecosystem">DCS-BIOS makes use of the extremely popular Arduino ecosystem</h4>
-<div class="paragraph">
-<p>DCS-BIOS was designed to work with the <a href="http://www.arduino.cc">Arduino family of microcontroller boards.</a>
-Why?  The choice was easy.
-By using a popular, general-purpose microcontroller development board instead of designing a custom PCB, we benefit from the low cost associated with mass production and economics of scale.
-Suitable boards can be bought for approximately $25 from the official Arduino store.
-100% compatible clones can be purchased on eBay or Amazon for just a few dollars each.</p>
-</div>
-<div class="paragraph">
-<p>The popularity of the Arduino platform has also spawned a huge number of online tutorials, guides and blog posts.
-There is an almost endless supply of support available.
-In fact, you may also find numerous other uses for it besides controlling your cockpit.</p>
-</div>
-<div class="paragraph">
-<p>No matter what you wish to connect to your Arduino board, its more than probable someone out there has already done it and documented the results for you to use.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_connecting_your_first_panel">Connecting your First Panel</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The purpose of this next section is to demonstrate how easy it is to use DCS-BIOS to create a working switch panel and have it connect to your DCS aircraft.</p>
-</div>
-<div class="sect2">
-<h3 id="_before_you_start">Before you start</h3>
-<div class="paragraph">
-<p>The following prerequisites are necessary for the successful completion of this section:</p>
-</div>
-<div class="sect3">
-<h4 id="_skills">Skills</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Have a basic understanding of what an <strong>electric circuit</strong> is.</p>
-</li>
-<li>
-<p>Know what a <strong>short-circuit</strong> is, why it is a Bad Thing&#8482; and how to avoid creating one by accident</p>
-</li>
-<li>
-<p>Have some way to make electrical connections.
-That can mean a "breadboard" and jumper wires, a soldering iron, a wire wrap tool, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_equipment">Equipment</h4>
-<div class="paragraph">
-<p>We will assume you have access to the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A computer that has DCS: World installed with access to the internet and a free USB port</p>
-</li>
-<li>
-<p>An Arduino board (the <a href="http://arduino.cc/en/Main/ArduinoBoardUno">Arduino UNO</a> is a good choice for beginners)</p>
-</li>
-<li>
-<p>A momentary on push button (the kind that stays on as long as you are pressing it)</p>
-</li>
-<li>
-<p>An LED (any colour and/or size) but not one of those super high powered, go blind if you look at it, types.</p>
-</li>
-<li>
-<p>A 220ohm 1/4 watt resistor</p>
-</li>
-<li>
-<p>24 gauge wire or jumper wires</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_our_step_by_step_instructions">Our Step by Step Instructions:</h3>
-<div class="sect3">
-<h4 id="_step_1_setting_up_dcs_bios">Step 1: Setting up DCS-BIOS</h4>
-<div class="paragraph">
-<p>1.1 Download the latest release of DCS-BIOS from <a href="https://github.com/dcs-bios/dcs-bios/releases">GitHub</a> and extract the ZIP file somewhere on your hard drive</p>
-</div>
-<div class="paragraph">
-<p>1.2 Open a new Explorer window (for example by opening "My Computer"), paste the following into the address bar and press return:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>%USERPROFILE%\Saved Games\DCS</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This should take you to your DCS configuration folder (it has several subfolders including <code>Logs</code> and <code>Missions</code>).</p>
-</div>
-<div class="paragraph">
-<p>1.3 If there is no <code>Scripts</code> subfolder in your <code>Saved Games\DCS</code> folder, create it.</p>
-</div>
-<div class="paragraph">
-<p>1.4 Copy the <code>Scripts\DCS-BIOS</code> folder from the DCS-BIOS download to your <code>Scripts</code> folder.</p>
-</div>
-<div class="paragraph">
-<p>1.5 <strong>If you do not have an existing <code>Export.lua</code> file</strong> in your <code>Scripts</code> folder, copy <code>Scripts\Export.lua</code> from the DCS-BIOS download to your <code>Scripts</code> folder. Then continue with step 2.</p>
-</div>
-<div class="paragraph">
-<p>1.6 <strong>If you already have an <code>Export.lua</code> file</strong>, open it in a text editor (we recommend <a href="http://notepad-plus-plus.org/download/v6.6.9.html">Notepad++</a>) and append the following line to the end:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua">dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOS.lua]])</code></pre>
-</div>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
+              </td>
+              <td class="content">
+                If you want to add a new aircraft module or use your own software with DCS-BIOS,
+                please refer to the Developer Guide.
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="_introduction">Introduction</h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>So you want to build a panel for your DCS: World aircraft. Whether you
+            own a CNC machine or just a drill and a hot glue gun, you probably have
+            some idea of how to use the tools available to you to mount controls
+            such as push buttons, toggle switches, rotary encoders and potentiometers
+            to a faceplate.</p>
+        </div>
+        <div class="paragraph">
+          <p>Once you have done that, you need a way to connect these controls to your
+            DCS: World aircraft. If your aircraft is supported by DCS-BIOS, read
+            on to find out if DCS-BIOS is right for you.</p>
+        </div>
+        <div class="sect2">
+          <h3 id="_why_use_dcs_bios">Why Use DCS-BIOS?</h3>
+          <div class="paragraph">
+            <p>The Home Cockpit section on the ED forums provides numerous examples
+              of how to connect a switch panel to DCS. This section explains why
+              you should pick DCS-BIOS over the alternatives.</p>
+          </div>
+          <div class="sect3">
+            <h4 id="_dcs_bios_is_easy_to_use">DCS-BIOS is "easy to use".</h4>
+            <div class="paragraph">
+              <p>You&#8217;ve heard of people trying to learn Lua just to write their
+                own <code>Export.lua</code> file. In many cases this was an exercise
+                in frustration. DCS-BIOS was produced so you don&#8217;t have to
+                worry about learning how to make your own Lua files.
+                <strong>If you can connect two wires together, copy and paste text and follow step-by-step instructions, you can make a functioning panel.</strong></p>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_dcs_bios_is_fully_documented">DCS-BIOS is fully documented</h4>
+            <div class="paragraph">
+              <p>We understand the frustrations when you try to build something or use
+                something that has little or no instructions. This document was produced
+                to ensure you have the help you need. It was written in easy to understand
+                terminology aimed specifically at the novice. You do not have to
+                be a programmer or an electrical engineer to understand it. After
+                you read this User Guide, you will be able to connect a simple switch
+                panel to DCS.</p>
+            </div>
+            <div class="paragraph">
+              <p>If you do have a programming background or simply want to know more,
+                we have a Developer Guide that explains the internal workings of
+                DCS-BIOS in greater detail.</p>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_no_noticeable_performance_impact">No noticeable performance impact</h4>
+            <div class="paragraph">
+              <p>On a low-end system (running DCS at 10 to 15 fps), we did not notice
+                any measurable performance impact. On a high-end system, running
+                DCS-BIOS reduced the framerate from 55 fps to 52 fps (about 5% slower).
+                The additional computation it requires of your PC or its precious
+                resources is negligible.</p>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_dcs_bios_will_protect_your_switch_panel_from_ed_updates">DCS-BIOS will protect your switch panel from ED updates</h4>
+            <div class="paragraph">
+              <p>"So ED just broke my switch panel with their latest update". DCS-BIOS
+                will not let that happen. DCS-BIOS isolates your switch panel from
+                the impact of any changes that Eagle Dynamics might introduce in
+                an update. In the extremely rare event that Eagle Dynamics does make
+                a change that breaks something, we will ensure DCS-BIOS is immediately
+                updated. Your panels will always maintain their functionality.</p>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_dcs_bios_has_an_extremely_efficient_protocol_design">DCS-BIOS has an extremely efficient protocol design</h4>
+            <div class="paragraph">
+              <p>The communication protocol that DCS-BIOS uses to talk to your panel
+                was designed with slow serial ports in mind. Your indicators, gauges
+                and displays will never stutter or lag during a flurry of activity
+                in the cockpit. Pressing the signal lamp test button when spooling
+                up the engines, or when half your caution lights panel is blinking
+                after a SAM hit will have no impact on how fast your cockpit instruments
+                respond.</p>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_dcs_bios_covers_everything">DCS-BIOS covers everything.</h4>
+            <div class="paragraph">
+              <p>There are a variety of interface boards available that allow you to
+                connect switches or rotary encoders or maybe even both to DCS. DCS-BIOS
+                however, extends way beyond any solution you might presently find.
+                In fact, it is the most comprehensive means of connecting your switch
+                panel to any combination of your DCS aircrafts' buttons, switches,
+                rotary encoders, potentiometers, push buttons, three way switches
+                etc., etc. In short, if it can be manipulated using Lua, DCS-BIOS
+                supports it.</p>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_dcs_bios_makes_use_of_the_extremely_popular_arduino_ecosystem">DCS-BIOS makes use of the extremely popular Arduino ecosystem</h4>
+            <div class="paragraph">
+              <p>DCS-BIOS was designed to work with the <a href="http://www.arduino.cc">Arduino family of microcontroller boards.</a>                Why? The choice was easy. By using a popular, general-purpose microcontroller
+                development board instead of designing a custom PCB, we benefit from
+                the low cost associated with mass production and economics of scale.
+                Suitable boards can be bought for approximately $25 from the official
+                Arduino store. 100% compatible clones can be purchased on eBay or
+                Amazon for just a few dollars each.</p>
+            </div>
+            <div class="paragraph">
+              <p>The popularity of the Arduino platform has also spawned a huge number
+                of online tutorials, guides and blog posts. There is an almost endless
+                supply of support available. In fact, you may also find numerous
+                other uses for it besides controlling your cockpit.</p>
+            </div>
+            <div class="paragraph">
+              <p>No matter what you wish to connect to your Arduino board, its more
+                than probable someone out there has already done it and documented
+                the results for you to use.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="_connecting_your_first_panel">Connecting your First Panel</h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>The purpose of this next section is to demonstrate how easy it is to use
+            DCS-BIOS to create a working switch panel and have it connect to your
+            DCS aircraft. As an example, we will use a button and an indicator from
+            the A-10C, but the principles are the same for other aircraft.</p>
+        </div>
+        <div class="sect2">
+          <h3 id="_before_you_start">Before you start</h3>
+          <div class="paragraph">
+            <p>The following prerequisites are necessary for the successful completion
+              of this section:</p>
+          </div>
+          <div class="sect3">
+            <h4 id="_skills">Skills</h4>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>Have a basic understanding of what an <strong>electric circuit</strong>                    is.</p>
+                </li>
+                <li>
+                  <p>Know what a <strong>short-circuit</strong> is, why it is a Bad
+                    Thing&#8482; and how to avoid creating one by accident</p>
+                </li>
+                <li>
+                  <p>Have some way to make electrical connections. That can mean a "breadboard"
+                    and jumper wires, a soldering iron, a wire wrap tool, &#8230;&#8203;</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_equipment">Equipment</h4>
+            <div class="paragraph">
+              <p>We will assume you have access to the following:</p>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>A computer that has DCS: World and the A-10C module installed with
+                    access to the internet and a free USB port</p>
+                </li>
+                <li>
+                  <p>An Arduino board (the <a href="http://arduino.cc/en/Main/ArduinoBoardUno">Arduino UNO</a>                    is a good choice for beginners)</p>
+                </li>
+                <li>
+                  <p>A momentary on push button (the kind that stays on as long as you
+                    are pressing it)</p>
+                </li>
+                <li>
+                  <p>An LED (any colour and/or size) but not one of those super high
+                    powered, go blind if you look at it, types.</p>
+                </li>
+                <li>
+                  <p>A 220ohm 1/4 watt resistor</p>
+                </li>
+                <li>
+                  <p>24 gauge wire or jumper wires</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_our_step_by_step_instructions">Our Step by Step Instructions:</h3>
+          <div class="sect3">
+            <h4 id="_step_1_setting_up_dcs_bios">Step 1: Setting up DCS-BIOS</h4>
+            <div class="paragraph">
+              <p>1.1 Download the latest release of DCS-BIOS from <a href="https://github.com/dcs-bios/dcs-bios/releases">GitHub</a>                and extract the ZIP file somewhere on your hard drive</p>
+            </div>
+            <div class="paragraph">
+              <p>1.2 Open a new Explorer window (for example by opening "My Computer"),
+                paste the following into the address bar and press return:</p>
+            </div>
+            <div class="listingblock">
+              <div class="content">
+                <pre>%USERPROFILE%\Saved Games\DCS</pre>
+              </div>
+            </div>
+            <div class="paragraph">
+              <p>This should take you to your DCS configuration folder (it has several
+                subfolders including <code>Logs</code> and <code>Missions</code>).</p>
+            </div>
+            <div class="paragraph">
+              <p>1.3 If there is no <code>Scripts</code> subfolder in your <code>Saved Games\DCS</code>                folder, create it.</p>
+            </div>
+            <div class="paragraph">
+              <p>1.4 Copy the <code>Scripts\DCS-BIOS</code> folder from the DCS-BIOS
+                download to your <code>Scripts</code> folder.</p>
+            </div>
+            <div class="paragraph">
+              <p>1.5 <strong>If you do not have an existing <code>Export.lua</code> file</strong>                in your <code>Scripts</code> folder, copy <code>Scripts\Export.lua</code>                from the DCS-BIOS download to your <code>Scripts</code> folder. Then
+                continue with step 2.</p>
+            </div>
+            <div class="paragraph">
+              <p>1.6 <strong>If you already have an <code>Export.lua</code> file</strong>,
+                open it in a text editor (we recommend <a href="http://notepad-plus-plus.org/download/v6.6.9.html">Notepad++</a>)
+                and append the following line to the end:</p>
+            </div>
+            <div class="listingblock">
+              <div class="content">
+                <pre class="highlight"><code class="language-lua" data-lang="lua">dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOS.lua]])</code></pre>
+              </div>
+            </div>
+            <div class="admonitionblock warning">
+              <table>
+                <tr>
+                  <td class="icon">
 <i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-You should never use any word processing software to edit text files.
-Word processing software saves formatting information in the file which will render it unusable.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_step_2_connecting_your_led_and_push_button_switch">Step 2: Connecting your LED and Push Button Switch</h4>
-<div class="paragraph">
-<p>Before you start plugging in wires and resistors, take a few minutes and have a look at the Arduino board you are using.
-Get familiar with the pin designations printed on your board.
-It would be well worthwhile spending a few minutes on the Arduino web site and do a bit of reading on the basics of using Arduino boards.
-There are numerous YouTube videos that will introduce you to the world of Arduino.
-This will all help as you move forward to more complex types panels.
-So lets start&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>2.1  Connect your push button switch to your Arduino board at pin 10 and pin GND (ground).</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+                  </td>
+                  <td class="content">
+                    You should never use any word processing software to edit text files. Word processing
+                    software saves formatting information in the file which will
+                    render it unusable.
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_step_2_connecting_your_led_and_push_button_switch">Step 2: Connecting your LED and Push Button Switch</h4>
+            <div class="paragraph">
+              <p>Before you start plugging in wires and resistors, take a few minutes
+                and have a look at the Arduino board you are using. Get familiar
+                with the pin designations printed on your board. It would be well
+                worthwhile spending a few minutes on the Arduino web site and do
+                a bit of reading on the basics of using Arduino boards. There are
+                numerous YouTube videos that will introduce you to the world of Arduino.
+                This will all help as you move forward to more complex types panels.
+                So lets start&#8230;&#8203;</p>
+            </div>
+            <div class="paragraph">
+              <p>2.1 Connect your push button switch to your Arduino board at pin 10
+                and pin GND (ground).</p>
+            </div>
+            <div class="admonitionblock note">
+              <table>
+                <tr>
+                  <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-There are several pins designated as GND (ground) on the board.
-They are all connected together.
-It doesn&#8217;t matter which one you choose.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>2.2 Connect your LED and current limiting resistor to the Arduino board at pin 13 and pin GND (ground).
-Pay attention to the polarity of the LED before you connect it.
-The cathode, which is the negative side always goes to pin GND.
-Nothing will start smoking if you connect it backwards.
-It just won&#8217;t work until its connected properly.</p>
-</div>
-<div class="paragraph">
-<p>When complete your curcuit should look like this:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/uno1.jpg" alt="651" width="651">
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Plug your Arduino board into a USB port.
-If any drivers are required there will be instructions as to how to install them.
-It does vary between Arduino boards but it&#8217;s no different really than installing a headset or joystick.
-The USB port provides power to the Arduino board but you can use a wallwart providing its 12v.
-There is an onboard jack to plug into.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>You have now completed all of the required wiring for you first switch panel.</strong></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+                  </td>
+                  <td class="content">
+                    There are several pins designated as GND (ground) on the board. They are all connected
+                    together. It doesn&#8217;t matter which one you choose.
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="paragraph">
+              <p>2.2 Connect your LED and current limiting resistor to the Arduino board
+                at pin 13 and pin GND (ground). Pay attention to the polarity of
+                the LED before you connect it. The cathode, which is the negative
+                side always goes to pin GND. Nothing will start smoking if you connect
+                it backwards. It just won&#8217;t work until its connected properly.</p>
+            </div>
+            <div class="paragraph">
+              <p>When complete your curcuit should look like this:</p>
+            </div>
+            <div class="imageblock">
+              <div class="content">
+                <img src="images/uno1.jpg" alt="651" width="651">
+              </div>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>Plug your Arduino board into a USB port. If any drivers are required
+                    there will be instructions as to how to install them. It does
+                    vary between Arduino boards but it&#8217;s no different really
+                    than installing a headset or joystick. The USB port provides
+                    power to the Arduino board but you can use a wallwart providing
+                    its 12v. There is an onboard jack to plug into.</p>
+                </li>
+              </ul>
+            </div>
+            <div class="paragraph">
+              <p><strong>You have now completed all of the required wiring for you first switch panel.</strong></p>
+            </div>
+            <div class="admonitionblock note">
+              <table>
+                <tr>
+                  <td class="icon">
+                    <div class="title">Note</div>
+                  </td>
+                  <td class="content">
+                    The USB port provides power to the Arduino board but many boards also have a jack
+                    that allows you use an external power supply such as a wallwart
+                    providing it supplies 7 to 12V and the centre pin is positive.
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_step_3_set_up_the_arduino_ide">Step 3: Set up the Arduino IDE</h4>
+            <div class="paragraph">
+              <p>I imagine your next question is "what is an IDE". The Arduino IDE is
+                a program that you will download and install on to your PC. You use
+                it to write small programs (they are called "sketches") and upload
+                them to your Arduino board. You should probably read the page describing
+                how to use the IDE on the Arduino web site. It is very simple and
+                you should have little to no difficulty understanding what to do.
+                So to continue&#8230;&#8203;</p>
+            </div>
+            <div class="olist arabic">
+              <ol class="arabic">
+                <li>
+                  <p>Download and install the Arduino IDE <a href="http://arduino.cc/en/Main/Software">from the Arduino website.</a></p>
+                </li>
+              </ol>
+            </div>
+            <div class="paragraph">
+              <p>The Arduino IDE uses what are referred to as "Libraries" to help you
+                make various types of devices work properly using a minimum of commands.
+                There are libraries for using LCD displays, stepper motors, servos
+                etc. It&#8217;s a long list. We have produced such a library for
+                using DCS-BIOS and it is called the DCS-BIOS Arduino library. As
+                with all libraries, it was developed to make your life easier when
+                it comes to writing a sketch. However, libraries need to be installed
+                and this next step will guide you through that process.</p>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>Download the <a href="https://github.com/dcs-bios/dcs-bios-arduino-library/releases">DCS-BIOS Arduino library</a>                    from GitHub. DO NOT extract it. It also doesn&#8217;t matter
+                    where you download the file to as long as YOU know where it is
+                    as you will need to point to its location in the next step.</p>
+                </li>
+                <li>
+                  <p>Start the Arduino IDE</p>
+                </li>
+                <li>
+                  <p>Click <code>Sketch &#8594; Import Library &#8594; Add Library&#8230;&#8203;</code>                    and then go find the ZIP file you downloaded and select it. The
+                    Arduino IDE will do the rest. That&#8217;s all there is to importing
+                    libraries into the IDE.</p>
+                </li>
+                <li>
+                  <p>Close and re-open your Arduino IDE. You are now ready to start
+                    you first sketch.</p>
+                </li>
+              </ul>
+            </div>
+            <div class="paragraph">
+              <p><strong>Congratulations, you have completed all of the one-time setup steps.</strong>                From now on any panel that you create will only require you to complete
+                steps 4 and 5.</p>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_step_4_create_a_sketch_for_your_arduino_board">Step 4: Create a sketch for your Arduino board</h4>
+            <div class="paragraph">
+              <p>You are now going to create a sketch for your Arduino board that connects
+                it to DCS and makes your switch and LED work as in your DCS aircraft
+                cockpit. In order to simplify this process you will begin your sketch
+                by opening a "template" that we have provided. Until such day as
+                you become an Arduino programming expert you will start every new
+                sketch with this template. It provides all of the essential code
+                necessary to communicate with DCS. It automatically reads the state
+                of your connected switches and reports this to DCS-BIOS which then
+                updates the switches of your DCS aircraft.</p>
+            </div>
+            <div class="paragraph">
+              <p>Another function of this template is to automatically gather output
+                data from DCS. You can use this data to make gauges function, displays
+                work or indicator lights to light up. We will provide you with several
+                examples in the appendix.</p>
+            </div>
+            <div class="admonitionblock note">
+              <table>
+                <tr>
+                  <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The USB port provides power to the Arduino board but many boards also have a jack that allows you use an external power supply such as a wallwart providing it supplies 7 to 12V and the centre pin is positive.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_step_3_set_up_the_arduino_ide">Step 3: Set up the Arduino IDE</h4>
-<div class="paragraph">
-<p>I imagine your next question is "what is an IDE".
-The Arduino IDE is a program that you will download and install on to your PC.
-You use it to write small programs (they are called "sketches") and upload them to your Arduino board.
-You should probably read the page describing how to use the IDE on the Arduino web site.
-It is very simple and you should have little to no difficulty understanding what to do.
-So to continue&#8230;&#8203;</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Download and install the Arduino IDE <a href="http://arduino.cc/en/Main/Software">from the Arduino website.</a></p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The Arduino IDE uses what are referred to as "Libraries" to help you make various types of devices work properly using a minimum of commands.
-There are libraries for using LCD displays, stepper motors, servos etc.
-It&#8217;s a long list.
-We have produced such a library for using DCS-BIOS and it is called the DCS-BIOS Arduino library.
-As with all libraries, it was developed to make your life easier when it comes to writing a sketch.
-However, libraries need to be installed and this next step will guide you through that process.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Download the <a href="https://github.com/dcs-bios/dcs-bios-arduino-library/releases">DCS-BIOS Arduino library</a> from GitHub.
-DO NOT extract it.
-It also doesn&#8217;t matter where you download the file to as long as YOU know where it is as you will need to point to its location in the next step.</p>
-</li>
-<li>
-<p>Start the Arduino IDE</p>
-</li>
-<li>
-<p>Click <code>Sketch &#8594; Import Library &#8594; Add Library&#8230;&#8203;</code> and then go find the ZIP file you downloaded and select it.
-The Arduino IDE will do the rest.
-That&#8217;s all there is to importing libraries into the IDE.</p>
-</li>
-<li>
-<p>Close and re-open your Arduino IDE.
-You are now ready to start you first sketch.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Congratulations, you have completed all of the one-time setup steps.</strong>
-From now on any panel that you create will only require you to complete steps 4 and 5.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_step_4_create_a_sketch_for_your_arduino_board">Step 4: Create a sketch for your Arduino board</h4>
-<div class="paragraph">
-<p>You are now going to create a sketch for your Arduino board that connects it to DCS and makes your switch and LED work as in your DCS aircraft cockpit.
-In order to simplify this process you will begin your sketch by opening a "template" that we have provided.
-Until such day as you become an Arduino programming expert you will start every new sketch with this template.
-It provides all of the essential code necessary to communicate with DCS.
-It automatically reads the state of your connected switches and reports this to DCS-BIOS which then updates the switches of your DCS aircraft.</p>
-</div>
-<div class="paragraph">
-<p>Another function of this template is to automatically gather output data from DCS.
-You can use this data to make gauges function, displays work or indicator lights to light up.
-We will provide you with several examples in the appendix.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Take special care not to alter any of the existing code that comes with this template as you work on your sketch.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_so_lets_begin">So lets begin:</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Click <code>File &#8594; Examples &#8594; DcsBios &#8594; IRQSerial</code> to open the template program that comes with the DCS-BIOS Arduino library.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>To develop a sketch for your panel, you are going to copy pieces of example code from a reference document that we have provided.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Go to your saved Games folder/DCS-BIOS/doc and double-click on the file <code>control-reference.html</code>
-Your web browser will automatically open and display all sorts of colorful headings and code.
-If you see a red warning instead, you need to enable JavaScript in your web browser and reload the page.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This web page is the reference document we are referring to.
-It lists every single DCS module that DCS-BIOS supports, every single panel found in that aircraft, and every single corresponding switch, push button and rotary knob or whatever associated with that panel and the corresponding code that you will use to create your sketch.</p>
-</div>
-<div class="paragraph">
-<p>Along the top of the web page, there are "filters" in the form of drop down menus that can be used to display precisely what you are looking for.
-You have the choice of what aircraft you would like to work with, the type of information you would like displayed (basic or advanced) and every single panel on the aircraft you chose to work with.
-Stay away from the advanced tab until you know what you are doing.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Select "Up Front Controller" in the "Category Filter" dropdown menu.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The first entry should be the one for the Master Caution Light.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>left click in the box with the yellow background to highlight the example code.
-Then copy the selected text to your clipboard by pressing <code>Ctrl+C</code>.
-Now move to the Arduino IDE and paste this line in the space just below where it says "paste your code below here".</p>
-</li>
-<li>
-<p>Now go back to the control reference web page.
-Scroll down a bit until you come to the <code>UFC_MASTER_CAUTION / Master Caution Reset</code> entry.</p>
-</li>
-<li>
-<p>As before, left click in the box with the yellow background and then copy it to your clipboard.
-Move to the Arduino IDE and paste this line in the space below the last one.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Did you notice the red highlighting in the control reference document?
-It highlights the word "PIN" or "PIN_A, PIN_B" etc.
-These are temporary placeholders that you will be changing.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Lets start with the switch that you are using to reset the Master Caution.
-You attached it to Pin 10 on the Arduino board.
-You now need to go into the Arduino IDE, to the line of code you pasted for the Master Caution Reset switch.
-Change the placeholder "PIN" to the pin that switch is connected to.
-In this particular case it was Pin 10.
-The word "PIN' gets replaced with 10.
-The line of code for the Master Caution switch should have changed as follows:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", PIN);
+                  </td>
+                  <td class="content">
+                    Take special care not to alter any of the existing code that comes with this template
+                    as you work on your sketch.
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_so_lets_begin">So lets begin:</h4>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>Click <code>File &#8594; Examples &#8594; DcsBios &#8594; IRQSerial</code>                    to open the template program that comes with the DCS-BIOS Arduino
+                    library.</p>
+                </li>
+              </ul>
+            </div>
+            <div class="paragraph">
+              <p>To develop a sketch for your panel, you are going to copy pieces of
+                example code from a reference document that we have provided.</p>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>Go to your saved Games folder/DCS-BIOS/doc and double-click on
+                    the file <code>control-reference.html</code> Your web browser
+                    will automatically open and display all sorts of colorful headings
+                    and code. If you see a red warning instead, you need to enable
+                    JavaScript in your web browser and reload the page.</p>
+                </li>
+              </ul>
+            </div>
+            <div class="paragraph">
+              <p>This web page is the reference document we are referring to. It lists
+                every single DCS module that DCS-BIOS supports, every single panel
+                found in that aircraft, and every single corresponding switch, push
+                button and rotary knob or whatever associated with that panel and
+                the corresponding code that you will use to create your sketch.</p>
+            </div>
+            <div class="paragraph">
+              <p>Along the top of the web page, there are "filters" in the form of drop
+                down menus that can be used to display precisely what you are looking
+                for. You have the choice of what aircraft you would like to work
+                with, the type of information you would like displayed (basic or
+                advanced) and every single panel on the aircraft you chose to work
+                with. Stay away from the advanced tab until you know what you are
+                doing.</p>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>Select "A-10C" in the "Module" dropdown menu and "UFC" as "Category
+                    Filter".</p>
+                </li>
+              </ul>
+            </div>
+            <div class="paragraph">
+              <p>The first entry should be the one for the Master Caution Light.</p>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>left click in the box with the yellow background to highlight the
+                    example code. Then copy the selected text to your clipboard by
+                    pressing <code>Ctrl+C</code>. Now move to the Arduino IDE and
+                    paste this line in the space just below where it says "paste
+                    your code below here".</p>
+                </li>
+                <li>
+                  <p>Now go back to the control reference web page. Scroll down a bit
+                    until you come to the <code>UFC_MASTER_CAUTION / Master Caution Reset</code>                    entry.</p>
+                </li>
+                <li>
+                  <p>As before, left click in the box with the yellow background and
+                    then copy it to your clipboard. Move to the Arduino IDE and paste
+                    this line in the space below the last one.</p>
+                </li>
+              </ul>
+            </div>
+            <div class="paragraph">
+              <p>Did you notice the red highlighting in the control reference document?
+                It highlights the word "PIN" or "PIN_A, PIN_B" etc. These are temporary
+                placeholders that you will be changing.</p>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>Lets start with the switch that you are using to reset the Master
+                    Caution. You attached it to Pin 10 on the Arduino board. You
+                    now need to go into the Arduino IDE, to the line of code you
+                    pasted for the Master Caution Reset switch. Change the placeholder
+                    "PIN" to the pin that switch is connected to. In this particular
+                    case it was Pin 10. The word "PIN' gets replaced with 10. The
+                    line of code for the Master Caution switch should have changed
+                    as follows:</p>
+                </li>
+              </ul>
+            </div>
+            <div class="listingblock">
+              <div class="content">
+                <pre>DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", PIN);
 DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", 10);</pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>You now do the same for the LED that respresents the Master Caution warning.
-As before, you go into the Arduino IDE, to the line of code you pasted for it.
-Change the word "PIN" to the pin number you connected the LED to.
-The word "PIN' gets replaced with 13.
-The line of code for the LED Master Caution warning should change as follows:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>DcsBios::LED masterCaution(0x108e, 0x0008, PIN);
-DcsBios::LED masterCaution(0x108e, 0x0008, 13);</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>When you have completed these changes, the beginning of your sketch should look like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">#include &lt;DcsBios.h&gt;
+              </div>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>You now do the same for the LED that respresents the Master Caution
+                    warning. As before, you go into the Arduino IDE, to the line
+                    of code you pasted for it. Change the word "PIN" to the pin number
+                    you connected the LED to. The word "PIN' gets replaced with 13.
+                    The line of code for the LED Master Caution warning should change
+                    as follows:</p>
+                </li>
+              </ul>
+            </div>
+            <div class="listingblock">
+              <div class="content">
+                <pre>DcsBios::LED masterCaution(0x1012, 0x0800, PIN);
+DcsBios::LED masterCaution(0x1012, 0x0800, 13);</pre>
+              </div>
+            </div>
+            <div class="paragraph">
+              <p>When you have completed these changes, the beginning of your sketch
+                should look like this:</p>
+            </div>
+            <div class="listingblock">
+              <div class="content">
+                <pre class="highlight"><code class="language-c++" data-lang="c++">#include &lt;DcsBios.h&gt;
 #include &lt;Servo.h&gt;
 
 /**** Paste your code below here ****/
 
-DcsBios::LED masterCaution(0x108e, 0x0008, 13);
+DcsBios::LED masterCaution(0x1012, 0x0800, 13);
 DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", 10);
 
 /**** Do not change anything below this line ****/</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Click <code>File &#8594; Save As</code> to save it under a new name.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+              </div>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>Click <code>File &#8594; Save As</code> to save it under a new
+                    name.</p>
+                </li>
+              </ul>
+            </div>
+            <div class="admonitionblock note">
+              <table>
+                <tr>
+                  <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The Arduino IDE prevents you from saving changes to a library example.
-You will have to save your changes under a new name.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Your sketch is now finished and ready for the next step.</strong></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_step_5_copy_your_program_to_your_arduino_board">Step 5: Copy your program to your Arduino board</h4>
-<div class="paragraph">
-<p>Now that your sketch is done, you need to load it onto your Arduino board.</p>
-</div>
-<div class="paragraph">
-<p>The specifics of this process may vary slightly for different Arduino boards but for the most part they all follow the same basic routine.
-We use the Arduino UNO in this example.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+                  </td>
+                  <td class="content">
+                    The Arduino IDE prevents you from saving changes to a library example. You will have
+                    to save your changes under a new name.
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="paragraph">
+              <p><strong>Your sketch is now finished and ready for the next step.</strong></p>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_step_5_copy_your_program_to_your_arduino_board">Step 5: Copy your program to your Arduino board</h4>
+            <div class="paragraph">
+              <p>Now that your sketch is done, you need to load it onto your Arduino
+                board.</p>
+            </div>
+            <div class="paragraph">
+              <p>The specifics of this process may vary slightly for different Arduino
+                boards but for the most part they all follow the same basic routine.
+                We use the Arduino UNO in this example.</p>
+            </div>
+            <div class="admonitionblock note">
+              <table>
+                <tr>
+                  <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The Arduino website has <a href="http://arduino.cc/en/Guide/HomePage">step-by-step instructions for each board.</a>
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>With your sketch open in the Arduino IDE you need to tell the IDE what board you are using.
-Do this by Clicking on <code>Tools &#8594; Board</code> and then select your board from the list that is displayed.</p>
-</li>
-<li>
-<p>Next, you will need to specify the COM port your board is connected to.
-Click <code>Tools &#8594; Port</code> and select the port from the list.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+                  </td>
+                  <td class="content">
+                    The Arduino website has <a href="http://arduino.cc/en/Guide/HomePage">step-by-step instructions for each board.</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>With your sketch open in the Arduino IDE you need to tell the IDE
+                    what board you are using. Do this by Clicking on <code>Tools &#8594; Board</code>                    and then select your board from the list that is displayed.</p>
+                </li>
+                <li>
+                  <p>Next, you will need to specify the COM port your board is connected
+                    to. Click <code>Tools &#8594; Port</code> and select the port
+                    from the list.</p>
+                </li>
+              </ul>
+            </div>
+            <div class="admonitionblock note">
+              <table>
+                <tr>
+                  <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If you are unsure of the port number, it is identified in the <code>Control Panel/Devices and Printers</code> page.
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The final step is to initiate the upload.
-This is done by clicking on the Arrow in the circle just below the Edit drop down menu.
-When the upload begins, a green bar will apear and show the progress of the upload.
-When it disappears the upload is complete.</p>
-</li>
-<li>
-<p>After loading your program onto your Arduino board, you can close the Arduino software.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_step_6_test_your_new_panel">Step 6: Test your new panel</h4>
-<div class="paragraph">
-<p>DCS-BIOS comes with a script that connects a serial port to DCS.
-This  serial port is the means by which your PC and your Arduino Board communicate.
-To initiate this connection you need specify the COM Port to use.
-You will use the same COM Port that the Arduino IDE used to program your board.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Double-click <code>connect-serial-port.cmd</code> which is in the DCS-BIOS folder you previously downloaded.
-A console window should pop up. Type in the number of the COM port that your Arduino board is connected to and press Return.
-Leave the console window open.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>You can now start DCS and try your new panel in action!</strong></p>
-</div>
-<div class="paragraph">
-<p>If you don&#8217;t want to type in the COM port number every time you run the script, you can edit the script
-(or a copy of it) so it always uses the same port:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Start Notepad++.
-Open the <code>connect-serial-port.cmd</code> file which is in the DCS-BIOS folder you previously downloaded.
-Near the top of the file, you will see a line that says <code>set COMPORT=ASK</code>. Replace <code>ASK</code> with the number of the COM port you wish this script to use.
-For example, to use COM5, the line should look like this:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>set COMPORT=5</pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Save the file and close Notepad++.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
+                  </td>
+                  <td class="content">
+                    If you are unsure of the port number, it is identified in the <code>Control Panel/Devices and Printers</code>                    page.
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>The final step is to initiate the upload. This is done by clicking
+                    on the Arrow in the circle just below the Edit drop down menu.
+                    When the upload begins, a green bar will apear and show the progress
+                    of the upload. When it disappears the upload is complete.</p>
+                </li>
+                <li>
+                  <p>After loading your program onto your Arduino board, you can close
+                    the Arduino software.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_step_6_test_your_new_panel">Step 6: Test your new panel</h4>
+            <div class="paragraph">
+              <p>DCS-BIOS comes with a script that connects a serial port to DCS. This
+                serial port is the means by which your PC and your Arduino Board
+                communicate. To initiate this connection you need specify the COM
+                Port to use. You will use the same COM Port that the Arduino IDE
+                used to program your board.</p>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>Double-click <code>connect-serial-port.cmd</code> which is in the
+                    DCS-BIOS folder you previously downloaded. A console window should
+                    pop up. Type in the number of the COM port that your Arduino
+                    board is connected to and press Return. Leave the console window
+                    open.</p>
+                </li>
+              </ul>
+            </div>
+            <div class="paragraph">
+              <p><strong>You can now start DCS and try your new panel in action!</strong></p>
+            </div>
+            <div class="paragraph">
+              <p>If you don&#8217;t want to type in the COM port number every time you
+                run the script, you can edit the script (or a copy of it) so it always
+                uses the same port:</p>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>Start Notepad++. Open the <code>connect-serial-port.cmd</code>                    file which is in the DCS-BIOS folder you previously downloaded.
+                    Near the top of the file, you will see a line that says <code>set COMPORT=ASK</code>.
+                    Replace <code>ASK</code> with the number of the COM port you
+                    wish this script to use. For example, to use COM5, the line should
+                    look like this:</p>
+                </li>
+              </ul>
+            </div>
+            <div class="listingblock">
+              <div class="content">
+                <pre>set COMPORT=5</pre>
+              </div>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>Save the file and close Notepad++.</p>
+                </li>
+              </ul>
+            </div>
+            <div class="admonitionblock warning">
+              <table>
+                <tr>
+                  <td class="icon">
 <i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-If you make a copy of the script, you need to place it in the same folder as the original. Otherwise it will not find the <code>socat</code> executable.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_summary">Summary</h4>
-<div class="paragraph">
-<p>You can make any panel you like using this template file.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Add the lines of code from the <code>control-reference.html</code> documentation to your sketch for the switches and/or LED&#8217;s you wish to use.</p>
-</li>
-<li>
-<p>Upload that sketch to your Arduino board.</p>
-</li>
-<li>
-<p>Connect the appropriate switch type and/or LED to the appropriate pin number on the Arduino board.</p>
-</li>
-<li>
-<p>Initiate the serial connection to DCS.</p>
-</li>
-<li>
-<p>Begin using your switches and LED&#8217;s in your DCS aircraft.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_what_this_guide_strong_is_not_strong">What this Guide <strong>IS NOT</strong></h4>
-<div class="paragraph">
-<p>If your intent is to include displays and/or analog gauges with your panels you will need to have additional programming knowledge.
-There are displays in the aircraft that could incorporate LCD displays, LED displays or OLED displays.
-In addition there are analog Gauges in the cockpit that could be built using stepper motors, servos or even air core motors.
-With such a wide choice of components available, it really is beyond the scope of this particular document to provide instruction on every possible solution.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_in_conclusion">In Conclusion&#8230;&#8203;</h4>
-<div class="paragraph">
-<p>What we are providing is the means to allow any novice cockpit builder to create a functioning switch panel and/or LED Indicators that will interact with their DCS aircraft.
-Most importantly, you do not need to be a programmer or electronic engineer to accomplish this task.
-With DCS-BIOS, it&#8217;s straight forward.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_a_closer_look_at_the_dcs_bios_arduino_library">A Closer Look at The DCS-BIOS Arduino Library</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This tutorial will show you how to read the DCS-BIOS control-reference documentation to create a sketch for any panel in the cockpit.</p>
-</div>
-<div class="paragraph">
-<p>It will cover all of the different control types that are supported by the Arduino library.
-The information provided at this point may require some level of knowledge with Arduino programming.</p>
-</div>
-<div class="sect2">
-<h3 id="_the_mastercaution_example_sketch">The MasterCaution Example Sketch</h3>
-<div class="paragraph">
-<p>This section takes a closer look at the different parts of the MasterCaution example sketch.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">/* use '#define DCSBIOS_DEFAULT_SERIAL' instead if your Arduino board
+                  </td>
+                  <td class="content">
+                    If you make a copy of the script, you need to place it in the same folder as the
+                    original. Otherwise it will not find the <code>socat</code>                    executable.
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_summary">Summary</h4>
+            <div class="paragraph">
+              <p>You can make any panel you like using this template file.</p>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>Add the lines of code from the <code>control-reference.html</code>                    documentation to your sketch for the switches and/or LED&#8217;s
+                    you wish to use.</p>
+                </li>
+                <li>
+                  <p>Upload that sketch to your Arduino board.</p>
+                </li>
+                <li>
+                  <p>Connect the appropriate switch type and/or LED to the appropriate
+                    pin number on the Arduino board.</p>
+                </li>
+                <li>
+                  <p>Initiate the serial connection to DCS.</p>
+                </li>
+                <li>
+                  <p>Begin using your switches and LED&#8217;s in your DCS aircraft.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_what_this_guide_strong_is_not_strong">What this Guide <strong>IS NOT</strong></h4>
+            <div class="paragraph">
+              <p>If your intent is to include displays and/or analog gauges with your
+                panels you will need to have additional programming knowledge. There
+                are displays in the aircraft that could incorporate LCD displays,
+                LED displays or OLED displays. In addition there are analog Gauges
+                in the cockpit that could be built using stepper motors, servos or
+                even air core motors. With such a wide choice of components available,
+                it really is beyond the scope of this particular document to provide
+                instruction on every possible solution.</p>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_in_conclusion">In Conclusion&#8230;&#8203;</h4>
+            <div class="paragraph">
+              <p>What we are providing is the means to allow any novice cockpit builder
+                to create a functioning switch panel and/or LED Indicators that will
+                interact with their DCS aircraft. Most importantly, you do not need
+                to be a programmer or electronic engineer to accomplish this task.
+                With DCS-BIOS, it&#8217;s straight forward.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="_a_closer_look_at_the_dcs_bios_arduino_library">A Closer Look at The DCS-BIOS Arduino Library</h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>This tutorial will show you how to read the DCS-BIOS control-reference
+            documentation to create a sketch for any panel in the cockpit.</p>
+        </div>
+        <div class="paragraph">
+          <p>It will cover all of the different control types that are supported by
+            the Arduino library. The information provided at this point may require
+            some level of knowledge with Arduino programming.</p>
+        </div>
+        <div class="sect2">
+          <h3 id="_the_mastercaution_example_sketch">The MasterCaution Example Sketch</h3>
+          <div class="paragraph">
+            <p>This section takes a closer look at the different parts of the MasterCaution
+              example sketch.</p>
+          </div>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">/* use '#define DCSBIOS_DEFAULT_SERIAL' instead if your Arduino board
  *  does not feature an ATMega328 or ATMega2650 controller.
  */
-#define DCSBIOS_IRQ_SERIAL <i class="conum" data-value="1"></i><b>(1)</b>
-#include "DcsBios.h" <i class="conum" data-value="2"></i><b>(2)</b>
+#define DCSBIOS_IRQ_SERIAL <b class="conum">(1)</b>
+#include "DcsBios.h" <b class="conum">(2)</b>
 
-DcsBios::LED masterCaution(0x108e, 0x0008, 13); <i class="conum" data-value="3"></i><b>(3)</b>
-DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", 10); <i class="conum" data-value="4"></i><b>(4)</b>
+DcsBios::LED masterCaution(0x1012, 0x0800, 13); <b class="conum">(3)</b>
+DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", 10); <b class="conum">(4)</b>
 
 void setup() {
-  DcsBios::setup(); <i class="conum" data-value="5"></i><b>(5)</b>
+  DcsBios::setup(); <b class="conum">(5)</b>
 }
 
 void loop() {
-  DcsBios::loop(); <i class="conum" data-value="6"></i><b>(6)</b>
+  DcsBios::loop(); <b class="conum">(6)</b>
 }
 
 
 }</code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Before including <code>DcsBios.h</code>, you have to define a preprocessor macro that tells the DCS-BIOS Arduino Library what mode it should operate in. If you are using an Arduino board that has either an ATMega328 or an ATMega2560 chip, such as the Uno, Pro Mini, Nano or Mega 2650 boards, use <code>DCSBIOS_IRQ_SERIAL</code>. If your board has a different microcontroller, you can use <code>DCSBIOS_DEFAULT_SERIAL</code> instead, which should work with any Arduino-compatible board but can cause problems if your sketch spends a long time updating outputs, either because you are outputting to something "slow" like displays or you are using a lot of outputs (such as trying to run a Caution Lights Panel with 48 instances of <code>DcsBios::LED</code>).</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>This line adds the DCS-BIOS Arduino Library to your sketch.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>This line tells the DCS-BIOS Arduino Library that there is a switch connected to pin 10 that should be mapped to the master caution reset button.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>This line tells the DCS-BIOS Arduino Library to use the built-in LED on your Arduino board, which is connected to pin 13, as a master caution light.
-Refer to the control reference documentation for more examples.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>In your <code>setup()</code> function, you have to call <code>DcsBios::setup()</code> to initialize the DCS-BIOS Arduino Library.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>In your <code>loop()</code> function, you have to call <code>DcsBios::loop()</code>. This causes the DCS-BIOS Arduino library to notify DCS if any inputs (push buttons, switches, etc.) have changed, and to update any outputs (LEDs, servo motors, displays, etc.) with the latest data from DCS.</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_using_the_control_reference_documentation">Using the Control-Reference Documentation</h3>
-<div class="paragraph">
-<p>Recall the following part from the MasterCaution example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::Switch2Pos masterCautionBtn("UFC_MASTER_CAUTION", 10);
-DcsBios::LED masterCautionLED("MASTER_CAUTION", 13);</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Unless you are doing something more advanced such as using something other than a serial port to talk to your DCS computer, this is the only part you need be concerned with.</p>
-</div>
-<div class="paragraph">
-<p>Even without knowing much about DCS-BIOS, you might have guessed that this says there is a push button connected to pin 10 that should operate the master caution button and that the LED on pin 13 should light up then the master caution button does.</p>
-</div>
-<div class="paragraph">
-<p>But how do you know what to put here for other controls?
-You will have to consult the "Control-Reference" documentation.</p>
-</div>
-<div class="sect3">
-<h4 id="_locating_the_reference_documentation">Locating the Reference Documentation</h4>
-<div class="paragraph">
-<p>The Control-Reference documentation is included in the <code>doc/</code> subdirectory in the DCS-BIOS download.
-Simply double-click <code>Control-Reference.html</code> to open it in your web browser.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+            </div>
+          </div>
+          <div class="colist arabic">
+            <ol>
+              <li>
+                <p>Before including <code>DcsBios.h</code>, you have to define a preprocessor
+                  macro that tells the DCS-BIOS Arduino Library what mode it should
+                  operate in. If you are using an Arduino board that has either an
+                  ATMega328 or an ATMega2560 chip, such as the Uno, Pro Mini, Nano
+                  or Mega 2650 boards, use <code>DCSBIOS_IRQ_SERIAL</code>. If your
+                  board has a different microcontroller, you can use <code>DCSBIOS_DEFAULT_SERIAL</code>                  instead, which should work with any Arduino-compatible board but
+                  can cause problems if your sketch spends a long time updating outputs,
+                  either because you are outputting to something "slow" like displays
+                  or you are using a lot of outputs (such as trying to run a Caution
+                  Lights Panel with 48 instances of <code>DcsBios::LED</code>).</p>
+              </li>
+              <li>
+                <p>This line adds the DCS-BIOS Arduino Library to your sketch.</p>
+              </li>
+              <li>
+                <p>This line tells the DCS-BIOS Arduino Library that there is a switch
+                  connected to pin 10 that should be mapped to the master caution
+                  reset button.</p>
+              </li>
+              <li>
+                <p>This line tells the DCS-BIOS Arduino Library to use the built-in
+                  LED on your Arduino board, which is connected to pin 13, as a master
+                  caution light. Refer to the control reference documentation for
+                  more examples.</p>
+              </li>
+              <li>
+                <p>In your <code>setup()</code> function, you have to call <code>DcsBios::setup()</code>                  to initialize the DCS-BIOS Arduino Library.</p>
+              </li>
+              <li>
+                <p>In your <code>loop()</code> function, you have to call <code>DcsBios::loop()</code>.
+                  This causes the DCS-BIOS Arduino library to notify DCS if any inputs
+                  (push buttons, switches, etc.) have changed, and to update any
+                  outputs (LEDs, servo motors, displays, etc.) with the latest data
+                  from DCS.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_using_the_control_reference_documentation">Using the Control-Reference Documentation</h3>
+          <div class="paragraph">
+            <p>Recall the following part from the MasterCaution example:</p>
+          </div>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::Switch2Pos masterCautionBtn("UFC_MASTER_CAUTION", 10);
+DcsBios::LED masterCaution(0x1012, 0x0800, 13);</code></pre>
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>Unless you are doing something more advanced such as using something
+              other than a serial port to talk to your DCS computer, this is the
+              only part you need be concerned with.</p>
+          </div>
+          <div class="paragraph">
+            <p>Even without knowing much about DCS-BIOS, you might have guessed that
+              this says there is a push button connected to pin 10 that should operate
+              the master caution button and that the LED on pin 13 should light up
+              then the master caution button does.</p>
+          </div>
+          <div class="paragraph">
+            <p>But how do you know what to put here for other controls? You will have
+              to consult the "Control-Reference" documentation.</p>
+          </div>
+          <div class="sect3">
+            <h4 id="_locating_the_reference_documentation">Locating the Reference Documentation</h4>
+            <div class="paragraph">
+              <p>The Control-Reference documentation is included in the <code>doc/</code>                subdirectory in the DCS-BIOS download. Simply double-click <code>Control-Reference.html</code>                to open it in your web browser.</p>
+            </div>
+            <div class="admonitionblock note">
+              <table>
+                <tr>
+                  <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If all you see is a big red warning, you need to enable JavaScript and reload the page.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_finding_the_control_you_are_looking_for">Finding the Control You Are Looking For</h4>
-<div class="paragraph">
-<p>First, select the module.
-Second, select the type of view.
-Choose Simple if it is not already displayed as the default.
-Finally, the "Category Filter" dropdown box will provide you with a complete listing of all the panels and you can select the panel you are looking for.
-==== Supported Controls
-DCS-BIOS refers to switches, rotary encoders, potentiometers, push buttons etc. as "CONTROLS".
-The following are all of the supported Controls available in DCS-BIOS:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>DcsBios::ActionButton</code></p>
-</li>
-<li>
-<p><code>DcsBios::Switch2Pos</code>.  defines a 2 position swich</p>
-</li>
-<li>
-<p><code>DcsBios::Switch3Pos</code>. defines a 3 position switch</p>
-</li>
-<li>
-<p><code>DcsBios::SwitchMultiPos</code>. defines a rotary switch, you provide how many positions</p>
-</li>
-<li>
-<p><code>DcsBios::Pot</code>. defines a potentiometer</p>
-</li>
-<li>
-<p><code>DcsBios::RotaryEncoder</code>. defines a rotary encoder</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>DCS-BIOS also includes indicator LED&#8217;s in the Controls as follows:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>DcsBios::LED</code>. defines an LED</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Each control is identified by a unique identifier and is associated with a category, which is usually the panel it is found on in the DCS aircraft cockpit.</p>
-</div>
-<div class="paragraph">
-<div class="title">example:</div>
-<p><code>DcsBios::SwitchPos2 ahcpCicu("AHCP_CICU", PIN);</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>whereas <code>ahcpCicu</code> indicates the CICU switch on the AHCP panel.</p>
-</li>
-<li>
-<p>The first notation between the brackets <code>"AHCP_CICU"</code> is a placeholder for a piece of data that gets sent to DCS when a change occurs to a pin on the Arduino board.</p>
-</li>
-<li>
-<p>The second notation <code>PIN</code> is also a placeholder however, you have to replace it with the pin number that your control is attached to.  In the Control-Reference document, placeholder that require you to assign a specific pin number to are always highlighted in"RED"
-There also a few knobs/switches in your cockpit represented with two separate controls.
-For example, the volume controls on the A-10C intercom panel have one DCS-BIOS control for the volume and a separate control for the mute function.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_input_interfaces">Input Interfaces</h4>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+                  </td>
+                  <td class="content">
+                    If all you see is a big red warning, you need to enable JavaScript and reload the
+                    page.
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_finding_the_control_you_are_looking_for">Finding the Control You Are Looking For</h4>
+            <div class="paragraph">
+              <p>First, select the module. Second, select the type of view. Choose Simple
+                if it is not already displayed as the default. Finally, the "Category
+                Filter" dropdown box will provide you with a complete listing of
+                all the panels and you can select the panel you are looking for.
+                ==== Supported Controls DCS-BIOS refers to switches, rotary encoders,
+                potentiometers, push buttons etc. as "CONTROLS". The following are
+                all of the supported Controls available in DCS-BIOS:</p>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p><code>DcsBios::ActionButton</code></p>
+                </li>
+                <li>
+                  <p><code>DcsBios::Switch2Pos</code>. defines a 2 position swich</p>
+                </li>
+                <li>
+                  <p><code>DcsBios::Switch3Pos</code>. defines a 3 position switch</p>
+                </li>
+                <li>
+                  <p><code>DcsBios::SwitchMultiPos</code>. defines a rotary switch,
+                    you provide how many positions</p>
+                </li>
+                <li>
+                  <p><code>DcsBios::Pot</code>. defines a potentiometer</p>
+                </li>
+                <li>
+                  <p><code>DcsBios::RotaryEncoder</code>. defines a rotary encoder</p>
+                </li>
+              </ul>
+            </div>
+            <div class="paragraph">
+              <p>DCS-BIOS also includes indicator LED&#8217;s in the Controls as follows:</p>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p><code>DcsBios::LED</code>. defines an LED</p>
+                </li>
+              </ul>
+            </div>
+            <div class="paragraph">
+              <p>Each control is identified by a unique identifier and is associated
+                with a category, which is usually the panel it is found on in the
+                DCS aircraft cockpit.</p>
+            </div>
+            <div class="paragraph">
+              <div class="title">example:</div>
+              <p><code>DcsBios::SwitchPos2 ahcpCicu("AHCP_CICU", PIN);</code></p>
+            </div>
+            <div class="ulist">
+              <ul>
+                <li>
+                  <p>whereas <code>ahcpCicu</code> indicates the CICU switch on the
+                    AHCP panel.</p>
+                </li>
+                <li>
+                  <p>The first notation between the brackets <code>"AHCP_CICU"</code>                    is a placeholder for a piece of data that gets sent to DCS when
+                    a change occurs to a pin on the Arduino board.</p>
+                </li>
+                <li>
+                  <p>The second notation <code>PIN</code> is also a placeholder however,
+                    you have to replace it with the pin number that your control
+                    is attached to. In the Control-Reference document, placeholder
+                    that require you to assign a specific pin number to are always
+                    highlighted in"RED" There also a few knobs/switches in your cockpit
+                    represented with two separate controls. For example, the volume
+                    controls on the A-10C intercom panel have one DCS-BIOS control
+                    for the volume and a separate control for the mute function.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_input_interfaces">Input Interfaces</h4>
+            <div class="admonitionblock note">
+              <table>
+                <tr>
+                  <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-To make sense of the following, select "Advanced" in the "View" dropdown box at the top of the page.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>An <em>input interface</em> describes the means by which controls in the cockpit can be manipulated..Types of input interfaces</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">set_state</dt>
-<dd>
-<p>If a control supports the <em>set_state</em> interface, its current state can be set by sending it a number as an argument.
-For example, you can set the TACAN mode dial in the A-10C to the <code>A A REC</code> position by sending <code>TACAN_MODE 3</code>.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+                  </td>
+                  <td class="content">
+                    To make sense of the following, select "Advanced" in the "View" dropdown box at the
+                    top of the page.
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="paragraph">
+              <p>An <em>input interface</em> describes the means by which controls in
+                the cockpit can be manipulated. .Types of input interfaces</p>
+            </div>
+            <div class="dlist">
+              <dl>
+                <dt class="hdlist1">set_state</dt>
+                <dd>
+                  <p>If a control supports the <em>set_state</em> interface, its current
+                    state can be set by sending it a number as an argument. For example,
+                    you can set the TACAN mode dial in the A-10C to the <code>A A REC</code>                    position by sending <code>TACAN_MODE 3</code>.</p>
+                  <div class="admonitionblock note">
+                    <table>
+                      <tr>
+                        <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The range of acceptable values is 0 to the maximum value of the control&#8217;s first output.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The reference documentation will offer example code for a <code>DcsBios::SwitchMultiPos</code> and (where appropriate) a <code>DcsBios::Switch2Pos</code> or <code>DcsBios::Switch3Pos</code>.</p>
-</div>
-</dd>
-<dt class="hdlist1">fixed_step</dt>
-<dd>
-<p>If a control supports the <em>fixed_step</em> interface, you can increase its position with an <code>INC</code> argument and decrease its position with a <code>DEC</code> argument.
-An example would be a rotary encoder used to change the frequency of a VHF radio.</p>
-<div class="paragraph">
-<p>The reference documentation will offer example code for a <code>DcsBios::RotaryEncoder</code>.</p>
-</div>
-</dd>
-<dt class="hdlist1">action</dt>
-<dd>
-<p>This represents an action such as toggling a toggle switch or changing the X/Y digit of the TACAN channel.</p>
-<div class="paragraph">
-<p>The reference documentation will offer example code for a <code>DcsBios::ActionButton</code>.</p>
-</div>
-</dd>
-<dt class="hdlist1">variable_step</dt>
-<dd>
-<p>If a control supports the <em>variable_step</em> interface, you can increase or decrease its position by a certain amount by sending <code>+NUMBER</code> or <code>-NUMBER</code> as an argument, where <code>NUMBER</code> is an integer.</p>
-<div class="paragraph">
-<p>The reference documentation will offer example code for a <code>DcsBios::RotaryEncoder</code>.
-The default step size is 3200.
-You will need to experiment to get the right sensitivity.</p>
-</div>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_outputs">Outputs</h4>
-<div class="paragraph">
-<p>Each DCS-BIOS control can have multiple related <em>outputs</em>.
-An <em>output</em> represents a piece of information that is exported from DCS, for example the position of the flaps position indicator.</p>
-</div>
-<div class="paragraph">
-<p>Outputs come in two types:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Integer outputs</dt>
-<dd>
-<p>Most outputs are integers.
-Each integer output has an associated maximum value and a minimum value of 0.</p>
-<div class="paragraph">
-<p>The reference documentation will offer code examples for <code>DcsBios::LED</code> and <code>DcsBios::ServoOutput</code> where appropriate.</p>
-</div>
-<div class="paragraph">
-<p>The first code snippet for integer outputs is meant to be inserted into the <code>onDcsBiosWrite</code> function if the DCS-BIOS Arduino library cannot do what you want.
-It shows you how to extract the value using the <em>address</em>, <em>mask</em> and <em>shift</em> value of the output.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+                        </td>
+                        <td class="content">
+                          The range of acceptable values is 0 to the maximum value of the control&#8217;s first
+                          output.
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="paragraph">
+                    <p>The reference documentation will offer example code for a <code>DcsBios::SwitchMultiPos</code>                      and (where appropriate) a <code>DcsBios::Switch2Pos</code>                      or <code>DcsBios::Switch3Pos</code>.</p>
+                  </div>
+                </dd>
+                <dt class="hdlist1">fixed_step</dt>
+                <dd>
+                  <p>If a control supports the <em>fixed_step</em> interface, you can
+                    increase its position with an <code>INC</code> argument and decrease
+                    its position with a <code>DEC</code> argument. An example would
+                    be a rotary encoder used to change the frequency of a VHF radio.</p>
+                  <div class="paragraph">
+                    <p>The reference documentation will offer example code for a <code>DcsBios::RotaryEncoder</code>.</p>
+                  </div>
+                </dd>
+                <dt class="hdlist1">action</dt>
+                <dd>
+                  <p>This represents an action such as toggling a toggle switch or changing
+                    the X/Y digit of the TACAN channel.</p>
+                  <div class="paragraph">
+                    <p>The reference documentation will offer example code for a <code>DcsBios::ActionButton</code>.</p>
+                  </div>
+                </dd>
+                <dt class="hdlist1">variable_step</dt>
+                <dd>
+                  <p>If a control supports the <em>variable_step</em> interface, you
+                    can increase or decrease its position by a certain amount by
+                    sending <code>+NUMBER</code> or <code>-NUMBER</code> as an argument,
+                    where <code>NUMBER</code> is an integer.</p>
+                  <div class="paragraph">
+                    <p>The reference documentation will offer example code for a <code>DcsBios::RotaryEncoder</code>.
+                      The default step size is 3200. You will need to experiment
+                      to get the right sensitivity.</p>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_outputs">Outputs</h4>
+            <div class="paragraph">
+              <p>Each DCS-BIOS control can have multiple related <em>outputs</em>. An
+                <em>output</em> represents a piece of information that is exported
+                from DCS, for example the position of the flaps position indicator.</p>
+            </div>
+            <div class="paragraph">
+              <p>Outputs come in two types:</p>
+            </div>
+            <div class="dlist">
+              <dl>
+                <dt class="hdlist1">Integer outputs</dt>
+                <dd>
+                  <p>Most outputs are integers. Each integer output has an associated
+                    maximum value and a minimum value of 0.</p>
+                  <div class="paragraph">
+                    <p>The reference documentation will offer code examples for <code>DcsBios::LED</code>                      and <code>DcsBios::ServoOutput</code> where appropriate.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>The first code snippet for integer outputs is meant to be inserted
+                      into the <code>onDcsBiosWrite</code> function if the DCS-BIOS
+                      Arduino library cannot do what you want. It shows you how to
+                      extract the value using the <em>address</em>, <em>mask</em>                      and <em>shift</em> value of the output.</p>
+                  </div>
+                  <div class="admonitionblock note">
+                    <table>
+                      <tr>
+                        <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-To learn about the meaning of the <em>address</em>, <em>mask</em> and <em>shift</em> value of an output, please refer to the developer guide.
-</td>
-</tr>
-</table>
-</div>
-</dd>
-<dt class="hdlist1">String outputs</dt>
-<dd>
-<p>Some values (such as radio frequencies) are exported as character strings.
-The reference documentation will provide a code example that uses a <code>DcsBios::StringBuffer</code> to execute a piece of code whenever the value changes.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+                        </td>
+                        <td class="content">
+                          To learn about the meaning of the <em>address</em>, <em>mask</em>                          and <em>shift</em> value of an output, please refer to
+                          the developer guide.
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </dd>
+                <dt class="hdlist1">String outputs</dt>
+                <dd>
+                  <p>Some values (such as radio frequencies) are exported as character
+                    strings. The reference documentation will provide a code example
+                    that uses a <code>DcsBios::StringBuffer</code> to execute a piece
+                    of code whenever the value changes.</p>
+                  <div class="admonitionblock note">
+                    <table>
+                      <tr>
+                        <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Because there are many different types of displays (7-segment, character, graphical) and different ways to connect them to a microcontroller (direct, I2C, SPI), the DcsBios library does not include code to handle them.
-For most common combinations of display type and connection method, you can find other Arduino libraries online that allow you to talk to them.
-</td>
-</tr>
-</table>
-</div>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_copy_and_paste_example_code">Copy and Paste Example Code</h4>
-<div class="paragraph">
-<p>To use the example code from the reference documentation in your Arduino sketch, you first have to choose which code example to copy.
-That depends on what type of control you want to connect.</p>
-</div>
-<div class="paragraph">
-<p>For example, you might want to use a rotary switch for the TACAN mode dial in the A-10C and use the <code>DcsBios::SwitchMultiPos</code> code snippet.
-For the same control, you could also choose to use a rotary encoder.</p>
-</div>
-<div class="paragraph">
-<p>If the "Simple" view mode, the reference documentation displays only the "most appropriate" code example for each control.</p>
-</div>
-<div class="paragraph">
-<p>After choosing a code example, copy it to your Arduino sketch (refer back to the MasterCaution example to see where to copy it) and replace all the parts in red with your own values (usually the pin numbers that this control is connected to).</p>
-</div>
-<div class="paragraph">
-<p>Refer to the next section for more detailed information on the individual classes, including example circuits.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_arduino_library_reference">Arduino Library Reference</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_switch2pos">Switch2Pos</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::Switch2Pos(char* message, char pin)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The Switch2Pos class handles inputs that have two states, such as toggle switches and push buttons.</p>
-</div>
-<div class="dlist">
-<div class="title">Constructor Parameters</div>
-<dl>
-<dt class="hdlist1">message</dt>
-<dd>
-<p>The message that should be sent. Set this to the identifier of the control.</p>
-</dd>
-<dt class="hdlist1">pin</dt>
-<dd>
-<p>The number of the Arduino pin the button or switch is connected to</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<div class="title">Circuit</div>
-<p>Connect the toggle switch or push button between the Arduino pin and ground.</p>
-</div>
-<div class="listingblock">
-<div class="title">Reference Documentation Code Examples</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::Switch2Pos ahcpCicu("AHCP_CICU", PIN);</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::Switch2Pos ufcHack("UFC_HACK", PIN);</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_switch3pos">Switch3Pos</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::Switch3Pos(char* message, char pinA, char pinB)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The Switch3Pos class handles inputs that have three states, such as three-position toggle switches or rotaries.</p>
-</div>
-<div class="dlist">
-<div class="title">Constructor Parameters</div>
-<dl>
-<dt class="hdlist1">message</dt>
-<dd>
-<p>The message that should be sent. Set this to the identifier of the control.</p>
-</dd>
-<dt class="hdlist1">pinA</dt>
-<dd>
-<p>The number of the Arduino pin that the <strong>first switch position</strong> is connected to</p>
-</dd>
-<dt class="hdlist1">pinB</dt>
-<dd>
-<p>The number of the Arduino pin that the <strong>last switch position</strong> is connected to</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<div class="title">Circuit</div>
-<p>Connect your three-position toggle or rotary switch so that the first (left or down) position connects <strong>pinA</strong> to ground and the last (right or up) position connects <strong>pinB</strong> to ground.</p>
-</div>
-<div class="paragraph">
-<p>The Switch3Pos class defaults to the center position, so (if your switch even has a pin for that) you don&#8217;t have to connect it to anything.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/toggle.jpg" alt="500" width="500">
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Reference Documentation Code Examples</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::Switch3Pos aapSteer("AAP_STEER", PIN_A, PIN_B);</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_switchmultipos">SwitchMultiPos</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::SwitchMultiPos(char* message, const byte* pins, char numberOfPins);</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The SwitchMultiPos class handles rotary switches.</p>
-</div>
-<div class="dlist">
-<div class="title">Constructor Parameters</div>
-<dl>
-<dt class="hdlist1">message</dt>
-<dd>
-<p>The message that should be sent. Set this to the identifier of the control.</p>
-</dd>
-<dt class="hdlist1">pins</dt>
-<dd>
-<p>An array of pin numbers that the rotary switch positions are connected to.
-The first pin number corresponds to state 0 of the input, the second to state 1, etc.</p>
-</dd>
-<dt class="hdlist1">numberOfPins</dt>
-<dd>
-<p>The length of the array passed in the <code>pins</code> parameter.</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<div class="title">Circuit</div>
-<p>Connect the rotary switch so that it connects the Arduino pin for the currently selected position to ground.</p>
-</div>
-<div class="listingblock">
-<div class="title">Reference Documentation Code Examples</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">const byte aapSteerptPins[3] = {PIN_0, ... ,PIN_2};
+                        </td>
+                        <td class="content">
+                          Because there are many different types of displays (7-segment, character, graphical)
+                          and different ways to connect them to a microcontroller
+                          (direct, I2C, SPI), the DcsBios library does not include
+                          code to handle them. For most common combinations of display
+                          type and connection method, you can find other Arduino
+                          libraries online that allow you to talk to them.
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_copy_and_paste_example_code">Copy and Paste Example Code</h4>
+            <div class="paragraph">
+              <p>To use the example code from the reference documentation in your Arduino
+                sketch, you first have to choose which code example to copy. That
+                depends on what type of control you want to connect.</p>
+            </div>
+            <div class="paragraph">
+              <p>For example, you might want to use a rotary switch for the TACAN mode
+                dial in the A-10C and use the <code>DcsBios::SwitchMultiPos</code>                code snippet. For the same control, you could also choose to use
+                a rotary encoder.</p>
+            </div>
+            <div class="paragraph">
+              <p>If the "Simple" view mode, the reference documentation displays only
+                the "most appropriate" code example for each control.</p>
+            </div>
+            <div class="paragraph">
+              <p>After choosing a code example, copy it to your Arduino sketch (refer
+                back to the MasterCaution example to see where to copy it) and replace
+                all the parts in red with your own values (usually the pin numbers
+                that this control is connected to).</p>
+            </div>
+            <div class="paragraph">
+              <p>Refer to the next section for more detailed information on the individual
+                classes, including example circuits.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="_arduino_library_reference">Arduino Library Reference</h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_switch2pos">Switch2Pos</h3>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::Switch2Pos(char* message, char pin)</code></pre>
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>The Switch2Pos class handles inputs that have two states, such as toggle
+              switches and push buttons.</p>
+          </div>
+          <div class="dlist">
+            <div class="title">Constructor Parameters</div>
+            <dl>
+              <dt class="hdlist1">message</dt>
+              <dd>
+                <p>The message that should be sent. Set this to the identifier of the
+                  control.</p>
+              </dd>
+              <dt class="hdlist1">pin</dt>
+              <dd>
+                <p>The number of the Arduino pin the button or switch is connected to</p>
+              </dd>
+            </dl>
+          </div>
+          <div class="paragraph">
+            <div class="title">Circuit</div>
+            <p>Connect the toggle switch or push button between the Arduino pin and
+              ground.</p>
+          </div>
+          <div class="listingblock">
+            <div class="title">Reference Documentation Code Examples</div>
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::Switch2Pos ahcpCicu("AHCP_CICU", PIN);</code></pre>
+            </div>
+          </div>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::Switch2Pos ufcHack("UFC_HACK", PIN);</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_switch3pos">Switch3Pos</h3>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::Switch3Pos(char* message, char pinA, char pinB)</code></pre>
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>The Switch3Pos class handles inputs that have three states, such as three-position
+              toggle switches or rotaries.</p>
+          </div>
+          <div class="dlist">
+            <div class="title">Constructor Parameters</div>
+            <dl>
+              <dt class="hdlist1">message</dt>
+              <dd>
+                <p>The message that should be sent. Set this to the identifier of the
+                  control.</p>
+              </dd>
+              <dt class="hdlist1">pinA</dt>
+              <dd>
+                <p>The number of the Arduino pin that the <strong>first switch position</strong>                  is connected to</p>
+              </dd>
+              <dt class="hdlist1">pinB</dt>
+              <dd>
+                <p>The number of the Arduino pin that the <strong>last switch position</strong>                  is connected to</p>
+              </dd>
+            </dl>
+          </div>
+          <div class="paragraph">
+            <div class="title">Circuit</div>
+            <p>Connect your three-position toggle or rotary switch so that the first
+              (left or down) position connects <strong>pinA</strong> to ground and
+              the last (right or up) position connects <strong>pinB</strong> to ground.</p>
+          </div>
+          <div class="paragraph">
+            <p>The Switch3Pos class defaults to the center position, so (if your switch
+              even has a pin for that) you don&#8217;t have to connect it to anything.</p>
+          </div>
+          <div class="imageblock">
+            <div class="content">
+              <img src="images/toggle.jpg" alt="500" width="500">
+            </div>
+          </div>
+          <div class="listingblock">
+            <div class="title">Reference Documentation Code Examples</div>
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::Switch3Pos aapSteer("AAP_STEER", PIN_A, PIN_B);</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_switchmultipos">SwitchMultiPos</h3>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::SwitchMultiPos(char* message, const byte* pins, char numberOfPins);</code></pre>
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>The SwitchMultiPos class handles rotary switches.</p>
+          </div>
+          <div class="dlist">
+            <div class="title">Constructor Parameters</div>
+            <dl>
+              <dt class="hdlist1">message</dt>
+              <dd>
+                <p>The message that should be sent. Set this to the identifier of the
+                  control.</p>
+              </dd>
+              <dt class="hdlist1">pins</dt>
+              <dd>
+                <p>An array of pin numbers that the rotary switch positions are connected
+                  to. The first pin number corresponds to state 0 of the input, the
+                  second to state 1, etc.</p>
+              </dd>
+              <dt class="hdlist1">numberOfPins</dt>
+              <dd>
+                <p>The length of the array passed in the <code>pins</code> parameter.</p>
+              </dd>
+            </dl>
+          </div>
+          <div class="paragraph">
+            <div class="title">Circuit</div>
+            <p>Connect the rotary switch so that it connects the Arduino pin for the
+              currently selected position to ground.</p>
+          </div>
+          <div class="listingblock">
+            <div class="title">Reference Documentation Code Examples</div>
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">const byte aapSteerptPins[3] = {PIN_0, PIN_1, PIN_2};
 DcsBios::SwitchMultiPos aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">// A rotary switch that controls the A-10C steerpoint mode (FLTPLAN / MARK / MISSION)
+            </div>
+          </div>
+          <div class="listingblock">
+            <div class="title">Example</div>
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">// A rotary switch that controls the A-10C steerpoint mode (FLTPLAN / MARK / MISSION)
 // is connected to digital pins 10, 11 and 12
 const byte aapSteerptPins[3] = {10, 11, 12};
 DcsBios::SwitchMultiPos aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_potentiometer">Potentiometer</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::Potentiometer(char* message, char pin);</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The Potentiometer class handles potentiometers connected to an analog pin.</p>
-</div>
-<div class="dlist">
-<div class="title">Constructor Parameters</div>
-<dl>
-<dt class="hdlist1">message</dt>
-<dd>
-<p>The message that should be sent. Set this to the identifier of the control.</p>
-</dd>
-<dt class="hdlist1">pin</dt>
-<dd>
-<p>The number of the pin that is connected to the potentiometer.</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<div class="title">Circuit</div>
-<p>Connect the outer pins of the potentiometer to +5V and ground.
-Connect the middle pin to the Arduino.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DCS-BIOSpotentiometer.png" alt="500" width="500">
-</div>
-</div>
-<div class="paragraph">
-<p>To reverse the direction, swap +5V and GND.</p>
-</div>
-<div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::Potentiometer cmscBrt("CMSC_BRT", PIN);</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_rotaryencoder">RotaryEncoder</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::RotaryEncoder(const char* message, const char* decArg, const char* incArg, char pinA, char pinB);</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The RotaryEncoder class handles standard rotary encoders, 2-bit grey code, 20 position detents.</p>
-</div>
-<div class="dlist">
-<div class="title">Constructor Parameters</div>
-<dl>
-<dt class="hdlist1">message</dt>
-<dd>
-<p>The message that should be sent. Set this to the identifier of the control.</p>
-</dd>
-<dt class="hdlist1">decArg</dt>
-<dd>
-<p>The argument that should be sent when the encoder is turned one step to the left.</p>
-</dd>
-<dt class="hdlist1">incArg</dt>
-<dd>
-<p>The argument that should be sent when the encoder is turned one step to the right.</p>
-</dd>
-<dt class="hdlist1">pinA</dt>
-<dd>
-<p>The first pin that is connected to the encoder.</p>
-</dd>
-<dt class="hdlist1">pinB</dt>
-<dd>
-<p>The second pin that is connected to the encoder.</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<div class="title">Circuit</div>
-<p>Rotary encoders usually have three pins (the ones with an integrated push button have two extra pins for a momentary on push button).
-Connect the left pin and right pins to any two of the Arduino pins 2 through 12, A0 through A5, and the middle pin to ground. If you find it is functioning opposite to what you want you can just swap Pin A and B on the board or in the sketch.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DCSBIOSrotaryencoder.png" alt="500" width="500">
-</div>
-</div>
-<div class="paragraph">
-<p>To reverse the direction, either swap decArg and incArg or swap pinA and pinB.</p>
-</div>
-<div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::RotaryEncoder tacan1("TACAN_1", "DEC", "INC", PIN_A, PIN_B);</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_actionbutton">ActionButton</h3>
-<div class="paragraph">
-<p>The ActionButton class is used to send a single command to DCS when its input pin goes low.</p>
-</div>
-<div class="dlist">
-<div class="title">Constructor Parameters</div>
-<dl>
-<dt class="hdlist1">message</dt>
-<dd>
-<p>The message that should be sent. Set this to the identifier of the control.</p>
-</dd>
-<dt class="hdlist1">argument</dt>
-<dd>
-<p>The argument that should be sent.</p>
-</dd>
-<dt class="hdlist1">pin</dt>
-<dd>
-<p>The number of the Arduino pin the button is connected to.</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<div class="title">Circuit</div>
-<p>Connect a push button between the Arduino pin 10 and ground.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/uno2.jpg" alt="500" width="500">
-</div>
-</div>
-<div class="paragraph">
-<p>The button on pin 10 toggles the CICU switch</p>
-</div>
-<div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", PIN);</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Code Examples</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", 10);</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_led">LED</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::LED(unsigned int address, unsigned int mask, char pin)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The LED class is used for indicator lights.</p>
-</div>
-<div class="dlist">
-<div class="title">Constructor Parameters</div>
-<dl>
-<dt class="hdlist1">address</dt>
-<dd>
-<p>The address of the integer output</p>
-</dd>
-<dt class="hdlist1">mask</dt>
-<dd>
-<p>The mask of the integer output</p>
-</dd>
-<dt class="hdlist1">pin</dt>
-<dd>
-<p>The number of the Arduino pin that the LED (and current-limiting resistor) are connected to. Prior to connecting multiple LED&#8217;s to your Arduino board, it would be advisable to read the section on LED&#8217;s on the Arduino web site.</p>
-</dd>
-</dl>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/LED.png" alt="500" width="500">
-</div>
-<div class="title">Figure 1. Circuit</div>
-</div>
-<div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::LED tacanTest(0x10ca, 0x0400, PIN);</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+            </div>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_potentiometer">Potentiometer</h3>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::Potentiometer(char* message, char pin);</code></pre>
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>The Potentiometer class handles potentiometers connected to an analog
+              pin.</p>
+          </div>
+          <div class="dlist">
+            <div class="title">Constructor Parameters</div>
+            <dl>
+              <dt class="hdlist1">message</dt>
+              <dd>
+                <p>The message that should be sent. Set this to the identifier of the
+                  control.</p>
+              </dd>
+              <dt class="hdlist1">pin</dt>
+              <dd>
+                <p>The number of the pin that is connected to the potentiometer.</p>
+              </dd>
+            </dl>
+          </div>
+          <div class="paragraph">
+            <div class="title">Circuit</div>
+            <p>Connect the outer pins of the potentiometer to +5V and ground. Connect
+              the middle pin to the Arduino.</p>
+          </div>
+          <div class="imageblock">
+            <div class="content">
+              <img src="images/DCS-BIOSpotentiometer.png" alt="500" width="500">
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>To reverse the direction, swap +5V and GND.</p>
+          </div>
+          <div class="listingblock">
+            <div class="title">Reference Documentation Code Example</div>
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::Potentiometer cmscBrt("CMSC_BRT", PIN);</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_rotaryencoder">RotaryEncoder</h3>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::RotaryEncoder(const char* message, const char* decArg, const char* incArg, char pinA, char pinB);</code></pre>
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>The RotaryEncoder class handles standard rotary encoders, 2-bit grey
+              code, 20 position detents.</p>
+          </div>
+          <div class="dlist">
+            <div class="title">Constructor Parameters</div>
+            <dl>
+              <dt class="hdlist1">message</dt>
+              <dd>
+                <p>The message that should be sent. Set this to the identifier of the
+                  control.</p>
+              </dd>
+              <dt class="hdlist1">decArg</dt>
+              <dd>
+                <p>The argument that should be sent when the encoder is turned one step
+                  to the left.</p>
+              </dd>
+              <dt class="hdlist1">incArg</dt>
+              <dd>
+                <p>The argument that should be sent when the encoder is turned one step
+                  to the right.</p>
+              </dd>
+              <dt class="hdlist1">pinA</dt>
+              <dd>
+                <p>The first pin that is connected to the encoder.</p>
+              </dd>
+              <dt class="hdlist1">pinB</dt>
+              <dd>
+                <p>The second pin that is connected to the encoder.</p>
+              </dd>
+            </dl>
+          </div>
+          <div class="paragraph">
+            <div class="title">Circuit</div>
+            <p>Rotary encoders usually have three pins (the ones with an integrated
+              push button have two extra pins for a momentary on push button). Connect
+              the left pin and right pins to any two of the Arduino pins 2 through
+              12, A0 through A5, and the middle pin to ground. If you find it is
+              functioning opposite to what you want you can just swap Pin A and B
+              on the board or in the sketch.</p>
+          </div>
+          <div class="imageblock">
+            <div class="content">
+              <img src="images/DCSBIOSrotaryencoder.png" alt="500" width="500">
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>To reverse the direction, either swap decArg and incArg or swap pinA
+              and pinB.</p>
+          </div>
+          <div class="listingblock">
+            <div class="title">Reference Documentation Code Example</div>
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::RotaryEncoder tacan1("TACAN_1", "DEC", "INC", PIN_A, PIN_B);</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_actionbutton">ActionButton</h3>
+          <div class="paragraph">
+            <p>The ActionButton class is used to send a single command to DCS when its
+              input pin goes low.</p>
+          </div>
+          <div class="dlist">
+            <div class="title">Constructor Parameters</div>
+            <dl>
+              <dt class="hdlist1">message</dt>
+              <dd>
+                <p>The message that should be sent. Set this to the identifier of the
+                  control.</p>
+              </dd>
+              <dt class="hdlist1">argument</dt>
+              <dd>
+                <p>The argument that should be sent.</p>
+              </dd>
+              <dt class="hdlist1">pin</dt>
+              <dd>
+                <p>The number of the Arduino pin the button is connected to.</p>
+              </dd>
+            </dl>
+          </div>
+          <div class="paragraph">
+            <div class="title">Circuit</div>
+            <p>Connect a push button between the Arduino pin 10 and ground.</p>
+          </div>
+          <div class="imageblock">
+            <div class="content">
+              <img src="images/uno2.jpg" alt="500" width="500">
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>The button on pin 10 toggles the CICU switch</p>
+          </div>
+          <div class="listingblock">
+            <div class="title">Reference Documentation Code Example</div>
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", PIN);</code></pre>
+            </div>
+          </div>
+          <div class="listingblock">
+            <div class="title">Code Examples</div>
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", 10);</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_led">LED</h3>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::LED(unsigned int address, unsigned int mask, char pin)</code></pre>
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>The LED class is used for indicator lights.</p>
+          </div>
+          <div class="dlist">
+            <div class="title">Constructor Parameters</div>
+            <dl>
+              <dt class="hdlist1">address</dt>
+              <dd>
+                <p>The address of the integer output</p>
+              </dd>
+              <dt class="hdlist1">mask</dt>
+              <dd>
+                <p>The mask of the integer output</p>
+              </dd>
+              <dt class="hdlist1">pin</dt>
+              <dd>
+                <p>The number of the Arduino pin that the LED (and current-limiting
+                  resistor) are connected to. Prior to connecting multiple LED&#8217;s
+                  to your Arduino board, it would be advisable to read the section
+                  on LED&#8217;s on the Arduino web site.</p>
+              </dd>
+            </dl>
+          </div>
+          <div class="imageblock">
+            <div class="content">
+              <img src="images/LED.png" alt="500" width="500">
+            </div>
+            <div class="title">Figure 1. Circuit</div>
+          </div>
+          <div class="listingblock">
+            <div class="title">Reference Documentation Code Example</div>
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::LED tacanTest(0x10da, 0x0400, PIN);</code></pre>
+            </div>
+          </div>
+          <div class="admonitionblock note">
+            <table>
+              <tr>
+                <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Arduino boards are only capable of providing 40mA of current per pin.
-Multiple LED&#8217;s connected to a single pin will require additional circuitry to avoid damaging the board.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_servooutput">ServoOutput</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::ServoOutput (unsigned int address, char pin, int minPulseWidth, int maxPulseWidth)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<div class="title">Circuit</div>
-<p>Servos have 3 wires which are black, red and orange or yellow.
-Black and red are for 5V power in.
-The orange or yellow wire is the signal and must be plugged into one of the PWM pins having the ~designation. On the Uno those pins are ~3, ~5, ~6, ~9, ~10, ~11.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DCSBIOSservo.png" alt="500" width="500">
-</div>
-</div>
-<div class="paragraph">
-<p>The ServoOutput class handles standard "hobby servos".</p>
-</div>
-<div class="dlist">
-<div class="title">Constructor Parameters</div>
-<dl>
-<dt class="hdlist1">address</dt>
-<dd>
-<p>The address of the integer output</p>
-</dd>
-<dt class="hdlist1">pin</dt>
-<dd>
-<p>The number of the Arduino pin that is connected to the servo&#8217;s control input</p>
-</dd>
-<dt class="hdlist1">minPulseWidth</dt>
-<dd>
-<p>The pulse width (in microseconds) that corresponds to the lowest servo position</p>
-</dd>
-<dt class="hdlist1">maxPulseWidth</dt>
-<dd>
-<p>The pulse width (in microseconds) that corresponds to the highest servo position</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p>A DCS-BIOS output value of 0 will be mapped to <code>minPulseWidth</code>, the maximum output value of 65535 will be mapped to <code>maxPulseWidth</code>.
-You will have to choose these values so that the minimum and maximum positions are at the beginning and end of your gauge&#8217;s scale.</p>
-</div>
-<div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::ServoOutput vvi(0x106e, PIN, 544, 2400);</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
+                </td>
+                <td class="content">
+                  Arduino boards are only capable of providing 40mA of current per pin. Multiple LED&#8217;s
+                  connected to a single pin will require additional circuitry to
+                  avoid damaging the board.
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_servooutput">ServoOutput</h3>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::ServoOutput (unsigned int address, char pin, int minPulseWidth, int maxPulseWidth)</code></pre>
+            </div>
+          </div>
+          <div class="paragraph">
+            <div class="title">Circuit</div>
+            <p>Servos have 3 wires which are black, red and orange or yellow. Black
+              and red are for 5V power in. The orange or yellow wire is the signal
+              and must be plugged into one of the PWM pins having the ~designation.
+              On the Uno those pins are ~3, ~5, ~6, ~9, ~10, ~11.</p>
+          </div>
+          <div class="imageblock">
+            <div class="content">
+              <img src="images/DCSBIOSservo.png" alt="500" width="500">
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>The ServoOutput class handles standard "hobby servos".</p>
+          </div>
+          <div class="dlist">
+            <div class="title">Constructor Parameters</div>
+            <dl>
+              <dt class="hdlist1">address</dt>
+              <dd>
+                <p>The address of the integer output</p>
+              </dd>
+              <dt class="hdlist1">pin</dt>
+              <dd>
+                <p>The number of the Arduino pin that is connected to the servo&#8217;s
+                  control input</p>
+              </dd>
+              <dt class="hdlist1">minPulseWidth</dt>
+              <dd>
+                <p>The pulse width (in microseconds) that corresponds to the lowest
+                  servo position</p>
+              </dd>
+              <dt class="hdlist1">maxPulseWidth</dt>
+              <dd>
+                <p>The pulse width (in microseconds) that corresponds to the highest
+                  servo position</p>
+              </dd>
+            </dl>
+          </div>
+          <div class="paragraph">
+            <p>A DCS-BIOS output value of 0 will be mapped to <code>minPulseWidth</code>,
+              the maximum output value of 65535 will be mapped to <code>maxPulseWidth</code>.
+              You will have to choose these values so that the minimum and maximum
+              positions are at the beginning and end of your gauge&#8217;s scale.</p>
+          </div>
+          <div class="listingblock">
+            <div class="title">Reference Documentation Code Example</div>
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::ServoOutput vvi(0x106e, PIN, 544, 2400);</code></pre>
+            </div>
+          </div>
+          <div class="admonitionblock note">
+            <table>
+              <tr>
+                <td class="icon">
 <i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Servos are devices which have the potential to demand more current than a single Arduino board can safely provide.  Connecting multiple servos to one Aduino board will require an external power supply. Further reading at the Arduino site will be required to ensure the board does not get damaged.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_integerbuffer">IntegerBuffer</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::IntegerBuffer(unsigned int address, unsigned int mask, unsigned int shift, void (*)(unsigned int) callback)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The IntegerBuffer class is used to handle integer outputs in a generic way. You have to supply your own code to do something useful with the data.</p>
-</div>
-<div class="dlist">
-<div class="title">Constructor Parameters</div>
-<dl>
-<dt class="hdlist1">address</dt>
-<dd>
-<p>The address of the integer output (found in the control reference)</p>
-</dd>
-<dt class="hdlist1">mask</dt>
-<dd>
-<p>The mask of the integer output (found in the control reference)</p>
-</dd>
-<dt class="hdlist1">shift</dt>
-<dd>
-<p>The number of bits to shift left (found in the control reference)</p>
-</dd>
-<dt class="hdlist1">callback</dt>
-<dd>
-<p>A function which accepts an argument of type <code>unsigned int</code>.
-This function will be called whenever the integer output has changed.
-It will be passed the new value as an argument.</p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">void onAltMslFtChange(unsigned int newValue) {
+                </td>
+                <td class="content">
+                  Servos are devices which have the potential to demand more current than a single
+                  Arduino board can safely provide. Connecting multiple servos to
+                  one Aduino board will require an external power supply. Further
+                  reading at the Arduino site will be required to ensure the board
+                  does not get damaged.
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_integerbuffer">IntegerBuffer</h3>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::IntegerBuffer(unsigned int address, unsigned int mask, unsigned int shift, void (*)(unsigned int) callback)</code></pre>
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>The IntegerBuffer class is used to handle integer outputs in a generic
+              way. You have to supply your own code to do something useful with the
+              data.</p>
+          </div>
+          <div class="dlist">
+            <div class="title">Constructor Parameters</div>
+            <dl>
+              <dt class="hdlist1">address</dt>
+              <dd>
+                <p>The address of the integer output (found in the control reference)</p>
+              </dd>
+              <dt class="hdlist1">mask</dt>
+              <dd>
+                <p>The mask of the integer output (found in the control reference)</p>
+              </dd>
+              <dt class="hdlist1">shift</dt>
+              <dd>
+                <p>The number of bits to shift left (found in the control reference)</p>
+              </dd>
+              <dt class="hdlist1">callback</dt>
+              <dd>
+                <p>A function which accepts an argument of type <code>unsigned int</code>.
+                  This function will be called whenever the integer output has changed.
+                  It will be passed the new value as an argument.</p>
+              </dd>
+            </dl>
+          </div>
+          <div class="listingblock">
+            <div class="title">Reference Documentation Code Example</div>
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">void onAlt10000ftCntChange(unsigned int newValue) {
     /* your code here */
 }
-DcsBios::IntegerBuffer altMslFtBuffer(0x0408, 0xffff, 0, onAltMslFtChange);</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_stringbuffer">StringBuffer</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">DcsBios::StringBuffer&lt;MAXLENGTH&gt;(unsigned int address, void (*)(char*) callback)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The StringBuffer class is used to handle string outputs in a generic way. You have to supply your own code to do something useful with the data. A common use case is to use another Arduino Library to write it to some kind of display, such as a character LCD with a HD44780 compatible controller chip (LiquidCrystal library), a small OLED display with an SSD1306 controller chip (Adafruit SSD1306 library) or a 7-segment display driven by a MAX7219 chip (LedControl library).</p>
-</div>
-<div class="dlist">
-<div class="title">Constructor Parameters</div>
-<dl>
-<dt class="hdlist1">MAXLENGTH</dt>
-<dd>
-<p>The maximum length of the string output</p>
-</dd>
-<dt class="hdlist1">address</dt>
-<dd>
-<p>The address of the string output</p>
-</dd>
-<dt class="hdlist1">callback</dt>
-<dd>
-<p>A function which accepts an argument of type <code>char*</code>.
-This function will be called whenever the string output has changed.
-It will be passed the new value as an argument.</p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c++">void onUhfFrequencyChange(char* newValue) {
+DcsBios::IntegerBuffer alt10000ftCntBuffer(0x1080, 0xffff, 0, onAlt10000ftCntChange);</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_stringbuffer">StringBuffer</h3>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::StringBuffer&lt;MAXLENGTH&gt;(unsigned int address, void (*)(char*) callback)</code></pre>
+            </div>
+          </div>
+          <div class="paragraph">
+            <p>The StringBuffer class is used to handle string outputs in a generic
+              way. You have to supply your own code to do something useful with the
+              data. A common use case is to use another Arduino Library to write
+              it to some kind of display, such as a character LCD with a HD44780
+              compatible controller chip (LiquidCrystal library), a small OLED display
+              with an SSD1306 controller chip (Adafruit SSD1306 library) or a 7-segment
+              display driven by a MAX7219 chip (LedControl library).</p>
+          </div>
+          <div class="dlist">
+            <div class="title">Constructor Parameters</div>
+            <dl>
+              <dt class="hdlist1">MAXLENGTH</dt>
+              <dd>
+                <p>The maximum length of the string output</p>
+              </dd>
+              <dt class="hdlist1">address</dt>
+              <dd>
+                <p>The address of the string output</p>
+              </dd>
+              <dt class="hdlist1">callback</dt>
+              <dd>
+                <p>A function which accepts an argument of type <code>char*</code>.
+                  This function will be called whenever the string output has changed.
+                  It will be passed the new value as an argument.</p>
+              </dd>
+            </dl>
+          </div>
+          <div class="listingblock">
+            <div class="title">Reference Documentation Code Example</div>
+            <div class="content">
+              <pre class="highlight"><code class="language-c++" data-lang="c++">void onUhfFrequencyChange(char* newValue) {
     /* your code here */
 }
-DcsBios::StringBuffer&lt;7&gt; uhfFrequencyBuffer(0x1170, onUhfFrequencyChange);</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_aircraft_specific_notes">Aircraft-Specific Notes</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_a_10c">A-10C</h3>
-<div class="sect3">
-<h4 id="_cmsp_cmsc_and_uhf_frequency_export_in_external_view">CMSP, CMSC and UHF Frequency Export in external view</h4>
-<div class="paragraph">
-<p>These values will not be updated by DCS when the cockpit is not rendered (e.g. in external view or HUD-only view).</p>
-</div>
-<div class="paragraph">
-<p>The solution is to assign another viewport to these indicators (through MonitorSetup.lua), so they exist even when the cockpit is not shown.
-You can make the viewport 1x1 pixels in size and place it outside of your visible screen area.
-For example, if you have no monitor above the primary one, you could place the viewport at coordinates (0, -10).</p>
-</div>
-</div>
-</div>
-</div>
+DcsBios::StringBuffer&lt;7&gt; uhfFrequencyBuffer(0x1180, onUhfFrequencyChange);</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="_aircraft_specific_notes">Aircraft-Specific Notes</h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_a_10c">A-10C</h3>
+          <div class="sect3">
+            <h4 id="_cmsp_cmsc_and_uhf_frequency_export_in_external_view">CMSP, CMSC and UHF Frequency Export in external view</h4>
+            <div class="paragraph">
+              <p>These values will not be updated by DCS when the cockpit is not rendered
+                (e.g. in external view or HUD-only view).</p>
+            </div>
+            <div class="paragraph">
+              <p>The solution is to assign another viewport to these indicators (through
+                MonitorSetup.lua), so they exist even when the cockpit is not shown.
+                You can make the viewport 1x1 pixels in size and place it outside
+                of your visible screen area. For example, if you have no monitor
+                above the primary one, you could place the viewport at coordinates
+                (0, -10).</p>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-05 09:43:33 CET
-</div>
-</div>
+Last updated 2019-04-01 17:48:33 CET
+    </div>
+  </div>
 </body>
 </html>
