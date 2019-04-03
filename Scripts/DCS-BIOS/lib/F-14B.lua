@@ -22,6 +22,7 @@ local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+local defineString = BIOS.util.defineString
 
 -- remove Arg# Stick 33
 
@@ -370,7 +371,7 @@ defineToggleSwitch("RIO_TACAN_CMD_BUTTON", 47, 3325, 135, "TACAN", "RIO TACAN CM
 defineTumb("PLT_TACAN_MODE", 47, 3326, 2041, 0.25, {0.0, 1.25}, nil, false, "TACAN", "PILOT TACAN Mode")
 definePotentiometer("PLT_TACAN_VOLUME", 47, 3328, 2036, {0.0, 1.0}, "TACAN", "PILOT TACAN Volume")
 defineFixedStepTumb("PLT_TACAN_MODE_NORMAL_INV", 47, 3335, 2042, 2, {0, 1}, {-1, 1}, nil, "TACAN", "PILOT TACAN Mode Normal/Inverse")
-defineFixedStepTumb("PLT_TACAN_CHANNEL", 47, 3336, 2043, 2, {0, 1}, {-1, 1}, nil, "TACAN", "PILOT TACAN Channel X/Y")
+defineFixedStepTumb("PLT_TACAN_CHANNEL", 47, 3336, 2043, 2, {0, 1}, {-1, 1}, nil, "TACAN", "PILOT TACAN Channel XY")
 definePushButton("PLT_TACAN_BIT", 47, 3334, 2115, "TACAN", "PILOT TACAN Bit")
 defineTumb("PLT_TACAN_DIAL_TENS", 47, 3330, 8888, 1/12, {0.0, 1.08333333333}, nil, false, "TACAN", "PILOT TACAN Channel Wheel (Tens)")
 defineTumb("PLT_TACAN_DIAL_ONES", 47, 3332, 8889, 1/9, {0.0, 1.11111111111}, nil, false, "TACAN", "PILOT TACAN Channel Lever (Ones)")
@@ -379,7 +380,7 @@ defineTumb("PLT_TACAN_DIAL_ONES", 47, 3332, 8889, 1/9, {0.0, 1.11111111111}, nil
 defineTumb("RIO_TACAN_MODE", 47, 3338, 374, 0.25, {0.0, 1.25}, nil, false, "TACAN", "RIO TACAN Mode")
 definePotentiometer("RIO_TACAN_VOLUME", 47, 3340, 375, {0.0, 1.0}, "TACAN", "RIO TACAN Volume")
 defineToggleSwitch("RIO_TACAN_MODE_NORMAL_INV", 47, 3347, 373, "TACAN", "RIO TACAN Mode Normal/Inverse")
-defineToggleSwitch("RIO_TACAN_CHANNEL", 47, 3348, 372, "TACAN", "RIO TACAN Channel X/Y")
+defineToggleSwitch("RIO_TACAN_CHANNEL", 47, 3348, 372, "TACAN", "RIO TACAN Channel XY")
 definePushButton("RIO_TACAN_BIT", 47, 3346, 371, "TACAN", "RIO TACAN Bit")
 defineTumb("RIO_TACAN_DIAL_TENS", 47, 3342, 8891, 1/12, {0.0, 1.08333333333}, nil, false, "TACAN", "RIO TACAN Channel Wheel (Tens)")
 defineTumb("RIO_TACAN_DIAL_ONES", 47, 3344, 8890, 1/9, {0.0, 1.11111111111}, nil, false, "TACAN", "RIO TACAN Channel Lever (Ones)")
@@ -446,6 +447,13 @@ function getARC159_Decimal_DIAL4_Frequency()
 	return tonumber(freq)	
 end
 
+function getARC159_String_Frequency()
+	--Export : 225000192.000000
+	local arc_159 = GetDevice(3)
+	local freq = tostring(arc_159:get_frequency())
+	return freq:sub(1,3) .. "." .. freq:sub(4,6)	
+end
+defineString("PLT_UHF_STRING_FREQ", getARC159_String_Frequency, 7, "UHF 1", "PILOT ARC-159 Frequency (string)")
 defineIntegerFromGetter("PLT_UHF_DIAL4_FREQ", getARC159_Decimal_DIAL4_Frequency, 100, "UHF 1", "PILOT Dial 4 ARC-159 Frequency")
 defineIntegerFromGetter("PLT_UHF_DIAL3_FREQ", getARC159_Decimal_DIAL3_Frequency, 10, "UHF 1", "PILOT Dial 3 ARC-159 Frequency")
 defineIntegerFromGetter("PLT_UHF_HIGH_FREQ", getARC159_High_Frequency, 400, "UHF 1", "PILOT High ARC-159 Frequency")
@@ -498,6 +506,13 @@ function getARC182_Decimal_DIAL4_Frequency()
 	return tonumber(freq)	
 end
 
+function getARC182_String_Frequency()
+	--Export : 225000192.000000
+	local arc_182 = GetDevice(4)
+	local freq = tostring(arc_182:get_frequency())
+	return freq:sub(1,3) .. "." .. freq:sub(4,6)	
+end
+defineString("RIO_VUHF_STRING_FREQ", getARC182_String_Frequency, 7, "VUHF", "RIO ARC-182 Frequency (string)")
 defineIntegerFromGetter("RIO_VUHF_DIAL4_FREQ", getARC182_Decimal_DIAL4_Frequency, 100, "VUHF", "RIO Dial 4 ARC-182 Frequency")
 defineIntegerFromGetter("RIO_VUHF_DIAL3_FREQ", getARC182_Decimal_DIAL3_Frequency, 10, "VUHF", "RIO Dial 3 ARC-182 Frequency")
 defineIntegerFromGetter("RIO_VUHF_HIGH_FREQ", getARC182_High_Frequency, 400, "VUHF", "RIO High ARC-182 Frequency")

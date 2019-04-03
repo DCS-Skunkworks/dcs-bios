@@ -223,9 +223,10 @@ definePushButton("FRONT_TURBO_BTN",  4,3005, 315,"Electric System", "FRONT Turbo
 defineToggleSwitch("FRONT_TURBO_SW_COVER",  4,3006, 314,"Electric System", "FRONT Turbo Button Cover, Open/Close")
 definePushButton("BACK_TURBO_BTN",  4,3007, 488,"Electric System", "BACK Turbo Button")
 defineToggleSwitch("BACK_TURBO_SW_COVER",  4,3008, 487,"Electric System", "BACK Turbo Button Cover, Open/Close")
+defineToggleSwitch("FRONT_STOP_TURBO_SW",  4,3009, 313,"Electric System", "FRONT Stop Turbo Switch, ON/OFF")
+defineToggleSwitch("FRONT_STOP_TURBO_COVER",  4,3010, 312,"Electric System", "FRONT Stop Turbo Switch Cover, Open/Close")
+
 ----- 2do
-defineToggleSwitch("StopTurboSw",  4,3009, 142,"Electric System", "Main Generator Switch, ON/OFF")
-defineToggleSwitch("StopTurboSwCover",  4,3010, 142,"Electric System", "StopTurboSwCover")
 defineToggleSwitch("FwdEngineSw",  4,3011, 142,"Electric System", "FwdEngineSw")
 defineToggleSwitch("FwdEngineSwCover",  4,3012, 142,"Electric System", "FwdEngineSwCover")
 defineToggleSwitch("AftEngineSw",  4,3013, 142,"Electric System", "AftEngineSw")
