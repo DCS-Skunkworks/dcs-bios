@@ -19,11 +19,10 @@ local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitc
 
+-- remove Arg# Pilot 600 / Instructor 610
+
 
 ----- 2do
-
-
-
 -----------------------------------L-39 GAUGES--------------------------------------------------
 -- Barometric altimeter VD-20
 defineFloat("VD20", 52, {0, 1}, "instruments l-39","Altimeter KM")-- Kilometers gauge on VD-20
@@ -159,9 +158,9 @@ defineIndicatorLight("TurboStarter_lamp", 23, "l-39 lamps","Turbo starter")
 defineIndicatorLight("FwdRemain150_lamp", 4, "l-39 lamps","Remain 150Kg")
 defineIndicatorLight("FwdDoNotStart_lamp", 7, "l-39 lamps","Do not start")
 defineIndicatorLight("FwdFuelFilter_lamp", 26, "l-39 lamps","Fuel Filter")
-defineIndicatorLight("FwdWingTanks_lamp", 14, "l-39 lamps","Wing Tanks Empty")
+defineIndicatorLight("L-39C_FwdWingTanks_lamp", 14, "l-39 lamps","L-39C Wing Tanks Empty")
 if L_39ZA then 
-defineIndicatorLight("FwdWingTanks_lamp", 13, "l-39 lamps","Wing Tanks Empty")
+defineIndicatorLight("L-39ZA_FwdWingTanks_lamp", 13, "l-39 lamps","L-39ZA Wing Tanks Empty")
 end
 
 
