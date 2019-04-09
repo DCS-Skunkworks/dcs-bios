@@ -387,11 +387,11 @@ definePushButton("SAI_CAGE", 34, 3001, 441, "Standby Attitude Indicator", "Cage 
 defineRotary("SAI_PITCH_TRIM", 34, 3002, 442, "Standby Attitude Indicator", "SAI Pitch Trim")
 
 -- Clock
-definePushButton("CLOCK_WIND", 35, 3001, 510, "Clock", "ABU-11 Clock Winding Knob")
-defineRotary("CLOCK_WIND_ROTATRY", 35, 3002, 510, "Clock", "ABU-11 Clock Winding Rotary")
-definePushButton("CLOCK_SET", 35, 3001, 511, "Clock", "ABU-11 Clock Setting Knob")
-definePushButton("ELAP_TIME", 35, 3003, 512,"Clock" , "ABU-11 Clock Elapsed Time Knob")
-defineFloat("CLOCK_CURR_H", 19, {0.0, 1.0}, "Gauges", "Clock Currtime Hours")
+definePushButton("CLOCK_WIND", 35, 3001, 510, "Clock", "ABU-11 CLOCK Winding Knob")
+defineRotary("CLOCK_WIND_ROTATRY", 35, 3002, 510, "Clock", "ABU-11 CLOCK Winding Rotary")
+definePushButton("CLOCK_SET", 35, 3001, 511, "Clock", "ABU-11 CLOCK Setting Knob")
+definePushButton("ELAP_TIME", 35, 3003, 512,"Clock" , "ABU-11 CLOCK Elapsed Time Knob")
+defineFloat("CLOCK_CURR_H", 19, {0.0, 1.0}, "Gauges", "CLOCK Currtime Hours")
 defineFloat("CLOCK_CURR_M", 18, {0.0, 1.0}, "Gauges", "CLOCK Currtime Minutes")
 defineFloat("CLOCK_ELAP_M", 509, {0.0, 1.0}, "Gauges", "CLOCK Elapsed Time Minutes")
 defineFloat("CLOCK_ELAP_S", 37, {0.0, 1.0}, "Gauges", "CLOCK Elapsed Time Seconds")
