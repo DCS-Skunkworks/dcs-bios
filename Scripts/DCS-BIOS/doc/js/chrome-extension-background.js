@@ -12,6 +12,7 @@ chrome.app.runtime.onLaunched.addListener(
 			function(createdWindow) {
 				createdWindow.innerBounds.height = 800;
 				createdWindow.innerBounds.width = 500;
+				createdWindow.setAlwaysOnTop(true);
 			}
 		);
 	}
