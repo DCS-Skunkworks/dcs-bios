@@ -420,6 +420,8 @@ defineToggleSwitch("PLT_UHF1_SHOW_PRESET_FREQ", 3, 3377, 8115, "UHF 1", "PILOT U
 definePotentiometer("PLT_UHF1_VOL", 3, 3359, 2031, {0.0, 1.0}, "UHF 1", "PILOT UHF ARC-159 Volume")
 definePotentiometer("RIO_UHF1_VOL", 3, 3361, 383, {0.0, 1.0}, "UHF 1", "RIO UHF ARC-159 Volume")
 definePotentiometer("PLT_UHF1_BRIGHTNESS", 3, 3363, 2027, {0.0, 1.0}, "UHF 1", "PILOT UHF ARC-159 Display Brightness")
+definePushButton("PLT_UHF1_LOAD", 3, 3378, 16009, "UHF 1", "Rilot UHF ARC-159 Load")
+definePushButton("PLT_UHF1_TONE", 3, 3379, 16010, "UHF 1", "Rilot UHF ARC-159 Tone")
 
 function getARC159_High_Frequency()
 	--Export : 225000192.000000

@@ -121,6 +121,9 @@ defineMultipositionSwitch("BACK_FUEL_TRANS_L", 2, 3480, 818, 3, 0.5,"Fuel Panel"
 defineMultipositionSwitch("BACK_FUEL_TRANS_C1", 2, 3481, 819, 3, 0.5,"Fuel Panel" ,"BACK Fuel Transfer Center 1/Fwd Cockpit Priority")
 defineMultipositionSwitch("BACK_FUEL_TRANS_C2", 2, 3482, 820, 3, 0.5,"Fuel Panel" ,"BACK Fuel Transfer Center 2/Fwd Cockpit Priority")
 defineMultipositionSwitch("BACK_FUEL_TRANS_R", 2, 3483, 821, 3, 0.5,"Fuel Panel" ,"BACK Fuel Transfer Right/Fwd Cockpit Priority")
+definePushButton("FRONT_FUEL_FLOW_RESET", 2, 3234, 32, "Fuel Panel", "FRONT Fuel Flow Reset")
+definePushButton("FRONT_FUEL_FLOW_TEST", 2, 3235, 342, "Fuel Panel", "FRONT Fuel Flow Test")
+definePushButton("BACK_FUEL_FLOW_RESET", 2, 3441, 779, "Fuel Panel", "BACK Fuel Flow Reset")
 
 -- CIRCUIT BREAKERS
 defineToggleSwitch("FRONT_CB_ENG_GEN", 2, 3054, 427, "CB Panel", "FRONT Circuit Breaker Engine Generator")
@@ -189,14 +192,70 @@ definePotentiometer("BACK_ENG_START_TEST_KNB", 2, 3537, 1275, {0, 1}, "Engine St
 defineToggleSwitch("FRONT_OXY_SUPPLY", 2, 3117, 425, "Oxygen System", "FRONT Oxygen Supply")
 defineToggleSwitch("BACK_OXY_SUPPLY", 2, 3429, 253, "Oxygen System", "BACK Oxygen Supply")
 
--- CLOCK 
+-- CLOCK
+definePushButton("FRONT_CHRONO", 2, 3149, 519, "Clock", "FRONT Chronograph")
+definePushButton("FRONT_CLOCK_BTN", 2, 3147, 518, "Clock", "FRONT Set Clock Button")
+definePotentiometer("FRONT_CLOCK_KNOB", 2, 3148, 517, {0, 1}, "Clock", "FRONT Set Clock Knob")
+definePushButton("BACK_CHRONO", 2, 3433, 811, "Clock", "BACK Chronograph")
+definePushButton("BACK_CLOCK_BTN", 2, 3431, 810, "Clock", "BACK Set Clock Button")
+definePotentiometer("BACK_CLOCK_KNOB", 2, 3432, 809, {0, 1}, "Clock", "BACK Set Clock Knob")
+
+-- EMERGENCY LANDING GEAR EXTEND
+defineToggleSwitch("FRONT_EMERG_GEAR", 2, 3150, 197, "Emergency", "FRONT Emergency Landing Gear Extension")
+defineToggleSwitch("BACK_EMERG_GEAR", 2, 3435, 843, "Emergency", "BACK Emergency Landing Gear Extension")
+
+-- EMERGENCY AIR BRAKE RETRACT
+definePushButton("FRONT_EMERG_AIRBRAKE", 2, 3151, 147, "Emergency", "FRONT Emergency Air-Brake Retract")
+definePushButton("BACK_EMERG_AIRBRAKE", 2, 3436, 831, "Emergency", "BACK Emergency Air-Brake Retract")
+
+-- EMERGENCY AILERON HYD DISCONNECT
+defineToggleSwitch("FRONT_EMERG_AILERON_COVER", 2, 3152, 144, "Emergency", "FRONT Aileron Hydraulic Override Cover")
+definePushButton("FRONT_EMERG_AILERON", 2, 3153, 145, "Emergency", "FRONT Aileron Hydraulic Override")
+defineToggleSwitch("BACK_EMERG_AILERON_COVER", 2, 3466, 829, "Emergency", "BACK Aileron Hydraulic Override Cover")
+definePushButton("BACK_EMERG_AILERON", 2, 3467, 830, "Emergency", "BACK Aileron Hydraulic Override")
+
+-- EMERGENCY PITCH TRIM
+defineToggleSwitch("FRONT_EMERG_ELEVATOR_TRIM_COVER", 2, 3156, 149, "Emergency", "FRONT Emergency Elevator Trim Switch Cutout Guard")
+define3PosTumb("FRONT_EMERG_ELEVATOR_TRIM", 2, 3157, 148, "Emergency", "FRONT Emergency Elevator Trim Switch")
+definePushButton("FRONT_PITCH_TRIM_L_TEST_BTN", 2, 3158, 526, "Emergency", "FRONT Pitch Trim Disc Lamp Test Button")
+definePotentiometer("FRONT_PITCH_TRIM_L_TEST_KNOB", 2, 3552, 1274, {0, 1}, "Emergency", "FRONT Pitch Trim Disc Lamp Test Knob")
+defineTumb("FRONT_SEAT_HEIGHT", 2, 3280, 193, 2, {-1, 1}, nil, false, "Emergency", "FRONT Seat Height Adjustment")
+defineToggleSwitch("FRONT_CB_PITCH_TRIM", 2, 3160, 195, "Emergency", "FRONT Pitch Trim Breaker")
+defineToggleSwitch("BACK_EMERG_ELEVATOR_TRIM_COVER", 2, 3468, 833, "Emergency", "BACK Emergency Elevator Trim Switch Cutout Guard")
+define3PosTumb("BACK_EMERG_ELEVATOR_TRIM", 2, 3469, 832, "Emergency", "BACK Emergency Elevator Trim Switch")
+definePushButton("BACK_PITCH_TRIM_L_TEST_BTN", 2, 3470, 534, "Emergency", "BACK Pitch Trim Disc Lamp Test Button")
+definePotentiometer("BACK_PITCH_TRIM_L_TEST_KNOB", 2, 3553, 1276, {0, 1}, "Emergency", "BACK Pitch Trim Disc Lamp Test Knob")
+defineTumb("BACK_SEAT_HEIGHT", 2, 3471, 841, 2, {-1, 1}, nil, false, "Emergency", "BACK Seat Height Adjustment")
+
+-- RED PANEL LIGHT ADJUSTMENTS
+definePotentiometer("FRONT_RED_FLOODLIGHT_L_CONSOLE", 2, 3227, 258, {0, 1}, "Red Panel Lights", "FRONT Red Floodlight Left Console")
+definePotentiometer("FRONT_RED_FLOODLIGHT_L_CENTER", 2, 3228, 259, {0, 1}, "Red Panel Lights", "FRONT Red Floodlight Left Center Panel")
+definePotentiometer("FRONT_RED_FLOODLIGHT_R_CENTER", 2, 3230, 261, {0, 1}, "Red Panel Lights", "FRONT Red Floodlight Right Center Panel")
+definePotentiometer("FRONT_RED_FLOODLIGHT_R_CONSOLE", 2, 3231, 262, {0, 1}, "Red Panel Lights", "FRONT Red Floodlight Right Console")
+definePotentiometer("BACK_RED_FLOODLIGHT_L_CONSOLE", 2, 3437, 263, {0, 1}, "Red Panel Lights", "BACK Red Floodlight Left Console")
+definePotentiometer("BACK_RED_FLOODLIGHT_L_CENTER", 2, 3438, 264, {0, 1}, "Red Panel Lights", "BACK Red Floodlight Left Center Panel")
+definePotentiometer("BACK_RED_FLOODLIGHT_R_CENTER", 2, 3439, 266, {0, 1}, "Red Panel Lights", "BACK Red Floodlight Right Center Panel")
+definePotentiometer("BACK_RED_FLOODLIGHT_R_CONSOLE", 2, 3440, 267, {0, 1}, "Red Panel Lights", "BACK Red Floodlight Right Console")
+
+-- MARKER BEACON TEST LIGHTS
+definePushButton("FRONT_MARKER_TEST_BTN_OUT", 2, 3167, 528, "Beacon Test", "FRONT Outer Marker Lamp Test Button")
+definePotentiometer("FRONT_MARKER_TEST_KNOB_OUT", 2, 3530, 1255, {0, 1}, "Beacon Test", "FRONT Outer Marker Lamp Test Knob")
+definePushButton("FRONT_MARKER_TEST_BTN_MID", 2, 3168, 527, "Beacon Test", "FRONT Middle Marker Lamp Test Button")
+definePotentiometer("FRONT_MARKER_TEST_KNOB_MID", 2, 3529, 1254, {0, 1}, "Beacon Test", "FRONT Middle Marker Lamp Test Knob")
+definePushButton("FRONT_MARKER_TEST_BTN_INN", 2, 3169, 529, "Beacon Test", "FRONT Inner Marker Lamp Test Button")
+definePotentiometer("FRONT_MARKER_TEST_KNOB_INN", 2, 3528, 1253, {0, 1}, "Beacon Test", "FRONT Inner Marker Lamp Test Knob")
+definePushButton("BACK_MARKER_TEST_BTN_OUT", 2, 3444, 968, "Beacon Test", "BACK Outer Marker Lamp Test Button")
+definePotentiometer("BACK_MARKER_TEST_KNOB_OUT", 2, 3533, 1260, {0, 1}, "Beacon Test", "BACK Outer Marker Lamp Test Knob")
+definePushButton("BACK_MARKER_TEST_BTN_MID", 2, 3445, 969, "Beacon Test", "BACK Middle Marker Lamp Test Button")
+definePotentiometer("BACK_MARKER_TEST_KNOB_MID", 2, 3532, 1259, {0, 1}, "Beacon Test", "BACK Middle Marker Lamp Test Knob")
+definePushButton("BACK_MARKER_TEST_BTN_INN", 2, 3446, 970, "Beacon Test", "BACK Inner Marker Lamp Test Button")
+definePotentiometer("BACK_MARKER_TEST_KNOB_INN", 2, 3531, 1258, {0, 1}, "Beacon Test", "BACK Inner Marker Lamp Test Knob")
+
+-- INTERCOM PANEL
 
 -- Warning, Caution and IndicatorLights PLT
-defineIndicatorLight("FRONT_COMPUTER_LIGHT", 143, "Warning, Caution and IndicatorLights","FRONT Computer Light MAN (yellow)")
-defineIndicatorLight("FRONT_ANTI_ICE_LIGHT", 192, "Warning, Caution and IndicatorLights","FRONT ANTI-ICE Light ON (yellow)")
-defineIndicatorLight("FRONT_ENG_START_TEST_LIGHT", 140, "Warning, Caution and IndicatorLights","FRONT Engine Start Test Light (yellow)")
-defineIndicatorLight("BACK_COMPUTER_LIGHT", 143, "Warning, Caution and IndicatorLights","BACK Computer Light MAN (yellow)")
-defineIndicatorLight("BACK_ANTI_ICE_LIGHT", 192, "Warning, Caution and IndicatorLights","BACK ANTI-ICE Light ON (yellow)")
-defineIndicatorLight("BACK_ENG_START_TEST_LIGHT", 140, "Warning, Caution and IndicatorLights","BACK Engine Start Test Light (yellow)")
+defineIndicatorLight("FRONT_BACK_COMPUTER_LIGHT", 143, "Warning, Caution and IndicatorLights","FRONT/BACK Computer Light MAN (yellow)")
+defineIndicatorLight("FRONT_BACK_ANTI_ICE_LIGHT", 192, "Warning, Caution and IndicatorLights","FRONT/BACK ANTI-ICE Light ON (yellow)")
+defineIndicatorLight("FRONT_BACK_ENG_START_TLIGHT", 140, "Warning, Caution and IndicatorLights","FRONT/BACK Engine Start Test Light (yellow)")
 
 BIOS.protocol.endModule()
