@@ -17,7 +17,7 @@ local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 
--- remove Arg# Pilot 1000 / Instructor 1002
+-- remove Arg# Pilot 1000 / Instructor 1002 / Hide Stick Front 309 Back 312
 
 -- Electrical Panel
 defineToggleSwitch("FRONT_BATT_MASTER_SW", 2, 3001, 315, "Electrical Panel", "FRONT Battery Master Switch")
@@ -252,10 +252,132 @@ definePushButton("BACK_MARKER_TEST_BTN_INN", 2, 3446, 970, "Beacon Test", "BACK 
 definePotentiometer("BACK_MARKER_TEST_KNOB_INN", 2, 3531, 1258, {0, 1}, "Beacon Test", "BACK Inner Marker Lamp Test Knob")
 
 -- INTERCOM PANEL
+defineToggleSwitch("FRONT_INTER_INT_SW", 7, 3001, 280, "Intercom", "FRONT Intercom INT Switch")
+definePotentiometer("FRONT_INTER_INT_VOL", 7, 3002, 394, {0, 1}, "Intercom", "FRONT Intercom INT Volume")
+defineToggleSwitch("FRONT_INTER_VHF_SW", 7, 3003, 282, "Intercom", "FRONT Intercom VHF Switch")
+definePotentiometer("FRONT_INTER_VHF_VOL", 7, 3004, 396, {0, 1}, "Intercom", "FRONT Intercom VHF Volume")
+defineToggleSwitch("FRONT_INTER_HM_SW", 7, 3005, 283, "Intercom", "FRONT Intercom HM Switch")
+definePotentiometer("FRONT_INTER_HM_VOL", 7, 3006, 397, {0, 1}, "Intercom", "FRONT Intercom HM Volume")
+defineToggleSwitch("FRONT_INTER_VOR_SW", 7, 3007, 285, "Intercom", "FRONT Intercom VOR Switch")
+definePotentiometer("FRONT_INTER_VOR_VOL", 7, 3008, 399, {0, 1}, "Intercom", "FRONT Intercom VOR Volume")
+defineToggleSwitch("FRONT_INTER_MK_SW", 7, 3009, 286, "Intercom", "FRONT Intercom MK Switch")
+definePotentiometer("FRONT_INTER_MK_VOL", 7, 3010, 400, {0, 1}, "Intercom", "FRONT Intercom MK Volume")
+defineToggleSwitch("FRONT_CB_HOTMIC", 7, 3011, 287, "Intercom", "FRONT Circuit Breaker TALK (Hot Mic)")
+definePushButton("FRONT_CALL_BTN", 2, 3012, 402, "Intercom", "FRONT Call Button")
+definePotentiometer("FRONT_INTER_VOL", 7, 3013, 403, {0, 1}, "Intercom", "FRONT Intercom Volume")
+defineToggleSwitch("BACK_INTER_INT_SW", 7, 3024, 884, "Intercom", "BACK Intercom INT Switch")
+definePotentiometer("BACK_INTER_INT_VOL", 7, 3025, 894, {0, 1}, "Intercom", "BACK Intercom INT Volume")
+defineToggleSwitch("BACK_INTER_VHF_SW", 7, 3026, 886, "Intercom", "BACK Intercom VHF Switch")
+definePotentiometer("BACK_INTER_VHF_VOL", 7, 3027, 896, {0, 1}, "Intercom", "BACK Intercom VHF Volume")
+defineToggleSwitch("BACK_INTER_HM_SW", 7, 3028, 887, "Intercom", "BACK Intercom HM Switch")
+definePotentiometer("BACK_INTER_HM_VOL", 7, 3029, 897, {0, 1}, "Intercom", "BACK Intercom HM Volume")
+defineToggleSwitch("BACK_INTER_VOR_SW", 7, 3030, 889, "Intercom", "BACK Intercom VOR Switch")
+definePotentiometer("BACK_INTER_VOR_VOL", 7, 3031, 899, {0, 1}, "Intercom", "BACK Intercom VOR Volume")
+defineToggleSwitch("BACK_INTER_MK_SW", 7, 3032, 890, "Intercom", "BACK Intercom MK Switch")
+definePotentiometer("BACK_INTER_MK_VOL", 7, 3033, 901, {0, 1}, "Intercom", "BACK Intercom MK Volume")
+defineToggleSwitch("BACK_CB_HOTMIC", 7, 3034, 891, "Intercom", "BACK Circuit Breaker TALK (Hot Mic)")
+definePushButton("BACK_CALL_BTN", 2, 3035, 945, "Intercom", "BACK Call Button")
+definePotentiometer("BACK_INTER_VOL", 7, 3036, 946, {0, 1}, "Intercom", "BACK Intercom Volume")
 
--- Warning, Caution and IndicatorLights PLT
+-- MISC FUNCTIONS 
+definePushButton("FRONT_ANTISKITD_PW", 2, 3043, 516, "Misc", "FRONT Antiskid ON/OFF")
+definePushButton("FRONT_NAV_PRIO", 2, 3119, 336, "Misc", "FRONT NAV Priority")
+definePushButton("FRONT_UHF_PRIO", 2, 3162, 334, "Misc", "FRONT UHF Priority")
+definePushButton("FRONT_VHF_PRIO", 2, 3163, 335, "Misc", "FRONT VHF Priority")
+definePushButton("FRONT_PITOT_PW", 2, 3201, 328, "Misc", "FRONT Pitot Heat ON/OFF")
+definePushButton("FRONT_GEAR_MUTE", 2, 3202, 17, "Misc", "FRONT Landing Gear Warning Mute")
+definePushButton("FRONT_GEAR_OVER", 2, 3232, 308, "Misc", "FRONT Landing Gear Override")
+definePushButton("BACK_ANTISKITD_PW", 2, 3484, 638, "Misc", "BACK Antiskid ON/OFF")
+definePushButton("BACK_NAV_PRIO", 2, 3485, 839, "Misc", "BACK NAV Priority")
+definePushButton("BACK_UHF_PRIO", 2, 3486, 837, "Misc", "BACK UHF Priority")
+definePushButton("BACK_VHF_PRIO", 2, 3487, 838, "Misc", "BACK VHF Priority")
+definePushButton("BACK_PITOT_PW", 2, 3488, 940, "Misc", "BACK Pitot Heat ON/OFF")
+definePushButton("BACK_GEAR_MUTE", 2, 3489, 770, "Misc", "BACK Landing Gear Warning Mute")
+definePushButton("BACK_GEAR_OVER", 2, 3490, 939, "Misc", "BACK Landing Gear Override")
+defineToggleSwitch("FRONT_PARK_BRAKE_LVR", 2, 3238, 333, "Misc", "FRONT Parking Brake Lever")
+defineToggleSwitch("BACK_PARK_BRAKE_LVR", 2, 3492, 65, "Misc", "BACK Parking Brake Lever")
+definePotentiometer("FRONT_RUDDER_ADJ", 2, 3240, 311, {0, 1}, "Misc", "FRONT Adjust Rudder Pedals")
+definePotentiometer("BACK_RUDDER_ADJ", 2, 3696, 1202, {0, 1}, "Misc", "BACK Adjust Rudder Pedals")
+defineMultipositionSwitch("FRONT_FLAP_SEL", 2, 3224, 14, 3, 0.5,"Misc" ,"FRONT Flap Position Selector")
+defineToggleSwitch("FRONT_CPT_EMERG_JETT", 2, 3226, 12, "Misc", "FRONT Canopy Emergency Jettison")
+definePotentiometer("FRONT_THROTTLE_FRICTION", 2, 3243, 16, nil, "Misc", "FRONT Throttle Friction")
+definePotentiometer("FRONT_HARNESS_CONTROL", 2, 3244, 94, {0, 1}, "Misc", "FRONT Shouldern Harness Control Handle")
+defineToggleSwitch("FRONT_EJECT_HANDLE", 2, 3245, 536, "Misc", "FRONT Ejection Handle")
+defineToggleSwitch("FRONT_EJECT_HANDLE_COVER", 2, 3246, 538, "Misc", "FRONT Ejection Handle Safety")
+defineToggleSwitch("FRONT_MAN_SEPERATION_HANDLE", 2, 3247, 537, "Misc", "FRONT Manual Seperation Handle")
+definePotentiometer("FRONT_STORAGE_BOX", 2, 3248, 296, {0, 1}, "Misc", "FRONT Storage Box Cover")
+definePotentiometer("FRONT_AIR_VENT", 2, 3249, 101, nil, "Misc", "FRONT Air Vent")
+defineToggleSwitch("FRONT_GEAR_HANDLE", 2, 3250, 8, "Misc", "FRONT Landing Gear Handle")
+defineMultipositionSwitch("BACK_FLAP_SEL", 2, 3514, 38, 3, 0.5,"Misc" ,"BACK Flap Position Selector")
+defineToggleSwitch("BACK_CPT_EMERG_JETT", 2, 3515, 302, "Misc", "BACK Canopy Emergency Jettison")
+definePotentiometer("BACK_THROTTLE_FRICTION", 2, 3517, 16, nil, "Misc", "BACK Throttle Friction")
+definePotentiometer("BACK_HARNESS_CONTROL", 2, 3518, 523, {0, 1}, "Misc", "BACK Shouldern Harness Control Handle")
+defineToggleSwitch("BACK_EJECT_HANDLE", 2, 3519, 520, "Misc", "BACK Ejection Handle")
+defineToggleSwitch("BACK_EJECT_HANDLE_COVER", 2, 3520, 521, "Misc", "BACK Ejection Handle Safety")
+defineToggleSwitch("BACK_MAN_SEPERATION_HANDLE", 2, 3521, 522, "Misc", "BACK Manual Seperation Handle")
+definePotentiometer("BACK_AIR_VENT", 2, 3523, 1230, nil, "Misc", "BACK Air Vent")
+defineToggleSwitch("BACK_GEAR_HANDLE", 2, 3524, 75, "Misc", "BACK Landing Gear Handle")
+
+-- Warning, Caution and IndicatorLights
+defineIndicatorLight("FRONT_LANDING_GEAR_LIGHT", 9, "Warning, Caution and IndicatorLights","FRONT Landing Gear Light (red)")
 defineIndicatorLight("FRONT_BACK_COMPUTER_LIGHT", 143, "Warning, Caution and IndicatorLights","FRONT/BACK Computer Light MAN (yellow)")
 defineIndicatorLight("FRONT_BACK_ANTI_ICE_LIGHT", 192, "Warning, Caution and IndicatorLights","FRONT/BACK ANTI-ICE Light ON (yellow)")
 defineIndicatorLight("FRONT_BACK_ENG_START_TLIGHT", 140, "Warning, Caution and IndicatorLights","FRONT/BACK Engine Start Test Light (yellow)")
+
+-- Gauges
+
+
+--------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS ---------------------------------------
+-- PRESSURIZATION/AIRCON SYSTEM 
+defineMultipositionSwitch("FRONT_AIR_COND_MASTER", 2, 3120, 419, 3, 0.5,"Aircon System" ,"FRONT Air-Conditioning Master Switch")
+defineToggleSwitch("FRONT_AIR_FLOW_MODE", 2, 3121, 420, "Aircon System", "FRONT Air Flow Mode")
+defineToggleSwitch("FRONT_EMERG_VENT", 2, 3122, 421, "Aircon System", "FRONT Emergency Ventilation")
+defineToggleSwitch("FRONT_TEMP_MODE", 2, 3123, 422, "Aircon System", "FRONT Temperatur Mode")
+definePotentiometer("FRONT_TEMP_REGULATOR", 2, 3124, 423, {0, 1}, "Aircon System", "FRONT Temperatur Regulation Control")
+defineTumb("FRONT_TEMP_CONTROL_MAN", 2, 3125, 424, 2, {-1, 1}, nil, false, "Aircon System", "FRONT Manual Temperatur Control")
+
+-- STALL SYSTEM 
+defineTumb("FRONT_STALL_WARN_TEST", 2, 3199, 331, 2, {-1, 1}, nil, false, "Stall System", "FRONT Stall Warning Test")
+defineToggleSwitch("FRONT_STALL_WARN_PW", 2, 3200, 332, "Stall System", "FRONT Stall Warning Power")
+
+-- IFF PANEL 
+defineMultipositionSwitch("FRONT_IFF_CODE_SEL", 2, 3203, 346, 4, 0.25,"IFF" ,"FRONT IFF Code Selector")
+defineMultipositionSwitch("FRONT_IFF_MASTER_SW", 2, 3204, 347, 5, 0.25,"IFF" ,"FRONT IFF Master Switch")
+defineMultipositionSwitch("FRONT_IFF_AUDIO_LIGHT", 2, 3205, 348, 3, 0.5,"IFF" ,"FRONT IFF Audio Light Switch")
+defineToggleSwitch("FRONT_IFF_TEST_M1", 2, 3206, 349, "IFF", "FRONT IFF TEST M-1 Switch")
+defineToggleSwitch("FRONT_IFF_TEST_M2", 2, 3207, 350, "IFF", "FRONT IFF TEST M-2 Switch")
+defineToggleSwitch("FRONT_IFF_TEST_M3", 2, 3208, 351, "IFF", "FRONT IFF TEST M-3/A Switch")
+defineToggleSwitch("FRONT_IFF_TEST_MC", 2, 3209, 352, "IFF", "FRONT IFF TEST M/C Switch")
+defineMultipositionSwitch("FRONT_IFF_RAD_TEST", 2, 3210, 353, 3, 0.5,"IFF" ,"FRONT IFF RAD Test Switch")
+defineToggleSwitch("FRONT_IFF_MODE4", 2, 3211, 354, "IFF", "FRONT IFF Mode 4")
+defineMultipositionSwitch("FRONT_IFF_MODE1_X0", 2, 3212, 355, 10, 0.1,"IFF" ,"FRONT IFF MODE 1 - X0")
+defineMultipositionSwitch("FRONT_IFF_MODE1_0X", 2, 3213, 356, 10, 0.1,"IFF" ,"FRONT IFF MODE 1 - 0X")
+defineMultipositionSwitch("FRONT_IFF_MODE3_X000", 2, 3214, 357, 10, 0.1,"IFF" ,"FRONT IFF MODE 3 - X000")
+defineMultipositionSwitch("FRONT_IFF_MODE3_0X00", 2, 3215, 358, 10, 0.1,"IFF" ,"FRONT IFF MODE 3 - 0X00")
+defineMultipositionSwitch("FRONT_IFF_MODE3_00X0", 2, 3216, 359, 10, 0.1,"IFF" ,"FRONT IFF MODE 3 - 00X0")
+defineMultipositionSwitch("FRONT_IFF_MODE3_000X", 2, 3217, 360, 10, 0.1,"IFF" ,"FRONT IFF MODE 3 - 000X")
+definePushButton("FRONT_IFF_REPLY_TEST_BTN", 2, 3218, 530, "IFF", "FRONT IFF Reply Lamp Test Button")
+definePotentiometer("FRONT_IFF_REPLY_TEST_KNOB", 2, 3534, 1256, {0, 1}, "IFF", "FRONT IFF Reply Lamp Test Knob")
+definePushButton("FRONT_IFF_TEST_BTN", 2, 3219, 531, "IFF", "FRONT IFF Test Button")
+definePotentiometer("FRONT_IFF_TEST_KNOB", 2, 3535, 1257, {0, 1}, "IFF", "FRONT IFF Test Knob")
+defineMultipositionSwitch("FRONT_IFF_IDENT", 2, 3220, 361, 3, 0.5,"IFF" ,"FRONT IFF Ident Switch")
+
+-- MISC FUNCTIONS
+defineToggleSwitch("FRONT_MIRROR", 2, 3239, 10, "Misc", "FRONT Mirror")
+defineToggleSwitch("FRONT_COMPASS_LIGHT", 2, 3252, 850, "Misc", "FRONT Compass Light Switch")
+defineToggleSwitch("FRONT_PITCH_TRIM_TONE_MUTE", 2, 3236, 196, "Misc", "FRONT Pitch Trim Tone Mute")
+definePushButton("FRONT_ANTI_RAIN", 2, 3222, 314, "Misc", "FRONT Anti-Rain Fluid")
+definePotentiometer("FRONT_IFR_Hood", 2, 3557, 256, {0, 1}, "Misc", "FRONT IFR Hood")
+
+--------------------------------------- REAR COCKPIT ONLY FUNCTIONS ---------------------------------------
+-- OXYGEN SYSTEM 
+defineToggleSwitch("BACK_OXY_PRESS_WARN_SW", 2, 3527, 1196, "Misc", "BACK Oxygen Pressure Waring Switch")
+
+-- IFR hood 
+defineToggleSwitch("BACK_IFR_HOOD", 2, 3551, 329, "Misc", "BACK IFR Hood Close/Open")
+
+-- Unknown buttons/switches
+defineToggleSwitch("BACK_EJECT_PRIO_LEVER", 2, 3691, 1182, "Misc", "BACK Ejection Seat Priority Lever")
+definePotentiometer("BACK_STORAGE_BOX", 2, 3522, 299, {0, 1}, "Misc", "BACK Storage Box Cover")
 
 BIOS.protocol.endModule()
