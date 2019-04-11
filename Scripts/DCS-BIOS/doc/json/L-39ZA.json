@@ -1597,6 +1597,64 @@
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
+                               "FRONT_STOP_TURBO_COVER": {
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "FRONT Stop Turbo Switch Cover, Open/Close",
+                                                                      "identifier": "FRONT_STOP_TURBO_COVER",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12900,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 4096,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 12,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                  "FRONT_STOP_TURBO_SW": {
+                                                                        "category": "Electric System",
+                                                                    "control_type": "selector",
+                                                                     "description": "FRONT Stop Turbo Switch, ON/OFF",
+                                                                      "identifier": "FRONT_STOP_TURBO_SW",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 12900,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 2048,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 11,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
                                       "FRONT_TURBO_BTN": {
                                                                      "api_variant": "momentary_last_position",
                                                                         "category": "Electric System",
@@ -2007,64 +2065,6 @@
                                                                                                "type": "integer"
                                                                                     } ],
                                                                 "physical_variant": "push_button"
-                                                         },
-                                          "StopTurboSw": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "Main Generator Switch, ON/OFF",
-                                                                      "identifier": "StopTurboSw",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12900,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 2048,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 11,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                     "StopTurboSwCover": {
-                                                                        "category": "Electric System",
-                                                                    "control_type": "selector",
-                                                                     "description": "StopTurboSwCover",
-                                                                      "identifier": "StopTurboSwCover",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 12900,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 4096,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 12,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
                                                          }
                            },
        "instruments l-39": {
@@ -3222,22 +3222,6 @@
                                                                                                "type": "integer"
                                                                                     } ]
                                                                 },
-                                           "FwdWingTanks_lamp": {
-                                                                        "category": "l-39 lamps",
-                                                                    "control_type": "led",
-                                                                     "description": "Wing Tanks Empty",
-                                                                      "identifier": "FwdWingTanks_lamp",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 12896,
-                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                               "mask": 16384,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 14,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
                                          "GearDown_front_lamp": {
                                                                         "category": "l-39 lamps",
                                                                     "control_type": "led",
@@ -3394,6 +3378,22 @@
                                                                                                "mask": 16,
                                                                                           "max_value": 1,
                                                                                            "shift_by": 4,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
+                                                                },
+                                     "L-39C_FwdWingTanks_lamp": {
+                                                                        "category": "l-39 lamps",
+                                                                    "control_type": "led",
+                                                                     "description": "L-39C Wing Tanks Empty",
+                                                                      "identifier": "L-39C_FwdWingTanks_lamp",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 12896,
+                                                                                        "description": "0 if light is off, 1 if light is on",
+                                                                                               "mask": 16384,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 14,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ]
