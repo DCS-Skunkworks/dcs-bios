@@ -386,8 +386,8 @@ defineTumb("RIO_TACAN_DIAL_TENS", 47, 3342, 8891, 1/12, {0.0, 1.08333333333}, ni
 defineTumb("RIO_TACAN_DIAL_ONES", 47, 3344, 8890, 1/9, {0.0, 1.11111111111}, nil, false, "TACAN", "RIO TACAN Channel Lever (Ones)")
 
 -- AN/ARA-63 Panel
-defineToggleSwitch("PLT_ARA63_PW", 48, 3319, 910, "ANARA63 Panel", "Rilot TACAN Channel X/Y")
-definePushButton("PLT_ARA63_BIT", 48, 3321, 911, "ANARA63 Panel", "Rilot AN/ARA-63 BIT Button")
+defineToggleSwitch("PLT_ARA63_PW", 48, 3319, 910, "ANARA63 Panel", "PILOT AN/ARA-63 Power")
+definePushButton("PLT_ARA63_BIT", 48, 3321, 911, "ANARA63 Panel", "PILOT AN/ARA-63 BIT Button")
 defineMultipositionSwitch("PLT_ARA63_CHAN", 11, 3322, 912, 20, 1/19,"ANARA63 Panel" ,"PILOT AN/ARA-63 Channel Knob")
 
 -- Pilot TONE VOLUME Panel
@@ -420,8 +420,8 @@ defineToggleSwitch("PLT_UHF1_SHOW_PRESET_FREQ", 3, 3377, 8115, "UHF 1", "PILOT U
 definePotentiometer("PLT_UHF1_VOL", 3, 3359, 2031, {0.0, 1.0}, "UHF 1", "PILOT UHF ARC-159 Volume")
 definePotentiometer("RIO_UHF1_VOL", 3, 3361, 383, {0.0, 1.0}, "UHF 1", "RIO UHF ARC-159 Volume")
 definePotentiometer("PLT_UHF1_BRIGHTNESS", 3, 3363, 2027, {0.0, 1.0}, "UHF 1", "PILOT UHF ARC-159 Display Brightness")
-definePushButton("PLT_UHF1_LOAD", 3, 3378, 16009, "UHF 1", "Rilot UHF ARC-159 Load")
-definePushButton("PLT_UHF1_TONE", 3, 3379, 16010, "UHF 1", "Rilot UHF ARC-159 Tone")
+definePushButton("PLT_UHF1_LOAD", 3, 3378, 16009, "UHF 1", "PILOT UHF ARC-159 Load")
+definePushButton("PLT_UHF1_TONE", 3, 3379, 16010, "UHF 1", "PILOT UHF ARC-159 Tone")
 
 function getARC159_High_Frequency()
 	--Export : 225000192.000000
