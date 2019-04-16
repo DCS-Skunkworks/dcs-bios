@@ -69,8 +69,8 @@ definePushButton("BACK_CAWS_CAUTION_RESET", 2, 3414, 637, "CAWS Alert", "BACK Ca
 -- CRS AND HDG BUGS
 definePotentiometer("FRONT_CRS_KNOB", 2, 3029, 344, {0, 1}, "CRS HDG Bugs", "FRONT Course Knob")
 definePotentiometer("FRONT_HDG_KNOB", 2, 3030, 345, {0, 1}, "CRS HDG Bugs", "FRONT Heading Knob")
-definePotentiometer("FRONT_CRS_KNOB", 2, 3525, 943, {0, 1}, "CRS HDG Bugs", "FRONT Course Knob")
-definePotentiometer("FRONT_HDG_KNOB", 2, 3526, 944, {0, 1}, "CRS HDG Bugs", "FRONT Heading Knob")
+definePotentiometer("BACK_CRS_KNOB", 2, 3525, 943, {0, 1}, "CRS HDG Bugs", "BACK Course Knob")
+definePotentiometer("BACK_HDG_KNOB", 2, 3526, 944, {0, 1}, "CRS HDG Bugs", "BACK Heading Knob")
 
 -- CANOPY
 defineToggleSwitch("FRONT_CANOPY_SAFE", 2, 3040, 11, "Canopy", "FRONT Canopy Safety Catch")
@@ -94,10 +94,10 @@ definePotentiometer("BACK_LIGHTS_INSTR", 3, 3419, 250, {0, 1}, "Cockpit Lighting
 
 -- EXTERNAL LIGHTING
 defineToggleSwitch("FRONT_LIGHTS_ANTI_COL", 3, 3106, 366, "External Lights", "FRONT Anti-Collision Becon Switch")
-define3PosTumb("FRONT_LIGHTS_NAV", 3, 3107, 368, "External Lights", "FRONT Navigation Lights Switch")
-define3PosTumb("FRONT_LIGHTS_FOR", 3, 3108, 367, "External Lights", "FRONT Formation Lights Switch")
-define3PosTumb("FRONT_LIGHTS_TAXI_L", 3, 3109, 329, "External Lights", "FRONT Left Taxi/Landing Lights Switch")
-define3PosTumb("FRONT_LIGHTS_TAXI_R", 3, 3110, 330, "External Lights", "FRONT Right Taxi/Landing Lights Switch")
+defineTumb("FRONT_LIGHTS_NAV", 3, 3107, 368, 3, {0, 1}, nil, false, "External Lights", "FRONT Navigation Lights Switch")
+defineTumb("FRONT_LIGHTS_FOR", 3, 3108, 367, 3, {0, 1}, nil, false, "External Lights", "FRONT Formation Lights Switch")
+defineTumb("FRONT_LIGHTS_TAXI_L", 3, 3109, 329, 3, {0, 1}, nil, false, "External Lights", "FRONT Left Taxi/Landing Lights Switch")
+defineTumb("FRONT_LIGHTS_TAXI_R", 3, 3110, 330, 3, {0, 1}, nil, false, "External Lights", "FRONT Right Taxi/Landing Lights Switch")
 defineToggleSwitch("BACK_LIGHTS_PRIO_TAXI_L", 3, 3420, 941, "External Lights", "BACK Left Taxi/Landing Lights Forward Cockpit Priority")
 defineToggleSwitch("BACK_LIGHTS_PRIO_TAXI_R", 3, 3421, 942, "External Lights", "BACK Right Taxi/Landing Lights Forward Cockpit Priority")
 
