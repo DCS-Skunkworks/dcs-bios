@@ -22,8 +22,22 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 -- remove Arg# Pilot 600 / Instructor 610
 
 
-
 -----------------------------------L-39 GAUGES--------------------------------------------------
+
+defineFloat("FRONT_CLOCK_TIME_H", 67, {0, 1}, "Gauges","FRONT Clock Current Time Hours")
+defineFloat("FRONT_CLOCK_TIME_M", 68, {0, 1}, "Gauges","FRONT Clock Current Time Minutes")
+defineFloat("FRONT_CLOCK_TIME_S", 70, {0, 1}, "Gauges","FRONT Clock Current Time Seconds")
+defineFloat("FRONT_CLOCK_MODE", 73, {0, 0.2}, "Gauges","FRONT Clock Mode")
+defineFloat("FRONT_CLOCK_FLIGHT_H", 67, {0, 1}, "Gauges","FRONT Clock Flight Time Hours")
+defineFloat("FRONT_CLOCK_FLIGHT_M", 68, {0, 1}, "Gauges","FRONT Clock Flight Time Minutes")
+defineFloat("FRONT_CLOCK_STOPP_M", 69, {0.0, 0.161, 0.317, 0.499, 0.675, 0.843, 1.0}, "Gauges","FRONT Clock Stopwatch 30 Minutes")
+defineFloat("BACK_CLOCK_TIME_H", 405, {0, 1}, "Gauges","BACK Clock Current Time Hours")
+defineFloat("BACK_CLOCK_TIME_M", 406, {0, 1}, "Gauges","BACK Clock Current Time Minutes")
+defineFloat("BACK_CLOCK_TIME_S", 408, {0, 1}, "Gauges","BACK Clock Current Time Seconds")
+defineFloat("BACK_CLOCK_MODE", 411, {0, 0.2}, "Gauges","BACK Clock Mode")
+defineFloat("BACK_CLOCK_FLIGHT_H", 409, {0, 1}, "Gauges","BACK Clock Flight Time Hours")
+defineFloat("BACK_CLOCK_FLIGHT_M", 410, {0, 1}, "Gauges","BACK Clock Flight Time Minutes")
+defineFloat("BACK_CLOCK_STOPP_M", 407, {0.0, 0.161, 0.317, 0.499, 0.675, 0.843, 1.0}, "Gauges","BACK Clock Stopwatch 30 Minutes")
 
 defineFloat("FRONT_ALT_KM", 52, {0, 1}, "Gauges","FRONT VD-20 Altimeter KM")
 defineFloat("FRONT_ALT_M", 53, {0, 1}, "Gauges","FRONT VD-20 Altimeter M")
@@ -42,6 +56,23 @@ defineFloat("FRONT_RALT_WARNFLAG", 59, {0.0, 1.0}, "Gauges","FRONT Radar Altimet
 defineFloat("BACK_RALT", 58, {0.0,	0.086,	0.439,	0.878,	0.955}, "Gauges","BACK Radar Altimeter")
 defineFloat("BACK_RALT_DANGER", 59, {0.0,	0.094,	0.48,	0.998}, "Gauges","BACK Radar Altimeter Danger Altitude")
 defineFloat("BACK_RALT_WARNFLAG", 59, {0.0, 1.0}, "Gauges","BACK Radar Altimeter Warning Flag")
+
+defineFloat("FRONT_ALT_100_PTR", 637, {0, 1}, "Gauges","FRONT Altimeter 100ft Ptr")
+defineFloat("FRONT_ALT_10000", 632, {0, 1}, "Gauges","FRONT Altimeter 10000ft")
+defineFloat("FRONT_ALT_1000", 631, {0, 1}, "Gauges","FRONT Altimeter 1000ft")
+defineFloat("FRONT_ALT_100", 630, {0, 1}, "Gauges","FRONT Altimeter 100ft")
+defineFloat("FRONT_PRESS_SET_0", 636, {0, 1}, "Gauges","FRONT Altimeter Pressure Setting 0")
+defineFloat("FRONT_PRESS_SET_1", 635, {0, 1}, "Gauges","FRONT Altimeter Pressure Setting 1")
+defineFloat("FRONT_PRESS_SET_2", 634, {0, 1}, "Gauges","FRONT Altimeter Pressure Setting 2")
+defineFloat("FRONT_PRESS_SET_3", 633, {0, 1}, "Gauges","FRONT Altimeter Pressure Setting 3")
+defineFloat("BACK_ALT_100_PTR", 737, {0, 1}, "Gauges","BACK Altimeter 100ft Ptr")
+defineFloat("BACK_ALT_10000", 732, {0, 1}, "Gauges","BACK Altimeter 10000ft")
+defineFloat("BACK_ALT_1000", 731, {0, 1}, "Gauges","BACK Altimeter 1000ft")
+defineFloat("BACK_ALT_100", 730, {0, 1}, "Gauges","BACK Altimeter 100ft")
+defineFloat("BACK_PRESS_SET_0", 736, {0, 1}, "Gauges","BACK Altimeter Pressure Setting 0")
+defineFloat("BACK_PRESS_SET_1", 735, {0, 1}, "Gauges","BACK Altimeter Pressure Setting 1")
+defineFloat("BACK_PRESS_SET_2", 734, {0, 1}, "Gauges","BACK Altimeter Pressure Setting 2")
+defineFloat("BACK_PRESS_SET_3", 733, {0, 1}, "Gauges","BACK Altimeter Pressure Setting 3")
 
 defineFloat("FRONT_VARIOMETER", 74, {-1.0,	-0.875, -0.775,	-0.44,	0.0,	0.44,	0.775,	0.875,	1.0}, "Gauges","FRONT Variometer")
 defineFloat("FRONT_VARIOMETER_TURN", 75, {-1.0, -0.58, -0.275, 0.275, 0.58, 1.0}, "Gauges","FRONT Variometer Turn Indicator")
@@ -96,44 +127,59 @@ defineFloat("FRONT_RSBN_CHAN_NAV_GAUGE", 189, {0.0, 0.39}, "Gauges","FRONT RSBN 
 defineFloat("FRONT_RSBN_CHAN_LAND_GAUGE", 190, {0.0, 0.39}, "Gauges","FRONT RSBN LAND Channel")
 defineFloat("FRONT_RSBN_BACK_LIGHT", 580, {0.0, 1.0}, "Gauges","FRONT RSBN Back Panel Light")
 
------------------------------------------------------------------------------------------------------------------------------ 2do
---AIRSPEED AND MACH
-defineFloat("IAS", 49, {0, 1}, "instruments l-39","V indicated")-- indicated air speed
-defineFloat("TAS", 50, {0, 1}, "instruments l-39","V true")-- true air speed
-defineFloat("MACH", 51, {0, 1}, "instruments l-39","Number of MACH")-- number of Mach
--- RKL-41
-defineFloat("RKL_41_needle", 77, {0, 1}, "instruments l-39","RKL Indicator")
--- electric interface
-defineFloat("Voltmeter", 92, {0,	1}, "instruments l-39","VOLTMETER")
-defineFloat("Ampermeter", 93, {0,	1}, "instruments l-39","AMPERMETER")
--- oxygen interface
-defineFloat("FwdOxygenPressure", 301, {0, 1}, "instruments l-39","Oxygene pressure")-- oxygene pressure indicator
-defineFloat("FwdFlowBlinker", 302, {0,	1}, "instruments l-39","Breathing blikers")-- breathing blinkers
--- accelerometer
-defineFloat("Acceleration", 86, {0,	1}, "instruments l-39","G indicator")-- G indicator
--- Cockpit pressure
-defineFloat("CockpitAltFwd", 95, {0, 1}, "instruments l-39","Cockpit altitude")-- cabine altitude
-defineFloat("PressDiffFwd", 96, {0,	1}, "instruments l-39","Differantial cockpit altitude")-- differantial cabine pressure
----Hydro Pressure
-defineFloat("MainHydro_PRESS", 198, {0, 1}, "instruments l-39","Main hydrolic pressure")-- main hydrolic system pressure indicator
-defineFloat("AuxHydro_PRESS", 200, {0, 1}, "instruments l-39","Emergency hydrolic pressure")-- aux hydrolic system pressure indicator
-defineFloat("BrakeLMainHydro_PRESS", 98, {0, 1}, "instruments l-39","Left brake pressure")-- main hydrolic left brake pressure indicator
-defineFloat("BrakeRMainHydro_PRESS", 99, {0, 1}, "instruments l-39","Right brake pressure")-- main hydrolic right brake pressure indicator
-defineFloat("BrakeAuxHydro_PRESS", 100, {0, 1}, "instruments l-39","Emergency brakes pressure")-- aux hydrolic brakes system pressure indicator
--- Fuel 
-defineFloat("Fuel_Quantity", 91, {0, 1}, "instruments l-39","Fuel Quantity")-- fuel quantity indicator
-defineFloat("Fuel_Press", 81, {0, 1}, "instruments l-39","Fuel pressure")-- fuel pressure indicator
--- ENGINE
-defineFloat("Fan_RPM", 85, {0, 1}, "instruments l-39","Low pressure compressor RPM")-- low pressure compressor rpm indicator
-defineFloat("Compressor_RPM", 84, {0, 1}, "instruments l-39","High pressure compressor RPM")-- high pressure compressor rpm indicator
-defineFloat("Engine_Temp", 90, {0, 1}, "instruments l-39","T4")-- turbine temperature indicator
-defineFloat("EngineVibration", 94, {0, 1}, "instruments l-39","Vibrations indicator")-- engine vibrations indicator
--- OIL
-defineFloat("Oil_Temp", 83, {0, 1}, "instruments l-39","Oil temperature")-- oil temperature indicator
-defineFloat("Oil_Press", 82, {0, 1}, "instruments l-39","Oil pressure")-- oil pressure indicator
--- TRIM
-defineFloat("PitchTrimInd", 247, {-1, 1}, "instruments l-39","Pitch trim indicator") -- pitch trim indicator
------------------------------------------------------------------------------------------------------------------------------ 2 do end
+defineFloat("FRONT_IAS", 49, {0.0, 0.08,  0.186, 0.296, 0.436, 0.55, 0.635, 0.705, 0.765, 0.824, 1.0}, "Gauges","FRONT IAS (indicated)")
+defineFloat("FRONT_TAS", 50, {0.0, 0.08,  0.186, 0.296, 0.436, 0.55, 0.635, 0.705, 0.765, 0.824, 1.0}, "Gauges","FRONT TAS (true)")
+defineFloat("FRONT_MACH", 51, {0, 1}, "Gauges","FRONT Number of MACH")
+defineFloat("BACK_IAS", 386, {0.0, 0.08,  0.186, 0.296, 0.436, 0.55, 0.635, 0.705, 0.765, 0.824, 1.0}, "Gauges","BACK IAS (indicated)")
+defineFloat("BACK_TAS", 387, {0.0, 0.08,  0.186, 0.296, 0.436, 0.55, 0.635, 0.705, 0.765, 0.824, 1.0}, "Gauges","BACK TAS (true)")
+defineFloat("BACK_MACH", 388, {0, 1}, "Gauges","BACK Number of MACH")
+
+defineFloat("FRONT_RKL41_NEEDLE", 77, {0, 1}, "Gauges","FRONT RKL Indicator Needle")
+defineFloat("FRONT_RKL41_SIGNAL", 156, {0, 1}, "Gauges","FRONT RKL Signal Strength")
+defineFloat("BACK_RKL41_NEEDLE", 420, {0, 1}, "Gauges","BACK RKL Indicator Needle")
+defineFloat("BACK_RKL41_SIGNAL", 513, {0, 1}, "Gauges","BACK RKL Signal Strength")
+defineFloat("BACK_KM8_HDG", 531, {0, 1}, "Gauges","BACK KM-8 Heading")
+defineFloat("BACK_KM8_VARIATION", 531, {1.0, -1.0}, "Gauges","BACK KM-8 Variation")
+
+defineFloat("FRONT_VOLT_METER", 92, {0, 1}, "Gauges","FRONT Voltmeter")
+defineFloat("FRONT_AMP_METER", 93, {0, 1}, "Gauges","FRONT Ampermeter")
+
+defineFloat("FRONT_OXY_PRESS", 301, {0.0, 0.025, 0.925, 1.0}, "Gauges","FRONT Oxygen Pressure")
+defineFloat("FRONT_OXY_FLOW", 302, {0, 1}, "Gauges","FRONT Oxygen Flow Blinker")
+defineFloat("BACK_OXY_PRESS", 477, {0.0, 0.025, 0.925, 1.0}, "Gauges","BACK Oxygen Pressure")
+defineFloat("BACK_OXY_FLOW", 478, {0, 1}, "Gauges","BACK Oxygen Flow Blinker")
+
+defineFloat("FRONT_ACCEL_G", 86, {0, 1}, "Gauges","FRONT G Indicator")
+defineFloat("FRONT_ACCEL_MIN", 88, {0.31, 0.695}, "Gauges","FRONT Min G Indicator")
+defineFloat("FRONT_ACCEL_MAX", 87, {0, 1}, "Gauges","FRONT Max G Indicator")
+
+defineFloat("FRONT_CPT_ALT", 95, {0, 1}, "Gauges","FRONT Cockpit Altitude")
+defineFloat("FRONT_PRESS_DIFF", 96, {0.0, 0.102, 0.202,	0.398, 0.779, 1.0}, "Gauges","FRONT Differantial Cabine Pressure")
+defineFloat("BACK_CPT_ALT", 95, {0, 1}, "Gauges","BACK Cockpit Altitude")
+defineFloat("BACK_PRESS_DIFF", 96, {0.0, 0.102, 0.202,	0.398, 0.779, 1.0}, "Gauges","BACK Differantial Cabine Pressure")
+
+defineFloat("FRONT_MAIN_HYD_PRESS", 198, {0, 1}, "Gauges","FRONT Main Hydraulic Pressure")
+defineFloat("FRONT_AUX_HYD_PRESS", 200, {0, 1}, "Gauges","FRONT AUX Hydraulic Pressure")
+defineFloat("FRONT_BRAKE_L_HYD_PRESS", 98, {0, 1}, "Gauges","FRONT Left Brake Pressure")
+defineFloat("FRONT_BRAKE_R_HYD_PRESS", 99, {0, 1}, "Gauges","FRONT Right Brake Pressure")
+defineFloat("FRONT_BRAKE_AUX_HYD_PRESS", 100, {0, 1}, "Gauges","FRONT AUX Brake Pressure")
+
+defineFloat("FRONT_FUEL_QUANT", 91, {0.0, 0.127, 0.239, 0.35, 0.458, 0.56, 0.685, 0.82, 1.0}, "Gauges","FRONT Fuel Quantity")
+defineFloat("FRONT_FUEL_PRESS", 81, {0.0, 0.06, 0.148, 0.323, 0.547, 0.659, 0.801, 1.0}, "Gauges","FRONT Fuel Pressure")
+defineFloat("FRONT_FAN_RPM", 85, {0.0, 0.09, 0.18, 0.28, 0.372, 0.468, 0.555, 0.645, 0.733, 0.822, 0.909, 1.0}, "Gauges","FRONT FAN RPM")
+defineFloat("FRONT_COMP_RPM", 84, {0.0, 0.09, 0.18, 0.28, 0.372, 0.468, 0.555, 0.645, 0.733, 0.822, 0.909, 1.0}, "Gauges","FRONT Compressor RPM")
+defineFloat("FRONT_ENG_TEMP", 90, {0, 1}, "Gauges","FRONT Engine Temperature")
+defineFloat("FRONT_ENG_VIB", 94, {0, 1}, "Gauges","FRONT Engine Vibrations Indicator")
+defineFloat("FRONT_OIL_TEMP", 83, {0.0, 0.323, 0.576, 0.817, 1.0}, "Gauges","FRONT Oil Temperature")
+defineFloat("FRONT_OIL_PRESS", 82, {0.0, 0.077, 1.0}, "Gauges","FRONT Oil Pressure")
+defineFloat("FRONT_PITCH_TRIM", 247, {1.0, -1.0}, "Gauges","FRONT Pitch Trim Indicator")
+defineFloat("BACK_FUEL_QUANT", 427, {0.0, 1.0}, "Gauges","BACK Fuel Quantity")
+defineFloat("BACK_FUEL_PRESS", 421, {0.0, 0.06, 0.148, 0.323, 0.547, 0.659, 0.801, 1.0}, "Gauges","BACK Fuel Pressure")
+defineFloat("BACK_FAN_RPM", 425, {0.0, 0.09, 0.18, 0.28, 0.372, 0.468, 0.555, 0.645, 0.733, 0.822, 0.909, 1.0}, "Gauges","BACK FAN RPM")
+defineFloat("BACK_COMP_RPM", 424, {0.0, 0.09, 0.18, 0.28, 0.372, 0.468, 0.555, 0.645, 0.733, 0.822, 0.909, 1.0}, "Gauges","BACK Compressor RPM")
+defineFloat("BACK_ENG_TEMP", 426, {0, 1}, "Gauges","BACK Engine Temperature")
+defineFloat("BACK_OIL_TEMP", 423, {0.0, 0.323, 0.576, 0.817, 1.0}, "Gauges","BACK Oil Temperature")
+defineFloat("BACK_OIL_PRESS", 422, {0.0, 0.077, 1.0}, "Gauges","BACK Oil Pressure")
 
 ------------------------------------ L-39 Lights --------------------------------------------------------------------
 defineIndicatorLight("FRONT_WP_DANGER_ALT_LAMP", 2, "Warning, Caution and IndicatorLights","FRONT Dangerous Altitude Lamp (red)")
@@ -295,7 +341,9 @@ definePushButton("PITOT_HEAT_OFF_R",  4,3071, 293,"Electric System", "Main (Righ
 --ISKRA
 defineMultipositionSwitch("FRONT_RSBN_CHAN_NAV_KNOB",  31,3008, 191, 40, 0.025,"ISKRA", "FRONT RSBN Navigation Channel Selector Knob")
 defineMultipositionSwitch("FRONT_RSBN_CHAN_LAND_KNOB",  31,3009, 192, 40, 0.025,"ISKRA", "FRONT RSBN Landing Channel Selector Knob")
+
 ------------------------------------ L-39 Readings --------------------------------------------------------------------
+
 local function getRSBNNAV()
     local digit = string.format("%.0f", GetDevice(0):get_argument_value(191)*40+1)
     return tonumber(digit) 
@@ -305,7 +353,6 @@ local function getRSBNNAVS()
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(191)*40+1)
     return tostring(digit1) 
 end
-
 defineIntegerFromGetter("FRONT_RSBN_CHAN_NAV_DISPLAY", getRSBNNAV, 99, "Readings", "FRONT RSBN NAV Channel Display")
 defineString("FRONT_RSBN_CHAN_NAV_DISPLAY_STRING", getRSBNNAVS, 99, "Readings", "FRONT RSBN NAV Channel Display (string)")
 
@@ -318,7 +365,6 @@ local function getRSBNLANDS()
     local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(192)*40+1)
     return tostring(digit3)
 end
-
 defineIntegerFromGetter("FRONT_RSBN_CHAN_LAND_DISPLAY", getRSBNLAND, 99, "Readings", "FRONT RSBN LAND Channel Display")
 defineString("FRONT_RSBN_CHAN_LAND_DISPLAY_STRING", getRSBNLANDS, 99, "Readings", "FRONT RSBN LAND Channel Display (string)")
   
