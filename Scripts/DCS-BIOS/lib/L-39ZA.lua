@@ -15,10 +15,9 @@ local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local defineToggleSwitchToggleOnly = BIOS.util.defineToggleSwitchToggleOnly
 local defineString = BIOS.util.defineString
-local defineRockerSwitch = BIOS.util.defineRockerSwitch
-local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitc
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 
 -- remove Arg# Pilot 600 / Instructor 610
 
@@ -93,20 +92,8 @@ defineFloat("FRONT_RSBN_RANGE_100", 66, {0, 1}, "Gauges","FRONT Range RSBN 100KM
 defineFloat("BACK_RSBN_RANGE_1", 402, {0, 1}, "Gauges","BACK Range RSBN 1KM")
 defineFloat("BACK_RSBN_RANGE_10", 403, {0, 1}, "Gauges","BACK Range RSBN 10KM")
 defineFloat("BACK_RSBN_RANGE_100", 404, {0, 1}, "Gauges","BACK Range RSBN 100KM")
-defineFloat("FRONT_RSBN_CHAN_NAV", 189, {0.0, 0.39}, "Gauges","FRONT RSBN NAV Channel")
-defineFloat("FRONT_RSBN_CHAN_LAND", 190, {0.0, 0.39}, "Gauges","FRONT RSBN LAND Channel")
-local function getRSBNNAV()
-    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(189)*100)
-    return tonumber(digit1)
-end
-defineIntegerFromGetter("FRONT_RSBN_CHAN_NAV_DISPLAY", getRSBNNAV, 99, "Gauges", "FRONT RSBN NAV Channel Display")
-defineString("FRONT_RSBN_CHAN_NAV_DISPLAY_STRING", getRSBNNAV, 99, "Gauges", "FRONT RSBN NAV Channel Display (string)")
-local function getRSBNLAND()
-    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(190)*100)
-    return tonumber(digit1)
-end
-defineIntegerFromGetter("FRONT_RSBN_CHAN_LAND_DISPLAY", getRSBNLAND, 99, "Gauges", "FRONT RSBN LAND Channel Display")
-defineString("FRONT_RSBN_CHAN_LAND_DISPLAY_STRING", getRSBNLAND, 99, "Gauges", "FRONT RSBN LAND Channel Display (string)")
+defineFloat("FRONT_RSBN_CHAN_NAV_GAUGE", 189, {0.0, 0.39}, "Gauges","FRONT RSBN NAV Channel")
+defineFloat("FRONT_RSBN_CHAN_LAND_GAUGE", 190, {0.0, 0.39}, "Gauges","FRONT RSBN LAND Channel")
 defineFloat("FRONT_RSBN_BACK_LIGHT", 580, {0.0, 1.0}, "Gauges","FRONT RSBN Back Panel Light")
 
 ----------------------------------------------------------------------------------------------------------------------------- 2do
@@ -256,7 +243,7 @@ defineToggleSwitch("FRONT_ENG_STRT_MODE_COVER",  4,3020, 321,"Electric System", 
 defineToggleSwitch("FRONT_EMERG_FUEL",  4,3021, 320,"Electric System", "FRONT Emergency Fuel Switch")
 defineToggleSwitch("FRONT_EMERG_FUEL_COVER",  4,3022, 319,"Electric System", "FRONT Emergency Fuel Switch Cover")
 defineToggleSwitch("BACK_EMERG_FUEL",  4,3023, 492,"Electric System", "BACK Emergency Fuel Switch")
-defineToggleSwitch("BACK_EMERG_FUEL_COVER",  4,3024, 491,"BACK Emergency Fuel Switch Cover")
+defineToggleSwitch("BACK_EMERG_FUEL_COVER",  4,3024, 491,"Electric System","BACK Emergency Fuel Switch Cover")
 defineToggleSwitch("CB_ENGINE",  4,3025, 144,"Electric System", "CB Engine")
 defineToggleSwitch("CB_AGD_GMK",  4,3026, 145,"Electric System", "CB AGD-GMK")
 defineToggleSwitch("CB_INVERT1",  4,3027, 146,"Electric System", "CB Inverter 1 (AC 115V)")
@@ -305,5 +292,34 @@ definePushButton("PITOT_HEAT_OFF_L",  4,3069, 295,"Electric System", "Standby (L
 definePushButton("PITOT_HEAT_ON_R",  4,3070, 292,"Electric System", "Main (Right) Pitot Tube Heating ON Button")
 definePushButton("PITOT_HEAT_OFF_R",  4,3071, 293,"Electric System", "Main (Right) Pitot Tube Heating OFF Button")
 
+--ISKRA
+defineMultipositionSwitch("FRONT_RSBN_CHAN_NAV_KNOB",  31,3008, 191, 40, 0.025,"ISKRA", "FRONT RSBN Navigation Channel Selector Knob")
+defineMultipositionSwitch("FRONT_RSBN_CHAN_LAND_KNOB",  31,3009, 192, 40, 0.025,"ISKRA", "FRONT RSBN Landing Channel Selector Knob")
+------------------------------------ L-39 Readings --------------------------------------------------------------------
+local function getRSBNNAV()
+    local digit = string.format("%.0f", GetDevice(0):get_argument_value(191)*40+1)
+    return tonumber(digit) 
+end
+
+local function getRSBNNAVS()
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(191)*40+1)
+    return tostring(digit1) 
+end
+
+defineIntegerFromGetter("FRONT_RSBN_CHAN_NAV_DISPLAY", getRSBNNAV, 99, "Readings", "FRONT RSBN NAV Channel Display")
+defineString("FRONT_RSBN_CHAN_NAV_DISPLAY_STRING", getRSBNNAVS, 99, "Readings", "FRONT RSBN NAV Channel Display (string)")
+
+local function getRSBNLAND()
+    local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(192)*40+1)
+    return tonumber(digit2)
+end
+
+local function getRSBNLANDS()
+    local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(192)*40+1)
+    return tostring(digit3)
+end
+
+defineIntegerFromGetter("FRONT_RSBN_CHAN_LAND_DISPLAY", getRSBNLAND, 99, "Readings", "FRONT RSBN LAND Channel Display")
+defineString("FRONT_RSBN_CHAN_LAND_DISPLAY_STRING", getRSBNLANDS, 99, "Readings", "FRONT RSBN LAND Channel Display (string)")
   
 BIOS.protocol.endModule()
