@@ -41,8 +41,17 @@ $(function() {
 	$("#app").append($("<span>").text(" Category Filter: "));
 	$("#app").append(categoryFilter);
 	
-	$("#app").append($('<span> </span><a href="pointercal.html">Pointer Calibration Tool</a>'));
+	$("#app").append($('<span> </span>'));
 	
+	var button = $("<button>").text("Pointer Calibration Tool");
+	button.on("click", function() {
+		$("#pointercal").toggle(!$("#pointercal").is(':visible'));
+	});
+	$("#app").append(button);
+	
+	$("#app").append($('<iframe id="pointercal" style="display:none" src="pointercal.html" width="100%" height="500"></iframe>'));
+
+
 	var controlsDiv = $("<div>");
 	$("#app").append(controlsDiv);
 	
