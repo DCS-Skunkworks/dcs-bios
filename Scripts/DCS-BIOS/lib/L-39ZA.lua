@@ -44,35 +44,72 @@ defineFloat("BACK_RALT", 58, {0.0,	0.086,	0.439,	0.878,	0.955}, "Gauges","BACK R
 defineFloat("BACK_RALT_DANGER", 59, {0.0,	0.094,	0.48,	0.998}, "Gauges","BACK Radar Altimeter Danger Altitude")
 defineFloat("BACK_RALT_WARNFLAG", 59, {0.0, 1.0}, "Gauges","BACK Radar Altimeter Warning Flag")
 
+defineFloat("FRONT_VARIOMETER", 74, {-1.0,	-0.875, -0.775,	-0.44,	0.0,	0.44,	0.775,	0.875,	1.0}, "Gauges","FRONT Variometer")
+defineFloat("FRONT_VARIOMETER_TURN", 75, {-1.0, -0.58, -0.275, 0.275, 0.58, 1.0}, "Gauges","FRONT Variometer Turn Indicator")
+defineFloat("FRONT_VARIOMETER_SLIP", 76, {-1.0, 1.0},"Gauges","FRONT Variometer Sideslip Indicator")
+defineFloat("BACK_VARIOMETER", 416, {-1.0,	-0.875, -0.775,	-0.44,	0.0,	0.44,	0.775,	0.875,	1.0}, "Gauges","BACK Variometer")
+defineFloat("BACK_VARIOMETER_TURN", 417, {-1.0, 1.0}, "Gauges","BACK Variometer Turn Indicator")
+defineFloat("BACK_VARIOMETER_SLIP", 418, {-1.0, 1.0},"Gauges","BACK Variometer Sideslip Indicator")
+
+defineFloat("FRONT_KPP1273K_ROLL", 38, {-1, 1}, "Gauges","FRONT Artifical Horizont KPP Roll")
+defineFloat("FRONT_KPP1273K_PITCH", 31, {-0.5, 0.006, 0.5}, "Gauges","FRONT Artifical Horizont KPP Pitch")
+defineFloat("FRONT_KPP1273K_SLIP", 40, {-1, 1}, "Gauges","FRONT Artifical Horizont KPP Sideslip")
+defineFloat("FRONT_KPP1273K_DEVBAR_CRS", 35, {-1.0, 1.0}, "Gauges","FRONT Artifical Horizont KPP Course Deviation Bar")
+defineFloat("FRONT_KPP1273K_DEVBAR_ATL", 34, {-1.0, 1.0}, "Gauges","FRONT Artifical Horizont KPP Altitude Deviation Bar")
+defineFloat("FRONT_KPP1273K_BEACON_GLIDE", 36, {0, 1}, "Gauges","FRONT Artifical Horizont KPP Glide Beacon")
+defineFloat("FRONT_KPP1273K_BEACON_LOCAL", 37, {0, 1}, "Gauges","FRONT Artifical Horizont KPP Localizer Beacon")
+defineFloat("FRONT_KPP1273K_ARRETIR", 29, {0.0, 1.0}, "Gauges","FRONT Artifical Horizont KPP Arretir")
+defineFloat("FRONT_KPP1273K_SDU_ROLL", 32, {-1, 1}, "Gauges","FRONT Artifical Horizont KPP SDU Roll")
+defineFloat("FRONT_KPP1273K_SDU_PITCH", 33, {-1, 1}, "Gauges","FRONT Artifical Horizont KPP SDU Pitch ")
+defineFloat("BACK_KPP1273K_ROLL", 375, {-1, 1}, "Gauges","BACK Artifical Horizont KPP Roll")
+defineFloat("BACK_KPP1273K_PITCH", 368, {-0.5, 0.006, 0.5}, "Gauges","BACK Artifical Horizont KPP Pitch")
+defineFloat("BACK_KPP1273K_SLIP", 377, {-1, 1}, "Gauges","BACK Artifical Horizont KPP Sideslip")
+defineFloat("BACK_KPP1273K_DEVBAR_CRS", 372, {-1.0, 1.0}, "Gauges","BACK Artifical Horizont KPP Course Deviation Bar")
+defineFloat("BACK_KPP1273K_DEVBAR_ATL", 371, {-1.0, 1.0}, "Gauges","BACK Artifical Horizont KPP Altitude Deviation Bar")
+defineFloat("BACK_KPP1273K_BEACON_GLIDE", 373, {0, 1}, "Gauges","BACK Artifical Horizont KPP Glide Beacon")
+defineFloat("BACK_KPP1273K_BEACON_LOCAL", 374, {0, 1}, "Gauges","BACK Artifical Horizont KPP Localizer Beacon")
+defineFloat("BACK_KPP1273K_ARRETIR", 366, {0.0, 1.0}, "Gauges","BACK Artifical Horizont KPP Arretir")
+defineFloat("BACK_KPP1273K_SDU_ROLL", 369, {-1, 1}, "Gauges","BACK Artifical Horizont KPP SDU Roll")
+defineFloat("BACK_KPP1273K_SDU_PITCH", 370, {-1, 1}, "Gauges","BACK Artifical Horizont KPP SDU Pitch ")
+
+defineFloat("FRONT_HSI_HDG", 41, {1.0, 0.0}, "Gauges"," FRONT HSI Heading")
+defineFloat("FRONT_HSI_COM_CRS_NEEDLE", 42, {1.0, 0.0}, "Gauges","FRONT HSI Commanded Course Needle")
+defineFloat("FRONT_HSI_BRG_NEEDLE", 43, {0.0, 1.0}, "Gauges","FRONT HSI Bearing Needle")
+defineFloat("FRONT_HSI_DEV_BAR_CRS", 47, {-0.8, 0.8}, "Gauges","FRONT HSI Course Deviation Bar")
+defineFloat("FRONT_HSI_DEV_BAR_ALT", 45, {-0.8, 0.8}, "Gauges","FRONT HSI Altitude Deviation Bar")
+defineFloat("FRONT_HSI_BEACON_GLIDE", 46, {0, 1}, "Gauges","FRONT HSI Glide Beacon")
+defineFloat("FRONT_HSI_BEACON_LOCAL", 44, {0, 1}, "Gauges","FRONT HSI Localizer Beacon")
+defineFloat("BACK_HSI_HDG", 378, {1.0, 0.0}, "Gauges"," BACK HSI Heading")
+defineFloat("BACK_HSI_COM_CRS_NEEDLE", 379, {1.0, 0.0}, "Gauges","BACK HSI Commanded Course Needle")
+defineFloat("BACK_HSI_BRG_NEEDLE", 380, {0.0, 1.0}, "Gauges","BACK HSI Bearing Needle")
+defineFloat("BACK_HSI_DEV_BAR_CRS", 384, {-0.8, 0.8}, "Gauges","BACK HSI Course Deviation Bar")
+defineFloat("BACK_HSI_DEV_BAR_ALT", 382, {-0.8, 0.8}, "Gauges","BACK HSI Altitude Deviation Bar")
+defineFloat("BACK_HSI_BEACON_GLIDE", 383, {0, 1}, "Gauges","BACK HSI Glide Beacon")
+defineFloat("BACK_HSI_BEACON_LOCAL", 381, {0, 1}, "Gauges","BACK HSI Localizer Beacon")
+
+defineFloat("FRONT_RSBN_RANGE_1", 64, {0, 1}, "Gauges","FRONT Range RSBN 1KM")
+defineFloat("FRONT_RSBN_RANGE_10", 65, {0, 1}, "Gauges","FRONT Range RSBN 10KM")
+defineFloat("FRONT_RSBN_RANGE_100", 66, {0, 1}, "Gauges","FRONT Range RSBN 100KM")
+defineFloat("BACK_RSBN_RANGE_1", 402, {0, 1}, "Gauges","BACK Range RSBN 1KM")
+defineFloat("BACK_RSBN_RANGE_10", 403, {0, 1}, "Gauges","BACK Range RSBN 10KM")
+defineFloat("BACK_RSBN_RANGE_100", 404, {0, 1}, "Gauges","BACK Range RSBN 100KM")
+defineFloat("FRONT_RSBN_CHAN_NAV", 189, {0.0, 0.39}, "Gauges","FRONT RSBN NAV Channel")
+defineFloat("FRONT_RSBN_CHAN_LAND", 190, {0.0, 0.39}, "Gauges","FRONT RSBN LAND Channel")
+local function getRSBNNAV()
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(189)*100)
+    return tonumber(digit1)
+end
+defineIntegerFromGetter("FRONT_RSBN_CHAN_NAV_DISPLAY", getRSBNNAV, 99, "Gauges", "FRONT RSBN NAV Channel Display")
+defineString("FRONT_RSBN_CHAN_NAV_DISPLAY_STRING", getRSBNNAV, 99, "Gauges", "FRONT RSBN NAV Channel Display (string)")
+local function getRSBNLAND()
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(190)*100)
+    return tonumber(digit1)
+end
+defineIntegerFromGetter("FRONT_RSBN_CHAN_LAND_DISPLAY", getRSBNLAND, 99, "Gauges", "FRONT RSBN LAND Channel Display")
+defineString("FRONT_RSBN_CHAN_LAND_DISPLAY_STRING", getRSBNLAND, 99, "Gauges", "FRONT RSBN LAND Channel Display (string)")
+defineFloat("FRONT_RSBN_BACK_LIGHT", 580, {0.0, 1.0}, "Gauges","FRONT RSBN Back Panel Light")
 
 ----------------------------------------------------------------------------------------------------------------------------- 2do
--- VARIOMETER
-defineFloat("Variometer", 74, {-1,1}, "instruments l-39","Variometer")
-defineFloat("Variometer_turn", 75, {-1, 1}, "instruments l-39","Roll indication variometre")
-defineFloat("Variometer_sideslip", 76, {-1, 1},"instruments l-39","Sideslip Variometer")
--- ARTI HORIZ (KPP)
-defineFloat("KPP_1273K_roll", 38, {-1, 1}, "instruments l-39","KPP Roll")
-defineFloat("KPP_1273_pitch", 31, {-1, 1}, "instruments l-39","KPP Pitch")
-defineFloat("KPP_1273K_sideslip", 40, {-1, 1}, "instruments l-39","Sideslip KPP")
---defineFloat("KPP_Course_Deviation_Bar", 35, {-1.0, 1.0}, "instruments l-39","SDU DEV CAP KPP") (need to verify)
---defineFloat("KPP_Alt_Deviation_Bar", 34, {-1.0, 1.0}, "instruments l-39","SDU DEV H KPP") (need to verify)
-defineFloat("KPP_Glide_Beacon", 36, {0, 1}, "instruments l-39","Glide KPP")--GLIDE beacon on KPP
-defineFloat("KPP_Localizer_Beacon", 37, {0, 1}, "instruments l-39","LOC KPP")-- LOC beacon on KPP
--- defineFloat("KPP_Arretir", 29, {0.0, 1.0}, "instruments l-39"," Arretir KPP") (need to verify)
-defineFloat("KPP_SDU_Roll_Fwd", 32, {-1, 1}, "instruments l-39","SDU Roll KPP")-- SDU roll indication on KPP
-defineFloat("KPP_SDU_Pitch_Fwd", 33, {-1, 1}, "instruments l-39","SDU Pitch KPP")-- SDU pitch indicator on KPP
--- NPP (HSI)
-defineFloat("HSI_heading", 41, {0, 1}, "instruments l-39","Heading indication")-- heading indication
-defineFloat("HSI_commanded_course_needle", 42, {1.0, 0.0}, "instruments l-39","Commanded course Needle")
-defineFloat("HSI_bearing_needle", 43, {0.0, 1.0}, "instruments l-39","Bearing Needle")
-defineFloat("HSI_Course_Deviation_Bar", 47, {-0.8, 0.8}, "instruments l-39","LOC")
-defineFloat("HSI_Alt_Deviation_Bar", 45, {-0.8, 0.8}, "instruments l-39","GLIDE")
-defineFloat("HSI_Glide_Beacon", 46, {0, 1}, "instruments l-39","GLIDE HSI FLAG")-- GLIDE beacon
-defineFloat("HSI_Localizer_Beacon", 44, {0, 1}, "instruments l-39","LOC HSI FLAG")-- LOC beacon
---RSBN
-defineFloat("RSBN_Range_1", 64, {0, 1}, "instruments l-39","Range RSBN 1KM")-- range indication by 1 KM
-defineFloat("RSBN_Range_10", 65, {0, 1}, "instruments l-39","Range RSBN 10KM")-- range indication by 10 KM
-defineFloat("RSBN_Range_100", 66, {0, 1}, "instruments l-39","Range RSBN 100KM")-- range indication by 100 KM
 --AIRSPEED AND MACH
 defineFloat("IAS", 49, {0, 1}, "instruments l-39","V indicated")-- indicated air speed
 defineFloat("TAS", 50, {0, 1}, "instruments l-39","V true")-- true air speed
@@ -112,10 +149,10 @@ defineFloat("PitchTrimInd", 247, {-1, 1}, "instruments l-39","Pitch trim indicat
 ----------------------------------------------------------------------------------------------------------------------------- 2 do end
 
 ------------------------------------ L-39 Lights --------------------------------------------------------------------
-defineIndicatorLight("BACK_WP_DANGER_ALT_LAMP", 2, "Warning, Caution and IndicatorLights","BACK Dangerous Altitude Lamp (red)")
-defineIndicatorLight("BACK_RV5_DANGER_ALT_LAMP", 63, "Warning, Caution and IndicatorLights","BACK Dangerous Radar Altitude Lamp (yellow)")
----defineIndicatorLight("FRONT_WP_DANGER_ALT_LAMP", XXXX, "Warning, Caution and IndicatorLights","FRONT Dangerous Altitude Lamp (red)")
-defineIndicatorLight("FRONT_RV5_DANGER_ALT_LAMP", 401, "Warning, Caution and IndicatorLights","FRONT Dangerous Radar Altitude Lamp (yellow)")
+defineIndicatorLight("FRONT_WP_DANGER_ALT_LAMP", 2, "Warning, Caution and IndicatorLights","FRONT Dangerous Altitude Lamp (red)")
+defineIndicatorLight("FRONT_RV5_DANGER_ALT_LAMP", 63, "Warning, Caution and IndicatorLights","FRONT Dangerous Radar Altitude Lamp (yellow)")
+---defineIndicatorLight("BACK_WP_DANGER_ALT_LAMP", XXXX, "Warning, Caution and IndicatorLights","BACK Dangerous Altitude Lamp (red)")
+defineIndicatorLight("BACK_RV5_DANGER_ALT_LAMP", 401, "Warning, Caution and IndicatorLights","BACK Dangerous Radar Altitude Lamp (yellow)")
 
 ----------------------------------------------------------------------------------------------------------------------------- 2do
 --- Elec syst lamps
