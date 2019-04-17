@@ -863,7 +863,7 @@ definePotentiometer("ENVCP_CANOPY_DEFOG", 41, 3003, 277, {0.0, 1.0}, "Environmen
 define3PosTumb("ENVCP_WRRW", 41, 3004, 278, "Environment Control Panel", "Windshield Rain Removal/Wash")
 defineToggleSwitch("ENVCP_PITOT_HEAT", 41, 3005, 279, "Environment Control Panel", "Pitot Heat")
 defineToggleSwitch("ENVCP_BLEED_AIR", 41, 3006, 280, "Environment Control Panel", "Bleed Air")
-defineTumb("ENVCP_TEMP_PRESS", 41, 3007, 282, 1, {-1, 1}, nil, false, "Environment Control Panel", "Temperature/Pressure Control")
+define3PosTumb("ENVCP_TEMP_PRESS", 41, 3007, 282, "Environment Control Panel", "Temperature/Pressure Control")
 local dummyAlloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 7 }
 defineToggleSwitch("ENVCP_AIR_SUPPLY", 41, 3008, 283, "Environment Control Panel", "Main Air Supply")
 definePotentiometer("ENVCP_FLOW_LEVEL", 41, 3009, 284, {0.0, 1.0}, "Environment Control Panel", "Flow Level")
