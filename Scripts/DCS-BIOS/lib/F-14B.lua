@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 -- Made by WarLord (aka BlackLibrary) and ArturDCS
--- v 1.0
+-- v 1.1
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -321,17 +321,17 @@ define3PosTumb("PLT_POS_LIGHT_WING", 11, 3174, 913, "Light Panel", "PILOT Positi
 define3PosTumb("PLT_POS_LIGHT_TAIL", 11, 3175, 916, "Light Panel", "PILOT Position Lights Tail")
 defineToggleSwitch("PLT_POS_LIGHT_FLASH", 11, 3176, 919, "Light Panel", "PILOT Position Lights Flash")
 defineToggleSwitch("PLT_ANTICOL_LIGHT", 11, 3177, 923, "Light Panel", "PILOT Anti-Collision Lights")
-defineMultipositionSwitch("PLT_LIGHT_INTENT_ACM", 11, 3649, 15005, 9, 0.125,"Light Panel" ,"PILOT ACM Panel Light Intensity")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_ACM", 11, 3178, 15005, 9, 0.125,"Light Panel" ,"PILOT ACM Panel Light Intensity")
 defineMultipositionSwitch("PLT_LIGHT_INTENT_INDEXER", 25, 3212, 15006, 9, 0.125,"Light Panel" ,"PILOT AoA Indexer Light Intensity")
-defineMultipositionSwitch("PLT_LIGHT_INTENT_INSTRUMENT", 11, 3650, 15007, 9, 0.125,"Light Panel" ,"PILOT Instrument Light Intensity")
-defineMultipositionSwitch("PLT_LIGHT_INTENT_CANSOLE", 11, 3651, 15008, 9, 0.125,"Light Panel" ,"PILOT Console Light Intensity")
-defineMultipositionSwitch("PLT_LIGHT_INTENT_FORMATION", 11, 3652, 15009, 9, 0.125,"Light Panel" ,"PILOT Formation Light Intensity")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_INSTRUMENT", 11, 3179, 15007, 9, 0.125,"Light Panel" ,"PILOT Instrument Light Intensity")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_CONSOLE", 11, 3180, 15008, 9, 0.125,"Light Panel" ,"PILOT Console Light Intensity")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_FORMATION", 11, 3181, 15009, 9, 0.125,"Light Panel" ,"PILOT Formation Light Intensity")
 
 -- Light panel RIO
 define3PosTumb("RIO_FLOOD_LIGHT_RED", 11, 3693, 194, "Light Panel", "RIO Red Flood Light")
 define3PosTumb("RIO_FLOOD_LIGHT_WH", 11, 3694, 159, "Light Panel", "RIO White Flood Light")
 defineMultipositionSwitch("RIO_LIGHT_INTENT_INSTRUMENT", 11, 3695, 193, 9, 0.125,"Light Panel" ,"RIO Instrument Light Intensity")
-defineMultipositionSwitch("RIO_LIGHT_INTENT_CANSOLE", 11, 3696, 192, 9, 0.125,"Light Panel" ,"RIO Console Light Intensity")
+defineMultipositionSwitch("RIO_LIGHT_INTENT_CONSOLE", 11, 3696, 192, 9, 0.125,"Light Panel" ,"RIO Console Light Intensity")
 
 -- DISPLAY Panel: Power
 defineToggleSwitch("PLT_VDI_PW_SW", 42, 3214, 1010, "Display", "PILOT VDI Power On/Off")
