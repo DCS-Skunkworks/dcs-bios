@@ -287,6 +287,32 @@ defineIndicatorLight("FwdRadioUnderControl_lamp", 562, "l-39 lamps","Control rad
 
 
 ------------------------------------ L-39 Clickable Controls --------------------------------------------------------------------
+-- ASP-3NMU Gunsight
+defineToggleSwitch("FRONT_GUNSIDE_MODE",  1,3003, 101,"Gunsight", "FRONT ASP-3NMU Gunsight Mode, GYRO/FIXED")
+definePotentiometer("FRONT_GUNSIDE_BRIGHT", 1, 3004, 102, {0, 1}, "Gunsight", "FRONT ASP-3NMU Gunsight Brightness Knob")
+definePotentiometer("FRONT_GUNSIDE_WINGSPAN", 1, 3001, 103, {0, 1}, "Gunsight", "FRONT ASP-3NMU Target Wingspan Adjustment Dial (m)")
+defineToggleSwitch("FRONT_GUNSIDE_FILTER",  1,3012, 104,"Gunsight", "FRONT ASP-3NMU Gunsight Color Filter, ON/OFF")
+defineToggleSwitch("FRONT_GUNSIDE_RETICLE",  1,3011, 105,"Gunsight", "FRONT ASP-3NMU Gunsight Fixed Reticle Mask Lever")
+definePotentiometer("FRONT_GUNSIDE_DEPRESS", 1, 3016, 106, {0, 1}, "Gunsight", "FRONT ASP-3NMU Gunsight Mirror Depression")
+definePotentiometer("FRONT_GUNSIDE_DISTANCE", 1, 3002, 107, {0, 1}, "Gunsight", "FRONT ASP-3NMU Gunsight Target Distance")
+
+----------------------------------------------------------------------------------------------------------------------------- 2do
+-- CLOCK
+-- VD-20
+-- RV-5M 
+-- GMK 
+-- KPP-1273K
+-- NPP
+
+--ISKRA
+--#
+defineMultipositionSwitch("FRONT_RSBN_CHAN_NAV_KNOB",  31,3008, 191, 40, 0.025,"ISKRA", "FRONT RSBN Navigation Channel Selector Knob")
+defineMultipositionSwitch("FRONT_RSBN_CHAN_LAND_KNOB",  31,3009, 192, 40, 0.025,"ISKRA", "FRONT RSBN Landing Channel Selector Knob")
+--#
+
+-- Variometer
+-- RKL-41
+----------------------------------------------------------------------------------------------------------------------------- 2 do end
 
 -- Electric System
 defineToggleSwitch("FRONT_BATTERY_SW",  4,3001, 141,"Electric System", "FRONT Accumulator Switch, ON/OFF")
@@ -363,9 +389,32 @@ definePushButton("PITOT_HEAT_OFF_L",  4,3069, 295,"Electric System", "Standby (L
 definePushButton("PITOT_HEAT_ON_R",  4,3070, 292,"Electric System", "Main (Right) Pitot Tube Heating ON Button")
 definePushButton("PITOT_HEAT_OFF_R",  4,3071, 293,"Electric System", "Main (Right) Pitot Tube Heating OFF Button")
 
---ISKRA
-defineMultipositionSwitch("FRONT_RSBN_CHAN_NAV_KNOB",  31,3008, 191, 40, 0.025,"ISKRA", "FRONT RSBN Navigation Channel Selector Knob")
-defineMultipositionSwitch("FRONT_RSBN_CHAN_LAND_KNOB",  31,3009, 192, 40, 0.025,"ISKRA", "FRONT RSBN Landing Channel Selector Knob")
+
+----------------------------------------------------------------------------------------------------------------------------- 2 do 
+-- Lights System
+-- Weapon System
+-- Oxygen System
+-- SARPP
+-- Fuel System
+-- Air System
+-- Anti-Icing System
+-- Helmet Heating
+-- SPU-9
+-- R-832M
+-- Engine Systems
+-- Control System
+-- Accelerometer
+----------------------------------------------------------------------------------------------------------------------------- 2 do end
+
+
+-- Hood, Rear Cockpit
+defineToggleSwitch("BACK_HOOD_CONTROL",  2,3006, 1000,"Hood", "BACK Instrument Flight Practice Hood Control Handle, EXTEND/RETRACT")
+
+-- Pitot Selector
+defineToggleSwitch("FRONT_PITOT_CONTROL",  37,3022, 333,"Pitot", "FRONT Pitot Tube Selector Lever, STBY(Left)/MAIN(Right)")
+
+-- Misc
+defineToggleSwitch("FRONT_PANEL_HOOD",  0,3003, 627,"Misc", "FRONT Panel Visor Extend")
 
 ------------------------------------ L-39 Readings --------------------------------------------------------------------
 
