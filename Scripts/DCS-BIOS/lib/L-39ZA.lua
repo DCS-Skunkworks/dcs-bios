@@ -237,7 +237,7 @@ defineIndicatorLight("FRONT_INVER_115_LAMP", 12, "Warning, Caution and Indicator
 defineIndicatorLight("FRONT_INVER_363_LAMP", 16, "Warning, Caution and IndicatorLights","FRONT Inverter 3x36V Lamp (red)")
 defineIndicatorLight("BACK_INVER_115_LAMP", 353, "Warning, Caution and IndicatorLights","BACK Inverter 115V Lamp (red)")
 defineIndicatorLight("BACK_INVER_363_LAMP", 357, "Warning, Caution and IndicatorLights","BACK Inverter 3x36V Lamp (red)")
-defineIndicatorLight("FRONT_GND_POWER_LAMP", 316, "Warning, Caution and IndicatorLights"," FRONT Ground power Lamp (yellow)")
+defineIndicatorLight("FRONT_GND_POWER_LAMP", 316, "Warning, Caution and IndicatorLights"," FRONT Ground Power Lamp (yellow)")
 defineIndicatorLight("FRONT_FIRE_LAMP", 1, "Warning, Caution and IndicatorLights","FRONT FIRE Lamp (red)")
 defineIndicatorLight("BACK_FIRE_LAMP", 342, "Warning, Caution and IndicatorLights","BACK FIRE Lamp (red)")
 defineIndicatorLight("FRONT_MACH_LAMP", 3, "Warning, Caution and IndicatorLights","FRONT MAX Mach Lamp (red)")
@@ -249,45 +249,44 @@ defineIndicatorLight("FRONT_GYRO_MISS_LAMP", 123, "Warning, Caution and Indicato
 defineIndicatorLight("BACK_GYRO_MISS_LAMP", 443, "Warning, Caution and IndicatorLights","BACK Gyroscope Misalignment Lamp (red)")
 defineIndicatorLight("FRONT_GYRO_MISS_PU26_LAMP", 206, "Warning, Caution and IndicatorLights","FRONT Gyroscope Misalignment PU-26 Lamp (white)")
 defineIndicatorLight("FRONT_HSI_OK_LAMP", 19, "Warning, Caution and IndicatorLights","FRONT CONFROM AZIMUTH Lamp (green)")
-
------------------------------------------------------------------------------------------------------------------------------ 2do
---- Fuel and turbostarter
-defineIndicatorLight("EmergFuelFwd_lamp", 27, "Warning, Caution and IndicatorLights","Emergency fuel system")
-defineIndicatorLight("TurboStarter_lamp", 23, "Warning, Caution and IndicatorLights","Turbo starter")
-defineIndicatorLight("FwdRemain150_lamp", 4, "Warning, Caution and IndicatorLights","Remain 150Kg")
-defineIndicatorLight("FwdDoNotStart_lamp", 7, "Warning, Caution and IndicatorLights","Do not start")
-defineIndicatorLight("FwdFuelFilter_lamp", 26, "Warning, Caution and IndicatorLights","Fuel Filter")
-defineIndicatorLight("L39C_FwdWingTanks_lamp", 14, "Warning, Caution and IndicatorLights","L-39C Wing Tanks Empty")
-defineIndicatorLight("L39ZA_FwdWingTanks_lamp", 13, "Warning, Caution and IndicatorLights","L-39ZA Wing Tanks Empty")
---- Trim
-defineIndicatorLight("TrimmerRollNeutralFwd_lamp", 246, "Warning, Caution and IndicatorLights","Roll trim neutral")
---- Canopy
-defineIndicatorLight("FwdCanopyNotClosed", 10, "Warning, Caution and IndicatorLights","Canopy not closed")
---- Pitot
-defineIndicatorLight("LeftPitot_lamp", 556, "Warning, Caution and IndicatorLights","Pitot Left")
-defineIndicatorLight("RightPitot_lamp", 557, "Warning, Caution and IndicatorLights","Pitot Right")
---- Vibrations
-defineIndicatorLight("FwdVibration_lamp", 8, "Warning, Caution and IndicatorLights","High vibrations")
---- T°4 and Oil pressur
-defineIndicatorLight("FwdEngineTemperature700_lamp", 28, "Warning, Caution and IndicatorLights","T4 700")
-defineIndicatorLight("FwdEngineTemperature730_lamp", 24, "Warning, Caution and IndicatorLights","T4 730")
-defineIndicatorLight("FwdEngineMinOilPressure_lamp", 20, "Warning, Caution and IndicatorLights","press oil mini")
---- Cockpit pressure & conditioning
-defineIndicatorLight("FwdCockpitPressure_lamp", 11, "Warning, Caution and IndicatorLights","Cockpit overpress")
-defineIndicatorLight("FwdConditioningClosed_lamp", 22, "Warning, Caution and IndicatorLights","Clim Off")
-defineIndicatorLight("EmergConditioning_lamp", 17, "Warning, Caution and IndicatorLights","Clim secours")
---- Anti icing syst
-defineIndicatorLight("FwdDefrost_lamp", 25, "Warning, Caution and IndicatorLights","Anti icing on")
-defineIndicatorLight("FwdIce_lamp", 21, "Warning, Caution and IndicatorLights","Icing Warn")
-defineIndicatorLight("RIO_HeatingOk_lamp", 182, "Warning, Caution and IndicatorLights","RIO Heating On")
---- Hydrolics
-defineIndicatorLight("FwdHydraulicPressureDrop_lamp", 5, "Warning, Caution and IndicatorLights","Hydro min press")
---- Master caution
-defineIndicatorLight("FwdMasterDanger_lamp", 253, "Warning, Caution and IndicatorLights","SARTS")
---- Radio control
-defineIndicatorLight("FwdRadioUnderControl_lamp", 562, "Warning, Caution and IndicatorLights","Control radio")
------------------------------------------------------------------------------------------------------------------------------ 2 do end
-
+defineIndicatorLight("FRONT_EMERG_FUEL_LAMP", 27, "Warning, Caution and IndicatorLights","FRONT Emergency Fuel System Lamp (yellow)")
+defineIndicatorLight("BACK_EMERG_FUEL_LAMP", 365, "Warning, Caution and IndicatorLights","BACK Emergency Fuel System Lamp (yellow)")
+defineIndicatorLight("FRONT_TURBO_START_LAMP", 23, "Warning, Caution and IndicatorLights","FRONT Turbine Starter Lamp (yellow)")
+defineIndicatorLight("FRONT_FUEL_150_LAMP", 4, "Warning, Caution and IndicatorLights","FRONT Remain 150Kg Fuel Lamp (red)")
+defineIndicatorLight("BACK_FUEL_150_LAMP", 342, "Warning, Caution and IndicatorLights","BACK Remain 150Kg Fuel Lamp (red)")
+defineIndicatorLight("FRONT_NO_START_LAMP", 7, "Warning, Caution and IndicatorLights","FRONT Do Not Start Lamp (red)")
+defineIndicatorLight("BACK_NO_START_LAMP", 345, "Warning, Caution and IndicatorLights","BACK Do Not Start Lamp (red)")
+defineIndicatorLight("FRONT_FUEL_FILTER_LAMP", 26, "Warning, Caution and IndicatorLights","FRONT Fuel Filter Lamp (red)")
+defineIndicatorLight("BACK_FUEL_FILTER_LAMP", 364, "Warning, Caution and IndicatorLights","BACK Fuel Filter Lamp (red)")
+defineIndicatorLight("FRONT_WING_TANKS_LAMP", 14, "Warning, Caution and IndicatorLights","FRONT Wing Tanks Empty Lamp (green)")
+defineIndicatorLight("FRONT_WING_TANKS_LAMP", 355, "Warning, Caution and IndicatorLights","FRONT Wing Tanks Empty Lamp (green)")
+defineIndicatorLight("FRONT_AIL_TRIM_NEUTRAL_LAMP", 246, "Warning, Caution and IndicatorLights","FRONT Aileron Trimmer Neutral Position Lamp (green)")
+defineIndicatorLight("FRONT_CANOPY_UNLOCK_LAMP", 10, "Warning, Caution and IndicatorLights","FRONT Canopy Unlocked Lamp (red)")
+defineIndicatorLight("FRONT_CANOPY_UNLOCK_LAMP", 351, "Warning, Caution and IndicatorLights","FRONT Canopy Unlocked Lamp (red)")
+defineIndicatorLight("FRONT_PITOT_L_LAMP", 556, "Warning, Caution and IndicatorLights","FRONT Pitot Left Lamp (green)")
+defineIndicatorLight("FRONT_PITOT_R_LAMP", 557, "Warning, Caution and IndicatorLights","FRONT Pitot Right Lamp (green)")
+defineIndicatorLight("BACK_AIL_TRIM_NEUTRAL_LAMP", 441, "Warning, Caution and IndicatorLights","BACK Aileron Trimmer Neutral Position Lamp (yellow)")
+defineIndicatorLight("BACK_ELE_TRIM_NEUTRAL_LAMP", 442, "Warning, Caution and IndicatorLights","BACK Elevator Trimmer Neutral Position Lamp (yellow)")
+defineIndicatorLight("FRONT_ENG_VIB", 8, "Warning, Caution and IndicatorLights","FRONT Engine Vibrations Lamp (red)")
+defineIndicatorLight("FRONT_ENG_VIB", 346, "Warning, Caution and IndicatorLights","FRONT Engine Vibrations Lamp (red)")
+defineIndicatorLight("FRONT_ENG_TEMP_700_LAMP", 28, "Warning, Caution and IndicatorLights","FRONT Engine Temperature 700C Lamp (yellow)")
+defineIndicatorLight("FRONT_ENG_TEMP_730_LAMP", 24, "Warning, Caution and IndicatorLights","FRONT Engine Temperature 730C Lamp (red)")
+defineIndicatorLight("FRONT_OIL_PRESS_LAMP", 20, "Warning, Caution and IndicatorLights","FRONT MIN Oil Press Lamp (red)")
+defineIndicatorLight("FRONT_CPT_PRESS_LAMP", 11, "Warning, Caution and IndicatorLights","FRONT Cabin Pressure Lamp (red)")
+defineIndicatorLight("BACK_CPT_PRESS_LAMP", 349, "Warning, Caution and IndicatorLights","BACK Cabin Pressure Lamp (red)")
+defineIndicatorLight("FRONT_AIRCOND_OFF_LAMP", 22, "Warning, Caution and IndicatorLights","FRONT Aircondition OFF Lamp (red)")
+defineIndicatorLight("BACK_AIRCOND_OFF_LAMP", 361, "Warning, Caution and IndicatorLights","BACK Aircondition OFF Lamp (red)")
+defineIndicatorLight("FRONT_EMERG_AIRCOND_LAMP", 17, "Warning, Caution and IndicatorLights","FRONT Emergency Aircondition Lamp (red)")
+defineIndicatorLight("FRONT_DEICE_LAMP", 25, "Warning, Caution and IndicatorLights","FRONT De Icing ON Lamp (green)")
+defineIndicatorLight("BACK_DEICE_LAMP", 363, "Warning, Caution and IndicatorLights","BACK De Icing ON Lamp (green)")
+defineIndicatorLight("FRONT_ICE_LAMP", 21, "Warning, Caution and IndicatorLights","FRONT Ice Warning Lamp (yellow)")
+defineIndicatorLight("BACK_ICE_LAMP", 360, "Warning, Caution and IndicatorLights","BACK Ice Warning Lamp (yellow)")
+defineIndicatorLight("FRONT_RIO_HEAT_LAMP", 182, "Warning, Caution and IndicatorLights","FRONT RIO Heating ON Lamp (green)")
+defineIndicatorLight("FRONT_HYD_FAIL_LAMP", 5, "Warning, Caution and IndicatorLights","FRONT Hydraulic System Fail Lamp (red)")
+defineIndicatorLight("BACK_HYD_FAIL_LAMP", 343, "Warning, Caution and IndicatorLights","BACK Hydraulic System Fail Lamp (red)")
+defineIndicatorLight("FRONT_MASTER_CAUTION_LAMP", 253, "Warning, Caution and IndicatorLights","FRONT Master Caution Lamp (red)")
+defineIndicatorLight("BACK_MASTER_CAUTION_LAMP", 455, "Warning, Caution and IndicatorLights","BACK Master Caution Lamp (red)")
+defineIndicatorLight("FRONT_RADIO_CONTROL_LAMP", 562, "Warning, Caution and IndicatorLights","FRONT Radio Control Lamp (white)")
 
 ------------------------------------ L-39 Clickable Controls --------------------------------------------------------------------
 -- ASP-3NMU Gunsight
