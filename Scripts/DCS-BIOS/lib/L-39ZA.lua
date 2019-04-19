@@ -250,8 +250,8 @@ defineIndicatorLight("TurboStarter_lamp", 23, "l-39 lamps","Turbo starter")
 defineIndicatorLight("FwdRemain150_lamp", 4, "l-39 lamps","Remain 150Kg")
 defineIndicatorLight("FwdDoNotStart_lamp", 7, "l-39 lamps","Do not start")
 defineIndicatorLight("FwdFuelFilter_lamp", 26, "l-39 lamps","Fuel Filter")
-defineIndicatorLight("L-39C_FwdWingTanks_lamp", 14, "l-39 lamps","L-39C Wing Tanks Empty")
-defineIndicatorLight("L-39ZA_FwdWingTanks_lamp", 13, "l-39 lamps","L-39ZA Wing Tanks Empty")
+defineIndicatorLight("L39C_FwdWingTanks_lamp", 14, "l-39 lamps","L-39C Wing Tanks Empty")
+defineIndicatorLight("L39ZA_FwdWingTanks_lamp", 13, "l-39 lamps","L-39ZA Wing Tanks Empty")
 --- Trim
 defineIndicatorLight("TrimmerRollNeutralFwd_lamp", 246, "l-39 lamps","Roll trim neutral")
 --- MACH
@@ -341,13 +341,20 @@ definePushButton("BACK_FAIL_CRS", 25, 3002, 526,"NPP" , "BACK Course Accordance"
 defineToggleSwitch("BACK_FAIL_GMK",  24,3002, 458,"NPP", "BACK GMK Failure")
 definePotentiometer("BACK_HSI_CRS", 25, 3001, 385, {0.0, 1.0}, "NPP", "BACK HSI Course Set Knob")
 
------------------------------------------------------------------------------------------------------------------------------ 2do
 --ISKRA
---#
+defineTumb("FRONT_RSBN_MODE", 31, 3001, 178, 0.1, {0, 0.2}, nil, false, "ISKRA", "FRONT RSBN Mode Switch, LANDING/NAVIGATION/GLIDE PATH")
+definePushButton("FRONT_RSBN_IDENT", 31, 3002, 179,"ISKRA" , "FRONT RSBN Identification Button")
+definePushButton("FRONT_RSBN_TEST", 31, 3003, 180,"ISKRA" , "FRONT RSBN Test Button")
+definePotentiometer("FRONT_RSBN_LIGHT_KNOB", 31, 3004, 181, {0,1}, "ISKRA", "FRONT RSBN Control Box Lighting Intensity Knob")
+definePotentiometer("FRONT_RSBN_VOL", 31, 3005, 184, {0.0,0.8}, "ISKRA", "FRONT RSBN Volume Knob")
+define3PosTumb("FRONT_RSBN_SET_AZ", 31, 3006, 187, "ISKRA", "FRONT RSBN Initial Azimuth")
+define3PosTumb("FRONT_RSBN_SET_RANGE", 31, 3007, 188, "ISKRA", "FRONT RSBN Initial Range")
 defineMultipositionSwitch("FRONT_RSBN_CHAN_NAV_KNOB",  31,3008, 191, 40, 0.025,"ISKRA", "FRONT RSBN Navigation Channel Selector Knob")
 defineMultipositionSwitch("FRONT_RSBN_CHAN_LAND_KNOB",  31,3009, 192, 40, 0.025,"ISKRA", "FRONT RSBN Landing Channel Selector Knob")
---#
------------------------------------------------------------------------------------------------------------------------------ 2 do end
+definePushButton("FRONT_RSBN_SET_AZ0", 31, 3010, 193,"ISKRA" , "FRONT RSBN Set 0 Azimuth")
+definePotentiometer("FRONT_RSBN_ALT_SEL", 31, 3011, 201, {0.0,1.0}, "ISKRA", "FRONT RSBN Field Elevation Knob")
+definePushButton("FRONT_RSBN_BEACON", 31, 3012, 297,"ISKRA" , "FRONT RSBN Listen Callsign Button")
+defineToggleSwitch("FRONT_RSBN_EMERG_LAND",  31,30131, 527,"ISKRA", "FRONT RSBN Emergency Landing Switch, ON/OFF")
 
 -- Variometer
 definePotentiometer("FRONT_VV_SET", 15, 3001, 569, {0, 1}, "Variometer", "FRONT Variometer Adjustment Knob")
@@ -377,7 +384,7 @@ defineToggleSwitch("FRONT_STOP_ENGINE",  4,3015, 318,"Electric System", "FRONT S
 defineToggleSwitch("FRONT_STOP_ENGINE_COVER",  4,3016, 317,"Electric System", "FRONT Stop Engine Switch Cover, Open/Close")
 defineToggleSwitch("BACK_STOP_ENGINE",  4,3017, 490,"Electric System", "BACK Stop Engine Switch")
 defineToggleSwitch("BACK_STOP_ENGINE_COVER",  4,3018, 489,"Electric System", "BACK Stop Engine Switch Cover, Open/Close")
-defineMultipositionSwitch("L39C_FRONT_ENG_START_MODE",  4,3019, 322, 3, 0.1,"Electric System", "L39C FRONT Engine Start Mode Switch")
+defineMultipositionSwitch("L39C_FRONT_ENG_START_MODE",  4,3019, 322, 3, 0.1,"Electric System", "L-39C FRONT Engine Start Mode Switch")
 define3PosTumb("L39ZA_FRONT_ENG_START_MODE",  4,3019, 322,"Electric System", "L39ZA FRONT Engine Start Mode Switch")
 defineToggleSwitch("FRONT_ENG_STRT_MODE_COVER",  4,3020, 321,"Electric System", "FRONT Engine Start Mode Switch Cover, Open/Close")
 defineToggleSwitch("FRONT_EMERG_FUEL",  4,3021, 320,"Electric System", "FRONT Emergency Fuel Switch")
@@ -434,7 +441,56 @@ definePushButton("PITOT_HEAT_OFF_R",  4,3071, 293,"Electric System", "Main (Righ
 
 ----------------------------------------------------------------------------------------------------------------------------- 2 do 
 -- Lights System
+----------------------------------------------------------------------------------------------------------------------------- 2 do end
+
 -- Weapon System
+defineToggleSwitch("FRONT_MASTER_ARM",  3, 3001, 254,"Weapon System", "FRONT CB Armament System Power Switch, ON/OFF")
+defineToggleSwitch("L39C_FRONT_ROCKET_FIRE",  3, 3002, 255,"Weapon System", "L-39C FRONT CB UB-16 Rocket Firing Control Circuit Power Switch, ON/OFF")
+defineToggleSwitch("L39ZA_FRONT_ROCKET_FIRE",  3, 3002, 255,"Weapon System", "L-39ZA FRONT CB Missile Firing Control Circuit Power Switch, ON/OFF")
+defineToggleSwitch("FRONT_ASP_FKP",  3, 3003, 256,"Weapon System", "FRONT CB ASP-FKP (Gunsight and Gun Camera) Power Switch, ON/OFF")
+defineToggleSwitch("FRONT_HEATING_SS",  3, 3004, 257,"Weapon System", "FRONT CB Missile Seeker Heating Circuit Power Switch, ON/OFF")
+defineToggleSwitch("FRONT_GLOWING_SS",  3, 3005, 258,"Weapon System", "FRONT CB Missile Seeker Glowing Circuit Power Switch, ON/OFF")
+definePotentiometer("FRONT_MISSILE_VOL", 3, 3006, 259, {0, 1}, "Weapon System", "FRONT Missile Seeker Tone Volume Knob")
+defineToggleSwitch("FRONT_BOMB_EMERG_JETT",  3, 3009, 268,"Weapon System", "FRONT Arm/Safe Bombs Emergency Jettison Switch, LIVE/BLANK")
+defineMultipositionSwitch("FRONT_ROCKET_MODE",  3, 3012, 271, 3, 0.1,"Weapon System", "FRONT Rockets Firing Mode Selector Switch, AUT./2RS/4RS")
+defineToggleSwitch("BACK_BOMB_EMERG_JETT_COVER",  3, 3018, 508,"Weapon System", "BACK Arm/Safe Bombs Emergency Jettison Switch Cover, OPEN/CLOSE")
+define3PosTumb("BACK_BOMB_EMERG_JETT", 3, 3019, 509, "Weapon System", "BACK Arm/Safe Bombs Emergency Jettison Switch, LIVE/BOMBS/BLANK")
+defineToggleSwitch("BACK_EMERG_JETT_COVER",  3, 3020, 506,"Weapon System", "BACK Emergency Jettison Switch Cover, OPEN/CLOSE")
+defineToggleSwitch("BACK_EMERG_JETT",  3, 3021, 507,"Weapon System", "BACK Emergency Jettison Switch, ON/OFF")
+defineToggleSwitch("FRONT_FLARE_DISP",  3,3013,273,"Weapon System", "FRONT EKSR-46 Signal Flare Dispenser Power Switch, ON/OFF")
+defineToggleSwitch("FRONT_FLARE_YE",  3,3017,274,"Weapon System", "FRONT EKSR-46 Yellow Signal Flare Launch Button")
+defineToggleSwitch("FRONT_FLARE_GN",  3,3014,275,"Weapon System", "FRONT EKSR-46 Green Signal Flare Launch Button")
+defineToggleSwitch("FRONT_FLARE_RD",  3,3015,276,"Weapon System", "FRONT EKSR-46 Red Signal Flare Launch Button")
+defineToggleSwitch("FRONT_FLARE_WH",  3,3016,277,"Weapon System", "FRONT EKSR-46 White Signal Flare Launch Button")
+defineToggleSwitch("FRONT_BOMB_REL_SEL",  3,3007, 260,"Weapon System", "FRONT Missile/Bomb Release Selector Switch, PORT(Left)/STARB-BOTH(Right for Missiles/Both)")
+defineToggleSwitch("L39ZA_FRONT_GUN_SW_COVER",  3, 3041, 582,"Weapon System", "L-39ZA FRONT Gun+PK3 Switch Cover, OPEN/CLOSE")
+defineToggleSwitch("L39ZA_FRONT_GUN_SW",  3, 3042, 583,"Weapon System", "L-39ZA FRONT Gun+PK3 Switch")
+defineToggleSwitch("L39ZA_FRONT_IN_EMERG_JETT_COVER",  3, 3043, 589,"Weapon System", "L-39ZA FRONT Emergency Jettison Inboard Stations Switch Cover, OPEN/CLOSE")
+defineToggleSwitch("L39ZA_FRONT_IN_EMERG_JETT",  3, 3044, 590,"Weapon System", "L-39ZA FRONT Emergency Jettison Inboard Stations Switch, ON/OFF")
+defineTumb("L39ZA_FRONT_PYRO",  3, 3045, 607, 0.5, {0,1}, nil, false, "Weapon System", "L-39ZA FRONT Pyro Charge Select")
+definePushButton("L39ZA_FRONT_ARM_GUN", 3, 3046, 579,"Weapon System" , "L-39ZA FRONT Pyro Charge Apply")
+defineToggleSwitch("L39ZA_FRONT_CANNON",  3, 3047, 576,"Weapon System", "L-39ZA FRONT Gsh-23 Arm/Safe")
+defineToggleSwitch("L39ZA_PYLON_OUT_ON",  3, 3048, 585,"Weapon System", "L-39ZA FRONT Outboard Stations Select")
+definePushButton("L39ZA_PYLON_OUT_OFF", 3, 3049, 586,"Weapon System" , "L-39ZA FRONT Outboard Stations Deselect")
+defineToggleSwitch("L39ZA_PYLON_IN_ON",  3, 3050, 587,"Weapon System", "L-39ZA FRONT Inboard Stations Select")
+definePushButton("L39ZA_PYLON_IN_OFF", 3, 3051, 588,"Weapon System" , "L-39ZA FRONT Inboard Stations Deselect")
+defineToggleSwitch("L39ZA_FRONT_CHARGE_GUN_OUT",  3, 3052, 577,"Weapon System", "L-39ZA FRONT Charge Outer Guns")
+defineToggleSwitch("L39ZA_FRONT_CHARGE_GUN_IN",  3, 3053, 578,"Weapon System", "L-39ZA FRONT Charge Inner Guns")
+defineToggleSwitch("L39ZA_FRONT_EMERG_MISSILE_COVER",  3, 3054, 591,"Weapon System", "L-39ZA FRONT Emergency Launch Missiles Cover")
+definePushButton("L39ZA_FRONT_EMERG_MISSILE",  3, 3055, 592,"Weapon System", "L-39ZA FRONT Emergency Launch Missiles")
+defineToggleSwitch("L39ZA_FRONT_ARM_GUN_OUT",  3, 3056, 597,"Weapon System", "L-39ZA FRONT Arm Outer Guns")
+defineToggleSwitch("L39ZA_FRONT_ARM_GUN_IN",  3, 3057, 598,"Weapon System", "L-39ZA FRONT Arm Inner Guns")
+defineToggleSwitch("L39ZA_FRONT_ARM_BOMBS",  3, 3058, 596,"Weapon System", "L-39ZA FRONT Arm Bombs")	
+define3PosTumb("L39ZA_FRONT_BOMB_SERIES", 3, 3059, 584, "Weapon System", "L-39ZA FRONT Bombs Series")	
+defineToggleSwitch("L39ZA_FRONT_OUT_EMERG_JETT_COVER",  3, 3010, 269,"Weapon System", "L-39ZA FRONT Emergency Jettison Outboard Stations Switch Cover, OPEN/CLOSE")
+defineToggleSwitch("L39ZA_FRONT_OUT_EMERG_JETT",  3, 3011, 270,"Weapon System", "L-39ZA FRONT Emergency Jettison Outboard Stations Switch, ON/OFF")
+defineToggleSwitch("L39ZA_FRONT_WAEPON_SW",  4, 3038, 629,"Weapon System", "L-39ZA FRONT CB Weapon Switch, ON/OFF")
+definePushButton("L39ZA_FRONT_DEBLOCK_GUN", 3, 3077, 599,"Weapon System" , "L-39ZA FRONT Deblock Guns")	
+defineToggleSwitch("L39C_FRONT_BOMB_EMERG_JETT_COVER",  3, 3008, 267,"Weapon System", "L-39C FRONT Arm/Safe Bombs Emergency Jettison Switch Cover, OPEN/CLOSE")
+defineToggleSwitch("L39C_FRONT_EMERG_JETT_COVER",  3, 3010, 269,"Weapon System", "L-39C FRONT Emergency Jettison Switch Cover, OPEN/CLOSE")
+defineToggleSwitch("L39C_FRONT_EMERG_JETT",  3, 3011, 270,"Weapon System", "L-39C FRONT Emergency Jettison Switch, ON/OFF")
+
+----------------------------------------------------------------------------------------------------------------------------- 2 do 
 -- Oxygen System
 ----------------------------------------------------------------------------------------------------------------------------- 2 do end
 
@@ -445,15 +501,24 @@ defineToggleSwitch("FRONT_SARPP_REC_SWITCH",  36,3001, 298,"SARPP", "FRONT SARPP
 defineToggleSwitch("FRONT_FUEL_SHUTOFF",  5,3002, 296,"Fuel System", "FRONT Fuel Shut-Off Lever")
 defineToggleSwitch("BACK_FUEL_SHUTOFF",  5,3003, 475,"Fuel System", "BACK Fuel Shut-Off Lever")
 
------------------------------------------------------------------------------------------------------------------------------ 2 do 
 -- Air System
 defineRotary("FRONT_PRESS_HANDLE", 7, 3001, 245, "Air System", "FRONT ECS and Pressurization Handle, OFF/CANOPIES SEALED/ECS ON")
 defineRotary("BACK_PRESS_HANDLE", 7, 3002, 245, "Air System", "BACK ECS and Pressurization Handle, OFF/CANOPIES SEALED/ECS ON")
---#
+defineTumb("FRONT_CABIN_HEAT_MODE", 7, 3004, 172, 0.05, {0.0, 0.25}, nil, false, "Air System", "FRONT Cabin Air Conditioning Control Switch, OFF/HEAT/COOL/AUTOMATIC")
+definePotentiometer("FRONT_CABIN_TEMP", 7, 3003, 173, {0,1}, "Air System", "FRONT Cabin Air Temperature Controller Rheostat")
+defineTumb("FRONT_SUIT_COND_MODE", 7, 3006, 121, 0.05, {0.0, 0.25}, nil, false, "Air System", "FRONT Diffuser and Flight Suit Air Conditioning Control Switch, HEAT/AUTO/COOL")
+definePotentiometer("FRONT_SUIT_TEMP", 7, 3005, 120, {0,1}, "Air System", "FRONT Diffuser and Flight Suit Temperature Rheostat")
+defineToggleSwitch("BACK_AIR_COND_COVER",  7, 3008, 510,"Air System", "BACK Conditioning Shutoff Switch Cover, OPEN/CLOSE")
+define3PosTumb("BACK_AIR_COND", 7,	3007, 511, "Air System", "BACK Conditioning Shutoff Switch, OPEN/FRONT PILOT CONTROL/CLOSE")
 
 -- Anti-Icing System
+defineTumb("FRONT_ANTI_ICING", 7, 3009, 174, 0.1, {0.0, 0.2}, nil, false, "AntiICE", "FRONT De-Icing Mode Switch, MANUAL/AUTOMATIC/OFF")
+definePushButton("FRONT_DE_ICE", 7, 3010, 183,"AntiICE" , "FRONT RIO-3 De-Icing Sensor Heating Circuit Check Button")
+
 -- Helmet Heating
------------------------------------------------------------------------------------------------------------------------------ 2 do end
+definePushButton("FRONT_HELMET_QUICK", 7,	3011, 309,"Helm Heat" , "FRONT Helmet Visor Quick Heating Button")
+defineTumb("FRONT_HELMET_MODE", 7, 3012, 308, 0.5, {0.0, 1.0}, nil, false, "Helm Heat", "FRONT Helmet Heating Mode Switch, AUTO/OFF/ON")
+definePotentiometer("FRONT_HELMET_TEMP", 7,	3013, 310, {0,1}, "Helm Heat", "FRONT Helmet Heating Temperature Rheostat")
 
 -- SPU-9
 defineToggleSwitch("FRONT_SPU_RESERV",  34,3004, 290,"SPU", "FRONT Reserve Intercom Switch, ON/OFF")
