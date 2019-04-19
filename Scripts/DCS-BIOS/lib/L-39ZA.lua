@@ -354,15 +354,40 @@ defineMultipositionSwitch("FRONT_RSBN_CHAN_LAND_KNOB",  31,3009, 192, 40, 0.025,
 definePushButton("FRONT_RSBN_SET_AZ0", 31, 3010, 193,"ISKRA" , "FRONT RSBN Set 0 Azimuth")
 definePotentiometer("FRONT_RSBN_ALT_SEL", 31, 3011, 201, {0.0,1.0}, "ISKRA", "FRONT RSBN Field Elevation Knob")
 definePushButton("FRONT_RSBN_BEACON", 31, 3012, 297,"ISKRA" , "FRONT RSBN Listen Callsign Button")
-defineToggleSwitch("FRONT_RSBN_EMERG_LAND",  31,30131, 527,"ISKRA", "FRONT RSBN Emergency Landing Switch, ON/OFF")
+defineToggleSwitch("FRONT_RSBN_EMERG_LAND",  31,3013, 527,"ISKRA", "FRONT RSBN Emergency Landing Switch, ON/OFF")
 
 -- Variometer
 definePotentiometer("FRONT_VV_SET", 15, 3001, 569, {0, 1}, "Variometer", "FRONT Variometer Adjustment Knob")
 definePotentiometer("BACK_VV_SET", 16, 3001, 419, {0, 1}, "Variometer", "BACK Variometer Adjustment Knob")
 
------------------------------------------------------------------------------------------------------------------------------ 2do
 -- RKL-41
------------------------------------------------------------------------------------------------------------------------------ 2 do end
+defineToggleSwitch("FRONT_RKL_BEACON_SW",  21, 3011, 119,"RKL41", "FRONT RKL-41 ADF Outer-Inner Beacon (Far-Near NDB) Switch")
+definePotentiometer("FRONT_RKL_VOL", 21, 3001, 157, {0, 1}, "RKL41", "FRONT RKL-41 ADF Volume Knob")
+definePotentiometer("FRONT_RKL_BRIGHT", 21, 3013, 161, {0, 1}, "RKL41", "FRONT RKL-41 ADF Brightness Knob")
+defineToggleSwitch("FRONT_RKL_TLF_TLG",  21, 3002, 159,"RKL41", "FRONT RKL-41 ADF Mode Switch, TLF(A3)/TLG(A1,A2)")
+defineMultipositionSwitch("FRONT_RKL_MODE",  21, 3003, 160, 5, 0.1,"RKL41", "FRONT RKL-41 ADF Function Selector Switch, OFF/COMP(AUTO)/COMP(MAN)/ANT/LOOP")
+define3PosTumb("FRONT_RKL_LOOP_SW", 21, 3010, 162, "RKL41", "FRONT RKL-41 ADF Loop Switch, LEFT/OFF/RIGHT")
+defineToggleSwitch("FRONT_RKL_REMOTE",  21, 3012, 158,"RKL41", "FRONT RKL-41 ADF Control Switch, TAKE CONTROL/HAND OVER CONTROL")
+definePotentiometer("FRONT_RKL_FREQ_1_TUNE", 21, 3004, 165, {0, 1}, "RKL41", "FRONT RKL-41 ADF Far NDB Frequency Tune")
+defineTumb("FRONT_RKL_FREQ_1_XX00", 21, 3005, 163, 0.0588, {0.0,0.938}, nil, false, "RKL41", "FRONT RKL-41 ADF Far NDB 100kHz Rotary")
+defineTumb("FRONT_RKL_FREQ_1_00XX", 21, 3006, 164, 0.1, {0.0,0.9}, nil, false, "RKL41", "FRONT RKL-41 ADF Far NDB 10kHz Rotary")
+definePotentiometer("FRONT_RKL_FREQ_2_TUNE", 21, 3007, 168, {0, 1}, "RKL41", "FRONT RKL-41 ADF Near NDB Frequency Tune")
+defineTumb("FRONT_RKL_FREQ_2_XX00", 21, 3008, 166, 0.0588, {0.0,0.938}, nil, false, "RKL41", "FRONT RKL-41 ADF Near NDB 100kHz Rotary")
+defineTumb("FRONT_RKL_FREQ_2_00XX", 21, 3009, 167, 0.1, {0.0,0.9}, nil, false, "RKL41", "FRONT RKL-41 ADF Near NDB 10kHz Rotary")
+defineToggleSwitch("BACK_RKL_BEACON_SW",  21, 3024, 440,"RKL41", "BACK RKL-41 ADF Outer-Inner Beacon (Far-Near NDB) Switch")
+definePotentiometer("BACK_RKL_VOL", 21, 3014, 514, {0, 1}, "RKL41", "BACK RKL-41 ADF Volume Knob")
+definePotentiometer("BACK_RKL_BRIGHT", 21, 3026, 518, {0, 1}, "RKL41", "BACK RKL-41 ADF Brightness Knob")
+defineToggleSwitch("BACK_RKL_TLF_TLG",  21, 3015, 516,"RKL41", "BACK RKL-41 ADF Mode Switch, TLF(A3)/TLG(A1,A2)")
+defineMultipositionSwitch("BACK_RKL_MODE",  21, 3016, 517, 5, 0.1,"RKL41", "BACK RKL-41 ADF Function Selector Switch, OFF/COMP(AUTO)/COMP(MAN)/ANT/LOOP")
+define3PosTumb("BACK_RKL_LOOP_SW", 21, 3010, 523, "RKL41", "BACK RKL-41 ADF Loop Switch, LEFT/OFF/RIGHT")
+defineToggleSwitch("BACK_RKL_REMOTE",  21, 3025, 515,"RKL41", "BACK RKL-41 ADF Control Switch, TAKE CONTROL/HAND OVER CONTROL")
+definePotentiometer("BACK_RKL_FREQ_1_TUNE", 21, 3017, 522, {0, 1}, "RKL41", "BACK RKL-41 ADF Far NDB Frequency Tune")
+defineTumb("BACK_RKL_FREQ_1_XX00", 21, 3018, 520, 0.0588, {0.0,0.938}, nil, false, "RKL41", "BACK RKL-41 ADF Far NDB 100kHz Rotary")
+defineTumb("BACK_RKL_FREQ_1_00XX", 21, 3019, 521, 0.1, {0.0,0.9}, nil, false, "RKL41", "BACK RKL-41 ADF Far NDB 10kHz Rotary")
+definePotentiometer("BACK_RKL_FREQ_2_TUNE", 21, 3020, 525, {0, 1}, "RKL41", "BACK RKL-41 ADF Near NDB Frequency Tune")
+defineTumb("BACK_RKL_FREQ_2_XX00", 21, 3021, 523, 0.0588, {0.0,0.938}, nil, false, "RKL41", "BACK RKL-41 ADF Near NDB 100kHz Rotary")
+defineTumb("BACK_RKL_FREQ_2_00XX", 21, 3022, 524, 0.1, {0.0,0.9}, nil, false, "RKL41", "BACK RKL-41 ADF Near NDB 10kHz Rotary")
+defineToggleSwitch("BACK_RKL_ARK_FAIL",  21, 3027, 459,"RKL41", "BACK RKL-41 ARK Failure")
 
 -- Electric System
 defineToggleSwitch("FRONT_BATTERY_SW",  4,3001, 141,"Electric System", "FRONT Accumulator Switch, ON/OFF")
@@ -439,9 +464,20 @@ definePushButton("PITOT_HEAT_OFF_L",  4,3069, 295,"Electric System", "Standby (L
 definePushButton("PITOT_HEAT_ON_R",  4,3070, 292,"Electric System", "Main (Right) Pitot Tube Heating ON Button")
 definePushButton("PITOT_HEAT_OFF_R",  4,3071, 293,"Electric System", "Main (Right) Pitot Tube Heating OFF Button")
 
------------------------------------------------------------------------------------------------------------------------------ 2 do 
 -- Lights System
------------------------------------------------------------------------------------------------------------------------------ 2 do end
+defineTumb("FRONT_NAV_LIGHTS_FLASH", 20, 3003, 176, 0.5, {0, 1}, nil, false, "Lights System", "FRONT Navigation Lights Mode Control Switch, FLICKER/OFF/FIXED")
+defineTumb("FRONT_NAV_LIGHTS_BRIGHT", 20, 3004, 175, 0.5, {0, 1}, nil, false, "Lights System", "FRONT Navigation Lights Intensity Control Switch, DIM(30%)/BRT(60%)/MAX(100%)")
+define3PosTumb("FRONT_LAND_LIGHTS", 20, 3006, 311, "Lights System", "FRONT Taxi and Landing Lights Control Switch, TAXI/OFF/LANDING")
+define3PosTumb("BACK_LAND_LIGHTS", 20, 3007, 486, "Lights System", "BACK Taxi and Landing Lights Control Switch, TAXI/OFF/LANDING")
+define3PosTumb("FRONT_INST_LIGHTS", 20, 3008, 330, "Lights System", "FRONT Instrument Lighting Switch, Red/OFF/White")
+define3PosTumb("BACK_INST_LIGHTS", 20, 3010, 497, "Lights System", "BACK Instrument Lighting Switch, Red/OFF/White")
+definePotentiometer("FRONT_INST_LIGHTS_CON", 20, 3009, 331, {0.1, 0.9}, "Lights System", "FRONT Instrument Lights Intensity Knob")
+definePotentiometer("BACK_INST_LIGHTS_CON", 20, 3011, 498, {0.1, 0.9}, "Lights System", "BACK Instrument Lights Intensity Knob")
+defineToggleSwitch("FRONT_EMERG_LIGHT",  20,3005, 249,"Lights System", "FRONT Emergency Instrument Light Switch, ON/OFF")
+definePotentiometer("FRONT_WARN_LIGHTS_CON", 20, 3012, 202, {0, 1}, "Lights System", "FRONT Warning-Light Intensity Knob")
+definePushButton("FRONT_WARN_LIGHTS_TEST", 20, 3013, 203,"Lights System" , "FRONT Warning-Light Check Button")
+definePotentiometer("BACK_WARN_LIGHTS_CON", 20, 3014, 537, {0, 1}, "Lights System", "BACK Warning-Light Intensity Knob")
+definePushButton("BACK_WARN_LIGHTS_TEST", 20, 3015, 538,"Lights System" , "BACK Warning-Light Check Button")
 
 -- Weapon System
 defineToggleSwitch("FRONT_MASTER_ARM",  3, 3001, 254,"Weapon System", "FRONT CB Armament System Power Switch, ON/OFF")
@@ -490,9 +526,15 @@ defineToggleSwitch("L39C_FRONT_BOMB_EMERG_JETT_COVER",  3, 3008, 267,"Weapon Sys
 defineToggleSwitch("L39C_FRONT_EMERG_JETT_COVER",  3, 3010, 269,"Weapon System", "L-39C FRONT Emergency Jettison Switch Cover, OPEN/CLOSE")
 defineToggleSwitch("L39C_FRONT_EMERG_JETT",  3, 3011, 270,"Weapon System", "L-39C FRONT Emergency Jettison Switch, ON/OFF")
 
------------------------------------------------------------------------------------------------------------------------------ 2 do 
 -- Oxygen System
------------------------------------------------------------------------------------------------------------------------------ 2 do end
+defineToggleSwitch("FRONT_OXY_EMERG",  30, 3004, 303,"Oxygen System", "FRONT Emergency Oxygen Switch, ON/OFF")
+defineToggleSwitch("FRONT_OXY_SW",  30, 3006, 304,"Oxygen System", "FRONT Diluter Demand Switch, 100% / MIX")
+defineToggleSwitch("FRONT_HELM_VENT",  30, 3008, 307,"Oxygen System", "FRONT Helmet Ventilation Switch, ON/OFF")
+definePotentiometer("FRONT_OXY_SUPPLY_VALVE", 30, 3001, 306, {0, 1}, "Oxygen System", "FRONT Oxygen Supply Valve (CLOSE - CW, OPEN - CCW)")
+defineToggleSwitch("BACK_OXY_EMERG",  30, 3005, 479,"Oxygen System", "BACK Emergency Oxygen Switch, ON/OFF")
+defineToggleSwitch("BACK_OXY_SW",  30, 3007, 480,"Oxygen System", "BACK Diluter Demand Switch, 100% / MIX")
+definePotentiometer("BACK_OXY_INTER_VALVE", 30, 3003, 484, {0, 1}, "Oxygen System", "BACK Oxygen Interconnaction Valve (CLOSE - CW, OPEN - CCW)")
+definePotentiometer("BACK_OXY_SUPPLY_VALVE", 30, 3002, 482, {0, 1}, "Oxygen System", "BACK Oxygen Supply Valve (CLOSE - CW, OPEN - CCW)")
 
 -- SARPP
 defineToggleSwitch("FRONT_SARPP_REC_SWITCH",  36,3001, 298,"SARPP", "FRONT SARPP Flight Recorder, ON/OFF")
