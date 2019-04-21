@@ -19,6 +19,7 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 
 -- remove Arg# Pilot 1000 / Instructor 1002 / Hide Stick Front 309 Back 312
 
+--================================================================ COMMON COCKPIT ==================================================================
 -- Electrical Panel
 defineToggleSwitch("FRONT_BATT_MASTER_SW", 2, 3001, 315, "Electrical Panel", "FRONT Battery Master Switch")
 defineToggleSwitch("FRONT_L_BATT_ISO_COVER", 2, 3002, 324, "Electrical Panel", "FRONT Left Battery Isolation Cover")
@@ -318,16 +319,17 @@ defineToggleSwitch("BACK_MAN_SEPERATION_HANDLE", 2, 3521, 522, "Misc", "BACK Man
 definePotentiometer("BACK_AIR_VENT", 2, 3523, 1230, nil, "Misc", "BACK Air Vent")
 defineToggleSwitch("BACK_GEAR_HANDLE", 2, 3524, 75, "Misc", "BACK Landing Gear Handle")
 
--- Warning, Caution and IndicatorLights
-defineIndicatorLight("FRONT_LANDING_GEAR_LIGHT", 9, "Warning, Caution and IndicatorLights","FRONT Landing Gear Light (red)")
+-- WARNING, CAUTION AND INDICATORLIGHTS
+defineIndicatorLight("FRONT_TRANS_GEAR_LIGHT", 9, "Warning, Caution and IndicatorLights","FRONT Transition Gear Light (red)")
+
 defineIndicatorLight("FRONT_BACK_COMPUTER_LIGHT", 143, "Warning, Caution and IndicatorLights","FRONT/BACK Computer Light MAN (yellow)")
 defineIndicatorLight("FRONT_BACK_ANTI_ICE_LIGHT", 192, "Warning, Caution and IndicatorLights","FRONT/BACK ANTI-ICE Light ON (yellow)")
 defineIndicatorLight("FRONT_BACK_ENG_START_TLIGHT", 140, "Warning, Caution and IndicatorLights","FRONT/BACK Engine Start Test Light (yellow)")
 
--- Gauges
+-- GAUGES
 
 
---------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS ---------------------------------------
+--------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS ------------------------------------
 -- PRESSURIZATION/AIRCON SYSTEM 
 defineMultipositionSwitch("FRONT_AIR_COND_MASTER", 2, 3120, 419, 3, 0.5,"Aircon System" ,"FRONT Air-Conditioning Master Switch")
 defineToggleSwitch("FRONT_AIR_FLOW_MODE", 2, 3121, 420, "Aircon System", "FRONT Air Flow Mode")
@@ -376,8 +378,120 @@ defineToggleSwitch("BACK_OXY_PRESS_WARN_SW", 2, 3527, 1196, "Misc", "BACK Oxygen
 -- IFR hood 
 defineToggleSwitch("BACK_IFR_HOOD", 2, 3551, 329, "Misc", "BACK IFR Hood Close/Open")
 
--- Unknown buttons/switches
+-- UNKNOWN BUTTONS/SWITCHES
 defineToggleSwitch("BACK_EJECT_PRIO_LEVER", 2, 3691, 1182, "Misc", "BACK Ejection Seat Priority Lever")
 definePotentiometer("BACK_STORAGE_BOX", 2, 3522, 299, {0, 1}, "Misc", "BACK Storage Box Cover")
+
+--================================================================ C-101CC COCKPIT ==================================================================
+-- MANUAL POWER RESERVE (MPR)
+definePushButton("CC_FRONT_MRP_LAMP_TEST_BTN", 2, 3702, 1312, "MRP", "C-101CC FRONT MPR Lamp Test Button")
+definePotentiometer("CC_FRONT_MRP_LAMP_TEST_KNB", 2, 3704, 1313, {0, 1}, "MRP", "C-101CC FRONT MPR Lamp Test Knob")
+definePushButton("CC_BACK_MRP_LAMP_TEST_BTN", 2, 3703, 1317, "MRP", "C-101CC BACK MPR Lamp Test Button")
+definePotentiometer("CC_BACK_MRP_LAMP_TEST_KNB", 2, 3705, 1318, {0, 1}, "MRP", "C-101CC BACK MPR Lamp Test Knob")
+
+-- FLIGHT DIRECTOR 
+definePushButton("CC_FRONT_FD_HDG_MODE", 2, 3171, 210, "Flight Director", "C-101CC FRONT Flight Director Heading Mode")
+definePushButton("CC_FRONT_FD_ALT_MODE", 2, 3172, 215, "Flight Director", "C-101CC FRONT Flight Director Altitude Mode")
+definePushButton("CC_FRONT_FD_NAV_MODE", 2, 3174, 211, "Flight Director", "C-101CC FRONT Flight Director Navigation Mode")
+definePushButton("CC_FRONT_FD_APP_MODE", 2, 3175, 212, "Flight Director", "C-101CC FRONT Flight Director Approach Mode")
+definePushButton("CC_FRONT_FD_BCRS_MODE", 2, 3176, 213, "Flight Director", "C-101CC FRONT Flight Director Back Course Mode")
+definePushButton("CC_FRONT_FD_VOR_APP_MODE", 2, 3177, 214, "Flight Director", "C-101CC FRONT Flight Director VOR Approach Mode")
+definePushButton("CC_FRONT_FD_VSPD_MODE", 2, 3178, 217, "Flight Director", "C-101CC FRONT Flight Director Vertical Speed Mode")
+definePushButton("CC_FRONT_FD_IASPD_MODE", 2, 3179, 218, "Flight Director", "C-101CC FRONT Flight Director Indicated Air Speed Mode")
+definePushButton("CC_FRONT_FD_STBY_MODE", 2, 3170, 219, "Flight Director", "C-101CC FRONT Flight Director Standby Mode")
+definePotentiometer("CC_FRONT_FD_BRIGHT", 2, 3195, 343, {0, 1}, "Flight Director", "C-101CC FRONT Outer Flight Director Panel Brightnes Knob")
+definePotentiometer("CC_BACK_FD_BRIGHT", 2, 3661, 916, {0, 1}, "Flight Director", "C-101CC BACK Outer Flight Director Panel Brightnes Knob")
+
+-- V/UHF RADIO 
+defineMultipositionSwitch("CC_FRONT_UHF_SEL100", 10, 3002, 226, 3, 0.1,"UHF Radio" ,"C-101CC FRONT UHF Radio 100 MHz Selector")
+defineMultipositionSwitch("CC_FRONT_UHF_SEL10", 10,3003,227,11,0.1,"UHF Radio" ,"C-101CC FRONT UHF Radio 10 MHz Selector")
+defineMultipositionSwitch("CC_FRONT_UHF_SEL1", 10,3004,228,11,0.1,"UHF Radio" ,"C-101CC FRONT UHF Radio 1 MHz Selector")
+defineMultipositionSwitch("CC_FRONT_UHF_SEL01", 10,3005,229,11,0.1,"UHF Radio" ,"C-101CC FRONT UHF Radio 0.1 MHz Selector")
+defineMultipositionSwitch("CC_FRONT_UHF_SEL0025", 10,3006,230,5,0.25,"UHF Radio" ,"C-101CC FRONT UHF Radio 0.025 MHz Selector")
+defineMultipositionSwitch("CC_FRONT_UHF_PRESET", 10,3011,231,21,0.05,"UHF Radio" ,"C-101CC FRONT UHF Radio Preset Channel Selector")
+defineMultipositionSwitch("CC_FRONT_UHF_FUNCT", 10,3007,232,4,0.1,"UHF Radio" ,"C-101CC FRONT UHF Radio Function Dial")
+defineMultipositionSwitch("CC_FRONT_UHF_FREQU", 10,3008,233,3,0.5,"UHF Radio" ,"C-101CC FRONT UHF Radio Frequency Mode Dial")
+defineToggleSwitch("CC_FRONT_UHF_TEST", 10, 3001, 234, "UHF Radio", "C-101CC FRONT UHF Radio Test Selector Switch")
+defineToggleSwitch("CC_FRONT_UHF_SQL", 10, 3009, 236, "UHF Radio", "C-101CC FRONT UHF Radio Squelch Switch")
+defineToggleSwitch("CC_FRONT_UHF_POWER", 10, 3010, 235, "UHF Radio", "C-101CC FRONT UHF Radio Power Transmit Selector Switch")
+
+defineMultipositionSwitch("CC_BACK_UHF_SEL100", 10,3022,862,3,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio 100 MHz Selector")
+defineMultipositionSwitch("CC_BACK_UHF_SEL10", 10,3023,863,11,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio 10 MHz Selector")
+defineMultipositionSwitch("CC_BACK_UHF_SEL1", 10,3024,864,11,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio 1 MHz Selector")
+defineMultipositionSwitch("CC_BACK_UHF_SEL01", 10,3025,865,11,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio 0.1 MHz Selector")
+defineMultipositionSwitch("CC_BACK_UHF_SEL0025", 10,3026,866,5,0.25,"UHF Radio" ,"C-101CC BACK UHF Radio 0.025 MHz Selector")
+defineMultipositionSwitch("CC_BACK_UHF_PRESET", 10,3031,867,21,0.05,"UHF Radio" ,"C-101CC BACK UHF Radio Preset Channel Selector")
+defineMultipositionSwitch("CC_BACK_UHF_FUNCT", 10,3027,868,4,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio Function Dial")
+defineMultipositionSwitch("CC_BACK_UHF_FREQU", 10,3028,869,3,0.5,"UHF Radio" ,"C-101CC BACK UHF Radio Frequency Mode Dial")
+defineToggleSwitch("CC_BACK_UHF_TEST", 10, 3021, 875, "UHF Radio", "C-101CC BACK UHF Radio Test Selector Switch")
+defineToggleSwitch("CC_BACK_UHF_SQL", 10, 3029,872, "UHF Radio", "C-101CC BACK UHF Radio Squelch Switch")
+defineToggleSwitch("CC_BACK_UHF_POWER", 10, 3030,876, "UHF Radio", "C-101CC BACK UHF Radio Power Transmit Selector Switch")	
+
+-- VHF COMM/NAV 
+
+-- WARNING, CAUTION AND INDICATORLIGHTS
+defineIndicatorLight("CC_FRONT_MRP_LAMP", 1314, "Warning, Caution and IndicatorLights","C-101CC FRONT MPR Lamp (yellow)")
+defineIndicatorLight("CC_BACK_MRP_LAMP", 1319, "Warning, Caution and IndicatorLights","C-101CC BACK MPR Lamp (yellow)")
+
+--------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS ------------------------------------
+--#
+-- WEAPONS
+defineToggleSwitch("CC_FRONT_WP_PYLON_OL", 2,3329,699, "Weapons", "C-101CC FRONT Weapon Switch Pylon Outer Left")
+defineToggleSwitch("CC_FRONT_WP_PYLON_ML", 2,3330,700, "Weapons", "C-101CC FRONT Weapon Switch Pylon Mid Left")
+defineToggleSwitch("CC_FRONT_WP_PYLON_IL", 2,3331,701, "Weapons", "C-101CC FRONT Weapon Switch Pylon Inner Left")
+defineToggleSwitch("CC_FRONT_WP_EMERG", 2,3332,702, "Weapons", "C-101CC FRONT Weapon Switch Emergency")
+defineToggleSwitch("CC_FRONT_WP_NORM", 2,3333,703, "Weapons", "C-101CC FRONT Weapon Switch Normal")
+defineToggleSwitch("CC_FRONT_WP_SIGHT_115", 2,3335,705, "Weapons", "C-101CC FRONT Weapon Switch Sight 115V AC")
+defineToggleSwitch("CC_FRONT_WP_PYLON_OR", 2,3336,706, "Weapons", "C-101CC FRONT Weapon Switch Pylon Outer Right")
+defineToggleSwitch("CC_FRONT_WP_PYLON_MR", 2,3337,707, "Weapons", "C-101CC FRONT Weapon Switch Pylon Mid Right")
+defineToggleSwitch("CC_FRONT_WP_PYLON_IR", 2,3338,708, "Weapons", "C-101CC FRONT Weapon Switch Pylon Inner Right")
+defineToggleSwitch("CC_FRONT_WP_GUN_1", 2,3339,709, "Weapons", "C-101CC FRONT Weapon Switch Machine Gun 1")
+defineToggleSwitch("CC_FRONT_WP_GUN_2", 2,3340,710, "Weapons", "C-101CC FRONT Weapon Switch Machine Gun 2")
+defineToggleSwitch("CC_FRONT_WP_ARM", 2,3341,711, "Weapons", "C-101CC FRONT Weapon Switch Arming Control")
+defineToggleSwitch("CC_FRONT_WP_SIGHT_CAM", 2,3342,712, "Weapons", "C-101CC FRONT Weapon Switch Sight Camera")
+defineToggleSwitch("CC_FRONT_WP_UHF_RACAL", 2,3680,704, "Weapons", "C-101CC FRONT Weapon Switch UHF Racal")
+
+-- MISC FUNCTIONS
+definePotentiometer("CC_FRONT_AOA_IND_KNB", 2,3345,290, {0, 1}, "Misc", "C-101CC FRONT AOA Indicator Knob")
+definePushButton("CC_FRONT_EMERG_FUEL_VALVE", 2,3352,715, "Misc", "C-101CC FRONT Emergency Fuel Valve")
+defineToggleSwitch("CC_FRONT_EMERG_FUEL_Cover", 2,3351,716, "Misc", "C-101CC FRONT Emergency Fuel Cover")
+defineMultipositionSwitch("CC_FRONT_EMERG_FUEL_LEVER", 2,3354,726,8,0.1,"Misc" ,"C-101CC FRONT Emergency Fuel Lever")
+
+-- CIRCUIT BREAKERS 
+defineToggleSwitch("CC_FRONT_CB_GYRO", 2,3538,436, "CB Panel", "C-101CC FRONT Circuit Breaker Gyro Platform")
+defineToggleSwitch("CC_FRONT_CB_DME", 2,3539,437, "CB Panel", "C-101CC FRONT Circuit Breaker DME")
+defineToggleSwitch("CC_FRONT_CB_FD", 2,3291,593, "CB Panel", "C-101CC FRONT Circuit Breaker Flight Director")
+defineToggleSwitch("CC_FRONT_CB_IFF", 2,3292,594, "CB Panel", "C-101CC FRONT Circuit Breaker IFF")
+defineToggleSwitch("CC_FRONT_CB_VHF", 2,3092,532, "CB Panel", "C-101CC FRONT Circuit Breaker VHF")
+defineToggleSwitch("CC_FRONT_CB_RADIO_ALT", 2,3540,455, "CB Panel", "C-101CC FRONT Circuit Breaker Radio Altimeter")
+defineToggleSwitch("CC_FRONT_CB_ADF_DC", 2,3543,465, "CB Panel", "C-101CC FRONT Circuit Breaker ADF DC")
+defineToggleSwitch("CC_FRONT_CB_UVHF", 2,3095,466, "CB Panel", "C-101CC FRONT Circuit Breaker U/VHF")
+defineToggleSwitch("CC_FRONT_CB_RED_L", 2,3090,469, "CB Panel", "C-101CC FRONT Circuit Breaker Red Cockpit Lighting")
+defineToggleSwitch("CC_FRONT_CB_BAK_ADI", 2,3059,470, "CB Panel", "C-101CC FRONT Circuit Breaker Backup ADI")
+defineToggleSwitch("CC_FRONT_CB_INTER", 2,3093,471, "CB Panel", "C-101CC FRONT Circuit Breaker Interphone")
+defineToggleSwitch("CC_FRONT_CB_COMP", 2,3541,457, "CB Panel", "C-101CC FRONT Circuit Breaker Air Data Computer / Flight Director")
+defineToggleSwitch("CC_FRONT_CB_GYRO_115", 2,3542,458, "CB Panel", "C-101CC FRONT Circuit Breaker Gyro Plat 115V AC")
+defineToggleSwitch("CC_FRONT_CB_CONS_L", 2,3099,459, "CB Panel", "C-101CC FRONT Circuit Breaker Console Lights")
+defineToggleSwitch("CC_FRONT_CB_VOR_AC", 2,3078,460, "CB Panel", "C-101CC FRONT Circuit Breaker VOR AC")
+defineToggleSwitch("CC_FRONT_CB_GYRO_VERT", 2,3544,461, "CB Panel", "C-101CC FRONT Circuit Breaker Vertical Gyro")
+defineToggleSwitch("CC_FRONT_CB_GYRO_HOR", 2,3545,462, "CB Panel", "C-101CC FRONT Circuit Breaker Horizontal Gyro")
+defineToggleSwitch("CC_FRONT_CB_ADF_AC", 2,3293,1189, "CB Panel", "C-101CC FRONT Circuit Breaker ADF 26V AC")
+defineToggleSwitch("CC_FRONT_CB_DME_26", 2,3546,472, "CB Panel", "C-101CC FRONT Circuit Breaker DME 26V AC")
+defineToggleSwitch("CC_FRONT_CB_GYRO_26", 2,3547,473, "CB Panel", "C-101CC FRONT Circuit Breaker Gyro Plat 26V AC")
+defineToggleSwitch("CC_FRONT_CB_FD_26", 2,3100,474, "CB Panel", "C-101CC FRONT Circuit Breaker Flight Director 26V AC")
+defineToggleSwitch("CC_FRONT_CB_ADC", 2,3294,596, "CB Panel", "C-101CC FRONT Circuit Breaker ADC")
+defineToggleSwitch("CC_BACK_CB_STALL_WARN", 2,3548,903, "CB Panel", "C-101CC BACK Circuit Breaker Stall Warning System")
+
+--------------------------------------- REAR COCKPIT ONLY FUNCTIONS ---------------------------------------
+-- MISC FUNCTIONS
+defineToggleSwitch("CC_BACK_STALL_WARN_TEST", 2,3606,1208, "Misc", "C-101CC BACK Stall Warning Test")
+defineToggleSwitch("CC_BACK_STALL_WARN_PW", 2,3607,1209, "Misc", "C-101CC BACK Stall Warning Power")
+definePotentiometer("CC_BACK_AOA_ADJ", 2,3653,279, {0, 1}, "Misc", "C-101CC BACK AOA Adjust")
+defineToggleSwitch("CC_BACK_EMERG_PITCH_TRIM", 2,3473,842, "Misc", "C-101CC BACK Emergency Pitch Trim Breaker")	
+
+--================================================================ C-101EB COCKPIT ==================================================================
+
+--------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS ------------------------------------
+
 
 BIOS.protocol.endModule()
