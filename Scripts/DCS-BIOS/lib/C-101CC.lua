@@ -414,7 +414,6 @@ defineMultipositionSwitch("CC_FRONT_UHF_FREQU", 10,3008,233,3,0.5,"UHF Radio" ,"
 defineToggleSwitch("CC_FRONT_UHF_TEST", 10, 3001, 234, "UHF Radio", "C-101CC FRONT UHF Radio Test Selector Switch")
 defineToggleSwitch("CC_FRONT_UHF_SQL", 10, 3009, 236, "UHF Radio", "C-101CC FRONT UHF Radio Squelch Switch")
 defineToggleSwitch("CC_FRONT_UHF_POWER", 10, 3010, 235, "UHF Radio", "C-101CC FRONT UHF Radio Power Transmit Selector Switch")
-
 defineMultipositionSwitch("CC_BACK_UHF_SEL100", 10,3022,862,3,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio 100 MHz Selector")
 defineMultipositionSwitch("CC_BACK_UHF_SEL10", 10,3023,863,11,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio 10 MHz Selector")
 defineMultipositionSwitch("CC_BACK_UHF_SEL1", 10,3024,864,11,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio 1 MHz Selector")
@@ -428,13 +427,138 @@ defineToggleSwitch("CC_BACK_UHF_SQL", 10, 3029,872, "UHF Radio", "C-101CC BACK U
 defineToggleSwitch("CC_BACK_UHF_POWER", 10, 3030,876, "UHF Radio", "C-101CC BACK UHF Radio Power Transmit Selector Switch")	
 
 -- VHF COMM/NAV 
+defineMultipositionSwitch("CC_FRONT_VHF_COMM_PW", 9,3004,653,3,0.5,"VHF" ,"C-101CC FRONT VHF COMM Switch OFF/PWR/TEST")
+defineMultipositionSwitch("CC_FRONT_VHF_COMM_FREQ_100", 9,3001,640,35,0.01,"VHF" ,"C-101CC FRONT VHF COMM Frequency Control 100 MHz")
+definePotentiometer("CC_FRONT_VHF_COMM_VOL", 9, 3003, 655, {0, 1}, "VHF", "C-101CC FRONT VHF COMM Volume Control")	
+defineMultipositionSwitch("CC_FRONT_VHF_COMM_FREQ_10", 9,3002,641,40,0.025,"VHF" ,"C-101CC FRONT VHF COMM Frequency Control 10 kHz")
+defineToggleSwitch("CC_FRONT_VHF_NAV_TEST", 2,3355,650, "VHF", "C-101CC FRONT VHF NAV Test Switch")
+defineMultipositionSwitch("CC_FRONT_VHF_NAV_CONTROL", 11,3004,657,5,0.25,"VHF" ,"C-101CC FRONT VHF NAV Control Switch")
+defineMultipositionSwitch("CC_FRONT_VHF_NAV_FREQ_1", 11,3001,645,35,0.01,"VHF" ,"C-101CC FRONT VHF NAV Frequency Control 1 MHz")
+definePotentiometer("CC_FRONT_VHF_NAV_VOL", 11, 3003, 659, {0, 1}, "VHF", "C-101CC FRONT VHF NAV Volume Control")	
+defineMultipositionSwitch("CC_FRONT_VHF_NAV_FREQ_50", 11,3002,646,40,0.025,"VHF" ,"C-101CC FRONT VHF NAV Frequency Control 50 kHz")
+defineMultipositionSwitch("CC_BACK_VHF_COMM_PW", 9,3014,917,3,0.5,"VHF" ,"C-101CC BACK VHF COMM Switch OFF/PWR/TEST")
+defineMultipositionSwitch("CC_BACK_VHF_COMM_FREQ_1", 9,3001,904,35,0.01,"VHF" ,"C-101CC BACK VHF COMM Frequency Control 1 MHz")
+definePotentiometer("CC_BACK_VHF_COMM_VOL", 9, 3003, 919, {0, 1}, "VHF", "C-101CC BACK VHF COMM Volume Control")	
+defineMultipositionSwitch("CC_BACK_VHF_COMM_FREQ_10", 9,3002,905,40,0.025,"VHF" ,"C-101CC BACK VHF COMM Frequency Control 0.025 MHz")
+defineToggleSwitch("CC_BACK_VHF_NAV_TEST", 2,3628,915, "VHF", "C-101CC BACK VHF NAV Test Switch")
+defineMultipositionSwitch("CC_BACK_VHF_NAV_CONTROL", 11,3014,921,5,0.25,"VHF" ,"C-101CC BACK VHF NAV Control Switch")
+defineMultipositionSwitch("CC_BACK_VHF_NAV_FREQ_1", 11,3011,906,35,0.01,"VHF" ,"C-101CC BACK VHF NAV Frequency Control 1 MHz")
+definePotentiometer("CC_BACK_VHF_NAV_VOL", 11, 3013, 923, {0, 1}, "VHF", "C-101CC BACK VHF NAV Volume Control")	
+defineMultipositionSwitch("CC_BACK_VHF_NAV_FREQ_50", 11,3012,907,40,0.025,"VHF" ,"C-101CC BACK VHF NAV Frequency Control 50 kHz")
+
+-- INTERCOM PANEL
+definePushButton("CC_FRONT_INTER_ADF_BTN", 7, 3014, 849, "Intercom", "C-101CC FRONT Intercom ADF Switch (push)")
+definePotentiometer("CC_FRONT_INTER_ADF_KNB", 7, 3015, 853, {0, 1}, "Intercom", "C-101CC FRONT Intercom ADF Switch (turn)")
+definePushButton("CC_FRONT_INTER_DME_BTN", 7, 3016, 284, "Intercom", "C-101CC FRONT Intercom DME Switch (push)")
+definePotentiometer("CC_FRONT_INTER_DME_KNB", 7, 3017, 398, {0, 1}, "Intercom", "C-101CC FRONT Intercom DME Switch (turn)")
+definePushButton("CC_FRONT_INTER_VUHF_BTN", 7, 3018, 268, "Intercom", "C-101CC FRONT Intercom V/UHF Switch (push)")
+definePotentiometer("CC_FRONT_INTER_VUHF_KNB", 7, 3019, 269, {0, 1}, "Intercom", "C-101CC FRONT Intercom V/UHF Switch (turn)")
+defineMultipositionSwitch("CC_FRONT_INTER_MAIN_SEL", 7,3020,404,7,0.1,"Intercom" ,"C-101CC FRONT Intercom Main Mode Selector")
+definePushButton("CC_BACK_INTER_ADF_BTN", 7, 3037, 1140, "Intercom", "C-101CC BACK Intercom ADF Switch (push)")
+definePotentiometer("CC_BACK_INTER_ADF_KNB", 7, 3038, 1141, {0, 1}, "Intercom", "C-101CC BACK Intercom ADF Switch (turn)")
+definePushButton("CC_BACK_INTER_DME_BTN", 7, 3039, 888, "Intercom", "C-101CC BACK Intercom DME Switch (push)")
+definePotentiometer("CC_BACK_INTER_DME_KNB", 7, 3040, 898, {0, 1}, "Intercom", "C-101CC BACK Intercom DME Switch (turn)")
+definePushButton("CC_BACK_INTER_VUHF_BTN", 7, 3041, 1109, "Intercom", "C-101CC BACK Intercom V/UHF Switch (push)")
+definePotentiometer("CC_BACK_INTER_VUHF_KNB", 7, 3042, 1110, {0, 1}, "Intercom", "C-101CC BACK Intercom V/UHF Switch (turn)")
+defineMultipositionSwitch("CC_BACK_INTER_MAIN_SEL", 7,3043,947,7,0.1,"Intercom" ,"C-101CC BACK Intercom Main Mode Selector")
+
+-- ADI KNOB 
+definePushButton("CC_FRONT_ADI_TEST", 2,3346,683, "ADI", "C-101CC FRONT ADI Test Switch")
+definePotentiometer("CC_FRONT_ADI_DH_SET", 2, 3347, 412, {0, 1}, "ADI", "C-101CC FRONT Decision Height Setting")
+definePotentiometer("CC_FRONT_ADI_HSI_BRIGHT", 2, 3161, 411, {0, 1}, "ADI", "C-101CC FRONT ADI/HSI Digital Displays Brightness")
+definePushButton("CC_BACK_ADI_TEST", 2,3600,1045, "ADI", "C-101CC BACK ADI Test Switch")
+definePotentiometer("CC_BACK_ADI_DH_SET", 2, 3601, 924, {0, 1}, "ADI", "C-101CC BACK Decision Height Setting")
+definePotentiometer("CC_BACK_ADI_HSI_BRIGHT", 2, 3443, 923, {0, 1}, "ADI", "C-101CC BACK ADI/HSI Digital Displays Brightness")
+
+-- STANDBY ALTIMETER 
+definePotentiometer("CC_FRONT_STBY_ALT_BARO", 2, 3344, 620, {0, 1}, "Standby Altimeter", "C-101CC FRONT Standby Altimeter Baro Adjust")
+definePushButton("CC_FRONT_STBY_ALT_TAP", 2, 3549, 1190, "Standby Altimeter", "C-101CC FRONT Standby Altimeter Tap Glass")
+definePotentiometer("CC_BACK_STBY_ALT_BARO", 2, 3605, 1021, {0, 1}, "Standby Altimeter", "C-101CC BACK Standby Altimeter Baro Adjust")
+definePushButton("CC_BACK_STBY_ALT_TAP", 2, 3550, 1191, "Standby Altimeter", "C-101CC BACK Standby Altimeter Tap Glass")
+
+-- AHRS CONTROL PANEL 	
+defineToggleSwitch("CC_FRONT_DME_SEL", 11,3006,340, "AHRS", "C-101CC FRONT DME Selector")
+defineToggleSwitch("CC_FRONT_RADAR_ALT", 2,3028,341, "AHRS", "C-101CC FRONT Radio Altimeter")
+defineMultipositionSwitch("CC_FRONT_AHRS_EMERG_LOC_TRANS", 2,3026,339,3,0.5,"AHRS" ,"C-101CC FRONT AHRS Emergency Locator Tranmsitter")
+defineMultipositionSwitch("CC_FRONT_AHRS_UHF_ANT_SEL", 2,3221,338,3,0.5,"AHRS" ,"C-101CC FRONT AHRS UHF Antenna Selection")
+defineToggleSwitch("CC_BACK_DME_SEL", 11,3016,965, "AHRS", "C-101CC BACK DME Selector")
+definePushButton("CC_BACK_AHRS_FAST_ERECT",2,3512,966, "AHRS", "C-101CC BACK AHRS Fast Erect")
+
+-- SCAR DISPLAY UNIT
+defineMultipositionSwitch("CC_FRONT_SCAR_GUN_LOAD", 2,3270,569,10,0.11,"SCAR" ,"C-101CC FRONT SCAR Initial Cannon Load")
+definePushButton("CC_FRONT_SCAR_MODE_SEL_BTN", 2,3271,573, "SCAR", "C-101CC FRONT SCAR Mode Selector/Cancel Button")
+defineMultipositionSwitch("CC_BACK_SCAR_GUN_LOAD", 2,3637,1285,10,0.11,"SCAR" ,"C-101CC BACK SCAR Initial Cannon Load")
+definePushButton("CC_BACK_SCAR_MODE_SEL_BTN", 2,3638,1289, "SCAR", "C-101CC BACK SCAR Mode Selector/Cancel Button")
+definePushButton("CC_FRONT_SCAR_EMERG_JETT", 2,3268,567, "SCAR", "C-101CC FRONT SCAR Emergency Jettison")
+definePushButton("CC_FRONT_SCAR_LIGHT_TEST", 2,3269,568, "SCAR", "C-101CC FRONT SCAR Light Test")
+definePushButton("CC_FRONT_BACK_EMERG_JETT", 2,3639,597, "SCAR", "C-101CC BACK SCAR Emergency Jettison")
+definePushButton("CC_FRONT_BACK_LIGHT_TEST", 2,3640,598, "SCAR", "C-101CC BACK SCAR Light Test")
+
+-- COLIMADOR
+definePotentiometer("CC_FRONT_HUD_SIGHT_BRIGHT", 2,3310,722, {0, 1}, "Colimador", "C-101CC FRONT Sight Brightness")
+defineMultipositionSwitch("CC_FRONT_HUD_VIDEO", 2,3312,720,3,0.5,"Colimador" ,"C-101CC FRONT Video ON/STB/OFF")
+defineMultipositionSwitch("CC_FRONT_HUD_DEPRESS_0XX", 2,3314,587,10,0.1,"Colimador" ,"C-101CC FRONT HUD Depression 0XX")
+defineMultipositionSwitch("CC_FRONT_HUD_DEPRESS_X0X", 2,3315,588,10,0.1,"Colimador" ,"C-101CC FRONT HUD Depression X0X")
+defineMultipositionSwitch("CC_FRONT_HUD_DEPRESS_XX0", 2,3316,589,10,0.1,"Colimador" ,"C-101CC FRONT HUD Depression XX0")
+defineMultipositionSwitch("CC_FRONT_HUD_DEPRESS_MODE", 2,3317,590,3,0.5,"Colimador" ,"C-101CC FRONT HUD Depression AUTO/MAN/TEST")
+defineToggleSwitch("CC_FRONT_HUD_SIGHT", 2,3318,591, "Colimador", "C-101CC FRONT Optical Sight ON/OFF")
+definePotentiometer("CC_BACK_HUD_SIGHT_BRIGHT", 2,3654,713, {0, 1}, "Colimador", "C-101CC BACK Sight Brightness")
+
+-- MISC FUNCTIONS
+definePotentiometer("CC_FRONT_SIGHT_SUN_FILTER", 3,3670,1112, {0, 1}, "Misc", "C-101CC FRONT Gunsight Sun Filter")
+definePotentiometer("CC_BACK_SIGHT_SUN_FILTER", 3,3671,1113, {0, 1}, "Misc", "C-101CC BACK Gunsight Sun Filter")
+definePushButton("CC_FRONT_ALT_TEST_ADJ", 2,3364,607, "Misc", "C-101CC FRONT Altimeter Test Adjust")
+definePushButton("CC_BACK_ALT_TEST_ADJ", 2,3658,798, "Misc", "C-101CC BACK Altimeter Test Adjust")
+definePushButton("CC_FRONT_HSI_BEARING_SEL", 2,3349,689, "Misc", "C-101CC FRONT HSI Bearing Select Button")
+definePushButton("CC_BACK_HSI_BEARING_SEL", 2,3349,689, "Misc", "C-101CC BACK HSI Bearing Select Button")
+defineToggleSwitch("CC_FRONT_CANOPY_EMERG_FRAC", 2,3343,294, "Misc", "C-101CC FRONT Canopy Emergency Fracturing")
+defineToggleSwitch("CC_BACK_CANOPY_EMERG_FRAC", 2,3652,277, "Misc", "C-101CC BACK Canopy Emergency Fracturing")
+defineToggleSwitch("CC_FRONT_RUDDER_TRIM_SW", 2, 3350, 717, "Misc", "C-101CC FRONT Rudder Trim Switch")
+defineToggleSwitch("CC_BACK_RUDDER_TRIM_SW", 2, 3604, 1105, "Misc", "C-101CC BACK Rudder Trim Switch")
 
 -- WARNING, CAUTION AND INDICATORLIGHTS
 defineIndicatorLight("CC_FRONT_MRP_LAMP", 1314, "Warning, Caution and IndicatorLights","C-101CC FRONT MPR Lamp (yellow)")
 defineIndicatorLight("CC_BACK_MRP_LAMP", 1319, "Warning, Caution and IndicatorLights","C-101CC BACK MPR Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_TELEBRIEFING_LAMP", 719, "Warning, Caution and IndicatorLights","C-101CC FRONT Telebriefing Lamp (yellow)")
 
 --------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS ------------------------------------
---#
+-- SCAR CONTROL UNIT 
+defineToggleSwitch("CC_FRONT_SCAR_MASTER_MODE_COVER", 2,3254,690, "SCAR", "C-101CC FRONT SCAR Master Mode Cover")
+defineMultipositionSwitch("CC_FRONT_SCAR_MASTER_MODE", 2,3255,691,3,0.5,"SCAR" ,"C-101CC FRONT SCAR Master Mode")
+defineToggleSwitch("CC_FRONT_SCAR_MASTER_ARM", 2,3256,692, "SCAR", "C-101CC FRONT SCAR Master Arm")
+defineMultipositionSwitch("CC_FRONT_SCAR_BOMB_ARM", 2,3257,693,4,0.33,"SCAR" ,"C-101CC FRONT SCAR Bomb Arming Selector")
+defineMultipositionSwitch("CC_FRONT_SCAR_MODE_SEL", 2,3258,694,8,0.142,"SCAR" ,"C-101CC FRONT SCAR Mode Selector")
+defineMultipositionSwitch("CC_FRONT_SCAR_RIPPLE", 2,3259,695,5,0.25,"SCAR" ,"C-101CC FRONT SCAR Ripple Time")
+defineMultipositionSwitch("CC_FRONT_SCAR_SEL_JETT_SEL", 2,3260,696,4,0.33,"SCAR" ,"C-101CC FRONT SCAR Selective Jettison Selector")
+definePushButton("CC_FRONT_SCAR_SEL_JETT", 2,3261,697, "SCAR", "C-101CC FRONT SCAR Selective Jettison")
+definePushButton("CC_FRONT_SCAR_PYLON_1", 2,3262,542, "SCAR", "C-101CC FRONT SCAR Select Pylon #1")
+definePushButton("CC_FRONT_SCAR_PYLON_2", 2,3263,543, "SCAR", "C-101CC FRONT SCAR Select Pylon #2")
+definePushButton("CC_FRONT_SCAR_PYLON_3", 2,3264,544, "SCAR", "C-101CC FRONT SCAR Select Pylon #3")
+definePushButton("CC_FRONT_SCAR_PYLON_4", 2,3265,545, "SCAR", "C-101CC FRONT SCAR Select Pylon #4")
+definePushButton("CC_FRONT_SCAR_PYLON_5", 2,3266,546, "SCAR", "C-101CC FRONT SCAR Select Pylon #5")
+definePushButton("CC_FRONT_SCAR_PYLON_6", 2,3267,547, "SCAR", "C-101CC FRONT SCAR Select Pylon #6")
+
+-- ADF
+definePotentiometer("CC_FRONT_ADF_FREQ_L_100", 12,3001,661, {0, 1}, "Misc", "C-101CC FRONT ADF Left Frequency Selector 100 kHz")
+definePotentiometer("CC_FRONT_ADF_FREQ_L_10", 12,3002,662, {0, 1}, "Misc", "C-101CC FRONT ADF Left Frequency Selector 10 kHz")
+definePotentiometer("CC_FRONT_ADF_FREQ_L_05", 12,3003,663, {0, 1}, "Misc", "C-101CC FRONT ADF Left Frequency Selector 0.5 kHz")
+definePotentiometer("CC_FRONT_ADF_FREQ_R_100", 12,3004,666, {0, 1}, "Misc", "C-101CC FRONT ADF Right Frequency Selector 100 kHz")
+definePotentiometer("CC_FRONT_ADF_FREQ_R_10", 12,3005,668, {0, 1}, "Misc", "C-101CC FRONT ADF Right Frequency Selector 10 kHz")
+definePotentiometer("CC_FRONT_ADF_FREQ_R_05", 12,3006,669, {0, 1}, "Misc", "C-101CC FRONT ADF Right Frequency Selector 0.5 kHz")
+defineMultipositionSwitch("CC_FRONT_ADF_FUNC", 12,3007,677,4,0.1,"Misc" ,"C-101CC FRONT ADF Function Selector Switch")
+definePotentiometer("CC_FRONT_ADF_GAIN", 12,3009,678, {0, 1}, "Misc", "C-101CC FRONT ADF Gain Control")
+defineToggleSwitch("CC_FRONT_ADF_TONE_SW", 12, 3010, 679, "ADF", "C-101CC FRONT ADF Tone Switch")
+defineToggleSwitch("CC_FRONT_ADF_TRANS_SW", 12, 3011, 680, "ADF", "C-101CC FRONT ADF Transfer Switch")
+
+-- GYROSCOPE PLATFORM 
+defineMultipositionSwitch("CC_FRONT_GYRO_FUNC_SEL", 2,3321,728,3,0.5,"Gyro" ,"C-101CC FRONT Gyro Function Selector")
+definePushButton("CC_FRONT_GYRO_SYNC_HDG_SET_BTN", 2, 3324, 1305, "Gyro", "C-101CC FRONT Gyro Synchnonizer and Heading Set Button")
+definePotentiometer("CC_FRONT_GYRO_SYNC_HDG_SET_KNB", 2,3322,729, {-1,1}, "Gyro", "C-101CC FRONT Gyro Synchnonizer and Heading Set Knob")
+definePotentiometer("CC_FRONT_GYRO_LAT_CORR", 2,3323,730, {0,1}, "Gyro", "C-101CC FRONT Gyro Latitude Correction")
+definePushButton("CC_FRONT_GYRO_FAST_ERECT", 2,3325,732, "Gyro", "C-101CC FRONT Gyro Fast Erect")
+defineMultipositionSwitch("CC_FRONT_GYRO_MAG_VAR", 2,3326,733,3,0.5,"Gyro" ,"C-101CC FRONT Gyro Mag Var Control")
+defineToggleSwitch("CC_FRONT_GYRO_HEMI_SW", 2,3327,734, "Gyro", "C-101CC FRONT Gyro Hemisphere Switch")
+
 -- WEAPONS
 defineToggleSwitch("CC_FRONT_WP_PYLON_OL", 2,3329,699, "Weapons", "C-101CC FRONT Weapon Switch Pylon Outer Left")
 defineToggleSwitch("CC_FRONT_WP_PYLON_ML", 2,3330,700, "Weapons", "C-101CC FRONT Weapon Switch Pylon Mid Left")
@@ -450,12 +574,6 @@ defineToggleSwitch("CC_FRONT_WP_GUN_2", 2,3340,710, "Weapons", "C-101CC FRONT We
 defineToggleSwitch("CC_FRONT_WP_ARM", 2,3341,711, "Weapons", "C-101CC FRONT Weapon Switch Arming Control")
 defineToggleSwitch("CC_FRONT_WP_SIGHT_CAM", 2,3342,712, "Weapons", "C-101CC FRONT Weapon Switch Sight Camera")
 defineToggleSwitch("CC_FRONT_WP_UHF_RACAL", 2,3680,704, "Weapons", "C-101CC FRONT Weapon Switch UHF Racal")
-
--- MISC FUNCTIONS
-definePotentiometer("CC_FRONT_AOA_IND_KNB", 2,3345,290, {0, 1}, "Misc", "C-101CC FRONT AOA Indicator Knob")
-definePushButton("CC_FRONT_EMERG_FUEL_VALVE", 2,3352,715, "Misc", "C-101CC FRONT Emergency Fuel Valve")
-defineToggleSwitch("CC_FRONT_EMERG_FUEL_Cover", 2,3351,716, "Misc", "C-101CC FRONT Emergency Fuel Cover")
-defineMultipositionSwitch("CC_FRONT_EMERG_FUEL_LEVER", 2,3354,726,8,0.1,"Misc" ,"C-101CC FRONT Emergency Fuel Lever")
 
 -- CIRCUIT BREAKERS 
 defineToggleSwitch("CC_FRONT_CB_GYRO", 2,3538,436, "CB Panel", "C-101CC FRONT Circuit Breaker Gyro Platform")
@@ -481,6 +599,14 @@ defineToggleSwitch("CC_FRONT_CB_GYRO_26", 2,3547,473, "CB Panel", "C-101CC FRONT
 defineToggleSwitch("CC_FRONT_CB_FD_26", 2,3100,474, "CB Panel", "C-101CC FRONT Circuit Breaker Flight Director 26V AC")
 defineToggleSwitch("CC_FRONT_CB_ADC", 2,3294,596, "CB Panel", "C-101CC FRONT Circuit Breaker ADC")
 defineToggleSwitch("CC_BACK_CB_STALL_WARN", 2,3548,903, "CB Panel", "C-101CC BACK Circuit Breaker Stall Warning System")
+
+-- MISC FUNCTIONS
+definePotentiometer("CC_FRONT_AOA_IND_KNB", 2,3345,290, {0, 1}, "Misc", "C-101CC FRONT AOA Indicator Knob")
+definePushButton("CC_FRONT_EMERG_FUEL_VALVE", 2,3352,715, "Misc", "C-101CC FRONT Emergency Fuel Valve")
+defineToggleSwitch("CC_FRONT_EMERG_FUEL_Cover", 2,3351,716, "Misc", "C-101CC FRONT Emergency Fuel Cover")
+defineMultipositionSwitch("CC_FRONT_EMERG_FUEL_LEVER", 2,3354,726,8,0.1,"Misc" ,"C-101CC FRONT Emergency Fuel Lever")
+definePushButton("CC_FRONT_TELEBRIEFING_BTN", 2, 3320, 718, "Misc", "C-101CC FRONT Telebriefing Button")
+definePotentiometer("CC_FRONT_TELEBRIEFING_KNB", 2, 3554, 849, {0, 1}, "Misc", "C-101CC FRONT Telebriefing Knob")
 
 --------------------------------------- REAR COCKPIT ONLY FUNCTIONS ---------------------------------------
 -- MISC FUNCTIONS
