@@ -7485,8 +7485,38 @@
                                                                              "api_variant": "momentary_last_position",
                                                                                 "category": "UFC",
                                                                             "control_type": "selector",
-                                                                             "description": "UFC Comm 2 Channel Selector Pull",
+                                                                             "description": "UFC Comm 1 Channel Selector Pull",
                                                                               "identifier": "UFC_COM1_PULL",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 30732,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 16,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 4,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                "UFC_COM2_PULL": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "UFC",
+                                                                            "control_type": "selector",
+                                                                             "description": "UFC Comm 2 Channel Selector Pull",
+                                                                              "identifier": "UFC_COM2_PULL",
                                                                                   "inputs": [ {
                                                                                                 "description": "switch to previous or next state",
                                                                                                   "interface": "fixed_step"
