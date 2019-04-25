@@ -1,0 +1,17 @@
+
+the "dimmer" function is used to control an external light slaved by the DCS data.
+
+
+
+Example :
+
+DcsBios::Dimmer dashPanelLight(0x3022, PIN);
+
+
+
+
+"PIN" must be a PWM output of the arduino card.
+
+!! Arduino board cannot provide enough current to control several LEDs. !!
+
+Use an external mount to control several LEDs.
