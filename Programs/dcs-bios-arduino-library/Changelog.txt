@@ -1,4 +1,15 @@
 ---------
+v0.2.15
+---------
+Dynamic Mapping based on Aircraft Type Code
+This is the code that will enable you to change the control mapping based on the aircraft loaded. 
+I've tested it with my A-10C Fuel Panel which only has a bunch of Switch2's and a couple of POTs, 
+but I've shown how to also use with the other switch types. 
+I've had to add a small member function to all the DCS-BIOS input libraries to gain access to the msg_ private variable.
+
+from Blue73 - https://forums.eagle.ru/showthread.php?t=231236
+
+---------
 v0.2.14
 ---------
 New Matrix-Compatible Button class
