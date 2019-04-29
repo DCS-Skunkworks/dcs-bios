@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>DCS-BIOS Developer Guide</title>
+  <meta charset="UTF-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Asciidoctor 1.5.4">
+  <title>Flightpanels User Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -518,428 +518,144 @@ table.CodeRay td.code>pre{padding:0}
 </style>
 </head>
 <body class="article toc2 toc-right">
-<div id="header">
-<h1>DCS-BIOS Developer Guide</h1>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_connecting_to_dcs_bios">Connecting to DCS-BIOS</a></li>
-<li><a href="#_the_dcs_bios_import_protocol">The DCS-BIOS Import Protocol</a></li>
-<li><a href="#_the_dcs_bios_export_protocol">The DCS-BIOS Export Protocol</a>
-<ul class="sectlevel2">
-<li><a href="#_integer_values">Integer Values</a></li>
-<li><a href="#_string_values">String Values</a></li>
-<li><a href="#_synchronization_sequence">Synchronization sequence</a></li>
-</ul>
-</li>
-<li><a href="#_an_in_depth_look_at_the_arduino_library">An In-Depth Look at the Arduino Library</a>
-<ul class="sectlevel2">
-<li><a href="#_pollinginput">PollingInput</a></li>
-<li><a href="#_exportstreamlistener">ExportStreamListener</a></li>
-<li><a href="#_protocolparser">ProtocolParser</a></li>
-</ul>
-</li>
-<li><a href="#_the_dcs_bios_lua_code">The DCS-BIOS Lua Code</a></li>
-<li><a href="#_adding_a_new_aircraft_module">Adding a New Aircraft Module</a>
-    <ul class="sectlevel2">
-      <li><a href="#_export_modules_in_dcs_bios">Export Modules in DCS-BIOS</a></li>
-      <li><a href="#_adding_an_export_module_for_your_aircraft">Adding an Export Module for Your Aircraft</a></li>
-      <li><a href="#_a_minimal_example">A Minimal Example</a></li>
-      <li></li>
-	  </ul>
-	  <li><a href="userguide.html">DCS-BIOS User Guide</a></li>
-	  <li><a href="userguidefp.html">Flightpanels User Guide</a></li>
-      <li><a href="start.html">Start</a></li>
-</li>
-</ul>
-</div>
-</div>
-<div id="content">
-<div class="sect1">
-<h2 id="_connecting_to_dcs_bios">Connecting to DCS-BIOS</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Controls in the cockpit can be manipulated by sending newline-terminated plain text commands to UDP port 7778.
-The syntax is described in the <a href="#_the_dcs_bios_import_protocol">The DCS-BIOS Import Protocol</a> section.</p>
-</div>
-<div class="paragraph">
-<p>The current state of cockpit indicators and controls is exported from DCS using a binary protocol (see <a href="#_the_dcs_bios_export_protocol">The DCS-BIOS Export Protocol</a>). This data is sent via UDP to multicast address 239.255.50.10, port 5010 on the loopback interface (127.0.0.1).</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-When opening a UDP socket to listen on 239.255.50.10:5010, you must specify the <code>allowreuseaddr</code> socket option.
-Otherwise Windows will prevent other programs from listening to the same data stream.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The IPv4 multicast address block 239.255.0.0/16 is defined in RFC 2365 as the "IPv4 Local Scope".
-It is part of the "Administratively Scoped IPv4 Multicast Space", which is to multicast as the private address ranges 10.0.0.0/8, 192.168.0.0/16 and 172.16.0.0/12 are to unicast Ipv4.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>If you cannot or do not want to deal with multicast UDP, you can also make DCS-BIOS send a copy of the export data stream to a unicast address by editing <code>BIOSConfig.lua</code>.</p>
-</div>
-<div class="paragraph">
-<p>You can also use the <code>socat</code> utility to connect a serial port (and just about anything else that can be read or written) to the DCS-BIOS import and export streams.
-For an example, take a look at the batch files that come with DCS-BIOS.</p>
-</div>
-<div class="paragraph">
-<p>Another way is to open a TCP connection to port 7778.
-You can use this connection to send commands to DCS-BIOS and receive the export data.
-If you can, use UDP instead of TCP.
-Each TCP connection slightly increases the amount of work that is performed inside of DCS (blocking the rest of the simulation).</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_the_dcs_bios_import_protocol">The DCS-BIOS Import Protocol</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Commands are sent to DCS-BIOS as lines of plain text.</p>
-</div>
-<div class="paragraph">
-<p>A command consists of a control identifier, a space, an argument and a newline character.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The import protocol does not use binary encodings.
-Handling binary data in Lua with only the libraries that come with DCS is cumbersome.
-Also, a plain text protocol is easier to explain, understand and debug.
-In the input direction, the added verbosity of a plain text protocol is no problem because a human pilot will not flip 20 switches 30 times a second.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>To find out the arguments that a certain control accepts, refer to the reference documentation and look up <em>input interfaces</em> in the User Guide.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_the_dcs_bios_export_protocol">The DCS-BIOS Export Protocol</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The export stream protocol is designed to be as space-efficient as possible to enable the export of the complete cockpit state over a 115200 bps serial connection.</p>
-</div>
-<div class="paragraph">
-<p>Each piece of cockpit state is encoded as an integer or a string and is assigned an address within a 16-bit address space.</p>
-</div>
-<div class="sect2">
-<h3 id="_integer_values">Integer Values</h3>
-<div class="paragraph">
-<p>The location of an integer value is defined by a 16-bit word address which specifies the start of the 16-bit word in which the data is located, a 16-bit mask which specifies which bits in that word belong to the value, and a shift value (which can also be deduced from the mask).</p>
-</div>
-<div class="paragraph">
-<p>Given the start address, mask and shift values, the following pseudo C code decodes a value:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="c">char[] state;
-unsigned int value = (((uint16_t*)state)[start_address/2] &amp; mask) &gt;&gt; shift</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Changes to the state data are encoded as write accesses to this address space and written to the export data stream in the following format:</p>
-</div>
-<div class="paragraph">
-<p><code>&lt;start address (16 bit)&gt;</code> <code>&lt;data length (16 bit)&gt;</code> <code>data</code></p>
-</div>
-<div class="paragraph">
-<p>Both the start address and the data length will always be even (internally, DCS-BIOS treats the data as a list of 16-bit integers).
-This ensures that no write access partially updates an integer value (an integer may occupy no more than 16 bit).</p>
-</div>
-<div class="paragraph">
-<p>All integer values are written in litte-endian byte order.</p>
-</div>
-<div class="paragraph">
-<p>The following byte sequence is an example of a write access of four bytes starting at address 0x1000:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>0x00 0x10 0x04 0x00 0x41 0x2d 0x31 0x30</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_string_values">String Values</h3>
-<div class="paragraph">
-<p>The location of a string is defined by its 16-bit start address and the length in bytes (all string values have a fixed maximum length and start on a 16-bit aligned address).</p>
-</div>
-<div class="paragraph">
-<p>A string value with a maximum length greater than two characters can be updated partially.
-To avoid inconsistent intermediate states, an application that receives DCS-BIOS export data should apply changes to string values at the next frame synchronization sequence (see next section).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_synchronization_sequence">Synchronization sequence</h3>
-<div class="paragraph">
-<p>DCS-BIOS tries to send 30 updates per second.</p>
-</div>
-<div class="paragraph">
-<p>DCS-BIOS will send the four bytes <code>0x55 0x55 0x55 0x55</code> at the start of each update.
-These do <strong>not</strong> specify a 21845-byte write access to the address 0x5555.
-Instead, they are used by consumers of the data stream to find the start of a write access to synchronize to.</p>
-</div>
-<div class="paragraph">
-<p>DCS-BIOS ensures that this byte sequence cannot appear in the normal data stream.
-In the event that the byte sequence <code>0x55 0x55 0x55 0x55</code> would appear in a single write access, DCS-BIOS will avoid that by splitting it up into two separate writes.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_an_in_depth_look_at_the_arduino_library">An In-Depth Look at the Arduino Library</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_pollinginput">PollingInput</h3>
-<div class="paragraph">
-<p>The <code>DcsBios::PollingInput</code> class is the base class of all input classes such as <code>Switch2Pos</code> or <code>RotaryEncoder</code>.</p>
-</div>
-<div class="paragraph">
-<p>If your class inherits from <code>PollingInput</code>, its <code>pollInput()</code> method will be called whenever <code>DcsBios::PollingInput::pollInputs()</code> is called from the main loop.</p>
-</div>
-<div class="paragraph">
-<p>To make this happen, the constructor of <code>PollingInput</code> maintains a global singly-linked list of all <code>PollingInput</code> instances.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_exportstreamlistener">ExportStreamListener</h3>
-<div class="paragraph">
-<p>If your class inherits from <code>ExportStreamListener</code>, its <code>onDcsBiosWrite(unsigned int address, unsigned int data)</code> method will be called every time a <code>ProtocolParser</code> finishes receiving new export stream data.</p>
-</div>
-<div class="paragraph">
-<p>Its <code>onDcsBiosFrameSync()</code> method will be called every time the synchronization sequence (<code>0x55 0x55 0x55 0x55</code>) is received.
-The <code>StringBuffer</code> class uses this to avoid calling your code with an inconsistent string mid-update.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_protocolparser">ProtocolParser</h3>
-<div class="paragraph">
-<p>If you feed the export stream data you receive from DCS-BIOS to the <code>processChar</code> method of a <code>ProtocolParser</code> instance, it will interpret the data and ensure that the global <code>onDcsBiosWrite</code> function as well as every <code>ExportStreamListener&#8217;s `onDcsBiosWrite</code> and <code>onDcsBiosFrameSync</code> methods are called with the results.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_the_dcs_bios_lua_code">The DCS-BIOS Lua Code</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>DCS-BIOS is loaded by executing the <code>BIOS.lua</code> file.
-That file loads all other DCS-BIOS code. It also defines the hook functions for DCS export (<code>LuaExportStart</code> and friends), which mostly call functions in <code>Protocol.lua</code>.</p>
-</div>
-<div class="paragraph">
-<p>The following is an overview of the other files and their purpose:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">BIOSConfig.lua</dt>
-<dd>
-<p>This file is loaded last, so it can override any settings that are defined in global variables.
-It has to set the variable <code>BIOS.protocol.io_connections</code> to a list of suitable connection objects to define where the export data gets sent to and how DCS-BIOS listens for commands.</p>
-</dd>
-<dt class="hdlist1">lib/ProtocolIO.lua</dt>
-<dd>
-<p>This file contains classes that handle the actual data transmission, i.e. creating and using sockets.</p>
-</dd>
-<dt class="hdlist1">lib/Protocol.lua</dt>
-<dd>
-<p>The code in this file manages the list of known aircraft modules.
-Every frame, the <code>BIOS.protocol.step()</code> function in this file is called.
-That function checks what aircraft is currently being used and ensures that the correct data is exported.</p>
-</dd>
-<dt class="hdlist1">lib/Util.lua</dt>
-<dd>
-<p>This file includes a lot of utility classes and functions.
-Most of them implement the <code>MemoryMap</code> class and related classes or provide shortcuts to quickly define controls in aircraft modules.</p>
-</dd>
-<dt class="hdlist1">lib/A-10C.lua, lib/UH-1H.lua, etc</dt>
-<dd>
-<p>Each aircraft module has its own file where all of its controls are defined.</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_adding_a_new_aircraft_module">Adding a New Aircraft Module</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section will describe how to add support for another aircraft module.</p>
-</div>
-<div class="sect2">
-<h3 id="_export_modules_in_dcs_bios">Export Modules in DCS-BIOS</h3>
-<div class="paragraph">
-<p>DCS-BIOS consists of several export modules (they are what you select in the "module" drop-down field in the control reference documentation). Each export module is assigned to one or multiple aircraft and several export modules can be active at the same time.</p>
-</div>
-<div class="paragraph">
-<p>The <code>MetadataStart</code> and <code>MetadataEnd</code> modules are special: they are always active, even if there is no active aircraft (e.g. in spectator mode in a multiplayer game). The <code>CommonData</code> module is always active when any of the aircraft in <code>AircraftList.lua</code> is active. It exports generic information like altitude, position and heading.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Each export module is defined in its own file in the <code>lib</code> subdirectory.</p>
-</li>
-<li>
-<p>Each export module is loaded by a <code>dofile(&#8230;&#8203;)</code> line in <code>BIOS.lua</code>.</p>
-</li>
-<li>
-<p>Each export module needs a <code>&lt;script&gt;</code> tag in <code>control-reference.html</code> to show up in the control reference documentation.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_adding_an_export_module_for_your_aircraft">Adding an Export Module for Your Aircraft</h3>
-<div class="paragraph">
-<p>First, find out the exact name of your aircraft in DCS: World.
-To do this, open the interactive control reference documentation while in your aircraft and look at the _ACFT_NAME value in the <code>MetadataStart</code> module.</p>
-</div>
-<div class="paragraph">
-<div class="title">Add your aircraft to AircraftList.lua</div>
-<p>Open <code>AircraftList.lua</code>. If your aircraft has a clickable cockpit, add <code>a("Your Aircraft Name", true)</code>. If your aircraft does not have a clickable cockpit, add <code>a("Your Aircraft Name", false)</code>. This will populate the constants <code>BIOS.ALL_PLAYABLE_AIRCRAFT</code>, <code>BIOS.CLICKABLE_COCKPIT_AIRCRAFT</code> and <code>BIOS.FLAMING_CLIFFS_AIRCRAFT</code> accordingly. After this, the <code>CommonData</code> export module will be active for your aircraft.</p>
-</div>
-<div class="paragraph">
-<div class="title">Create an export module</div>
-<p>Create a new Lua file with your aircraft name in the <code>lib</code> subfolder.
-The basic structure of an export module looks like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua">BIOS.protocol.beginModule("Your Export Module Name", 0x1234)
-BIOS.protocol.setExportModuleAircrafts({"Your Aircraft Name"})
-
-BIOS.protocol.endModule()</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The call to <code>BIOS.protocol.beginModule</code> starts your new export module. The name does not have to be the same as the name of your aircraft, although in most cases it will be. It must be a valid filename.</p>
-</div>
-<div class="paragraph">
-<p>Replace <code>0x1234</code> with a base address for your module. A base address is the address in the DCS-BIOS export address space where the data from your export module starts. Choose it in a way so the address space occupied by your module does not overlap with any other export module that is active at the same time. Ideally, choose it so you do not have an overlap with any other export module. As a rule of thumb, take the highest base address of an existing export module (except <code>MetadataEnd</code>) and add 1024 (0x400). 1 KiB of address space should be more than enough for most aircraft.</p>
-</div>
-<div class="paragraph">
-<p>The call to <code>BIOS.protocol.setExportModuleAircrafts</code> specifies what aircraft you want your export module to be active in. In most cases, you will pass a list with a single entry (the name of your aircraft).</p>
-</div>
-<div class="paragraph">
-<p>After creating a file for your export module, add a <code>dofile(&#8230;&#8203;)</code> call in <code>BIOS.lua</code> and a <code>&lt;script&gt;</code> tag in <code>control-reference.html</code> (you will see what to do from the existing entries).</p>
-</div>
-<div class="paragraph">
-<div class="title">The Export Module API</div>
-<p>Between the calls to <code>beginModule</code> and <code>endModule</code>, you have access to the global table <code>moduleBeingDefined</code>.
-This table has the following entries:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">inputProcessors</dt>
-<dd>
-<p>A table that maps control identifiers to functions.
-When a message with the given identifier is received, the function will be called with the message argument.</p>
-</dd>
-<dt class="hdlist1">memoryMap</dt>
-<dd>
-<p>This object manages your export module&#8217;s address space. You can ask it to "allocate memory" (reserve address space) for integer or string values.</p>
-</dd>
-<dt class="hdlist1">exportHooks</dt>
-<dd>
-<p>a list of functions that will be called before sending out an update. Each function will typically get some state information (e.g. the status of an indicator light) from DCS and call <code>setValue</code> on a previously created <code>MemoryAllocation</code> object.</p>
-</dd>
-<dt class="hdlist1">documentation</dt>
-<dd>
-<p>This is a Lua table that will be serialized and written to <code>YourModuleName.json</code>. This will become the machine-readable reference documentation for your export module. It has to follow the format expected by the control reference documentation.</p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_a_minimal_example">A Minimal Example</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua">BIOS.protocol.beginModule("ExampleModule", 0x200)
-BIOS.protocol.setExportModuleAircrafts({"A-10C"})
-
-local document = BIOS.util.document
-
-local batterySwitchState = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 1 }
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-    batterySwitchState:setValue(dev0:get_argument_value(246))
-end
-moduleBeingDefined.inputProcessors["BATTERY_POWER"] = function(value)
-    if value == "0" then
-        GetDevice(1):performClickableAction(3006, 0)
-    elseif value == "1" then
-        GetDevice(1):performClickableAction(3006, 1)
-    end
-end
-document {
-  identifier = "BATTERY_POWER",
-  category = "Electrical Power Panel",
-  description = "Battery Power Switch",
-  inputs = { interface = "set_state", max_value = 1, description = "set switch state (1=on, 0=off)"},
-  outputs = {
-    ["type"] = "integer",
-    suffix = "",
-    address = tacanTestLEDState.address,
-    mask = tacanTestLEDState.mask,
-    shift_by = tacanTestLEDState.shiftBy,
-    max_value = 1,
-    description = "1 if light is on, 0 if light is off"
-  }
-}
-
-BIOS.protocol.endModule()</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This example shows how to add an export module for the battery power switch in the A-10C.
-Once you understand this example, you should be able to read and understand the other export modules and the code in <code>Util.lua</code>.</p>
-</div>
-<div class="paragraph">
-<p>Using functions from <code>Util.lua</code>, we can write this a lot shorter:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua">BIOS.protocol.beginModule("ExampleModule", 0x200)
-BIOS.protocol.setExportModuleAircrafts({"A-10C"})
-
-local document = BIOS.util.document
-local defineToggleSwitch = BIOS.util.defineToggleSwitch
-
-defineToggleSwitch("BATTERY_POWER", 1, 3006, 246, "Electrical Power Panel", "Battery Power")
-
-BIOS.protocol.endModule()</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Take a look at the functions in <code>Util.lua</code> and how they are used in the other export modules to get an idea of what to use in which situation. After a while, you should be able to recognize most patterns in <code>clickabledata.lua</code> and translate them to a line of code for your export module relatively quickly. Some controls will require trial and error in the DCS Witchcraft Lua Console and some custom code, though&#8201;&#8212;&#8201;each aircraft module seems to do things slightly differently and there is always that one panel that does not want to behave&#8230;&#8203;</p>
-</div>
-</div>
-</div>
+  <div id="header">
+    <h1>Flightpanels User Guide</h1>
+    <div id="toc" class="toc2">
+      <div id="toctitle">Table of Contents</div>
+      <ul class="sectlevel1">
+        <li><a href="userguidefp.html">Flightpanels User Guide</a>
+          <ul>
+            <li><a href="#_introduction">Introduction</a>              </li>
+            <li><a href="#_using_DCSFP_as_keyemu">Using DCSFlightpanels as a Keyemulator</a>                </li>
+            <li><a href="#_install">Installation</a>                </li>
+            <li><a href="#_updating">Updating the Application</a>                </li>
+            <li><a href="#_notes">Important Notes</a>                </li>
+            <li><a href="#_dcsflightpanels_not_work">DCSFlightpanels not working as it should?</a>                </li>
+            <li><a href="#_links">Links</a>                </li>
+            <li><a href="#_tutorials">Tutorials</a>              </li>
+          </ul>
+        </li>
+        <li><a href="userguide.html">DCS-BIOS User Guide</a>        </li>
+        <li><a href="developerguide.html">DCS-BIOS Developer Guide</a></li>
+        <li><a href="start.html">Start</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div class="sect1">
+      <h2 id="_introduction">Introduction</h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>This application enables you to use the following Saitek / Logitech Pro Flight Panels with Digital Combat Simulator:</p>
+        </div>
+        <div class="paragraph">
+          <ul>
+            <li><strong>Switch Panel (PZ55) </strong><strong>(DCS-BIOS &amp; </strong><strong><strong>KeyEmulator</strong><strong><strong>**</strong></strong>)</strong></li>
+            <li><strong>Multi Panel (PZ70) (</strong><strong>DCS-BIOS</strong><strong> &amp; </strong><strong><strong>KeyEmulator</strong><strong><strong>**</strong></strong>)</strong></li>
+            <li><strong>TPM (key emulator / DCS-BIOS)</strong></li>
+            <li><strong>Radio Panel (PZ69) </strong><strong>(</strong><strong>DCS-BIOS &amp; </strong><strong><strong>KeyEmulator** &amp; KeyEmulator</strong><strong><strong>_SRS***</strong></strong> )</strong></li>
+            <li><strong>Back Lit Information Panel (BIP)</strong></li>
+          </ul>
+          <ul>
+            <li><strong> DCSFlightpanels supports <a href="https://github.com/ciribob/DCS-SimpleRadioStandalone/wiki" target="_blank">Simple Radio Standalone</a> (PZ69 Radio Panel).</strong></li>
+          </ul>
+        </div>
+        <div class="sect2">
+          <h3 id="_using_DCSFP_as_keyemu"><strong>Using DCSFlightpanels as a Keyemulator it can be used in almost any game like :</strong></h3>
+          <div class="paragraph">
+            <ul>
+              <li>Elite Dangerous</li>
+              <li>War Thunder</li>
+              <li>Flaming Cliff Series</li>
+              <li>IL-2</li>
+            </ul>
+            <strong>You can use several panels of the same type and have different mappings on each except Radio Panel which is fully programmed by DCSFlighpanels</strong><br>
+            <br>
+            <strong>** LCD data from the game can not be shown in key emulator mode.<br>
+            ***Simple Radio Standalone can be controlled with PZ69 Radio Panel when using mode KeyEmulator_SRS. </strong></div>
+          <div class="sect3">
+            <h4 id="_install"><strong>Installation</strong></h4>
+            <div class="paragraph">
+              <ul>
+                <li>Unzip the files into the folder where you want to keep the program.</li>
+                <li>You start the application by executing <strong>DCSFlightpanels.exe</strong></li>
+                <li>Problems? Try running DCSFlightpanels as "<em>Administrator</em>".</li>
+                <li><u>You do not need any additional drivers</u></li>
+              </ul>
+              <em>Short <a href="https://youtu.be/adaLWO-nTwU" target="_blank">v2.0 A-10C demo</a> and a <a href="https://youtu.be/jQxLX7UHMR8" target="_blank">UH-1H</a> video.</em></div>
+          </div>
+          <div class="sect3">
+            <h4 id="_updating"><strong>Updating the Application</strong></h4>
+            <div class="paragraph">
+              <p>Unzip new version over the old.<br>
+                If for some reason the profile files are changed, i.e. the structure in which the data is stored, delete or rename the old ones and create new profile files. I won't make it backward compatible etc, it takes only a few min to make a profile. New profile format will not happen often if at all anymore. (Just in case it happens)<br>
+              </p>
+            </div>
+            </div>
+          <div class="sect3">
+            <h4 id="_notes"><strong>Important Notes</strong></h4>
+            <div class="paragraph">
+              <p>When opening the external text editor by clicking the button for the first time you get the the dialog "<strong><em>Windows can't open this file</em></strong>" dialog. That is because Windows is not familiar with the file type "<em>*<strong>.bindings</strong></em>". What you do is click "<em>Select a program from a list of installed programs</em>" and click "<em>OK</em>".<br>
+                From the next dialog choose "<em>Notepad</em>" and click "<em>OK</em>". This way Windows knows what to use next time you want to open a profile file.<br>
+              </p>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_dcsflightpanels_not_work"><strong>Do you need help? DCSFlightpanels not working as it should?</strong></h4>
+            <div class="paragraph">
+              <p><strong>There are several people around that <u>can and will help</u>. Please help them in turn by providing from start enough information so they can narrow the problem down as quickly as possibly.</strong></p>
+              <ul>
+                <li>Specify your operating system, Windows 7, 8, 8.1, 10?</li>
+                <li>Post your DCSFP error log (<em>as attachment or in [CODE] tags</em>)</li>
+                <li>Post your profile or those lines that are (if) relevant (<em>as attachment or in [CODE] tags</em>)<br>
+                </li>
+                <li>Be as specific as possible when asking for help</li>
+                <li>Did it use to work? What has changed?</li>
+                <li>Do you have DCS-BIOS installed? Can you use the DCS-BIOS Control Reference page (see first post)</li>
+                <li>If *asked* turn on DCSFP "Debug On" and "Debug to file" and post the debug file</li>
+                <li>Close down DCS, delete all logs under C:\Users\&lt;user&gt;\Saved Games\DCS\Logs =&gt; restart DCS and post dcs.log and dcs-bios.log</li>
+              </ul>
+              <p><a href="https://forums.eagle.ru/showthread.php?t=137670">Thread</a> in ED Forum </p>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_links"><strong>Links</strong></h4>
+            <div class="paragraph">
+              <ul>
+                <li><strong><a href="http://forums.eagle.ru/showpost.php?p=2073538&postcount=81" target="_blank">Saitek Switch Panel Template for <em>DCSFlightpanels</em></a></strong></li>
+                <li><strong><a href="http://forums.eagle.ru/showpost.php?p=2340786&postcount=48" target="_blank">Custom Saitek B.I.P. Tiles for <em>DCSFlightpanels </em></a></strong></li>
+                <li><strong><a href="https://github.com/DCSFlightpanels/DCSFlightpanels/releases">DCSFlightpanels</a></strong></li>
+                <li><strong><a href="https://github.com/DCSFlightpanels/DCSFlightpanels-Profiles/releases">DCSFlightpanels Profiles</a></strong></li>
+                <li><strong><a href="https://github.com/DCSFlightpanels/dcs-bios/releases">DCS-BIOS v0.7.27a</a> by DCSFlightpanelsTeam
+                </p>
+                </strong><br>
+                  <strong><a href="http://forums.eagle.ru/showpost.php?p=2340786&postcount=48" target="_blank"></a></strong></li>
+              </ul>
+            </div>
+          </div>
+          <div class="sect3">
+            <h4 id="_tutorials"><strong>Tutorial</strong>s</h4>
+            <div class="paragraph">
+              <ul>
+                <li><a href="https://youtu.be/mgm0JfldgYs" target="_blank"><strong>Comprehensive tutorial on key emulation using DCSFP</strong></a><br>
+                </li>
+                <li><a href="https://youtu.be/1CnmIdzqOJs" target="_blank"><strong>Comprehensive tutorial on DCS-BIOS &amp; DCSFP</strong></a><br>
+                  </li>
+                <li><a href="https://youtu.be/ajvZLgPzD0M" target="_blank"><strong>Comprehensive tutorial on using formulas + DCS-BIOS &amp; DCSFP</strong></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1"><div class="sectionbody"><div class="sect2"><div class="sect3"></div>
+        </div>
+      </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-05 09:43:32 CET
-</div>
+Last updated 2019-04-29</div>
 </div>
 </body>
 </html>

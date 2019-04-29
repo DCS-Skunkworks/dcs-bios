@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+<!--
+.Stil2 {font-size: 9px}
+-->
+</style>
+  <body>
+    <h1>RS-485 Resistor Calculator <span class="Stil2">by [FSF]Ian</span>	</h1>
+    Using equations from <a href="http://www.ti.com/lit/an/slyt324/slyt324.pdf">RS-485: Passive failsafe for an idle bus</a> by Thomas Kugelstadt, Senior Applications Engineer at Texas Instruments.
+
+    <h2>Step 1: Calculate R<sub>FS</sub></h2>
+    
+    Supply voltage: <input id="Vs" type="text" value="5"> V<br>
+    Tolerance: <select id="Vs_tolerance">
+      <option value="5">5%</option>
+      <option value="10">10%</option>
+    </select><br>
+    Noise margin: <input id="mVnoise" type="text" value="50"> mV<br>
+    R<sub>T1</sub>: <input id="R_T1" type="text" value="100"><br>
+    For proper termination, use 100 ohm for Cat5 cable, 120 ohm for standard RS-485 cable. If your cable is short enough so you don't care about reflections, you can try higher values.<br><br>
+    <button id="calc_RFS">Calculate R<sub>FS</sub></button>
+    <div id="step1_output"></div>
+    
+    <h2>Step 2: Calculate R<sub>T2</sub></h2>
+    <p>R<sub>FS</sub>: 
+      <input id="R_FS" type="text">
+    </p>
+    <button id="calc_RT2">Calculate R<sub>T2</sub></button>
+    <div id="step2_output"></div>
+
+    <h2>Step 3: Determine max. number of devices</h2>
+    <p>R<sub>T2</sub>: 
+      <input id="R_T2" type="text">
+    </p>
+    <button id="calc_stats">Calculate</button><br>
+    <div id="step3_output"></div>
+    
+    <p>
+      <script src="js/jquery-3.3.1.min.js"></script>
+    </p>
+    <p>The MAX485 will only handle up to 32 devices instead of 128, but more importantly, the MAX485 is not slew-rate limited, which means you probably will have to terminate the bus. If the various schematics I found online for those modules are correct, they also include termination and bias resistors on every module. If you are using termination resistors at all, you only want those at the start and end of the bus, so you'll have to modify any module you use in the middle. As far as we know, when using the slew-rate limited MAX487 and keeping the bus length below 10 meters, biasing and termination resistors are not required. (Termination is not required if the bus is short enough, and without external termination resistors, the internal biasing resistors in the MAX487 should be enough -- this is the "fail-safe feature" that is mentioned in the datasheet.)<br>
+      <br>
+      If you use MAX485 chips, the necessary termination and biasing resistors will further reduce the amount of devices you can have on the bus.
+      <script src="js/rs485-resistors.js"></script>
+  </p>
+    <p>&nbsp;</p>
+    <p>      <a href="start.html">Start</a></p>
+    <p>&nbsp;</p>
+  </body>
+</html>
