@@ -116,7 +116,7 @@ definePotentiometer("PROP", 2, 3006, 129, {-1.0, 1.0},"Engine", "Propeller RPM")
 --Mix Cut-Off Lever
 defineTumb("MIX", 2, 3009, 130, 1, {0,1}, nil, false, "Engine", "Mixture Control Select IDLE CUT OFF/RUN")
 --U/C Indicator Cut-Off Toggle
-defineTumb("UC_DOWN_C",2, 3099, 131, 1, {0,1}, nil, false, "Undercarriage", "Undercarriage U/C Indicator Cut-Off Toggle")
+defineTumb("UC_DOWN_C",2, 3099, 131, 1, {0,1}, nil, false, "Undercarriage", "U/C Indicator Cut-Off On/Off")
 --Radiator Control Toggle
 defineTumb("RADIATOR",1, 3033, 133, 1, {0,1}, nil, false, "Engine", "Radiator Flap Open/Auto")
 --Pitot Heater Toggle
