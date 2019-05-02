@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 -- Made by WarLord (aka BlackLibrary) and ArturDCS
--- v 1.1
+-- v 1.2
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -341,9 +341,9 @@ defineToggleSwitch("PLT_HSD_PW_SW", 41, 3215, 1008, "Display", "PILOT HSD/ECMD P
 -- DISPLAY Panel: Steer CMD
 definePushButton("PLT_NAV_STEER_TACAN", 46, 3314, 1002, "Display", "PILOT Navigation Steer Commands: TACAN")
 definePushButton("PLT_NAV_STEER_DEST", 46, 3315, 1003, "Display", "PILOT Navigation Steer Commands: Destination")
-definePushButton("PLT_NAV_STEER_AWL", 46, 3316, 1004, "Display", "PILOT Navigation Steer Commands: AWL PCD")
-definePushButton("PLT_NAV_STEER_VECTOR", 46, 3317, 1005, "Display", "PILOT Navigation Steer Commands: Vector")
-definePushButton("PLT_NAV_STEER_MAN", 46, 3318, 1006, "Display", "PILOT Navigation Steer Commands: Manual")
+definePushButton("PLT_NAV_STEER_AWL", 46, 3318, 1004, "Display", "PILOT Navigation Steer Commands: AWL PCD")
+definePushButton("PLT_NAV_STEER_VECTOR", 46, 3316, 1005, "Display", "PILOT Navigation Steer Commands: Vector")
+definePushButton("PLT_NAV_STEER_MAN", 46, 3317, 1006, "Display", "PILOT Navigation Steer Commands: Manual")
 
 -- DISPLAY Panel: HSD
 define3PosTumb("PLT_HSD_DIS_MODE", 41, 3235, 1016, "Display", "PILOT HSD Display Mode")
