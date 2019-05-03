@@ -82,17 +82,27 @@ In MetadataStat you find the Plane Name.
 
   Remember to refresh the page if you restart a mission, so Chrome gets a new connection to DCS-BIOS.
 
+== socat
+
+There are 2 socat vesions, 32 and 64 bit. Choose that version that fits best for you. 
+The files in the zip File must be unzipped direct in the socat folder.
+
+  The path must be: /socat/socat.exe
+
 == Video Tutorials
 
 https://www.youtube.com/channel/UCwECFPfC3QJiNYS5fskF2vg/
 
 == Contribute
 
-If you have a question or found a bug, please https://github.com/dcs-bios/dcs-bios/issues/new
+If you have a question or found a bug, please open an issue on the GitHub issue tracker.
+https://github.com/dcs-bios/dcs-bios/issues/new
 
 If you want to contribute code or documentation, please send a pull request on GitHub.
 
 == License
+
+The orginal DCS-BIOS was programmed by [FSF]Ian. This is a Fork of his Repositorie, where we made some additions and changes to it.
 
 DCS-BIOS is released under a slightly modified Simple Public License 2.0 (think "a version of the GPL readable by mere mortals"). Please see `DCS-BIOS-License.txt`.
 
