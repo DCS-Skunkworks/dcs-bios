@@ -17,6 +17,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineString = BIOS.util.defineString
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local define3PosTumb = BIOS.util.define3PosTumb
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- THROTTLE
 defineRotary("ASP_TAAGET_DIS", 11, 3314, 314, "Throttle", "ASP-5 Target Distance Selector")
@@ -299,7 +300,7 @@ defineFloat("AIRSPEED_IAS", 377, {0, 1}, "Gauges", "KUS-2000 Airspeed IAS")
 defineFloat("AIRSPEED_TAS", 395, {0, 1}, "Gauges", "KUS-2000 Airspeed TAS")
 defineFloat("EUP53_TURN", 378, {-1, 1}, "Gauges", "EUP-53 Turn Indicator")
 defineFloat("SLIP_INDICATORS", 379, {-1, 1}, "Gauges", "Slip Indicator")
-defineFloat("RADAR_ALT", 380, {0, 1}, "Gauges", "UV-57 Radar Altimeter")
+defineFloat("RADAR_ALT", 380, {0, 1}, "Gauges", "UV-57 Radar Altimeter (raw)")
 defineFloat("CLOCK_FLIGHT_H", 381, {0, 1}, "Gauges", "Clock Flight Time Hours")
 defineFloat("CLOCK_FLIGHT_M", 382, {0, 1}, "Gauges", "Clock Flight Time Minutes")
 defineFloat("CLOCK_H", 383, {0, 1}, "Gauges", "Clock Hours")
