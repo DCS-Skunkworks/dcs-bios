@@ -340,7 +340,7 @@ defineFloat("BARO_PRESSURE_UNITS", 88, {0, 1}, "Raw Gauge Values", "Baro Pressur
 defineFloat("BARO_PRESSURE_TENS", 90, {0, 1}, "Raw Gauge Values", "Baro Pressure 10s")
 defineFloat("BARO_PRESSURE_HUNDREDS", 92, {0, 1}, "Raw Gauge Values", "Baro Pressure 100s")
 defineFloat("BARO_PRESSURE_THOUSANDS", 95, {0, 1}, "Raw Gauge Values", "Baro Pressure 1000s")
-defineFloat("RADAR_ALTIMETER", 94, {0.0, 0.87}, "Raw Gauge Values", "Radar Altimeter")
+defineFloat("RADAR_ALTIMETER", 94, {0.0, 0.87}, "Raw Gauge Values", "Radar Altimeter (raw)")
 defineFloat("RADAR_ALTIMETER_BUG", 93, {0.0, 0.8693}, "Raw Gauge Values", "Radar Altimeter Bug")
 defineFloat("RADAR_ALT_FLAG_PENNE", 98, {0, 1}, "Raw Gauge Values", "Radar Altimeter Flag Panne")
 defineFloat("RADAR_ALT_FLAG_ON_OFF", 99, {0, 1}, "Raw Gauge Values", "Radar Altimeter Flag On/Off")
