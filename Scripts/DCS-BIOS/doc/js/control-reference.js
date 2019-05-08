@@ -84,6 +84,9 @@ $(function() {
 		"StringBuffer",
 		"ServoOutput",
 		"generic_integer_output",
+		"Matrix2Pos",
+		"Matrix3Pos",
+		"AnalogMultiPos",
 	];
 	
 	var augmentData = function() {
@@ -120,8 +123,14 @@ $(function() {
 				}
 				if (input.max_value == 1)
 					add_snippet("Switch2Pos");
+				if (input.max_value == 1)
+					add_snippet("Matrix2Pos");
 				if (input.max_value == 2)
 					add_snippet("Switch3Pos");
+				if (input.max_value == 2)
+					add_snippet("Matrix3Pos");
+				if (input.max_value <= 20)
+					add_snippet("AnalogMultiPos");
 				if (input.max_value == 65535)
 					add_snippet("Potentiometer");
 				break;
@@ -295,6 +304,26 @@ $(function() {
 			code.append($("<span>").text(");"));
 			break;
 			
+			case "Matrix2Pos":
+			code.append($("<span>").text('DcsBios::Matrix2Pos '+idCamelCase(cid)+'("'+cid+'", '));
+			code.append($("<i>").attr("style", "color: red;").text("ROW"));
+			code.append($("<span>").text(", "));
+			code.append($("<i>").attr("style", "color: red;").text("COL"));
+			code.append($("<span>").text(');'));
+			break
+			
+			case "Matrix3Pos":
+			code.append($("<span>").text('DcsBios::Matrix3Pos '+idCamelCase(cid)+'("'+cid+'", '));
+			code.append($("<i>").attr("style", "color: red;").text("ROW_A"));
+			code.append($("<span>").text(", "));
+			code.append($("<i>").attr("style", "color: red;").text("COL_A"));
+			code.append($("<span>").text(", "));
+			code.append($("<i>").attr("style", "color: red;").text("ROW_B"));
+			code.append($("<span>").text(", "));
+			code.append($("<i>").attr("style", "color: red;").text("COL_B"));			
+			code.append($("<span>").text(');'));
+			break;
+			
 			case "Switch3Pos":
 			code.append($("<span>").text('DcsBios::Switch3Pos '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_A"));
@@ -315,6 +344,16 @@ $(function() {
 			code.append($("<span>").text("};"));
 			code.append($("<br>"));
 			code.append($("<span>").text('DcsBios::SwitchMultiPos '+idCamelCase(cid)+'("'+cid+'", '+idCamelCase(cid+'_PINS')+', '+(io.max_value+1).toString()+');'));
+			break;
+			
+			case "AnalogMultiPos":
+			code.append($("<span>").text('DcsBios::AnalogMultiPos '+idCamelCase(cid)+'("'+cid+'", '));
+			code.append($("<i>").attr("style", "color: red;").text("PIN"));
+			code.append($("<span>").text(", "));
+			code.append($("<i>").attr("style", "color: red;").text("STEPS"));
+			code.append($("<span>").text(", "));
+			code.append($("<i>").attr("style", "color: red;").text("(RESOLUTION/STEPS)"));
+			code.append($("<span>").text(');'));
 			break;
 			
 			case "generic_integer_output":
