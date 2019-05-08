@@ -88,7 +88,6 @@ defineFloat("FRONT_KPP1273K_DEVBAR_CRS", 35, {-1.0, 1.0}, "Gauges","FRONT Artifi
 defineFloat("FRONT_KPP1273K_DEVBAR_ATL", 34, {-1.0, 1.0}, "Gauges","FRONT Artifical Horizont KPP Altitude Deviation Bar")
 defineFloat("FRONT_KPP1273K_BEACON_GLIDE", 36, {0, 1}, "Gauges","FRONT Artifical Horizont KPP Glide Beacon")
 defineFloat("FRONT_KPP1273K_BEACON_LOCAL", 37, {0, 1}, "Gauges","FRONT Artifical Horizont KPP Localizer Beacon")
-defineFloat("FRONT_KPP1273K_ARRETIR", 29, {0.0, 1.0}, "Gauges","FRONT Artifical Horizont KPP Arretir")
 defineFloat("FRONT_KPP1273K_SDU_ROLL", 32, {-1, 1}, "Gauges","FRONT Artifical Horizont KPP SDU Roll")
 defineFloat("FRONT_KPP1273K_SDU_PITCH", 33, {-1, 1}, "Gauges","FRONT Artifical Horizont KPP SDU Pitch ")
 defineFloat("BACK_KPP1273K_ROLL", 375, {-1, 1}, "Gauges","BACK Artifical Horizont KPP Roll")
@@ -98,7 +97,6 @@ defineFloat("BACK_KPP1273K_DEVBAR_CRS", 372, {-1.0, 1.0}, "Gauges","BACK Artific
 defineFloat("BACK_KPP1273K_DEVBAR_ATL", 371, {-1.0, 1.0}, "Gauges","BACK Artifical Horizont KPP Altitude Deviation Bar")
 defineFloat("BACK_KPP1273K_BEACON_GLIDE", 373, {0, 1}, "Gauges","BACK Artifical Horizont KPP Glide Beacon")
 defineFloat("BACK_KPP1273K_BEACON_LOCAL", 374, {0, 1}, "Gauges","BACK Artifical Horizont KPP Localizer Beacon")
-defineFloat("BACK_KPP1273K_ARRETIR", 366, {0.0, 1.0}, "Gauges","BACK Artifical Horizont KPP Arretir")
 defineFloat("BACK_KPP1273K_SDU_ROLL", 369, {-1, 1}, "Gauges","BACK Artifical Horizont KPP SDU Roll")
 defineFloat("BACK_KPP1273K_SDU_PITCH", 370, {-1, 1}, "Gauges","BACK Artifical Horizont KPP SDU Pitch ")
 
@@ -293,6 +291,8 @@ defineIndicatorLight("BACK_HYD_FAIL_LAMP", 346, "Warning, Caution and IndicatorL
 defineIndicatorLight("FRONT_MASTER_CAUTION_LAMP", 253, "Warning, Caution and IndicatorLights","FRONT Master Caution Lamp (red)")
 defineIndicatorLight("BACK_MASTER_CAUTION_LAMP", 455, "Warning, Caution and IndicatorLights","BACK Master Caution Lamp (red)")
 defineIndicatorLight("FRONT_RADIO_CONTROL_LAMP", 562, "Warning, Caution and IndicatorLights","FRONT Radio Control Lamp (white)")
+defineIndicatorLight("FRONT_KPP1273K_ARRETIR_L", 29 "Warning, Caution and IndicatorLights","FRONT Artifical Horizont KPP Arretir Lamp (red)")
+defineIndicatorLight("BACK_KPP1273K_ARRETIR_L", 366 "Warning, Caution and IndicatorLights","BACK Artifical Horizont KPP Arretir Lamp (red)")
 
 defineIndicatorLight("FRONT_RKL41_BACK_LIGHT", 563, "Warning, Caution and IndicatorLights","FRONT RKL-41 Back Panel Light")
 defineIndicatorLight("BACK_RKL41_BACK_LIGHT", 566, "Warning, Caution and IndicatorLights","BACK RKL-41 Back Panel Light")
@@ -347,10 +347,10 @@ definePushButton("BACK_KPP_ARRETIR", 23, 3002, 367,"KPP" , "BACK KPP-1273K ADI C
 definePotentiometer("BACK_KPP_SET", 23, 3003, 376, {-1.0, 1.0}, "KPP", "BACK KPP-1273K ADI Trim Knob")
 
 -- NPP
-definePotentiometer("FRONT_HSI_CRS", 24, 3001, 48, {0.0, 1.0}, "NPP", "FRONT HSI Course Set Knob")
+defineRotary("FRONT_HSI_CRS", 24, 3001, 48, "NPP", "FRONT HSI Course Set Knob")
 definePushButton("BACK_FAIL_CRS", 25, 3002, 526,"NPP" , "BACK Course Accordance")
 defineToggleSwitch("BACK_FAIL_GMK",  24,3002, 458,"NPP", "BACK GMK Failure")
-definePotentiometer("BACK_HSI_CRS", 25, 3001, 385, {0.0, 1.0}, "NPP", "BACK HSI Course Set Knob")
+defineRotary("BACK_HSI_CRS", 25, 3001, 385, "NPP", "BACK HSI Course Set Knob")
 
 --ISKRA
 defineTumb("FRONT_RSBN_MODE", 31, 3001, 178, 0.1, {0, 0.2}, nil, false, "ISKRA", "FRONT RSBN Mode Switch, LANDING/NAVIGATION/GLIDE PATH")

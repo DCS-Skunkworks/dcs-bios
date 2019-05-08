@@ -95,10 +95,10 @@ definePotentiometer("BACK_LIGHTS_INSTR", 3, 3419, 250, {0, 1}, "Cockpit Lighting
 
 -- EXTERNAL LIGHTING
 defineToggleSwitch("FRONT_LIGHTS_ANTI_COL", 3, 3106, 366, "External Lights", "FRONT Anti-Collision Becon Switch")
-defineTumb("FRONT_LIGHTS_NAV", 3, 3107, 368, 3, {0, 1}, nil, false, "External Lights", "FRONT Navigation Lights Switch")
-defineTumb("FRONT_LIGHTS_FOR", 3, 3108, 367, 3, {0, 1}, nil, false, "External Lights", "FRONT Formation Lights Switch")
-defineTumb("FRONT_LIGHTS_TAXI_L", 3, 3109, 329, 3, {0, 1}, nil, false, "External Lights", "FRONT Left Taxi/Landing Lights Switch")
-defineTumb("FRONT_LIGHTS_TAXI_R", 3, 3110, 330, 3, {0, 1}, nil, false, "External Lights", "FRONT Right Taxi/Landing Lights Switch")
+defineTumb("FRONT_LIGHTS_NAV", 3, 3107, 368, 0.5, {0, 1}, nil, false, "External Lights", "FRONT Navigation Lights Switch, DIM/OFF/BRIGHT")
+defineTumb("FRONT_LIGHTS_FOR", 3, 3108, 367, 0.5, {0, 1}, nil, false, "External Lights", "FRONT Formation Lights Switch, DIM/OFF/BRIGHT")
+defineTumb("FRONT_LIGHTS_TAXI_L", 3, 3109, 329, 0.5, {0, 1}, nil, false, "External Lights", "FRONT Left Taxi/Landing Lights Switch, RETRACT/TAXI/LAND")
+defineTumb("FRONT_LIGHTS_TAXI_R", 3, 3110, 330, 0.5, {0, 1}, nil, false, "External Lights", "FRONT Right Taxi/Landing Lights Switch, RETRACT/TAXI/LAND")
 defineToggleSwitch("BACK_LIGHTS_PRIO_TAXI_L", 3, 3420, 941, "External Lights", "BACK Left Taxi/Landing Lights Forward Cockpit Priority")
 defineToggleSwitch("BACK_LIGHTS_PRIO_TAXI_R", 3, 3421, 942, "External Lights", "BACK Right Taxi/Landing Lights Forward Cockpit Priority")
 
@@ -604,7 +604,7 @@ defineToggleSwitch("CC_BACK_CB_STALL_WARN", 2,3548,903, "CB Panel", "C-101CC BAC
 definePotentiometer("CC_FRONT_AOA_IND_KNB", 2,3345,290, {0, 1}, "Misc", "C-101CC FRONT AOA Indicator Knob")
 definePushButton("CC_FRONT_EMERG_FUEL_VALVE", 2,3352,715, "Misc", "C-101CC FRONT Emergency Fuel Valve")
 defineToggleSwitch("CC_FRONT_EMERG_FUEL_Cover", 2,3351,716, "Misc", "C-101CC FRONT Emergency Fuel Cover")
-defineMultipositionSwitch("CC_FRONT_EMERG_FUEL_LEVER", 2,3354,726,8,0.1,"Misc" ,"C-101CC FRONT Emergency Fuel Lever")
+defineMultipositionSwitch("CC_FRONT_EMERG_FUEL_LEVER", 2,3354,726,9,0.1,"Misc" ,"C-101CC FRONT Emergency Fuel Lever")
 definePushButton("CC_FRONT_TELEBRIEFING_BTN", 2, 3320, 718, "Misc", "C-101CC FRONT Telebriefing Button")
 definePotentiometer("CC_FRONT_TELEBRIEFING_KNB", 2, 3554, 849, {0, 1}, "Misc", "C-101CC FRONT Telebriefing Knob")
 
