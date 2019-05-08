@@ -291,8 +291,8 @@ defineIndicatorLight("BACK_HYD_FAIL_LAMP", 346, "Warning, Caution and IndicatorL
 defineIndicatorLight("FRONT_MASTER_CAUTION_LAMP", 253, "Warning, Caution and IndicatorLights","FRONT Master Caution Lamp (red)")
 defineIndicatorLight("BACK_MASTER_CAUTION_LAMP", 455, "Warning, Caution and IndicatorLights","BACK Master Caution Lamp (red)")
 defineIndicatorLight("FRONT_RADIO_CONTROL_LAMP", 562, "Warning, Caution and IndicatorLights","FRONT Radio Control Lamp (white)")
-defineIndicatorLight("FRONT_KPP1273K_ARRETIR_L", 29 "Warning, Caution and IndicatorLights","FRONT Artifical Horizont KPP Arretir Lamp (red)")
-defineIndicatorLight("BACK_KPP1273K_ARRETIR_L", 366 "Warning, Caution and IndicatorLights","BACK Artifical Horizont KPP Arretir Lamp (red)")
+defineIndicatorLight("FRONT_KPP1273K_ARRETIR_L", 29, "Warning, Caution and IndicatorLights","FRONT Artifical Horizont KPP Arretir Lamp (red)")
+defineIndicatorLight("BACK_KPP1273K_ARRETIR_L", 366, "Warning, Caution and IndicatorLights","BACK Artifical Horizont KPP Arretir Lamp (red)")
 
 defineIndicatorLight("FRONT_RKL41_BACK_LIGHT", 563, "Warning, Caution and IndicatorLights","FRONT RKL-41 Back Panel Light")
 defineIndicatorLight("BACK_RKL41_BACK_LIGHT", 566, "Warning, Caution and IndicatorLights","BACK RKL-41 Back Panel Light")
