@@ -179,6 +179,8 @@ defineFloat("BACK_ENG_TEMP", 426, {0, 1}, "Gauges","BACK Engine Temperature")
 defineFloat("BACK_OIL_TEMP", 423, {0.0, 0.323, 0.576, 0.817, 1.0}, "Gauges","BACK Oil Temperature")
 defineFloat("BACK_OIL_PRESS", 422, {0.0, 0.077, 1.0}, "Gauges","BACK Oil Pressure")
 
+defineFloat("FRONT_HELMET_OXY_PRESS", 300, {0.0, 1.0}, "Gauges","FRONT Helmet Oxygen Pressure Indicator")
+
 defineFloat("FRONT_BRAKE_HANDLE", 127, {0.0, 1.0}, "Gauges","FRONT Brake Handle")
 defineFloat("BACK_BRAKE_HANDLE", 542, {0.0, 1.0}, "Gauges","BACK Brake Handle")
 
@@ -293,7 +295,7 @@ defineIndicatorLight("BACK_MASTER_CAUTION_LAMP", 455, "Warning, Caution and Indi
 defineIndicatorLight("FRONT_RADIO_CONTROL_LAMP", 562, "Warning, Caution and IndicatorLights","FRONT Radio Control Lamp (white)")
 defineIndicatorLight("FRONT_KPP1273K_ARRETIR_L", 29, "Warning, Caution and IndicatorLights","FRONT Artifical Horizont KPP Arretir Lamp (red)")
 defineIndicatorLight("BACK_KPP1273K_ARRETIR_L", 366, "Warning, Caution and IndicatorLights","BACK Artifical Horizont KPP Arretir Lamp (red)")
-
+defineIndicatorLight("FRONT_SARPP_LAMP", 299, "Warning, Caution and IndicatorLights","FRONT SARPP Indicator Lamp (green)")
 defineIndicatorLight("FRONT_RKL41_BACK_LIGHT", 563, "Warning, Caution and IndicatorLights","FRONT RKL-41 Back Panel Light")
 defineIndicatorLight("BACK_RKL41_BACK_LIGHT", 566, "Warning, Caution and IndicatorLights","BACK RKL-41 Back Panel Light")
 
