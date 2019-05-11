@@ -82,7 +82,15 @@ defineRotary("OXY_EMERG_VALVE", 6, 3075, 75,"Oxygen", "Oxygen Emergency Valve")
 defineRotary("OXY_OFF_VALVE", 6, 3076, 76,"Oxygen", "Oxygen Shutoff Valve")
 
 -- Gauges 
---defineFloat("ARK5_FREQ_SCALE", 354, {-1, 1}, "Gauges", "ARK5 Frequency Scale")
+defineFloat("CLOCK_H", 1, {0, 1}, "Gauges", "Clock Hours")
+defineFloat("CLOCK_M", 2, {0, 1}, "Gauges", "Clock Minutes")
+defineFloat("CLOCK_S", 3, {0, 1}, "Gauges", "Clock Seconds")
+defineFloat("ENG_RPM_G", 4, {0, 1}, "Gauges", "Engine RPM Gauge")
+defineFloat("AIRSPEED", 5, {0, 1}, "Gauges", "Airspeed Indicator")
+defineFloat("COMP_CRS", 6, {0, 1}, "Gauges", "Compass Course")
+defineFloat("COMP_BANK", 7, {0, 1}, "Gauges", "Compass Bank")
+defineFloat("COMP_PITCH", 8, {0, 1}, "Gauges", "Compass Pitch")
+defineFloat("ALT_METER", 9, {0, 1}, "Gauges", "Altimeter")
 
 -- Warning, Caution and IndicatorLights
 --defineIndicatorLight("IFF_SELFDESTRUCT_LAMP", 205, "Warning, Caution and IndicatorLights","SRO-2 Self-destruction Lamp (red)")
