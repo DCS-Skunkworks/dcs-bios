@@ -8,7 +8,7 @@ docdata["CommonData"] =
                                         "identifier": "ALT_MSL_FT",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                              "address": 1032,
+                                                              "address": 1048,
                                                           "description": "Altitude MSL (ft)",
                                                                  "mask": 65535,
                                                             "max_value": 65535,
@@ -26,7 +26,7 @@ docdata["CommonData"] =
                                           "identifier": "HDG_DEG",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1034,
+                                                                "address": 1050,
                                                             "description": "Heading (Degrees)",
                                                                    "mask": 511,
                                                               "max_value": 360,
@@ -42,7 +42,7 @@ docdata["CommonData"] =
                                           "identifier": "HDG_DEG_FRAC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1034,
+                                                                "address": 1050,
                                                             "description": "Heading (Fractional Degrees, divide by 127)",
                                                                    "mask": 65024,
                                                               "max_value": 127,
@@ -60,7 +60,7 @@ docdata["CommonData"] =
                                           "identifier": "LAT_DEG",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1024,
+                                                                "address": 1040,
                                                             "description": "Latitude Degrees",
                                                                    "mask": 63,
                                                               "max_value": 59,
@@ -76,7 +76,7 @@ docdata["CommonData"] =
                                           "identifier": "LAT_SEC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1024,
+                                                                "address": 1040,
                                                             "description": "Latitude Seconds",
                                                                    "mask": 4032,
                                                               "max_value": 59,
@@ -92,7 +92,7 @@ docdata["CommonData"] =
                                           "identifier": "LAT_SEC_FRAC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1026,
+                                                                "address": 1042,
                                                             "description": "Latitude Fractional Seconds (divide by 65535)",
                                                                    "mask": 65535,
                                                               "max_value": 65535,
@@ -108,7 +108,7 @@ docdata["CommonData"] =
                                           "identifier": "LON_DEG",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1028,
+                                                                "address": 1044,
                                                             "description": "Longitude Degrees",
                                                                    "mask": 63,
                                                               "max_value": 59,
@@ -124,7 +124,7 @@ docdata["CommonData"] =
                                           "identifier": "LON_SEC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1028,
+                                                                "address": 1044,
                                                             "description": "Longitude Seconds",
                                                                    "mask": 4032,
                                                               "max_value": 59,
@@ -140,7 +140,7 @@ docdata["CommonData"] =
                                           "identifier": "LON_SEC_FRAC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1030,
+                                                                "address": 1046,
                                                             "description": "Longitude Fractional Seconds (divide by 65535)",
                                                                    "mask": 65535,
                                                               "max_value": 65535,
@@ -149,5 +149,21 @@ docdata["CommonData"] =
                                                                    "type": "integer"
                                                         } ]
                                     }
+                },
+      "String": {
+                    "_PILOTNAME": {
+                                          "category": "String",
+                                      "control_type": "display",
+                                       "description": "Pilot Name",
+                                        "identifier": "_PILOTNAME",
+                                            "inputs": [  ],
+                                           "outputs": [ {
+                                                              "address": 1024,
+                                                          "description": "Pilot Name",
+                                                           "max_length": 16,
+                                                               "suffix": "",
+                                                                 "type": "string"
+                                                      } ]
+                                  }
                 }
 };
