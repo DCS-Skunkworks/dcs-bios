@@ -6,7 +6,6 @@ local defineFloatFromGetter = BIOS.util.defineFloatFromGetter
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineString = BIOS.util.defineString
 
-local _pilot = " -------------- "
 local _altitude = " -- "
 local _altitudeG = " ---- "
 local _altitudeS = " ---- "
@@ -95,7 +94,6 @@ local function allowTAS(plane)
 end
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	_pilot = LoGetPilotName()
 	local self = LoGetSelfData()
 	local plane = LoGetSelfPlane()
 
@@ -209,7 +207,6 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	_adiPitch, _adiBank, _adiYaw = LoGetADIPitchBankYaw()
 end
 
-defineString("_PILOTNAME", function() return _pilot .. string.char(0) end, 16, "String", "Pilot Name")
 defineString("FC3_ALTITUDE", function() return _altitude .. string.char(0) end, 4, "Altitude", "Altitude")
 defineString("FC3_ALTITUDE_GROUND", function() return _altitudeG .. string.char(0) end, 6, "Altitude", "Altitude above Ground")
 defineString("FC3_ALTITUDE_SEA", function() return _altitudeS .. string.char(0) end, 6, "Altitude", "Altitude above Sea Level")
