@@ -157,6 +157,10 @@ $(function() {
 					add_snippet("ServoOutput");
 				break;
 
+			case "float":
+				add_snippet("FloatBuffer");
+				break;
+
 			case "string":
 				add_snippet("StringBuffer");
 				break;
@@ -394,6 +398,12 @@ $(function() {
 			code.append($("<span>").text("DcsBios::StringBuffer<"+io.max_length.toString()+"> "+idCamelCase(cid+io.suffix+"_BUFFER")+'('+hex(io.address)+', '+idCamelCase("ON_"+cid+"_CHANGE")+');'));
 			break;
 			
+			case "FloatBuffer":
+			var ending = "";
+			if(io.max_value == 255) ending = ", true"
+			code.append($("<span>").text("DcsBios::FloatBuffer "+idCamelCase(cid+io.suffix+"_BUFFER")+'('+hex(io.address)+', '+hex(io.mask)+', '+io.shift_by.toString()+', '+io.value_range[0].toFixed()+', '+io.value_range[1]+ending+');'));
+			break;
+
 		}
 		return code;
 	};
