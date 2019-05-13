@@ -12,6 +12,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	-- skip  this data if ownship export is disabled
 	if not LoIsOwnshipExportAllowed() then return end
 
+    _pilot = LoGetPilotName()
 	local selfData = LoGetSelfData()
 	if selfData.LatLongAlt == nil then return end
 	altFt = selfData.LatLongAlt.Alt / 0.3048
@@ -38,6 +39,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		hdgDegFrac = hdgDegValue - hdgDeg
 	end
 end
+defineString("_PILOTNAME", function() return _pilot .. string.char(0) end, 16, "String", "Pilot Name")
 
 defineIntegerFromGetter("LAT_DEG", function() return latDeg end, 59, "Position", "Latitude Degrees")
 defineIntegerFromGetter("LAT_SEC", function() return latSec end, 59, "Position", "Latitude Seconds")
