@@ -32,6 +32,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 * F-5E-3 (contributed by geebeer2, extended by BlackLibrary)
 * F-86F (contributed by ArturDCS)
 * F/A-18C (contributed by AndrewW)
+* FC3 (contributed by danvac, extended by BlackLibrary)
 * FW-190 (contributed by ArturDCS)
 * I-16 (contributed by BlackLibrary,NightStalker)
 * Ka-50 (contributed by airtom)
