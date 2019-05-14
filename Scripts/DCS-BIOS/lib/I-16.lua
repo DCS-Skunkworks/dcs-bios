@@ -14,10 +14,7 @@ local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local defineString = BIOS.util.defineString
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
-local define3PosTumb = BIOS.util.define3PosTumb
-local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- ELECTRIC
 defineToggleSwitch("CLOCK_HEAT",  5,3023, 23,"Electric", "Clock Heat")
