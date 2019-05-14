@@ -1,4 +1,4 @@
-BIOS.protocol.beginModule("FC3", 0x2600)
+BIOS.protocol.beginModule("FC3", 0x6000)
 BIOS.protocol.setExportModuleAircrafts(BIOS.FLAMING_CLIFFS_AIRCRAFT)
 
 local define8BitFloatFromGetter = BIOS.util.define8BitFloatFromGetter
@@ -205,18 +205,38 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	else _verticalVelocity = string.format("%4.1f", vvi) end
 
 	_adiPitch, _adiBank, _adiYaw = LoGetADIPitchBankYaw()
+	
+	_RPMLeft = LoGetEngineInfo().RPM.left
+	_RPMRight = LoGetEngineInfo().RPM.right
+	_TEMPLeft = LoGetEngineInfo().Temperature.left
+	_TEMPRight = LoGetEngineInfo().Temperature.right
+	
+	_GearStatus = LoGetMechInfo().gear.value
+	
+	_chaff = LoGetSnares().chaff
+	_flare = LoGetSnares().flare
 end
 
-defineString("FC3_ALTITUDE", function() return _altitude .. string.char(0) end, 4, "Altitude", "Altitude")
+defineString("FC3_ALTITUDE", function() return _altitude .. string.char(0) end, 6, "Altitude", "Altitude")
 defineString("FC3_ALTITUDE_GROUND", function() return _altitudeG .. string.char(0) end, 6, "Altitude", "Altitude above Ground")
 defineString("FC3_ALTITUDE_SEA", function() return _altitudeS .. string.char(0) end, 6, "Altitude", "Altitude above Sea Level")
 defineString("FC3_ANGLE_OF_ATTACK", function() return _AoA .. string.char(0) end, 4, "String", "Angle of Attack")
-defineString("FC3_FUEL_ALL", function() return _fuel .. string.char(0) end, 4, "String", "Fuel Remaining")
+defineString("FC3_FUEL_ALL", function() return _fuel .. string.char(0) end, 5, "String", "Fuel Remaining")
 defineString("FC3_G_LOAD", function() return _gLoad .. string.char(0) end, 4, "String", "G Load")
 defineString("FC3_INDICATED_AIRSPEED", function() return _indicatedAirspeed .. string.char(0) end, 4, "Speed", "Indicated Airspeed")
 defineString("FC3_MACH_NUMBER", function() return _machNumber .. string.char(0) end, 4, "Speed", "Mach Number")
 defineString("FC3_TRUE_AIRSPEED", function() return _trueAirspeed .. string.char(0) end, 4, "Speed", "True Airspeed")
 defineString("FC3_VERTICAL_VELOCITY", function() return _verticalVelocity .. string.char(0) end, 4, "Speed", "Vertical Velocity")
+
+defineString("FC3_RPM_L", function() return _RPMLeft .. string.char(0) end, 3, "Engine", "RPM Left Engine")
+defineString("FC3_RPM_R", function() return _RPMRight .. string.char(0) end, 3, "Engine", "RPM Left Engine")
+defineString("FC3_TEMP_L", function() return _TEMPLeft .. string.char(0) end, 3, "Engine", "Temperature Left Engine")
+defineString("FC3_TEMP_R", function() return _TEMPRight .. string.char(0) end, 3, "Engine", "Temperature Left Engine")
+
+defineString("FC3_GEAR", function() return _GearStatus .. string.char(0) end, 1, "Mechanical", "Gear Status")
+
+defineString("FC3_CHAFF", function() return _chaff .. string.char(0) end, 3, "Countermeasures", "Chaff Counter")
+defineString("FC3_FLARE", function() return _flare .. string.char(0) end, 3, "Countermeasures", "Flare Counter")
 
 defineIntegerFromGetter("FC3_RADAR_ALTITUDE", function() return _radarAltitude end, 1, "Altitude", "Radar Altitude")
 defineIntegerFromGetter("FC3_FUEL_BAR", function() return _barFuel end, 16, "Bar", "Fuel Bar")
