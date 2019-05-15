@@ -44,6 +44,7 @@ a("Yak-52", true)
 --FC3
 a("A-10A", false)
 a("F-15C", false)
+a("F-16A", false)
 a("J-11A", false)
 a("MiG-29A", false)
 a("MiG-29G", false)
