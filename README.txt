@@ -42,7 +42,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 * Mi-8 (contributed by ArturDCS)
 * MiG-15bis (contributed by BlackLibrary,Steve Gee)
 * MiG-21Bis (contributed by wraith444)
-* NS430 (contributed by Capt_Zeen, extended by Imp)
+* NS430 (contributed by Capt_Zeen, extended by Imp, revised by Celemourn)
 * P-51D (contributed by pdmarsh)
 * Spitfire
 * SA 342 (all Versions) (use SA342M for All Versions)
