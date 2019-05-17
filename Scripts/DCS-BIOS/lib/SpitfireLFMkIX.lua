@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("SpitfireLFMkIX", 0x5400)
-BIOS.protocol.setExportModuleAircrafts({"SpitfireLFMkIX"})
+BIOS.protocol.setExportModuleAircrafts({"SpitfireLFMkIX", "SpitfireLFMkIXCW"})
 
 local documentation = moduleBeingDefined.documentation
 

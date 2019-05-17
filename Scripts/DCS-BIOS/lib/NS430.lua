@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("NS430", 0x8000)
-BIOS.protocol.setExportModuleAircrafts({"Mi-8MT", "L-39ZA"})
+BIOS.protocol.setExportModuleAircrafts({"Mi-8MT", "L-39ZA", "L-39C", "UH-1H", "P-51D", "TF-51D", "MiG-21Bis", "F-86F Sabre"}, BIOS.FLAMING_CLIFFS_AIRCRAFT)
 
 local documentation = moduleBeingDefined.documentation
 
@@ -7,21 +7,8 @@ local document = BIOS.util.document
 
 local parse_indication = BIOS.util.parse_indication
 
-local defineFloat = BIOS.util.defineFloat
-local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
-local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
-local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
-local defineTumb = BIOS.util.defineTumb
-local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local defineToggleSwitchToggleOnly = BIOS.util.defineToggleSwitchToggleOnly
-local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
-local defineFixedStepInput = BIOS.util.defineFixedStepInput
-local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
-local defineString = BIOS.util.defineString
-local defineRockerSwitch = BIOS.util.defineRockerSwitch
-local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 
 --NS430 added by Capt Zeen------------------------------------------------------------------------------
 definePushButton("NS430_PWR-VOL_PUSH_SQ_POW", 257, 3001, 1, "NS430", "PWR-VOL_PUSH-SQ COM Power")
