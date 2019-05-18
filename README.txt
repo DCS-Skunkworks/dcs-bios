@@ -58,7 +58,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
   Use always the latest version of the Mods!
   
   For DCS Flightpanels: 
-  FC3 are only supported with Keyemulator. But some Exports can made as Strings (own lua) and Commondata
+  FC3 are only supported with Keyemulator. But some Exports can made as Strings (FC3.lua) and CommonData 
 
 If you want to add support for another module, please get in touch.
 
