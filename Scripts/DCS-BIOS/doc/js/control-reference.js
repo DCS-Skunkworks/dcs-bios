@@ -578,7 +578,6 @@ $(function() {
 			}
 		}
 		
-		
 		return div;
 	};
 	
