@@ -55,6 +55,8 @@ a("Su-25", false)
 a("Su-25T", false)
 a("Su-27", false)
 a("Su-33", false)
+--Combined Arms (CA)
+a("NONE", false)
 --MODs
 a("A-4E-C", true)
 a("Bell47_2", true)

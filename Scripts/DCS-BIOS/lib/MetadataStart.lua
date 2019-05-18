@@ -12,6 +12,6 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 moduleBeingDefined.data = {}
 local data = moduleBeingDefined.data
 
-defineString("_ACFT_NAME", function() return data.acftName .. string.char(0) end, 25, "Metadata", "Aircraft Name (or NONE), null-terminated")
+defineString("_ACFT_NAME", function() return data.acftName .. string.char(0) end, 24, "Metadata", "Aircraft Name (or NONE), null-terminated")
 
 BIOS.protocol.endModule()

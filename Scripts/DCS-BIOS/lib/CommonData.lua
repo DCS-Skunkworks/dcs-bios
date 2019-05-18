@@ -40,7 +40,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		hdgDegFrac = hdgDegValue - hdgDeg
 	end
 end
-defineString("PILOTNAME", function() return _pilot .. string.char(0) end, 16, "String", "Pilot Name")
+defineString("PILOTNAME", function() return _pilot .. string.char(0) end, 24, "String", "Pilot Name")
 
 defineIntegerFromGetter("LAT_DEG", function() return latDeg end, 59, "Position", "Latitude Degrees")
 defineIntegerFromGetter("LAT_SEC", function() return latSec end, 59, "Position", "Latitude Seconds")
