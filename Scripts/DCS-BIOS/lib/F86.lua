@@ -250,7 +250,7 @@ defineFloat("ATTITUDEINDICATORBANK", 606, {1.0, -1.0}, "Indicator", "AttitudeInd
 defineFloat("ATTITUDEINDICATORPITCHSPHERE", 81, {-1.0, 1.0}, "Indicator", "AttitudeIndicatorPitchSphere")
 defineFloat("ATTITUDEINDICATORBANKNEEDLE", 1005, {1.0, -1.0}, "Indicator", "AttitudeIndicatorBankNeedle")
 defineFloat("ATTITUDEINDICATORPITCHSHIFT", 214, {-1.0, 1.0}, "Indicator", "AttitudeIndicatorPitchShift")
-defineFloat("ENGINETACHOMETER", 16, {0.0, 1.0}, "Indicator", "EngineTachometer")
+defineFloat("ENGINETACHOMETER", 16, {0.0, 1.0}, "Indicator", "Engine Tachometer")
 defineFloat("ENGINEEXHAUSTTEMPERATURE", 12, {0.0, 1.0}, "Indicator", "EngineExhaustTemperature")
 defineFloat("ENGINEOILPRESSURE", 112, {0.023, 1.0}, "Indicator", "EngineOilPressure")
 defineFloat("ENGINEFUELFLOW", 531, {0.0, 1.0}, "Indicator", "EngineFuelFlow")
