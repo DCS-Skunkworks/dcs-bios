@@ -317,7 +317,7 @@ end
 function BIOS.util.define3PosTumb(msg, device_id, command, arg_number, category, description)
 	BIOS.util.defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
 	local docentry = moduleBeingDefined.documentation[category][msg]
-	docentry.physical_variant = "3 Position Switch"
+	docentry.physical_variant = "3_position_switch"
 end
 
 function BIOS.util.definePotentiometer(msg, device_id, command, arg_number, limits, category, description)
@@ -981,4 +981,77 @@ function BIOS.util.define8BitFloatFromGetter(msg, getter, limits, category, desc
 			}
 		}
 	}
+end
+
+function BIOS.util.defineDoubleCommandButton(msg, device_id, start_command, stop_command, arg_number, category, description)	
+	BIOS.util.defineTumb(msg, device_id, device_command, arg_number, 1, {0, 1}, nil, false, category, description)
+	local docentry = moduleBeingDefined.documentation[category][msg]
+	docentry.physical_variant = "push_button"
+	moduleBeingDefined.inputProcessors[msg] = function(toState)
+		local dev = GetDevice(device_id)
+		if toState == "1" then
+			dev:performClickableAction(start_command, 1)
+		end
+		if toState == "0" then
+			dev:performClickableAction(stop_command, 1)
+		end
+	end
+end
+
+function BIOS.util.defineMomentaryRockerSwitch(msg, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)	
+	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		local lut = {["-1"] = "0", ["0"] = "1", ["1"] = "2"}
+		alloc:setValue(lut[string.format("%.0f", dev0:get_argument_value(arg_number))])
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "selector",
+		momentary_positions = "first_and_last",
+		physical_variant = "rocker_switch_momentary",
+		inputs = {
+			{ interface = "set_state", max_value = 2, description = "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up" },
+		},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = alloc.address,
+			  mask = alloc.mask,
+			  shift_by = alloc.shiftBy,
+			  max_value = 2,
+			  description = "selector position"
+			}
+		}
+	}
+	moduleBeingDefined.inputProcessors[msg] = function(toState)
+		if toState == "0" then
+			toState = -1
+		elseif toState == "1" then
+			toState = 0
+		elseif toState == "2" then
+			toState = 1
+		else
+			return
+		end
+		local fromState = GetDevice(0):get_argument_value(arg_number)
+		local dev = GetDevice(device_id)
+		if --[[fromState == 1 and --]] toState == 0 then
+			dev:performClickableAction(pos_stop_command, 1)
+			dev:performClickableAction(pos_stop_command, 0)
+			dev:performClickableAction(neg_stop_command, 1)
+			dev:performClickableAction(neg_stop_command, 0)
+		end
+		if --[[fromState == -1 and--]] toState == 1 then
+			dev:performClickableAction(neg_stop_command, 1)
+			dev:performClickableAction(neg_stop_command, 0)
+			dev:performClickableAction(pos_command, 1)
+		end
+		if --[[fromState == 1 and--]] toState == -1 then
+			dev:performClickableAction(pos_stop_command, 1)
+			dev:performClickableAction(pos_stop_command, 0)
+			dev:performClickableAction(neg_command, -1)
+		end
+	end
 end

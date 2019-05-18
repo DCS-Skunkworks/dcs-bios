@@ -40,8 +40,8 @@ definePushButton("RADIO_TEST", 5, 3062, 365,"Radio" , "Radio Test (Pull)")
 defineTumb("MAGNETS", 6, 3100, 350, 0.25, {0.0, 1.0}, nil, false, "Engine", "Magnets, OFF/RIGHT/LEFT/BOTH/START")
 defineToggleSwitch("FUEL_VAL", 6, 3001, 349,"Engine" , "Fuel Valve")
 defineToggleSwitch("FUEL_PUMP", 6, 3038, 356,"Engine" , "Fuel Pump")
-definePotentiometer("MIXTURE", 6, 3058, 357, {0, 1},"Engine" , "Mixture")
-definePotentiometer("PROP_PITCH", 6, 3057, 358, {0, 1},"Engine" , "Propeller")
+defineRotary("MIXTURE", 6, 3058, 357,"Engine" , "Mixture")
+defineRotary("PROP_PITCH", 6, 3057, 358,"Engine" , "Propeller")
 
 --Electric
 defineToggleSwitch("BATTERY", 7, 3033, 351,"Electric" , "Battery Switch")
@@ -61,15 +61,15 @@ definePushButton("FUEL_IND_FRONT", 14, 3071, 378,"Fuel Gauge" , "Fuel Indicator 
 definePushButton("FUEL_IND_REAR", 14, 3072, 384,"Fuel Gauge" , "Fuel Indicator mode Rear cockpit (F / U")
 
 --Canopy
---definePushButton("CANOPY_OPEN_REAR", 15, 3083, 400,"Canopy" , "Canopy Lever Open (Rear)")
---definePushButton("CANOPY_CLOSE_REAR", 15, 3081, 403,"Canopy" , "Canopy Lever Close (Rear)")
---definePushButton("CANOPY_OPEN_FRONT", 15, 3088, 400,"Canopy" , "Canopy Lever Open (Front)")
---definePushButton("CANOPY_CLOSE_FRONT", 15, 3089, 403,"Canopy" , "Canopy Lever Close (Front)")
---definePushButton("CANOPY_LOCK_REAR", 15, 3084, 401,"Canopy" , "Canopy Lock (Rear)")
---definePushButton("CANOPY_UNLOCK_REAR", 15, 3085, 401,"Canopy" , "Canopy Unlock (Rear)")
---definePushButton("CANOPY_LOCK_FRONT", 15, 3086, 401,"Canopy" , "Canopy Lock (Front)")
---definePushButton("CANOPY_UNLOCK_FRONT", 15, 3087, 401,"Canopy" , "Canopy Unlock (Front)")
---definePushButton("CANOPY_JETT", 15, 3090, 402,"Canopy" , "Canopy Jettison (Rear)")
+definePushButton("CANOPY_OPEN_REAR", 15, 3083, 400,"Canopy" , "Canopy Lever Open (Rear)")
+definePushButton("CANOPY_CLOSE_REAR", 15, 3081, 403,"Canopy" , "Canopy Lever Close (Rear)")
+definePushButton("CANOPY_OPEN_FRONT", 15, 3088, 400,"Canopy" , "Canopy Lever Open (Front)")
+definePushButton("CANOPY_CLOSE_FRONT", 15, 3089, 403,"Canopy" , "Canopy Lever Close (Front)")
+definePushButton("CANOPY_LOCK_REAR", 15, 3084, 401,"Canopy" , "Canopy Lock (Rear)")
+definePushButton("CANOPY_UNLOCK_REAR", 15, 3085, 401,"Canopy" , "Canopy Unlock (Rear)")
+definePushButton("CANOPY_LOCK_FRONT", 15, 3086, 401,"Canopy" , "Canopy Lock (Front)")
+definePushButton("CANOPY_UNLOCK_FRONT", 15, 3087, 401,"Canopy" , "Canopy Unlock (Front)")
+definePushButton("CANOPY_JETT", 15, 3090, 402,"Canopy" , "Canopy Jettison (Rear)")
 
 --Gauges
 defineFloat("IAS_NEEDLE", 301, {0.0, 0.035, 0.063, 0.095, 0.175, 0.220, 0.270, 0.316, 0.376, 0.429, 0.481, 0.538, 0.587, 0.636, 0.690, 0.737, 0.783, 0.829, 0.866, 0.895, 0.925, 0.959}, "Gauges", "IAS Needle")
