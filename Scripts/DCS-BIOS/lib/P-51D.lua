@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("P-51D", 0x5000)
-BIOS.protocol.setExportModuleAircrafts({"P-51D", "TF-51D"})
+BIOS.protocol.setExportModuleAircrafts({"P-51D", "TF-51D", "P-51D-30-NA"})
 
 local documentation = moduleBeingDefined.documentation
 
@@ -177,6 +177,19 @@ defineFloat("SLIPBALL", 28, {-1.0, 1.0}, "Turn Indicator", "Slipball")
 defineFloat("FUEL_TANK_LEFT", 155, {0.0, 1.0}, "Fuel System", "Fuel Tank Left")
 defineFloat("FUEL_TANK_RIGHT", 156, {0.0, 1.0}, "Fuel System", "Fuel Tank Right")
 defineFloat("FUEL_TANK_FUSELAGE", 160, {0.0, 1.0}, "Fuel System", "Fuel Tank Fuselage")
+
+--Externals
+defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
+end, 65535, "External Aircraft Model", "Formation Lights")
+
+
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light (red)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light (green)")
 
 --[[--Gauge Values--]]--
 

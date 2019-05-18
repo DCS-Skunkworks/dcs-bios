@@ -18,6 +18,7 @@ local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 local defineString = BIOS.util.defineString
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 
 
@@ -856,6 +857,15 @@ definePotentiometer("LIGHT_AUX_BRIGHTNESS", 51, 3008, 507, {0, 1}, "Lighting Bri
 definePotentiometer("LIGHT_COCKPIT_BRIGHTNESS", 51, 3002, 593, {0, 1}, "Lighting Brightness Control Panel", "Lighting cockpit panel brightness knob")
 definePotentiometer("LIGHT_HSI_ADI_BRIGHTNESS", 51, 3004, 508, {0, 1}, "Lighting Brightness Control Panel", "Lighting HSI and ADI brightness knob")
 
-
+--Externals
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light (red)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light (green)")
+defineIntegerFromGetter("EXT_STROBE", function()
+	if LoGetAircraftDrawArgumentValue(193) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Strobe Light")
 
 BIOS.protocol.endModule()

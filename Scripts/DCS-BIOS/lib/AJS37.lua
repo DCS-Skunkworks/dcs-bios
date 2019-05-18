@@ -308,6 +308,30 @@ local function getCICMDHDG()
 end
 defineIntegerFromGetter("CI_COMMAND_HEADING_VALUE", getCICMDHDG, 65000, "Gauge Values", "CI Commanded Heading Value")
 
+--Externals
+defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(184)*65535)
+end, 65535, "External Aircraft Model", "Right Speed Brake")
+defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(186)*65535)
+end, 65535, "External Aircraft Model", "Left Speed Brake")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Position Lights")
+defineIntegerFromGetter("EXT_NAV_LIGHTS_WING", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Navigation Lights Wing")
+defineIntegerFromGetter("EXT_NAV_LIGHTS_TAIL", function()
+	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Navigation Lights Tail")
+
+defineIntegerFromGetter("EXT_STROBE_LIGHTS", function()
+	if LoGetAircraftDrawArgumentValue(811) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Strobe Lights")
+defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
+	if LoGetAircraftDrawArgumentValue(812) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Formation Lights")
 
  ---- added by Warlord
 definePushButton("MAX_G_RESET", 25, 3722, 175, "Flight Data Unit", "Max G Reset")

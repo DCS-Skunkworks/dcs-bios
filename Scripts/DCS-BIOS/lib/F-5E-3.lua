@@ -429,4 +429,20 @@ definePotentiometer("TACAN_VOL", 41, 3005, 261, {0, 1}, "TACAN Panel", "TACAN Si
 definePushButton("TACAN_HSI", 41, 3004, 259,"TACAN Panel" , "TACAN Signal on HSI Test Button")
 defineString("TACAN_CHANNEL", getTacanChannel, 4, "TACAN Panel", "TACAN Channel")
 
+--Externals
+defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(183)*65535)
+end, 65535, "External Aircraft Model", "Right Speed Brake")
+
+defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(185)*65535)
+end, 65535, "External Aircraft Model", "Left Speed Brake")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Position Lights")
+defineIntegerFromGetter("EXT_STROBE_LIGHTS", function()
+	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Strobe Lights")
+
 BIOS.protocol.endModule()

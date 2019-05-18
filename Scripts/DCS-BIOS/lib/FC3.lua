@@ -217,6 +217,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	_flare = LoGetSnares().flare
 end
 
+--Altitude
 defineString("FC3_ALTITUDE", function() return _altitude .. string.char(0) end, 6, "Altitude", "Altitude")
 defineString("FC3_ALTITUDE_GROUND", function() return _altitudeG .. string.char(0) end, 6, "Altitude", "Altitude above Ground")
 defineString("FC3_ALTITUDE_SEA", function() return _altitudeS .. string.char(0) end, 6, "Altitude", "Altitude above Sea Level")
@@ -227,27 +228,43 @@ defineString("FC3_INDICATED_AIRSPEED", function() return _indicatedAirspeed .. s
 defineString("FC3_MACH_NUMBER", function() return _machNumber .. string.char(0) end, 4, "Speed", "Mach Number")
 defineString("FC3_TRUE_AIRSPEED", function() return _trueAirspeed .. string.char(0) end, 4, "Speed", "True Airspeed")
 defineString("FC3_VERTICAL_VELOCITY", function() return _verticalVelocity .. string.char(0) end, 4, "Speed", "Vertical Velocity")
+defineIntegerFromGetter("FC3_RADAR_ALTITUDE", function() return _radarAltitude end, 1, "Altitude", "Radar Altitude")
 
+--Engine
 defineString("FC3_RPM_L", function() return _RPMLeft .. string.char(0) end, 3, "Engine", "RPM Left Engine")
 defineString("FC3_RPM_R", function() return _RPMRight .. string.char(0) end, 3, "Engine", "RPM Left Engine")
 defineString("FC3_TEMP_L", function() return _TEMPLeft .. string.char(0) end, 3, "Engine", "Temperature Left Engine")
 defineString("FC3_TEMP_R", function() return _TEMPRight .. string.char(0) end, 3, "Engine", "Temperature Left Engine")
 
+--Mechanical
 defineString("FC3_GEAR", function() return _GearStatus .. string.char(0) end, 1, "Mechanical", "Gear Status")
 
+--Countermeasures
 defineString("FC3_CHAFF", function() return _chaff .. string.char(0) end, 3, "Countermeasures", "Chaff Counter")
 defineString("FC3_FLARE", function() return _flare .. string.char(0) end, 3, "Countermeasures", "Flare Counter")
 
-defineIntegerFromGetter("FC3_RADAR_ALTITUDE", function() return _radarAltitude end, 1, "Altitude", "Radar Altitude")
+--Bar
 defineIntegerFromGetter("FC3_FUEL_BAR", function() return _barFuel end, 16, "Bar", "Fuel Bar")
 defineIntegerFromGetter("FC3_G_LOAD_BAR", function() return _barGLoad end, 16, "Bar", "G Load Bar")
 defineIntegerFromGetter("FC3_VVI_BAR", function() return _barVVI end, 16, "Bar", "Vertical Velocity Bar")
 
+--Float
 define8BitFloatFromGetter("FC3_ADI_BANK", function() return _adiBank end, {-1, 1}, "Float", "ADI Bank")
 define8BitFloatFromGetter("FC3_ADI_PITCH", function() return _adiPitch end, {-1, 1}, "Float", "ADI Pitch")
 define8BitFloatFromGetter("FC3_ADI_YAW", function() return _adiYaw end, {-1, 1}, "Float", "ADI Yaw")
 define8BitFloatFromGetter("FC3_GLIDE_DEVIATION", function() return _glidedev end, {-1, 1}, "Float", "Glide Deviation")
 define8BitFloatFromGetter("FC3_SIDE_DEVIATION", function() return _sidedev end, {-1, 1}, "Float", "Side Deviation")
 define8BitFloatFromGetter("FC3_SLIP_BALL_POSITION", function() return _slipball end, {-1, 1}, "Float", "Slip Ball Position")
+
+--Externals
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light (red)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light (green)")
+defineIntegerFromGetter("EXT_STROBE", function()
+	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Strobe Light")
 
 BIOS.protocol.endModule()

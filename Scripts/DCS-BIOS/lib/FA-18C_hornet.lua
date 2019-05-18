@@ -30,6 +30,7 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineElectricallyHeldSwitch = BIOS.util.defineElectricallyHeldSwitch
 local defineFloat = BIOS.util.defineFloat
 local define8BitFloat = BIOS.util.define8BitFloat
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 function ValueConvert(actual_value, input, output)
 local range=1
@@ -1191,5 +1192,25 @@ defineToggleSwitch("HIDE_STICK_TOGGLE", 7, 3013, 575, "Ejection Seat", "Hide Sti
 -- 2. TODO
 definePushButton("LEFT_VIDEO_BIT", 0, 3127, 315, "TODO", "Left Video Sensor BIT Initiate Pushbutton - Push to initiate BIT")
 definePushButton("RIGHT_VIDEO_BIT", 0, 3128, 318, "TODO", "Right Video Sensor BIT Initiate Pushbutton - Push to initiate BIT")
+
+--Externals
+defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(183)*65535)
+end, 65535, "External Aircraft Model", "Speed Brake")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light")
+
+defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(88)*65535)
+end, 65535, "External Aircraft Model", "Formation Lights")
+
+defineIntegerFromGetter("EXT_STROBE_LIGHTS", function()
+	if LoGetAircraftDrawArgumentValue(193) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Strobe Lights")
 
 BIOS.protocol.endModule()

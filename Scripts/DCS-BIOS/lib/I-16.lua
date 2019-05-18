@@ -15,6 +15,7 @@ local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- ELECTRIC
 defineToggleSwitch("CLOCK_HEAT",  5,3023, 23,"Electric", "Clock Heat")
@@ -115,5 +116,13 @@ defineFloat("DOOR_R", 249, {0, 1}, "Gauges", "Right Door Position")
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("PANEL_GLOW", 82, "Warning, Caution and IndicatorLights","Panel Glow (yellow)")
 defineIndicatorLight("NEEDLE_GLOW", 195, "Warning, Caution and IndicatorLights","Panel Needle Glow (yellow)")
+
+--Externals
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light (red)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light (green)")
 
 BIOS.protocol.endModule()

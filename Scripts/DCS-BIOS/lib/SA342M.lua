@@ -488,4 +488,15 @@ local function getROTRPM()
 end
 defineIntegerFromGetter("ROTOR_RPM_VALUE", getROTRPM, 65000, "Gauge Values", "Rotor RPM Value")
 
+--Externals
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light (red)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light (green)")
+defineIntegerFromGetter("EXT_STROBE", function()
+	if LoGetAircraftDrawArgumentValue(193) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Strobe Light")
+
 BIOS.protocol.endModule()

@@ -1311,7 +1311,7 @@ defineFloat("COMPASS_BANK", 721, {-1, 1}, "Standby Compass", "Compass Bank")
 
 defineFloat("ALT_PNEU_FLAG", 61, {0, 1}, "Altimeter", "PNEU Flag")
 
-
+--Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
 end, 65535, "External Aircraft Model", "Right Speed Brake")
@@ -1327,10 +1327,10 @@ end, 65535, "External Aircraft Model", "Formation Lights")
 
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Left Position Light")
+end, 1, "External Aircraft Model", "Left Position Light (red)")
 defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Right Position Light")
+end, 1, "External Aircraft Model", "Right Position Light (green)")
 
 
 defineIntegerFromGetter("EXT_STROBE_TAIL", function()

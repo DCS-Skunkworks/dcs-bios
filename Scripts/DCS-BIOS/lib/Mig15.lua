@@ -16,6 +16,7 @@ local defineTumb = BIOS.util.defineTumb
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- Draw pilot = 540
 
@@ -268,5 +269,21 @@ defineIndicatorLight("R_GEAR_UP", 78, "Warning, Caution and IndicatorLights","Ri
 defineIndicatorLight("L_GEAR_DOWN", 75, "Warning, Caution and IndicatorLights","Left Gear DOWN Lamp (green)")
 defineIndicatorLight("N_GEAR_DOWN", 77, "Warning, Caution and IndicatorLights","Nose Gear DOWN Lamp (green)")
 defineIndicatorLight("R_GEAR_DOWN", 79, "Warning, Caution and IndicatorLights","Right Gear DOWN Lamp (green)")
+
+--Externals
+defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(183)*65535)
+end, 65535, "External Aircraft Model", "Right Speed Brake")
+
+defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(185)*65535)
+end, 65535, "External Aircraft Model", "Left Speed Brake")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light (red)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light (green)")
 
 BIOS.protocol.endModule()

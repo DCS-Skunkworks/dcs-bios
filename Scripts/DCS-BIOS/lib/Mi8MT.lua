@@ -22,6 +22,7 @@ local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 local start_command   = 3000
 local cb_start_cmd = 3031
@@ -1032,5 +1033,12 @@ defineFloat("WINDSCREENWIPERR", 255, {0.0, 1.0}, "Indicator", "WindscreenWiperR"
 
 defineString("R863_FREQ", getR863Frequency, 7, "R-863", "R863, Frequency")
 
+--Externals
+defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Position Lights")
+defineIntegerFromGetter("EXT_STROBE", function()
+	if LoGetAircraftDrawArgumentValue(193) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Strobe Light")
 
 BIOS.protocol.endModule()

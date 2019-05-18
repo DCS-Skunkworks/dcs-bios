@@ -343,4 +343,19 @@ defineFloat("ASP5N_DIVE_ANGLE", 417, {0, 1}, "Gauges", "ASP-5N Dive Angle Select
 defineFloat("USB1_L_AMMO_COUNT", 418, {0, 1}, "Gauges", "USB-1 Left Cannon Ammo Counter")
 defineFloat("USB1_R_AMMO_COUNT", 419, {0, 1}, "Gauges", "USB-1 Right Cannon Ammo Counter")
 
+--Externals
+defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(183)*65535)
+end, 65535, "External Aircraft Model", "Right Speed Brake")
+defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(185)*65535)
+end, 65535, "External Aircraft Model", "Left Speed Brake")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light (red)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light (green)")
+
 BIOS.protocol.endModule()

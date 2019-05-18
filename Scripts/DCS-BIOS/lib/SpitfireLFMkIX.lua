@@ -14,6 +14,7 @@ local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local definePushButton = BIOS.util.definePushButton
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 
 -- remove Arg# Pilot 165
@@ -219,6 +220,14 @@ defineIndicatorLight("CHARGER_SEC_GEAR_LIGHT", 59, "Warning, Caution and Indicat
 defineIndicatorLight("CONSOLE_R_LIGHT", 62, "Warning, Caution and IndicatorLights","Right Console Light (white)")
 defineIndicatorLight("CONSOLE_L_LIGHT", 63, "Warning, Caution and IndicatorLights","Left Console Light (white)")
 defineIndicatorLight("PANEL_BACKLIGHT", 163, "Warning, Caution and IndicatorLights","Main Panel Backlight (white)")
+
+--Externals
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light (red)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light (green)")
 
 
 BIOS.protocol.endModule()

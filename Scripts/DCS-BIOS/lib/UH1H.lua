@@ -510,4 +510,15 @@ defineFloat("SIGHTS_FOR_CIVIL", 473, {0, 1}, "WTF", "SIGHTS_FOR_CIVIL / controll
 definePushButton("DOOR_L-PTR", 12, 3005, 419, "Doors", "Door Left")
 definePushButton("DOOR_R-PTR", 12, 3006, 421, "Doors", "Door Right")
 
+--Externals
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light (red)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light (green)")
+defineIntegerFromGetter("EXT_STROBE", function()
+	if LoGetAircraftDrawArgumentValue(193) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Strobe Light")
+
 BIOS.protocol.endModule()

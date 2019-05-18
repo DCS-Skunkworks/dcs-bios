@@ -1411,4 +1411,33 @@ defineFloat("RIO_RECORD_MIN_HI", 11600, {0, 1}, "Gauges", "RIO Record Minutes HI
 defineFloat("RIO_RECORD_MIN_MED", 11601, {0, 1}, "Gauges", "RIO Record Minutes MED")
 defineFloat("RIO_RECORD_MIN_LOW", 11602, {0, 1}, "Gauges", "RIO Record Minutes LOW")
 
+--Externals
+defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(402)*65535)
+end, 65535, "External Aircraft Model", "Bottom Right Speed Brake")
+
+defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(401)*65535)
+end, 65535, "External Aircraft Model", "Bottom Left Speed Brake")
+
+defineIntegerFromGetter("EXT_SPEED_BRAKE_TOP", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(400)*65535)
+end, 65535, "External Aircraft Model", "Top Speed Brake")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHTS_WINGS", function()
+	if LoGetAircraftDrawArgumentValue(611) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Position Lights Wings")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHTS_BODY", function()
+	if LoGetAircraftDrawArgumentValue(611) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Position Lights Body")
+
+defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
+end, 65535, "External Aircraft Model", "Formation Lights")
+
+defineIntegerFromGetter("EXT_ANTI_COL", function()
+	if LoGetAircraftDrawArgumentValue(620) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Anticollision Lights")
+
 BIOS.protocol.endModule()

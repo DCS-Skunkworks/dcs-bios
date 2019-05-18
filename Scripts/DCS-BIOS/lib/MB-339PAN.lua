@@ -17,6 +17,7 @@ local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFloat = BIOS.util.defineFloat
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 --ELECTRIC_SYSTEMS
 defineToggleSwitch("BATTERY", 1, 315, 300,"Electric" , "BATTERY Power Switch")
@@ -282,5 +283,17 @@ defineIndicatorLight("WARN_ANTI_SKID", 255, "Indicator Lights","Anti Skid Warnin
 defineIndicatorLight("WARN_OVERHEAT", 256, "Indicator Lights","Overheat Warning")
 defineIndicatorLight("SMK_WHITE_IND", 62, "Indicator Lights", "White Smoke Indicator")
 defineIndicatorLight("SMK_COLOR_IND", 63, "Indicator Lights", "Color Smoke Indicator")
+
+--Externals
+defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(21)*65535)
+end, 65535, "External Aircraft Model", "Speed Brake")
+defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Position Lights")
+
+defineIntegerFromGetter("EXT_STROBE_LIGHTS", function()
+	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Strobe Lights")
 
 BIOS.protocol.endModule()

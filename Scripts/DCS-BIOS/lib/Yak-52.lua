@@ -15,6 +15,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local define3PosTumb = BIOS.util.define3PosTumb
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 --Remove Pilot Arg# 165
 

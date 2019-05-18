@@ -13,6 +13,7 @@ local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFloat = BIOS.util.defineFloat
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 --remove Arg# FrontPilot 472
 --remove Arg# RearPilot 50
@@ -89,5 +90,13 @@ defineFloat("RPM", 318, {0.0, 0.120, 0.271, 0.416, 0.557, 0.696, 0.845, 1.0}, "G
 defineFloat("EGT", 319, {0.0, 0.260, 0.481, 0.661, 0.820, 0.979}, "Gauges", "EGT")
 defineFloat("EGT_MAX", 320, {0.0, 0.289, 0.505, 0.676, 0.838, 0.992}, "Gauges", "EGT Max")
 defineFloat("VAMETER", 376, {0.104, 0.260, 0.395, 0.564, 0.704, 0.856, 0.996}, "Gauges", "Volt-Ampermeter Gauge")
+
+--Externals
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light (red)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light (green)")
 
 BIOS.protocol.endModule()

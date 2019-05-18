@@ -369,16 +369,17 @@ definePotentiometer("ecm_prf_volume", 33, 3119, 506, {-0.8,0.8}, "ECM Panel", "P
 definePotentiometer("ecm_msl_volume", 33, 3120, 505, {-0.8,0.8}, "ECM Panel", "MSL volume (outer knob)")
 defineMultipositionSwitch("ecm_selector", 33, 3121, 502, 4, 0.33, "ECM Panel", "ECM selector knob")
 
+--Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKES", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(500)*65535)
 end, 65535, "External Aircraft Model", "Speed Brakes")
 
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Left Position Light")
+end, 1, "External Aircraft Model", "Left Position Light (red)")
 defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Right Position Light")
+end, 1, "External Aircraft Model", "Right Position Light (green)")
 
 defineIntegerFromGetter("EXT_STROBE_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end

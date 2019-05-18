@@ -72,6 +72,7 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineString = BIOS.util.defineString
 local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 
 
@@ -1128,8 +1129,35 @@ defineIndicatorLight("HUD_REC", 212, "VTH", "O - HUD - Recording Indicator Light
 -- VVI
 defineFloat("VARIO_NEEDLE", 324, {-1, 1}, "VVI", "O - VVI - Needle")
 
+--Externals
+defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(184)*65535)
+end, 65535, "External Aircraft Model", "Right Speed Brake")
 
+defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
+end, 65535, "External Aircraft Model", "Left Speed Brake")
 
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light (red)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light (green)")
+
+defineIntegerFromGetter("EXT_STROBE_TOP", function()
+	if LoGetAircraftDrawArgumentValue(83) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Top Strobe Light")
+defineIntegerFromGetter("EXT_STROBE_BOTTOM", function()
+	if LoGetAircraftDrawArgumentValue(802) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Bottom Strobe Light")
+
+defineIntegerFromGetter("EXT_FORMATION_LIGHTS_FRONT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
+end, 65535, "External Aircraft Model", "Front Formation Lights")
+defineIntegerFromGetter("EXT_FORMATION_LIGHTS_AFT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(201)*65535)
+end, 65535, "External Aircraft Model", "Aft Formation Lights")
 
 
 BIOS.protocol.endModule()

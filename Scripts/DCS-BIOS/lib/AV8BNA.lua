@@ -17,6 +17,7 @@ local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
 local define3PosTumb = BIOS.util.define3PosTumb
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -------------------------------------------------------------------
 -- MAIN INSTRUMENT PANEL:
@@ -552,5 +553,21 @@ defineFloat("FLOOD_LIGHTS", 180, {0, 1}, "Gauges", "Flood Lightning Intensity")
 defineFloat("MIP_LIGHTS", 182, {0, 1}, "Gauges", "MIP Backlight Intensity")
 defineFloat("SIDEPANEL_LIGHTS", 183, {0, 1}, "Gauges", "Sidepanel Lightning Intensity")
 defineFloat("COMPASS_LIGHTS", 184, {0, 1}, "Gauges", "Compass Lightning Intensity")
+
+--Externals
+defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
+end, 65535, "External Aircraft Model", "Speed Brake")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
+	if LoGetAircraftDrawArgumentValue(935) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Position Lights")
+defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(934)*65535)
+end, 65535, "External Aircraft Model", "Formation Lights")
+
+defineIntegerFromGetter("EXT_STROBE_TAIL", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Tail Strobe Light")
 
 BIOS.protocol.endModule()

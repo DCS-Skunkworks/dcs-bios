@@ -278,6 +278,35 @@ defineFloat("LABS_PITCH_NEEDLE", 604, {-1.0, 1.0}, "Indicator", "LABS_pitch_need
 defineFloat("EMERGENCYJETTISONHANDLEPOS", 818, {0.0, 1.0}, "Indicator", "EmergencyJettisonHandlePos")
 defineFloat("EMERGENCYJETTISONHANDLEROT", 221, {0.0, 1.0}, "Indicator", "EmergencyJettisonHandleRot")
 
+--Externals
+defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
+end, 65535, "External Aircraft Model", "Right Speed Brake")
+
+defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(184)*65535)
+end, 65535, "External Aircraft Model", "Left Speed Brake")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light (red)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light (green)")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_TAIL", function()
+	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Tail Position Light")
+
+defineIntegerFromGetter("EXT_STROBE_TAIL", function()
+	if LoGetAircraftDrawArgumentValue(193) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Tail Strobe Light")
+defineIntegerFromGetter("EXT_STROBE_TOP", function()
+	if LoGetAircraftDrawArgumentValue(195) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Top Strobe Light")
+defineIntegerFromGetter("EXT_STROBE_BOTTOM", function()
+	if LoGetAircraftDrawArgumentValue(194) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Bottom Strobe Light")
+
 --[[--Gauge Values--]]--
 
 local function getBand()
