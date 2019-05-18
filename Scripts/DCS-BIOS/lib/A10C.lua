@@ -26,7 +26,7 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineElectricallyHeldSwitch = BIOS.util.defineElectricallyHeldSwitch
 local defineFloat = BIOS.util.defineFloat
 local define8BitFloat = BIOS.util.define8BitFloat
-
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 --local function defineElectricallyHeldSwitch(msg, device_id, pos_command, neg_command, arg_number, category, description)
 --	document { identifier = msg, category = category, description = description, control_type = "electrically_held_switch", value_type = "enum", value_enum = {"0", "1"}, can_set = false, actions = {"PUSH", "RELEASE", "OFF"} }
@@ -1310,5 +1310,38 @@ defineFloat("COMPASS_PITCH", 720, {-1, 1}, "Standby Compass", "Compass Pitch")
 defineFloat("COMPASS_BANK", 721, {-1, 1}, "Standby Compass", "Compass Bank")
 
 defineFloat("ALT_PNEU_FLAG", 61, {0, 1}, "Altimeter", "PNEU Flag")
+
+
+defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
+end, 65535, "External Aircraft Model", "Right Speed Brake")
+
+defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(186)*65535)
+end, 65535, "External Aircraft Model", "Left Speed Brake")
+
+defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
+end, 65535, "External Aircraft Model", "Formation Lights")
+
+
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light")
+
+
+defineIntegerFromGetter("EXT_STROBE_TAIL", function()
+	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Tail Strobe Light")
+defineIntegerFromGetter("EXT_STROBE_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(195) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Strobe Light")
+defineIntegerFromGetter("EXT_STROBE_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(196) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Strobe Light")
+
 
 BIOS.protocol.endModule()

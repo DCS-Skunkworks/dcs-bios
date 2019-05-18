@@ -201,15 +201,15 @@ defineFloat("CURRTIME_SECS", 442, {0,1}, "Clock", "Current Seconds")
 defineFloat("STOPWATCH_MINS", 144, {0,1}, "Clock", "Stopwatch Minutes")
 defineFloat("STOPWATCH_SECS", 145, {0,1}, "Clock", "Stopwatch Seconds")
 
---ECM panel
-defineIndicatorLight("RWR_LIGHT", 373, "ECM panel", "Glareshield RWR Light")
-defineIndicatorLight("ECM_TEST_UP_U", 514, "ECM panel", "ECM Test Upper U")
-defineIndicatorLight("ECM_TEST_UP_LL", 515, "ECM panel", "ECM Test Upper LL")
-defineIndicatorLight("ECM_TEST_UP_LR", 516, "ECM panel", "ECM Test Upper LR")
-defineIndicatorLight("ECM_TEST_LOW_UL", 517, "ECM panel", "ECM Test Lower UL")
-defineIndicatorLight("ECM_TEST_LOW_UR", 518, "ECM panel", "ECM Test Lower UR")
-defineIndicatorLight("ECM_TEST_LOW_LL", 519, "ECM panel", "ECM Test Lower LL")
-defineIndicatorLight("ECM_TEST_LOW_LR", 500, "ECM panel", "ECM Test Lower LR")
+--ECM Panel
+defineIndicatorLight("RWR_LIGHT", 373, "ECM Panel", "Glareshield RWR Light")
+defineIndicatorLight("ECM_TEST_UP_U", 514, "ECM Panel", "ECM Test Upper U")
+defineIndicatorLight("ECM_TEST_UP_LL", 515, "ECM Panel", "ECM Test Upper LL")
+defineIndicatorLight("ECM_TEST_UP_LR", 516, "ECM Panel", "ECM Test Upper LR")
+defineIndicatorLight("ECM_TEST_LOW_UL", 517, "ECM Panel", "ECM Test Lower UL")
+defineIndicatorLight("ECM_TEST_LOW_UR", 518, "ECM Panel", "ECM Test Lower UR")
+defineIndicatorLight("ECM_TEST_LOW_LL", 519, "ECM Panel", "ECM Test Lower LL")
+defineIndicatorLight("ECM_TEST_LOW_LR", 500, "ECM Panel", "ECM Test Lower LR")
 
 -----------------------
 ------CONTROLS---------
@@ -359,7 +359,7 @@ defineToggleSwitch("emer_bomb_release", 2, 3027, 1241, "T Handles", "Emergency b
 defineToggleSwitch("emer_gen_deploy", 3, 3023, 1243, "T Handles", "Emergency generator deploy")
 defineToggleSwitch("emer_gen_bypass", 3, 3022, 1061, "T Handles", "Emergency generator bypass")
 
--- ECM panel
+-- ECM Panel
 defineToggleSwitch("ecm_audio", 33, 3115, 503, "ECM Panel", "Audio APR/25 - APR/27")
 defineToggleSwitch("ecm_apr25_pw", 33, 3114, 504, "ECM Panel", "APR/25 on/off")
 defineToggleSwitch("ecm_apr27_pw", 33, 3116, 501, "ECM Panel", "APR/27 on/off")
@@ -368,5 +368,24 @@ definePushButton("ecm_apr27_light", 33, 3118, 510, "ECM Panel", "APR/27 light")
 definePotentiometer("ecm_prf_volume", 33, 3119, 506, {-0.8,0.8}, "ECM Panel", "PRF volume (inner knob)")
 definePotentiometer("ecm_msl_volume", 33, 3120, 505, {-0.8,0.8}, "ECM Panel", "MSL volume (outer knob)")
 defineMultipositionSwitch("ecm_selector", 33, 3121, 502, 4, 0.33, "ECM Panel", "ECM selector knob")
+
+defineIntegerFromGetter("EXT_SPEED_BRAKES", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(500)*65535)
+end, 65535, "External Aircraft Model", "Speed Brakes")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Position Light")
+defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Position Light")
+
+defineIntegerFromGetter("EXT_STROBE_TAIL", function()
+	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Tail Strobe Light")
+defineIntegerFromGetter("EXT_STROBE_BOTTOM", function()
+	if LoGetAircraftDrawArgumentValue(199) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Bottom Strobe Light")
+
 
 BIOS.protocol.endModule()
