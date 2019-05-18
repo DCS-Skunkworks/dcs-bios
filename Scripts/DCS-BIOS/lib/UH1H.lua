@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("UH-1H", 0x1400)
-BIOS.protocol.setExportModuleAircrafts({"UH-1H"})
+BIOS.protocol.setExportModuleAircrafts({"UH-1H", "Bell47_2"})
 
 local documentation = moduleBeingDefined.documentation
 
