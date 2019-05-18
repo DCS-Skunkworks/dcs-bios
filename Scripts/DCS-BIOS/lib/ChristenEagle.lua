@@ -1,5 +1,5 @@
-BIOS.protocol.beginModule("Christen Eagle I", 0x2800)
-BIOS.protocol.setExportModuleAircrafts({"Christen Eagle I"})
+BIOS.protocol.beginModule("Christen Eagle II", 0x2800)
+BIOS.protocol.setExportModuleAircrafts({"Christen Eagle II"})
 
 local documentation = moduleBeingDefined.documentation
 
@@ -18,12 +18,16 @@ local defineFloat = BIOS.util.defineFloat
 --remove Arg# RearPilot 50
 
 --General
-definePushButton("ACCEL_RESET", 1, 3031, 307,"General" , "Reset, accelerometer")
+definePushButton("ACCEL_RESET", 1, 3031, 307,"General" , "Accelerometer Reset Button")
 defineToggleSwitch("SMOKE_SW", 1, 3034, 352,"General" , "Smoke Switch")
-definePotentiometer("AIRCOND_LEVER", 1, 3010, 369, {0, 1},"General" , "Air conditioning")
+definePotentiometer("AIRCOND_LEVER", 1, 3010, 369, {0, 1},"General" , "Air Conditioning")
+definePotentiometer("TRIM_LEVER", 1, 3017, 370, {-1, 1},"General" , "Trim Lever")
+
+--Instruments
+definePotentiometer("ALT_PRESS", 8, 3039, 371, {-1, 1},"Instruments" , "Barometric Pressure")
 
 --Radio
-defineToggleSwitch("RADIO_PWR", 5, 3036, 353,"Radio" , "Radio ON-OFF")
+defineToggleSwitch("RADIO_PWR", 5, 3021, 353,"Radio" , "Radio ON-OFF")
 defineRotary("RADIO_FREQU_MHZ", 5, 3064, 374, "Radio", "Radio Frequency MHz")
 definePushButton("RADIO_FREQU_TRANS", 5, 3063, 368,"Radio" , "Radio Frequency Transfer")
 definePushButton("RADIO_CHAN", 5, 3067, 375,"Radio" , "Radio Channel")
@@ -36,17 +40,14 @@ definePushButton("RADIO_TEST", 5, 3062, 365,"Radio" , "Radio Test (Pull)")
 defineTumb("MAGNETS", 6, 3100, 350, 0.25, {0.0, 1.0}, nil, false, "Engine", "Magnets, OFF/RIGHT/LEFT/BOTH/START")
 defineToggleSwitch("FUEL_VAL", 6, 3001, 349,"Engine" , "Fuel Valve")
 defineToggleSwitch("FUEL_PUMP", 6, 3038, 356,"Engine" , "Fuel Pump")
-definePotentiometer("MIXTURE", 6, 3042, 351, {0, 1},"Engine" , "Mixture")
-definePotentiometer("PROP_PITCH", 6, 3041, 358, {0, 1},"Engine" , "Propeller")
+definePotentiometer("MIXTURE", 6, 3058, 357, {0, 1},"Engine" , "Mixture")
+definePotentiometer("PROP_PITCH", 6, 3057, 358, {0, 1},"Engine" , "Propeller")
 
 --Electric
 defineToggleSwitch("BATTERY", 7, 3033, 351,"Electric" , "Battery Switch")
 defineToggleSwitch("ALTERNATOR", 7, 3037, 354,"Electric" , "Alternator Switch")
 defineToggleSwitch("ALTER_FUSE", 7, 3073, 355,"Electric" , "Alternator Fuse")
-definePushButton("V_A_METER", 7, 3063, 377,"Electric" , "Volt-Ampermeter")
-
---Pitot
-defineRotary("ALT_PRESS", 8, 3044, 371, "Pitot", "Barometric pressure")
+definePushButton("V_A_METER", 7, 3043, 377,"Electric" , "Volt/Ampere Meter mode (Voltage / Amperage)")
 
 --Lights
 defineToggleSwitch("NAV_LIGHTS", 13, 3051, 359,"Lights" , "Nav Lights")
@@ -60,15 +61,15 @@ definePushButton("FUEL_IND_FRONT", 14, 3071, 378,"Fuel Gauge" , "Fuel Indicator 
 definePushButton("FUEL_IND_REAR", 14, 3072, 384,"Fuel Gauge" , "Fuel Indicator mode Rear cockpit (F / U")
 
 --Canopy
-definePushButton("CANOPY_OPEN_REAR", 15, 3083, 400,"Canopy" , "Canopy Lever Open (Rear)")
-definePushButton("CANOPY_CLOSE_REAR", 15, 3081, 403,"Canopy" , "Canopy Lever Close (Rear)")
-definePushButton("CANOPY_OPEN_FRONT", 15, 3088, 400,"Canopy" , "Canopy Lever Open (Front)")
-definePushButton("CANOPY_CLOSE_FRONT", 15, 3089, 403,"Canopy" , "Canopy Lever Close (Front)")
-definePushButton("CANOPY_LOCK_REAR", 15, 3084, 401,"Canopy" , "Canopy Lock (Rear)")
-definePushButton("CANOPY_UNLOCK_REAR", 15, 3085, 401,"Canopy" , "Canopy Unlock (Rear)")
-definePushButton("CANOPY_LOCK_FRONT", 15, 3086, 401,"Canopy" , "Canopy Lock (Front)")
-definePushButton("CANOPY_UNLOCK_FRONT", 15, 3087, 401,"Canopy" , "Canopy Unlock (Front)")
-definePushButton("CANOPY_JETT", 15, 3090, 402,"Canopy" , "Canopy Jettison (Rear)")
+--definePushButton("CANOPY_OPEN_REAR", 15, 3083, 400,"Canopy" , "Canopy Lever Open (Rear)")
+--definePushButton("CANOPY_CLOSE_REAR", 15, 3081, 403,"Canopy" , "Canopy Lever Close (Rear)")
+--definePushButton("CANOPY_OPEN_FRONT", 15, 3088, 400,"Canopy" , "Canopy Lever Open (Front)")
+--definePushButton("CANOPY_CLOSE_FRONT", 15, 3089, 403,"Canopy" , "Canopy Lever Close (Front)")
+--definePushButton("CANOPY_LOCK_REAR", 15, 3084, 401,"Canopy" , "Canopy Lock (Rear)")
+--definePushButton("CANOPY_UNLOCK_REAR", 15, 3085, 401,"Canopy" , "Canopy Unlock (Rear)")
+--definePushButton("CANOPY_LOCK_FRONT", 15, 3086, 401,"Canopy" , "Canopy Lock (Front)")
+--definePushButton("CANOPY_UNLOCK_FRONT", 15, 3087, 401,"Canopy" , "Canopy Unlock (Front)")
+--definePushButton("CANOPY_JETT", 15, 3090, 402,"Canopy" , "Canopy Jettison (Rear)")
 
 --Gauges
 defineFloat("IAS_NEEDLE", 301, {0.0, 0.035, 0.063, 0.095, 0.175, 0.220, 0.270, 0.316, 0.376, 0.429, 0.481, 0.538, 0.587, 0.636, 0.690, 0.737, 0.783, 0.829, 0.866, 0.895, 0.925, 0.959}, "Gauges", "IAS Needle")
@@ -76,7 +77,7 @@ defineFloat("VERT_SPEED_NEEDLE", 301, {-0.944, -0.720, -0.450,	-0.257, 0.000, 0.
 defineFloat("ACCEL_CURR", 304, {-1.0, -0.834, -0.572, -0.319, 0.011, 0.116, 0.328, 0.535, 0.759, 0.987}, "Gauges", "Acceleration Current")
 defineFloat("ACCEL_MAX", 305, {-1.0, -0.834, -0.572, -0.319, 0.011, 0.116, 0.328, 0.535, 0.759, 0.987}, "Gauges", "Acceleration Max")
 defineFloat("ACCEL_MIN", 306, {-1.0, -0.834, -0.572, -0.319, 0.011, 0.116, 0.328, 0.535, 0.759, 0.987}, "Gauges", "Acceleration Min")
-defineFloat("COURSE", 308, {0.00, -0.999}, "Gauges", "Course Gauge")
+defineFloat("COURSE", 308, {0.0167, 0.0, -1.00}, "Gauges", "Course Gauge")
 defineFloat("ALT_FT_100", 309, {0.0, 0.25, 0.5, 0.75, 1.0}, "Gauges", "ALT 100ft Gauge")
 defineFloat("ALT_FT_1000", 310, {0.0, 1.0}, "Gauges", "ALT 1000ft Gauge")
 defineFloat("ALT_FT_10000", 312, {0.0, 1.0}, "Gauges", "ALT 10000ft Gauge")
