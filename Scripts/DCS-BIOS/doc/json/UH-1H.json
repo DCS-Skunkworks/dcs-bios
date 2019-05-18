@@ -4276,6 +4276,56 @@
                                                                             "physical_variant": "toggle_switch"
                                                                      }
                                                 },
+                     "External Aircraft Model": {
+                                                     "EXT_POSITION_LIGHT_LEFT": {
+                                                                                        "category": "External Aircraft Model",
+                                                                                    "control_type": "metadata",
+                                                                                     "description": "Left Position Light (red)",
+                                                                                      "identifier": "EXT_POSITION_LIGHT_LEFT",
+                                                                                          "inputs": [  ],
+                                                                                         "outputs": [ {
+                                                                                                            "address": 5404,
+                                                                                                        "description": "Left Position Light (red)",
+                                                                                                               "mask": 32,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 5,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ]
+                                                                                },
+                                                    "EXT_POSITION_LIGHT_RIGHT": {
+                                                                                        "category": "External Aircraft Model",
+                                                                                    "control_type": "metadata",
+                                                                                     "description": "Right Position Light (green)",
+                                                                                      "identifier": "EXT_POSITION_LIGHT_RIGHT",
+                                                                                          "inputs": [  ],
+                                                                                         "outputs": [ {
+                                                                                                            "address": 5404,
+                                                                                                        "description": "Right Position Light (green)",
+                                                                                                               "mask": 64,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 6,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ]
+                                                                                },
+                                                                  "EXT_STROBE": {
+                                                                                        "category": "External Aircraft Model",
+                                                                                    "control_type": "metadata",
+                                                                                     "description": "Strobe Light",
+                                                                                      "identifier": "EXT_STROBE",
+                                                                                          "inputs": [  ],
+                                                                                         "outputs": [ {
+                                                                                                            "address": 5404,
+                                                                                                        "description": "Strobe Light",
+                                                                                                               "mask": 128,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 7,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ]
+                                                                                }
+                                                },
                                   "Flex Sight": {
                                                        "SIGHT_ARM_PLT": {
                                                                                        "category": "Flex Sight",

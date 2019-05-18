@@ -564,6 +564,40 @@
                                                                          "physical_variant": "push_button"
                                                                   }
                                             },
+                 "External Aircraft Model": {
+                                                 "EXT_POSITION_LIGHT_LEFT": {
+                                                                                    "category": "External Aircraft Model",
+                                                                                "control_type": "metadata",
+                                                                                 "description": "Left Position Light (red)",
+                                                                                  "identifier": "EXT_POSITION_LIGHT_LEFT",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 13340,
+                                                                                                    "description": "Left Position Light (red)",
+                                                                                                           "mask": 4096,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 12,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                "EXT_POSITION_LIGHT_RIGHT": {
+                                                                                    "category": "External Aircraft Model",
+                                                                                "control_type": "metadata",
+                                                                                 "description": "Right Position Light (green)",
+                                                                                  "identifier": "EXT_POSITION_LIGHT_RIGHT",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 13340,
+                                                                                                    "description": "Right Position Light (green)",
+                                                                                                           "mask": 8192,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 13,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            }
+                                            },
                                    "Flaps": {
                                                 "FLAPS_HANDLE": {
                                                                      "api_variant": "multiturn",

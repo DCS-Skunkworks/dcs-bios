@@ -278,7 +278,7 @@
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ],
-                                                                            "physical_variant": "3 Position Switch"
+                                                                            "physical_variant": "3_position_switch"
                                                                      },
                                                         "ARC5_NBD1": {
                                                                                     "category": "ARC5",
@@ -1226,7 +1226,7 @@
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ],
-                                                                            "physical_variant": "3 Position Switch"
+                                                                            "physical_variant": "3_position_switch"
                                                                      },
                                                       "AIRBRAKE_BT": {
                                                                                  "api_variant": "momentary_last_position",
@@ -1310,7 +1310,7 @@
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ],
-                                                                            "physical_variant": "3 Position Switch"
+                                                                            "physical_variant": "3_position_switch"
                                                                      },
                                                      "FLAPS_HANDLE": {
                                                                                     "category": "Control System",
@@ -1560,6 +1560,72 @@
                                                                                                      "type": "integer"
                                                                                           } ]
                                                                       }
+                                            },
+                 "External Aircraft Model": {
+                                                 "EXT_POSITION_LIGHT_LEFT": {
+                                                                                    "category": "External Aircraft Model",
+                                                                                "control_type": "metadata",
+                                                                                 "description": "Left Position Light (red)",
+                                                                                  "identifier": "EXT_POSITION_LIGHT_LEFT",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 9402,
+                                                                                                    "description": "Left Position Light (red)",
+                                                                                                           "mask": 16,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 4,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                "EXT_POSITION_LIGHT_RIGHT": {
+                                                                                    "category": "External Aircraft Model",
+                                                                                "control_type": "metadata",
+                                                                                 "description": "Right Position Light (green)",
+                                                                                  "identifier": "EXT_POSITION_LIGHT_RIGHT",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 9402,
+                                                                                                    "description": "Right Position Light (green)",
+                                                                                                           "mask": 32,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 5,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                    "EXT_SPEED_BRAKE_LEFT": {
+                                                                                    "category": "External Aircraft Model",
+                                                                                "control_type": "metadata",
+                                                                                 "description": "Left Speed Brake",
+                                                                                  "identifier": "EXT_SPEED_BRAKE_LEFT",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 9406,
+                                                                                                    "description": "Left Speed Brake",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                   "EXT_SPEED_BRAKE_RIGHT": {
+                                                                                    "category": "External Aircraft Model",
+                                                                                "control_type": "metadata",
+                                                                                 "description": "Right Speed Brake",
+                                                                                  "identifier": "EXT_SPEED_BRAKE_RIGHT",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 9404,
+                                                                                                    "description": "Right Speed Brake",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            }
                                             },
                 "Fire Extinguisher System": {
                                                       "FIRE_EX": {

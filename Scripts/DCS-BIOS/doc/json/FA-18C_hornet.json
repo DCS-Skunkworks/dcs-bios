@@ -125,7 +125,7 @@
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ],
-                                                                                   "physical_variant": "3 Position Switch"
+                                                                                   "physical_variant": "3_position_switch"
                                                                             },
                                                            "AMPCD_GAIN_SW": {
                                                                                            "category": "AMPCD",
@@ -150,7 +150,7 @@
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ],
-                                                                                   "physical_variant": "3 Position Switch"
+                                                                                   "physical_variant": "3_position_switch"
                                                                             },
                                                          "AMPCD_NIGHT_DAY": {
                                                                                            "category": "AMPCD",
@@ -175,7 +175,7 @@
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ],
-                                                                                   "physical_variant": "3 Position Switch"
+                                                                                   "physical_variant": "3_position_switch"
                                                                             },
                                                              "AMPCD_PB_01": {
                                                                                         "api_variant": "momentary_last_position",
@@ -800,7 +800,7 @@
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ],
-                                                                                   "physical_variant": "3 Position Switch"
+                                                                                   "physical_variant": "3_position_switch"
                                                                             }
                                                      },
               "APU Fire Warning Extinguisher Light": {
@@ -925,7 +925,7 @@
                                                                                                                     "suffix": "",
                                                                                                                       "type": "integer"
                                                                                                            } ],
-                                                                                       "physical_variant": "3 Position Switch"
+                                                                                       "physical_variant": "3_position_switch"
                                                                                 },
                                                            "IFF_ANT_SELECT_SW": {
                                                                                                "category": "Antenna Select Panel",
@@ -950,7 +950,7 @@
                                                                                                                     "suffix": "",
                                                                                                                       "type": "integer"
                                                                                                            } ],
-                                                                                       "physical_variant": "3 Position Switch"
+                                                                                       "physical_variant": "3_position_switch"
                                                                                 }
                                                      },
                   "Arresting Hook Handle and Light": {
@@ -1513,7 +1513,7 @@
                                                                                                                    "suffix": "",
                                                                                                                      "type": "integer"
                                                                                                           } ],
-                                                                                      "physical_variant": "3 Position Switch"
+                                                                                      "physical_variant": "3_position_switch"
                                                                                },
                                                           "COM_COMM_RELAY_SW": {
                                                                                               "category": "Communication Panel",
@@ -1538,7 +1538,7 @@
                                                                                                                    "suffix": "",
                                                                                                                      "type": "integer"
                                                                                                           } ],
-                                                                                      "physical_variant": "3 Position Switch"
+                                                                                      "physical_variant": "3_position_switch"
                                                                                },
                                                               "COM_CRYPTO_SW": {
                                                                                               "category": "Communication Panel",
@@ -1639,7 +1639,7 @@
                                                                                                                    "suffix": "",
                                                                                                                      "type": "integer"
                                                                                                           } ],
-                                                                                      "physical_variant": "3 Position Switch"
+                                                                                      "physical_variant": "3_position_switch"
                                                                                },
                                                          "COM_ILS_CHANNEL_SW": {
                                                                                               "category": "Communication Panel",
@@ -1895,7 +1895,7 @@
                                                                                                                     "suffix": "",
                                                                                                                       "type": "integer"
                                                                                                            } ],
-                                                                                       "physical_variant": "3 Position Switch"
+                                                                                       "physical_variant": "3_position_switch"
                                                                                 }
                                                      },
                               "Dispenser/EMC Panel": {
@@ -2225,7 +2225,7 @@
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ],
-                                                                              "physical_variant": "3 Position Switch"
+                                                                              "physical_variant": "3_position_switch"
                                                                        },
                                                            "L_GEN_SW": {
                                                                                       "category": "Electrical Power Panel",
@@ -2531,7 +2531,7 @@
                                                                                                                "suffix": "",
                                                                                                                  "type": "integer"
                                                                                                       } ],
-                                                                                  "physical_variant": "3 Position Switch"
+                                                                                  "physical_variant": "3_position_switch"
                                                                            },
                                                              "CABIN_TEMP": {
                                                                                    "category": "Environment Control System Panel",
@@ -2581,7 +2581,7 @@
                                                                                                                "suffix": "",
                                                                                                                  "type": "integer"
                                                                                                       } ],
-                                                                                  "physical_variant": "3 Position Switch"
+                                                                                  "physical_variant": "3_position_switch"
                                                                            },
                                                          "ENG_ANTIICE_SW": {
                                                                                           "category": "Environment Control System Panel",
@@ -2606,7 +2606,7 @@
                                                                                                                "suffix": "",
                                                                                                                  "type": "integer"
                                                                                                       } ],
-                                                                                  "physical_variant": "3 Position Switch"
+                                                                                  "physical_variant": "3_position_switch"
                                                                            },
                                                           "PITOT_HEAT_SW": {
                                                                                    "category": "Environment Control System Panel",
@@ -2757,8 +2757,90 @@
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ],
-                                                                                    "physical_variant": "3 Position Switch"
+                                                                                    "physical_variant": "3_position_switch"
                                                                              }
+                                                     },
+                          "External Aircraft Model": {
+                                                             "EXT_FORMATION_LIGHTS": {
+                                                                                             "category": "External Aircraft Model",
+                                                                                         "control_type": "metadata",
+                                                                                          "description": "Formation Lights",
+                                                                                           "identifier": "EXT_FORMATION_LIGHTS",
+                                                                                               "inputs": [  ],
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 30020,
+                                                                                                             "description": "Formation Lights",
+                                                                                                                    "mask": 65535,
+                                                                                                               "max_value": 65535,
+                                                                                                                "shift_by": 0,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ]
+                                                                                     },
+                                                          "EXT_POSITION_LIGHT_LEFT": {
+                                                                                             "category": "External Aircraft Model",
+                                                                                         "control_type": "metadata",
+                                                                                          "description": "Left Position Light",
+                                                                                           "identifier": "EXT_POSITION_LIGHT_LEFT",
+                                                                                               "inputs": [  ],
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 29898,
+                                                                                                             "description": "Left Position Light",
+                                                                                                                    "mask": 8192,
+                                                                                                               "max_value": 1,
+                                                                                                                "shift_by": 13,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ]
+                                                                                     },
+                                                         "EXT_POSITION_LIGHT_RIGHT": {
+                                                                                             "category": "External Aircraft Model",
+                                                                                         "control_type": "metadata",
+                                                                                          "description": "Right Position Light",
+                                                                                           "identifier": "EXT_POSITION_LIGHT_RIGHT",
+                                                                                               "inputs": [  ],
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 29898,
+                                                                                                             "description": "Right Position Light",
+                                                                                                                    "mask": 16384,
+                                                                                                               "max_value": 1,
+                                                                                                                "shift_by": 14,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ]
+                                                                                     },
+                                                                  "EXT_SPEED_BRAKE": {
+                                                                                             "category": "External Aircraft Model",
+                                                                                         "control_type": "metadata",
+                                                                                          "description": "Speed Brake",
+                                                                                           "identifier": "EXT_SPEED_BRAKE",
+                                                                                               "inputs": [  ],
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 30018,
+                                                                                                             "description": "Speed Brake",
+                                                                                                                    "mask": 65535,
+                                                                                                               "max_value": 65535,
+                                                                                                                "shift_by": 0,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ]
+                                                                                     },
+                                                                "EXT_STROBE_LIGHTS": {
+                                                                                             "category": "External Aircraft Model",
+                                                                                         "control_type": "metadata",
+                                                                                          "description": "Strobe Lights",
+                                                                                           "identifier": "EXT_STROBE_LIGHTS",
+                                                                                               "inputs": [  ],
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 29898,
+                                                                                                             "description": "Strobe Lights",
+                                                                                                                    "mask": 32768,
+                                                                                                               "max_value": 1,
+                                                                                                                "shift_by": 15,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ]
+                                                                                     }
                                                      },
                                      "Fire Systems": {
                                                          "FIRE_EXT_BTN": {
@@ -3112,7 +3194,7 @@
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ],
-                                                                                   "physical_variant": "3 Position Switch"
+                                                                                   "physical_variant": "3_position_switch"
                                                                             },
                                                          "EXT_WNG_TANK_SW": {
                                                                                            "category": "Fuel Panel",
@@ -3137,7 +3219,7 @@
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ],
-                                                                                   "physical_variant": "3 Position Switch"
+                                                                                   "physical_variant": "3_position_switch"
                                                                             },
                                                             "FUEL_DUMP_SW": {
                                                                                     "category": "Fuel Panel",
@@ -3182,7 +3264,7 @@
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ],
-                                                                                   "physical_variant": "3 Position Switch"
+                                                                                   "physical_variant": "3_position_switch"
                                                                             }
                                                      },
                      "Generator Tie Control Switch": {
@@ -3435,7 +3517,7 @@
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                             } ],
-                                                                                        "physical_variant": "3 Position Switch"
+                                                                                        "physical_variant": "3_position_switch"
                                                                                  },
                                                                   "HUD_BALANCE": {
                                                                                          "category": "HUD Control Panel",
@@ -3673,7 +3755,7 @@
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                             } ],
-                                                                                        "physical_variant": "3 Position Switch"
+                                                                                        "physical_variant": "3_position_switch"
                                                                                  },
                                                          "SELECT_HMD_LDDI_RDDI": {
                                                                                                 "category": "HUD Video Record Panel",
@@ -3698,7 +3780,7 @@
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                             } ],
-                                                                                        "physical_variant": "3 Position Switch"
+                                                                                        "physical_variant": "3_position_switch"
                                                                                  },
                                                          "SELECT_HUD_LDDI_RDDI": {
                                                                                                 "category": "HUD Video Record Panel",
@@ -3723,7 +3805,7 @@
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                             } ],
-                                                                                        "physical_variant": "3 Position Switch"
+                                                                                        "physical_variant": "3_position_switch"
                                                                                  }
                                                      },
                  "HYD 1 and HYD Pressure Indicator": {
@@ -4583,7 +4665,7 @@
                                                                                                                        "suffix": "",
                                                                                                                          "type": "integer"
                                                                                                               } ],
-                                                                                          "physical_variant": "3 Position Switch"
+                                                                                          "physical_variant": "3_position_switch"
                                                                                    },
                                                                 "CONSOLES_DIMMER": {
                                                                                            "category": "Interior Lights Panel",
@@ -8095,7 +8177,7 @@
                                                                                                                "suffix": "",
                                                                                                                  "type": "integer"
                                                                                                       } ],
-                                                                                  "physical_variant": "3 Position Switch"
+                                                                                  "physical_variant": "3_position_switch"
                                                                            },
                                                          "HOOK_BYPASS_SW": {
                                                                                    "category": "Select Jettison Button",
@@ -9345,7 +9427,7 @@
                                                                                                                                 "suffix": "",
                                                                                                                                   "type": "integer"
                                                                                                                        } ],
-                                                                                                   "physical_variant": "3 Position Switch"
+                                                                                                   "physical_variant": "3_position_switch"
                                                                                             },
                                                                                   "UFC_AP": {
                                                                                                         "api_variant": "momentary_last_position",
@@ -10270,7 +10352,7 @@
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ],
-                                                                                    "physical_variant": "3 Position Switch"
+                                                                                    "physical_variant": "3_position_switch"
                                                                              }
                                                      }
 }

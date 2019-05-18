@@ -4092,6 +4092,56 @@
                                                                                      "physical_variant": "push_button"
                                                                               }
                                                     },
+                         "External Aircraft Model": {
+                                                         "EXT_POSITION_LIGHT_LEFT": {
+                                                                                            "category": "External Aircraft Model",
+                                                                                        "control_type": "metadata",
+                                                                                         "description": "Left Position Light (red)",
+                                                                                          "identifier": "EXT_POSITION_LIGHT_LEFT",
+                                                                                              "inputs": [  ],
+                                                                                             "outputs": [ {
+                                                                                                                "address": 6524,
+                                                                                                            "description": "Left Position Light (red)",
+                                                                                                                   "mask": 256,
+                                                                                                              "max_value": 1,
+                                                                                                               "shift_by": 8,
+                                                                                                                 "suffix": "",
+                                                                                                                   "type": "integer"
+                                                                                                        } ]
+                                                                                    },
+                                                        "EXT_POSITION_LIGHT_RIGHT": {
+                                                                                            "category": "External Aircraft Model",
+                                                                                        "control_type": "metadata",
+                                                                                         "description": "Right Position Light (green)",
+                                                                                          "identifier": "EXT_POSITION_LIGHT_RIGHT",
+                                                                                              "inputs": [  ],
+                                                                                             "outputs": [ {
+                                                                                                                "address": 6524,
+                                                                                                            "description": "Right Position Light (green)",
+                                                                                                                   "mask": 512,
+                                                                                                              "max_value": 1,
+                                                                                                               "shift_by": 9,
+                                                                                                                 "suffix": "",
+                                                                                                                   "type": "integer"
+                                                                                                        } ]
+                                                                                    },
+                                                                      "EXT_STROBE": {
+                                                                                            "category": "External Aircraft Model",
+                                                                                        "control_type": "metadata",
+                                                                                         "description": "Strobe Light",
+                                                                                          "identifier": "EXT_STROBE",
+                                                                                              "inputs": [  ],
+                                                                                             "outputs": [ {
+                                                                                                                "address": 6524,
+                                                                                                            "description": "Strobe Light",
+                                                                                                                   "mask": 1024,
+                                                                                                              "max_value": 1,
+                                                                                                               "shift_by": 10,
+                                                                                                                 "suffix": "",
+                                                                                                                   "type": "integer"
+                                                                                                        } ]
+                                                                                    }
+                                                    },
                 "Fire Extinguishers Control Panel": {
                                                                   "FIREEXT_APU_EXT": {
                                                                                                  "api_variant": "momentary_last_position",

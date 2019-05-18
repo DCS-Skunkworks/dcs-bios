@@ -1,1156 +1,552 @@
 {
     "NS430": {
-                                     "NS430_BIG_LEFT_BTN": {
-                                                                "api_variant": "multiturn",
-                                                                   "category": "NS430",
-                                                               "control_type": "analog_dial",
-                                                                "description": "NS430_BIG_LEFT_BTN",
-                                                                 "identifier": "NS430_BIG_LEFT_BTN",
-                                                                     "inputs": [ {
-                                                                                      "description": "turn the dial left or right",
-                                                                                        "interface": "variable_step",
-                                                                                        "max_value": 65535,
-                                                                                   "suggested_step": 3200
-                                                                               } ],
-                                                                    "outputs": [ {
-                                                                                       "address": 32774,
-                                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "_KNOB_POS",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                    "NS430_BIG_RIGHT_BTN": {
-                                                                "api_variant": "multiturn",
-                                                                   "category": "NS430",
-                                                               "control_type": "analog_dial",
-                                                                "description": "BIG_RIGHT_BTN",
-                                                                 "identifier": "NS430_BIG_RIGHT_BTN",
-                                                                     "inputs": [ {
-                                                                                      "description": "turn the dial left or right",
-                                                                                        "interface": "variable_step",
-                                                                                        "max_value": 65535,
-                                                                                   "suggested_step": 3200
-                                                                               } ],
-                                                                    "outputs": [ {
-                                                                                       "address": 32778,
-                                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "_KNOB_POS",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                              "NS430_CDI": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "CDI",
-                                                                        "identifier": "NS430_CDI",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 32,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 5,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                  "NS430_CDI_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "CDI stop action command",
-                                                                        "identifier": "NS430_CDI_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 64,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 6,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                              "NS430_CLR": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "CLR",
-                                                                        "identifier": "NS430_CLR",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 16384,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 14,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                  "NS430_CLR_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "CLR stop action command",
-                                                                        "identifier": "NS430_CLR_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 32768,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 15,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                    "NS430_COM_FLIP_FLOP": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "COM flip-flop",
-                                                                        "identifier": "NS430_COM_FLIP_FLOP",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 8,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 3,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                        "NS430_COM_FLIP_FLOP_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "COM flip-flop stop action command",
-                                                                        "identifier": "NS430_COM_FLIP_FLOP_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 16,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 4,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                        "NS430_DIRECT-TO": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "DIRECT-TO",
-                                                                        "identifier": "NS430_DIRECT-TO",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 4096,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 12,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                            "NS430_DIRECT-TO_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "DIRECT-TO stop action command",
-                                                                        "identifier": "NS430_DIRECT-TO_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 8192,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 13,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                              "NS430_ENT": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "ENT",
-                                                                        "identifier": "NS430_ENT",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 32768,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 15,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                  "NS430_ENT_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "ENT stop action command",
-                                                                        "identifier": "NS430_ENT_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32784,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 1,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                              "NS430_FPL": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "FPL",
-                                                                        "identifier": "NS430_FPL",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 256,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 8,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                  "NS430_FPL_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "FPL stop action command",
-                                                                        "identifier": "NS430_FPL_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 512,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 9,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                             "NS430_MENU": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "MENU",
-                                                                        "identifier": "NS430_MENU",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 8192,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 13,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                 "NS430_MENU_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "MENU stop action command",
-                                                                        "identifier": "NS430_MENU_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 16384,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 14,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                              "NS430_MSG": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "MSG",
-                                                                        "identifier": "NS430_MSG",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 128,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 7,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                  "NS430_MSG_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "MSG stop action command",
-                                                                        "identifier": "NS430_MSG_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 256,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 8,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                              "NS430_OBS": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "OBS",
-                                                                        "identifier": "NS430_OBS",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 64,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 6,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                  "NS430_OBS_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "OBS stop action command",
-                                                                        "identifier": "NS430_OBS_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 128,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 7,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                             "NS430_PROC": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "PROC",
-                                                                        "identifier": "NS430_PROC",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 512,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 9,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                 "NS430_PROC_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "PROC stop action command",
-                                                                        "identifier": "NS430_PROC_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 1024,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 10,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                              "NS430_PWR-VOL_PUSH-SQ_POW": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "PWR-VOL_PUSH-SQ COM Power",
-                                                                        "identifier": "NS430_PWR-VOL_PUSH-SQ_POW",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 1,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                  "NS430_PWR-VOL_PUSH-SQ_POW_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "PWR-VOL_PUSH-SQ COM Power stop action command",
-                                                                        "identifier": "NS430_PWR-VOL_PUSH-SQ_POW_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 2,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 1,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                              "NS430_PWR-VOL_PUSH-SQ_VOL": {
-                                                                "api_variant": "multiturn",
-                                                                   "category": "NS430",
-                                                               "control_type": "analog_dial",
-                                                                "description": "PWR-VOL_PUSH-SQ COM Volume",
-                                                                 "identifier": "NS430_PWR-VOL_PUSH-SQ_VOL",
-                                                                     "inputs": [ {
-                                                                                      "description": "turn the dial left or right",
-                                                                                        "interface": "variable_step",
-                                                                                        "max_value": 65535,
-                                                                                   "suggested_step": 3200
-                                                                               } ],
-                                                                    "outputs": [ {
-                                                                                       "address": 32770,
-                                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "_KNOB_POS",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                         "NS430_RNG-DOWN": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "RNG-DOWN",
-                                                                        "identifier": "NS430_RNG-DOWN",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 2048,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 11,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                             "NS430_RNG-DOWN_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "RNG-DOWN stop action command",
-                                                                        "identifier": "NS430_RNG-DOWN_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 4096,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 12,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                           "NS430_RNG-UP": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "RNG-UP",
-                                                                        "identifier": "NS430_RNG-UP",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 1024,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 10,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                               "NS430_RNG-UP_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "RNG-UP stop action command",
-                                                                        "identifier": "NS430_RNG-UP_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 2048,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 11,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                              "NS430_SMALL_LEFT_BTN_PUSH": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "SMALL_LEFT_BTN Push",
-                                                                        "identifier": "NS430_SMALL_LEFT_BTN_PUSH",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 4,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 2,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                  "NS430_SMALL_LEFT_BTN_PUSH_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "SMALL_LEFT_BTN Push stop action command",
-                                                                        "identifier": "NS430_SMALL_LEFT_BTN_PUSH_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 8,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 3,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                               "NS430_SMALL_LEFT_BTN_ROT": {
-                                                                "api_variant": "multiturn",
-                                                                   "category": "NS430",
-                                                               "control_type": "analog_dial",
-                                                                "description": "SMALL_LEFT_BTN rotate",
-                                                                 "identifier": "NS430_SMALL_LEFT_BTN_ROT",
-                                                                     "inputs": [ {
-                                                                                      "description": "turn the dial left or right",
-                                                                                        "interface": "variable_step",
-                                                                                        "max_value": 65535,
-                                                                                   "suggested_step": 3200
-                                                                               } ],
-                                                                    "outputs": [ {
-                                                                                       "address": 32776,
-                                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "_KNOB_POS",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                             "NS430_SMALL_RIGHT_BTN_PUSH": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "SMALL_RIGHT_BTN Push",
-                                                                        "identifier": "NS430_SMALL_RIGHT_BTN_PUSH",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 1,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                 "NS430_SMALL_RIGHT_BTN_PUSH_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "SMALL_RIGHT_BTN Push stop action command",
-                                                                        "identifier": "NS430_SMALL_RIGHT_BTN_PUSH_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32784,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 2,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 1,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                              "NS430_SMALL_RIGHT_BTN_ROT": {
-                                                                "api_variant": "multiturn",
-                                                                   "category": "NS430",
-                                                               "control_type": "analog_dial",
-                                                                "description": "SMALL_RIGHT_BTN rotate",
-                                                                 "identifier": "NS430_SMALL_RIGHT_BTN_ROT",
-                                                                     "inputs": [ {
-                                                                                      "description": "turn the dial left or right",
-                                                                                        "interface": "variable_step",
-                                                                                        "max_value": 65535,
-                                                                                   "suggested_step": 3200
-                                                                               } ],
-                                                                    "outputs": [ {
-                                                                                       "address": 32782,
-                                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "_KNOB_POS",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                   "NS430_VLOC_FLIP_FLOP": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "VLOC flip-flop",
-                                                                        "identifier": "NS430_VLOC_FLIP_FLOP",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 16,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 4,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                       "NS430_VLOC_FLIP_FLOP_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "VLOC flip-flop stop action command",
-                                                                        "identifier": "NS430_VLOC_FLIP_FLOP_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 32,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 5,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                 "NS430_VOL_PUSH-ID_PUSH": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "VOL_PUSH-ID VLOC Push",
-                                                                        "identifier": "NS430_VOL_PUSH-ID_PUSH",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32768,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 2,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 1,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                     "NS430_VOL_PUSH-ID_PUSH_STOP_ACTION": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "NS430",
-                                                                      "control_type": "selector",
-                                                                       "description": "VOL_PUSH-ID VLOC Push stop action command",
-                                                                        "identifier": "NS430_VOL_PUSH-ID_PUSH_STOP_ACTION",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32780,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 4,
-                                                                                            "max_value": 1,
-                                                                                             "shift_by": 2,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                  "NS430_VOL_PUSH-ID_VOL": {
-                                                                "api_variant": "multiturn",
-                                                                   "category": "NS430",
-                                                               "control_type": "analog_dial",
-                                                                "description": "VOL_PUSH-ID VLOC volume",
-                                                                 "identifier": "NS430_VOL_PUSH-ID_VOL",
-                                                                     "inputs": [ {
-                                                                                      "description": "turn the dial left or right",
-                                                                                        "interface": "variable_step",
-                                                                                        "max_value": 65535,
-                                                                                   "suggested_step": 3200
-                                                                               } ],
-                                                                    "outputs": [ {
-                                                                                       "address": 32772,
-                                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "_KNOB_POS",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           }
+                                       "GLOW": {
+                                                       "category": "NS430",
+                                                   "control_type": "led",
+                                                    "description": "Glow",
+                                                     "identifier": "GLOW",
+                                                         "inputs": [  ],
+                                                        "outputs": [ {
+                                                                           "address": 32768,
+                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                              "mask": 32768,
+                                                                         "max_value": 1,
+                                                                          "shift_by": 15,
+                                                                            "suffix": "",
+                                                                              "type": "integer"
+                                                                   } ]
+                                               },
+                         "NS430_BIG_LEFT_BTN": {
+                                                    "api_variant": "multiturn",
+                                                       "category": "NS430",
+                                                   "control_type": "analog_dial",
+                                                    "description": "BIG_LEFT_BTN",
+                                                     "identifier": "NS430_BIG_LEFT_BTN",
+                                                         "inputs": [ {
+                                                                          "description": "turn the dial left or right",
+                                                                            "interface": "variable_step",
+                                                                            "max_value": 65535,
+                                                                       "suggested_step": 3200
+                                                                   } ],
+                                                        "outputs": [ {
+                                                                           "address": 32774,
+                                                                       "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                              "mask": 65535,
+                                                                         "max_value": 65535,
+                                                                          "shift_by": 0,
+                                                                            "suffix": "_KNOB_POS",
+                                                                              "type": "integer"
+                                                                   } ]
+                                               },
+                        "NS430_BIG_RIGHT_BTN": {
+                                                    "api_variant": "multiturn",
+                                                       "category": "NS430",
+                                                   "control_type": "analog_dial",
+                                                    "description": "BIG_RIGHT_BTN",
+                                                     "identifier": "NS430_BIG_RIGHT_BTN",
+                                                         "inputs": [ {
+                                                                          "description": "turn the dial left or right",
+                                                                            "interface": "variable_step",
+                                                                            "max_value": 65535,
+                                                                       "suggested_step": 3200
+                                                                   } ],
+                                                        "outputs": [ {
+                                                                           "address": 32778,
+                                                                       "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                              "mask": 65535,
+                                                                         "max_value": 65535,
+                                                                          "shift_by": 0,
+                                                                            "suffix": "_KNOB_POS",
+                                                                              "type": "integer"
+                                                                   } ]
+                                               },
+                                  "NS430_CDI": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "CDI",
+                                                            "identifier": "NS430_CDI",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 32,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 5,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                                  "NS430_CLR": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "CLR",
+                                                            "identifier": "NS430_CLR",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 4096,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 12,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                        "NS430_COM_FLIP_FLOP": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "COM flip-flop",
+                                                            "identifier": "NS430_COM_FLIP_FLOP",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 8,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 3,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                            "NS430_DIRECT_TO": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "DIRECT-TO",
+                                                            "identifier": "NS430_DIRECT_TO",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 1024,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 10,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                                  "NS430_ENT": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "ENT",
+                                                            "identifier": "NS430_ENT",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 8192,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 13,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                                  "NS430_FPL": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "FPL",
+                                                            "identifier": "NS430_FPL",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 256,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 8,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                                 "NS430_MENU": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "MENU",
+                                                            "identifier": "NS430_MENU",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 2048,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 11,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                                  "NS430_MSG": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "MSG",
+                                                            "identifier": "NS430_MSG",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 128,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 7,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                                  "NS430_OBS": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "OBS",
+                                                            "identifier": "NS430_OBS",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 64,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 6,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                                 "NS430_PROC": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "PROC",
+                                                            "identifier": "NS430_PROC",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 512,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 9,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                  "NS430_PWR_VOL_PUSH_SQ_POW": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "PWR-VOL PUSH-SQ COM Power",
+                                                            "identifier": "NS430_PWR_VOL_PUSH_SQ_POW",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 1,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                  "NS430_PWR_VOL_PUSH_SQ_VOL": {
+                                                    "api_variant": "multiturn",
+                                                       "category": "NS430",
+                                                   "control_type": "analog_dial",
+                                                    "description": "PWR-VOL_PUSH-SQ COM Volume",
+                                                     "identifier": "NS430_PWR_VOL_PUSH_SQ_VOL",
+                                                         "inputs": [ {
+                                                                          "description": "turn the dial left or right",
+                                                                            "interface": "variable_step",
+                                                                            "max_value": 65535,
+                                                                       "suggested_step": 3200
+                                                                   } ],
+                                                        "outputs": [ {
+                                                                           "address": 32770,
+                                                                       "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                              "mask": 65535,
+                                                                         "max_value": 65535,
+                                                                          "shift_by": 0,
+                                                                            "suffix": "_KNOB_POS",
+                                                                              "type": "integer"
+                                                                   } ]
+                                               },
+                              "NS430_RNG_RKR": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "RNG Rocker",
+                                                            "identifier": "NS430_RNG_RKR",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 2
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32782,
+                                                                              "description": "button position",
+                                                                                     "mask": 3,
+                                                                                "max_value": 2,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "rocker_switch_momentary"
+                                               },
+                  "NS430_SMALL_LEFT_BTN_PUSH": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "SMALL_LEFT_BTN Push",
+                                                            "identifier": "NS430_SMALL_LEFT_BTN_PUSH",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 4,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 2,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                   "NS430_SMALL_LEFT_BTN_ROT": {
+                                                    "api_variant": "multiturn",
+                                                       "category": "NS430",
+                                                   "control_type": "analog_dial",
+                                                    "description": "SMALL_LEFT_BTN rotate",
+                                                     "identifier": "NS430_SMALL_LEFT_BTN_ROT",
+                                                         "inputs": [ {
+                                                                          "description": "turn the dial left or right",
+                                                                            "interface": "variable_step",
+                                                                            "max_value": 65535,
+                                                                       "suggested_step": 3200
+                                                                   } ],
+                                                        "outputs": [ {
+                                                                           "address": 32776,
+                                                                       "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                              "mask": 65535,
+                                                                         "max_value": 65535,
+                                                                          "shift_by": 0,
+                                                                            "suffix": "_KNOB_POS",
+                                                                              "type": "integer"
+                                                                   } ]
+                                               },
+                 "NS430_SMALL_RIGHT_BTN_PUSH": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "SMALL_RIGHT_BTN Push",
+                                                            "identifier": "NS430_SMALL_RIGHT_BTN_PUSH",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 16384,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 14,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                  "NS430_SMALL_RIGHT_BTN_ROT": {
+                                                    "api_variant": "multiturn",
+                                                       "category": "NS430",
+                                                   "control_type": "analog_dial",
+                                                    "description": "SMALL_RIGHT_BTN rotate",
+                                                     "identifier": "NS430_SMALL_RIGHT_BTN_ROT",
+                                                         "inputs": [ {
+                                                                          "description": "turn the dial left or right",
+                                                                            "interface": "variable_step",
+                                                                            "max_value": 65535,
+                                                                       "suggested_step": 3200
+                                                                   } ],
+                                                        "outputs": [ {
+                                                                           "address": 32780,
+                                                                       "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                              "mask": 65535,
+                                                                         "max_value": 65535,
+                                                                          "shift_by": 0,
+                                                                            "suffix": "_KNOB_POS",
+                                                                              "type": "integer"
+                                                                   } ]
+                                               },
+                       "NS430_VLOC_FLIP_FLOP": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "VLOC flip-flop",
+                                                            "identifier": "NS430_VLOC_FLIP_FLOP",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 16,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 4,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                     "NS430_VOL_PUSH_ID_PUSH": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "VOL_PUSH-ID VLOC Push",
+                                                            "identifier": "NS430_VOL_PUSH_ID_PUSH",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 32768,
+                                                                              "description": "selector position -- 0 = off, 1 = on",
+                                                                                     "mask": 2,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 1,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                      "NS430_VOL_PUSH_ID_VOL": {
+                                                    "api_variant": "multiturn",
+                                                       "category": "NS430",
+                                                   "control_type": "analog_dial",
+                                                    "description": "VOL_PUSH-ID VLOC volume",
+                                                     "identifier": "NS430_VOL_PUSH_ID_VOL",
+                                                         "inputs": [ {
+                                                                          "description": "turn the dial left or right",
+                                                                            "interface": "variable_step",
+                                                                            "max_value": 65535,
+                                                                       "suggested_step": 3200
+                                                                   } ],
+                                                        "outputs": [ {
+                                                                           "address": 32772,
+                                                                       "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                              "mask": 65535,
+                                                                         "max_value": 65535,
+                                                                          "shift_by": 0,
+                                                                            "suffix": "_KNOB_POS",
+                                                                              "type": "integer"
+                                                                   } ]
+                                               }
              }
 }

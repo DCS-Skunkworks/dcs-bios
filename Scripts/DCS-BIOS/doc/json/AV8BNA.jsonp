@@ -227,7 +227,7 @@ docdata["AV8BNA"] =
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
-                                                                          "physical_variant": "3 Position Switch"
+                                                                          "physical_variant": "3_position_switch"
                                                                    }
                                             },
                                      "ACP": {
@@ -254,7 +254,7 @@ docdata["AV8BNA"] =
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ],
-                                                                                "physical_variant": "3 Position Switch"
+                                                                                "physical_variant": "3_position_switch"
                                                                          },
                                                          "FUZE_CONTROL": {
                                                                                         "category": "ACP",
@@ -279,7 +279,7 @@ docdata["AV8BNA"] =
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ],
-                                                                                "physical_variant": "3 Position Switch"
+                                                                                "physical_variant": "3_position_switch"
                                                                          },
                                                           "GND_IR_COOL": {
                                                                                         "category": "ACP",
@@ -598,7 +598,7 @@ docdata["AV8BNA"] =
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ],
-                                                                                "physical_variant": "3 Position Switch"
+                                                                                "physical_variant": "3_position_switch"
                                                                          },
                                                          "QUANT_SEL_01": {
                                                                                         "category": "ACP",
@@ -623,7 +623,7 @@ docdata["AV8BNA"] =
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ],
-                                                                                "physical_variant": "3 Position Switch"
+                                                                                "physical_variant": "3_position_switch"
                                                                          },
                                                          "QUANT_SEL_10": {
                                                                                         "category": "ACP",
@@ -648,7 +648,7 @@ docdata["AV8BNA"] =
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ],
-                                                                                "physical_variant": "3 Position Switch"
+                                                                                "physical_variant": "3_position_switch"
                                                                          },
                                                       "RELEASE_CONTROL": {
                                                                                         "category": "ACP",
@@ -698,7 +698,7 @@ docdata["AV8BNA"] =
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ],
-                                                                                "physical_variant": "3 Position Switch"
+                                                                                "physical_variant": "3_position_switch"
                                                                          },
                                                       "RELEASE_INT_010": {
                                                                                         "category": "ACP",
@@ -723,7 +723,7 @@ docdata["AV8BNA"] =
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ],
-                                                                                "physical_variant": "3 Position Switch"
+                                                                                "physical_variant": "3_position_switch"
                                                                          },
                                                       "RELEASE_INT_100": {
                                                                                         "category": "ACP",
@@ -748,7 +748,7 @@ docdata["AV8BNA"] =
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ],
-                                                                                "physical_variant": "3 Position Switch"
+                                                                                "physical_variant": "3_position_switch"
                                                                          }
                                             },
                                 "Bulkhead": {
@@ -924,7 +924,7 @@ docdata["AV8BNA"] =
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
-                                                                       "physical_variant": "3 Position Switch"
+                                                                       "physical_variant": "3_position_switch"
                                                                 }
                                             },
                                   "CANOPY": {
@@ -1414,6 +1414,72 @@ docdata["AV8BNA"] =
                                                                                              "type": "integer"
                                                                                   } ]
                                                               }
+                                            },
+                 "External Aircraft Model": {
+                                                "EXT_FORMATION_LIGHTS": {
+                                                                                "category": "External Aircraft Model",
+                                                                            "control_type": "metadata",
+                                                                             "description": "Formation Lights",
+                                                                              "identifier": "EXT_FORMATION_LIGHTS",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 31036,
+                                                                                                "description": "Formation Lights",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                 "EXT_POSITION_LIGHTS": {
+                                                                                "category": "External Aircraft Model",
+                                                                            "control_type": "metadata",
+                                                                             "description": "Position Lights",
+                                                                              "identifier": "EXT_POSITION_LIGHTS",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 30842,
+                                                                                                "description": "Position Lights",
+                                                                                                       "mask": 16384,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 14,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                     "EXT_SPEED_BRAKE": {
+                                                                                "category": "External Aircraft Model",
+                                                                            "control_type": "metadata",
+                                                                             "description": "Speed Brake",
+                                                                              "identifier": "EXT_SPEED_BRAKE",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 31034,
+                                                                                                "description": "Speed Brake",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                     "EXT_STROBE_TAIL": {
+                                                                                "category": "External Aircraft Model",
+                                                                            "control_type": "metadata",
+                                                                             "description": "Tail Strobe Light",
+                                                                              "identifier": "EXT_STROBE_TAIL",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 30842,
+                                                                                                "description": "Tail Strobe Light",
+                                                                                                       "mask": 32768,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 15,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        }
                                             },
                          "External Lights": {
                                                    "ANTI_COLL_LIGHTS": {
@@ -4342,7 +4408,7 @@ docdata["AV8BNA"] =
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
-                                                                         "physical_variant": "3 Position Switch"
+                                                                         "physical_variant": "3_position_switch"
                                                                   },
                                                  "IFF_OPER_MODE": {
                                                                                  "category": "IFF",
@@ -4450,7 +4516,7 @@ docdata["AV8BNA"] =
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "3 Position Switch"
+                                                                             "physical_variant": "3_position_switch"
                                                                       },
                                                     "CONSOLE_LIGHTS": {
                                                                               "category": "Int Light",
@@ -5177,7 +5243,7 @@ docdata["AV8BNA"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                 "MPCD_L_DAY_NIGHT": {
                                                                                    "category": "MPCD Left",
@@ -5202,7 +5268,7 @@ docdata["AV8BNA"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                      "MPCD_L_GAIN": {
                                                                                    "category": "MPCD Left",
@@ -5227,7 +5293,7 @@ docdata["AV8BNA"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                    "MPCD_L_SYMBOL": {
                                                                                    "category": "MPCD Left",
@@ -5252,7 +5318,7 @@ docdata["AV8BNA"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     }
                                             },
                               "MPCD Right": {
@@ -5904,7 +5970,7 @@ docdata["AV8BNA"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                 "MPCD_R_DAY_NIGHT": {
                                                                                    "category": "MPCD Right",
@@ -5929,7 +5995,7 @@ docdata["AV8BNA"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                      "MPCD_R_GAIN": {
                                                                                    "category": "MPCD Right",
@@ -5954,7 +6020,7 @@ docdata["AV8BNA"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                    "MPCD_R_SYMBOL": {
                                                                                    "category": "MPCD Right",
@@ -5979,7 +6045,7 @@ docdata["AV8BNA"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     }
                                             },
                    "Master Armament Panel": {
@@ -6957,7 +7023,7 @@ docdata["AV8BNA"] =
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ],
-                                                                            "physical_variant": "3 Position Switch"
+                                                                            "physical_variant": "3_position_switch"
                                                                      },
                                                         "STO_LEVER": {
                                                                              "category": "Throttle",

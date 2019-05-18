@@ -2834,6 +2834,56 @@
                                                                                      } ]
                                                                  }
                                       },
+           "External Aircraft Model": {
+                                           "EXT_POSITION_LIGHT_LEFT": {
+                                                                              "category": "External Aircraft Model",
+                                                                          "control_type": "metadata",
+                                                                           "description": "Left Position Light (red)",
+                                                                            "identifier": "EXT_POSITION_LIGHT_LEFT",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 8894,
+                                                                                              "description": "Left Position Light (red)",
+                                                                                                     "mask": 1024,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 10,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                          "EXT_POSITION_LIGHT_RIGHT": {
+                                                                              "category": "External Aircraft Model",
+                                                                          "control_type": "metadata",
+                                                                           "description": "Right Position Light (green)",
+                                                                            "identifier": "EXT_POSITION_LIGHT_RIGHT",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 8894,
+                                                                                              "description": "Right Position Light (green)",
+                                                                                                     "mask": 2048,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 11,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                        "EXT_STROBE": {
+                                                                              "category": "External Aircraft Model",
+                                                                          "control_type": "metadata",
+                                                                           "description": "Strobe Light",
+                                                                            "identifier": "EXT_STROBE",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 8894,
+                                                                                              "description": "Strobe Light",
+                                                                                                     "mask": 4096,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 12,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      }
+                                      },
     "Flight Status/Navigation Panel": {
                                                        "ALT_PRESS": {
                                                                             "category": "Flight Status/Navigation Panel",

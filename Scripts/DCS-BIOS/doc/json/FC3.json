@@ -1,422 +1,472 @@
 {
-           "Altitude": {
-                                  "FC3_ALTITUDE": {
-                                                          "category": "Altitude",
-                                                      "control_type": "display",
-                                                       "description": "Altitude",
-                                                        "identifier": "FC3_ALTITUDE",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 24576,
-                                                                          "description": "Altitude",
-                                                                           "max_length": 6,
-                                                                               "suffix": "",
-                                                                                 "type": "string"
-                                                                      } ]
-                                                  },
-                           "FC3_ALTITUDE_GROUND": {
-                                                          "category": "Altitude",
-                                                      "control_type": "display",
-                                                       "description": "Altitude above Ground",
-                                                        "identifier": "FC3_ALTITUDE_GROUND",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 24582,
-                                                                          "description": "Altitude above Ground",
-                                                                           "max_length": 6,
-                                                                               "suffix": "",
-                                                                                 "type": "string"
-                                                                      } ]
-                                                  },
-                              "FC3_ALTITUDE_SEA": {
-                                                          "category": "Altitude",
-                                                      "control_type": "display",
-                                                       "description": "Altitude above Sea Level",
-                                                        "identifier": "FC3_ALTITUDE_SEA",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 24588,
-                                                                          "description": "Altitude above Sea Level",
-                                                                           "max_length": 6,
-                                                                               "suffix": "",
-                                                                                 "type": "string"
-                                                                      } ]
-                                                  },
-                            "FC3_RADAR_ALTITUDE": {
-                                                          "category": "Altitude",
-                                                      "control_type": "metadata",
-                                                       "description": "Radar Altitude",
-                                                        "identifier": "FC3_RADAR_ALTITUDE",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 24602,
-                                                                          "description": "Radar Altitude",
-                                                                                 "mask": 256,
-                                                                            "max_value": 1,
-                                                                             "shift_by": 8,
-                                                                               "suffix": "",
-                                                                                 "type": "integer"
-                                                                      } ]
-                                                  }
-                       },
-                "Bar": {
-                             "FC3_FUEL_BAR": {
-                                                     "category": "Bar",
-                                                 "control_type": "metadata",
-                                                  "description": "Fuel Bar",
-                                                   "identifier": "FC3_FUEL_BAR",
-                                                       "inputs": [  ],
-                                                      "outputs": [ {
-                                                                         "address": 24602,
-                                                                     "description": "Fuel Bar",
-                                                                            "mask": 15872,
-                                                                       "max_value": 16,
-                                                                        "shift_by": 9,
-                                                                          "suffix": "",
-                                                                            "type": "integer"
-                                                                 } ]
-                                             },
-                           "FC3_G_LOAD_BAR": {
-                                                     "category": "Bar",
-                                                 "control_type": "metadata",
-                                                  "description": "G Load Bar",
-                                                   "identifier": "FC3_G_LOAD_BAR",
-                                                       "inputs": [  ],
-                                                      "outputs": [ {
-                                                                         "address": 24626,
-                                                                     "description": "G Load Bar",
-                                                                            "mask": 7936,
-                                                                       "max_value": 16,
-                                                                        "shift_by": 8,
-                                                                          "suffix": "",
-                                                                            "type": "integer"
-                                                                 } ]
-                                             },
-                              "FC3_VVI_BAR": {
-                                                     "category": "Bar",
-                                                 "control_type": "metadata",
-                                                  "description": "Vertical Velocity Bar",
-                                                   "identifier": "FC3_VVI_BAR",
-                                                       "inputs": [  ],
-                                                      "outputs": [ {
-                                                                         "address": 24630,
-                                                                     "description": "Vertical Velocity Bar",
-                                                                            "mask": 7936,
-                                                                       "max_value": 16,
-                                                                        "shift_by": 8,
-                                                                          "suffix": "",
-                                                                            "type": "integer"
-                                                                 } ]
-                                             }
-                       },
-    "Countermeasures": {
-                           "FC3_CHAFF": {
-                                                "category": "Countermeasures",
-                                            "control_type": "display",
-                                             "description": "Chaff Counter",
-                                              "identifier": "FC3_CHAFF",
-                                                  "inputs": [  ],
-                                                 "outputs": [ {
-                                                                    "address": 24642,
-                                                                "description": "Chaff Counter",
-                                                                 "max_length": 3,
-                                                                     "suffix": "",
-                                                                       "type": "string"
-                                                            } ]
-                                        },
-                           "FC3_FLARE": {
-                                                "category": "Countermeasures",
-                                            "control_type": "display",
-                                             "description": "Flare Counter",
-                                              "identifier": "FC3_FLARE",
-                                                  "inputs": [  ],
-                                                 "outputs": [ {
-                                                                    "address": 24646,
-                                                                "description": "Flare Counter",
-                                                                 "max_length": 3,
-                                                                     "suffix": "",
-                                                                       "type": "string"
-                                                            } ]
-                                        }
-                       },
-             "Engine": {
-                            "FC3_RPM_L": {
-                                                 "category": "Engine",
-                                             "control_type": "display",
-                                              "description": "RPM Left Engine",
-                                               "identifier": "FC3_RPM_L",
-                                                   "inputs": [  ],
-                                                  "outputs": [ {
-                                                                     "address": 24624,
-                                                                 "description": "RPM Left Engine",
-                                                                  "max_length": 3,
-                                                                      "suffix": "",
-                                                                        "type": "string"
-                                                             } ]
-                                         },
-                            "FC3_RPM_R": {
-                                                 "category": "Engine",
-                                             "control_type": "display",
-                                              "description": "RPM Left Engine",
-                                               "identifier": "FC3_RPM_R",
-                                                   "inputs": [  ],
-                                                  "outputs": [ {
-                                                                     "address": 24628,
-                                                                 "description": "RPM Left Engine",
-                                                                  "max_length": 3,
-                                                                      "suffix": "",
-                                                                        "type": "string"
-                                                             } ]
-                                         },
-                           "FC3_TEMP_L": {
-                                                 "category": "Engine",
-                                             "control_type": "display",
-                                              "description": "Temperature Left Engine",
-                                               "identifier": "FC3_TEMP_L",
-                                                   "inputs": [  ],
-                                                  "outputs": [ {
-                                                                     "address": 24632,
-                                                                 "description": "Temperature Left Engine",
-                                                                  "max_length": 3,
-                                                                      "suffix": "",
-                                                                        "type": "string"
-                                                             } ]
-                                         },
-                           "FC3_TEMP_R": {
-                                                 "category": "Engine",
-                                             "control_type": "display",
-                                              "description": "Temperature Left Engine",
-                                               "identifier": "FC3_TEMP_R",
-                                                   "inputs": [  ],
-                                                  "outputs": [ {
-                                                                     "address": 24636,
-                                                                 "description": "Temperature Left Engine",
-                                                                  "max_length": 3,
-                                                                      "suffix": "",
-                                                                        "type": "string"
-                                                             } ]
-                                         }
-                       },
-              "Float": {
-                                     "FC3_ADI_BANK": {
-                                                             "category": "Float",
+                   "Altitude": {
+                                          "FC3_ALTITUDE": {
+                                                                  "category": "Altitude",
+                                                              "control_type": "display",
+                                                               "description": "Altitude",
+                                                                "identifier": "FC3_ALTITUDE",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 24576,
+                                                                                  "description": "Altitude",
+                                                                                   "max_length": 6,
+                                                                                       "suffix": "",
+                                                                                         "type": "string"
+                                                                              } ]
+                                                          },
+                                   "FC3_ALTITUDE_GROUND": {
+                                                                  "category": "Altitude",
+                                                              "control_type": "display",
+                                                               "description": "Altitude above Ground",
+                                                                "identifier": "FC3_ALTITUDE_GROUND",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 24582,
+                                                                                  "description": "Altitude above Ground",
+                                                                                   "max_length": 6,
+                                                                                       "suffix": "",
+                                                                                         "type": "string"
+                                                                              } ]
+                                                          },
+                                      "FC3_ALTITUDE_SEA": {
+                                                                  "category": "Altitude",
+                                                              "control_type": "display",
+                                                               "description": "Altitude above Sea Level",
+                                                                "identifier": "FC3_ALTITUDE_SEA",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 24588,
+                                                                                  "description": "Altitude above Sea Level",
+                                                                                   "max_length": 6,
+                                                                                       "suffix": "",
+                                                                                         "type": "string"
+                                                                              } ]
+                                                          },
+                                    "FC3_RADAR_ALTITUDE": {
+                                                                  "category": "Altitude",
+                                                              "control_type": "metadata",
+                                                               "description": "Radar Altitude",
+                                                                "identifier": "FC3_RADAR_ALTITUDE",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 24602,
+                                                                                  "description": "Radar Altitude",
+                                                                                         "mask": 256,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 8,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          }
+                               },
+                        "Bar": {
+                                     "FC3_FUEL_BAR": {
+                                                             "category": "Bar",
                                                          "control_type": "metadata",
-                                                          "description": "ADI Bank",
-                                                           "identifier": "FC3_ADI_BANK",
+                                                          "description": "Fuel Bar",
+                                                           "identifier": "FC3_FUEL_BAR",
                                                                "inputs": [  ],
                                                               "outputs": [ {
-                                                                                 "address": 24634,
-                                                                             "description": "ADI Bank",
-                                                                                    "mask": 65280,
-                                                                               "max_value": 255,
-                                                                                "shift_by": 8,
+                                                                                 "address": 24602,
+                                                                             "description": "Fuel Bar",
+                                                                                    "mask": 15872,
+                                                                               "max_value": 16,
+                                                                                "shift_by": 9,
                                                                                   "suffix": "",
-                                                                                    "type": "integer",
-                                                                             "value_range": [ -1, 1 ]
+                                                                                    "type": "integer"
                                                                          } ]
                                                      },
-                                    "FC3_ADI_PITCH": {
-                                                             "category": "Float",
+                                   "FC3_G_LOAD_BAR": {
+                                                             "category": "Bar",
                                                          "control_type": "metadata",
-                                                          "description": "ADI Pitch",
-                                                           "identifier": "FC3_ADI_PITCH",
+                                                          "description": "G Load Bar",
+                                                           "identifier": "FC3_G_LOAD_BAR",
                                                                "inputs": [  ],
                                                               "outputs": [ {
-                                                                                 "address": 24638,
-                                                                             "description": "ADI Pitch",
-                                                                                    "mask": 65280,
-                                                                               "max_value": 255,
+                                                                                 "address": 24626,
+                                                                             "description": "G Load Bar",
+                                                                                    "mask": 7936,
+                                                                               "max_value": 16,
                                                                                 "shift_by": 8,
                                                                                   "suffix": "",
-                                                                                    "type": "integer",
-                                                                             "value_range": [ -1, 1 ]
+                                                                                    "type": "integer"
                                                                          } ]
                                                      },
-                                      "FC3_ADI_YAW": {
-                                                             "category": "Float",
+                                      "FC3_VVI_BAR": {
+                                                             "category": "Bar",
                                                          "control_type": "metadata",
-                                                          "description": "ADI Yaw",
-                                                           "identifier": "FC3_ADI_YAW",
+                                                          "description": "Vertical Velocity Bar",
+                                                           "identifier": "FC3_VVI_BAR",
                                                                "inputs": [  ],
                                                               "outputs": [ {
-                                                                                 "address": 24640,
-                                                                             "description": "ADI Yaw",
-                                                                                    "mask": 65280,
-                                                                               "max_value": 255,
+                                                                                 "address": 24630,
+                                                                             "description": "Vertical Velocity Bar",
+                                                                                    "mask": 7936,
+                                                                               "max_value": 16,
                                                                                 "shift_by": 8,
                                                                                   "suffix": "",
-                                                                                    "type": "integer",
-                                                                             "value_range": [ -1, 1 ]
-                                                                         } ]
-                                                     },
-                              "FC3_GLIDE_DEVIATION": {
-                                                             "category": "Float",
-                                                         "control_type": "metadata",
-                                                          "description": "Glide Deviation",
-                                                           "identifier": "FC3_GLIDE_DEVIATION",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 24644,
-                                                                             "description": "Glide Deviation",
-                                                                                    "mask": 65280,
-                                                                               "max_value": 255,
-                                                                                "shift_by": 8,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer",
-                                                                             "value_range": [ -1, 1 ]
-                                                                         } ]
-                                                     },
-                               "FC3_SIDE_DEVIATION": {
-                                                             "category": "Float",
-                                                         "control_type": "metadata",
-                                                          "description": "Side Deviation",
-                                                           "identifier": "FC3_SIDE_DEVIATION",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 24648,
-                                                                             "description": "Side Deviation",
-                                                                                    "mask": 65280,
-                                                                               "max_value": 255,
-                                                                                "shift_by": 8,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer",
-                                                                             "value_range": [ -1, 1 ]
-                                                                         } ]
-                                                     },
-                           "FC3_SLIP_BALL_POSITION": {
-                                                             "category": "Float",
-                                                         "control_type": "metadata",
-                                                          "description": "Slip Ball Position",
-                                                           "identifier": "FC3_SLIP_BALL_POSITION",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 24650,
-                                                                             "description": "Slip Ball Position",
-                                                                                    "mask": 255,
-                                                                               "max_value": 255,
-                                                                                "shift_by": 0,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer",
-                                                                             "value_range": [ -1, 1 ]
+                                                                                    "type": "integer"
                                                                          } ]
                                                      }
-                       },
-         "Mechanical": {
-                           "FC3_GEAR": {
-                                               "category": "Mechanical",
-                                           "control_type": "display",
-                                            "description": "Gear Status",
-                                             "identifier": "FC3_GEAR",
-                                                 "inputs": [  ],
-                                                "outputs": [ {
-                                                                   "address": 24640,
-                                                               "description": "Gear Status",
-                                                                "max_length": 1,
-                                                                    "suffix": "",
-                                                                      "type": "string"
-                                                           } ]
-                                       }
-                       },
-              "Speed": {
-                           "FC3_INDICATED_AIRSPEED": {
-                                                             "category": "Speed",
-                                                         "control_type": "display",
-                                                          "description": "Indicated Airspeed",
-                                                           "identifier": "FC3_INDICATED_AIRSPEED",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 24608,
-                                                                             "description": "Indicated Airspeed",
-                                                                              "max_length": 4,
-                                                                                  "suffix": "",
-                                                                                    "type": "string"
-                                                                         } ]
-                                                     },
-                                  "FC3_MACH_NUMBER": {
-                                                             "category": "Speed",
-                                                         "control_type": "display",
-                                                          "description": "Mach Number",
-                                                           "identifier": "FC3_MACH_NUMBER",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 24612,
-                                                                             "description": "Mach Number",
-                                                                              "max_length": 4,
-                                                                                  "suffix": "",
-                                                                                    "type": "string"
-                                                                         } ]
-                                                     },
-                                "FC3_TRUE_AIRSPEED": {
-                                                             "category": "Speed",
-                                                         "control_type": "display",
-                                                          "description": "True Airspeed",
-                                                           "identifier": "FC3_TRUE_AIRSPEED",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 24616,
-                                                                             "description": "True Airspeed",
-                                                                              "max_length": 4,
-                                                                                  "suffix": "",
-                                                                                    "type": "string"
-                                                                         } ]
-                                                     },
-                            "FC3_VERTICAL_VELOCITY": {
-                                                             "category": "Speed",
-                                                         "control_type": "display",
-                                                          "description": "Vertical Velocity",
-                                                           "identifier": "FC3_VERTICAL_VELOCITY",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 24620,
-                                                                             "description": "Vertical Velocity",
-                                                                              "max_length": 4,
-                                                                                  "suffix": "",
-                                                                                    "type": "string"
-                                                                         } ]
-                                                     }
-                       },
-             "String": {
-                           "FC3_ANGLE_OF_ATTACK": {
-                                                          "category": "String",
-                                                      "control_type": "display",
-                                                       "description": "Angle of Attack",
-                                                        "identifier": "FC3_ANGLE_OF_ATTACK",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 24594,
-                                                                          "description": "Angle of Attack",
-                                                                           "max_length": 4,
-                                                                               "suffix": "",
-                                                                                 "type": "string"
-                                                                      } ]
-                                                  },
-                                  "FC3_FUEL_ALL": {
-                                                          "category": "String",
-                                                      "control_type": "display",
-                                                       "description": "Fuel Remaining",
-                                                        "identifier": "FC3_FUEL_ALL",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 24598,
-                                                                          "description": "Fuel Remaining",
-                                                                           "max_length": 5,
-                                                                               "suffix": "",
-                                                                                 "type": "string"
-                                                                      } ]
-                                                  },
-                                    "FC3_G_LOAD": {
-                                                          "category": "String",
-                                                      "control_type": "display",
-                                                       "description": "G Load",
-                                                        "identifier": "FC3_G_LOAD",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 24604,
-                                                                          "description": "G Load",
-                                                                           "max_length": 4,
-                                                                               "suffix": "",
-                                                                                 "type": "string"
-                                                                      } ]
-                                                  }
-                       }
+                               },
+            "Countermeasures": {
+                                   "FC3_CHAFF": {
+                                                        "category": "Countermeasures",
+                                                    "control_type": "display",
+                                                     "description": "Chaff Counter",
+                                                      "identifier": "FC3_CHAFF",
+                                                          "inputs": [  ],
+                                                         "outputs": [ {
+                                                                            "address": 24642,
+                                                                        "description": "Chaff Counter",
+                                                                         "max_length": 3,
+                                                                             "suffix": "",
+                                                                               "type": "string"
+                                                                    } ]
+                                                },
+                                   "FC3_FLARE": {
+                                                        "category": "Countermeasures",
+                                                    "control_type": "display",
+                                                     "description": "Flare Counter",
+                                                      "identifier": "FC3_FLARE",
+                                                          "inputs": [  ],
+                                                         "outputs": [ {
+                                                                            "address": 24646,
+                                                                        "description": "Flare Counter",
+                                                                         "max_length": 3,
+                                                                             "suffix": "",
+                                                                               "type": "string"
+                                                                    } ]
+                                                }
+                               },
+                     "Engine": {
+                                    "FC3_RPM_L": {
+                                                         "category": "Engine",
+                                                     "control_type": "display",
+                                                      "description": "RPM Left Engine",
+                                                       "identifier": "FC3_RPM_L",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 24624,
+                                                                         "description": "RPM Left Engine",
+                                                                          "max_length": 3,
+                                                                              "suffix": "",
+                                                                                "type": "string"
+                                                                     } ]
+                                                 },
+                                    "FC3_RPM_R": {
+                                                         "category": "Engine",
+                                                     "control_type": "display",
+                                                      "description": "RPM Left Engine",
+                                                       "identifier": "FC3_RPM_R",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 24628,
+                                                                         "description": "RPM Left Engine",
+                                                                          "max_length": 3,
+                                                                              "suffix": "",
+                                                                                "type": "string"
+                                                                     } ]
+                                                 },
+                                   "FC3_TEMP_L": {
+                                                         "category": "Engine",
+                                                     "control_type": "display",
+                                                      "description": "Temperature Left Engine",
+                                                       "identifier": "FC3_TEMP_L",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 24632,
+                                                                         "description": "Temperature Left Engine",
+                                                                          "max_length": 3,
+                                                                              "suffix": "",
+                                                                                "type": "string"
+                                                                     } ]
+                                                 },
+                                   "FC3_TEMP_R": {
+                                                         "category": "Engine",
+                                                     "control_type": "display",
+                                                      "description": "Temperature Left Engine",
+                                                       "identifier": "FC3_TEMP_R",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 24636,
+                                                                         "description": "Temperature Left Engine",
+                                                                          "max_length": 3,
+                                                                              "suffix": "",
+                                                                                "type": "string"
+                                                                     } ]
+                                                 }
+                               },
+    "External Aircraft Model": {
+                                    "EXT_POSITION_LIGHT_LEFT": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Left Position Light (red)",
+                                                                     "identifier": "EXT_POSITION_LIGHT_LEFT",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 24602,
+                                                                                       "description": "Left Position Light (red)",
+                                                                                              "mask": 16384,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 14,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                   "EXT_POSITION_LIGHT_RIGHT": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Right Position Light (green)",
+                                                                     "identifier": "EXT_POSITION_LIGHT_RIGHT",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 24602,
+                                                                                       "description": "Right Position Light (green)",
+                                                                                              "mask": 32768,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 15,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                 "EXT_STROBE": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Strobe Light",
+                                                                     "identifier": "EXT_STROBE",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 24626,
+                                                                                       "description": "Strobe Light",
+                                                                                              "mask": 8192,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 13,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               }
+                               },
+                      "Float": {
+                                             "FC3_ADI_BANK": {
+                                                                     "category": "Float",
+                                                                 "control_type": "metadata",
+                                                                  "description": "ADI Bank",
+                                                                   "identifier": "FC3_ADI_BANK",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 24634,
+                                                                                     "description": "ADI Bank",
+                                                                                            "mask": 65280,
+                                                                                       "max_value": 255,
+                                                                                        "shift_by": 8,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer",
+                                                                                     "value_range": [ -1, 1 ]
+                                                                                 } ]
+                                                             },
+                                            "FC3_ADI_PITCH": {
+                                                                     "category": "Float",
+                                                                 "control_type": "metadata",
+                                                                  "description": "ADI Pitch",
+                                                                   "identifier": "FC3_ADI_PITCH",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 24638,
+                                                                                     "description": "ADI Pitch",
+                                                                                            "mask": 65280,
+                                                                                       "max_value": 255,
+                                                                                        "shift_by": 8,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer",
+                                                                                     "value_range": [ -1, 1 ]
+                                                                                 } ]
+                                                             },
+                                              "FC3_ADI_YAW": {
+                                                                     "category": "Float",
+                                                                 "control_type": "metadata",
+                                                                  "description": "ADI Yaw",
+                                                                   "identifier": "FC3_ADI_YAW",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 24640,
+                                                                                     "description": "ADI Yaw",
+                                                                                            "mask": 65280,
+                                                                                       "max_value": 255,
+                                                                                        "shift_by": 8,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer",
+                                                                                     "value_range": [ -1, 1 ]
+                                                                                 } ]
+                                                             },
+                                      "FC3_GLIDE_DEVIATION": {
+                                                                     "category": "Float",
+                                                                 "control_type": "metadata",
+                                                                  "description": "Glide Deviation",
+                                                                   "identifier": "FC3_GLIDE_DEVIATION",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 24644,
+                                                                                     "description": "Glide Deviation",
+                                                                                            "mask": 65280,
+                                                                                       "max_value": 255,
+                                                                                        "shift_by": 8,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer",
+                                                                                     "value_range": [ -1, 1 ]
+                                                                                 } ]
+                                                             },
+                                       "FC3_SIDE_DEVIATION": {
+                                                                     "category": "Float",
+                                                                 "control_type": "metadata",
+                                                                  "description": "Side Deviation",
+                                                                   "identifier": "FC3_SIDE_DEVIATION",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 24648,
+                                                                                     "description": "Side Deviation",
+                                                                                            "mask": 65280,
+                                                                                       "max_value": 255,
+                                                                                        "shift_by": 8,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer",
+                                                                                     "value_range": [ -1, 1 ]
+                                                                                 } ]
+                                                             },
+                                   "FC3_SLIP_BALL_POSITION": {
+                                                                     "category": "Float",
+                                                                 "control_type": "metadata",
+                                                                  "description": "Slip Ball Position",
+                                                                   "identifier": "FC3_SLIP_BALL_POSITION",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 24650,
+                                                                                     "description": "Slip Ball Position",
+                                                                                            "mask": 255,
+                                                                                       "max_value": 255,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer",
+                                                                                     "value_range": [ -1, 1 ]
+                                                                                 } ]
+                                                             }
+                               },
+                 "Mechanical": {
+                                   "FC3_GEAR": {
+                                                       "category": "Mechanical",
+                                                   "control_type": "display",
+                                                    "description": "Gear Status",
+                                                     "identifier": "FC3_GEAR",
+                                                         "inputs": [  ],
+                                                        "outputs": [ {
+                                                                           "address": 24640,
+                                                                       "description": "Gear Status",
+                                                                        "max_length": 1,
+                                                                            "suffix": "",
+                                                                              "type": "string"
+                                                                   } ]
+                                               }
+                               },
+                      "Speed": {
+                                   "FC3_INDICATED_AIRSPEED": {
+                                                                     "category": "Speed",
+                                                                 "control_type": "display",
+                                                                  "description": "Indicated Airspeed",
+                                                                   "identifier": "FC3_INDICATED_AIRSPEED",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 24608,
+                                                                                     "description": "Indicated Airspeed",
+                                                                                      "max_length": 4,
+                                                                                          "suffix": "",
+                                                                                            "type": "string"
+                                                                                 } ]
+                                                             },
+                                          "FC3_MACH_NUMBER": {
+                                                                     "category": "Speed",
+                                                                 "control_type": "display",
+                                                                  "description": "Mach Number",
+                                                                   "identifier": "FC3_MACH_NUMBER",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 24612,
+                                                                                     "description": "Mach Number",
+                                                                                      "max_length": 4,
+                                                                                          "suffix": "",
+                                                                                            "type": "string"
+                                                                                 } ]
+                                                             },
+                                        "FC3_TRUE_AIRSPEED": {
+                                                                     "category": "Speed",
+                                                                 "control_type": "display",
+                                                                  "description": "True Airspeed",
+                                                                   "identifier": "FC3_TRUE_AIRSPEED",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 24616,
+                                                                                     "description": "True Airspeed",
+                                                                                      "max_length": 4,
+                                                                                          "suffix": "",
+                                                                                            "type": "string"
+                                                                                 } ]
+                                                             },
+                                    "FC3_VERTICAL_VELOCITY": {
+                                                                     "category": "Speed",
+                                                                 "control_type": "display",
+                                                                  "description": "Vertical Velocity",
+                                                                   "identifier": "FC3_VERTICAL_VELOCITY",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 24620,
+                                                                                     "description": "Vertical Velocity",
+                                                                                      "max_length": 4,
+                                                                                          "suffix": "",
+                                                                                            "type": "string"
+                                                                                 } ]
+                                                             }
+                               },
+                     "String": {
+                                   "FC3_ANGLE_OF_ATTACK": {
+                                                                  "category": "String",
+                                                              "control_type": "display",
+                                                               "description": "Angle of Attack",
+                                                                "identifier": "FC3_ANGLE_OF_ATTACK",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 24594,
+                                                                                  "description": "Angle of Attack",
+                                                                                   "max_length": 4,
+                                                                                       "suffix": "",
+                                                                                         "type": "string"
+                                                                              } ]
+                                                          },
+                                          "FC3_FUEL_ALL": {
+                                                                  "category": "String",
+                                                              "control_type": "display",
+                                                               "description": "Fuel Remaining",
+                                                                "identifier": "FC3_FUEL_ALL",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 24598,
+                                                                                  "description": "Fuel Remaining",
+                                                                                   "max_length": 5,
+                                                                                       "suffix": "",
+                                                                                         "type": "string"
+                                                                              } ]
+                                                          },
+                                            "FC3_G_LOAD": {
+                                                                  "category": "String",
+                                                              "control_type": "display",
+                                                               "description": "G Load",
+                                                                "identifier": "FC3_G_LOAD",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 24604,
+                                                                                  "description": "G Load",
+                                                                                   "max_length": 4,
+                                                                                       "suffix": "",
+                                                                                         "type": "string"
+                                                                              } ]
+                                                          }
+                               }
 }

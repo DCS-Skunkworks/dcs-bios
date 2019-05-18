@@ -5349,6 +5349,40 @@
                                                                           "physical_variant": "limited_rotary"
                                                                    }
                                     },
+         "External Aircraft Model": {
+                                        "EXT_POSITION_LIGHTS": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Position Lights",
+                                                                     "identifier": "EXT_POSITION_LIGHTS",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 10274,
+                                                                                       "description": "Position Lights",
+                                                                                              "mask": 256,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 8,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                 "EXT_STROBE": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Strobe Light",
+                                                                     "identifier": "EXT_STROBE",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 10274,
+                                                                                       "description": "Strobe Light",
+                                                                                              "mask": 512,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 9,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               }
+                                    },
                   "External Cargo": {
                                         "CARGO_TACT_REL": {
                                                                          "category": "External Cargo",

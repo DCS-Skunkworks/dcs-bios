@@ -1422,7 +1422,7 @@ docdata["MiG-19P"] =
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ],
-                                                                               "physical_variant": "3 Position Switch"
+                                                                               "physical_variant": "3_position_switch"
                                                                         },
                                                            "ARU2_MODE": {
                                                                                        "category": "Bulkhead Panel 3",
@@ -2609,7 +2609,7 @@ docdata["MiG-19P"] =
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ],
-                                                                      "physical_variant": "3 Position Switch"
+                                                                      "physical_variant": "3_position_switch"
                                                                }
                                             },
                    "Exterior Lights Panel": {
@@ -2661,8 +2661,74 @@ docdata["MiG-19P"] =
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ],
-                                                                      "physical_variant": "3 Position Switch"
+                                                                      "physical_variant": "3_position_switch"
                                                                }
+                                            },
+                 "External Aircraft Model": {
+                                                 "EXT_POSITION_LIGHT_LEFT": {
+                                                                                    "category": "External Aircraft Model",
+                                                                                "control_type": "metadata",
+                                                                                 "description": "Left Position Light (red)",
+                                                                                  "identifier": "EXT_POSITION_LIGHT_LEFT",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 5700,
+                                                                                                    "description": "Left Position Light (red)",
+                                                                                                           "mask": 16384,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 14,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                "EXT_POSITION_LIGHT_RIGHT": {
+                                                                                    "category": "External Aircraft Model",
+                                                                                "control_type": "metadata",
+                                                                                 "description": "Right Position Light (green)",
+                                                                                  "identifier": "EXT_POSITION_LIGHT_RIGHT",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 5700,
+                                                                                                    "description": "Right Position Light (green)",
+                                                                                                           "mask": 32768,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 15,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                    "EXT_SPEED_BRAKE_LEFT": {
+                                                                                    "category": "External Aircraft Model",
+                                                                                "control_type": "metadata",
+                                                                                 "description": "Left Speed Brake",
+                                                                                  "identifier": "EXT_SPEED_BRAKE_LEFT",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 5816,
+                                                                                                    "description": "Left Speed Brake",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                   "EXT_SPEED_BRAKE_RIGHT": {
+                                                                                    "category": "External Aircraft Model",
+                                                                                "control_type": "metadata",
+                                                                                 "description": "Right Speed Brake",
+                                                                                  "identifier": "EXT_SPEED_BRAKE_RIGHT",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 5814,
+                                                                                                    "description": "Right Speed Brake",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            }
                                             },
                           "Flight Control": {
                                                    "AILERON_HYDRO": {
@@ -2717,7 +2783,7 @@ docdata["MiG-19P"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                    "ARU2V_MAN_SET": {
                                                                                    "category": "Flight Control",
@@ -2742,7 +2808,7 @@ docdata["MiG-19P"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                    "ARU2V_OP_MODE": {
                                                                                    "category": "Flight Control",
@@ -3077,7 +3143,7 @@ docdata["MiG-19P"] =
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ],
-                                                                              "physical_variant": "3 Position Switch"
+                                                                              "physical_variant": "3_position_switch"
                                                                        },
                                                   "CLOCK_L_KNOB_TURN": {
                                                                             "api_variant": "multiturn",
@@ -4606,7 +4672,7 @@ docdata["MiG-19P"] =
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
-                                                                          "physical_variant": "3 Position Switch"
+                                                                          "physical_variant": "3_position_switch"
                                                                    },
                                                 "GEAR_LIGHT_TEST": {
                                                                                "api_variant": "momentary_last_position",
@@ -5234,7 +5300,7 @@ docdata["MiG-19P"] =
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
-                                                                          "physical_variant": "3 Position Switch"
+                                                                          "physical_variant": "3_position_switch"
                                                                    },
                                                     "CPT_VENT_SW": {
                                                                                   "category": "Right Console",
@@ -5377,7 +5443,7 @@ docdata["MiG-19P"] =
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ],
-                                                                              "physical_variant": "3 Position Switch"
+                                                                              "physical_variant": "3_position_switch"
                                                                        }
                                             },
                                  "Sensors": {

@@ -1156,6 +1156,40 @@
                                                                          "physical_variant": "limited_rotary"
                                                                   }
                                             },
+                 "External Aircraft Model": {
+                                                 "EXT_POSITION_LIGHT_LEFT": {
+                                                                                    "category": "External Aircraft Model",
+                                                                                "control_type": "metadata",
+                                                                                 "description": "Left Position Light (red)",
+                                                                                  "identifier": "EXT_POSITION_LIGHT_LEFT",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 21538,
+                                                                                                    "description": "Left Position Light (red)",
+                                                                                                           "mask": 32768,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 15,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                "EXT_POSITION_LIGHT_RIGHT": {
+                                                                                    "category": "External Aircraft Model",
+                                                                                "control_type": "metadata",
+                                                                                 "description": "Right Position Light (green)",
+                                                                                  "identifier": "EXT_POSITION_LIGHT_RIGHT",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 21594,
+                                                                                                    "description": "Right Position Light (green)",
+                                                                                                           "mask": 1,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            }
+                                            },
                                "Indicator": {
                                                             "AHORIZONBANK": {
                                                                                     "category": "Indicator",

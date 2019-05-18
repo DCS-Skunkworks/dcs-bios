@@ -2440,6 +2440,134 @@
                                                                   }
                                      },
                         "ECM Panel": {
+                                         "ECM_TEST_LOW_LL": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "led",
+                                                                 "description": "ECM Test Lower LL",
+                                                                  "identifier": "ECM_TEST_LOW_LL",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 33906,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 32768,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 15,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                         "ECM_TEST_LOW_LR": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "led",
+                                                                 "description": "ECM Test Lower LR",
+                                                                  "identifier": "ECM_TEST_LOW_LR",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 34018,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 1,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                         "ECM_TEST_LOW_UL": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "led",
+                                                                 "description": "ECM Test Lower UL",
+                                                                  "identifier": "ECM_TEST_LOW_UL",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 33906,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 8192,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 13,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                         "ECM_TEST_LOW_UR": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "led",
+                                                                 "description": "ECM Test Lower UR",
+                                                                  "identifier": "ECM_TEST_LOW_UR",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 33906,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 16384,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 14,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                          "ECM_TEST_UP_LL": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "led",
+                                                                 "description": "ECM Test Upper LL",
+                                                                  "identifier": "ECM_TEST_UP_LL",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 33906,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 2048,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 11,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                          "ECM_TEST_UP_LR": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "led",
+                                                                 "description": "ECM Test Upper LR",
+                                                                  "identifier": "ECM_TEST_UP_LR",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 33906,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 4096,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 12,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                           "ECM_TEST_UP_U": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "led",
+                                                                 "description": "ECM Test Upper U",
+                                                                  "identifier": "ECM_TEST_UP_U",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 33906,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 1024,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 10,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                               "RWR_LIGHT": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "led",
+                                                                 "description": "Glareshield RWR Light",
+                                                                  "identifier": "RWR_LIGHT",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 33906,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 512,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 9,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
                                             "ecm_apr25_pw": {
                                                                            "category": "ECM Panel",
                                                                        "control_type": "selector",
@@ -2663,136 +2791,6 @@
                                                                    "physical_variant": "toggle_switch"
                                                             }
                                      },
-                        "ECM panel": {
-                                         "ECM_TEST_LOW_LL": {
-                                                                    "category": "ECM panel",
-                                                                "control_type": "led",
-                                                                 "description": "ECM Test Lower LL",
-                                                                  "identifier": "ECM_TEST_LOW_LL",
-                                                                      "inputs": [  ],
-                                                                     "outputs": [ {
-                                                                                        "address": 33906,
-                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 32768,
-                                                                                      "max_value": 1,
-                                                                                       "shift_by": 15,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            },
-                                         "ECM_TEST_LOW_LR": {
-                                                                    "category": "ECM panel",
-                                                                "control_type": "led",
-                                                                 "description": "ECM Test Lower LR",
-                                                                  "identifier": "ECM_TEST_LOW_LR",
-                                                                      "inputs": [  ],
-                                                                     "outputs": [ {
-                                                                                        "address": 34018,
-                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 1,
-                                                                                      "max_value": 1,
-                                                                                       "shift_by": 0,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            },
-                                         "ECM_TEST_LOW_UL": {
-                                                                    "category": "ECM panel",
-                                                                "control_type": "led",
-                                                                 "description": "ECM Test Lower UL",
-                                                                  "identifier": "ECM_TEST_LOW_UL",
-                                                                      "inputs": [  ],
-                                                                     "outputs": [ {
-                                                                                        "address": 33906,
-                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 8192,
-                                                                                      "max_value": 1,
-                                                                                       "shift_by": 13,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            },
-                                         "ECM_TEST_LOW_UR": {
-                                                                    "category": "ECM panel",
-                                                                "control_type": "led",
-                                                                 "description": "ECM Test Lower UR",
-                                                                  "identifier": "ECM_TEST_LOW_UR",
-                                                                      "inputs": [  ],
-                                                                     "outputs": [ {
-                                                                                        "address": 33906,
-                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 16384,
-                                                                                      "max_value": 1,
-                                                                                       "shift_by": 14,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            },
-                                          "ECM_TEST_UP_LL": {
-                                                                    "category": "ECM panel",
-                                                                "control_type": "led",
-                                                                 "description": "ECM Test Upper LL",
-                                                                  "identifier": "ECM_TEST_UP_LL",
-                                                                      "inputs": [  ],
-                                                                     "outputs": [ {
-                                                                                        "address": 33906,
-                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 2048,
-                                                                                      "max_value": 1,
-                                                                                       "shift_by": 11,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            },
-                                          "ECM_TEST_UP_LR": {
-                                                                    "category": "ECM panel",
-                                                                "control_type": "led",
-                                                                 "description": "ECM Test Upper LR",
-                                                                  "identifier": "ECM_TEST_UP_LR",
-                                                                      "inputs": [  ],
-                                                                     "outputs": [ {
-                                                                                        "address": 33906,
-                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 4096,
-                                                                                      "max_value": 1,
-                                                                                       "shift_by": 12,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            },
-                                           "ECM_TEST_UP_U": {
-                                                                    "category": "ECM panel",
-                                                                "control_type": "led",
-                                                                 "description": "ECM Test Upper U",
-                                                                  "identifier": "ECM_TEST_UP_U",
-                                                                      "inputs": [  ],
-                                                                     "outputs": [ {
-                                                                                        "address": 33906,
-                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 1024,
-                                                                                      "max_value": 1,
-                                                                                       "shift_by": 10,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            },
-                                               "RWR_LIGHT": {
-                                                                    "category": "ECM panel",
-                                                                "control_type": "led",
-                                                                 "description": "Glareshield RWR Light",
-                                                                  "identifier": "RWR_LIGHT",
-                                                                      "inputs": [  ],
-                                                                     "outputs": [ {
-                                                                                        "address": 33906,
-                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 512,
-                                                                                      "max_value": 1,
-                                                                                       "shift_by": 9,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            }
-                                     },
                "Engine Instruments": {
                                                  "D_FUEL": {
                                                                    "category": "Engine Instruments",
@@ -2906,6 +2904,88 @@
                                                                                           "type": "integer"
                                                                                } ]
                                                            }
+                                     },
+          "External Aircraft Model": {
+                                          "EXT_POSITION_LIGHT_LEFT": {
+                                                                             "category": "External Aircraft Model",
+                                                                         "control_type": "metadata",
+                                                                          "description": "Left Position Light (red)",
+                                                                           "identifier": "EXT_POSITION_LIGHT_LEFT",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 34104,
+                                                                                             "description": "Left Position Light (red)",
+                                                                                                    "mask": 2048,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 11,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                         "EXT_POSITION_LIGHT_RIGHT": {
+                                                                             "category": "External Aircraft Model",
+                                                                         "control_type": "metadata",
+                                                                          "description": "Right Position Light (green)",
+                                                                           "identifier": "EXT_POSITION_LIGHT_RIGHT",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 34104,
+                                                                                             "description": "Right Position Light (green)",
+                                                                                                    "mask": 4096,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 12,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                 "EXT_SPEED_BRAKES": {
+                                                                             "category": "External Aircraft Model",
+                                                                         "control_type": "metadata",
+                                                                          "description": "Speed Brakes",
+                                                                           "identifier": "EXT_SPEED_BRAKES",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 34110,
+                                                                                             "description": "Speed Brakes",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                "EXT_STROBE_BOTTOM": {
+                                                                             "category": "External Aircraft Model",
+                                                                         "control_type": "metadata",
+                                                                          "description": "Bottom Strobe Light",
+                                                                           "identifier": "EXT_STROBE_BOTTOM",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 34104,
+                                                                                             "description": "Bottom Strobe Light",
+                                                                                                    "mask": 16384,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 14,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                  "EXT_STROBE_TAIL": {
+                                                                             "category": "External Aircraft Model",
+                                                                         "control_type": "metadata",
+                                                                          "description": "Tail Strobe Light",
+                                                                           "identifier": "EXT_STROBE_TAIL",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 34104,
+                                                                                             "description": "Tail Strobe Light",
+                                                                                                    "mask": 8192,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 13,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     }
                                      },
                              "Gear": {
                                          "HOOK_HANDLE": {

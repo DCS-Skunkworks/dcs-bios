@@ -53,7 +53,7 @@
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
-                                                                          "physical_variant": "3 Position Switch"
+                                                                          "physical_variant": "3_position_switch"
                                                                    },
                                                   "AHRS_NAV_MODE": {
                                                                                   "category": "AHRS",
@@ -790,7 +790,7 @@
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
-                                                                          "physical_variant": "3 Position Switch"
+                                                                          "physical_variant": "3_position_switch"
                                                                    }
                                             },
                        "Control Interface": {
@@ -817,7 +817,7 @@
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                            "FLAPS": {
                                                                                    "category": "Control Interface",
@@ -842,7 +842,7 @@
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                     "PITCH_DAMPER": {
                                                                                    "category": "Control Interface",
@@ -980,7 +980,7 @@
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                       "YAW_DAMPER": {
                                                                                    "category": "Control Interface",
@@ -1090,7 +1090,7 @@
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
-                                                                        "physical_variant": "3 Position Switch"
+                                                                        "physical_variant": "3_position_switch"
                                                                  },
                                                    "CABIN_TEMP": {
                                                                          "category": "EC Interface",
@@ -1167,7 +1167,7 @@
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
-                                                                       "physical_variant": "3 Position Switch"
+                                                                       "physical_variant": "3_position_switch"
                                                                 },
                                                  "L_GENERATOR": {
                                                                                "category": "Electric",
@@ -1377,6 +1377,72 @@
                                                                        "physical_variant": "push_button"
                                                                 }
                                             },
+                 "External Aircraft Model": {
+                                                  "EXT_POSITION_LIGHTS": {
+                                                                                 "category": "External Aircraft Model",
+                                                                             "control_type": "metadata",
+                                                                              "description": "Position Lights",
+                                                                               "identifier": "EXT_POSITION_LIGHTS",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 30472,
+                                                                                                 "description": "Position Lights",
+                                                                                                        "mask": 128,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 7,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                 "EXT_SPEED_BRAKE_LEFT": {
+                                                                                 "category": "External Aircraft Model",
+                                                                             "control_type": "metadata",
+                                                                              "description": "Left Speed Brake",
+                                                                               "identifier": "EXT_SPEED_BRAKE_LEFT",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 30482,
+                                                                                                 "description": "Left Speed Brake",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                "EXT_SPEED_BRAKE_RIGHT": {
+                                                                                 "category": "External Aircraft Model",
+                                                                             "control_type": "metadata",
+                                                                              "description": "Right Speed Brake",
+                                                                               "identifier": "EXT_SPEED_BRAKE_RIGHT",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 30480,
+                                                                                                 "description": "Right Speed Brake",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                    "EXT_STROBE_LIGHTS": {
+                                                                                 "category": "External Aircraft Model",
+                                                                             "control_type": "metadata",
+                                                                              "description": "Strobe Lights",
+                                                                               "identifier": "EXT_STROBE_LIGHTS",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 30472,
+                                                                                                 "description": "Strobe Lights",
+                                                                                                        "mask": 256,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 8,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         }
+                                            },
                          "External Lights": {
                                                           "BEACON": {
                                                                                    "category": "External Lights",
@@ -1511,7 +1577,7 @@
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
-                                                                        "physical_variant": "3 Position Switch"
+                                                                        "physical_variant": "3_position_switch"
                                                                  },
                                                     "CROSSFEED": {
                                                                                 "category": "Fuel",
@@ -3649,7 +3715,7 @@
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "3 Position Switch"
+                                                                             "physical_variant": "3_position_switch"
                                                                       },
                                                            "IFF4_M1": {
                                                                                      "category": "IFF",
@@ -3674,7 +3740,7 @@
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "3 Position Switch"
+                                                                             "physical_variant": "3_position_switch"
                                                                       },
                                                            "IFF4_M2": {
                                                                                      "category": "IFF",
@@ -3699,7 +3765,7 @@
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "3 Position Switch"
+                                                                             "physical_variant": "3_position_switch"
                                                                       },
                                                            "IFF4_M3": {
                                                                                      "category": "IFF",
@@ -3724,7 +3790,7 @@
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "3 Position Switch"
+                                                                             "physical_variant": "3_position_switch"
                                                                       },
                                                        "IFF4_MASTER": {
                                                                                      "category": "IFF",
@@ -3803,7 +3869,7 @@
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "3 Position Switch"
+                                                                             "physical_variant": "3_position_switch"
                                                                       },
                                                     "IFF4_MON_CONTR": {
                                                                                      "category": "IFF",
@@ -3828,7 +3894,7 @@
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "3 Position Switch"
+                                                                             "physical_variant": "3_position_switch"
                                                                       },
                                                           "IFF4_RAD": {
                                                                                      "category": "IFF",
@@ -3853,7 +3919,7 @@
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "3 Position Switch"
+                                                                             "physical_variant": "3_position_switch"
                                                                       },
                                                    "IFF4_RAD_TEST_L": {
                                                                                   "api_variant": "momentary_last_position",
@@ -3997,7 +4063,7 @@
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
-                                                                         "physical_variant": "3 Position Switch"
+                                                                         "physical_variant": "3_position_switch"
                                                                   },
                                                    "COMPAS_L_SW": {
                                                                                  "category": "Internal Lights",
@@ -4331,7 +4397,7 @@
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
-                                                                          "physical_variant": "3 Position Switch"
+                                                                          "physical_variant": "3_position_switch"
                                                                    }
                                             },
                             "O2 Interface": {
@@ -4387,7 +4453,7 @@
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
-                                                                        "physical_variant": "3 Position Switch"
+                                                                        "physical_variant": "3_position_switch"
                                                                  },
                                                      "O2_LEVER": {
                                                                                 "category": "O2 Interface",
@@ -5027,7 +5093,7 @@
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
-                                                                        "physical_variant": "3 Position Switch"
+                                                                        "physical_variant": "3_position_switch"
                                                                  },
                                                    "SIGHT_CAGE": {
                                                                              "api_variant": "momentary_last_position",
@@ -6646,7 +6712,7 @@
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                       "MASTER_ARM": {
                                                                                    "category": "Weapons Control",
@@ -6671,7 +6737,7 @@
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "3 Position Switch"
+                                                                           "physical_variant": "3_position_switch"
                                                                     },
                                                 "MASTER_ARM_GUARD": {
                                                                                    "category": "Weapons Control",
