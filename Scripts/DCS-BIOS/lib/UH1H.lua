@@ -438,8 +438,8 @@ defineTumb("DOME_LIGHT_SW", 7, 3021, 226, 1, {-1, 1}, nil, false, "Overhead Pane
 
 defineMultipositionSwitch("BLEED_AIR_SW", 47, 3001, 236, 5, 0.1, "Overhead Panel", "Bleed Air Dial")
 
-definePotentiometer("HDG_SET", 10, 3003, 163, {0, 1}, "Front Dash", "HDG SET Knob")
-definePotentiometer("HDG_SYNC", 10, 3005, 161, {0, 1}, "Front Dash", "Compass Synchronizing")
+defineRotary("HDG_SET", 10, 3003, 163, "Front Dash", "HDG SET Knob")
+defineRotary("HDG_SYNC", 10, 3005, 161, "Front Dash", "Compass Synchronizing")
 defineToggleSwitch("ADF_VOR_SW", 10, 3004, 164, "Front Dash", "ADF / VOR Switch: VOR / ADF")
 defineToggleSwitch("GYRO_MODE_SW", 10, 3002, 241, "Front Dash", "DG / Slave Gyro Mode: MAG / DG")
 
