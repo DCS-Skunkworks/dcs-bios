@@ -65,6 +65,7 @@ definePushButton("GUN_R_RECHARG_NOSE", 7, 3070, 70,"Weapons" , "Gun Nose Left Re
 definePushButton("GUN_L_RECHARG_NOSE", 7, 3071, 71,"Weapons" , "Gun Nose Right Recharge")
 defineMultipositionSwitch("ROCK_BOMB_COUNT",  7, 3087, 87, 18, 0.055,"Weapons", "Rockets/Bombs Counter")
 defineToggleSwitch("ROCK_BOMB_ARM",  7, 3088, 88,"Electric", "Rockets/Bombs Master Arm")
+
 -- COMMON
 defineRotary("CRS_CAGE_KNOB", 1, 3040, 40,"Common", "Course Cage Knob")
 defineMultipositionSwitch("SEAT_HEIGHT",  1, 3065, 65, 5, 0.25,"Common", "Seat Level")
