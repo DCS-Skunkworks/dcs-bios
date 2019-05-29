@@ -13,7 +13,7 @@ v 1.00	original compile, development version 	Jan 2019		--by Dehuman
 v 1.01	beta release	Jan 2019 								--by Dehuman
 	-function breaking bugs fixed
 	-several other bug fixes and functions redefined/reclassified
-
+v 1.02	updates for 1.03, external Lights 	APR 2019		--by WarLord
 
 ]]
 local inputProcessors = moduleBeingDefined.inputProcessors
@@ -134,8 +134,6 @@ defineIndicatorLight("D_ADVISORY_DIVE", 868, "Advisory lights", "Dive advisory")
 --Radar Scope 
 defineFloat("APG53A-LEFTRANGE", 406, {0,1}, "RadarControlPanel", "Radar Profile Range")
 defineFloat("APG53A-BOTTOMRANGE", 407, {0,1}, "RadarControlPanel", "Radar Plan Range")
-
-
 defineFloat("AFCS_HDG_100s", 167, {0,1}, "AFCS", "AFCS Heading 100's")
 defineFloat("AFCS_HDG_10s", 168, {0,1}, "AFCS", "AFCS Heading 10's")
 defineFloat("AFCS_HDG_1s", 169, {0,1}, "AFCS", "AFCS Heading 1's")
@@ -193,6 +191,7 @@ defineFloat("LIGHTS-FLOOD-WHITE", 111, {0,1}, "Lights", "White flood lights")
 defineFloat("LIGHTS-FLOOD-RED", 114, {0,1}, "Lights", "Red flood lights")
 defineFloat("LIGHTS-INSTRUMENTS", 117, {0,1}, "Lights", "Instrument lights")
 defineFloat("LIGHTS-CONSOLE", 119, {0,1}, "Lights", "Console lights")
+defineFloat("APG53A-GLOW", 115, {0,1}, "Lights", "Radar Glow light")
 
 --Clock
 defineFloat("CURRTIME_HOURS", 440, {0,1}, "Clock", "Current Hours")
@@ -203,13 +202,13 @@ defineFloat("STOPWATCH_SECS", 145, {0,1}, "Clock", "Stopwatch Seconds")
 
 --ECM Panel
 defineIndicatorLight("RWR_LIGHT", 373, "ECM Panel", "Glareshield RWR Light")
-defineIndicatorLight("ECM_TEST_UP_U", 514, "ECM Panel", "ECM Test Upper U")
-defineIndicatorLight("ECM_TEST_UP_LL", 515, "ECM Panel", "ECM Test Upper LL")
-defineIndicatorLight("ECM_TEST_UP_LR", 516, "ECM Panel", "ECM Test Upper LR")
-defineIndicatorLight("ECM_TEST_LOW_UL", 517, "ECM Panel", "ECM Test Lower UL")
-defineIndicatorLight("ECM_TEST_LOW_UR", 518, "ECM Panel", "ECM Test Lower UR")
-defineIndicatorLight("ECM_TEST_LOW_LL", 519, "ECM Panel", "ECM Test Lower LL")
-defineIndicatorLight("ECM_TEST_LOW_LR", 500, "ECM Panel", "ECM Test Lower LR")
+defineIndicatorLight("ECM_TEST_LIGHT", 514, "ECM Panel", "ECM Test Light")
+defineIndicatorLight("ECM_GO_LIGHT", 515, "ECM Panel", "ECM GO Light")
+defineIndicatorLight("ECM_NOGO_LIGHT", 516, "ECM Panel", "ECM NO GO Light")
+defineIndicatorLight("ECM_SAM_LIGHT", 517, "ECM Panel", "ECM SAM Light")
+defineIndicatorLight("ECM_RPT_LIGHT", 518, "ECM Panel", "ECM RPT Light")
+defineIndicatorLight("ECM_STBY_LIGHT", 519, "ECM Panel", "ECM STBY Light")
+defineIndicatorLight("ECM_REC_LIGHT", 500, "ECM Panel", "ECM REC Light")
 
 -----------------------
 ------CONTROLS---------
@@ -220,6 +219,7 @@ defineMultipositionSwitch("radar_mode", 7, 3063, 120, 5, 0.10, "RadarControlPane
 defineToggleSwitch("radar_aoacomp", 7, 3064, 121, "RadarControlPanel", "Radar AoA Compensation")
 definePotentiometer("radar_angle", 7, 3065, 122, {0,1}, "RadarControlPanel", "Radar Antenna Elevation")
 definePotentiometer("radar_volume", 7, 3068, 123, {-1,1}, "RadarControlPanel", "Radar Warning Volume")
+
 -- RADAR SCOPE
 definePotentiometer("radar_storage", 7, 3057, 400, {-1,1}, "RadarScope", "Radar Storage")
 definePotentiometer("radar_brilliance", 7, 3058, 401, {-1,1}, "RadarScope", "Radar Brilliance")
@@ -274,11 +274,9 @@ definePotentiometer("afcs_hdg_set", 26, 3092, 164, {0,1}, "AFCS", "AFCS heading 
 defineToggleSwitch("afcs_stab_aug", 26, 3093, 165, "AFCS", "AFCS stability aug")
 defineToggleSwitch("afcs_ail_trim", 26, 3094, 166, "AFCS", "AFCS aileron trim")
 
-
 --Approach Power Compensator
 defineMultipositionSwitch("apc_engagestbyoff", 26, 3095, 135, 3, 1.0, "ApproachPowerCompensator", "APC Enable/Stby/Off")
 defineMultipositionSwitch("apc_hotstdcold", 26, 3096, 136, 3, 1.0, "ApproachPowerCompensator", "APC Cold/Std/Hot")
-
 
 --Mechanical Systems
 defineToggleSwitch("Gear", 12, 3020, 8, "Mechanical Systems", "Landing Gear Handle")
@@ -291,7 +289,7 @@ defineTumb("flaps", 11, 3015, 132, 1, {-1,1}, nil, false, "Mechanical Systems", 
 definePotentiometer("rudder_trim", 25, 3085, 82, {-1,1}, "Mechanical Systems", "Rudder trim")
 defineTumb("throttle_click", 17, 3087, 0, 1, {-1,1}, nil, true, "Mechanical Systems", "Throttle cutoff/start/idle")
 definePushButton("push_starter_switch", 17, 3013, 100, "Mechanical Systems", "Starter Button")
-
+defineToggleSwitch("emer_fuel_shutoff", 17, 3134, 8, "Mechanical Systems", "Emergency Fuel Shutoff Control")
 
 --Avionics
 definePushButton("accel_reset", 21, 3111, 139, "Avionics", "Reset Accelerometer")
@@ -358,6 +356,7 @@ defineToggleSwitch("emer_gear_release", 12, 3036, 1240, "T Handles", "Emergency 
 defineToggleSwitch("emer_bomb_release", 2, 3027, 1241, "T Handles", "Emergency bomb release")
 defineToggleSwitch("emer_gen_deploy", 3, 3023, 1243, "T Handles", "Emergency generator deploy")
 defineToggleSwitch("emer_gen_bypass", 3, 3022, 1061, "T Handles", "Emergency generator bypass")
+defineToggleSwitch("man_flight_control", 4, 3136, 1242, "T Handles", "Manual Flight Control")
 
 -- ECM Panel
 defineToggleSwitch("ecm_audio", 33, 3115, 503, "ECM Panel", "Audio APR/25 - APR/27")
@@ -368,6 +367,11 @@ definePushButton("ecm_apr27_light", 33, 3118, 510, "ECM Panel", "APR/27 light")
 definePotentiometer("ecm_prf_volume", 33, 3119, 506, {-0.8,0.8}, "ECM Panel", "PRF volume (inner knob)")
 definePotentiometer("ecm_msl_volume", 33, 3120, 505, {-0.8,0.8}, "ECM Panel", "MSL volume (outer knob)")
 defineMultipositionSwitch("ecm_selector", 33, 3121, 502, 4, 0.33, "ECM Panel", "ECM selector knob")
+
+-- AIR CONDITIONING PANEL
+defineToggleSwitch("cabin_pressure", 3, 3131, 224, "Air Condition", "Cabin Pressure Switch")
+defineTumb("wind_defrost", 3, 3132, 225, 1, {-1,1}, nil, false, "Air Condition", "Windshield Defrost")
+definePotentiometer("cabin_temp", 3, 3133, 226, {0,1}, "Air Condition", "Cabin Temp Knob")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKES", function()
