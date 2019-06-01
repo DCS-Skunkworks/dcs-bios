@@ -599,9 +599,9 @@ defineToggleSwitch("PLT_SPOIL_OVER_COVER_OUTBOARD", 14, 3429, 903, "Spoiler", "P
 defineToggleSwitch("PLT_SPOIL_OVER_INBOARD", 14, 3430, 908, "Spoiler", "PILOT Inboard Spoiler Override")
 defineToggleSwitch("PLT_SPOIL_OVER_OUTBOARD", 14, 3431, 907, "Spoiler", "PILOT Outboard Spoiler Override")
 
--- Gun Elevation
-definePotentiometer("PLT_GUN_ELEV_ADJUST", 55, 3131, 1000, {0.0, 1.0}, "Gun", "PILOT Gun Elevation Lead Adjustment")
-definePotentiometer("PLT_GUN_AMMU_COUNT_ADJUST", 55, 3132, 1022, {0.0, 1.0}, "Gun", "PILOT Gun Ammunition Counter Adjustment")
+-- Gun Elevation 
+defineRotary("PLT_GUN_ELEV_ADJUST", 55, 3131, 1000, "Gun", "PILOT Gun Elevation Lead Adjustment")
+defineRotary("PLT_GUN_AMMU_COUNT_ADJUST", 55, 3132, 1022, "Gun", "PILOT Gun Ammunition Counter Adjustment")
 
 -- DISPLAY Panel
 definePotentiometer("PLT_HUD_PITCH_BRIGHT", 40, 3223, 1007, {0.0, 1.0}, "Display", "PILOT HUD Pitch Ladder Brightness")
