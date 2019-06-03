@@ -244,3 +244,12 @@ BIOS.protocol.endModule()
 ----
 
 Take a look at the functions in `Util.lua` and how they are used in the other export modules to get an idea of what to use in which situation. After a while, you should be able to recognize most patterns in `clickabledata.lua` and translate them to a line of code for your export module relatively quickly. Some controls will require trial and error in the DCS Witchcraft Lua Console and some custom code, though -- each aircraft module seems to do things slightly differently and there is always that one panel that does not want to behave...
+
+=== A Minimal Example
+
+Collection of little Tricks and Tipps
+
+Logging any variables value for an Plane in the Logfile
+Just write BIOS.log(VARIABLE_NAME) [Example: BIOS.log(freq)] and the value will show up in the log file for finding errors.
+
+`Just remember to remove it after developing or the log file will be very big!`
