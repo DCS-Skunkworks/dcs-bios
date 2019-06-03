@@ -3,12 +3,13 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AircraftList.lua]])
 
 BIOS.dbg = {}
 BIOS.logfile = io.open(lfs.writedir()..[[Logs\DCS-BIOS.log]], "w")
-function BIOS.log(str)
+function BIOS.log(str) 
 	if BIOS.logfile then
 		BIOS.logfile:write(str.."\n")
 		BIOS.logfile:flush()
 	end
 end
+--in the Plane lua's to log any variables value to the BIOS.log  - BIOS.log(VARIABLE_NAME) ex: BIOS.log(freq)
 
 package.path  = package.path..";.\\LuaSocket\\?.lua"
 package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
@@ -103,5 +104,3 @@ function LuaExportAfterNextFrame()
 		PrevExport.LuaExportAfterNextFrame()
 	end
 end
-
-
