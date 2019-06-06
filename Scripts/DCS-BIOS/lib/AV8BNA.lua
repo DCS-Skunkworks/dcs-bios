@@ -211,7 +211,7 @@ definePushButton("BAK_ADI_CAGE_PULL", 19, 3350, 350,"Flight Instruments" , "Back
 defineToggleSwitch("RECORD_SYS_MODE", 14, 3422, 422,"Misc" , "Video Recorder System Mode Switch")
 defineToggleSwitch("RECORD_SYS_DISPLAY", 14, 3423, 423,"Misc" , "Video Recorder System Display Selector Switch")
 defineToggleSwitch("DMT", 16, 3424, 424,"Misc" , "DMT Toggle On/Off")
-defineMultipositionSwitch("DUAL_CPU_MODE", 12, 3425, 425, 3, 0.5, "Misc", "Dual Processor Mode Selector Switch PRIM/AUTO/ALTER")
+defineMultipositionSwitch("DUAL_CPU_MODE", 12, 3425, 425, 3, 0.5, "Misc", "Display Computer Mode Selector Switch PRIM/AUTO/ALTER")
 defineToggleSwitch("PROBE_HEAT_MODE", 19, 3426, 426,"Misc" , "Probe Heat Mode Switch")
 defineMultipositionSwitch("MISS_PC_MODE", 12, 3427, 427, 3, 0.5, "Misc", "Mission Computer Mode Switch OVRD/AUTO/OFF")
 defineToggleSwitch("FLIR", 14, 3429, 429,"Misc" , "FLIR Power Switch")
