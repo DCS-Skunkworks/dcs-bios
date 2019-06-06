@@ -21,7 +21,7 @@ The Developer Guide explains how to connect to and interpret the DCS-BIOS export
 
 Currently, DCS-BIOS supports the following aircraft modules:
 
-* A-4E-C (contributed by Dehuman){ get the Mod here: https://forums.eagle.ru/showthread.php?t=224989}
+* A-4E-C (contributed by Dehuman){ get the Mod here: https://forums.eagle.ru/showthread.php?p=3930571}
 * A-10C (FSF-Ian)
 * AJS-37 (contributed by pdmarsh extended by BlackLibrary,ArturDCS)
 * AV8BNA (contributed by BlackLibrary)
