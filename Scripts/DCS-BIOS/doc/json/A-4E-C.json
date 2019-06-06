@@ -67,7 +67,7 @@
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 34048,
+                                                                                             "address": 34050,
                                                                                          "description": "selector position",
                                                                                                 "mask": 32768,
                                                                                            "max_value": 1,
@@ -96,7 +96,7 @@
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 34048,
+                                                                                             "address": 34050,
                                                                                          "description": "selector position",
                                                                                                 "mask": 8192,
                                                                                            "max_value": 1,
@@ -125,7 +125,7 @@
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 34048,
+                                                                                             "address": 34050,
                                                                                          "description": "selector position",
                                                                                                 "mask": 2048,
                                                                                            "max_value": 1,
@@ -154,7 +154,7 @@
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 34048,
+                                                                                             "address": 34050,
                                                                                          "description": "selector position",
                                                                                                 "mask": 4096,
                                                                                            "max_value": 1,
@@ -180,7 +180,7 @@
                                                                                   "suggested_step": 3200
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                      "address": 34054,
+                                                                                      "address": 34056,
                                                                                   "description": "position of the potentiometer",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -208,7 +208,7 @@
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 34048,
+                                                                                             "address": 34050,
                                                                                          "description": "selector position",
                                                                                                 "mask": 16384,
                                                                                            "max_value": 1,
@@ -237,7 +237,7 @@
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 34048,
+                                                                                             "address": 34050,
                                                                                          "description": "selector position",
                                                                                                 "mask": 1024,
                                                                                            "max_value": 1,
@@ -348,6 +348,87 @@
                                                                                     } ]
                                                                 }
                                      },
+                    "Air Condition": {
+                                         "cabin_pressure": {
+                                                                          "category": "Air Condition",
+                                                                      "control_type": "selector",
+                                                                       "description": "Cabin Pressure Switch",
+                                                                        "identifier": "cabin_pressure",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 1
+                                                                                      }, {
+                                                                                             "argument": "TOGGLE",
+                                                                                          "description": "Toggle switch state",
+                                                                                            "interface": "action"
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 34106,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 8192,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 13,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "toggle_switch"
+                                                           },
+                                             "cabin_temp": {
+                                                                   "category": "Air Condition",
+                                                               "control_type": "limited_dial",
+                                                                "description": "Cabin Temp Knob",
+                                                                 "identifier": "cabin_temp",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the position of the dial",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 65535
+                                                                               }, {
+                                                                                      "description": "turn the dial left or right",
+                                                                                        "interface": "variable_step",
+                                                                                        "max_value": 65535,
+                                                                                   "suggested_step": 3200
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 34112,
+                                                                                   "description": "position of the potentiometer",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                           "wind_defrost": {
+                                                                          "category": "Air Condition",
+                                                                      "control_type": "selector",
+                                                                       "description": "Windshield Defrost",
+                                                                        "identifier": "wind_defrost",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 2
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 34106,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 49152,
+                                                                                            "max_value": 2,
+                                                                                             "shift_by": 14,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "limited_rotary"
+                                                           }
+                                     },
          "ApproachPowerCompensator": {
                                                  "APC_LIGHT": {
                                                                       "category": "ApproachPowerCompensator",
@@ -380,7 +461,7 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34056,
+                                                                                                 "address": 34058,
                                                                                              "description": "selector position",
                                                                                                     "mask": 3,
                                                                                                "max_value": 2,
@@ -405,7 +486,7 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34056,
+                                                                                                 "address": 34058,
                                                                                              "description": "selector position",
                                                                                                     "mask": 12,
                                                                                                "max_value": 2,
@@ -449,7 +530,7 @@
                                                                                        "suggested_step": 3200
                                                                                    } ],
                                                                         "outputs": [ {
-                                                                                           "address": 34050,
+                                                                                           "address": 34052,
                                                                                        "description": "position of the potentiometer",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -477,7 +558,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34046,
+                                                                                                  "address": 34048,
                                                                                               "description": "selector position",
                                                                                                      "mask": 8192,
                                                                                                 "max_value": 1,
@@ -502,7 +583,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34048,
+                                                                                                  "address": 34050,
                                                                                               "description": "selector position",
                                                                                                      "mask": 15,
                                                                                                 "max_value": 11,
@@ -527,7 +608,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34048,
+                                                                                                  "address": 34050,
                                                                                               "description": "selector position",
                                                                                                      "mask": 112,
                                                                                                 "max_value": 5,
@@ -552,7 +633,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34046,
+                                                                                                  "address": 34048,
                                                                                               "description": "selector position",
                                                                                                      "mask": 24,
                                                                                                 "max_value": 2,
@@ -577,7 +658,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34046,
+                                                                                                  "address": 34048,
                                                                                               "description": "selector position",
                                                                                                      "mask": 7,
                                                                                                 "max_value": 6,
@@ -602,7 +683,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34046,
+                                                                                                  "address": 34048,
                                                                                               "description": "selector position",
                                                                                                      "mask": 7168,
                                                                                                 "max_value": 5,
@@ -631,7 +712,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34018,
+                                                                                                  "address": 34020,
                                                                                               "description": "selector position",
                                                                                                      "mask": 32768,
                                                                                                 "max_value": 1,
@@ -660,7 +741,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34046,
+                                                                                                  "address": 34048,
                                                                                               "description": "selector position",
                                                                                                      "mask": 16384,
                                                                                                 "max_value": 1,
@@ -689,7 +770,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34046,
+                                                                                                  "address": 34048,
                                                                                               "description": "selector position",
                                                                                                      "mask": 32,
                                                                                                 "max_value": 1,
@@ -718,7 +799,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34046,
+                                                                                                  "address": 34048,
                                                                                               "description": "selector position",
                                                                                                      "mask": 64,
                                                                                                 "max_value": 1,
@@ -747,7 +828,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34046,
+                                                                                                  "address": 34048,
                                                                                               "description": "selector position",
                                                                                                      "mask": 128,
                                                                                                 "max_value": 1,
@@ -776,7 +857,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34046,
+                                                                                                  "address": 34048,
                                                                                               "description": "selector position",
                                                                                                      "mask": 256,
                                                                                                 "max_value": 1,
@@ -805,7 +886,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34046,
+                                                                                                  "address": 34048,
                                                                                               "description": "selector position",
                                                                                                      "mask": 512,
                                                                                                 "max_value": 1,
@@ -831,7 +912,7 @@
                                                                                        "suggested_step": 3200
                                                                                    } ],
                                                                         "outputs": [ {
-                                                                                           "address": 34052,
+                                                                                           "address": 34054,
                                                                                        "description": "position of the potentiometer",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -855,7 +936,7 @@
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 34066,
+                                                                                              "address": 34068,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -884,11 +965,11 @@
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 34060,
+                                                                                                     "address": 34062,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 16,
+                                                                                                        "mask": 32,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 4,
+                                                                                                    "shift_by": 5,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -914,11 +995,11 @@
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 34060,
+                                                                                                     "address": 34062,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 1,
+                                                                                                        "mask": 2,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 0,
+                                                                                                    "shift_by": 1,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -944,11 +1025,11 @@
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 34060,
+                                                                                                     "address": 34062,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 64,
+                                                                                                        "mask": 128,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 6,
+                                                                                                    "shift_by": 7,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -970,7 +1051,7 @@
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 34068,
+                                                                                              "address": 34070,
                                                                                           "description": "position of the potentiometer",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -999,11 +1080,11 @@
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 34060,
+                                                                                                     "address": 34062,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 32,
+                                                                                                        "mask": 64,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 5,
+                                                                                                    "shift_by": 6,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -1022,7 +1103,7 @@
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 34062,
+                                                                                              "address": 34064,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -1051,11 +1132,11 @@
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 34060,
+                                                                                                     "address": 34062,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 4,
+                                                                                                        "mask": 8,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 2,
+                                                                                                    "shift_by": 3,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -1081,11 +1162,11 @@
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 34060,
+                                                                                                     "address": 34062,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 8,
+                                                                                                        "mask": 16,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 3,
+                                                                                                    "shift_by": 4,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -1104,7 +1185,7 @@
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 34064,
+                                                                                              "address": 34066,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -1274,7 +1355,7 @@
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 34048,
+                                                                                             "address": 34050,
                                                                                          "description": "selector position",
                                                                                                 "mask": 768,
                                                                                            "max_value": 2,
@@ -1293,7 +1374,7 @@
                                                                   "identifier": "CURRTIME_HOURS",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
-                                                                                        "address": 34008,
+                                                                                        "address": 34010,
                                                                                     "description": "gauge position",
                                                                                            "mask": 65535,
                                                                                       "max_value": 65535,
@@ -1309,7 +1390,7 @@
                                                                   "identifier": "CURRTIME_MINS",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
-                                                                                        "address": 34010,
+                                                                                        "address": 34012,
                                                                                     "description": "gauge position",
                                                                                            "mask": 65535,
                                                                                       "max_value": 65535,
@@ -1325,7 +1406,7 @@
                                                                   "identifier": "CURRTIME_SECS",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
-                                                                                        "address": 34012,
+                                                                                        "address": 34014,
                                                                                     "description": "gauge position",
                                                                                            "mask": 65535,
                                                                                       "max_value": 65535,
@@ -1341,7 +1422,7 @@
                                                                   "identifier": "STOPWATCH_MINS",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
-                                                                                        "address": 34014,
+                                                                                        "address": 34016,
                                                                                     "description": "gauge position",
                                                                                            "mask": 65535,
                                                                                       "max_value": 65535,
@@ -1357,7 +1438,7 @@
                                                                   "identifier": "STOPWATCH_SECS",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
-                                                                                        "address": 34016,
+                                                                                        "address": 34018,
                                                                                     "description": "gauge position",
                                                                                            "mask": 65535,
                                                                                       "max_value": 65535,
@@ -1386,11 +1467,11 @@
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34060,
+                                                                                               "address": 34062,
                                                                                            "description": "selector position",
-                                                                                                  "mask": 2,
+                                                                                                  "mask": 4,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 1,
+                                                                                              "shift_by": 2,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ],
@@ -1405,7 +1486,7 @@
                                                               "identifier": "CM_BANK1_Xx",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 34038,
+                                                                                    "address": 34040,
                                                                                 "description": "gauge position",
                                                                                        "mask": 65535,
                                                                                   "max_value": 65535,
@@ -1421,7 +1502,7 @@
                                                               "identifier": "CM_BANK1_xX",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 34040,
+                                                                                    "address": 34042,
                                                                                 "description": "gauge position",
                                                                                        "mask": 65535,
                                                                                   "max_value": 65535,
@@ -1437,7 +1518,7 @@
                                                               "identifier": "CM_BANK2_Xx",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 34042,
+                                                                                    "address": 34044,
                                                                                 "description": "gauge position",
                                                                                        "mask": 65535,
                                                                                   "max_value": 65535,
@@ -1453,7 +1534,7 @@
                                                               "identifier": "CM_BANK2_xX",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 34044,
+                                                                                    "address": 34046,
                                                                                 "description": "gauge position",
                                                                                        "mask": 65535,
                                                                                   "max_value": 65535,
@@ -1475,7 +1556,7 @@
                                                                                 "suggested_step": 3200
                                                                             } ],
                                                                  "outputs": [ {
-                                                                                    "address": 34034,
+                                                                                    "address": 34036,
                                                                                 "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                        "mask": 65535,
                                                                                   "max_value": 65535,
@@ -1497,7 +1578,7 @@
                                                                                 "suggested_step": 3200
                                                                             } ],
                                                                  "outputs": [ {
-                                                                                    "address": 34036,
+                                                                                    "address": 34038,
                                                                                 "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                        "mask": 65535,
                                                                                   "max_value": 65535,
@@ -1526,7 +1607,7 @@
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 34018,
+                                                                                           "address": 34020,
                                                                                        "description": "selector position",
                                                                                               "mask": 8192,
                                                                                          "max_value": 1,
@@ -1551,7 +1632,7 @@
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 34018,
+                                                                                           "address": 34020,
                                                                                        "description": "selector position",
                                                                                               "mask": 6144,
                                                                                          "max_value": 2,
@@ -1580,7 +1661,7 @@
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 34018,
+                                                                                           "address": 34020,
                                                                                        "description": "selector position",
                                                                                               "mask": 16384,
                                                                                          "max_value": 1,
@@ -1861,7 +1942,7 @@
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 34086,
+                                                                                            "address": 34088,
                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -1883,7 +1964,7 @@
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 34090,
+                                                                                            "address": 34092,
                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -1905,7 +1986,7 @@
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 34088,
+                                                                                            "address": 34090,
                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -1934,11 +2015,11 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34060,
+                                                                                                   "address": 34062,
                                                                                                "description": "selector position",
-                                                                                                      "mask": 16384,
+                                                                                                      "mask": 32768,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 14,
+                                                                                                  "shift_by": 15,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -1959,7 +2040,7 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34074,
+                                                                                                   "address": 34076,
                                                                                                "description": "selector position",
                                                                                                       "mask": 112,
                                                                                                  "max_value": 4,
@@ -1984,7 +2065,7 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34074,
+                                                                                                   "address": 34076,
                                                                                                "description": "selector position",
                                                                                                       "mask": 896,
                                                                                                  "max_value": 4,
@@ -2185,7 +2266,7 @@
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 34082,
+                                                                                            "address": 34084,
                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -2207,7 +2288,7 @@
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 34084,
+                                                                                            "address": 34086,
                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -2407,7 +2488,7 @@
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 34078,
+                                                                                              "address": 34080,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -2429,7 +2510,7 @@
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 34080,
+                                                                                              "address": 34082,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -2440,75 +2521,11 @@
                                                                   }
                                      },
                         "ECM Panel": {
-                                         "ECM_TEST_LOW_LL": {
+                                            "ECM_GO_LIGHT": {
                                                                     "category": "ECM Panel",
                                                                 "control_type": "led",
-                                                                 "description": "ECM Test Lower LL",
-                                                                  "identifier": "ECM_TEST_LOW_LL",
-                                                                      "inputs": [  ],
-                                                                     "outputs": [ {
-                                                                                        "address": 33906,
-                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 32768,
-                                                                                      "max_value": 1,
-                                                                                       "shift_by": 15,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            },
-                                         "ECM_TEST_LOW_LR": {
-                                                                    "category": "ECM Panel",
-                                                                "control_type": "led",
-                                                                 "description": "ECM Test Lower LR",
-                                                                  "identifier": "ECM_TEST_LOW_LR",
-                                                                      "inputs": [  ],
-                                                                     "outputs": [ {
-                                                                                        "address": 34018,
-                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 1,
-                                                                                      "max_value": 1,
-                                                                                       "shift_by": 0,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            },
-                                         "ECM_TEST_LOW_UL": {
-                                                                    "category": "ECM Panel",
-                                                                "control_type": "led",
-                                                                 "description": "ECM Test Lower UL",
-                                                                  "identifier": "ECM_TEST_LOW_UL",
-                                                                      "inputs": [  ],
-                                                                     "outputs": [ {
-                                                                                        "address": 33906,
-                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 8192,
-                                                                                      "max_value": 1,
-                                                                                       "shift_by": 13,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            },
-                                         "ECM_TEST_LOW_UR": {
-                                                                    "category": "ECM Panel",
-                                                                "control_type": "led",
-                                                                 "description": "ECM Test Lower UR",
-                                                                  "identifier": "ECM_TEST_LOW_UR",
-                                                                      "inputs": [  ],
-                                                                     "outputs": [ {
-                                                                                        "address": 33906,
-                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 16384,
-                                                                                      "max_value": 1,
-                                                                                       "shift_by": 14,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            },
-                                          "ECM_TEST_UP_LL": {
-                                                                    "category": "ECM Panel",
-                                                                "control_type": "led",
-                                                                 "description": "ECM Test Upper LL",
-                                                                  "identifier": "ECM_TEST_UP_LL",
+                                                                 "description": "ECM GO Light",
+                                                                  "identifier": "ECM_GO_LIGHT",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
                                                                                         "address": 33906,
@@ -2520,11 +2537,11 @@
                                                                                            "type": "integer"
                                                                                 } ]
                                                             },
-                                          "ECM_TEST_UP_LR": {
+                                          "ECM_NOGO_LIGHT": {
                                                                     "category": "ECM Panel",
                                                                 "control_type": "led",
-                                                                 "description": "ECM Test Upper LR",
-                                                                  "identifier": "ECM_TEST_UP_LR",
+                                                                 "description": "ECM NO GO Light",
+                                                                  "identifier": "ECM_NOGO_LIGHT",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
                                                                                         "address": 33906,
@@ -2536,11 +2553,75 @@
                                                                                            "type": "integer"
                                                                                 } ]
                                                             },
-                                           "ECM_TEST_UP_U": {
+                                           "ECM_REC_LIGHT": {
                                                                     "category": "ECM Panel",
                                                                 "control_type": "led",
-                                                                 "description": "ECM Test Upper U",
-                                                                  "identifier": "ECM_TEST_UP_U",
+                                                                 "description": "ECM REC Light",
+                                                                  "identifier": "ECM_REC_LIGHT",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 34020,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 1,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                           "ECM_RPT_LIGHT": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "led",
+                                                                 "description": "ECM RPT Light",
+                                                                  "identifier": "ECM_RPT_LIGHT",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 33906,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 16384,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 14,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                           "ECM_SAM_LIGHT": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "led",
+                                                                 "description": "ECM SAM Light",
+                                                                  "identifier": "ECM_SAM_LIGHT",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 33906,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 8192,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 13,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                          "ECM_STBY_LIGHT": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "led",
+                                                                 "description": "ECM STBY Light",
+                                                                  "identifier": "ECM_STBY_LIGHT",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 33906,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 32768,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 15,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                          "ECM_TEST_LIGHT": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "led",
+                                                                 "description": "ECM Test Light",
+                                                                  "identifier": "ECM_TEST_LIGHT",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
                                                                                         "address": 33906,
@@ -2587,11 +2668,11 @@
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34104,
+                                                                                               "address": 34106,
                                                                                            "description": "selector position",
-                                                                                                  "mask": 32,
+                                                                                                  "mask": 128,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 5,
+                                                                                              "shift_by": 7,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ],
@@ -2617,11 +2698,11 @@
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34104,
+                                                                                               "address": 34106,
                                                                                            "description": "selector position",
-                                                                                                  "mask": 256,
+                                                                                                  "mask": 1024,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 8,
+                                                                                              "shift_by": 10,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ],
@@ -2646,11 +2727,11 @@
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34104,
+                                                                                               "address": 34106,
                                                                                            "description": "selector position",
-                                                                                                  "mask": 64,
+                                                                                                  "mask": 256,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 6,
+                                                                                              "shift_by": 8,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ],
@@ -2676,11 +2757,11 @@
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34104,
+                                                                                               "address": 34106,
                                                                                            "description": "selector position",
-                                                                                                  "mask": 128,
+                                                                                                  "mask": 512,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 7,
+                                                                                              "shift_by": 9,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ],
@@ -2705,11 +2786,11 @@
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34104,
+                                                                                               "address": 34106,
                                                                                            "description": "selector position",
-                                                                                                  "mask": 16,
+                                                                                                  "mask": 64,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 4,
+                                                                                              "shift_by": 6,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ],
@@ -2731,7 +2812,7 @@
                                                                                     "suggested_step": 3200
                                                                                 } ],
                                                                      "outputs": [ {
-                                                                                        "address": 34108,
+                                                                                        "address": 34110,
                                                                                     "description": "position of the potentiometer",
                                                                                            "mask": 65535,
                                                                                       "max_value": 65535,
@@ -2756,7 +2837,7 @@
                                                                                     "suggested_step": 3200
                                                                                 } ],
                                                                      "outputs": [ {
-                                                                                        "address": 34106,
+                                                                                        "address": 34108,
                                                                                     "description": "position of the potentiometer",
                                                                                            "mask": 65535,
                                                                                       "max_value": 65535,
@@ -2780,11 +2861,11 @@
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34104,
+                                                                                               "address": 34106,
                                                                                            "description": "selector position",
-                                                                                                  "mask": 1536,
+                                                                                                  "mask": 6144,
                                                                                              "max_value": 3,
-                                                                                              "shift_by": 9,
+                                                                                              "shift_by": 11,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ],
@@ -2913,11 +2994,11 @@
                                                                            "identifier": "EXT_POSITION_LIGHT_LEFT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34104,
+                                                                                                 "address": 34116,
                                                                                              "description": "Left Position Light (red)",
-                                                                                                    "mask": 2048,
+                                                                                                    "mask": 1,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 11,
+                                                                                                "shift_by": 0,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]
@@ -2929,11 +3010,11 @@
                                                                            "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34104,
+                                                                                                 "address": 34116,
                                                                                              "description": "Right Position Light (green)",
-                                                                                                    "mask": 4096,
+                                                                                                    "mask": 2,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 12,
+                                                                                                "shift_by": 1,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]
@@ -2945,7 +3026,7 @@
                                                                            "identifier": "EXT_SPEED_BRAKES",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34110,
+                                                                                                 "address": 34114,
                                                                                              "description": "Speed Brakes",
                                                                                                     "mask": 65535,
                                                                                                "max_value": 65535,
@@ -2961,11 +3042,11 @@
                                                                            "identifier": "EXT_STROBE_BOTTOM",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34104,
+                                                                                                 "address": 34116,
                                                                                              "description": "Bottom Strobe Light",
-                                                                                                    "mask": 16384,
+                                                                                                    "mask": 8,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 14,
+                                                                                                "shift_by": 3,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]
@@ -2977,11 +3058,11 @@
                                                                            "identifier": "EXT_STROBE_TAIL",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34104,
+                                                                                                 "address": 34116,
                                                                                              "description": "Tail Strobe Light",
-                                                                                                    "mask": 8192,
+                                                                                                    "mask": 4,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 13,
+                                                                                                "shift_by": 2,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]
@@ -3007,7 +3088,7 @@
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 34056,
+                                                                                           "address": 34058,
                                                                                        "description": "selector position",
                                                                                               "mask": 32,
                                                                                          "max_value": 1,
@@ -3038,7 +3119,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34018,
+                                                                                                  "address": 34020,
                                                                                               "description": "selector position",
                                                                                                      "mask": 512,
                                                                                                 "max_value": 1,
@@ -3063,7 +3144,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34018,
+                                                                                                  "address": 34020,
                                                                                               "description": "selector position",
                                                                                                      "mask": 192,
                                                                                                 "max_value": 2,
@@ -3092,7 +3173,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34018,
+                                                                                                  "address": 34020,
                                                                                               "description": "selector position",
                                                                                                      "mask": 256,
                                                                                                 "max_value": 1,
@@ -3121,7 +3202,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34018,
+                                                                                                  "address": 34020,
                                                                                               "description": "selector position",
                                                                                                      "mask": 1024,
                                                                                                 "max_value": 1,
@@ -3162,7 +3243,7 @@
                                                                                          "suggested_step": 3200
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                             "address": 34070,
+                                                                                             "address": 34072,
                                                                                          "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3190,11 +3271,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34060,
+                                                                                                    "address": 34062,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 128,
+                                                                                                       "mask": 256,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 7,
+                                                                                                   "shift_by": 8,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -3216,7 +3297,7 @@
                                                                                          "suggested_step": 3200
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                             "address": 34072,
+                                                                                             "address": 34074,
                                                                                          "description": "position of the potentiometer",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3227,6 +3308,22 @@
                                                                  }
                                      },
                            "Lights": {
+                                                  "APG53A-GLOW": {
+                                                                         "category": "Lights",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Radar Glow light",
+                                                                       "identifier": "APG53A-GLOW",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34008,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
                                                "LIGHTS-CONSOLE": {
                                                                          "category": "Lights",
                                                                      "control_type": "analog_gauge",
@@ -3310,11 +3407,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34074,
+                                                                                                    "address": 34076,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 16384,
+                                                                                                       "mask": 32768,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 14,
+                                                                                                   "shift_by": 15,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -3339,11 +3436,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34074,
+                                                                                                    "address": 34094,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 32768,
+                                                                                                       "mask": 4,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 15,
+                                                                                                   "shift_by": 2,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -3364,7 +3461,7 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34092,
+                                                                                                    "address": 34094,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 3,
                                                                                                   "max_value": 2,
@@ -3389,7 +3486,7 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34074,
+                                                                                                    "address": 34076,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 3072,
                                                                                                   "max_value": 2,
@@ -3414,11 +3511,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34092,
+                                                                                                    "address": 34094,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 12,
+                                                                                                       "mask": 24,
                                                                                                   "max_value": 2,
-                                                                                                   "shift_by": 2,
+                                                                                                   "shift_by": 3,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -3439,7 +3536,7 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34074,
+                                                                                                    "address": 34076,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 12288,
                                                                                                   "max_value": 2,
@@ -3464,11 +3561,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34092,
+                                                                                                    "address": 34094,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 48,
+                                                                                                       "mask": 96,
                                                                                                   "max_value": 2,
-                                                                                                   "shift_by": 4,
+                                                                                                   "shift_by": 5,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -3493,11 +3590,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34060,
+                                                                                                    "address": 34076,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 32768,
+                                                                                                       "mask": 16384,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 15,
+                                                                                                   "shift_by": 14,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -3518,11 +3615,11 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34092,
+                                                                                                    "address": 34094,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 192,
+                                                                                                       "mask": 384,
                                                                                                   "max_value": 2,
-                                                                                                   "shift_by": 6,
+                                                                                                   "shift_by": 7,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -3544,7 +3641,7 @@
                                                                                          "suggested_step": 3200
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                             "address": 34096,
+                                                                                             "address": 34098,
                                                                                          "description": "position of the potentiometer",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3569,7 +3666,7 @@
                                                                                          "suggested_step": 3200
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                             "address": 34094,
+                                                                                             "address": 34096,
                                                                                          "description": "position of the potentiometer",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3594,7 +3691,7 @@
                                                                                          "suggested_step": 3200
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                             "address": 34098,
+                                                                                             "address": 34100,
                                                                                          "description": "position of the potentiometer",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -4154,7 +4251,7 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34056,
+                                                                                                   "address": 34058,
                                                                                                "description": "selector position",
                                                                                                       "mask": 1024,
                                                                                                  "max_value": 1,
@@ -4199,11 +4296,40 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34056,
+                                                                                                   "address": 34058,
                                                                                                "description": "selector position",
                                                                                                       "mask": 16,
                                                                                                  "max_value": 1,
                                                                                                   "shift_by": 4,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ],
+                                                                       "physical_variant": "toggle_switch"
+                                                                },
+                                           "emer_fuel_shutoff": {
+                                                                               "category": "Mechanical Systems",
+                                                                           "control_type": "selector",
+                                                                            "description": "Emergency Fuel Shutoff Control",
+                                                                             "identifier": "emer_fuel_shutoff",
+                                                                                 "inputs": [ {
+                                                                                               "description": "switch to previous or next state",
+                                                                                                 "interface": "fixed_step"
+                                                                                           }, {
+                                                                                               "description": "set position",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 1
+                                                                                           }, {
+                                                                                                  "argument": "TOGGLE",
+                                                                                               "description": "Toggle switch state",
+                                                                                                 "interface": "action"
+                                                                                           } ],
+                                                                    "momentary_positions": "none",
+                                                                                "outputs": [ {
+                                                                                                   "address": 34062,
+                                                                                               "description": "selector position",
+                                                                                                      "mask": 1,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 0,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ],
@@ -4224,7 +4350,7 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34056,
+                                                                                                   "address": 34058,
                                                                                                "description": "selector position",
                                                                                                       "mask": 6144,
                                                                                                  "max_value": 2,
@@ -4254,7 +4380,7 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34056,
+                                                                                                   "address": 34058,
                                                                                                "description": "selector position",
                                                                                                       "mask": 32768,
                                                                                                  "max_value": 1,
@@ -4280,7 +4406,7 @@
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 34058,
+                                                                                            "address": 34060,
                                                                                         "description": "position of the potentiometer",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -4308,7 +4434,7 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34056,
+                                                                                                   "address": 34058,
                                                                                                "description": "selector position",
                                                                                                       "mask": 128,
                                                                                                  "max_value": 1,
@@ -4333,7 +4459,7 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34056,
+                                                                                                   "address": 34058,
                                                                                                "description": "selector position",
                                                                                                       "mask": 768,
                                                                                                  "max_value": 2,
@@ -4362,7 +4488,7 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34056,
+                                                                                                   "address": 34058,
                                                                                                "description": "selector position",
                                                                                                       "mask": 64,
                                                                                                  "max_value": 1,
@@ -4387,7 +4513,7 @@
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34056,
+                                                                                                   "address": 34058,
                                                                                                "description": "selector position",
                                                                                                       "mask": 24576,
                                                                                                  "max_value": 2,
@@ -4529,7 +4655,7 @@
                                                                                        "suggested_step": 3200
                                                                                    } ],
                                                                         "outputs": [ {
-                                                                                           "address": 34020,
+                                                                                           "address": 34022,
                                                                                        "description": "position of the potentiometer",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -4557,7 +4683,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34018,
+                                                                                                  "address": 34020,
                                                                                               "description": "selector position",
                                                                                                      "mask": 16,
                                                                                                 "max_value": 1,
@@ -4582,7 +4708,7 @@
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34018,
+                                                                                                  "address": 34020,
                                                                                               "description": "selector position",
                                                                                                      "mask": 14,
                                                                                                 "max_value": 4,
@@ -4608,7 +4734,7 @@
                                                                                        "suggested_step": 3200
                                                                                    } ],
                                                                         "outputs": [ {
-                                                                                           "address": 34022,
+                                                                                           "address": 34024,
                                                                                        "description": "position of the potentiometer",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -4635,7 +4761,7 @@
                                                                                       "suggested_step": 3200
                                                                                   } ],
                                                                        "outputs": [ {
-                                                                                          "address": 34026,
+                                                                                          "address": 34028,
                                                                                       "description": "position of the potentiometer",
                                                                                              "mask": 65535,
                                                                                         "max_value": 65535,
@@ -4660,7 +4786,7 @@
                                                                                       "suggested_step": 3200
                                                                                   } ],
                                                                        "outputs": [ {
-                                                                                          "address": 34028,
+                                                                                          "address": 34030,
                                                                                       "description": "position of the potentiometer",
                                                                                              "mask": 65535,
                                                                                         "max_value": 65535,
@@ -4688,7 +4814,7 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34018,
+                                                                                                 "address": 34020,
                                                                                              "description": "selector position",
                                                                                                     "mask": 32,
                                                                                                "max_value": 1,
@@ -4714,7 +4840,7 @@
                                                                                       "suggested_step": 3200
                                                                                   } ],
                                                                        "outputs": [ {
-                                                                                          "address": 34030,
+                                                                                          "address": 34032,
                                                                                       "description": "position of the potentiometer",
                                                                                              "mask": 65535,
                                                                                         "max_value": 65535,
@@ -4742,7 +4868,7 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34046,
+                                                                                                 "address": 34048,
                                                                                              "description": "selector position",
                                                                                                     "mask": 32768,
                                                                                                "max_value": 1,
@@ -4771,7 +4897,7 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34048,
+                                                                                                 "address": 34050,
                                                                                              "description": "selector position",
                                                                                                     "mask": 128,
                                                                                                "max_value": 1,
@@ -4797,7 +4923,7 @@
                                                                                       "suggested_step": 3200
                                                                                   } ],
                                                                        "outputs": [ {
-                                                                                          "address": 34032,
+                                                                                          "address": 34034,
                                                                                       "description": "position of the potentiometer",
                                                                                              "mask": 65535,
                                                                                         "max_value": 65535,
@@ -4822,7 +4948,7 @@
                                                                                       "suggested_step": 3200
                                                                                   } ],
                                                                        "outputs": [ {
-                                                                                          "address": 34024,
+                                                                                          "address": 34026,
                                                                                       "description": "position of the potentiometer",
                                                                                              "mask": 65535,
                                                                                         "max_value": 65535,
@@ -4833,122 +4959,151 @@
                                                               }
                                      },
                         "T Handles": {
-                                         "emer_bomb_release": {
-                                                                             "category": "T Handles",
-                                                                         "control_type": "selector",
-                                                                          "description": "Emergency bomb release",
-                                                                           "identifier": "emer_bomb_release",
-                                                                               "inputs": [ {
-                                                                                             "description": "switch to previous or next state",
-                                                                                               "interface": "fixed_step"
-                                                                                         }, {
-                                                                                             "description": "set position",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 1
-                                                                                         }, {
-                                                                                                "argument": "TOGGLE",
-                                                                                             "description": "Toggle switch state",
-                                                                                               "interface": "action"
-                                                                                         } ],
-                                                                  "momentary_positions": "none",
-                                                                              "outputs": [ {
-                                                                                                 "address": 34104,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 2,
-                                                                                               "max_value": 1,
-                                                                                                "shift_by": 1,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "toggle_switch"
-                                                              },
-                                         "emer_gear_release": {
-                                                                             "category": "T Handles",
-                                                                         "control_type": "selector",
-                                                                          "description": "Emergency gear release",
-                                                                           "identifier": "emer_gear_release",
-                                                                               "inputs": [ {
-                                                                                             "description": "switch to previous or next state",
-                                                                                               "interface": "fixed_step"
-                                                                                         }, {
-                                                                                             "description": "set position",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 1
-                                                                                         }, {
-                                                                                                "argument": "TOGGLE",
-                                                                                             "description": "Toggle switch state",
-                                                                                               "interface": "action"
-                                                                                         } ],
-                                                                  "momentary_positions": "none",
-                                                                              "outputs": [ {
-                                                                                                 "address": 34104,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 1,
-                                                                                               "max_value": 1,
-                                                                                                "shift_by": 0,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "toggle_switch"
-                                                              },
-                                           "emer_gen_bypass": {
-                                                                             "category": "T Handles",
-                                                                         "control_type": "selector",
-                                                                          "description": "Emergency generator bypass",
-                                                                           "identifier": "emer_gen_bypass",
-                                                                               "inputs": [ {
-                                                                                             "description": "switch to previous or next state",
-                                                                                               "interface": "fixed_step"
-                                                                                         }, {
-                                                                                             "description": "set position",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 1
-                                                                                         }, {
-                                                                                                "argument": "TOGGLE",
-                                                                                             "description": "Toggle switch state",
-                                                                                               "interface": "action"
-                                                                                         } ],
-                                                                  "momentary_positions": "none",
-                                                                              "outputs": [ {
-                                                                                                 "address": 34104,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 8,
-                                                                                               "max_value": 1,
-                                                                                                "shift_by": 3,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "toggle_switch"
-                                                              },
-                                           "emer_gen_deploy": {
-                                                                             "category": "T Handles",
-                                                                         "control_type": "selector",
-                                                                          "description": "Emergency generator deploy",
-                                                                           "identifier": "emer_gen_deploy",
-                                                                               "inputs": [ {
-                                                                                             "description": "switch to previous or next state",
-                                                                                               "interface": "fixed_step"
-                                                                                         }, {
-                                                                                             "description": "set position",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 1
-                                                                                         }, {
-                                                                                                "argument": "TOGGLE",
-                                                                                             "description": "Toggle switch state",
-                                                                                               "interface": "action"
-                                                                                         } ],
-                                                                  "momentary_positions": "none",
-                                                                              "outputs": [ {
-                                                                                                 "address": 34104,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 4,
-                                                                                               "max_value": 1,
-                                                                                                "shift_by": 2,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "toggle_switch"
-                                                              }
+                                          "emer_bomb_release": {
+                                                                              "category": "T Handles",
+                                                                          "control_type": "selector",
+                                                                           "description": "Emergency bomb release",
+                                                                            "identifier": "emer_bomb_release",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 34106,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 4,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 2,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "toggle_switch"
+                                                               },
+                                          "emer_gear_release": {
+                                                                              "category": "T Handles",
+                                                                          "control_type": "selector",
+                                                                           "description": "Emergency gear release",
+                                                                            "identifier": "emer_gear_release",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 34104,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 32768,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 15,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "toggle_switch"
+                                                               },
+                                            "emer_gen_bypass": {
+                                                                              "category": "T Handles",
+                                                                          "control_type": "selector",
+                                                                           "description": "Emergency generator bypass",
+                                                                            "identifier": "emer_gen_bypass",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 34106,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 16,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 4,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "toggle_switch"
+                                                               },
+                                            "emer_gen_deploy": {
+                                                                              "category": "T Handles",
+                                                                          "control_type": "selector",
+                                                                           "description": "Emergency generator deploy",
+                                                                            "identifier": "emer_gen_deploy",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 34106,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 8,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 3,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "toggle_switch"
+                                                               },
+                                         "man_flight_control": {
+                                                                              "category": "T Handles",
+                                                                          "control_type": "selector",
+                                                                           "description": "Manual Flight Control",
+                                                                            "identifier": "man_flight_control",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 34106,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 32,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 5,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "toggle_switch"
+                                                               }
                                      },
                             "TACAN": {
                                          "tacan_ch_major": {
@@ -4966,11 +5121,11 @@
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 34060,
+                                                                                              "address": 34062,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 15360,
+                                                                                                 "mask": 30720,
                                                                                             "max_value": 12,
-                                                                                             "shift_by": 10,
+                                                                                             "shift_by": 11,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -4991,7 +5146,7 @@
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 34074,
+                                                                                              "address": 34076,
                                                                                           "description": "selector position",
                                                                                                  "mask": 15,
                                                                                             "max_value": 9,
@@ -5016,11 +5171,11 @@
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 34060,
+                                                                                              "address": 34062,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 768,
+                                                                                                 "mask": 1536,
                                                                                             "max_value": 3,
-                                                                                             "shift_by": 8,
+                                                                                             "shift_by": 9,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -5042,7 +5197,7 @@
                                                                                    "suggested_step": 3200
                                                                                } ],
                                                                     "outputs": [ {
-                                                                                       "address": 34076,
+                                                                                       "address": 34078,
                                                                                    "description": "position of the potentiometer",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65535,
@@ -5132,7 +5287,7 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34102,
+                                                                                                 "address": 34104,
                                                                                              "description": "selector position",
                                                                                                     "mask": 31,
                                                                                                "max_value": 17,
@@ -5157,11 +5312,11 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34092,
+                                                                                                 "address": 34094,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 7936,
+                                                                                                    "mask": 15872,
                                                                                                "max_value": 19,
-                                                                                                "shift_by": 8,
+                                                                                                "shift_by": 9,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -5182,7 +5337,7 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34102,
+                                                                                                 "address": 34104,
                                                                                              "description": "selector position",
                                                                                                     "mask": 480,
                                                                                                "max_value": 9,
@@ -5207,7 +5362,7 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34102,
+                                                                                                 "address": 34104,
                                                                                              "description": "selector position",
                                                                                                     "mask": 15872,
                                                                                                "max_value": 19,
@@ -5232,11 +5387,11 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34102,
+                                                                                                 "address": 34106,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 49152,
+                                                                                                    "mask": 3,
                                                                                                "max_value": 3,
-                                                                                                "shift_by": 14,
+                                                                                                "shift_by": 0,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -5261,11 +5416,11 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34092,
+                                                                                                 "address": 34104,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 32768,
+                                                                                                    "mask": 16384,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 15,
+                                                                                                "shift_by": 14,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -5287,7 +5442,7 @@
                                                                                       "suggested_step": 3200
                                                                                   } ],
                                                                        "outputs": [ {
-                                                                                          "address": 34100,
+                                                                                          "address": 34102,
                                                                                       "description": "position of the potentiometer",
                                                                                              "mask": 65535,
                                                                                         "max_value": 65535,
@@ -5311,11 +5466,11 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34092,
+                                                                                                 "address": 34094,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 24576,
+                                                                                                    "mask": 49152,
                                                                                                "max_value": 2,
-                                                                                                "shift_by": 13,
+                                                                                                "shift_by": 14,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
