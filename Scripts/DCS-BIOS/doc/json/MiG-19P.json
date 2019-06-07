@@ -19,11 +19,11 @@
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5678,
+                                                                                                      "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 32768,
+                                                                                                         "mask": 4,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 15,
+                                                                                                     "shift_by": 2,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -50,9 +50,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5678,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 4096,
+                                                                                                         "mask": 8192,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 12,
+                                                                                                     "shift_by": 13,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -79,9 +79,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5678,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 16384,
+                                                                                                         "mask": 32768,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 14,
+                                                                                                     "shift_by": 15,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -180,9 +180,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5678,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 8192,
+                                                                                                         "mask": 16384,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 13,
+                                                                                                     "shift_by": 14,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -1164,6 +1164,35 @@
                                                                                                      } ],
                                                                                  "physical_variant": "toggle_switch"
                                                                           },
+                                                          "FLOOD_LAMP_R": {
+                                                                                         "category": "Bulkhead Panel 2",
+                                                                                     "control_type": "selector",
+                                                                                      "description": "Right Side Flood Lamp Switch, ON/OFF",
+                                                                                       "identifier": "FLOOD_LAMP_R",
+                                                                                           "inputs": [ {
+                                                                                                         "description": "switch to previous or next state",
+                                                                                                           "interface": "fixed_step"
+                                                                                                     }, {
+                                                                                                         "description": "set position",
+                                                                                                           "interface": "set_state",
+                                                                                                           "max_value": 1
+                                                                                                     }, {
+                                                                                                            "argument": "TOGGLE",
+                                                                                                         "description": "Toggle switch state",
+                                                                                                           "interface": "action"
+                                                                                                     } ],
+                                                                              "momentary_positions": "none",
+                                                                                          "outputs": [ {
+                                                                                                             "address": 5678,
+                                                                                                         "description": "selector position",
+                                                                                                                "mask": 4096,
+                                                                                                           "max_value": 1,
+                                                                                                            "shift_by": 12,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                                     } ],
+                                                                                 "physical_variant": "toggle_switch"
+                                                                          },
                                                                 "IFF_PW": {
                                                                                          "category": "Bulkhead Panel 2",
                                                                                      "control_type": "selector",
@@ -2041,9 +2070,9 @@
                                                                                  "outputs": [ {
                                                                                                     "address": 5694,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 4,
+                                                                                                       "mask": 8,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 2,
+                                                                                                   "shift_by": 3,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -2070,9 +2099,9 @@
                                                                                  "outputs": [ {
                                                                                                     "address": 5694,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 8,
+                                                                                                       "mask": 16,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 3,
+                                                                                                   "shift_by": 4,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -2099,9 +2128,9 @@
                                                                                  "outputs": [ {
                                                                                                     "address": 5694,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 16,
+                                                                                                       "mask": 32,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 4,
+                                                                                                   "shift_by": 5,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -2128,9 +2157,9 @@
                                                                                  "outputs": [ {
                                                                                                     "address": 5694,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 32,
+                                                                                                       "mask": 64,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 5,
+                                                                                                   "shift_by": 6,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -2234,9 +2263,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5694,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 1,
+                                                                                                         "mask": 2,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 0,
+                                                                                                     "shift_by": 1,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2263,9 +2292,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 8192,
+                                                                                                         "mask": 16384,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 13,
+                                                                                                     "shift_by": 14,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2292,9 +2321,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 512,
+                                                                                                         "mask": 1024,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 9,
+                                                                                                     "shift_by": 10,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2321,9 +2350,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 1024,
+                                                                                                         "mask": 2048,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 10,
+                                                                                                     "shift_by": 11,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2350,9 +2379,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 4096,
+                                                                                                         "mask": 8192,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 12,
+                                                                                                     "shift_by": 13,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2379,9 +2408,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 2048,
+                                                                                                         "mask": 4096,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 11,
+                                                                                                     "shift_by": 12,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2406,11 +2435,11 @@
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5684,
+                                                                                                      "address": 5694,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 32768,
+                                                                                                         "mask": 1,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 15,
+                                                                                                     "shift_by": 0,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2437,9 +2466,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 16384,
+                                                                                                         "mask": 32768,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 14,
+                                                                                                     "shift_by": 15,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2466,9 +2495,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 256,
+                                                                                                         "mask": 512,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 8,
+                                                                                                     "shift_by": 9,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2495,9 +2524,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 128,
+                                                                                                         "mask": 256,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 7,
+                                                                                                     "shift_by": 8,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2524,9 +2553,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5694,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 2,
+                                                                                                         "mask": 4,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 1,
+                                                                                                     "shift_by": 2,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2673,9 +2702,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 5700,
                                                                                                     "description": "Left Position Light (red)",
-                                                                                                           "mask": 16384,
+                                                                                                           "mask": 32768,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 14,
+                                                                                                       "shift_by": 15,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -2687,11 +2716,11 @@
                                                                                   "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 5700,
+                                                                                                        "address": 5818,
                                                                                                     "description": "Right Position Light (green)",
-                                                                                                           "mask": 32768,
+                                                                                                           "mask": 1,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 15,
+                                                                                                       "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -4226,7 +4255,7 @@
                                                                       "api_variant": "multiturn",
                                                                          "category": "Gunsights",
                                                                      "control_type": "analog_dial",
-                                                                      "description": "ASP-5 Bomb Mil Deflection Setting",
+                                                                      "description": "ASP-5 Mil Depression Setting",
                                                                        "identifier": "ASP5_BOMB_MIL",
                                                                            "inputs": [ {
                                                                                             "description": "turn the dial left or right",
@@ -5293,9 +5322,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 48,
+                                                                                                         "mask": 96,
                                                                                                     "max_value": 2,
-                                                                                                     "shift_by": 4,
+                                                                                                     "shift_by": 5,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -5322,9 +5351,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 64,
+                                                                                                         "mask": 128,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 6,
+                                                                                                     "shift_by": 7,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -5351,9 +5380,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 8,
+                                                                                                         "mask": 16,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 3,
+                                                                                                     "shift_by": 4,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -5380,9 +5409,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 4,
+                                                                                                         "mask": 8,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 2,
+                                                                                                     "shift_by": 3,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -5811,9 +5840,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1024,
+                                                                                                              "mask": 2048,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 10,
+                                                                                                          "shift_by": 11,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5827,9 +5856,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8192,
+                                                                                                              "mask": 16384,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 13,
+                                                                                                          "shift_by": 14,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5843,9 +5872,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1024,
+                                                                                                              "mask": 2048,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 10,
+                                                                                                          "shift_by": 11,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5859,9 +5888,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2,
+                                                                                                              "mask": 4,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 1,
+                                                                                                          "shift_by": 2,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5875,9 +5904,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1,
+                                                                                                              "mask": 2,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 0,
+                                                                                                          "shift_by": 1,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5891,9 +5920,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1,
+                                                                                                              "mask": 2,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 0,
+                                                                                                          "shift_by": 1,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5907,9 +5936,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8,
+                                                                                                              "mask": 16,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 3,
+                                                                                                          "shift_by": 4,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5923,9 +5952,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 512,
+                                                                                                              "mask": 1024,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 9,
+                                                                                                          "shift_by": 10,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5939,9 +5968,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4096,
+                                                                                                              "mask": 8192,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 12,
+                                                                                                          "shift_by": 13,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5955,9 +5984,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4096,
+                                                                                                              "mask": 8192,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 12,
+                                                                                                          "shift_by": 13,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5971,9 +6000,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2048,
+                                                                                                              "mask": 4096,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 11,
+                                                                                                          "shift_by": 12,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5987,9 +6016,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 256,
+                                                                                                              "mask": 512,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 8,
+                                                                                                          "shift_by": 9,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6003,9 +6032,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 128,
+                                                                                                              "mask": 256,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 7,
+                                                                                                          "shift_by": 8,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6019,9 +6048,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2048,
+                                                                                                              "mask": 4096,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 11,
+                                                                                                          "shift_by": 12,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6035,9 +6064,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 128,
+                                                                                                              "mask": 256,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 7,
+                                                                                                          "shift_by": 8,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6051,9 +6080,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 64,
+                                                                                                              "mask": 128,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 6,
+                                                                                                          "shift_by": 7,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6067,9 +6096,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8192,
+                                                                                                              "mask": 16384,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 13,
+                                                                                                          "shift_by": 14,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6083,9 +6112,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 64,
+                                                                                                              "mask": 128,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 6,
+                                                                                                          "shift_by": 7,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6099,9 +6128,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2,
+                                                                                                              "mask": 4,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 1,
+                                                                                                          "shift_by": 2,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6115,9 +6144,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32,
+                                                                                                              "mask": 64,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 5,
+                                                                                                          "shift_by": 6,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6131,9 +6160,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 128,
+                                                                                                              "mask": 256,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 7,
+                                                                                                          "shift_by": 8,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6147,9 +6176,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8,
+                                                                                                              "mask": 16,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 3,
+                                                                                                          "shift_by": 4,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6163,9 +6192,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16384,
+                                                                                                              "mask": 32768,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 14,
+                                                                                                          "shift_by": 15,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6179,9 +6208,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 512,
+                                                                                                              "mask": 1024,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 9,
+                                                                                                          "shift_by": 10,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6195,9 +6224,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 512,
+                                                                                                              "mask": 1024,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 9,
+                                                                                                          "shift_by": 10,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6211,9 +6240,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 64,
+                                                                                                              "mask": 128,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 6,
+                                                                                                          "shift_by": 7,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6227,9 +6256,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32,
+                                                                                                              "mask": 64,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 5,
+                                                                                                          "shift_by": 6,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6243,9 +6272,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16,
+                                                                                                              "mask": 32,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 4,
+                                                                                                          "shift_by": 5,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6259,9 +6288,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1024,
+                                                                                                              "mask": 2048,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 10,
+                                                                                                          "shift_by": 11,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6275,9 +6304,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 128,
+                                                                                                              "mask": 256,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 7,
+                                                                                                          "shift_by": 8,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6289,11 +6318,11 @@
                                                                                      "identifier": "PITCH_TRIM_NEUTRAL_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5694,
+                                                                                                           "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32768,
+                                                                                                              "mask": 1,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 15,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6307,9 +6336,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 512,
+                                                                                                              "mask": 1024,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 9,
+                                                                                                          "shift_by": 10,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6323,9 +6352,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16384,
+                                                                                                              "mask": 32768,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 14,
+                                                                                                          "shift_by": 15,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6339,9 +6368,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 256,
+                                                                                                              "mask": 512,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 8,
+                                                                                                          "shift_by": 9,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6355,9 +6384,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4,
+                                                                                                              "mask": 8,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 2,
+                                                                                                          "shift_by": 3,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6371,9 +6400,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4096,
+                                                                                                              "mask": 8192,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 12,
+                                                                                                          "shift_by": 13,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6387,9 +6416,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8192,
+                                                                                                              "mask": 16384,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 13,
+                                                                                                          "shift_by": 14,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6403,9 +6432,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16384,
+                                                                                                              "mask": 32768,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 14,
+                                                                                                          "shift_by": 15,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6417,11 +6446,11 @@
                                                                                      "identifier": "ROCKET_4_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5698,
+                                                                                                           "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32768,
+                                                                                                              "mask": 1,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 15,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6435,9 +6464,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1,
+                                                                                                              "mask": 2,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 0,
+                                                                                                          "shift_by": 1,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6451,9 +6480,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2,
+                                                                                                              "mask": 4,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 1,
+                                                                                                          "shift_by": 2,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6467,9 +6496,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4,
+                                                                                                              "mask": 8,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 2,
+                                                                                                          "shift_by": 3,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6483,9 +6512,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8,
+                                                                                                              "mask": 16,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 3,
+                                                                                                          "shift_by": 4,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6499,9 +6528,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2048,
+                                                                                                              "mask": 4096,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 11,
+                                                                                                          "shift_by": 12,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6515,9 +6544,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4,
+                                                                                                              "mask": 8,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 2,
+                                                                                                          "shift_by": 3,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6531,9 +6560,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16,
+                                                                                                              "mask": 32,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 4,
+                                                                                                          "shift_by": 5,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6547,9 +6576,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 256,
+                                                                                                              "mask": 512,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 8,
+                                                                                                          "shift_by": 9,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6563,9 +6592,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16,
+                                                                                                              "mask": 32,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 4,
+                                                                                                          "shift_by": 5,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6577,11 +6606,11 @@
                                                                                      "identifier": "R_ENG_AIRSTART",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5696,
+                                                                                                           "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32768,
+                                                                                                              "mask": 1,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 15,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6595,9 +6624,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1024,
+                                                                                                              "mask": 2048,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 10,
+                                                                                                          "shift_by": 11,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6611,9 +6640,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2048,
+                                                                                                              "mask": 4096,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 11,
+                                                                                                          "shift_by": 12,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6627,9 +6656,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 256,
+                                                                                                              "mask": 512,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 8,
+                                                                                                          "shift_by": 9,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6643,9 +6672,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 64,
+                                                                                                              "mask": 128,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 6,
+                                                                                                          "shift_by": 7,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6659,9 +6688,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32,
+                                                                                                              "mask": 64,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 5,
+                                                                                                          "shift_by": 6,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6675,9 +6704,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8192,
+                                                                                                              "mask": 16384,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 13,
+                                                                                                          "shift_by": 14,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6691,9 +6720,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4096,
+                                                                                                              "mask": 8192,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 12,
+                                                                                                          "shift_by": 13,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
