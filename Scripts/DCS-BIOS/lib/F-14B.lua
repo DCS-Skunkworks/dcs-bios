@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 -- Made by WarLord (aka BlackLibrary) and ArturDCS
--- v 1.2
+-- v 1.3
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -483,36 +483,58 @@ definePotentiometer("PLT_VUHF_VOL", 4, 3403, 2038, {0.0, 1.0}, "VUHF", "PILOT VU
 definePotentiometer("RIO_VUHF_BRIGHTNESS", 4, 3405, 360, {0.0, 1.0}, "VUHF", "RIO VUHF ARC-182 Display Brightness")
 
 function getARC182_High_Frequency()
-	--Export : 225000192.000000
+	--225000288
+	-- 65000056	
 	local arc_182 = GetDevice(4)
 	local freq = tostring(arc_182:get_frequency())
+
+	if(string.len(freq) == 8) then
+		freq = string.sub(freq, 1, 2)
+	else
 	freq = string.sub(freq, 1, 3)
+	end
 	return tonumber(freq)	
 end
 function getARC182_Decimal_DIAL3_Frequency()
-	--Export : 225975
+	--225975288
+	-- 65975056
 	local arc_182 = GetDevice(4)
 	local freq = tostring(arc_182:get_frequency())
 	--Get the 9
+	if(string.len(freq) == 8) then
+		freq = string.sub(freq, 3, 3)
+	else
 	freq = string.sub(freq, 4, 4)
+	end
 	return tonumber(freq)	
 end
 
 function getARC182_Decimal_DIAL4_Frequency()
-	--Export : 225975192.000000
+	--225975288
+	-- 65975056
 	--00 25 50 75
 	local arc_182 = GetDevice(4)
 	local freq = tostring(arc_182:get_frequency())
 	--Get the 75
+	if(string.len(freq) == 8) then
+		freq = string.sub(freq, 4, 5)
+	else
 	freq = string.sub(freq, 5, 6)
+	end
 	return tonumber(freq)	
 end
 
 function getARC182_String_Frequency()
-	--Export : 225000192.000000
+	--225975288
+	-- 65975056
 	local arc_182 = GetDevice(4)
 	local freq = tostring(arc_182:get_frequency())
-	return freq:sub(1,3) .. "." .. freq:sub(4,6)	
+	if(string.len(freq) == 8) then
+		--559.9752
+		return freq:sub(1,2) .. "." .. freq:sub(3,5)	
+	else
+		return freq:sub(1,3) .. "." .. freq:sub(4,6)	
+	end	
 end
 defineString("RIO_VUHF_STRING_FREQ", getARC182_String_Frequency, 7, "VUHF", "RIO ARC-182 Frequency (string)")
 defineIntegerFromGetter("RIO_VUHF_DIAL4_FREQ", getARC182_Decimal_DIAL4_Frequency, 100, "VUHF", "RIO Dial 4 ARC-182 Frequency")
@@ -522,6 +544,7 @@ defineIntegerFromGetter("RIO_VUHF_HIGH_FREQ", getARC182_High_Frequency, 400, "VU
 moduleBeingDefined.inputProcessors["SET_VUHF_FREQ"] = function(freq)
 	freq = freq:gsub("%.", "")
 	freq = tonumber(freq)
+	
 	if type(freq) == "nil" then return end
 	
 	GetDevice(4):set_frequency(freq*1000)
