@@ -51,7 +51,7 @@ definePushButton("GMETER_RESET", 9, 3515, 515, "Flight Instruments Panel", "AM-1
 -- GUNSIGHTS
 defineToggleSwitch("ASP5_CAGE", 11, 3355, 355, "Gunsights", "ASP-5 Sight Cage/Uncage")
 defineRotary("ASP5_WINGSPAN", 11, 3356, 356, "Gunsights", "ASP-5 Target Wingspan Selector")
-defineRotary("ASP5_BOMB_MIL", 11, 3357, 357, "Gunsights", "ASP-5 Bomb Mil Deflection Setting")
+defineRotary("ASP5_BOMB_MIL", 11, 3357, 357, "Gunsights", "ASP-5 Mil Depression Setting")
 definePotentiometer("ASP5_BRIGHT", 11, 3358, 358, {0, 1}, "Gunsights", "ASP-5 Brightness")
 
 -- RP-5 IZUMRUD
@@ -193,6 +193,7 @@ defineToggleSwitch("IFF_SELFDESTRUCT_COVER", 16, 3265, 265, "Bulkhead Panel 2", 
 defineToggleSwitch("IFF_SELFDESTRUCT", 16, 3266, 266, "Bulkhead Panel 2", "SRO-2 IFF Self-destruct Button - Press to activate self-destruction")
 defineToggleSwitch("IFF_PW_COVER", 16, 3267, 267, "Bulkhead Panel 2", "SRO-2 IFF Power Switch Cover")
 defineToggleSwitch("IFF_PW", 16, 3268, 268, "Bulkhead Panel 2", "SRO-2 IFF Power Switch, ON/OFF")
+defineToggleSwitch("FLOOD_LAMP_R", 6, 3522, 522, "Bulkhead Panel 2", "Right Side Flood Lamp Switch, ON/OFF")
 
 defineMultipositionSwitch("ARK5_CHAN_SEL", 20, 3335, 335, 2, 0.5,"ARK5 Panel" ,"ARK-5 NEAR Frequency Band Selector Switch")
 defineToggleSwitch("ARK5_RECV_MODE", 20, 3347, 347, "ARK5 Panel", "ARK-5 Receiver Mode Switch, TLG(Telegraph)/TLF(Telephony)")
