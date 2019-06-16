@@ -1,0 +1,1851 @@
+{
+           "Circuit Breakers": {
+                                            "CBR_COVER1": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Circuit Breaker Cover 1",
+                                                                       "identifier": "CBR_COVER1",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14368,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 16,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 4,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                            "CBR_COVER2": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Circuit Breaker Cover 2",
+                                                                       "identifier": "CBR_COVER2",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14368,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 32,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 5,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                   "CB_CABIN_LIGHTS_OFF": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Cabin Illumination Power Off",
+                                                                       "identifier": "CB_CABIN_LIGHTS_OFF",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14364,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 8192,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 13,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                    "CB_CABIN_LIGHTS_ON": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Cabin Illumination Power On",
+                                                                       "identifier": "CB_CABIN_LIGHTS_ON",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14364,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 4096,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 12,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                     "CB_CLOTH_HEAT_OFF": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Clothes Heating Power Off",
+                                                                       "identifier": "CB_CLOTH_HEAT_OFF",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14364,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 32768,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 15,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                      "CB_CLOTH_HEAT_ON": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Clothes Heating Power On",
+                                                                       "identifier": "CB_CLOTH_HEAT_ON",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14364,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 16384,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 14,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                        "CB_GUN_CAM_OFF": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Gun Sight and Gun Camera Power Off",
+                                                                       "identifier": "CB_GUN_CAM_OFF",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14364,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 128,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 7,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                         "CB_GUN_CAM_ON": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Gun Sight and Gun Camera Power On",
+                                                                       "identifier": "CB_GUN_CAM_ON",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14364,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 64,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 6,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                       "CB_IGNITION_OFF": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Ignition Power Off",
+                                                                       "identifier": "CB_IGNITION_OFF",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14368,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 8,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 3,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                        "CB_IGNITION_ON": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Ignition Power On",
+                                                                       "identifier": "CB_IGNITION_ON",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14368,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 4,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 2,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                    "CB_INSTRUMENTS_OFF": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Instruments Power Off",
+                                                                       "identifier": "CB_INSTRUMENTS_OFF",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14364,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 512,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 9,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                     "CB_INSTRUMENTS_ON": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Instruments Power On",
+                                                                       "identifier": "CB_INSTRUMENTS_ON",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14364,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 256,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 8,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                     "CB_NAV_LIGHTS_OFF": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Navigation Lights Power Off",
+                                                                       "identifier": "CB_NAV_LIGHTS_OFF",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14364,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 2048,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 11,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                      "CB_NAV_LIGHTS_ON": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Navigation Lights Power On",
+                                                                       "identifier": "CB_NAV_LIGHTS_ON",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14364,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 1024,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 10,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                            "CB_ORD_OFF": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Drop Ordnance & Optional Armament Power Off",
+                                                                       "identifier": "CB_ORD_OFF",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14364,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 32,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 5,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                             "CB_ORD_ON": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Drop Ordnance & Optional Armament Power On",
+                                                                       "identifier": "CB_ORD_ON",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14364,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 16,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 4,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                     "CB_PITOT_HEAT_OFF": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Pitot Heating Power Off",
+                                                                       "identifier": "CB_PITOT_HEAT_OFF",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14368,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 2,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 1,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          },
+                                      "CB_PITOT_HEAT_ON": {
+                                                                         "category": "Circuit Breakers",
+                                                                     "control_type": "selector",
+                                                                      "description": "Pitot Heating Power On",
+                                                                       "identifier": "CB_PITOT_HEAT_ON",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 14368,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 1,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "limited_rotary"
+                                                          }
+                               },
+                    "Cockpit": {
+                                     "ALT_PRESS_SET": {
+                                                           "api_variant": "multiturn",
+                                                              "category": "Cockpit",
+                                                          "control_type": "analog_dial",
+                                                           "description": "Altimeter Pressure Set",
+                                                            "identifier": "ALT_PRESS_SET",
+                                                                "inputs": [ {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 14344,
+                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "_KNOB_POS",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                    "CANOPY_EMG_REL": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Canopy Emergency Release Handle",
+                                                                   "identifier": "CANOPY_EMG_REL",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14336,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 32768,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 15,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                   "CANOPY_HAND_CRK": {
+                                                           "api_variant": "multiturn",
+                                                              "category": "Cockpit",
+                                                          "control_type": "analog_dial",
+                                                           "description": "Canopy Hand Crank",
+                                                            "identifier": "CANOPY_HAND_CRK",
+                                                                "inputs": [ {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 14340,
+                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "_KNOB_POS",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                           "EL_KILL": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Electric Kill-switch",
+                                                                   "identifier": "EL_KILL",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14336,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 16384,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 14,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                      "FUEL_CUTTOFF": {
+                                                                  "api_variant": "momentary_last_position",
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Fuel Cutoff Handle",
+                                                                   "identifier": "FUEL_CUTTOFF",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14336,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 2048,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 11,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "push_button"
+                                                      },
+                                    "FUEL_GAUGE_SEL": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Fuel Gauge Selector (FORWARD/NONE/AFT)",
+                                                                   "identifier": "FUEL_GAUGE_SEL",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 3
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14336,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 768,
+                                                                                       "max_value": 3,
+                                                                                        "shift_by": 8,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                    "FUEL_PRIM_PMPL": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Primer Pump",
+                                                                   "identifier": "FUEL_PRIM_PMPL",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14336,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 1024,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 10,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                      "FUEL_TNK_SEL": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Fuel Tank Selector Valve (CLOSE/FORWARD/AFT/BOTH)",
+                                                                   "identifier": "FUEL_TNK_SEL",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 3
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14336,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 192,
+                                                                                       "max_value": 3,
+                                                                                        "shift_by": 6,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                          "HOR_CAGE": {
+                                                              "category": "Cockpit",
+                                                          "control_type": "limited_dial",
+                                                           "description": "Horizon Cage",
+                                                            "identifier": "HOR_CAGE",
+                                                                "inputs": [ {
+                                                                              "description": "set the position of the dial",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 65535
+                                                                          }, {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 14346,
+                                                                              "description": "position of the potentiometer",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                     "HOR_STAB_TRIM": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Stabilizer Trimmer Up/Down",
+                                                                   "identifier": "HOR_STAB_TRIM",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 2
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14342,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 24,
+                                                                                       "max_value": 2,
+                                                                                        "shift_by": 3,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                          "ING_MODE": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Ingnition Mode Manual/Auto)",
+                                                                   "identifier": "ING_MODE",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14336,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 32,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 5,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                   "INSTR_LGHT_CTRL": {
+                                                           "api_variant": "multiturn",
+                                                              "category": "Cockpit",
+                                                          "control_type": "analog_dial",
+                                                           "description": "Instrument Lights Brightness",
+                                                            "identifier": "INSTR_LGHT_CTRL",
+                                                                "inputs": [ {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 14352,
+                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "_KNOB_POS",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                           "MAGNETO": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Magneto Switch",
+                                                                   "identifier": "MAGNETO",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 3
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14336,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 3,
+                                                                                       "max_value": 3,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                      "OXY_EMG_KNOB": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Oxygen Emergency Knob",
+                                                                   "identifier": "OXY_EMG_KNOB",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14336,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 8192,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 13,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                    "OXY_FLOW_VALVE": {
+                                                              "category": "Cockpit",
+                                                          "control_type": "limited_dial",
+                                                           "description": "Oxygen Flow Valve",
+                                                            "identifier": "OXY_FLOW_VALVE",
+                                                                "inputs": [ {
+                                                                              "description": "set the position of the dial",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 65535
+                                                                          }, {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 14338,
+                                                                              "description": "position of the potentiometer",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                     "STARTER_BRUSH": {
+                                                                  "api_variant": "momentary_last_position",
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Retract starter brushes",
+                                                                   "identifier": "STARTER_BRUSH",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14336,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 4096,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 12,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "push_button"
+                                                      },
+                                       "STARTER_CVR": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Starter Switch Cover",
+                                                                   "identifier": "STARTER_CVR",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14336,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 4,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 2,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                    "STARTER_SWITCH": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Starter Switch. Starter Power / Magnetic Clutch",
+                                                                   "identifier": "STARTER_SWITCH",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 2
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14336,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 24,
+                                                                                       "max_value": 2,
+                                                                                        "shift_by": 3,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                        "START_STOP": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Start - Stop Button",
+                                                                   "identifier": "START_STOP",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14342,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 2,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 1,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                         "STOPWATCH": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Stopwatch Button",
+                                                                   "identifier": "STOPWATCH",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14342,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 4,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 2,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                          "THR_LOCK": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Throttle Lock",
+                                                                   "identifier": "THR_LOCK",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14342,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 1,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                          "TURN_BEZ": {
+                                                           "api_variant": "multiturn",
+                                                              "category": "Cockpit",
+                                                          "control_type": "analog_dial",
+                                                           "description": "Turnable Bezel",
+                                                            "identifier": "TURN_BEZ",
+                                                                "inputs": [ {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 14348,
+                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "_KNOB_POS",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                           "WND_SET": {
+                                                           "api_variant": "multiturn",
+                                                              "category": "Cockpit",
+                                                          "control_type": "analog_dial",
+                                                           "description": "Wind/Set Knob",
+                                                            "identifier": "WND_SET",
+                                                                "inputs": [ {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 14350,
+                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "_KNOB_POS",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      }
+                               },
+                    "Compass": {
+                                   "CRS_SET": {
+                                                   "api_variant": "multiturn",
+                                                      "category": "Compass",
+                                                  "control_type": "analog_dial",
+                                                   "description": "Course Set",
+                                                    "identifier": "CRS_SET",
+                                                        "inputs": [ {
+                                                                         "description": "turn the dial left or right",
+                                                                           "interface": "variable_step",
+                                                                           "max_value": 65535,
+                                                                      "suggested_step": 3200
+                                                                  } ],
+                                                       "outputs": [ {
+                                                                          "address": 14374,
+                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                             "mask": 65535,
+                                                                        "max_value": 65535,
+                                                                         "shift_by": 0,
+                                                                           "suffix": "_KNOB_POS",
+                                                                             "type": "integer"
+                                                                  } ]
+                                              }
+                               },
+    "External Aircraft Model": {
+                                    "EXT_POSITION_LIGHT_LEFT": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Left Position Light (red)",
+                                                                     "identifier": "EXT_POSITION_LIGHT_LEFT",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 14368,
+                                                                                       "description": "Left Position Light (red)",
+                                                                                              "mask": 16384,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 14,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                   "EXT_POSITION_LIGHT_RIGHT": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Right Position Light (green)",
+                                                                     "identifier": "EXT_POSITION_LIGHT_RIGHT",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 14368,
+                                                                                       "description": "Right Position Light (green)",
+                                                                                              "mask": 32768,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 15,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               }
+                               },
+                      "Flaps": {
+                                        "FLAPS_LAND": {
+                                                                     "category": "Flaps",
+                                                                 "control_type": "selector",
+                                                                  "description": "Flaps Landing",
+                                                                   "identifier": "FLAPS_LAND",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14342,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 128,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 7,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                          "FLAPS_TO": {
+                                                                     "category": "Flaps",
+                                                                 "control_type": "selector",
+                                                                  "description": "Flaps Take Off",
+                                                                   "identifier": "FLAPS_TO",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14342,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 64,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 6,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                   "FLAPS_UP_TOGGLE": {
+                                                                     "category": "Flaps",
+                                                                 "control_type": "selector",
+                                                                  "description": "Flaps Up",
+                                                                   "identifier": "FLAPS_UP_TOGGLE",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14342,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 32,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 5,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                     "RAD_FLAP_CTRL": {
+                                                           "api_variant": "multiturn",
+                                                              "category": "Flaps",
+                                                          "control_type": "analog_dial",
+                                                           "description": "Radiator Flaps Control",
+                                                            "identifier": "RAD_FLAP_CTRL",
+                                                                "inputs": [ {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 14354,
+                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "_KNOB_POS",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      }
+                               },
+                       "Gear": {
+                                   "EMG_LG_REL": {
+                                                                "category": "Gear",
+                                                            "control_type": "selector",
+                                                             "description": "Landing Gear Emergency Release Handle",
+                                                              "identifier": "EMG_LG_REL",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                     "momentary_positions": "none",
+                                                                 "outputs": [ {
+                                                                                    "address": 14342,
+                                                                                "description": "selector position",
+                                                                                       "mask": 2048,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 11,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ],
+                                                        "physical_variant": "limited_rotary"
+                                                 },
+                                       "LG_EXT": {
+                                                                "category": "Gear",
+                                                            "control_type": "selector",
+                                                             "description": "Landing Gears Extending",
+                                                              "identifier": "LG_EXT",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                     "momentary_positions": "none",
+                                                                 "outputs": [ {
+                                                                                    "address": 14342,
+                                                                                "description": "selector position",
+                                                                                       "mask": 1024,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 10,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ],
+                                                        "physical_variant": "limited_rotary"
+                                                 },
+                                       "LG_RET": {
+                                                                "category": "Gear",
+                                                            "control_type": "selector",
+                                                             "description": "Landing Gears Retraction",
+                                                              "identifier": "LG_RET",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                     "momentary_positions": "none",
+                                                                 "outputs": [ {
+                                                                                    "address": 14342,
+                                                                                "description": "selector position",
+                                                                                       "mask": 256,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 8,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ],
+                                                        "physical_variant": "limited_rotary"
+                                                 },
+                                   "LG_RET_CVR": {
+                                                                "category": "Gear",
+                                                            "control_type": "selector",
+                                                             "description": "Landing Gears Retraction Cover",
+                                                              "identifier": "LG_RET_CVR",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                     "momentary_positions": "none",
+                                                                 "outputs": [ {
+                                                                                    "address": 14342,
+                                                                                "description": "selector position",
+                                                                                       "mask": 512,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 9,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ],
+                                                        "physical_variant": "limited_rotary"
+                                                 }
+                               },
+                  "Gun Sight": {
+                                   "SIGHT_BRIGHT": {
+                                                        "api_variant": "multiturn",
+                                                           "category": "Gun Sight",
+                                                       "control_type": "analog_dial",
+                                                        "description": "Gunsight Brightness Rheostat",
+                                                         "identifier": "SIGHT_BRIGHT",
+                                                             "inputs": [ {
+                                                                              "description": "turn the dial left or right",
+                                                                                "interface": "variable_step",
+                                                                                "max_value": 65535,
+                                                                           "suggested_step": 3200
+                                                                       } ],
+                                                            "outputs": [ {
+                                                                               "address": 14366,
+                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                  "mask": 65535,
+                                                                             "max_value": 65535,
+                                                                              "shift_by": 0,
+                                                                                "suffix": "_KNOB_POS",
+                                                                                  "type": "integer"
+                                                                       } ]
+                                                   },
+                                    "SIGHT_SMOKE": {
+                                                                  "category": "Gun Sight",
+                                                              "control_type": "selector",
+                                                               "description": "Gun Sight Smoked Screen Controls",
+                                                                "identifier": "SIGHT_SMOKE",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 14364,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 8,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 3,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "limited_rotary"
+                                                   }
+                               },
+                        "IFF": {
+                                   "IFF_CHAN_SEL": {
+                                                                  "category": "IFF",
+                                                              "control_type": "selector",
+                                                               "description": "IFF Channel Selector",
+                                                                "identifier": "IFF_CHAN_SEL",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 14368,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 192,
+                                                                                    "max_value": 2,
+                                                                                     "shift_by": 6,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "limited_rotary"
+                                                   },
+                                      "IFF_CHECK": {
+                                                                  "category": "IFF",
+                                                              "control_type": "selector",
+                                                               "description": "IFF Check",
+                                                                "identifier": "IFF_CHECK",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 14368,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 256,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 8,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "limited_rotary"
+                                                   }
+                               },
+                      "Radio": {
+                                   "FT_ZF_SWITCH": {
+                                                                  "category": "Radio",
+                                                              "control_type": "selector",
+                                                               "description": "FT FT / Y ZF Mode Switch",
+                                                                "identifier": "FT_ZF_SWITCH",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 14368,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 8192,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 13,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "limited_rotary"
+                                                   },
+                                   "FUG16_TUNING": {
+                                                                  "category": "Radio",
+                                                              "control_type": "discrete_dial",
+                                                               "description": "Radio Tuning (+/-30 kHz)",
+                                                                "identifier": "FUG16_TUNING",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 14372,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 255,
+                                                                                    "max_value": 200,
+                                                                                     "shift_by": 0,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "infinite_rotary"
+                                                   },
+                                   "FUG16_VOLUME": {
+                                                        "api_variant": "multiturn",
+                                                           "category": "Radio",
+                                                       "control_type": "analog_dial",
+                                                        "description": "Radio Volume",
+                                                         "identifier": "FUG16_VOLUME",
+                                                             "inputs": [ {
+                                                                              "description": "turn the dial left or right",
+                                                                                "interface": "variable_step",
+                                                                                "max_value": 65535,
+                                                                           "suggested_step": 3200
+                                                                       } ],
+                                                            "outputs": [ {
+                                                                               "address": 14370,
+                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                  "mask": 65535,
+                                                                             "max_value": 65535,
+                                                                              "shift_by": 0,
+                                                                                "suffix": "_KNOB_POS",
+                                                                                  "type": "integer"
+                                                                       } ]
+                                                   },
+                                     "RADIO_MODE": {
+                                                                  "category": "Radio",
+                                                              "control_type": "selector",
+                                                               "description": "FuG 16ZY Radio Channel Selector",
+                                                                "identifier": "RADIO_MODE",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 3
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 14368,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 1536,
+                                                                                    "max_value": 3,
+                                                                                     "shift_by": 9,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "limited_rotary"
+                                                   },
+                                      "RADIO_WIP": {
+                                                                  "category": "Radio",
+                                                              "control_type": "selector",
+                                                               "description": "FuG 16ZY Radio WIP",
+                                                                "identifier": "RADIO_WIP",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 3
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 14368,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 6144,
+                                                                                    "max_value": 3,
+                                                                                     "shift_by": 11,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "limited_rotary"
+                                                   }
+                               },
+                   "Throttle": {
+                                   "THROTTLE_RPM": {
+                                                                  "category": "Throttle",
+                                                              "control_type": "selector",
+                                                               "description": "RPM De/Increase",
+                                                                "identifier": "THROTTLE_RPM",
+                                                                    "inputs": [ {
+                                                                                  "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                       "momentary_positions": "first_and_last",
+                                                                   "outputs": [ {
+                                                                                      "address": 14342,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 12288,
+                                                                                    "max_value": 2,
+                                                                                     "shift_by": 12,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "rocker_switch"
+                                                   }
+                               },
+             "Weapon Control": {
+                                      "BMB_FUSE_SEL": {
+                                                                     "category": "Weapon Control",
+                                                                 "control_type": "selector",
+                                                                  "description": "Bomb Fusing Selector",
+                                                                   "identifier": "BMB_FUSE_SEL",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 4
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14364,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 7,
+                                                                                       "max_value": 4,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                        "GUN1_AMM_C": {
+                                                           "api_variant": "multiturn",
+                                                              "category": "Weapon Control",
+                                                          "control_type": "analog_dial",
+                                                           "description": "Set Gun 1 Ammunition Count",
+                                                            "identifier": "GUN1_AMM_C",
+                                                                "inputs": [ {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 14356,
+                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "_KNOB_POS",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                        "GUN2_AMM_C": {
+                                                           "api_variant": "multiturn",
+                                                              "category": "Weapon Control",
+                                                          "control_type": "analog_dial",
+                                                           "description": "Set Gun 2 Ammunition Count",
+                                                            "identifier": "GUN2_AMM_C",
+                                                                "inputs": [ {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 14358,
+                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "_KNOB_POS",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                        "GUN3_AMM_C": {
+                                                           "api_variant": "multiturn",
+                                                              "category": "Weapon Control",
+                                                          "control_type": "analog_dial",
+                                                           "description": "Set Gun 3 Ammunition Count",
+                                                            "identifier": "GUN3_AMM_C",
+                                                                "inputs": [ {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 14360,
+                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "_KNOB_POS",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                        "GUN4_AMM_C": {
+                                                           "api_variant": "multiturn",
+                                                              "category": "Weapon Control",
+                                                          "control_type": "analog_dial",
+                                                           "description": "Set Gun 4 Ammunition Count",
+                                                            "identifier": "GUN4_AMM_C",
+                                                                "inputs": [ {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 14362,
+                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "_KNOB_POS",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                   "JETT_FUS_STORES": {
+                                                                     "category": "Weapon Control",
+                                                                 "control_type": "selector",
+                                                                  "description": "Jettison Fuselage Stores",
+                                                                   "identifier": "JETT_FUS_STORES",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14342,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 32768,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 15,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                        "MASTER_ARM": {
+                                                                     "category": "Weapon Control",
+                                                                 "control_type": "selector",
+                                                                  "description": "Master Arm",
+                                                                   "identifier": "MASTER_ARM",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14342,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 16384,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 14,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      }
+                               }
+}
