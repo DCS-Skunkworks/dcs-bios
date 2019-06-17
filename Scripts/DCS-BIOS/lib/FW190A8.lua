@@ -114,7 +114,7 @@ defineTumb("CB_MOT_GEN_ON",1, 3028, 188, 1, {0,1}, nil, false, "Circuit Breakers
 defineTumb("CB_MOT_GEN_OFF",1, 3062, 189, 1, {0,1}, nil, false, "Circuit Breakers", "Motor-Generator Power Off")
 defineTumb("CB_REP_COMP_ON",1, 3029, 191, 1, {0,1}, nil, false, "Circuit Breakers", "Repeater Compass Power On")
 defineTumb("CB_REP_COMP_OFF",1, 3063, 192, 1, {0,1}, nil, false, "Circuit Breakers", "Repeater Compass Power Off")
-defineTumb("CB_GEAR_CONT_ON",1, 3030, 193 1, {0,1}, nil, false, "Circuit Breakers", "Undercarriage Controls Power On")
+defineTumb("CB_GEAR_CONT_ON",1, 3030, 193, 1, {0,1}, nil, false, "Circuit Breakers", "Undercarriage Controls Power On")
 defineTumb("CB_GEAR_CONT_OFF",1, 3064, 195, 1, {0,1}, nil, false, "Circuit Breakers", "Undercarriage Controls Power Off")
 defineTumb("CB_IFF_DEST_ON",1, 3031, 201, 1, {0,1}, nil, false, "Circuit Breakers", "FuG 25a IFF Self-Destruct Power On")
 defineTumb("CB_IFF_DEST_OFF",1, 3065, 202, 1, {0,1}, nil, false, "Circuit Breakers", "FuG 25a IFF Self-Destruct Power Off")
