@@ -103,6 +103,7 @@ defineTumb("EMG_LG_REL",8, 3008, 89, 1, {0,1}, nil, false, "Cockpit", "Landing G
 defineTumb("BMB_FUSE_SEL",20, 3011, 109, 0.1, {0,0.4}, nil, false, "Weapon Control", "Bomb Fusing Selector")
 defineTumb("RADIO_MODE",15, 3001, 81, 0.1, {0,0.3}, nil, false, "Radio", "FuG 16ZY Radio Channel Selector")
 defineTumb("FUG25_MODE",16, 3001, 86, 1, {-1,1}, nil, false, "Radio", "FuG 25A IFF Channel Selector")
+
 defineIndicatorLight("BMB1",196, "Lamps", "Bomb 1 Lamp")
 defineIndicatorLight("BMB2",197, "Lamps", "Bomb 2 Lamp")
 defineIndicatorLight("BMB3",198, "Lamps", "Bomb 3 Lamp")
@@ -114,6 +115,8 @@ defineIndicatorLight("LG_R_DOWN",71, "Lamps", "Landing Gear Right Down")
 defineIndicatorLight("FLAPS_UP",72, "Lamps", "Flaps Up")
 defineIndicatorLight("FLAPS_START",73, "Lamps", "Flaps Start")
 defineIndicatorLight("FLAPS_DOWN",74, "Lamps", "Flaps Down")
+defineIndicatorLight("FUEL_LOW_FWD", 100, "Lamps", "Fuel_Low_Fwd")
+defineIndicatorLight("FUEL_LOW_REAR", 101, "Lamps", "Fuel_Low_Rear")
 
 defineFloat("PANEL_SHAKE_Z", 205, {-0.8, 0.8}, "Indicator", "Panel_Shake_Z")
 defineFloat("PANEL_SHAKE_Y", 204, {-0.8, 0.8}, "Indicator", "Panel_Shake_Y")
@@ -150,13 +153,6 @@ defineFloat("OIL_PRESSURE", 95, {0, 1.0}, "Indicator", "Oil_Pressure")
 defineFloat("FUEL_PRESSURE", 94, {0.0, 1.0}, "Indicator", "Fuel_Pressure")
 defineFloat("MW50_PRESSURE", 106, {0.0, 1.0}, "Indicator", "MW50_Pressure")
 defineFloat("FUELMETER", 98, {0.0, 1.0}, "Indicator", "FuelMeter")
-
-defineIndicatorLight("FUEL_LOW_FWD", 100, "Indicator", "Fuel_Low_Fwd")
-defineIndicatorLight("FUEL_LOW_REAR", 101, "Indicator", "Fuel_Low_Rear")
-
---defineFloat("FUEL_LOW_FWD", 100, {0.0, 1.0}, "Indicator", "Fuel_Low_Fwd")
---defineFloat("FUEL_LOW_REAR", 101, {0.0, 1.0}, "Indicator", "Fuel_Low_Rear")
-
 defineFloat("FLUOR_LIGHT", 195, {0.0, 1.0}, "Indicator", "Fluor_Light")
 defineFloat("PILOT_DRAW", 540, {0.0, 1.0}, "Indicator", "pilot_draw")
 defineFloat("CURRTIME_HOURS", 21, {0.0, 1.0}, "Indicator", "CurrTime_Hours")
