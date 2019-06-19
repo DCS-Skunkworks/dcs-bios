@@ -2040,7 +2040,7 @@ docdata["FW-190D9"] =
                                           "CANOPY_CRANK": {
                                                                   "category": "Indicator",
                                                               "control_type": "analog_gauge",
-                                                               "description": "Canopy_Crank",
+                                                               "description": "Canopy Crank",
                                                                 "identifier": "CANOPY_CRANK",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -2184,7 +2184,7 @@ docdata["FW-190D9"] =
                                         "ENGINETHROTTLE": {
                                                                   "category": "Indicator",
                                                               "control_type": "analog_gauge",
-                                                               "description": "EngineThrottle",
+                                                               "description": "Engine Throttle",
                                                                 "identifier": "ENGINETHROTTLE",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -2241,38 +2241,6 @@ docdata["FW-190D9"] =
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
                                                                                      "shift_by": 0,
-                                                                                       "suffix": "",
-                                                                                         "type": "integer"
-                                                                              } ]
-                                                          },
-                                          "FUEL_LOW_FWD": {
-                                                                  "category": "Indicator",
-                                                              "control_type": "led",
-                                                               "description": "Fuel_Low_Fwd",
-                                                                "identifier": "FUEL_LOW_FWD",
-                                                                    "inputs": [  ],
-                                                                   "outputs": [ {
-                                                                                      "address": 16432,
-                                                                                  "description": "0 if light is off, 1 if light is on",
-                                                                                         "mask": 8,
-                                                                                    "max_value": 1,
-                                                                                     "shift_by": 3,
-                                                                                       "suffix": "",
-                                                                                         "type": "integer"
-                                                                              } ]
-                                                          },
-                                         "FUEL_LOW_REAR": {
-                                                                  "category": "Indicator",
-                                                              "control_type": "led",
-                                                               "description": "Fuel_Low_Rear",
-                                                                "identifier": "FUEL_LOW_REAR",
-                                                                    "inputs": [  ],
-                                                                   "outputs": [ {
-                                                                                      "address": 16432,
-                                                                                  "description": "0 if light is off, 1 if light is on",
-                                                                                         "mask": 16,
-                                                                                    "max_value": 1,
-                                                                                     "shift_by": 4,
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ]
@@ -2408,7 +2376,7 @@ docdata["FW-190D9"] =
                                        "LAMPS_INTENSITY": {
                                                                   "category": "Indicator",
                                                               "control_type": "analog_gauge",
-                                                               "description": "Lamps_Intensity",
+                                                               "description": "Lamps Intensity",
                                                                 "identifier": "LAMPS_INTENSITY",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -2664,7 +2632,7 @@ docdata["FW-190D9"] =
                                              "STICKBANK": {
                                                                   "category": "Indicator",
                                                               "control_type": "analog_gauge",
-                                                               "description": "StickBank",
+                                                               "description": "Stick Bank",
                                                                 "identifier": "STICKBANK",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -2680,7 +2648,7 @@ docdata["FW-190D9"] =
                                             "STICKPITCH": {
                                                                   "category": "Indicator",
                                                               "control_type": "analog_gauge",
-                                                               "description": "StickPitch",
+                                                               "description": "Stick Pitch",
                                                                 "identifier": "STICKPITCH",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -2757,11 +2725,27 @@ docdata["FW-190D9"] =
                                                                                          "type": "integer"
                                                                               } ]
                                                           },
-                                           "WHEEL_BRAKE": {
+                                         "WHEEL_BRAKE_L": {
                                                                   "category": "Indicator",
                                                               "control_type": "analog_gauge",
-                                                               "description": "Wheel_Brake",
-                                                                "identifier": "WHEEL_BRAKE",
+                                                               "description": "Left Wheel Brake",
+                                                                "identifier": "WHEEL_BRAKE_L",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 16458,
+                                                                                  "description": "gauge position",
+                                                                                         "mask": 65535,
+                                                                                    "max_value": 65535,
+                                                                                     "shift_by": 0,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                         "WHEEL_BRAKE_R": {
+                                                                  "category": "Indicator",
+                                                              "control_type": "analog_gauge",
+                                                               "description": "Right Wheel Brake",
+                                                                "identifier": "WHEEL_BRAKE_R",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
                                                                                       "address": 16460,
@@ -2791,182 +2775,214 @@ docdata["FW-190D9"] =
                                                           }
                                },
                       "Lamps": {
-                                          "BMB1": {
-                                                          "category": "Lamps",
-                                                      "control_type": "led",
-                                                       "description": "Bomb 1 Lamp",
-                                                        "identifier": "BMB1",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 16430,
-                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                 "mask": 256,
-                                                                            "max_value": 1,
-                                                                             "shift_by": 8,
-                                                                               "suffix": "",
-                                                                                 "type": "integer"
-                                                                      } ]
-                                                  },
-                                          "BMB2": {
-                                                          "category": "Lamps",
-                                                      "control_type": "led",
-                                                       "description": "Bomb 2 Lamp",
-                                                        "identifier": "BMB2",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 16430,
-                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                 "mask": 512,
-                                                                            "max_value": 1,
-                                                                             "shift_by": 9,
-                                                                               "suffix": "",
-                                                                                 "type": "integer"
-                                                                      } ]
-                                                  },
-                                          "BMB3": {
-                                                          "category": "Lamps",
-                                                      "control_type": "led",
-                                                       "description": "Bomb 3 Lamp",
-                                                        "identifier": "BMB3",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 16430,
-                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                 "mask": 1024,
-                                                                            "max_value": 1,
-                                                                             "shift_by": 10,
-                                                                               "suffix": "",
-                                                                                 "type": "integer"
-                                                                      } ]
-                                                  },
-                                          "BMB4": {
-                                                          "category": "Lamps",
-                                                      "control_type": "led",
-                                                       "description": "Bomb 4 Lamp",
-                                                        "identifier": "BMB4",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 16430,
-                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                 "mask": 2048,
-                                                                            "max_value": 1,
-                                                                             "shift_by": 11,
-                                                                               "suffix": "",
-                                                                                 "type": "integer"
-                                                                      } ]
-                                                  },
-                                    "FLAPS_DOWN": {
-                                                          "category": "Lamps",
-                                                      "control_type": "led",
-                                                       "description": "Flaps Down",
-                                                        "identifier": "FLAPS_DOWN",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 16432,
-                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                 "mask": 4,
-                                                                            "max_value": 1,
-                                                                             "shift_by": 2,
-                                                                               "suffix": "",
-                                                                                 "type": "integer"
-                                                                      } ]
-                                                  },
-                                   "FLAPS_START": {
-                                                          "category": "Lamps",
-                                                      "control_type": "led",
-                                                       "description": "Flaps Start",
-                                                        "identifier": "FLAPS_START",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 16432,
-                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                 "mask": 2,
-                                                                            "max_value": 1,
-                                                                             "shift_by": 1,
-                                                                               "suffix": "",
-                                                                                 "type": "integer"
-                                                                      } ]
-                                                  },
-                                      "FLAPS_UP": {
-                                                          "category": "Lamps",
-                                                      "control_type": "led",
-                                                       "description": "Flaps Up",
-                                                        "identifier": "FLAPS_UP",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 16432,
-                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                 "mask": 1,
-                                                                            "max_value": 1,
-                                                                             "shift_by": 0,
-                                                                               "suffix": "",
-                                                                                 "type": "integer"
-                                                                      } ]
-                                                  },
-                                     "LG_L_DOWN": {
-                                                          "category": "Lamps",
-                                                      "control_type": "led",
-                                                       "description": "Landing Gear Left Down",
-                                                        "identifier": "LG_L_DOWN",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 16430,
-                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                 "mask": 8192,
-                                                                            "max_value": 1,
-                                                                             "shift_by": 13,
-                                                                               "suffix": "",
-                                                                                 "type": "integer"
-                                                                      } ]
-                                                  },
-                                       "LG_L_UP": {
-                                                          "category": "Lamps",
-                                                      "control_type": "led",
-                                                       "description": "Landing Gear Left Up",
-                                                        "identifier": "LG_L_UP",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 16430,
-                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                 "mask": 4096,
-                                                                            "max_value": 1,
-                                                                             "shift_by": 12,
-                                                                               "suffix": "",
-                                                                                 "type": "integer"
-                                                                      } ]
-                                                  },
-                                     "LG_R_DOWN": {
-                                                          "category": "Lamps",
-                                                      "control_type": "led",
-                                                       "description": "Landing Gear Right Down",
-                                                        "identifier": "LG_R_DOWN",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 16430,
-                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                 "mask": 32768,
-                                                                            "max_value": 1,
-                                                                             "shift_by": 15,
-                                                                               "suffix": "",
-                                                                                 "type": "integer"
-                                                                      } ]
-                                                  },
-                                       "LG_R_UP": {
-                                                          "category": "Lamps",
-                                                      "control_type": "led",
-                                                       "description": "Landing Gear Right Up",
-                                                        "identifier": "LG_R_UP",
-                                                            "inputs": [  ],
-                                                           "outputs": [ {
-                                                                              "address": 16430,
-                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                 "mask": 16384,
-                                                                            "max_value": 1,
-                                                                             "shift_by": 14,
-                                                                               "suffix": "",
-                                                                                 "type": "integer"
-                                                                      } ]
-                                                  }
+                                            "BMB1": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Bomb 1 Lamp",
+                                                          "identifier": "BMB1",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16430,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 256,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 8,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                            "BMB2": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Bomb 2 Lamp",
+                                                          "identifier": "BMB2",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16430,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 512,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 9,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                            "BMB3": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Bomb 3 Lamp",
+                                                          "identifier": "BMB3",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16430,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 1024,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 10,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                            "BMB4": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Bomb 4 Lamp",
+                                                          "identifier": "BMB4",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16430,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 2048,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 11,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                      "FLAPS_DOWN": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Flaps Down",
+                                                          "identifier": "FLAPS_DOWN",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16432,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 4,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 2,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                     "FLAPS_START": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Flaps Start",
+                                                          "identifier": "FLAPS_START",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16432,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 2,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 1,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                        "FLAPS_UP": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Flaps Up",
+                                                          "identifier": "FLAPS_UP",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16432,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 1,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 0,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                    "FUEL_LOW_FWD": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Fuel_Low_Fwd",
+                                                          "identifier": "FUEL_LOW_FWD",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16432,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 8,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 3,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                   "FUEL_LOW_REAR": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Fuel_Low_Rear",
+                                                          "identifier": "FUEL_LOW_REAR",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16432,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 16,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 4,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                       "LG_L_DOWN": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Landing Gear Left Down",
+                                                          "identifier": "LG_L_DOWN",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16430,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 8192,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 13,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                         "LG_L_UP": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Landing Gear Left Up",
+                                                          "identifier": "LG_L_UP",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16430,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 4096,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 12,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                       "LG_R_DOWN": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Landing Gear Right Down",
+                                                          "identifier": "LG_R_DOWN",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16430,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 32768,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 15,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                         "LG_R_UP": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Landing Gear Right Up",
+                                                          "identifier": "LG_R_UP",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 16430,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 16384,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 14,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    }
                                },
                       "Radio": {
                                    "FT_ZF_SWITCH": {
