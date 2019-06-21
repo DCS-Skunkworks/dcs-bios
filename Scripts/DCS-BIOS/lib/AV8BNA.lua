@@ -192,8 +192,8 @@ defineMultipositionSwitch("H2O_MODE", 9, 3449, 449, 3, 0.5, "H2O" , "H2O Mode Sw
 
 -- Bulkhead Switches
 defineToggleSwitch("MFS_EMERG_LEVER", 28, 3501, 501,"Bulkhead" , "MFS Emergency Lever")
-definePushButton("STOPWATCH_START", 12, 3282, 282,"Bulkhead" , "Stopwatch Start/Stop")
-definePushButton("STOPWATCH_LAP", 12, 3284, 284,"Bulkhead" , "Stopwatch Lap/Reset")
+definePushButton("STOPWATCH_START", 12, 4121, 1121,"Bulkhead" , "Stopwatch Start/Stop")
+definePushButton("STOPWATCH_LAP", 12, 4122, 1122,"Bulkhead" , "Stopwatch Lap/Reset")
 
 -- Seat
 defineToggleSwitch("SEAT_SAFE_LEVER", 12, 3800, 800,"Seat" , "Seat Ground Safety Lever")
