@@ -18,6 +18,7 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+local defineString = BIOS.util.defineString
 
 -------------------------------------------------------------------
 -- MAIN INSTRUMENT PANEL:
@@ -75,6 +76,28 @@ definePushButton("UFC_COM1_PULL", 23, 3178, 178,"UFC" , "UFC Comm 1 Channel Sele
 definePushButton("UFC_COM2_PULL", 23, 3179, 179,"UFC" , "UFC Comm 2 Channel Selector Pull")
 definePotentiometer("UFC_COM1_SEL", 23, 3300, 300, {0, 1}, "UHF Radio", "UFC Comm 1 Channel Selector")
 definePotentiometer("UFC_COM2_SEL", 23, 3301, 301, {0, 1}, "UHF Radio", "UFC Comm 2 Channel Selector")
+
+function getARC210_COMM1_String_Frequency()
+	local arc_210_comm1 = GetDevice(2)
+	local freq = tostring(arc_210_comm1:get_frequency())
+	if(string.len(freq) == 8) then
+		return freq:sub(1,2) .. "." .. freq:sub(3,5)	
+	else
+		return freq:sub(1,3) .. "." .. freq:sub(4,6)	
+	end	
+end
+defineString("COMM1_STRING_FREQ", getARC210_COMM1_String_Frequency, 7, "AAA", "COMM1 ARC-210 Frequency (string)")
+
+function getARC210_COMM2_String_Frequency()
+	local arc_210_comm2 = GetDevice(3)
+	local freq = tostring(arc_210_comm2:get_frequency())
+	if(string.len(freq) == 8) then
+		return freq:sub(1,2) .. "." .. freq:sub(3,5)	
+	else
+		return freq:sub(1,3) .. "." .. freq:sub(4,6)	
+	end	
+end
+defineString("COMM2_STRING_FREQ", getARC210_COMM2_String_Frequency, 7, "AAA", "COMM2 ARC-210 Frequency (string)")
 
 -- ODU Panel
 definePushButton("ODU_OPT1", 24, 3250, 250,"ODU" , "ODU Option 1")
@@ -316,7 +339,7 @@ define3PosTumb("IFF_CRYPT_MODE", 8, 3633, 633,"IFF" , "IFF Crypto Mode Switch  Z
 define3PosTumb("COMP_LIGHT", 34, 3634, 634,"Int Light" , "Compass Light/Test Lights  COPM/OFF/LTS TEST")
 definePotentiometer("INST_LIGHTS", 34, 3635, 635, {0, 1}, "Int Light", "Instruments Lights")
 definePotentiometer("CONSOLE_LIGHTS", 34, 3636, 636, {0, 1}, "Int Light", "Console Lights")
-definePotentiometer("FLOOD_LIGHTS", 34, 3637, 637, {0, 1}, "Int Light", "Flood Lights")
+definePotentiometer("FLOOD_LIGHTS_DIAL", 34, 3637, 637, {0, 1}, "Int Light", "Flood Lights")
 definePotentiometer("ANNUNCIATOR_LIGHTS", 34, 3638, 638, {0, 0.9}, "Int Light", "Annunciator Lights")
 
 -- ECS Panel
@@ -324,7 +347,7 @@ definePotentiometer("TEMP_CONTROL", 36, 3639, 639, {0, 1}, "ECS", "Temperature C
 defineToggleSwitch("ECS_FWD", 36, 3640, 640,"ECS" ,"Fwd Equipment Bay ECS Switch")
 defineMultipositionSwitch("CABIN_DEFOG", 36, 3641, 641, 3, 0.5,"ECS" ,"Cabin Defog Switch NORM/DFOG/MAX")
 defineMultipositionSwitch("ECS_AFT", 36, 3642, 642, 3, 0.5,"ECS" ,"Aft Equipment Bay ECS Switch RESET/ON/OFF")
-defineMultipositionSwitch("CABIN_PRESS", 36, 3643, 643, 3, 0.5,"ECS" ,"Cabin Pressure Switch NORM/DUMP/RAM")
+defineMultipositionSwitch("CABIN_PRESS_SWITCH", 36, 3643, 643, 3, 0.5,"ECS" ,"Cabin Pressure Switch NORM/DUMP/RAM")
 
 -------------------------------------------------------------------
 -- FLOOD LAMPS:
