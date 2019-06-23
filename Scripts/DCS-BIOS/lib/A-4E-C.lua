@@ -13,7 +13,8 @@ v 1.00	original compile, development version 	Jan 2019		--by Dehuman
 v 1.01	beta release	Jan 2019 								--by Dehuman
 	-function breaking bugs fixed
 	-several other bug fixes and functions redefined/reclassified
-v 1.02	updates for 1.03, external Lights 	APR 2019		--by WarLord
+v 1.02	updates for 1.3, external Lights 	APR 2019		--by WarLord
+v 1.03	updates for 1.3.1, external Lights 	APR 2019		--by WarLord
 
 ]]
 local inputProcessors = moduleBeingDefined.inputProcessors
