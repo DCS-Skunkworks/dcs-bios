@@ -9067,6 +9067,66 @@ docdata["L-39ZA"] =
                                                                        }
                                             },
                                 "Readings": {
+                                                             "BACK_RADIO_CHN_DISPLAY": {
+                                                                                               "category": "Readings",
+                                                                                           "control_type": "metadata",
+                                                                                            "description": "BACK Radio Preset Channel Display",
+                                                                                             "identifier": "BACK_RADIO_CHN_DISPLAY",
+                                                                                                 "inputs": [  ],
+                                                                                                "outputs": [ {
+                                                                                                                   "address": 13262,
+                                                                                                               "description": "BACK Radio Preset Channel Display",
+                                                                                                                      "mask": 127,
+                                                                                                                 "max_value": 99,
+                                                                                                                  "shift_by": 0,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                                      "BACK_RADIO_CHN_DISPLAY_STRING": {
+                                                                                               "category": "Readings",
+                                                                                           "control_type": "display",
+                                                                                            "description": "BACK Radio Preset Channel Display (string)",
+                                                                                             "identifier": "BACK_RADIO_CHN_DISPLAY_STRING",
+                                                                                                 "inputs": [  ],
+                                                                                                "outputs": [ {
+                                                                                                                   "address": 13264,
+                                                                                                               "description": "BACK Radio Preset Channel Display (string)",
+                                                                                                                "max_length": 2,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "string"
+                                                                                                           } ]
+                                                                                       },
+                                                            "FRONT_RADIO_CHN_DISPLAY": {
+                                                                                               "category": "Readings",
+                                                                                           "control_type": "metadata",
+                                                                                            "description": "FRONT Radio Preset Channel Display",
+                                                                                             "identifier": "FRONT_RADIO_CHN_DISPLAY",
+                                                                                                 "inputs": [  ],
+                                                                                                "outputs": [ {
+                                                                                                                   "address": 13256,
+                                                                                                               "description": "FRONT Radio Preset Channel Display",
+                                                                                                                      "mask": 16256,
+                                                                                                                 "max_value": 99,
+                                                                                                                  "shift_by": 7,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                                     "FRONT_RADIO_CHN_DISPLAY_STRING": {
+                                                                                               "category": "Readings",
+                                                                                           "control_type": "display",
+                                                                                            "description": "FRONT Radio Preset Channel Display (string)",
+                                                                                             "identifier": "FRONT_RADIO_CHN_DISPLAY_STRING",
+                                                                                                 "inputs": [  ],
+                                                                                                "outputs": [ {
+                                                                                                                   "address": 13260,
+                                                                                                               "description": "FRONT Radio Preset Channel Display (string)",
+                                                                                                                "max_length": 2,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "string"
+                                                                                                           } ]
+                                                                                       },
                                                        "FRONT_RSBN_CHAN_LAND_DISPLAY": {
                                                                                                "category": "Readings",
                                                                                            "control_type": "metadata",
@@ -9074,11 +9134,11 @@ docdata["L-39ZA"] =
                                                                                              "identifier": "FRONT_RSBN_CHAN_LAND_DISPLAY",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
-                                                                                                                   "address": 13352,
+                                                                                                                   "address": 13256,
                                                                                                                "description": "FRONT RSBN LAND Channel Display",
-                                                                                                                      "mask": 32512,
+                                                                                                                      "mask": 127,
                                                                                                                  "max_value": 99,
-                                                                                                                  "shift_by": 8,
+                                                                                                                  "shift_by": 0,
                                                                                                                     "suffix": "",
                                                                                                                       "type": "integer"
                                                                                                            } ]
@@ -9090,9 +9150,9 @@ docdata["L-39ZA"] =
                                                                                              "identifier": "FRONT_RSBN_CHAN_LAND_DISPLAY_STRING",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
-                                                                                                                   "address": 13354,
+                                                                                                                   "address": 13258,
                                                                                                                "description": "FRONT RSBN LAND Channel Display (string)",
-                                                                                                                "max_length": 99,
+                                                                                                                "max_length": 2,
                                                                                                                     "suffix": "",
                                                                                                                       "type": "string"
                                                                                                            } ]
@@ -9122,7 +9182,7 @@ docdata["L-39ZA"] =
                                                                                                 "outputs": [ {
                                                                                                                    "address": 13254,
                                                                                                                "description": "FRONT RSBN NAV Channel Display (string)",
-                                                                                                                "max_length": 99,
+                                                                                                                "max_length": 2,
                                                                                                                     "suffix": "",
                                                                                                                       "type": "string"
                                                                                                            } ]
