@@ -61,6 +61,7 @@ a("Su-33", false)
 a("NONE", false)
 --MODs
 a("A-4E-C", true)
+a("AC_130", false)
 a("Bell47_2", true)
 a("Cessna_210N", false)
 a("DC3", false)
