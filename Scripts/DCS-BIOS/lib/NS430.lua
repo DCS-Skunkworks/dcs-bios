@@ -1,5 +1,44 @@
 BIOS.protocol.beginModule("NS430", 0x8000)
-BIOS.protocol.setExportModuleAircrafts({"Mi-8MT", "L-39ZA", "L-39C", "UH-1H", "P-51D", "TF-51D", "MiG-21Bis", "F-86F Sabre", "AJS37", "C-101CC", "C-101EB", "F-5E-3", "Hawk", "M-2000C", "MiG-15bis", "Bf-109K-4", "FW-190D9", "I-16", "SpitfireLFMkIX", "SpitfireLFMkIXCW", "Yak-52", "Ka-50", "SA342L", "SA342M", "SA342Minigun", "SA342Mistral"}, BIOS.FLAMING_CLIFFS_AIRCRAFT)
+BIOS.protocol.setExportModuleAircrafts({
+	"A-4E-C",
+	"A-10C",
+	"AJS37",
+	"AV8BNA",
+	"Bf-109K-4",
+	"C-101CC",
+	"C-101EB",
+	"Christen Eagle II",
+	"F-5E-3",
+	"F-14B",
+	"F-86F Sabre",
+	"FA-18C_hornet",
+	"FW-190A8",
+	"FW-190D9",
+	"Hawk",
+	"I-16",
+	"Ka-50",
+	"L-39C",
+	"L-39ZA",
+	"M-2000C",
+	"MB-339PAN",
+	"Mi-8MT",
+	"MiG-15bis",
+	"MiG-19P",
+	"MiG-21Bis",
+	"P-51D", 
+	"TF-51D", 
+	"P-51D-30-NA",
+	"SA342M",
+	"SA342Minigun",
+	"SA342Mistral",
+	"SA342L",
+	"SpitfireLFMkIX", 
+	"SpitfireLFMkIXCW",
+	"UH-1H", 
+	"Bell47_2",
+	"Yak-52"
+	
+  }, BIOS.FLAMING_CLIFFS_AIRCRAFT)
 
 
 local documentation = moduleBeingDefined.documentation
