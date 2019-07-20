@@ -996,7 +996,7 @@ function BIOS.util.defineDoubleCommandButton(msg, device_id, start_command, stop
 		momentary_positions = "first_and_last",
 		inputs = {
 			{ interface = "fixed_step", description = "switch to previous or next state" },
-			{ interface = "set_state", max_value = 1, description = "set the switch position -- 0 = off, 1 = on" },
+			{ interface = "set_state", max_value = 1, description = "set position" },
 		},
 		outputs = {
 			{ ["type"] = "integer",
@@ -1005,7 +1005,7 @@ function BIOS.util.defineDoubleCommandButton(msg, device_id, start_command, stop
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "selector position -- 0 = off, 1 = on"
+			  description = "selector position"
 			}
 		},
 		physical_variant = "push_button",
@@ -1034,7 +1034,7 @@ function BIOS.util.defineMomentaryRockerSwitch(msg, device_id, pos_command, pos_
 		description = description,
 		control_type = "selector",
 		momentary_positions = "first_and_last",
-		physical_variant = "rocker_switch_momentary",
+		physical_variant = "rocker_switch",
 		inputs = {
 			{ interface = "fixed_step", description = "switch to previous or next state" },
 			{ interface = "set_state", max_value = 2, description = "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up" },
@@ -1078,4 +1078,5 @@ function BIOS.util.defineMomentaryRockerSwitch(msg, device_id, pos_command, pos_
 			dev:performClickableAction(pos_stop_command, 0)
 			dev:performClickableAction(neg_command, -1)
 		end
+	end
 end
