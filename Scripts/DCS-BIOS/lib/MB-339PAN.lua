@@ -2,6 +2,7 @@ BIOS.protocol.beginModule("MB-339PAN", 0x8200)
 BIOS.protocol.setExportModuleAircrafts({"MB-339PAN"})
 
 --For the mod visit: http://www.freccetricolorivirtuali.net/mod%20ftv.htm
+--for MB-339_v2.0
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -18,23 +19,26 @@ local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+local define3PosTumb = BIOS.util.define3PosTumb
+
+-- remove Arg# Pilot 1000
 
 --ELECTRIC_SYSTEMS
-defineToggleSwitch("BATTERY", 1, 315, 300,"Electric" , "BATTERY Power Switch")
-defineToggleSwitch("GENERATOR1", 1, 10316, 301,"Electric" , "GENERATOR 1 Switch")
-defineToggleSwitch("GENERATOR2", 1, 10317, 302,"Electric" , "GENERATOR 2 Switch")
-defineToggleSwitch("EMERG_POWER", 1, 10318, 303,"Electric" , "AC Power Emergency Switch")
+defineToggleSwitch("BATTERY", 1, 3100, 300,"Electric" , "BATTERY Power Switch")
+defineToggleSwitch("GENERATOR1", 1, 3101, 301,"Electric" , "GENERATOR 1 Switch")
+defineToggleSwitch("GENERATOR2", 1, 3102, 302,"Electric" , "GENERATOR 2 Switch")
+defineToggleSwitch("EMERG_POWER", 1, 3103, 303,"Electric" , "AC Power Emergency Switch")
 defineFloat("GENERATOR1_IND", 380, {0.0, 1.0}, "Electric", "GENERATOR 1 Indicator")
 defineFloat("GENERATOR2_IND", 381, {0.0, 1.0}, "Electric", "GENERATOR 2 Indicator")
 
 --CONTROLS
 defineToggleSwitch("FLIGHT_CONTR", 2, 10400, 232,"Controls" , "Flight Controls Lock/Unlock")
-defineToggleSwitch("PARK_BRK", 2, 855, 263,"Controls" , "Parking Brake Handle")
-definePushButton("START_ENG", 2, 12000, 239,"Controls" , "START ENGINE Button")
+defineToggleSwitch("PARK_BRK", 2, 3130, 263,"Controls" , "Parking Brake Handle")
+definePushButton("START_ENG", 2, 3110, 239,"Controls" , "START ENGINE Button")
 
 --ANIMATIONS
-defineToggleSwitch("ENG_MASTER", 3, 10154, 238,"Animations" , "Engine MASTER Switch")
-defineToggleSwitch("ENG_JPT_LMTR", 3, 10155, 240,"Animations" , "Engine JPT LMTR Switch")
+defineToggleSwitch("ENG_MASTER", 3, 3111, 238,"Animations" , "Engine MASTER Switch")
+defineToggleSwitch("ENG_JPT_LMTR", 3, 3112, 240,"Animations" , "Engine JPT LMTR Switch")
 defineToggleSwitch("ANTI_SKID", 3, 10153, 250,"Animations" , "Anti-Skid Switch")
 definePushButton("SEAT_UP", 3, 10160, 323,"Animations" , "Adj Seat Up Switch")
 definePushButton("SEAT_DN", 3, 10161, 323,"Animations" , "Adj Seat Down Switch")
@@ -44,21 +48,21 @@ defineToggleSwitch("PITOT", 3, 10417, 261,"Animations" , "Anti-Ice Pitot")
 defineToggleSwitch("SEAT_FIRE", 3, 10500, 205,"Animations" , "Seat Firing Handle")
 
 --GEAR
-defineToggleSwitch("D_LOCK_OVER", 4, 10165, 379,"Gear" , "DOWN-LOCK OVERRIDE Switch")
+defineToggleSwitch("D_LOCK_OVER", 4, 3131, 379,"Gear" , "DOWN-LOCK OVERRIDE Switch")
 defineToggleSwitch("GEAR_LEVER", 4, 68, 4,"Gear" , "Gear Lever Up/Down")
 defineIndicatorLight("GEAR_IND_LIGHTS", 20, "Gear","Gear Indicator Lights")
 defineIndicatorLight("GEAR_LEVER_OFF", 42, "Gear","Gear Lever Light OFF")
 defineIndicatorLight("GEAR_LEVER_ON", 43, "Gear","Gear Lever Light ON")
 
 --LIGHTS
-defineToggleSwitch("NAV_L_FLASH", 6, 10168, 41,"Lights" , "NAV Light Flash/Steady Switch")
-defineToggleSwitch("NAV_L_DIM", 6, 175, 40,"Lights" , "NAV Light BRT/DIM Switch")
-defineToggleSwitch("STROBE_L", 6, 10170, 39,"Lights" , "BCN Strobo On/Off")
-defineToggleSwitch("TAXI_L", 6, 328, 321,"Lights" , "TAXI Light Switch")
+defineToggleSwitch("NAV_L_FLASH", 6, 3141, 41,"Lights" , "NAV Light Flash/Steady Switch")
+define3PosTumb("NAV_L_DIM", 6, 3142, 40,"Lights" , "NAV Light BRT/DIM Switch")
+defineToggleSwitch("STROBE_L", 6, 3143, 39,"Lights" , "BCN Strobo On/Off")
+defineToggleSwitch("TAXI_LAND_L", 6, 3140, 321,"Lights" , "TAXI/LANDING Light Switch")
 definePotentiometer("FORMATION_L", 6, 3014, 502, {0, 0.99}, "Lights", "FORMATION LIGHTS Knob")
-definePotentiometer("INSTRUMENTS_L", 6, 10171, 503, {0, 1}, "Lights", "INSTRUMENTS LIGHTS Knob")
-definePotentiometer("FLOOD_L", 6, 3016, 504, {0, 1}, "Lights", "FLOOD LIGHTS Knob")
-definePotentiometer("CONSOLE_L", 6, 10172, 505, {0, 1}, "Lights", "CONSOLE LIGHTS Knob")
+definePotentiometer("INSTRUMENTS_L", 6, 3144, 503, {0, 1}, "Lights", "INSTRUMENTS LIGHTS Knob")
+definePotentiometer("FLOOD_L", 6, 3016, 3146, {0, 1}, "Lights", "FLOOD LIGHTS Knob")
+definePotentiometer("CONSOLE_L", 6, 3145, 505, {0, 1}, "Lights", "CONSOLE LIGHTS Knob")
 defineFloat("INST_BRT", 150, {0.0, 1.0}, "Lights", "Instrument Lights BRT")
 
 --CANOPY
@@ -114,9 +118,10 @@ definePushButton("GPS_MODE", 11, 10215, 3031,"HSI" , "GPS MODE")
 
 --ADI
 defineRotary("CLOCK_WIND_ROTATRY", 12, 3001, 15, "ADI", "ADI Pitch Trim Knob")
+defineFloat("ADI_SLIPBALL", 371, {-1.0, 1.0}, "ADI", "ADI SlipBall")
 
 --ALTIMETER
-defineRotary("PRESS_ALT", 13, 3002, 241, "Altimeter", "Press Altimeter Knob")
+defineRotary("PRESS_ALT", 3, 3002, 241, "Altimeter", "Press Altimeter Knob")
 defineFloat("ALTIMETER_100", 50, {0.0, 1.0}, "Altimeter", "Altimeter 100")
 defineFloat("ALTIMETER_1000", 52, {0.0, 1.0}, "Altimeter", "Altimeter 1000")
 defineFloat("ALTIMETER_10000", 53, {0.0, 1.0}, "Altimeter", "Altimeter 10000")
@@ -129,8 +134,8 @@ defineFloat("ALTIMETER_OFF_FLAG", 311, {0.0, 1.0}, "Altimeter", "Altimeter OFF F
 --GUARD SWITCHES
 defineToggleSwitch("BUS_RESET_SW", 14, 10150, 231,"Guard Switches" , "BUS RESET Switch")
 defineToggleSwitch("BUS_RESET_GD", 14, 10100, 233,"Guard Switches" , "BUS RESET Guard")
-defineToggleSwitch("FUEL_OFF_GD", 14, 10101, 237,"Guard Switches" , "Fuel SHUT-OFF Guard")
-defineToggleSwitch("FUEL_OFF_SW", 14, 10151, 248,"Guard Switches" , "Fuel SHUT-OFF Switch")
+defineToggleSwitch("FUEL_OFF_GD", 14, 3115, 237,"Guard Switches" , "Fuel SHUT-OFF Guard")
+defineToggleSwitch("FUEL_OFF_SW", 14, 3114, 248,"Guard Switches" , "Fuel SHUT-OFF Switch")
 defineToggleSwitch("AIL_SERVO_GD", 14, 10104, 235,"Guard Switches" , "AIL Servo Guard")
 defineToggleSwitch("AIL_SERVO_SW", 14, 10156, 260,"Guard Switches" , "AIL Servo Switch")
 defineToggleSwitch("GROUND_FIRE_SW", 14, 11004, 506,"Guard Switches" , "GROUND FIRE Switch")
@@ -143,9 +148,9 @@ definePushButton("WARN_LIGHT_BT", 15, 10051, 304,"Warning" , "WARN LT TEST Butto
 definePushButton("MASTER_CAUTION_RESET", 15, 10415, 209,"Warning" , "Master Caution Reset")
 
 --SMOKES
-defineToggleSwitch("SMK_MASTER", 17, 10330, 330,"Smokes" , "Smoke Master Switch")
-defineToggleSwitch("SMK_WHITE", 17, 10331, 331,"Smokes" , "Smoke White Switch")
-defineToggleSwitch("SMK_COLOR", 17, 10332, 332,"Smokes" , "Smoke Color Switch")
+defineToggleSwitch("SMK_MASTER", 17, 3135, 330,"Smokes" , "Smoke Master Switch")
+defineToggleSwitch("SMK_WHITE", 17, 3136, 331,"Smokes" , "Smoke White Switch")
+defineToggleSwitch("SMK_COLOR", 17, 3137, 332,"Smokes" , "Smoke Color Switch")
 
 --SOUND_SYSTEM
 defineToggleSwitch("WARN_SILENCE", 19, 10164, 382,"Sound System" , "WARNING SILENCE")
@@ -190,7 +195,7 @@ defineToggleSwitch("STATION_4", 26, 11223, 491, "Weapons" , "STATION 4 Selector"
 defineToggleSwitch("STATION_5", 26, 11224, 492, "Weapons" , "STATION 5 Selector")
 defineToggleSwitch("STATION_6", 26, 11225, 493, "Weapons" , "STATION 6 Selector")
 definePushButton("SALVO_JETTISON", 26, 3015, 473, "Weapons" , "SALVO JETTISON Button")
-defineToggleSwitch("SELECT_JETTISON", 26, 3016, 70, "Weapons" , "SELECTIVE JETTISON Button")
+definePushButton("SELECT_JETTISON", 26, 3016, 70, "Weapons" , "SELECTIVE JETTISON Button")
 defineIndicatorLight("STATION_1_IND", 496, "Weapons","STATION 1 Indicator")
 defineIndicatorLight("STATION_2_IND", 497, "Weapons","STATION 2 Indicator")
 defineIndicatorLight("STATION_3_IND", 498, "Weapons","STATION 3 Indicator")
