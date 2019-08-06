@@ -54,14 +54,22 @@
 --
 -- v1.21 by WarLord
 --		Bug Fixes
+--
+--
+-- v1.22 by WarLord
+--		Bug Fixes
 -----------------------------------------------------------
-
 
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
 
+local inputProcessors = moduleBeingDefined.inputProcessors
+local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
+
+local parse_indication = BIOS.util.parse_indication
+
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
@@ -74,11 +82,7 @@ local defineString = BIOS.util.defineString
 local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
-
-
-
-
--- Custom Functions
+----------------------- Custom Functions
 
 -- Get Displays Functions
 
@@ -561,7 +565,7 @@ defineToggleSwitch("CONES_OP_SW", 3, 3461, 461, "AIR FLOW PANEL", "I - Intake Co
 defineTumb("SLATS_OP_SW", 14, 3462, 462, 1, {-1, 1}, nil, false, "AIR FLOW PANEL", "I - Slats Operation Switch (BECS)")
 
 -- ALTIMETER
-defineRotary("BARO_PRESS_CALIB", 0, 3309, 309, "ALTIMETER", "I - ALT - Barometric Pressure Calibration")
+defineRotary("BARO_PRESS_CALIB", 1, 3309, 309, "ALTIMETER", "I - ALT - Barometric Pressure Calibration")
 defineFloat("ALT_NEEDLE", 305, {0, 1}, "ALTIMETER", "O - ALT - Needle")
 defineFloat("ALT_KCENTS", 306, {0, 1}, "ALTIMETER", "O - ALT - x10 000 ft display")
 defineFloat("ALT_THOUS", 307, {0, 1}, "ALTIMETER", "O - ALT - x1000 ft display")
@@ -608,8 +612,8 @@ defineIndicatorLight("AP_G_VERT", 297, "AUTOPILOT", "O - AP - G Green Light")
 defineIndicatorLight("AP_G_AMBRE", 298, "AUTOPILOT", "O - AP - G Amber Light")
 
 -- BACKUP ADI
-defineToggleSwitch("SB_ADI_CAGE_SW", 0, 3325, 325, "BACKUP ADI", "I - BKADI - UNCAGE")
-defineRotary("SB_ADI_ROT", 0, 3328, 328, "BACKUP ADI", "I - BKADI - Set")
+defineToggleSwitch("SB_ADI_CAGE_SW", 1, 3325, 325, "BACKUP ADI", "I - BKADI - UNCAGE")
+defineRotary("SB_ADI_ROT", 1, 3328, 328, "BACKUP ADI", "I - BKADI - Set")
 defineFloat("SB_ADI_ROLL", 326, {-1, 1}, "BACKUP ADI", "O - BKADI - Roll Position")
 defineFloat("SB_ADI_PITCH", 327, {-1, 1}, "BACKUP ADI", "O - BKADI - Pitch Position")
 defineFloat("SB_ADI_FLAG", 329, {0, 1}, "BACKUP ADI", "O - BKADI - Flag")
@@ -689,7 +693,7 @@ defineString("ECM_FLR_DISP", getIRDisp, 3, "ECM BOX", "O - ECM Box FLR Display")
 defineString("ECM_EM_DISP", getEMDisp, 3, "ECM BOX", "O - ECM Box EM Display")
 
 --ENVIRONMENT CONTROL PANEL
-defineToggleSwitch("ECS_MAIN_MODE_SW", 0, 3630, 630, "ECS PANEL", "I - ECS Main Mode Switch")
+defineToggleSwitch("ECS_MAIN_MODE_SW", 25, 3630, 630, "ECS PANEL", "I - ECS Main Mode Switch")
 defineToggleSwitch("ECS_C_BTN", 25, 3631, 631, "ECS PANEL", "I - ECS C Button")
 defineToggleSwitch("ECS_F_BTN", 25, 3633, 633, "ECS PANEL", "I - ECS F Button")
 defineToggleSwitch("ECS_COND_SW", 25, 3635, 635, "ECS PANEL", "I - ECS Cond Switch")
@@ -837,7 +841,7 @@ defineToggleSwitch("MAGNETO_SW", 0, 3469, 469, "LEFT CONSOLE", "I - Magneto Swit
 defineToggleSwitch("FBW_SPIN_MODE_SW", 3, 3330, 330, "LEFT PANEL", "I - FBW - Spin Mode Switch")
 defineToggleSwitch("LDG_LEV", 4, 3404, 404, "LEFT PANEL", "I - LDG - Landing Gear Lever")
 defineToggleSwitch("SAFE_GND_SW", 0, 3407, 407, "LEFT PANEL", "I - LDG - Safety Ground Override")
-defineToggleSwitch("LDG_EMER_REL_LEV", 0, 3408, 408, "LEFT PANEL", "I - LDG - Landing Gear Emergency Release Lever")
+defineToggleSwitch("LDG_EMER_REL_LEV", 4, 3408, 408, "LEFT PANEL", "I - LDG - Landing Gear Emergency Release Lever")
 defineToggleSwitch("FBW_GAIN_MODE_SW_COV", 3, 3420, 420, "LEFT PANEL", "I - FBW - Gain Mode Switch Cover")
 defineToggleSwitch("FBW_GAIN_MODE_SW", 3, 3421, 421, "LEFT PANEL", "I - FBW - Gain Mode Switch")
 defineToggleSwitch("FBW_G-LIM_SW", 3, 3422, 422, "LEFT PANEL", "I - FBW - G-Limiter Switch")
@@ -869,7 +873,7 @@ defineToggleSwitch("NWS_IFF_INTERR_BTN", 22, 3807, 807, "MISCELANEOUS", "I - Nos
 defineFloat("HYD_G_NEEDLE", 397, {0, 1}, "MISCELANEOUS", "O - HYD - Left Hyd Needle (Circuit #1 - Main)")
 defineFloat("HYD_D_NEEDLE", 398, {0, 1}, "MISCELANEOUS", "O - HYD - Right Hyd Needle (Circuit #2 - Emer)")
 defineMultipositionSwitch("CNPY_LK_N_LOW_LEV", 14, 3656, 656, 3, 0.5, "MISCELANEOUS", "I - Canopy Lock/Neutral/Lower Lever")
-defineToggleSwitch("PEDAL_ADJUST_LEV", 0, 3396, 396, "MISCELANEOUS", "I - Pedal Adjustment Lever")
+defineToggleSwitch("PEDAL_ADJUST_LEV", 14, 3396, 396, "MISCELANEOUS", "I - Pedal Adjustment Lever")
 defineToggleSwitch("CNPY_JETT", 14, 3456, 456, "MISCELANEOUS", "I - Canopy Jettison")
 defineToggleSwitch("DRAG_CHUTE_LEV", 22, 3457, 457, "MISCELANEOUS", "I - Drag Chute Lever")
 defineToggleSwitch("CNPY_HAND1", 14, 3907, 907, "MISCELANEOUS", "I - Canopy Handle")
