@@ -8,12 +8,13 @@ local lonDeg, lonSec, lonFractionalSec
 local altFt
 local hdgDeg
 local hdgDegFrac
-local _pilot = " -------------- "
+local player
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	-- skip  this data if ownship export is disabled
 	if not LoIsOwnshipExportAllowed() then return end
 
-    _pilot = LoGetPilotName()
+    player = LoGetPilotName()
+	
 	local selfData = LoGetSelfData()
 	if selfData.LatLongAlt == nil then return end
 	altFt = selfData.LatLongAlt.Alt / 0.3048
@@ -40,7 +41,10 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		hdgDegFrac = hdgDegValue - hdgDeg
 	end
 end
-defineString("PILOTNAME", function() return _pilot .. string.char(0) end, 24, "String", "Pilot Name")
+defineString("PILOTNAME", function()
+		if not LoIsOwnshipExportAllowed() then return nil end
+		return player .. string.char(0)
+end, 24, "String", "Pilot Name")
 
 defineIntegerFromGetter("LAT_DEG", function() return latDeg end, 59, "Position", "Latitude Degrees")
 defineIntegerFromGetter("LAT_SEC", function() return latSec end, 59, "Position", "Latitude Seconds")
