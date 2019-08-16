@@ -39,7 +39,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 * Ka-50 (contributed by airtom)
 * L-39ZA / C (contributed by kadda11, overhauled by BlackLibrary) (use L-39ZA for All Versions)
 * M-2000C (contributed by Exo7,ArturDCS)
-* MB-339PAN (contributed by BlackLibrary){ get the Mod here: http://www.freccetricolorivirtuali.net/mod%20ftv.htm}
+* MB-339PAN (contributed by BlackLibrary){ get the Mod here: http://www.freccetricolorivirtuali.net}
 * Mi-8 (contributed by ArturDCS)
 * MiG-15bis (contributed by BlackLibrary,Steve Gee)
 * MiG-21Bis (contributed by wraith444)
