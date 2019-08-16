@@ -1,4 +1,4 @@
--- F/A-18 Module created by AndrewW v1.0 for DCS Beta 2.5.4.26368
+-- F/A-18 Module created by AndrewW v1.1 for DCS Beta 2.5.5 modified by WarLord
 -- Many thanks to Capt Zeen for the pointers on analog outputs and UFC/IFEI export
 -- And of course huge thanks to [FSF]Ian for writing DCS-BIOS in the first place
 -- Added new functions by Capt Zeen to get radios frecuencies and channels
@@ -1139,9 +1139,9 @@ defineToggleSwitch("LIGHTS_TEST_SW", 9, 3007, 416, "Interior Lights Panel", "Lig
 -- 4. AMAC Control
 
 -- 5. Sensor Panel
-defineTumb("FLIR_SW", 0, 3110, 439, 0.5, {0.0, 1.0}, nil, false, "Sensor Panel", "FLIR Switch, ON/STBY/OFF") -- From TODO, will change
-defineTumb("LTD_R_SW", 0, 3111, 441, 0.5, {0.0, 1.0}, nil, false, "Sensor Panel", "LTD/R Switch, ARM/SAFE/AFT") -- From TODO, will change
-defineToggleSwitch("LST_NFLR_SW", 0, 3112, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF") -- From TODO, will change
+defineTumb("FLIR_SW", 62, 3110, 439, 0.5, {0.0, 1.0}, nil, false, "Sensor Panel", "FLIR Switch, ON/STBY/OFF") -- From TODO, will change
+defineTumb("LTD_R_SW", 62, 3111, 441, 0.5, {0.0, 1.0}, nil, false, "Sensor Panel", "LTD/R Switch, ARM/SAFE/AFT") -- From TODO, will change
+defineToggleSwitch("LST_NFLR_SW", 62, 3112, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF") -- From TODO, will change
 defineTumb("RADAR_SW", 42, 3001, 440, 0.1, {0.0, 0.3}, nil, false, "Sensor Panel", "RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
 defineTumb("INS_SW", 44, 3001, 443, 0.1, {0.0, 0.7}, nil, false, "Sensor Panel", "INS Switch, OFF/CV/GND/NAV/IFA/GYRO/GB/TEST")
 

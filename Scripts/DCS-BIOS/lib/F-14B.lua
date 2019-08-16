@@ -1,8 +1,8 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
--- Made by WarLord (aka BlackLibrary) and ArturDCS
--- v 1.3
+-- Made by WarLord (aka BlackLibrary), ArturDCS and Bullitt
+-- v 1.4
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -350,8 +350,8 @@ define3PosTumb("PLT_HSD_DIS_MODE", 41, 3235, 1016, "Display", "PILOT HSD Display
 defineToggleSwitch("PLT_HSD_ECM_OVER", 41, 3239, 1017, "Display", "PILOT HSD ECM Override")
 
 -- HSD
-definePotentiometer("PLT_HSD_KNOB_HDG", 41, 3241, 1039, {0.0, 1.0}, "HSD", "PILOT HSD Selected Heading")
-definePotentiometer("PLT_HSD_KNOB_CRS", 41, 3242, 1040, {0.0, 1.0}, "HSD", "PILOT HSD Selected Course")
+defineRotary("PLT_HSD_KNOB_HDG", 41, 3241, 1039, "HSD", "PILOT HSD Selected Heading")
+defineRotary("PLT_HSD_KNOB_CRS", 41, 3242, 1040, "HSD", "PILOT HSD Selected Course")
 definePotentiometer("PLT_HSD_BRIGHT", 41, 3240, 1043, {0.0, 1.0}, "HSD", "PILOT HSD Brightness")
 definePushButton("PLT_HSD_TEST", 41, 3243, 1041, "HSD", "PILOT HSD Test")
 
@@ -981,6 +981,10 @@ defineIndicatorLight("PLT_VDI_LIGHT_ALTLOW", 15073, "Warning, Caution and Indica
 defineIndicatorLight("PLT_HOOK_LIGHT", 15090, "Warning, Caution and IndicatorLights","PILOT Hook Light (red)")
 defineIndicatorLight("PLT_RADAR_ALT_LIGHT", 19107, "Warning, Caution and IndicatorLights","PILOT Radar Altimeter Warning Light (red)")
 defineIndicatorLight("PLT_RADAR_ALT_TEST_LIGHT", 19108, "Warning, Caution and IndicatorLights","PILOT Radar Altimeter Test Light (red)")
+defineIndicatorLight("PLT_SLATS_IND_LIGHT", 8310, "Gauges", "PILOT Slats Indicator as Light")	
+defineIndicatorLight("PLT_FLAPS_IND_LIGHT", 8311, "Gauges", "PILOT Flaps Indicator as Light")
+defineIndicatorLight("PLT_SPDBRK_IND_LIGHT", 8307, "Gauges", "PILOT Speedbrake Indicator as Light")
+defineIndicatorLight("PLT_SPDBRK_FULL_LIGHT", 8308, "Gauges", "PILOT Speedbrake Full Indicator as Light")
 
 -- Warning, Caution and IndicatorLights RIO
 defineIndicatorLight("RIO_SCP_RECORD_STBY_L", 92, "Warning, Caution and IndicatorLights","RIO SCP Record Standby Light (red)")
