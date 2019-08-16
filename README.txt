@@ -28,7 +28,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 * Bf-109-K-4 (contributed by ArturDCS)
 * C-101CC / EB (contributed by BlackLibrary,cdpkobra) (use C-101CC for All Versions)
 * Christen Eagle II (contributed by BlackLibrary,cdpkobra)
-* F-14B (contributed by BlackLibrary,ArturDCS)
+* F-14B (contributed by BlackLibrary,ArturDCS,Bullitt)
 * F-5E-3 (contributed by geebeer2, extended by BlackLibrary)
 * F-86F (contributed by ArturDCS)
 * F/A-18C (contributed by AndrewW)
