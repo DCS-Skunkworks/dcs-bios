@@ -202,7 +202,7 @@ defineMultipositionSwitch("JAMMER_CONTROL", 30, 3275, 275, 5, 0.25,"ECM" ,"Jamme
 defineToggleSwitch("LG_EMERG_LEVER", 28, 3447, 447,"Gear/Flaps Control Panel" , "Emergency Landing Gear Lever")
 definePushButton("LG_DOWN_LOCK", 28, 3448, 448,"Gear/Flaps Control Panel" , "Gear Down Lock Override Button")
 defineMultipositionSwitch("FLAP_MODE", 13, 3454, 454, 3, 0.5, "Gear/Flaps Control Panel", "Flaps Mode Switch CRUISE/AUTO/STOL")
-defineMultipositionSwitch("FLAP_MODE", 13, 3457, 457, 3, 0.5, "Gear/Flaps Control Panel", "Flaps Power Switch RESET/ON/OFF")
+defineMultipositionSwitch("FLAP_POWER", 13, 3457, 457, 3, 0.5, "Gear/Flaps Control Panel", "Flaps Power Switch RESET/ON/OFF")
 definePushButton("EMERG_JETT", 29, 3458, 458,"Gear/Flaps Control Panel" , "Emergency Jettison Button")
 defineMultipositionSwitch("ANTI_SKID", 28, 3459, 459, 3, 0.5, "Gear/Flaps Control Panel", "Anti-Skid Switch TEST/ON/NWS")
 definePushButton("FLAPS_BIT", 13, 3460, 460,"Gear/Flaps Control Panel" , "Flaps BIT Button")
