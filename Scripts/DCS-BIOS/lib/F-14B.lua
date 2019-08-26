@@ -1438,6 +1438,8 @@ defineFloat("RIO_RECORD_MIN_HI", 11600, {0, 1}, "Gauges", "RIO Record Minutes HI
 defineFloat("RIO_RECORD_MIN_MED", 11601, {0, 1}, "Gauges", "RIO Record Minutes MED")
 defineFloat("RIO_RECORD_MIN_LOW", 11602, {0, 1}, "Gauges", "RIO Record Minutes LOW")
 
+defineFloat("CANOPY_POS", 403, {0, 1}, "Gauges", "Canopy Position")
+
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(402)*65535)
