@@ -593,4 +593,266 @@ defineIntegerFromGetter("EXT_STROBE_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Tail Strobe Light")
 
+-- Get Displays Functions
+
+local function getAV8BNAUFCComm1DisplayV()
+	local li = list_indication(5)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ufc_chnl_1_v"
+			then
+			return value:sub(1,2)
+		end
+    end
+return "XX"
+end
+ 
+defineString("AV8BNA_UFC_COMM1_DISPLAY_V", getAV8BNAUFCComm1DisplayV, 2, "UFC", "UFC Comm 1 Display V (string)")
+
+local function getAV8BNAUFCComm1DisplayM()
+	local li = list_indication(5)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ufc_chnl_1_m"
+			then
+			return value:sub(1)
+		end
+    end
+return "XX"
+end
+
+defineString("AV8BNA_UFC_COMM1_DISPLAY_M", getAV8BNAUFCComm1DisplayM, 2, "UFC", "UFC Comm 1 Display M (string)")
+ 
+ local function getAV8BNAUFCComm2DisplayV()
+	local li = list_indication(5)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ufc_chnl_2_v"
+			then
+			return value:sub(1,2)
+		end
+    end
+return "XX"
+end
+ 
+defineString("AV8BNA_UFC_COMM2_DISPLAY_V", getAV8BNAUFCComm2DisplayV, 2, "UFC", "UFC Comm 2 Display V (string)")
+
+local function getAV8BNAUFCComm2DisplayM()
+	local li = list_indication(5)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ufc_chnl_2_m"
+			then
+			return value:sub(1)
+		end
+    end
+return "XX"
+end
+
+defineString("AV8BNA_UFC_COMM2_DISPLAY_M", getAV8BNAUFCComm2DisplayM, 2, "UFC", "UFC Comm 2 Display M (string)")
+
+local function getAV8BNAUFCScratchpadLeft()
+	local li = list_indication(5)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ufc_left_position"
+			then
+			return value:sub(1,2)
+		end
+    end
+return "  "
+end
+
+defineString("AV8BNA_UFC_SCRATCHPAD_L", getAV8BNAUFCScratchpadLeft, 2, "UFC", "UFC Scratchpad Left (string)")
+
+ 
+local function getAV8BNAUFCScratchpadRight()
+	local li = list_indication(5)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ufc_right_position"
+			then
+			return value:sub(1,7)
+		end
+    end
+return "       "
+end
+
+defineString("AV8BNA_UFC_SCRATCHPAD_R", getAV8BNAUFCScratchpadRight, 7, "UFC", "UFC Scratchpad Right (string)")
+
+local function getAV8BNAODU1Select()
+	local li = list_indication(6)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ODU_Option_1_Slc"
+			then
+			return value:sub(1)
+		end
+    end
+return " "
+end
+
+defineString("AV8BNA_ODU_1_SELECT", getAV8BNAODU1Select, 1, "ODU", "ODU Option 1 Select (string)")
+
+local function getAV8BNAODU1Text()
+	local li = list_indication(6)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ODU_Option_1_Text"
+			then
+			return value:sub(1,4)
+		end
+    end
+return "    "
+end
+
+defineString("AV8BNA_ODU_1_Text", getAV8BNAODU1Text, 4, "ODU", "ODU Option 1 Text (string)")
+
+local function getAV8BNAODU2Select()
+	local li = list_indication(6)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ODU_Option_2_Slc"
+			then
+			return value:sub(1)
+		end
+    end
+return " "
+end
+
+defineString("AV8BNA_ODU_2_SELECT", getAV8BNAODU2Select, 1, "ODU", "ODU Option 2 Select (string)")
+
+local function getAV8BNAODU2Text()
+	local li = list_indication(6)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ODU_Option_2_Text"
+			then
+			return value:sub(1,4)
+		end
+    end
+return "    "
+end
+
+defineString("AV8BNA_ODU_2_Text", getAV8BNAODU2Text, 4, "ODU", "ODU Option 2 Text (string)")
+
+
+local function getAV8BNAODU3Select()
+	local li = list_indication(6)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ODU_Option_3_Slc"
+			then
+			return value:sub(1)
+		end
+    end
+return " "
+end
+
+defineString("AV8BNA_ODU_3_SELECT", getAV8BNAODU3Select, 1, "ODU", "ODU Option 3 Select (string)")
+
+local function getAV8BNAODU3Text()
+	local li = list_indication(6)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ODU_Option_3_Text"
+			then
+			return value:sub(1,4)
+		end
+    end
+return "    "
+end
+
+defineString("AV8BNA_ODU_3_Text", getAV8BNAODU3Text, 4, "ODU", "ODU Option 3 Text (string)")
+
+local function getAV8BNAODU4Select()
+	local li = list_indication(6)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ODU_Option_4_Slc"
+			then
+			return value:sub(1)
+		end
+    end
+return " "
+end
+
+defineString("AV8BNA_ODU_4_SELECT", getAV8BNAODU4Select, 1, "ODU", "ODU Option 4 Select (string)")
+
+local function getAV8BNAODU4Text()
+	local li = list_indication(6)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ODU_Option_4_Text"
+			then
+			return value:sub(1,4)
+		end
+    end
+return "    "
+end
+
+defineString("AV8BNA_ODU_4_Text", getAV8BNAODU4Text, 4, "ODU", "ODU Option 4 Text (string)")
+
+local function getAV8BNAODU5Select()
+	local li = list_indication(6)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ODU_Option_5_Slc"
+			then
+			return value:sub(1)
+		end
+    end
+return " "
+end
+
+defineString("AV8BNA_ODU_5_SELECT", getAV8BNAODU5Select, 1, "ODU", "ODU Option 5 Select (string)")
+
+local function getAV8BNAODU5Text()
+	local li = list_indication(6)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "ODU_Option_5_Text"
+			then
+			return value:sub(1,4)
+		end
+    end
+return "    "
+end
+
+defineString("AV8BNA_ODU_5_Text", getAV8BNAODU5Text, 4, "ODU", "ODU Option 5 Text (string)")
+
+
+
 BIOS.protocol.endModule()

@@ -1,9 +1,13 @@
 BIOS.protocol.beginModule("AJS37", 0x4600)
 BIOS.protocol.setExportModuleAircrafts({"AJS37"})
 
+local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
+
 local document = BIOS.util.document  
+
 local parse_indication = BIOS.util.parse_indication
+
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
@@ -382,5 +386,104 @@ definePotentiometer("RADAR_BRIGHT", 5, 3923, 391, {0, 1},"Radar" , "Radar Bright
 --found no argument
 -- elements["SnabbresM-PTR"] = default_button(_("Snabbresning"), devices.FLIGHTDATAUNIT, 3091, 0) left bottom radar display
 -- elements["PNT_CLOCK_RIGHT"] = default_button(_("Stopwatch Start/Stop/Reset"),devices.FLIGHTDATAUNIT, 3802, 0) right upper clock
+
+local function getAJS37NavIndicator1()
+	local li = list_indication(2)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "data1"
+			then
+			return value:sub(1)
+		end
+    end
+return "X"
+end
+ 
+defineString("AJS37_NAV_INDICATOR_DATA_1", getAJS37NavIndicator1, 1, "Navigation Panel", "Navigataion Panel Data Digit 1")
+
+local function getAJS37NavIndicator2()
+	local li = list_indication(2)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "data2"
+			then
+			return value:sub(1)
+		end
+    end
+return "X"
+end
+ 
+defineString("AJS37_NAV_INDICATOR_DATA_2", getAJS37NavIndicator2, 1, "Navigation Panel", "Navigataion Panel Data Digit 2")
+
+local function getAJS37NavIndicator3()
+	local li = list_indication(2)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "data3"
+			then
+			return value:sub(1)
+		end
+    end
+return "X"
+end
+ 
+defineString("AJS37_NAV_INDICATOR_DATA_3", getAJS37NavIndicator3, 1, "Navigation Panel", "Navigataion Panel Data Digit 3")
+
+local function getAJS37NavIndicator4()
+	local li = list_indication(2)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "data4"
+			then
+			return value:sub(1)
+		end
+    end
+return "X"
+end
+ 
+defineString("AJS37_NAV_INDICATOR_DATA_4", getAJS37NavIndicator4, 1, "Navigation Panel", "Navigataion Panel Data Digit 4")
+
+local function getAJS37NavIndicator5()
+	local li = list_indication(2)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "data5"
+			then
+			return value:sub(1)
+		end
+    end
+return "X"
+end
+ 
+defineString("AJS37_NAV_INDICATOR_DATA_5", getAJS37NavIndicator5, 1, "Navigation Panel", "Navigataion Panel Data Digit 5")
+
+local function getAJS37NavIndicator6()
+	local li = list_indication(2)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = m()
+        if not name then break end
+		if name == "data6"
+			then
+			return value:sub(1)
+		end
+    end
+return "X"
+end
+ 
+defineString("AJS37_NAV_INDICATOR_DATA_6", getAJS37NavIndicator6, 1, "Navigation Panel", "Navigataion Panel Data Digit 6")
+
+
+
 
 BIOS.protocol.endModule()
