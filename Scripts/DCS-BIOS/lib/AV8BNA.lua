@@ -188,6 +188,13 @@ definePushButton("JETT_STATION_5", 29, 3415, 415,"ACP" , "Select Station 5 Toggl
 definePushButton("JETT_STATION_6", 29, 3417, 417,"ACP" , "Select Station 6 Toggle")
 definePushButton("JETT_STATION_7", 29, 3419, 419,"ACP" , "Select Station 7 Toggle")
 defineToggleSwitch("GND_IR_COOL", 29, 3420, 420,"ACP" , "Ground IR Cool Switch")
+defineIndicatorLight("JETT_STATION_1_LIGHT", 406, "ACP","Select Station 1 LIGHT")
+defineIndicatorLight("JETT_STATION_2_LIGHT", 408, "ACP","Select Station 2 LIGHT")
+defineIndicatorLight("JETT_STATION_3_LIGHT", 410, "ACP","Select Station 3 LIGHT")
+defineIndicatorLight("JETT_STATION_4_LIGHT", 412, "ACP","Select Station 4 LIGHT")
+defineIndicatorLight("JETT_STATION_5_LIGHT", 414, "ACP","Select Station 5 LIGHT")
+defineIndicatorLight("JETT_STATION_6_LIGHT", 416, "ACP","Select Station 6 LIGHT")
+defineIndicatorLight("JETT_STATION_7_LIGHT", 418, "ACP","Select Station 7 LIGHT")
 
 -- Master Armament Panel
 definePushButton("LAUNCH_FLARE_SALVO", 30, 3286, 286,"Master Armament Panel" , "Launch Flare Salvo")

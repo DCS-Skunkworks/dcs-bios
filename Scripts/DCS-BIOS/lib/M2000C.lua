@@ -442,6 +442,66 @@ local function getPCNDigitL()  -- by Ergo
 return ret
 end
 
+local function getPCN2DigitR()  -- by Ergo
+   local li = list_indication(10)
+   local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+   local east = ""
+   local west = ""
+   local plus = ""
+   local minus = ""
+   while true do
+        local name, value = m()
+        if not name then break end
+      if name == "text_PCN_EST"
+        then
+        east="E"
+      end
+      if name == "text_PCN_OUEST"
+        then
+        west="W"
+      end
+      if name == "text_PCN_PLUS_R"
+        then
+        plus="+"
+      end
+      if name == "text_PCN_MOINS_R"
+        then
+        minus="-"
+      end
+    end
+	return string.format("%-2s", string.sub(east..west..plus..minus,1,2))
+end
+
+local function getPCN2DigitL()  -- by Ergo
+   local li = list_indication(10)
+   local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+   local north = ""
+   local south = ""
+   local plus = ""
+   local minus = ""
+   while true do
+        local name, value = m()
+        if not name then break end
+      if name == "text_PCN_NORD"
+        then
+        north="N"
+      end
+      if name == "text_PCN_SUD"
+        then
+        south="S"
+      end
+      if name == "text_PCN_PLUS_L"
+        then
+        plus="+"
+      end
+      if name == "text_PCN_MOINS_L"
+        then
+        minus="-"
+      end
+    end
+	return string.format("%-2s", string.sub(north..south..plus..minus,1,2))
+end
+
 local function getPCNDispDest()  -- by Ergo
    local li = list_indication(11)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
@@ -953,6 +1013,8 @@ defineString("PCN_DISP_PREP", getPCNDispPrep, 2, "PCN", "O - PCN - PREP Display"
 defineString("PCN_DISP_R", getPCNDispR, 9, "PCN", "O - PCN - Right Display") -- by Ergo
 defineString("PCN_DIS_DL", getPCNDigitL, 1, "PCN", "PCN Digit Left Display") -- by Ergo
 defineString("PCN_DIS_DR", getPCNDigitR, 1, "PCN", "PCN Digit Right Display") -- by Ergo
+defineString("PCN_DIS_2DL", getPCN2DigitL, 2, "PCN", "PCN Digit Left Display (Multi Character)")
+defineString("PCN_DIS_2DR", getPCN2DigitR, 2, "PCN", "PCN Digit Right Display (Multi Character)")
 defineIndicatorLight("PCN_PRET", 564, "PCN", "O - PCN - PRET Indicator Light")
 defineIndicatorLight("PCN_ALN", 565, "PCN", "O - PCN - ALN Indicator Light")
 defineIndicatorLight("PCN_MIP", 566, "PCN", "O - PCN - MIP Indicator Light")
@@ -967,7 +1029,10 @@ defineIndicatorLight("INS_EFF_SW_LIGHT", 595, "PCN", "O - PCN - EFF Button Light
 defineIndicatorLight("INS_INS_SW_LIGHT", 597, "PCN", "O - PCN - INS Button Light")
 defineIndicatorLight("PCN_VAL_SW_LIGHT", 581, "PCN", "O - PCN - VAL Button Light")
 defineIndicatorLight("PCN_MRQ_SW_LIGHT", 583, "PCN", "O - PCN - MRQ Button Light")
-
+defineIndicatorLight("PCN_ENC_SW_LIGHT", 668, "PCN", "O - PCN - ENC Button Light")
+defineIndicatorLight("PCN_M91_LIGHT", 669, "PCN", "O - PCN - M91 Indicator Light")
+defineIndicatorLight("PCN_M92_LIGHT", 670, "PCN", "O - PCN - M92 Indicator Light")
+defineIndicatorLight("PCN_M93_LIGHT", 671, "PCN", "O - PCN - M93 Indicator Light")
 
 -- PPA
 defineTumb("BOMB_FUZE_SEL_SW", 6, 3276, 276, 0.5, {0, 1}, nil, false, "PPA", "I - PPA - Bomb Fuze Selector Switch")
