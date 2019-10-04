@@ -55,9 +55,11 @@
 -- v1.21 by WarLord
 --		Bug Fixes
 --
---
 -- v1.22 by WarLord
 --		Bug Fixes
+--
+-- v1.23 by Matchstick
+--		Added Indikators
 -----------------------------------------------------------
 
 BIOS.protocol.beginModule("M-2000C", 0x7200)
