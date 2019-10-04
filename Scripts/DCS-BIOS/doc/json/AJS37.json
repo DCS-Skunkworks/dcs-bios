@@ -4562,119 +4562,203 @@
                                                            }
                                },
            "Navigation Panel": {
-                                     "CK37_RENSA_CLEAR": {
-                                                                     "api_variant": "momentary_last_position",
-                                                                        "category": "Navigation Panel",
-                                                                    "control_type": "selector",
-                                                                     "description": "CK37 Rensa Clear",
-                                                                      "identifier": "CK37_RENSA_CLEAR",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 17942,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 32,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 5,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "push_button"
-                                                         },
-                                   "DATAPANEL_SELECTOR": {
-                                                                        "category": "Navigation Panel",
-                                                                    "control_type": "selector",
-                                                                     "description": "Datapanel Selector",
-                                                                      "identifier": "DATAPANEL_SELECTOR",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 6
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 17942,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 7,
-                                                                                          "max_value": 6,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                          "DATA_IN_OUT": {
-                                                                        "category": "Navigation Panel",
-                                                                    "control_type": "selector",
-                                                                     "description": "Data In/Out",
-                                                                      "identifier": "DATA_IN_OUT",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 17942,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 8,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 3,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                   "RENSA_BUTTON_COVER": {
-                                                                        "category": "Navigation Panel",
-                                                                    "control_type": "selector",
-                                                                     "description": "Rensa Button Cover",
-                                                                      "identifier": "RENSA_BUTTON_COVER",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 17942,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 16,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 4,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         }
+                                   "AJS37_NAV_INDICATOR_DATA_1": {
+                                                                         "category": "Navigation Panel",
+                                                                     "control_type": "display",
+                                                                      "description": "Navigataion Panel Data Digit 1",
+                                                                       "identifier": "AJS37_NAV_INDICATOR_DATA_1",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18082,
+                                                                                         "description": "Navigataion Panel Data Digit 1",
+                                                                                          "max_length": 1,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                   "AJS37_NAV_INDICATOR_DATA_2": {
+                                                                         "category": "Navigation Panel",
+                                                                     "control_type": "display",
+                                                                      "description": "Navigataion Panel Data Digit 2",
+                                                                       "identifier": "AJS37_NAV_INDICATOR_DATA_2",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18084,
+                                                                                         "description": "Navigataion Panel Data Digit 2",
+                                                                                          "max_length": 1,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                   "AJS37_NAV_INDICATOR_DATA_3": {
+                                                                         "category": "Navigation Panel",
+                                                                     "control_type": "display",
+                                                                      "description": "Navigataion Panel Data Digit 3",
+                                                                       "identifier": "AJS37_NAV_INDICATOR_DATA_3",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18086,
+                                                                                         "description": "Navigataion Panel Data Digit 3",
+                                                                                          "max_length": 1,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                   "AJS37_NAV_INDICATOR_DATA_4": {
+                                                                         "category": "Navigation Panel",
+                                                                     "control_type": "display",
+                                                                      "description": "Navigataion Panel Data Digit 4",
+                                                                       "identifier": "AJS37_NAV_INDICATOR_DATA_4",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18088,
+                                                                                         "description": "Navigataion Panel Data Digit 4",
+                                                                                          "max_length": 1,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                   "AJS37_NAV_INDICATOR_DATA_5": {
+                                                                         "category": "Navigation Panel",
+                                                                     "control_type": "display",
+                                                                      "description": "Navigataion Panel Data Digit 5",
+                                                                       "identifier": "AJS37_NAV_INDICATOR_DATA_5",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18090,
+                                                                                         "description": "Navigataion Panel Data Digit 5",
+                                                                                          "max_length": 1,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                   "AJS37_NAV_INDICATOR_DATA_6": {
+                                                                         "category": "Navigation Panel",
+                                                                     "control_type": "display",
+                                                                      "description": "Navigataion Panel Data Digit 6",
+                                                                       "identifier": "AJS37_NAV_INDICATOR_DATA_6",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18092,
+                                                                                         "description": "Navigataion Panel Data Digit 6",
+                                                                                          "max_length": 1,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                             "CK37_RENSA_CLEAR": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "Navigation Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "CK37 Rensa Clear",
+                                                                              "identifier": "CK37_RENSA_CLEAR",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17942,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 32,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 5,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                           "DATAPANEL_SELECTOR": {
+                                                                                "category": "Navigation Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Datapanel Selector",
+                                                                              "identifier": "DATAPANEL_SELECTOR",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 6
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17942,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 7,
+                                                                                                  "max_value": 6,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "limited_rotary"
+                                                                 },
+                                                  "DATA_IN_OUT": {
+                                                                                "category": "Navigation Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Data In/Out",
+                                                                              "identifier": "DATA_IN_OUT",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17942,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 8,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 3,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                           "RENSA_BUTTON_COVER": {
+                                                                                "category": "Navigation Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Rensa Button Cover",
+                                                                              "identifier": "RENSA_BUTTON_COVER",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17942,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 16,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 4,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 }
                                },
                         "RWR": {
                                           "MASTER_VOL": {

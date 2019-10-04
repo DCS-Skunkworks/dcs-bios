@@ -6157,7 +6157,7 @@
                                                                                    "identifier": "EXT_FORMATION_LIGHTS",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5252,
+                                                                                                         "address": 5254,
                                                                                                      "description": "Formation Lights",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6205,7 +6205,7 @@
                                                                                    "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5248,
+                                                                                                         "address": 5250,
                                                                                                      "description": "Bottom Left Speed Brake",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6221,7 +6221,7 @@
                                                                                    "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5246,
+                                                                                                         "address": 5248,
                                                                                                      "description": "Bottom Right Speed Brake",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6237,7 +6237,7 @@
                                                                                    "identifier": "EXT_SPEED_BRAKE_TOP",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5250,
+                                                                                                         "address": 5252,
                                                                                                      "description": "Top Speed Brake",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6518,6 +6518,22 @@
                                                                            }
                                             },
                                   "Gauges": {
+                                                                 "CANOPY_POS": {
+                                                                                       "category": "Gauges",
+                                                                                   "control_type": "analog_gauge",
+                                                                                    "description": "Canopy Position",
+                                                                                     "identifier": "CANOPY_POS",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5246,
+                                                                                                       "description": "gauge position",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
                                                      "PLT_ACCEL_METER_Needle": {
                                                                                        "category": "Gauges",
                                                                                    "control_type": "analog_gauge",

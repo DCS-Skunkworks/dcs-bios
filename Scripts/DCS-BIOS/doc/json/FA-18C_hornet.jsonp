@@ -2056,9 +2056,9 @@ docdata["FA-18C_hornet"] =
                                                                                             "outputs": [ {
                                                                                                                "address": 29896,
                                                                                                            "description": "switch position -- 0 = off, 1 = on",
-                                                                                                                  "mask": 4096,
+                                                                                                                  "mask": 8192,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 12,
+                                                                                                              "shift_by": 13,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ]
@@ -2084,9 +2084,9 @@ docdata["FA-18C_hornet"] =
                                                                                                    "outputs": [ {
                                                                                                                       "address": 29896,
                                                                                                                   "description": "selector position",
-                                                                                                                         "mask": 8192,
+                                                                                                                         "mask": 16384,
                                                                                                                     "max_value": 1,
-                                                                                                                     "shift_by": 13,
+                                                                                                                     "shift_by": 14,
                                                                                                                        "suffix": "",
                                                                                                                          "type": "integer"
                                                                                                               } ],
@@ -2113,9 +2113,9 @@ docdata["FA-18C_hornet"] =
                                                                                                    "outputs": [ {
                                                                                                                       "address": 29896,
                                                                                                                   "description": "selector position",
-                                                                                                                         "mask": 16384,
+                                                                                                                         "mask": 32768,
                                                                                                                     "max_value": 1,
-                                                                                                                     "shift_by": 14,
+                                                                                                                     "shift_by": 15,
                                                                                                                        "suffix": "",
                                                                                                                          "type": "integer"
                                                                                                               } ],
@@ -2142,9 +2142,9 @@ docdata["FA-18C_hornet"] =
                                                                                                    "outputs": [ {
                                                                                                                       "address": 29898,
                                                                                                                   "description": "selector position",
-                                                                                                                         "mask": 1024,
+                                                                                                                         "mask": 2048,
                                                                                                                     "max_value": 1,
-                                                                                                                     "shift_by": 10,
+                                                                                                                     "shift_by": 11,
                                                                                                                        "suffix": "",
                                                                                                                          "type": "integer"
                                                                                                               } ],
@@ -2164,9 +2164,9 @@ docdata["FA-18C_hornet"] =
                                                                                                    "outputs": [ {
                                                                                                                       "address": 29898,
                                                                                                                   "description": "selector position",
-                                                                                                                         "mask": 768,
+                                                                                                                         "mask": 1536,
                                                                                                                     "max_value": 2,
-                                                                                                                     "shift_by": 8,
+                                                                                                                     "shift_by": 9,
                                                                                                                        "suffix": "",
                                                                                                                          "type": "integer"
                                                                                                               } ],
@@ -2191,11 +2191,11 @@ docdata["FA-18C_hornet"] =
                                                                                                               } ],
                                                                                        "momentary_positions": "none",
                                                                                                    "outputs": [ {
-                                                                                                                      "address": 29896,
+                                                                                                                      "address": 29898,
                                                                                                                   "description": "selector position",
-                                                                                                                         "mask": 32768,
+                                                                                                                         "mask": 256,
                                                                                                                     "max_value": 1,
-                                                                                                                     "shift_by": 15,
+                                                                                                                     "shift_by": 8,
                                                                                                                        "suffix": "",
                                                                                                                          "type": "integer"
                                                                                                               } ],
@@ -2787,9 +2787,9 @@ docdata["FA-18C_hornet"] =
                                                                                               "outputs": [ {
                                                                                                                  "address": 29898,
                                                                                                              "description": "Left Position Light",
-                                                                                                                    "mask": 8192,
+                                                                                                                    "mask": 16384,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 13,
+                                                                                                                "shift_by": 14,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2803,9 +2803,9 @@ docdata["FA-18C_hornet"] =
                                                                                               "outputs": [ {
                                                                                                                  "address": 29898,
                                                                                                              "description": "Right Position Light",
-                                                                                                                    "mask": 16384,
+                                                                                                                    "mask": 32768,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 14,
+                                                                                                                "shift_by": 15,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2833,11 +2833,11 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_STROBE_LIGHTS",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 29898,
+                                                                                                                 "address": 29900,
                                                                                                              "description": "Strobe Lights",
-                                                                                                                    "mask": 32768,
+                                                                                                                    "mask": 256,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 15,
+                                                                                                                "shift_by": 8,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -7964,7 +7964,7 @@ docdata["FA-18C_hornet"] =
                                                                                                     } ],
                                                                              "momentary_positions": "none",
                                                                                          "outputs": [ {
-                                                                                                            "address": 29890,
+                                                                                                            "address": 29892,
                                                                                                         "description": "selector position",
                                                                                                                "mask": 32768,
                                                                                                           "max_value": 1,
@@ -7994,7 +7994,7 @@ docdata["FA-18C_hornet"] =
                                                                                                     } ],
                                                                              "momentary_positions": "none",
                                                                                          "outputs": [ {
-                                                                                                            "address": 29892,
+                                                                                                            "address": 29894,
                                                                                                         "description": "selector position",
                                                                                                                "mask": 32768,
                                                                                                           "max_value": 1,
@@ -8024,11 +8024,11 @@ docdata["FA-18C_hornet"] =
                                                                                                     } ],
                                                                              "momentary_positions": "none",
                                                                                          "outputs": [ {
-                                                                                                            "address": 29894,
+                                                                                                            "address": 29896,
                                                                                                         "description": "selector position",
-                                                                                                               "mask": 32768,
+                                                                                                               "mask": 1024,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 15,
+                                                                                                           "shift_by": 10,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ],
@@ -8056,9 +8056,9 @@ docdata["FA-18C_hornet"] =
                                                                                          "outputs": [ {
                                                                                                             "address": 29896,
                                                                                                         "description": "selector position",
-                                                                                                               "mask": 1024,
+                                                                                                               "mask": 2048,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 10,
+                                                                                                           "shift_by": 11,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ],
@@ -8085,9 +8085,9 @@ docdata["FA-18C_hornet"] =
                                                                                          "outputs": [ {
                                                                                                             "address": 29896,
                                                                                                         "description": "selector position",
-                                                                                                               "mask": 2048,
+                                                                                                               "mask": 4096,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 11,
+                                                                                                           "shift_by": 12,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ],
@@ -8345,7 +8345,7 @@ docdata["FA-18C_hornet"] =
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ],
-                                                                               "physical_variant": "limited_rotary"
+                                                                               "physical_variant": "3_position_switch"
                                                                         },
                                                               "INS_SW": {
                                                                                        "category": "Sensor Panel",
@@ -8401,10 +8401,39 @@ docdata["FA-18C_hornet"] =
                                                                                                    } ],
                                                                                "physical_variant": "toggle_switch"
                                                                         },
+                                                           "LTD_R_ARM": {
+                                                                                       "category": "Sensor Panel",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "LTD/R Switch, ARM/SAFE",
+                                                                                     "identifier": "LTD_R_ARM",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                           "address": 29890,
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 32768,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 15,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "toggle_switch"
+                                                                        },
                                                             "LTD_R_SW": {
                                                                                        "category": "Sensor Panel",
                                                                                    "control_type": "selector",
-                                                                                    "description": "LTD/R Switch, ARM/SAFE/AFT",
+                                                                                    "description": "LTD/R Switch, ---/SAFE/AFT",
                                                                                      "identifier": "LTD_R_SW",
                                                                                          "inputs": [ {
                                                                                                        "description": "switch to previous or next state",
@@ -8424,7 +8453,7 @@ docdata["FA-18C_hornet"] =
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ],
-                                                                               "physical_variant": "limited_rotary"
+                                                                               "physical_variant": "3_position_switch"
                                                                         },
                                                             "RADAR_SW": {
                                                                                        "category": "Sensor Panel",
@@ -9038,9 +9067,9 @@ docdata["FA-18C_hornet"] =
                                                                                             "outputs": [ {
                                                                                                                "address": 29898,
                                                                                                            "description": "selector position",
-                                                                                                                  "mask": 2048,
+                                                                                                                  "mask": 4096,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 11,
+                                                                                                              "shift_by": 12,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ],
@@ -9068,9 +9097,9 @@ docdata["FA-18C_hornet"] =
                                                                                             "outputs": [ {
                                                                                                                "address": 29898,
                                                                                                            "description": "selector position",
-                                                                                                                  "mask": 4096,
+                                                                                                                  "mask": 8192,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 12,
+                                                                                                              "shift_by": 13,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ],
