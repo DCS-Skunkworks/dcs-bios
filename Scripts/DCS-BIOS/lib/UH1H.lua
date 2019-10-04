@@ -189,6 +189,11 @@ local function getRadarAlt()
 end
 defineIntegerFromGetter("RALT_DISPLAY", getRadarAlt, 65000, "Radar Altimeter", "Radar Altitude Display")
 
+defineFloat("RALT_DIGIT_1", 468, {0, 1}, "Radar Altimeter", "Radar Altimeter 1.Digit")
+defineFloat("RALT_DIGIT_2", 469, {0, 1}, "Radar Altimeter", "Radar Altimeter 2.Digit")
+defineFloat("RALT_DIGIT_3", 470, {0, 1}, "Radar Altimeter", "Radar Altimeter 3.Digit")
+defineFloat("RALT_DIGIT_4", 471, {0, 1}, "Radar Altimeter", "Radar Altimeter 4.Digit")
+
 -- clickabledata.lua:
 
 
