@@ -41,6 +41,13 @@ definePotentiometer("PITCH_TRIM", 2, 3008, 562, nil, "Control Interface", "PITCH
 definePotentiometer("YAW_TRIM", 2, 3009, 565, nil, "Control Interface", "YAW TRIM Knob")
 defineToggleSwitch("MANUAL_PITCH_SW", 2, 3010, 425, "Control Interface", "MANUAL PITCH Override Switch, OVRD/NORM")
 defineToggleSwitch("STORES_CONFIG_SW", 2, 3011, 358, "Control Interface", "STORES CONFIG Switch, CAT III/CAT I")
+define3PosTumb("AP_PITCH_SW", 2, 3012, 109, "Control Interface", "Autopilot PITCH Switch, ATT HOLD/ A/P OFF/ ALT HOLD")
+define3PosTumb("AP_ROLL_SW", 2, 3013, 108, "Control Interface", "Autopilot ROLL Switch, STRG SEL/ATT HOLD/HDG SEL")
+defineToggleSwitch("ADV_MODE_SW", 2, 3014, 97, "Control Interface", "ADV MODE Switch")
+defineToggleSwitch("MAN_TF_FLYUP_SW", 2, 3015, 568, "Control Interface", "MANUAL TF FLYUP Switch, ENABLE/DISABLE")
+
+--External Lights
+
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
