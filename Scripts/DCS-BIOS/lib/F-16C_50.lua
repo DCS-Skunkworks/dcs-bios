@@ -1,11 +1,14 @@
+-- V1.0 by Warlord (aka BlackLibrary)
+-- Initial version of outputs from mainpanel_init.lua by Matchstick
+
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
+
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
-
 local parse_indication = BIOS.util.parse_indication
 
 
@@ -22,7 +25,7 @@ local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
-
+------------------------------------------------------------------Switches, Buttons---------------------------------------------------------------------------------
 --Control Interface
 defineToggleSwitch("DIGI_BAK_SW", 2, 3001, 566, "Control Interface", "DIGITAL BACKUP Switch, OFF/BACKUP")
 defineToggleSwitch("ALT_FLAPS_SW", 2, 3002, 567, "Control Interface", "ALT FLAPS Switch, NORM/EXTEND")
@@ -181,6 +184,18 @@ define3PosTumb("HUD_BRT_SW", 19, 3012, 681, "HUD Control Panel", "HUD Brightness
 define3PosTumb("HUD_TEST_SW", 19, 3013, 682, "HUD Control Panel", "HUD TEST Switch, STEP / ON / OFF")
 
 --Audio Control Panels
+defineTumb("COMM1_MODE_KNB", 39, 3002, 434, 0.5, {0,1}, nil, true, "Audio Panel", "COMM 1 (UHF) Mode Knob")
+defineTumb("COMM2_MODE_KNB", 39, 3004, 435, 0.5, {0,1}, nil, true, "Audio Panel", "COMM 2 (VHF) Mode Knob")
+definePotentiometer("COMM1_PWR_KNB", 39, 3001, 430, nil, "Audio Panel", "COMM 1 Power Knob")
+definePotentiometer("COMM2_PWR_KNB", 39, 3003, 431, nil, "Audio Panel", "COMM 2 Power Knob")
+definePotentiometer("SEC_VOICE_KNB", 39, 3005, 432, nil, "Audio Panel", "SECURE VOICE Knob")
+definePotentiometer("MSL_KNB", 39, 3006, 433, nil, "Audio Panel", "MSL Tone Knob")
+definePotentiometer("TF_KNB", 39, 3007, 436, nil, "Audio Panel", "TF Tone Knob Knob")
+definePotentiometer("THREAT_KNB", 39, 3008, 437, nil, "Audio Panel", "THREAT Tone Knob")
+definePotentiometer("INTERCOM_KNB", 39, 3011, 440, nil, "Audio Panel", "INTERCOM Knob")
+definePotentiometer("TACAN_KNB", 39, 3010, 441, nil, "Audio Panel", "TACAN Knob")
+definePotentiometer("ILS_PWR_KNB", 39, 3009, 442, nil, "Audio Panel", "ILS Power Knob")
+
 --UHF Backup Control Panel
 --IFF Control Panel
 --KY-58
@@ -240,8 +255,118 @@ defineRockerSwitch("MFD_R_SYM_SW", 24, 3023, 3023, 3024, 3024, 347, "MFD Right",
 defineRockerSwitch("MFD_R_CON_SW", 24, 3025, 3025, 3026, 3026, 348, "MFD Right", "MFD Left Right Rocker Switch")
 defineRockerSwitch("MFD_R_BRT_SW", 24, 3027, 3027, 3028, 3028, 349, "MFD Right", "MFD Left Right Rocker Switch")
 
+--Airspeed/Mach Indicator
+--Altimeter
+--SAI
 
---Externals
+--ADI
+defineRotary("ADI_PITCH_TRIM", 50, 3001, 22, "ADI", "ADI Pitch Trim Knob")
+
+--EHSI
+--Clock
+--Cockpit Mechanics
+------------------------------------------------------------------Warning, Caution and Indicator Lights-------------------------------------------------------------
+------------------------------------------------------------------Gauges--------------------------------------------------------------------------------------------
+defineFloat("CANOPY_VALUE", 15, {-1.0, 1.0}, "Cockpit", "Canopy Value")
+--AOA				
+defineFloat("AOA_VALUE", 15, {-1.0, -0.807, 0.0, 1.0}, "AoA", "AoA Value")
+
+--Altimeter AAU-34/A
+defineFloat("ALT_100_FT_PTR", 51, {0, 1}, "Altimeter", "Altimeter 100 ft pointer")
+defineFloat("ALT_10000_FT_CNT", 52, {0, 1}, "Altimeter", "Altimeter 10000 ft count")
+defineFloat("ALT_1000_FT_CNT", 53, {0, 1}, "Altimeter", "Altimeter 1000 ft count")
+defineFloat("ALT_100_FT_CNT", 54, {0, 1}, "Altimeter", "Altimeter 100 ft count")
+defineFloat("ALT_PRESSURE_DRUM_0_CNT", 59, {0, 1}, "Altimeter", "Altimeter Pressure Setting Drum 0")
+defineFloat("ALT_PRESSURE_DRUM_1_CNT", 58, {0, 1}, "Altimeter", "Altimeter Pressure Setting Drum 1")
+defineFloat("ALT_PRESSURE_DRUM_2_CNT", 57, {0, 1}, "Altimeter", "Altimeter Pressure Setting Drum 2")
+defineFloat("ALT_PRESSURE_DRUM_3_CNT", 56, {0, 1}, "Altimeter", "Altimeter Pressure Setting Drum 3")
+defineFloat("ALT_PNEU_FLAG", 9, {0, 1}, "Altimeter", "Altimeter PNEU Flag")
+
+--AirSpeed/Mach Indicator
+defineFloat("AIRSPEED", 48, {0.0, 0.042, 0.152, 0.182, 0.199, 0.255, 0.303, 0.355, 0.402, 0.455, 0.653, 0.698, 0.750, 0.797, 0.850}, "Airspeed Indicator", "Airspeed Indicator")
+defineFloat("MAX AIRSPEED", 47, {0.0, 0.045,  0.1, 0.153,  0.2, 0.256, 0.302, 0.355, 0.402, 0.852}, "Airspeed Indicator", "Max Airspeed")
+defineFloat("SET_AIRSPEED", 70, {0, 1}, "Airspeed Indicator", "Set Airspeed")
+defineFloat("MACH_INDICATOR", 49, {1.0,	0.958, 0.921, 0.902, 0.885,	0.848, 0.812, 0.775, 0.741, 0.704, 0.668, 0.632, 0.596, 0.562, 0.528, 0.493, 0.459, 0.422, 0.387}, "Airspeed Indicator", "Mach Indicator")
+
+--Standby Attitude Indicator
+defineFloat("SAI_PITCH", 63, {-1.0, -0.902, -0.793, -0.687, -0.576, -0.450, -0.339, -0.225, -0.115, 0.0, 0.114, 0.225, 0.336, 0.445, 0.569, 0.679, 0.784, 0.893, 0.995}, "SAI", " SAI Pitch")
+defineFloat("SAI_BANK", 64, {1.0, -1.0}, "SAI", "SAI Bank")
+defineFloat("SAI_OFF_FLAG", 65, {0, 1}, "SAI", "SAI Off Flag")
+defineFloat("SAI_AIRCRAFTREFERENCESYMBOL", 68, {-1, 1}, "SAI", "SAI Aircraft Reference Symbol")
+
+--Vertical Velocity Indicator
+defineFloat("VVI", 16, {-1.0, -0.77, 0.0, 1.0}, "Vertical Velocity Indicator", "VVI")
+
+--Attitude Director Indicator (ADI)
+defineFloat("ADI_PITCH", 17, {-1, 1}, "ADI", "ADI Pitch")
+defineFloat("ADI_BANK", 18, {-1, 1}, "ADI", "ADI Bank")
+defineFloat("ADI_OFF_FLAG", 25, {0.0, 1.0}, "ADI", "ADI Off Flag")
+defineFloat("ADI_LOC_FLAG", 13, {0.0, 1.0}, "ADI", "ADI LOC Flag")
+defineFloat("ADI_AUX_FLAG", 14, {0.0, 1.0}, "ADI", "ADI AUX Flag")
+defineFloat("ADI_GS_FLAG", 26, {0.0, 1.0},"ADI", "ADI GS Flag")
+defineFloat("ADI_LOC_BAR", 20, {-1, 1}, "ADI", "ADI LOC Bar")
+defineFloat("ADI_GS_BAR", 21, {-1, 1}, "ADI", "ADI GS Bar")
+defineFloat("ADI_TURNRATE", 23, {-1, 1}, "ADI", "ADI TurnRate")
+defineFloat("ADI_GS_POINTER", 27, {-1, 1}, "ADI", "ADI GS Pointer")
+defineFloat("ADI_BUBBLE", 24, {-1, 1}, "ADI", "ADI Bubble")
+
+--Trim Indicators
+defineFloat("ROLLTRIMIND", 561, {-1, 1}, "Trim Indicators", "Roll Trim Indicator")
+defineFloat("PITCHTRIMIND", 563, {-1, 1}, "Trim Indicators", "Pitch Trim Indicator")
+
+--Speed brake indicator
+defineFloat("SPEEDBRAKE_INDICATOR", 363, {-1.0, 1.0}, "Speed Brake", "Speed Brake Indicator")
+
+--Hydraulic Pressure Indicators
+defineFloat("SYSA_PRESSURE", 615, {0.0, 0.170, 0.302, 0.496, 0.694, 0.828, 1.0}, "Hydraulic Pressure Indicators", "System A Pressure")
+defineFloat("SYSB_PRESSURE", 616, {0.0, 0.170, 0.302, 0.496, 0.694, 0.828, 1.0}, "Hydraulic Pressure Indicators", "System B Pressure")
+
+--Engine Indicators
+--Oil Pressure
+defineFloat("ENGINE_OIL_PRESSURE", 93, {0, 1}, "Engine", "Oil Pressure Indicator")
+--Nozzle Position Indicators
+defineFloat("ENGINE_NOZZLE_POSITION", 94, {0.0, 0.185, 0.36, 0.533, 0.715, 0.894, 1.0}, "Engine", "Engine Nozzle Position Indicator")
+--Engine Tachometers
+defineFloat("ENGINE_TACHOMETER", 95, {0.0, 0.114, 0.233, 0.346, 0.377, 0.437, 0.57, 0.705, 0.855, 1.0}, "Engine", "Engine Tachometer Indicator")
+--FTIT
+defineFloat("ENGINE_FTIT", 96, {0.0, 0.026, 0.341, 0.530, 0.708, 0.882, 0.940, 1.0}, "Engine", "Engine FTIT Indicator")
+
+--Hydrazin Volume
+defineFloat("HYDRAZIN_VOLUME", 617, {0.0, 0.258, 0.416,	0.573, 0.731, 1.0}, "EPU", "Hydrazin Volume Indicator")
+
+--Fuel Flow Indicator Counter
+defineFloat("FUELFLOWCOUNTER_10K", 88, {0, 1}, "Fuel System", "Fuel Flow Counter 10k")
+defineFloat("FUELFLOWCOUNTER_1K", 89, {0, 1}, "Fuel System", "Fuel Flow Counter 1k")
+defineFloat("FUELFLOWCOUNTER_100", 90, {0, 1}, "Fuel System", "Fuel Flow Counter 100")
+
+--Fuel Quantity Indicator (Dual)
+defineFloat("FUEL_AL", 613, {0.0, 0.1, 0.2, 0.301, 0.401, 0.502, 0.603,	0.702, 0.801, 0.84}, "Fuel System", "Fuel Quantity Indicator AL")
+defineFloat("FUEL_FR", 614, {0.0, 0.1, 0.2, 0.301, 0.401, 0.502, 0.603, 0.702, 0.801, 0.84}, "Fuel System", "Fuel Quantity Indicator FR")
+defineFloat("FUELTOTALIZER_10K", 730, {0, 1}, "Fuel System", "Fuel Totalizer Counter 10K")
+defineFloat("FUELTOTALIZER_1K", 731, {0, 1}, "Fuel System", "Fuel Totalizer Counter 1K")
+defineFloat("FUELTOTALIZER_100", 732, {0, 1}, "Fuel System", "Fuel Totalizer Counter 100")
+
+--ECS Cabin Pressure Altimeter
+defineFloat("COCKPIT_ALITITUDE", 618, {0.0,	0.094, 0.194, 0.294, 0.394,	0.496, 0.597, 0.698, 0.798,	0.899, 1.0}, "Oxygen System", "Cabin Pressure Altimeter")
+
+--Oxygen Pressure Indicator
+defineFloat("OXYGEN_PRESSURE", 729, {0.0, 0.107, 0.217,	0.326,	0.435,	0.544, 0.611, 0.717, 0.829,	0.940, 1.0}, "Oxygen System", "Oxygen Pressure")
+defineFloat("FLOW_INDICATOR", 725, {0, 1}, "Oxygen System", "Flow Indicator Gauge")
+defineIndicatorLight("FLOW_INDICATOR_LIGHT", 725, "Oxygen System", "Flow Indicator Light")
+
+--IFF
+defineFloat("IFF_CODE_DRUM_DIGIT_1", 546, {0, 1}, "IFF", "IFF Code Digit 1")
+defineFloat("IFF_CODE_DRUM_DIGIT_2", 548, {0, 1}, "IFF", "IFF Code Digit 2")
+defineFloat("IFF_CODE_DRUM_DIGIT_3", 550, {0, 1}, "IFF", "IFF Code Digit 3")
+defineFloat("IFF_CODE_DRUM_DIGIT_4", 552, {0, 1}, "IFF", "IFF Code Digit 4")
+
+--Clock
+defineFloat("CLOCK_CURRTIME_H", 621, {0, 1}, "Clock", "Current Time Hours")
+defineFloat("CLOCK_CURRTIME_MS", 622, {0, 1}, "Clock", "Current Time Minutes")
+defineFloat("CLOCK_ELAPSED_TIME_M", 623, {0, 1}, "Clock", "Elapsed Time Minutes")
+defineFloat("CLOCK_ELAPSED_TIME_SEC", 624, {0, 1}, "Clock", "Elapsed Time Seconds")
+
+------------------------------------------------------------------Externals-----------------------------------------------------------------------------------------
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
 end, 65535, "External Aircraft Model", "Right Speed Brake")
