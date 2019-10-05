@@ -12,7 +12,9 @@ local parse_indication = BIOS.util.parse_indication
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
+local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
+local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineString = BIOS.util.defineString
@@ -158,17 +160,86 @@ definePotentiometer("ICP_HUD_BRT_KNB", 17, 3022, 190, nil, "UFC", "ICP HUD Symbo
 definePushButton("ICP_WX_BTN", 17, 3024, 187, "UFC", "ICP FLIR Polarity Button, Wx")
 define3PosTumb("ICP_FLIR_GAIN_SW", 17, 3027, 189, "UFC", "ICP FLIR GAIN/LEVEL Switch, GAIN/LVL/AUTO")
 defineRockerSwitch("ICP_DED_SW", 3, 3030, 3030, 3031, 3031, 183, "UFC", "ICP DED Increment/Decrement Switch")
-defineRockerSwitch("ICP_DED_SW", 3, 3025, 3025, 3026, 3026, 188, "UFC", "ICP DED Increment/Decrement Switch")
+defineRockerSwitch("ICP_FLIR_SW", 3, 3025, 3025, 3026, 3026, 188, "UFC", "ICP FLIR Increment/Decrement Switch")
 define3PosTumb("ICP_DRIFT_SW", 17, 3029, 186, "UFC", "ICP DRIFT CUTOUT/WARN RESET Switch, DRIFT C/O /NORM/WARN RESET")
---
---
---
---
+defineTumb("ICP_DATA_RTN_SW", 17, 3032, 184, 1, {-1, 0}, nil, true, "UFC", "ICP Data Control Switch, RTN")
+defineToggleSwitch("ICP_DATA_SEQ_SW", 17, 3033, 184, "UFC", "ICP Data Control Switch, SEQ")
+defineToggleSwitch("ICP_DATA_UP_SW", 17, 3034, 185, "UFC", "ICP Data Control Switch, UP")
+defineTumb("ICP_DATA_DN_SW", 17, 3035, 185, 1, {-1, 0}, nil, true, "UFC", "ICP Data Control Switch, DN")
 definePushButton("F_ACK_BTN", 17, 3036, 122, "UFC", "F-ACK Button")
 definePushButton("IFF_ID_BTN", 17, 3037, 125, "UFC", "IFF IDENT Button")
 define3PosTumb("RF_SW", 17, 3038, 100, "UFC", "RF Switch, SILENT/QUIET/NORM")
 
 --HUD Remote Control Panel
+define3PosTumb("HUD_SCALES_SW", 19, 3006, 675, "HUD Control Panel", "HUD Scales Switch, VV/VAH / VAH / OFF")
+define3PosTumb("HUD_FP_MARKER_SW", 19, 3007, 676, "HUD Control Panel", "HUD Flightpath Marker Switch, ATT/FPM / FPM / OFF")
+define3PosTumb("HUD_DED_DATA_SW", 19, 3008, 677, "HUD Control Panel", "HUD DED/PFLD Data Switch, DED / PFL / OFF")
+define3PosTumb("HUD_DEPRESS_RET_SW", 19, 3009, 678, "HUD Control Panel", "HUD Depressible Reticle Switch, STBY / PRI / OFF")
+define3PosTumb("HUD_SPEED_SW", 19, 3010, 679, "HUD Control Panel", "HUD Velocity Switch, CAS / TAS / GND SPD")
+define3PosTumb("HUD_ALT_SW", 19, 3011, 680, "HUD Control Panel", "HUD Altitude Switch, RADAR / BARO / AUTO")
+define3PosTumb("HUD_BRT_SW", 19, 3012, 681, "HUD Control Panel", "HUD Brightness Control Switch, DAY / AUTO BRT / NIGHT")
+define3PosTumb("HUD_TEST_SW", 19, 3013, 682, "HUD Control Panel", "HUD TEST Switch, STEP / ON / OFF")
+
+--Audio Control Panels
+--UHF Backup Control Panel
+--IFF Control Panel
+--KY-58
+--HMCS
+--RWR
+--CMDS
+
+--MFD Left
+definePushButton("MFD_L_1", 24, 3001, 300,"MFD Left" , "MFD Left Button 1")
+definePushButton("MFD_L_2", 24, 3002, 301,"MFD Left" , "MFD Left Button 2")
+definePushButton("MFD_L_3", 24, 3003, 302,"MFD Left" , "MFD Left Button 3")
+definePushButton("MFD_L_4", 24, 3004, 303,"MFD Left" , "MFD Left Button 4")
+definePushButton("MFD_L_5", 24, 3005, 304,"MFD Left" , "MFD Left Button 5")
+definePushButton("MFD_L_6", 24, 3006, 305,"MFD Left" , "MFD Left Button 6")
+definePushButton("MFD_L_7", 24, 3007, 306,"MFD Left" , "MFD Left Button 7")
+definePushButton("MFD_L_8", 24, 3008, 307,"MFD Left" , "MFD Left Button 8")
+definePushButton("MFD_L_9", 24, 3009, 308,"MFD Left" , "MFD Left Button 9")
+definePushButton("MFD_L_10", 24, 3010, 309,"MFD Left" , "MFD Left Button 10")
+definePushButton("MFD_L_11", 24, 3011, 310,"MFD Left" , "MFD Left Button 11")
+definePushButton("MFD_L_12", 24, 3012, 311,"MFD Left" , "MFD Left Button 12")
+definePushButton("MFD_L_13", 24, 3013, 312,"MFD Left" , "MFD Left Button 13")
+definePushButton("MFD_L_14", 24, 3014, 313,"MFD Left" , "MFD Left Button 14")
+definePushButton("MFD_L_15", 24, 3015, 314,"MFD Left" , "MFD Left Button 15")
+definePushButton("MFD_L_16", 24, 3016, 315,"MFD Left" , "MFD Left Button 16")
+definePushButton("MFD_L_17", 24, 3017, 316,"MFD Left" , "MFD Left Button 17")
+definePushButton("MFD_L_18", 24, 3018, 317,"MFD Left" , "MFD Left Button 18")
+definePushButton("MFD_L_19", 24, 3019, 318,"MFD Left" , "MFD Left Button 19")
+definePushButton("MFD_L_20", 24, 3020, 319,"MFD Left" , "MFD Left Button 20")
+defineRockerSwitch("MFD_L_GAIN_SW", 24, 3021, 3021, 3022, 3022, 320, "MFD Left", "MFD Left GAIN Rocker Switch")
+defineRockerSwitch("MFD_L_SYM_SW", 24, 3023, 3023, 3024, 3024, 321, "MFD Left", "MFD Left SYM Rocker Switch")
+defineRockerSwitch("MFD_L_CON_SW", 24, 3025, 3025, 3026, 3026, 322, "MFD Left", "MFD Left CON Rocker Switch")
+defineRockerSwitch("MFD_L_BRT_SW", 24, 3027, 3027, 3028, 3028, 323, "MFD Left", "MFD Left BRT Rocker Switch")
+
+--MFD Right
+definePushButton("MFD_R_1", 25, 3001, 326,"MFD Right" , "MFD Right Button 1")
+definePushButton("MFD_R_2", 25, 3002, 327,"MFD Right" , "MFD Right Button 2")
+definePushButton("MFD_R_3", 25, 3003, 328,"MFD Right" , "MFD Right Button 3")
+definePushButton("MFD_R_4", 25, 3004, 329,"MFD Right" , "MFD Right Button 4")
+definePushButton("MFD_R_5", 25, 3005, 330,"MFD Right" , "MFD Right Button 5")
+definePushButton("MFD_R_6", 25, 3006, 331,"MFD Right" , "MFD Right Button 6")
+definePushButton("MFD_R_7", 25, 3007, 332,"MFD Right" , "MFD Right Button 7")
+definePushButton("MFD_R_8", 25, 3008, 333,"MFD Right" , "MFD Right Button 8")
+definePushButton("MFD_R_9", 25, 3009, 334,"MFD Right" , "MFD Right Button 9")
+definePushButton("MFD_R_10", 25, 3010, 335,"MFD Right" , "MFD Right Button 10")
+definePushButton("MFD_R_11", 25, 3011, 336,"MFD Right" , "MFD Right Button 11")
+definePushButton("MFD_R_12", 25, 3012, 337,"MFD Right" , "MFD Right Button 12")
+definePushButton("MFD_R_13", 25, 3013, 338,"MFD Right" , "MFD Right Button 13")
+definePushButton("MFD_R_14", 25, 3014, 339,"MFD Right" , "MFD Right Button 14")
+definePushButton("MFD_R_15", 25, 3015, 340,"MFD Right" , "MFD Right Button 15")
+definePushButton("MFD_R_16", 25, 3016, 341,"MFD Right" , "MFD Right Button 16")
+definePushButton("MFD_R_17", 25, 3017, 342,"MFD Right" , "MFD Right Button 17")
+definePushButton("MFD_R_18", 25, 3018, 343,"MFD Right" , "MFD Right Button 18")
+definePushButton("MFD_R_19", 25, 3019, 344,"MFD Right" , "MFD Right Button 19")
+definePushButton("MFD_R_20", 25, 3020, 345,"MFD Right" , "MFD Right Button 20")
+defineRockerSwitch("MFD_R_GAIN_SW", 24, 3021, 3021, 3022, 3022, 346, "MFD Right", "MFD Left Right Rocker Switch")
+defineRockerSwitch("MFD_R_SYM_SW", 24, 3023, 3023, 3024, 3024, 347, "MFD Right", "MFD Left Right Rocker Switch")
+defineRockerSwitch("MFD_R_CON_SW", 24, 3025, 3025, 3026, 3026, 348, "MFD Right", "MFD Left Right Rocker Switch")
+defineRockerSwitch("MFD_R_BRT_SW", 24, 3027, 3027, 3028, 3028, 349, "MFD Right", "MFD Left Right Rocker Switch")
+
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
