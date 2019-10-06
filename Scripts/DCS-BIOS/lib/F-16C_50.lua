@@ -355,6 +355,168 @@ defineRockerSwitch("CANOPY_SW", 10, 3003, 3003, 3002, 3002, 606, "Cockpit Mechan
 
 ------------------------------------------------------------------Warning, Caution and Indicator Lights-------------------------------------------------------------
 
+--Caution Light Panel
+defineIndicatorLight("LIGHT_FLCS_FAULT", 630, "Warning, Caution and IndicatorLights","FLCS FAULT Light (yellow)")
+defineIndicatorLight("LIGHT_ENGINE_FAULT", 631, "Warning, Caution and IndicatorLights","ENGINE FAULT Light (yellow)")
+defineIndicatorLight("LIGHT_AVIONICS_FAULT", 632, "Warning, Caution and IndicatorLights","AVIONICS FAULT Light (yellow)")
+defineIndicatorLight("LIGHT_SEAT_NOT", 633, "Warning, Caution and IndicatorLights","SEAT NOT ARMED Light (yellow)")
+defineIndicatorLight("LIGHT_ELEC_SYS", 634, "Warning, Caution and IndicatorLights","ELEC SYS Light (yellow)")
+defineIndicatorLight("LIGHT_SEC", 635, "Warning, Caution and IndicatorLights","SEC Light (yellow)")
+defineIndicatorLight("LIGHT_EQUIP_HOT", 636, "Warning, Caution and IndicatorLights","EQUIP HOT Light (yellow)")
+defineIndicatorLight("LIGHT_NWS_FAIL", 637, "Warning, Caution and IndicatorLights","NWS FAIL Light (yellow)")
+defineIndicatorLight("LIGHT_PROBE_HEAT", 638, "Warning, Caution and IndicatorLights","PROBE HEAT Light (yellow)")
+defineIndicatorLight("LIGHT_FUEL_OIL_HOT", 639, "Warning, Caution and IndicatorLights","FUEL OIL HOT Light (yellow)")
+defineIndicatorLight("LIGHT_RADAR_ALT", 640, "Warning, Caution and IndicatorLights","RADAR ALT Light (yellow)")
+defineIndicatorLight("LIGHT_ANTI_SKID", 641, "Warning, Caution and IndicatorLights","ANTI SKID Light (yellow)")
+defineIndicatorLight("LIGHT_CADC", 642, "Warning, Caution and IndicatorLights","CADC Light (yellow)")
+defineIndicatorLight("LIGHT_INLET_ICING", 643, "Warning, Caution and IndicatorLights","INLET ICING Light (yellow)")
+defineIndicatorLight("LIGHT_IFF", 644, "Warning, Caution and IndicatorLights","IFF Light (yellow)")
+defineIndicatorLight("LIGHT_HOOK", 645, "Warning, Caution and IndicatorLights","HOOK Light (yellow)")
+defineIndicatorLight("LIGHT_STORES_CONFIG", 646, "Warning, Caution and IndicatorLights","STORES CONFIG Light (yellow)")
+defineIndicatorLight("LIGHT_OVERHEAT", 647, "Warning, Caution and IndicatorLights","OVERHEAT Light (yellow)")
+defineIndicatorLight("LIGHT_NUCLEAR", 648, "Warning, Caution and IndicatorLights","NUCLEAR Light (yellow)")
+defineIndicatorLight("LIGHT_OBOGS", 649, "Warning, Caution and IndicatorLights","OBOGS Light (yellow)")
+defineIndicatorLight("LIGHT_ATF_NOT", 650, "Warning, Caution and IndicatorLights","ATF NOT ENGAGED Light (yellow)")
+defineIndicatorLight("LIGHT_EEC", 651, "Warning, Caution and IndicatorLights","EEC Light (yellow)")
+defineIndicatorLight("LIGHT_CAUTION_1", 652, "Warning, Caution and IndicatorLights","1. Caution - Light (yellow)")
+defineIndicatorLight("LIGHT_CABIN_PRESS", 653, "Warning, Caution and IndicatorLights","CABIN PRESS Light (yellow)")
+defineIndicatorLight("LIGHT_FWD_FUEL_LOW", 654, "Warning, Caution and IndicatorLights","FWD FUEL LOW Light (yellow)")
+defineIndicatorLight("LIGHT_BUC", 655, "Warning, Caution and IndicatorLights","BUC Light (yellow)")
+defineIndicatorLight("LIGHT_CAUTION_2", 656, "Warning, Caution and IndicatorLights","2. Caution - Light (yellow)")
+defineIndicatorLight("LIGHT_CAUTION_3", 657, "Warning, Caution and IndicatorLights","3. Caution - Light (yellow)")
+defineIndicatorLight("LIGHT_AFT_FUEL_LOW", 658, "Warning, Caution and IndicatorLights","AFT FUEL LOW Light (yellow)")
+defineIndicatorLight("LIGHT_CAUTION_4", 659, "Warning, Caution and IndicatorLights","4. Caution - Light (yellow)")
+defineIndicatorLight("LIGHT_CAUTION_5", 660, "Warning, Caution and IndicatorLights","5. Caution - Light (yellow)")
+defineIndicatorLight("LIGHT_CAUTION_6", 661, "Warning, Caution and IndicatorLights","6. Caution - Light  (yellow)")
+
+--Edge of glareshield
+defineIndicatorLight("LIGHT_MASTER_CAUTION", 117, "Warning, Caution and IndicatorLights","MASTER CAUTION Light (yellow)")
+defineIndicatorLight("LIGHT_EDGE", 119, "Warning, Caution and IndicatorLights","Edge - Light (red)")
+defineIndicatorLight("LIGHT_TF_FAIL", 121, "Warning, Caution and IndicatorLights","TF FAIL Light (red)")
+defineIndicatorLight("LIGHT_ENG_FIRE", 126, "Warning, Caution and IndicatorLights","ENG FIRE Light (red)")
+defineIndicatorLight("LIGHT_ENGINE", 127, "Warning, Caution and IndicatorLights","ENGINE Light (red)")
+defineIndicatorLight("LIGHT_HYD_OIL_PRESS", 129, "Warning, Caution and IndicatorLights","HYD_OIL_PRESS Light (red)")
+defineIndicatorLight("LIGHT_FLCS", 130, "Warning, Caution and IndicatorLights","FLCS Light (red)")
+defineIndicatorLight("LIGHT_DBU_ON", 131, "Warning, Caution and IndicatorLights","DBU ON Light (red)")
+defineIndicatorLight("LIGHT_TO_LDG_CONFIG", 133, "Warning, Caution and IndicatorLights","TO LDG CONFIG Light (red)")
+defineIndicatorLight("LIGHT_CANOPY", 134, "Warning, Caution and IndicatorLights","CANOPY Light (red)")
+defineIndicatorLight("LIGHT_OXY_LOW", 135, "Warning, Caution and IndicatorLights","OXY LOW Light (red)")
+
+--AOA Indexer
+defineIndicatorLight("LIGHT_AOA_UP", 110, "Warning, Caution and IndicatorLights","AoA Light up (red)")
+defineIndicatorLight("LIGHT_AOA_MID", 111, "Warning, Caution and IndicatorLights","AoA Light mid (green)")
+defineIndicatorLight("LIGHT_AOA_DN", 112, "Warning, Caution and IndicatorLights","AoA Light down (yellow)")
+
+--LG Control Panel
+defineIndicatorLight("LIGHT_GEAR_N", 350, "Warning, Caution and IndicatorLights","Nose Gear Light (green)")
+defineIndicatorLight("LIGHT_GEAR_L", 351, "Warning, Caution and IndicatorLights","Left Gear Light (green)")
+defineIndicatorLight("LIGHT_GEAR_R", 352, "Warning, Caution and IndicatorLights","Right Gear Light (green)")
+defineIndicatorLight("LIGHT_GEAR_WARN", 369, "Warning, Caution and IndicatorLights","Gear Warning Light (red)")
+
+--AR Status/NWS Indicator
+defineIndicatorLight("LIGHT_RDY", 113, "Warning, Caution and IndicatorLights","RDY Light (blue)")
+defineIndicatorLight("LIGHT_AR_NWS", 114, "Warning, Caution and IndicatorLights","AR NWS Light (green)")
+defineIndicatorLight("LIGHT_DISC", 115, "Warning, Caution and IndicatorLights","DISC Light (red)")
+
+--Eng Control Panel
+defineIndicatorLight("LIGHT_JFS_RUN", 446, "Warning, Caution and IndicatorLights","JFS RUN Light (green)")
+
+--EPU Control Panel
+defineIndicatorLight("LIGHT_HYDRAZN", 524, "Warning, Caution and IndicatorLights","HYDRAZN Light (yellow)")
+defineIndicatorLight("LIGHT_AIR", 523, "Warning, Caution and IndicatorLights","AIR Light (yellow)")
+defineIndicatorLight("LIGHT_EPU", 526, "Warning, Caution and IndicatorLights","EPU Light (green)")
+
+--Elec Control Panel
+defineIndicatorLight("LIGHT_FLCS_PMG", 513, "Warning, Caution and IndicatorLights","FLCS PMG Light (yellow)")
+defineIndicatorLight("LIGHT_MAIN_GEN", 512, "Warning, Caution and IndicatorLights","MAIN GEN Light (yellow)")
+defineIndicatorLight("LIGHT_STBY_GEN", 515, "Warning, Caution and IndicatorLights","STBY GEN Light (yellow)")
+defineIndicatorLight("LIGHT_ELEC", 514, "Warning, Caution and IndicatorLights","Elec - Light (red)")
+defineIndicatorLight("LIGHT_EPU_GEN", 517, "Warning, Caution and IndicatorLights","EPU GEN Light (yellow)")
+defineIndicatorLight("LIGHT_EPU_PMG", 516, "Warning, Caution and IndicatorLights","EPU PMG Light (yellow)")
+defineIndicatorLight("LIGHT_TO_FLCS", 519, "Warning, Caution and IndicatorLights","TO FLCS Light (yellow)")
+defineIndicatorLight("LIGHT_FLCS_RLY", 518, "Warning, Caution and IndicatorLights","FLCS RLY Light (yellow)")
+defineIndicatorLight("LIGHT_ACFT_BATT_FAIL", 521, "Warning, Caution and IndicatorLights","ACFT BATT FAIL Light (yellow)")
+
+--Advance Mode Switch
+defineIndicatorLight("LIGHT_ACTIVE", 106, "Warning, Caution and IndicatorLights","ACTIVE Light (green)")
+defineIndicatorLight("LIGHT_STBY", 107, "Warning, Caution and IndicatorLights","STBY Light (yellow)")
+
+--FLCP
+defineIndicatorLight("LIGHT_FL_RUN", 570, "Warning, Caution and IndicatorLights","FL RUN Light (green)")
+defineIndicatorLight("LIGHT_FL_FAIL", 571, "Warning, Caution and IndicatorLights","FL FAIL Light (red)")
+
+--Test Switch Panel
+defineIndicatorLight("LIGHT_FLCS_PWR_A", 581, "Warning, Caution and IndicatorLights","FLCS PWR A Light (green)")
+defineIndicatorLight("LIGHT_FLCS_PWR_B", 582, "Warning, Caution and IndicatorLights","FLCS PWR B Light (green)")
+defineIndicatorLight("LIGHT_FLCS_PWR_C", 583, "Warning, Caution and IndicatorLights","FLCS PWR C Light (green)")
+defineIndicatorLight("LIGHT_FLCS_PWR_D", 584, "Warning, Caution and IndicatorLights","FLCS PWR D Light (green)")
+
+--RWR button lights
+defineIndicatorLight("LIGHT_RWR_SEARCH", 396, "Warning, Caution and IndicatorLights","RWR SEARCH Light (green)")
+defineIndicatorLight("LIGHT_RWR_ACTIVITY", 398, "Warning, Caution and IndicatorLights","RWR ACTIVITY Light (yellow)")
+defineIndicatorLight("LIGHT_RWR_ACT_POWER", 423, "Warning, Caution and IndicatorLights","RWR ACT POWER Light (green)")
+defineIndicatorLight("LIGHT_RWR_ALT_LOW", 400, "Warning, Caution and IndicatorLights","RWR ALT LOW Light (yellow)")
+defineIndicatorLight("LIGHT_RWR_ALT", 424, "Warning, Caution and IndicatorLights","RWR ALT Light (green)")
+defineIndicatorLight("LIGHT_RWR_POWER", 402, "Warning, Caution and IndicatorLights","RWR POWER Light (green)")
+defineIndicatorLight("LIGHT_RWR_HANDOFF_UP", 142, "Warning, Caution and IndicatorLights","RWR HANDOFF UP Light (green)")
+defineIndicatorLight("LIGHT_RWR_HANDOFF_H", 136, "Warning, Caution and IndicatorLights","RWR HANDOFF H Light (green)")
+defineIndicatorLight("LIGHT_RWR_MSL_LAUNCH", 144, "Warning, Caution and IndicatorLights","RWR MSL_LAUNCH Light (red)")
+defineIndicatorLight("LIGHT_RWR_MODE_PRI", 146, "Warning, Caution and IndicatorLights","RWR MODE PRI Light (green)")
+defineIndicatorLight("LIGHT_RWR_MODE_OPEN", 137, "Warning, Caution and IndicatorLights","RWR MODE OPEN Light (green)")
+defineIndicatorLight("LIGHT_RWR_SHIP_UNK", 148, "Warning, Caution and IndicatorLights","RWR SHIP UNKNOWN Light (green)")
+defineIndicatorLight("LIGHT_RWR_SYSTEST", 150, "Warning, Caution and IndicatorLights","RWR SYSTEST Light (green)")
+defineIndicatorLight("LIGHT_RWR_TGTSEP_UP", 152, "Warning, Caution and IndicatorLights","RWR TGTSEP UP Light (green)")
+defineIndicatorLight("LIGHT_RWR_TGTSEP_DN", 138, "Warning, Caution and IndicatorLights","RWR TGTSEP DOWN Light (green)")
+
+--CMDS lights
+defineIndicatorLight("LIGHT_CMDS_NO_GO", 370, "Warning, Caution and IndicatorLights","CMDS NO GO Light (green)")
+defineIndicatorLight("LIGHT_CMDS_GO", 372, "Warning, Caution and IndicatorLights","CMDS GO Light (green)")
+defineIndicatorLight("LIGHT_CMDS_DISP", 376, "Warning, Caution and IndicatorLights","CMDS DISP Light (green)")
+defineIndicatorLight("LIGHT_CMDS_RDY", 379, "Warning, Caution and IndicatorLights","CMDS RDY Light (green)")
+
+--Interior lighting
+defineIndicatorLight("LIGHT_CONSLES", 788, "Warning, Caution and IndicatorLights","Consoles Lightning (green)")
+defineIndicatorLight("LIGHT_INST_PNL", 787, "Warning, Caution and IndicatorLights","Instrumen Panel Lightning (green)")
+defineIndicatorLight("LIGHT_CONSLES_FLOOD", 790, "Warning, Caution and IndicatorLights","Consoles Flood Lightning (green)")
+defineIndicatorLight("LIGHT_INST_PNL_FLOOD", 791, "Warning, Caution and IndicatorLights","Instrumen Panel Flood Lightning (green)")
+
+--ECM
+defineIndicatorLight("LIGHT_ECM_1_S", 461, "Warning, Caution and IndicatorLights","ECM Button 1 S Light (yellow)")
+defineIndicatorLight("LIGHT_ECM_1_A", 462, "Warning, Caution and IndicatorLights","ECM Button 1 A Light (green)")
+defineIndicatorLight("LIGHT_ECM_1_F", 463, "Warning, Caution and IndicatorLights","ECM Button 1 F Light (red)")
+defineIndicatorLight("LIGHT_ECM_1_T", 464, "Warning, Caution and IndicatorLights","ECM Button 1 T Light (blue)")
+defineIndicatorLight("LIGHT_ECM_2_S", 466, "Warning, Caution and IndicatorLights","ECM Button 2 S Light (yellow)")
+defineIndicatorLight("LIGHT_ECM_2_A", 467, "Warning, Caution and IndicatorLights","ECM Button 2 A Light (green)")
+defineIndicatorLight("LIGHT_ECM_2_F", 468, "Warning, Caution and IndicatorLights","ECM Button 2 F Light (red)")
+defineIndicatorLight("LIGHT_ECM_2_T", 469, "Warning, Caution and IndicatorLights","ECM Button 2 T Light (blue)")
+defineIndicatorLight("LIGHT_ECM_3_S", 471, "Warning, Caution and IndicatorLights","ECM Button 3 S Light (yellow)")
+defineIndicatorLight("LIGHT_ECM_3_A", 472, "Warning, Caution and IndicatorLights","ECM Button 3 A Light (green)")
+defineIndicatorLight("LIGHT_ECM_3_F", 473, "Warning, Caution and IndicatorLights","ECM Button 3 F Light (red)")
+defineIndicatorLight("LIGHT_ECM_3_T", 474, "Warning, Caution and IndicatorLights","ECM Button 3 T Light (blue)")
+defineIndicatorLight("LIGHT_ECM_4_S", 476, "Warning, Caution and IndicatorLights","ECM Button 4 S Light (yellow)")
+defineIndicatorLight("LIGHT_ECM_4_A", 477, "Warning, Caution and IndicatorLights","ECM Button 4 A Light (green)")
+defineIndicatorLight("LIGHT_ECM_4_F", 478, "Warning, Caution and IndicatorLights","ECM Button 4 F Light (red)")
+defineIndicatorLight("LIGHT_ECM_4_T", 479, "Warning, Caution and IndicatorLights","ECM Button 4 T Light (blue)")
+defineIndicatorLight("LIGHT_ECM_5_S", 481, "Warning, Caution and IndicatorLights","ECM Button 5 S Light (yellow)")
+defineIndicatorLight("LIGHT_ECM_5_A", 482, "Warning, Caution and IndicatorLights","ECM Button 5 A Light (green)")
+defineIndicatorLight("LIGHT_ECM_5_F", 483, "Warning, Caution and IndicatorLights","ECM Button 5 F Light (red)")
+defineIndicatorLight("LIGHT_ECM_5_T", 484, "Warning, Caution and IndicatorLights","ECM Button 5 T Light (blue)")
+defineIndicatorLight("LIGHT_ECM_S", 486, "Warning, Caution and IndicatorLights","ECM Button S Light (yellow)")
+defineIndicatorLight("LIGHT_ECM_A", 487, "Warning, Caution and IndicatorLights","ECM Button A Light (green)")
+defineIndicatorLight("LIGHT_ECM_F", 488, "Warning, Caution and IndicatorLights","ECM Button F Light (red)")
+defineIndicatorLight("LIGHT_ECM_T", 489, "Warning, Caution and IndicatorLights","ECM Button T Light (blue)")
+defineIndicatorLight("LIGHT_ECM_FRM_S", 491, "Warning, Caution and IndicatorLights","ECM Button FRM S Light (yellow)")
+defineIndicatorLight("LIGHT_ECM_FRM_A", 492, "Warning, Caution and IndicatorLights","ECM Button FRM A Light (green)")
+defineIndicatorLight("LIGHT_ECM_FRM_F", 493, "Warning, Caution and IndicatorLights","ECM Button FRM F Light (red)")
+defineIndicatorLight("LIGHT_ECM_FRM_T", 494, "Warning, Caution and IndicatorLights","ECM Button FRM T Light (blue)")
+defineIndicatorLight("LIGHT_ECM_SPL_S", 496, "Warning, Caution and IndicatorLights","ECM Button SPL S Light (yellow)")
+defineIndicatorLight("LIGHT_ECM_SPL_A", 497, "Warning, Caution and IndicatorLights","ECM Button SPL A Light (green)")
+defineIndicatorLight("LIGHT_ECM_SPL_F", 498, "Warning, Caution and IndicatorLights","ECM Button SPL F Light (red)")
+defineIndicatorLight("LIGHT_ECM_SPL_T", 499, "Warning, Caution and IndicatorLights","ECM Button SPL T Light (blue)")
+
+--Div
+defineIndicatorLight("LIGHT_MARKER_BEACON", 157, "Warning, Caution and IndicatorLights","MARKER BEACON Light (green)")
+
 ------------------------------------------------------------------Gauges--------------------------------------------------------------------------------------------
 defineFloat("CANOPY_VALUE", 15, {-1.0, 1.0}, "Cockpit Mechanics", "Canopy Value")
 --AOA				
