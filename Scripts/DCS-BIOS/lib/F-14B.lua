@@ -665,9 +665,9 @@ definePushButton("PLT_SIDEWINDER_COOL", 55, 3139, 16001, "Weapons Panel", "PILOT
 definePushButton("PLT_MISSLE_PREP", 55, 3140, 16002, "Weapons Panel", "PILOT Missile Prepare")
 definePushButton("PLT_MISSLE_MODE", 55, 3141, 16003, "Weapons Panel", "PILOT Missile Mode")
 definePushButton("PLT_EMERG_STORE_JETT", 55, 3142, 239, "Weapons Panel", "PILOT Emergency Stores Jettison")
-definePotentiometer("PLT_CLOCK_WIND", 26, 3042, 1051, {0.0, 1.0}, "Weapons Panel", "PILOT Clock Wind")
+defineRotary("PLT_CLOCK_WIND", 26, 3042, 1051, "Weapons Panel", "PILOT Clock Wind")
 definePushButton("PLT_CLOCK_TIMER", 26, 3043, 1000, "Weapons Panel", "PILOT Clock Timer Start/Stop/Reset")
-definePotentiometer("RIO_CLOCK_WIND", 26, 3697, 1052, {0.0, 1.0}, "Weapons Panel", "RIO Clock Wind")
+defineRotary("RIO_CLOCK_WIND", 26, 3697, 1052, "Weapons Panel", "RIO Clock Wind")
 definePushButton("RIO_CLOCK_TIMER", 26, 3698, 1053, "Weapons Panel", "RIO Clock Timer Start/Stop/Reset")
 
 -- RIO TID
