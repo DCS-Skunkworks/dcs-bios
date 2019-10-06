@@ -195,13 +195,78 @@ definePotentiometer("THREAT_KNB", 39, 3008, 437, nil, "Audio Panel", "THREAT Ton
 definePotentiometer("INTERCOM_KNB", 39, 3011, 440, nil, "Audio Panel", "INTERCOM Knob")
 definePotentiometer("TACAN_KNB", 39, 3010, 441, nil, "Audio Panel", "TACAN Knob")
 definePotentiometer("ILS_PWR_KNB", 39, 3009, 442, nil, "Audio Panel", "ILS Power Knob")
+define3PosTumb("HOT_MIC_SW", 39, 3012, 443, "Audio Panel", "HOT MIC CIPHER Switch, HOT MIC / OFF / CIPHER")
+defineToggleSwitch("VMS_INHIBIT_SW", 39, 3015, 696, "Audio Panel", "Voice Message Inhibit Switch, VOICE MESSAGE/INHIBIT")
+define3PosTumb("IFF_ANT_SEL_SW", 39, 3013, 711, "Audio Panel", "IFF ANT SEL Switch, LOWER/NORM/UPPER")
+define3PosTumb("UHF_ANT_SEL_SW", 39, 3014, 712, "Audio Panel", "UHF ANT SEL Switch, LOWER/NORM/UPPER")
 
 --UHF Backup Control Panel
+defineMultipositionSwitch("UHF_CHAN_KNB", 37, 3001, 410, 20, 0.05,"UHF" ,"UHF CHAN Knob")
+defineMultipositionSwitch("UHF_FREQ_100_KNB", 37, 3002, 411, 3, 0.1,"UHF" ,"UHF Manual Frequency Knob 100 MHz")
+defineMultipositionSwitch("UHF_FREQ_10_KNB", 37, 3003, 412, 10, 0.1,"UHF" ,"UHF Manual Frequency Knob 10 MHz")
+defineMultipositionSwitch("UHF_FREQ_1_KNB", 37, 3004, 413, 10, 0.1,"UHF" ,"UHF Manual Frequency Knob 1 MHz")
+defineMultipositionSwitch("UHF_FREQ_01_KNB", 37, 3005, 414, 10, 0.1,"UHF" ,"UHF Manual Frequency Knob 0.1 MHz")
+defineMultipositionSwitch("UHF_FREQ_0025_KNB", 37, 3006, 415, 4, 0.25,"UHF" ,"UHF Manual Frequency Knob 0.025 MHz")
+defineMultipositionSwitch("UHF_FUNC_KNB", 37, 3008, 417, 4, 0.1,"UHF" ,"UHF Function Knob")
+defineMultipositionSwitch("UHF_MODE_KNB", 37, 3007, 416, 3, 0.1,"UHF" ,"UHF Mode Knob")
+definePushButton("UHF_TONE_BTN", 37, 3009, 418, "UHF", "UHF Tone Button")
+defineToggleSwitch("UHF_SQUELCH_SW", 37, 3010, 419, "UHF", "UHF SQUELCH Switch")
+definePotentiometer("UHF_VOL_KNB", 37, 3011, 420, nil, "UHF", "UHF VOL Knob")
+definePushButton("UHF_TEST_BTN", 37, 3012, 421, "UHF", "UHF TEST DISPLAY Button")
+definePushButton("UHF_STATUS_BTN", 37, 3013, 422, "UHF", "UHF STATUS Button")
+defineToggleSwitch("UHF_DOOR", 37, 3014, 734, "UHF", "UHF Access Door, OPEN/CLOSE")
+
 --IFF Control Panel
+defineToggleSwitch("IFF_C_I_KNB", 35, 3001, 542,"IFF" ,"IFF C & I Knob, UFC/BACKUP")
+defineMultipositionSwitch("IFF_MASTER_KNB", 35, 3002, 540, 5, 0.1,"IFF" ,"IFF MASTER Knob, OFF/STBY/LOW/NORM/EMER")
+define3PosTumb("IFF_M4_CODE_SW", 35, 3003, 541, "IFF", "IFF M-4 CODE Switch, HOLD/ A/B /ZERO")
+define3PosTumb("IFF_M4_REPLY_SW", 35, 3004, 543, "IFF", "IFF MODE 4 REPLY Switch, OUT/A/B")
+defineToggleSwitch("IFF_M4_MONITOR_SW", 35, 3005, 544,"IFF" ,"IFF MODE 4 MONITOR Switch, OUT/AUDIO")
+define3PosTumb("IFF_ENABLE_SW", 35, 3006, 553, "IFF", "IFF ENABLE Switch, M1/M3 /OFF/ M3/MS")
+defineRockerSwitch("IFF_M1_SEL_1", 35, 3007, 3007, 3008, 3008, 545, "IFF", "IFF MODE 1 Selector Lever, DIGIT 1")
+defineRockerSwitch("IFF_M1_SEL_2", 35, 3009, 3009, 3010, 3010, 547, "IFF", "IFF MODE 1 Selector Lever, DIGIT 2")
+defineRockerSwitch("IFF_M3_SEL_1", 35, 3011, 3011, 3012, 3012, 549, "IFF", "IFF MODE 3 Selector Lever, DIGIT 1")
+defineRockerSwitch("IFF_M3_SEL_2", 35, 3013, 3013, 3014, 3014, 551, "IFF", "IFF MODE 3 Selector Lever, DIGIT 2")
+
 --KY-58
+defineMultipositionSwitch("KY58_MODE_KNB", 42, 3001, 705, 4, 0.1,"KY-58" ,"KY-58 MODE Knob, P/C/LD/RV")
+definePotentiometer("KY58_VOL_KNB", 42, 3005, 708, nil, "KY-58", "KY-58 VOLUME Knob")
+defineMultipositionSwitch("KY58_FILL_KNB", 42, 3002, 706, 8, 0.1,"KY-58" ,"KY-58 FILL Knob, Z 1-5/1/2/3/4/5/6/Z ALL")
+
+defineMultipositionSwitch("KY58_PWR_KNB", 42, 3004, 707, 3, 0.5,"KY-58" ,"KY-58 Power Knob, OFF/ON/TD")
+define3PosTumb("PLAIN_CIPHER_SW", 39, 3016, 701, "KY-58", "PLAIN Cipher Switch, CRAD 1/PLAIN/CRAD 2")
+defineToggleSwitch("ZEROIZE_SW_COVER", 39, 3017, 694,"KY-58" ,"ZEROIZE Switch Cover, OPEN/CLOSE")
+define3PosTumb("ZEROIZE_SW", 39, 3018, 695, "KY-58", "ZEROIZE Switch, OFP/OFF/DATA")
+
 --HMCS
+definePotentiometer("HMCS_INT_KNB", 30, 3001, 392, nil, "HMCS", "HMCS SYMBOLOGY INT Knob")
+
 --RWR
+definePotentiometer("RWR_INTENS_KNB", 33, 3001, 140, nil, "RWR", "RWR Intensity Knob - Rotate to adjust brightness")
+definePushButton("RWR_HANDOFF_BTN", 33, 3002, 141, "RWR", "RWR Indicator Control HANDOFF Button")
+definePushButton("RWR_LAUNCH_BTN", 33, 3003, 143, "RWR", "RWR Indicator Control LAUNCH Button")
+definePushButton("RWR_MODE_BTN", 33, 3004, 145, "RWR", "RWR Indicator Control MODE Button")
+definePushButton("RWR_UNKNOWN_SHIP_BTN", 33, 3005, 147, "RWR", "RWR Indicator Control UNKNOWN SHIP Button")
+definePushButton("RWR_SYS_TEST_BTN", 33, 3006, 149, "RWR", "RWR Indicator Control SYS TEST Button")
+definePushButton("RWR_T_BTN", 33, 3007, 151, "RWR", "RWR Indicator Control T Button")
+definePotentiometer("RWR_IND_DIM_KNB", 33, 3008, 404, nil, "RWR", "RWR Indicator Control DIM Knob - Rotate to adjust brightness")
+definePushButton("RWR_SEARCH_BTN", 33, 3009, 395, "RWR", "RWR Indicator Control SEARCH Button")
+definePushButton("RWR_ACT_PWR_BTN", 33, 3010, 397, "RWR", "RWR Indicator Control ACT/PWR Button")
+definePushButton("RWR_ALT_BTN", 33, 3012, 399, "RWR", "RWR Indicator Control ALTITUDE Button")
+defineToggleSwitch("RWR_PWR_BTN", 33, 3011, 401, "RWR", "RWR Indicator Control POWER Button")
+
 --CMDS
+definePushButton("CMDS_DISPENSE_BTN", 32, 3011, 604, "CMDS", "CHAFF/FLARE Dispense Button - Push to dispense")
+defineToggleSwitch("CMDS_PWR_SOURCHE_SW", 32, 3001, 375, "CMDS", "CMDS RWR Source Switch, ON/OFF")
+defineToggleSwitch("CMDS_JMR_SOURCHE_SW", 32, 3002, 374, "CMDS", "CMDS JMR Source Switch, ON/OFF")
+defineToggleSwitch("CMDS_MWS_SOURCHE_SW", 32, 3003, 373, "CMDS", "CMDS MWS Source Switch, ON/OFF")
+defineToggleSwitch("CMDS_JETT_SW", 32, 3004, 371, "CMDS", "Jettison Switch, JETT/OFF")
+defineToggleSwitch("CMDS_01_EXP_CAT_SW", 32, 3005, 365, "CMDS", "CMDS O1 Expendable Category Switch, ON/OFF")
+defineToggleSwitch("CMDS_02_EXP_CAT_SW", 32, 3006, 366, "CMDS", "CMDS O2 Expendable Category Switch, ON/OFF")
+defineToggleSwitch("CMDS_CH_EXP_CAT_SW", 32, 3007, 367, "CMDS", "CMDS CH Expendable Category Switch, ON/OFF")
+defineToggleSwitch("CMDS_FL_EXP_CAT_SW", 32, 3008, 368, "CMDS", "CMDS FL Expendable Category Switch, ON/OFF")
+defineMultipositionSwitch("CMDS_PROG_KNB", 32, 3009, 377, 5, 0.1,"CMDS" ,"CMDS PROGRAM Knob, BIT/1/2/3/4")
+defineMultipositionSwitch("CMDS_MODE_KNB", 32, 3010, 378, 6, 0.1,"CMDS" ,"CMDS MODE Knob, OFF/STBY/MAN/SEMI/AUTO/BYP")
 
 --MFD Left
 definePushButton("MFD_L_1", 24, 3001, 300,"MFD Left" , "MFD Left Button 1")
@@ -256,18 +321,42 @@ defineRockerSwitch("MFD_R_CON_SW", 24, 3025, 3025, 3026, 3026, 348, "MFD Right",
 defineRockerSwitch("MFD_R_BRT_SW", 24, 3027, 3027, 3028, 3028, 349, "MFD Right", "MFD Left Right Rocker Switch")
 
 --Airspeed/Mach Indicator
+defineRotary("AIRSPEED_SET_KNB", 46, 3001, 71, "Airspeed Indicator", "SET INDEX Knob")
+
 --Altimeter
+defineRotary("ALT_BARO_SET_KNB", 45, 3003, 62, "Altimeter", "Altimeter Barometric Setting Knob")
+defineRockerSwitch("ALT_MODE_LV", 45, 3002, 3002, 3001, 3001, 60, "Altimeter", "Altimeter Mode Lever, ELEC/OFF/PNEU")
+
 --SAI
+definePushButton("SAI_CAGE", 47, 3002, 67, "SAI", "SAI Cage Knob, (LMB) Pull to cage")
+defineRotary("SAI_PITCH_TRIM", 47, 3003, 66, "SAI", "SAI Cage Knob, (MW) Adjust aircraft reference symbol")
 
 --ADI
 defineRotary("ADI_PITCH_TRIM", 50, 3001, 22, "ADI", "ADI Pitch Trim Knob")
 
 --EHSI
+definePushButton("EHSI_CRS_SET", 28, 3005, 43,"EHSI" , "EHSI CRS Set")
+definePotentiometer("EHSI_BRT_KNOB", 28, 3004, 44, nil, "EHSI", "EHSI Brightness Control Knob - Rotate to adjust brightness")
+definePushButton("EHSI_HDG_SET_BTN", 28, 3003, 42,"EHSI" , "EHSI HDG Set Button")
+defineRotary("EHSI_HDG_SET_KNB", 28, 3002, 45, "EHSI", "EHSI HDG Set Knob")
+definePushButton("EHSI_MODE", 28, 3001, 46,"EHSI" , "EHSI Mode (M) Button")
+
 --Clock
+defineRotary("CLOCK_WIND", 51, 3002, 625, "Clock", "Clock Wind")
+definePushButton("CLOCK_SET", 51, 3001, 626, "Clock", "Clock Setting Knob")
+definePushButton("CLOCK_ELAPSED", 51, 3003, 628, "Clock", "Clock Elapsed Time Knob")
+
 --Cockpit Mechanics
+defineToggleSwitch("CANOPY_HANDLE", 10, 3004, 600,"Cockpit Mechanics" ,"Canopy Handle, UP/DOWN")
+defineRockerSwitch("SEAT_ADJ", 10, 3014, 3014, 3013, 3013, 786, "Cockpit Mechanics", "SEAT ADJ Switch, UP/OFF/DOWN")
+defineToggleSwitch("CANOPY_JETT_THANDLE", 10, 3005, 601,"Cockpit Mechanics" ,"CANOPY JETTISON T-Handle, PULL/STOW")
+defineToggleSwitch("SEAT_EJECT_SAFE", 10, 3009, 785,"Cockpit Mechanics" ,"Ejection Safety Lever, ARMED/LOCKED")
+defineRockerSwitch("CANOPY_SW", 10, 3003, 3003, 3002, 3002, 606, "Cockpit Mechanics", "Canopy Switch, OPEN/HOLD/CLOSE")--WIP
+
 ------------------------------------------------------------------Warning, Caution and Indicator Lights-------------------------------------------------------------
+
 ------------------------------------------------------------------Gauges--------------------------------------------------------------------------------------------
-defineFloat("CANOPY_VALUE", 15, {-1.0, 1.0}, "Cockpit", "Canopy Value")
+defineFloat("CANOPY_VALUE", 15, {-1.0, 1.0}, "Cockpit Mechanics", "Canopy Value")
 --AOA				
 defineFloat("AOA_VALUE", 15, {-1.0, -0.807, 0.0, 1.0}, "AoA", "AoA Value")
 
@@ -379,14 +468,12 @@ end, 65535, "External Aircraft Model", "Left Speed Brake")
 	-- return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
 -- end, 65535, "External Aircraft Model", "Formation Lights")
 
-
 -- defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
 	-- if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
 -- end, 1, "External Aircraft Model", "Left Position Light (red)")
 -- defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
 	-- if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
 -- end, 1, "External Aircraft Model", "Right Position Light (green)")
-
 
 -- defineIntegerFromGetter("EXT_STROBE_TAIL", function()
 	-- if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
