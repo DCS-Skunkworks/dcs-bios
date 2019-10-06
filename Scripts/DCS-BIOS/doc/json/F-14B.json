@@ -19537,15 +19537,12 @@
                                                                                    "physical_variant": "push_button"
                                                                             },
                                                           "PLT_CLOCK_WIND": {
+                                                                                 "api_variant": "multiturn",
                                                                                     "category": "Weapons Panel",
-                                                                                "control_type": "limited_dial",
+                                                                                "control_type": "analog_dial",
                                                                                  "description": "PILOT Clock Wind",
                                                                                   "identifier": "PLT_CLOCK_WIND",
                                                                                       "inputs": [ {
-                                                                                                    "description": "set the position of the dial",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 65535
-                                                                                                }, {
                                                                                                        "description": "turn the dial left or right",
                                                                                                          "interface": "variable_step",
                                                                                                          "max_value": 65535,
@@ -19553,11 +19550,11 @@
                                                                                                 } ],
                                                                                      "outputs": [ {
                                                                                                         "address": 4766,
-                                                                                                    "description": "position of the potentiometer",
+                                                                                                    "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
                                                                                                        "shift_by": 0,
-                                                                                                         "suffix": "",
+                                                                                                         "suffix": "_KNOB_POS",
                                                                                                            "type": "integer"
                                                                                                 } ]
                                                                             },
@@ -19826,15 +19823,12 @@
                                                                                    "physical_variant": "push_button"
                                                                             },
                                                           "RIO_CLOCK_WIND": {
+                                                                                 "api_variant": "multiturn",
                                                                                     "category": "Weapons Panel",
-                                                                                "control_type": "limited_dial",
+                                                                                "control_type": "analog_dial",
                                                                                  "description": "RIO Clock Wind",
                                                                                   "identifier": "RIO_CLOCK_WIND",
                                                                                       "inputs": [ {
-                                                                                                    "description": "set the position of the dial",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 65535
-                                                                                                }, {
                                                                                                        "description": "turn the dial left or right",
                                                                                                          "interface": "variable_step",
                                                                                                          "max_value": 65535,
@@ -19842,11 +19836,11 @@
                                                                                                 } ],
                                                                                      "outputs": [ {
                                                                                                         "address": 4768,
-                                                                                                    "description": "position of the potentiometer",
+                                                                                                    "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
                                                                                                        "shift_by": 0,
-                                                                                                         "suffix": "",
+                                                                                                         "suffix": "_KNOB_POS",
                                                                                                            "type": "integer"
                                                                                                 } ]
                                                                             }
