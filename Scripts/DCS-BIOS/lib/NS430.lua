@@ -1,9 +1,11 @@
 BIOS.protocol.beginModule("NS430", 0x8000)
-BIOS.protocol.setExportModuleAircrafts({"AJS37", "AV8BNA", "C-101CC", "C-101EB", "Mi-8MT", "L-39ZA", "L-39C", "UH-1H", "P-51D", "P-51D-30-NA", "TF-51D", "MiG-21Bis", "MiG-19P", "F-86F Sabre", "F-5E-3", "Hawk", "M-2000C", "MiG-15bis", "Bf-109K-4", "F-14B", "Christen Eagle II", "FW-190A8", "FW-190D9", "I-16", "SpitfireLFMkIX", "SpitfireLFMkIXCW", "Yak-52", "Ka-50", "SA342L", "SA342M", "SA342Minigun", "SA342Mistral", "A-4E-C", "Bell47_2", "MB-339PAN", "A-10A", "F-15C", "F-16A", "J-11A", "MiG-29A", "MiG-29G", "MiG-29S", "Su-25", "Su-25T", "Su-27", "Su-33", "AC_130", "Cessna_210N", "DC3", "F-2A", "F-2B",
-"F4e", "FA_18D", "Mig-23UB", "MirageF1", "MirageF1CT", "REISEN52", "RST_Eurofighter", "RST_Eurofighter_AG", "Su-30M", "Su-30MK", "Su-30SM", "Su-57", "T-4", "VSN_AJS37Viggen", "VSN_C17A", "VSN_C5_Galaxy", "VSN_E2D",
-"VSN_Eurofighter", "VSN_Eurofighter_", "VSN_F104G", "VSN_F104G_AG", "VSN_F14A", "VSN_F14B", "VSN_F15E", "VSN_F15E_AA", "VSN_F16A", "VSN_F16AMLU", "VSN_F16CBL50", "VSN_F16CBL52D",
-"VSN_F22", "VSN_F35B", "VSN_F35B_AG", "VSN_F4E", "VSN_F4E_AG", "VSN_F5E", "VSN_F5N", "VSN_FA18C", "VSN_FA18C_AG", "VSN_FA18C_Lot20", "VSN_FA18F", "VSN_FA18F_AG", "VSN_Harrier",
-"VSN_M2000", "VSN_P3C", "VSN_TornadoGR4", "VSN_TornadoIDS", "VSN_Su47", "VSN_UFO"})
+BIOS.protocol.setExportModuleAircrafts({"A-10C", "AJS37", "AV8BNA", "Bf-109K-4", "C-101CC", "C-101EB", "Christen Eagle II", "F-14B", "F-16C_50", "F-5E-3", "F-86F Sabre", "FA-18C_hornet", "FW-190A8", "FW-190D9", 
+"Hawk", "I-16", "Ka-50", "L-39C", "L-39ZA", "M-2000C", "Mi-8MT", "MiG-15bis", "MiG-19P", "MiG-21Bis", "NS430", "P-51D", "P-51D-30-NA", "SA342L", "SA342M", "SA342Minigun", "SA342Mistral", "SpitfireLFMkIX", 
+"SpitfireLFMkIXCW", "TF-51D", "UH-1H", "Yak-52", "A-10A", "F-15C", "F-16A", "J-11A", "MiG-29A", "MiG-29G", "MiG-29S", "Su-25", "Su-25T", "Su-27", "Su-33", "A-4E-C", "AC_130", "Bell47_2", "Cessna_210N", "DC3", 
+"F-2A", "F-2B", "F4e", "FA_18D", "MB-339PAN", "Mig-23UB", "MirageF1", "MirageF1CT", "REISEN52", "RST_Eurofighter", "RST_Eurofighter_AG", "Su-30M", "Su-30MK", "Su-30SM", "Su-57", "Super_Etendard", "T-4", 
+"VSN_AJS37Viggen", "VSN_C17A", "VSN_C5_Galaxy", "VSN_E2D", "VSN_Eurofighter", "VSN_Eurofighter_", "VSN_F104G", "VSN_F104G_AG", "VSN_F14A", "VSN_F14B", "VSN_F15E", "VSN_F15E_AA", "VSN_F16A", "VSN_F16AMLU", 
+"VSN_F16CBL50", "VSN_F16CBL52D", "VSN_F16CMBL50", "VSN_F22", "VSN_F35B", "VSN_F35B_AG", "VSN_F4E", "VSN_F4E_AG", "VSN_F5E", "VSN_F5N", "VSN_FA18C", "VSN_FA18C_AG", "VSN_FA18C_Lot20", "VSN_FA18F", "VSN_FA18F_AG", 
+"VSN_Harrier", "VSN_M2000", "VSN_P3C", "VSN_TornadoGR4", "VSN_TornadoIDS", "VSN_Su47", "VSN_UFO"})
 
 
 local documentation = moduleBeingDefined.documentation
