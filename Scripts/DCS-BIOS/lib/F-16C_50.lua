@@ -1,4 +1,4 @@
--- V1.0 by Warlord (aka BlackLibrary)
+-- V1.0b by Warlord (aka BlackLibrary)
 -- Initial version of outputs from mainpanel_init.lua by Matchstick
 
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
@@ -24,6 +24,7 @@ local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+local defineDoubleCommandButton = BIOS.util.defineDoubleCommandButton
 
 ------------------------------------------------------------------Switches, Buttons---------------------------------------------------------------------------------
 --Control Interface
@@ -67,10 +68,10 @@ define3PosTumb("MAL_IND_LTS_BRT_SW", 12, 3008, 691, "External Lights", "MAL & IN
 define3PosTumb("MAIN_PWR_SW", 3, 3001, 510, "Electric System", "MAIN PWR Switch, MAIN PWR/BATT/OFF")
 definePushButton("ELEC_CAUTION", 3, 3002, 511, "Electric System", "ELEC CAUTION RESET Button - Push to reset")
 defineToggleSwitch("EPU_GEN_TEST_SW", 3, 3005, 579, "Electric System", "EPU/GEN Test Switch, EPU/GEN /OFF")
-define3PosTumb("PROBE_HEAT_SW", 3, 3006, 578, "Electric System", "PROBE HEAT Switch, PROBE HEAT/OFF/HEAT")
-define3PosTumb("FLCS_PWR_TEST_SW", 3, 3004, 585, "External Lights", "FLCS PWR TEST Switch, MAINT/NORM/TEST") --WIP
+defineDoubleCommandButton("PROBE_HEAT_SW", 3, 3006, 3007, 578, "Electric System", "PROBE HEAT Switch, PROBE HEAT/OFF/HEAT")--WIP
+defineDoubleCommandButton("FLCS_PWR_TEST_SW", 3, 3003, 3004, 585, "External Lights", "FLCS PWR TEST Switch, MAINT/NORM/TEST") --WIP
 
--- Fuel System
+--Fuel System
 defineToggleSwitch("FUEL_MASTER_SW", 4, 3001, 559, "Fuel System", "FUEL MASTER Switch, MASTER/OFF")
 defineToggleSwitch("FUEL_MASTER_CV", 4, 3002, 558, "Fuel System", "FUEL MASTER Switch Cover, OPEN/CLOSE")
 defineToggleSwitch("TANK_INTERTING_SW", 4, 3007, 557, "Fuel System", "TANK INERTING Switch, TANK INERTING /OFF")
@@ -85,7 +86,7 @@ definePushButton("DN_LOCK_BTN", 7, 3002, 361, "Gear System", "DN LOCK REL Button
 defineToggleSwitch("HOOK_SW", 7, 3006, 354, "Gear System", "HOOK Switch, UP/DN")
 definePushButton("HORN_SILENCE_BTN", 7, 3007, 359, "Gear System", "HORN SILENCER Button - Push to reset")
 defineToggleSwitch("BRAKE_CHAN_SW", 7, 3005, 356, "Gear System", "BRAKES Channel Switch, CHAN 1/CHAN 2")
-define3PosTumb("ANTI_SKID_SW", 7, 3004, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
+defineDoubleCommandButton("ANTI_SKID_SW", 7, 3003, 3004, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
 
 --ECS
 defineTumb("TEMP_KNB", 13, 3002, 692, 0.1, {-0.3,0.3}, nil, true, "ECS", "TEMP Knob")
@@ -109,7 +110,7 @@ definePushButton("FIRE_OHEAT_DETECT_BTN", 6, 3012, 575, "Engine", "FIRE & OHEAT 
 --Oxygen System
 define3PosTumb("OXY_SUPPLY_LVR", 8, 3001, 728, "Oxygen System", "Supply Lever, PBG/ON/OFF")
 defineToggleSwitch("OXY_DILUTER_LVR", 8, 3002, 727, "Oxygen System", "Diluter Lever, 100 percent/NORM")
-define3PosTumb("OXY_EMERG_LVR", 8, 3003, 726, "Oxygen System", "Emergency Lever, EMERGENCY/NORMAL/TEST MASK")
+defineDoubleCommandButton("OXY_EMERG_LVR", 8, 3003, 3004, 726, "Oxygen System", "Emergency Lever, EMERGENCY/NORMAL/TEST MASK")--WIP
 
 --Sensor Power Control Panel
 defineToggleSwitch("HDPT_SW_L", 22, 3002, 670, "Sensor Panel", "LEFT HDPT Switch, ON/OFF")
@@ -232,7 +233,6 @@ defineRockerSwitch("IFF_M3_SEL_2", 35, 3013, 3013, 3014, 3014, 551, "IFF", "IFF 
 defineMultipositionSwitch("KY58_MODE_KNB", 42, 3001, 705, 4, 0.1,"KY-58" ,"KY-58 MODE Knob, P/C/LD/RV")
 definePotentiometer("KY58_VOL_KNB", 42, 3005, 708, nil, "KY-58", "KY-58 VOLUME Knob")
 defineMultipositionSwitch("KY58_FILL_KNB", 42, 3002, 706, 8, 0.1,"KY-58" ,"KY-58 FILL Knob, Z 1-5/1/2/3/4/5/6/Z ALL")
-
 defineMultipositionSwitch("KY58_PWR_KNB", 42, 3004, 707, 3, 0.5,"KY-58" ,"KY-58 Power Knob, OFF/ON/TD")
 define3PosTumb("PLAIN_CIPHER_SW", 39, 3016, 701, "KY-58", "PLAIN Cipher Switch, CRAD 1/PLAIN/CRAD 2")
 defineToggleSwitch("ZEROIZE_SW_COVER", 39, 3017, 694,"KY-58" ,"ZEROIZE Switch Cover, OPEN/CLOSE")
@@ -325,7 +325,7 @@ defineRotary("AIRSPEED_SET_KNB", 46, 3001, 71, "Airspeed Indicator", "SET INDEX 
 
 --Altimeter
 defineRotary("ALT_BARO_SET_KNB", 45, 3003, 62, "Altimeter", "Altimeter Barometric Setting Knob")
-defineRockerSwitch("ALT_MODE_LV", 45, 3002, 3002, 3001, 3001, 60, "Altimeter", "Altimeter Mode Lever, ELEC/OFF/PNEU")
+defineDoubleCommandButton("ALT_MODE_LV", 45, 3001, 3002, 60, "Altimeter", "Altimeter Mode Lever, ELEC/OFF/PNEU")
 
 --SAI
 definePushButton("SAI_CAGE", 47, 3002, 67, "SAI", "SAI Cage Knob, (LMB) Pull to cage")
@@ -348,10 +348,10 @@ definePushButton("CLOCK_ELAPSED", 51, 3003, 628, "Clock", "Clock Elapsed Time Kn
 
 --Cockpit Mechanics
 defineToggleSwitch("CANOPY_HANDLE", 10, 3004, 600,"Cockpit Mechanics" ,"Canopy Handle, UP/DOWN")
-defineRockerSwitch("SEAT_ADJ", 10, 3014, 3014, 3013, 3013, 786, "Cockpit Mechanics", "SEAT ADJ Switch, UP/OFF/DOWN")
+defineDoubleCommandButton("SEAT_ADJ", 10, 3013, 3014, 786, "Cockpit Mechanics", "SEAT ADJ Switch, UP/OFF/DOWN")
 defineToggleSwitch("CANOPY_JETT_THANDLE", 10, 3005, 601,"Cockpit Mechanics" ,"CANOPY JETTISON T-Handle, PULL/STOW")
 defineToggleSwitch("SEAT_EJECT_SAFE", 10, 3009, 785,"Cockpit Mechanics" ,"Ejection Safety Lever, ARMED/LOCKED")
-defineRockerSwitch("CANOPY_SW", 10, 3003, 3003, 3002, 3002, 606, "Cockpit Mechanics", "Canopy Switch, OPEN/HOLD/CLOSE")--WIP
+defineDoubleCommandButton("CANOPY_SW", 10, 3002, 3003, 606, "Cockpit Mechanics", "Canopy Switch, OPEN/HOLD/CLOSE")--WIP
 
 ------------------------------------------------------------------Warning, Caution and Indicator Lights-------------------------------------------------------------
 
@@ -518,7 +518,7 @@ defineIndicatorLight("LIGHT_ECM_SPL_T", 499, "Warning, Caution and IndicatorLigh
 defineIndicatorLight("LIGHT_MARKER_BEACON", 157, "Warning, Caution and IndicatorLights","MARKER BEACON Light (green)")
 
 ------------------------------------------------------------------Gauges--------------------------------------------------------------------------------------------
-defineFloat("CANOPY_VALUE", 15, {-1.0, 1.0}, "Cockpit Mechanics", "Canopy Value")
+defineFloat("CANOPY_VALUE", 7, {-1.0, 1.0}, "Cockpit Mechanics", "Canopy Value")
 --AOA				
 defineFloat("AOA_VALUE", 15, {-1.0, -0.807, 0.0, 1.0}, "AoA", "AoA Value")
 
@@ -535,9 +535,9 @@ defineFloat("ALT_PNEU_FLAG", 9, {0, 1}, "Altimeter", "Altimeter PNEU Flag")
 
 --AirSpeed/Mach Indicator
 defineFloat("AIRSPEED", 48, {0.0, 0.042, 0.152, 0.182, 0.199, 0.255, 0.303, 0.355, 0.402, 0.455, 0.653, 0.698, 0.750, 0.797, 0.850}, "Airspeed Indicator", "Airspeed Indicator")
-defineFloat("MAX AIRSPEED", 47, {0.0, 0.045,  0.1, 0.153,  0.2, 0.256, 0.302, 0.355, 0.402, 0.852}, "Airspeed Indicator", "Max Airspeed")
+defineFloat("MAX_AIRSPEED", 47, {0.0, 0.045, 0.1, 0.153, 0.2, 0.256, 0.302, 0.355, 0.402, 0.852}, "Airspeed Indicator", "Max Airspeed")
 defineFloat("SET_AIRSPEED", 70, {0, 1}, "Airspeed Indicator", "Set Airspeed")
-defineFloat("MACH_INDICATOR", 49, {1.0,	0.958, 0.921, 0.902, 0.885,	0.848, 0.812, 0.775, 0.741, 0.704, 0.668, 0.632, 0.596, 0.562, 0.528, 0.493, 0.459, 0.422, 0.387}, "Airspeed Indicator", "Mach Indicator")
+defineFloat("MACH_INDICATOR", 49, {1.0, 0.958, 0.921, 0.902, 0.885, 0.848, 0.812, 0.775, 0.741, 0.704, 0.668, 0.632, 0.596, 0.562, 0.528, 0.493, 0.459, 0.422, 0.387}, "Airspeed Indicator", "Mach Indicator")
 
 --Standby Attitude Indicator
 defineFloat("SAI_PITCH", 63, {-1.0, -0.902, -0.793, -0.687, -0.576, -0.450, -0.339, -0.225, -0.115, 0.0, 0.114, 0.225, 0.336, 0.445, 0.569, 0.679, 0.784, 0.893, 0.995}, "SAI", " SAI Pitch")
