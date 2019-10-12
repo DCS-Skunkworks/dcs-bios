@@ -647,7 +647,7 @@ definePushButton("PLT_ACCEL_RESET", 24, 3488, 228, "Display", "PILOT Acceleromet
 
 -- VDI & HUD Indicator Controls
 defineToggleSwitch("PLT_HUD_FILTER", 40, 3228, 1033, "HUD", "PILOT HUD Filter")
-definePotentiometer("PLT_HUD_TRIM", 42, 3229, 1034, {0.0, 1.0}, "HUD", "PILOT HUD TRIM")
+definePotentiometer("PLT_HUD_TRIM", 40, 3229, 1034, {0.0, 1.0}, "HUD", "PILOT HUD TRIM")
 definePotentiometer("PLT_VSDI_TRIM", 42, 3230, 1035, {0.0, 1.0}, "HUD", "PILOT VSDI Screen Trim")
 definePotentiometer("PLT_VDI_CONTRAST", 42, 3231, 1038, {0.0, 1.0}, "HUD", "PILOT VDI Screen Contrast")
 definePotentiometer("PLT_VSDI_BRIGHT", 42, 3232, 1036, {0.0, 1.0}, "HUD", "PILOT VSDI Screen Brightness")
