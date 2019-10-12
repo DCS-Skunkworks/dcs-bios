@@ -30,19 +30,19 @@ local defineDoubleCommandButton = BIOS.util.defineDoubleCommandButton
 --Control Interface
 defineToggleSwitch("DIGI_BAK_SW", 2, 3001, 566, "Control Interface", "DIGITAL BACKUP Switch, OFF/BACKUP")
 defineToggleSwitch("ALT_FLAPS_SW", 2, 3002, 567, "Control Interface", "ALT FLAPS Switch, NORM/EXTEND")
-defineToggleSwitch("BIT_SW", 2, 3003, 574, "Control Interface", "BIT Switch, OFF/BIT")
+definePushButton("BIT_SW", 2, 3003, 574, "Control Interface", "BIT Switch, OFF/BIT")
 defineToggleSwitch("FLCS_RESET_SW", 2, 3004, 573, "Control Interface", "FLCS RESET Switch, OFF/RESET")
 defineToggleSwitch("LE_FLAPS_SW", 2, 3005, 572, "Control Interface", "LE FLAPS Switch, AUTO/LOCK")
 defineToggleSwitch("TRIM_AP_DISC_SW", 2, 3006, 564, "Control Interface", "TRIM/AP DISC Switch, DISC/NORM")
-definePotentiometer("ROLL_TRIM", 2, 3007, 560, nil, "Control Interface", "ROLL TRIM Wheel")
-definePotentiometer("PITCH_TRIM", 2, 3008, 562, nil, "Control Interface", "PITCH TRIM Wheel")
-definePotentiometer("YAW_TRIM", 2, 3009, 565, nil, "Control Interface", "YAW TRIM Knob")
+defineRotary("ROLL_TRIM", 2, 3007, 560, "Control Interface", "ROLL TRIM Wheel")
+defineRotary("PITCH_TRIM", 2, 3008, 562, "Control Interface", "PITCH TRIM Wheel")
+defineRotary("YAW_TRIM", 2, 3009, 565, "Control Interface", "YAW TRIM Knob")
 defineToggleSwitch("MANUAL_PITCH_SW", 2, 3010, 425, "Control Interface", "MANUAL PITCH Override Switch, OVRD/NORM")
 defineToggleSwitch("STORES_CONFIG_SW", 2, 3011, 358, "Control Interface", "STORES CONFIG Switch, CAT III/CAT I")
-define3PosTumb("AP_PITCH_SW", 2, 3012, 109, "Control Interface", "Autopilot PITCH Switch, ATT HOLD/ A/P OFF/ ALT HOLD")
-define3PosTumb("AP_ROLL_SW", 2, 3013, 108, "Control Interface", "Autopilot ROLL Switch, STRG SEL/ATT HOLD/HDG SEL")
-defineToggleSwitch("ADV_MODE_SW", 2, 3014, 97, "Control Interface", "ADV MODE Switch")
-defineToggleSwitch("MAN_TF_FLYUP_SW", 2, 3015, 568, "Control Interface", "MANUAL TF FLYUP Switch, ENABLE/DISABLE")
+defineDoubleCommandButton("AP_PITCH_SW", 2, 3012, 3013, 109, "Control Interface", "Autopilot PITCH Switch, ATT HOLD/ A/P OFF/ ALT HOLD")
+define3PosTumb("AP_ROLL_SW", 2, 3014, 108, "Control Interface", "Autopilot ROLL Switch, STRG SEL/ATT HOLD/HDG SEL")
+defineToggleSwitch("ADV_MODE_SW", 2, 3015, 97, "Control Interface", "ADV MODE Switch")
+defineToggleSwitch("MAN_TF_FLYUP_SW", 2, 3016, 568, "Control Interface", "MANUAL TF FLYUP Switch, ENABLE/DISABLE")
 
 --External Lights
 defineTumb("ANTI_COLL_LIGHT_KNB", 11, 3001, 531, 0.1, {0, 0.7}, nil, true, "External Lights", "ANTI-COLL Knob, OFF/1/2/3/4/A/B/C")
@@ -62,14 +62,14 @@ definePotentiometer("PRI_INST_PNL_BRT_KNB", 12, 3004, 686, nil, "Interior Lights
 definePotentiometer("PRI_DATA_DISPLAY_BRT_KNB", 12, 3005, 687, nil, "Interior Lights", "PRIMARY DATA ENTRY DISPLAY BRT Knob")
 definePotentiometer("FLOOD_CONSOLES_BRT_KNB", 12, 3006, 688, nil, "Interior Lights", "FLOOD CONSOLES BRT Knob")
 definePotentiometer("FLOOD_INST_PNL_BRT_KNB", 12, 3007, 690, nil, "Interior Lights", "FLOOD INST PNL BRT Knob")
-define3PosTumb("MAL_IND_LTS_BRT_SW", 12, 3008, 691, "External Lights", "MAL & IND LTS Switch, BRT/Center/DIM")
+defineDoubleCommandButton("MAL_IND_LTS_BRT_SW", 12, 3008, 3009, 691, "External Lights", "MAL & IND LTS Switch, BRT/Center/DIM")
 
 --Electric System
 define3PosTumb("MAIN_PWR_SW", 3, 3001, 510, "Electric System", "MAIN PWR Switch, MAIN PWR/BATT/OFF")
 definePushButton("ELEC_CAUTION", 3, 3002, 511, "Electric System", "ELEC CAUTION RESET Button - Push to reset")
 defineToggleSwitch("EPU_GEN_TEST_SW", 3, 3005, 579, "Electric System", "EPU/GEN Test Switch, EPU/GEN /OFF")
-defineDoubleCommandButton("PROBE_HEAT_SW", 3, 3006, 3007, 578, "Electric System", "PROBE HEAT Switch, PROBE HEAT/OFF/HEAT")--WIP
-defineDoubleCommandButton("FLCS_PWR_TEST_SW", 3, 3003, 3004, 585, "External Lights", "FLCS PWR TEST Switch, MAINT/NORM/TEST") --WIP
+defineDoubleCommandButton("PROBE_HEAT_SW", 3, 3006, 3007, 578, "Electric System", "PROBE HEAT Switch, PROBE HEAT/OFF/TEST")
+defineDoubleCommandButton("FLCS_PWR_TEST_SW", 3, 3003, 3004, 585, "External Lights", "FLCS PWR TEST Switch, MAINT/NORM/TEST")
 
 --Fuel System
 defineToggleSwitch("FUEL_MASTER_SW", 4, 3001, 559, "Fuel System", "FUEL MASTER Switch, MASTER/OFF")
@@ -100,11 +100,11 @@ define3PosTumb("EPU_SW", 6, 3003, 528, "EPU", "EPU Switch, ON/NORM/OFF")
 
 --Engine
 define3PosTumb("ENG_ANTI_ICE", 6, 3004, 710, "Engine", "Engine ANTI ICE Switch, ON/AUTO/OFF")
-define3PosTumb("JFS_SW", 6, 3005, 447, "Engine", "JFS Switch, START 1/OFF/START 2")
+defineDoubleCommandButton("JFS_SW", 6, 3005, 3006, 447, "Engine", "JFS Switch, START 1/OFF/START 2")
 defineToggleSwitch("ENG_CONT_SW_COVER", 6, 3007, 448, "Engine", "ENG CONT Switch Cover, OPEN/CLOSE")
 defineToggleSwitch("ENG_CONT_SW", 6, 3008, 449, "Engine", "ENG CONT Switch, PRI/SEC")
 defineToggleSwitch("MAX_PWR_SW", 6, 3009, 451, "Engine", "MAX POWER Switch, MAX POWER/OFF")
-define3PosTumb("AB_RESET_SW", 6, 3010, 450, "Engine", "AB RESET Switch, AB RESET/NORM/ENG DATA")
+defineDoubleCommandButton("AB_RESET_SW", 6, 3010, 3011, 450, "Engine", "AB RESET Switch, AB RESET/NORM/ENG DATA")
 definePushButton("FIRE_OHEAT_DETECT_BTN", 6, 3012, 575, "Engine", "FIRE & OHEAT DETECT Test Button - Push to test")
 
 --Oxygen System
@@ -591,7 +591,7 @@ defineFloat("FUELFLOWCOUNTER_1K", 89, {0, 1}, "Fuel System", "Fuel Flow Counter 
 defineFloat("FUELFLOWCOUNTER_100", 90, {0, 1}, "Fuel System", "Fuel Flow Counter 100")
 
 --Fuel Quantity Indicator (Dual)
-defineFloat("FUEL_AL", 613, {0.0, 0.1, 0.2, 0.301, 0.401, 0.502, 0.603,	0.702, 0.801, 0.84}, "Fuel System", "Fuel Quantity Indicator AL")
+defineFloat("FUEL_AL", 613, {0.0, 1.0}, "Fuel System", "Fuel Quantity Indicator AL")
 defineFloat("FUEL_FR", 614, {0.0, 0.1, 0.2, 0.301, 0.401, 0.502, 0.603, 0.702, 0.801, 0.84}, "Fuel System", "Fuel Quantity Indicator FR")
 defineFloat("FUELTOTALIZER_10K", 730, {0, 1}, "Fuel System", "Fuel Totalizer Counter 10K")
 defineFloat("FUELTOTALIZER_1K", 731, {0, 1}, "Fuel System", "Fuel Totalizer Counter 1K")
