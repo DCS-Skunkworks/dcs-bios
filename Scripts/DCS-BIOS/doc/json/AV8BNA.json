@@ -1155,6 +1155,22 @@
                                                                                                        "type": "integer"
                                                                                             } ],
                                                                         "physical_variant": "toggle_switch"
+                                                                 },
+                                                 "CANOPY_VALUE": {
+                                                                         "category": "CANOPY",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Canopy Position",
+                                                                       "identifier": "CANOPY_VALUE",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 30848,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
                                                                  }
                                             },
                                      "ECM": {
@@ -1564,7 +1580,7 @@
                                                                               "identifier": "EXT_FORMATION_LIGHTS",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
-                                                                                                    "address": 31052,
+                                                                                                    "address": 31054,
                                                                                                 "description": "Formation Lights",
                                                                                                        "mask": 65535,
                                                                                                   "max_value": 65535,
@@ -1580,7 +1596,7 @@
                                                                               "identifier": "EXT_POSITION_LIGHTS",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
-                                                                                                    "address": 30964,
+                                                                                                    "address": 30966,
                                                                                                 "description": "Position Lights",
                                                                                                        "mask": 32,
                                                                                                   "max_value": 1,
@@ -1596,7 +1612,7 @@
                                                                               "identifier": "EXT_SPEED_BRAKE",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
-                                                                                                    "address": 31050,
+                                                                                                    "address": 31052,
                                                                                                 "description": "Speed Brake",
                                                                                                        "mask": 65535,
                                                                                                   "max_value": 65535,
@@ -1612,7 +1628,7 @@
                                                                               "identifier": "EXT_STROBE_TAIL",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
-                                                                                                    "address": 30964,
+                                                                                                    "address": 30966,
                                                                                                 "description": "Tail Strobe Light",
                                                                                                        "mask": 64,
                                                                                                   "max_value": 1,
@@ -2363,7 +2379,7 @@
                                                                           "identifier": "ADI_BANK",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30990,
+                                                                                                "address": 30992,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2379,7 +2395,7 @@
                                                                           "identifier": "ADI_FLAG",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30992,
+                                                                                                "address": 30994,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2395,7 +2411,7 @@
                                                                           "identifier": "ADI_PITCH",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30988,
+                                                                                                "address": 30990,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2411,7 +2427,7 @@
                                                                           "identifier": "AILERON_NEEDLE",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31022,
+                                                                                                "address": 31024,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2427,7 +2443,7 @@
                                                                           "identifier": "ALT_10000FT_CNT",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31000,
+                                                                                                "address": 31002,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2443,7 +2459,7 @@
                                                                           "identifier": "ALT_1000FT_CNT",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31002,
+                                                                                                "address": 31004,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2459,7 +2475,7 @@
                                                                           "identifier": "ALT_100FT_CNT",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31004,
+                                                                                                "address": 31006,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2475,7 +2491,7 @@
                                                                           "identifier": "ALT_POINTER",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30998,
+                                                                                                "address": 31000,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2491,7 +2507,7 @@
                                                                           "identifier": "ALT_PRESSURE1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31006,
+                                                                                                "address": 31008,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2507,7 +2523,7 @@
                                                                           "identifier": "ALT_PRESSURE2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31008,
+                                                                                                "address": 31010,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2523,7 +2539,7 @@
                                                                           "identifier": "ALT_PRESSURE3",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31010,
+                                                                                                "address": 31012,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2539,7 +2555,7 @@
                                                                           "identifier": "ALT_PRESSURE4",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31012,
+                                                                                                "address": 31014,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2555,7 +2571,7 @@
                                                                           "identifier": "AOA_FLAG",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31014,
+                                                                                                "address": 31016,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2571,7 +2587,7 @@
                                                                           "identifier": "AOA_POINTER",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31016,
+                                                                                                "address": 31018,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2587,7 +2603,7 @@
                                                                           "identifier": "BINGO1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30924,
+                                                                                                "address": 30926,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2603,7 +2619,7 @@
                                                                           "identifier": "BINGO2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30926,
+                                                                                                "address": 30928,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2619,7 +2635,7 @@
                                                                           "identifier": "BINGO3",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30928,
+                                                                                                "address": 30930,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2635,7 +2651,7 @@
                                                                           "identifier": "BINGO4",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30930,
+                                                                                                "address": 30932,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2651,7 +2667,7 @@
                                                                           "identifier": "BRAKE1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30966,
+                                                                                                "address": 30968,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2667,7 +2683,7 @@
                                                                           "identifier": "BRAKE2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30968,
+                                                                                                "address": 30970,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2683,7 +2699,7 @@
                                                                           "identifier": "BRAKE3",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30970,
+                                                                                                "address": 30972,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2699,7 +2715,7 @@
                                                                           "identifier": "CABIN_PRESS",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31026,
+                                                                                                "address": 31028,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2715,7 +2731,7 @@
                                                                           "identifier": "CLOCK_HH",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31036,
+                                                                                                "address": 31038,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2731,7 +2747,7 @@
                                                                           "identifier": "CLOCK_MM",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31038,
+                                                                                                "address": 31040,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2747,7 +2763,7 @@
                                                                           "identifier": "CLOCK_SS",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31040,
+                                                                                                "address": 31042,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2763,7 +2779,7 @@
                                                                           "identifier": "COMPASS_BANK",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31034,
+                                                                                                "address": 31036,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2779,7 +2795,7 @@
                                                                           "identifier": "COMPASS_LIGHTS",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31048,
+                                                                                                "address": 31050,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2795,7 +2811,7 @@
                                                                           "identifier": "COMPASS_NS",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31030,
+                                                                                                "address": 31032,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2811,7 +2827,7 @@
                                                                           "identifier": "COMPASS_UD",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31032,
+                                                                                                "address": 31034,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2827,7 +2843,7 @@
                                                                           "identifier": "DUCT1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30858,
+                                                                                                "address": 30860,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2843,7 +2859,7 @@
                                                                           "identifier": "DUCT2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30860,
+                                                                                                "address": 30862,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2859,7 +2875,7 @@
                                                                           "identifier": "DUCT3",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30862,
+                                                                                                "address": 30864,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2875,7 +2891,7 @@
                                                                           "identifier": "FF1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30872,
+                                                                                                "address": 30874,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2891,7 +2907,7 @@
                                                                           "identifier": "FF2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30874,
+                                                                                                "address": 30876,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2907,7 +2923,7 @@
                                                                           "identifier": "FF3",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30876,
+                                                                                                "address": 30878,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2923,7 +2939,7 @@
                                                                           "identifier": "FLAP_POS1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30984,
+                                                                                                "address": 30986,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2939,7 +2955,7 @@
                                                                           "identifier": "FLAP_POS2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30986,
+                                                                                                "address": 30988,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2955,7 +2971,7 @@
                                                                           "identifier": "FLOOD_LIGHTS",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31042,
+                                                                                                "address": 31044,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2971,7 +2987,7 @@
                                                                           "identifier": "FUEL_FLAG",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30896,
+                                                                                                "address": 30898,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2987,7 +3003,7 @@
                                                                           "identifier": "FUZ1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30934,
+                                                                                                "address": 30936,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3003,7 +3019,7 @@
                                                                           "identifier": "FUZ2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30936,
+                                                                                                "address": 30938,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3019,7 +3035,7 @@
                                                                           "identifier": "H2O1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30890,
+                                                                                                "address": 30892,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3035,7 +3051,7 @@
                                                                           "identifier": "H2O2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30892,
+                                                                                                "address": 30894,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3051,7 +3067,7 @@
                                                                           "identifier": "HYD11",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30972,
+                                                                                                "address": 30974,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3067,7 +3083,7 @@
                                                                           "identifier": "HYD12",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30974,
+                                                                                                "address": 30976,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3083,7 +3099,7 @@
                                                                           "identifier": "HYD13",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30976,
+                                                                                                "address": 30978,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3099,7 +3115,7 @@
                                                                           "identifier": "HYD21",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30978,
+                                                                                                "address": 30980,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3115,7 +3131,7 @@
                                                                           "identifier": "HYD22",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30980,
+                                                                                                "address": 30982,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3131,7 +3147,7 @@
                                                                           "identifier": "HYD23",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30982,
+                                                                                                "address": 30984,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3147,7 +3163,7 @@
                                                                           "identifier": "INVT1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30938,
+                                                                                                "address": 30940,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3163,7 +3179,7 @@
                                                                           "identifier": "INVT2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30940,
+                                                                                                "address": 30942,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3179,7 +3195,7 @@
                                                                           "identifier": "INVT3",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30942,
+                                                                                                "address": 30944,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3195,7 +3211,7 @@
                                                                           "identifier": "JPT1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30878,
+                                                                                                "address": 30880,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3211,7 +3227,7 @@
                                                                           "identifier": "JPT2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30880,
+                                                                                                "address": 30882,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3227,7 +3243,7 @@
                                                                           "identifier": "JPT3",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30882,
+                                                                                                "address": 30884,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3243,7 +3259,7 @@
                                                                           "identifier": "KNT_POINTER_L",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30996,
+                                                                                                "address": 30998,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3259,7 +3275,7 @@
                                                                           "identifier": "KNT_POINTER_S",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30994,
+                                                                                                "address": 30996,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3275,7 +3291,7 @@
                                                                           "identifier": "LBS_L1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30908,
+                                                                                                "address": 30910,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3291,7 +3307,7 @@
                                                                           "identifier": "LBS_L2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30910,
+                                                                                                "address": 30912,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3307,7 +3323,7 @@
                                                                           "identifier": "LBS_L3",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30912,
+                                                                                                "address": 30914,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3323,7 +3339,7 @@
                                                                           "identifier": "LBS_L4",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30914,
+                                                                                                "address": 30916,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3339,7 +3355,7 @@
                                                                           "identifier": "LBS_R1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30916,
+                                                                                                "address": 30918,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3355,7 +3371,7 @@
                                                                           "identifier": "LBS_R2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30918,
+                                                                                                "address": 30920,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3371,7 +3387,7 @@
                                                                           "identifier": "LBS_R3",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30920,
+                                                                                                "address": 30922,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3387,7 +3403,7 @@
                                                                           "identifier": "LBS_R4",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30922,
+                                                                                                "address": 30924,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3403,7 +3419,7 @@
                                                                           "identifier": "MIP_LIGHTS",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31044,
+                                                                                                "address": 31046,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3419,7 +3435,7 @@
                                                                           "identifier": "MODE_GAUGE",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30932,
+                                                                                                "address": 30934,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3435,7 +3451,7 @@
                                                                           "identifier": "MULT_GAUGE",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30944,
+                                                                                                "address": 30946,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3451,7 +3467,7 @@
                                                                           "identifier": "NOZZLE_POINTER",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30894,
+                                                                                                "address": 30896,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3467,7 +3483,7 @@
                                                                           "identifier": "QTY1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30946,
+                                                                                                "address": 30948,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3483,7 +3499,7 @@
                                                                           "identifier": "QTY2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30948,
+                                                                                                "address": 30950,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3499,7 +3515,7 @@
                                                                           "identifier": "RPM1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30864,
+                                                                                                "address": 30866,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3515,7 +3531,7 @@
                                                                           "identifier": "RPM2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30866,
+                                                                                                "address": 30868,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3531,7 +3547,7 @@
                                                                           "identifier": "RPM3",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30868,
+                                                                                                "address": 30870,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3547,7 +3563,7 @@
                                                                           "identifier": "RPM4",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30870,
+                                                                                                "address": 30872,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3563,7 +3579,7 @@
                                                                           "identifier": "RUDDER_NEEDLE",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31024,
+                                                                                                "address": 31026,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3579,7 +3595,7 @@
                                                                           "identifier": "SET_FLAG1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30950,
+                                                                                                "address": 30952,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3595,7 +3611,7 @@
                                                                           "identifier": "SET_FLAG2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30952,
+                                                                                                "address": 30954,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3611,7 +3627,7 @@
                                                                           "identifier": "SET_FLAG3",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30954,
+                                                                                                "address": 30956,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3627,7 +3643,7 @@
                                                                           "identifier": "SET_FLAG4",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30956,
+                                                                                                "address": 30958,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3643,7 +3659,7 @@
                                                                           "identifier": "SET_FLAG5",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30958,
+                                                                                                "address": 30960,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3659,7 +3675,7 @@
                                                                           "identifier": "SET_FLAG6",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30960,
+                                                                                                "address": 30962,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3675,7 +3691,7 @@
                                                                           "identifier": "SET_FLAG7",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30962,
+                                                                                                "address": 30964,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3691,7 +3707,7 @@
                                                                           "identifier": "SIDEPANEL_LIGHTS",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31046,
+                                                                                                "address": 31048,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3707,7 +3723,7 @@
                                                                           "identifier": "SLIP_IND",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31020,
+                                                                                                "address": 31022,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3723,7 +3739,7 @@
                                                                           "identifier": "STAB1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30886,
+                                                                                                "address": 30888,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3739,7 +3755,7 @@
                                                                           "identifier": "STAB2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30888,
+                                                                                                "address": 30890,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3755,7 +3771,7 @@
                                                                           "identifier": "TOT_FUEL1",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30898,
+                                                                                                "address": 30900,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3771,7 +3787,7 @@
                                                                           "identifier": "TOT_FUEL2",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30900,
+                                                                                                "address": 30902,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3787,7 +3803,7 @@
                                                                           "identifier": "TOT_FUEL3",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30902,
+                                                                                                "address": 30904,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3803,7 +3819,7 @@
                                                                           "identifier": "TOT_FUEL4",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30904,
+                                                                                                "address": 30906,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3819,7 +3835,7 @@
                                                                           "identifier": "TOT_FUEL5",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 30906,
+                                                                                                "address": 30908,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3835,7 +3851,7 @@
                                                                           "identifier": "VOLT_METER",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31028,
+                                                                                                "address": 31030,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3851,7 +3867,7 @@
                                                                           "identifier": "VVI",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
-                                                                                                "address": 31018,
+                                                                                                "address": 31020,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -6634,7 +6650,7 @@
                                                                              "identifier": "AV8BNA_ODU_1_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31072,
+                                                                                                   "address": 31074,
                                                                                                "description": "ODU Option 1 Select (string)",
                                                                                                 "max_length": 1,
                                                                                                     "suffix": "",
@@ -6648,7 +6664,7 @@
                                                                              "identifier": "AV8BNA_ODU_1_Text",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31074,
+                                                                                                   "address": 31076,
                                                                                                "description": "ODU Option 1 Text (string)",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -6662,7 +6678,7 @@
                                                                              "identifier": "AV8BNA_ODU_2_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31078,
+                                                                                                   "address": 31080,
                                                                                                "description": "ODU Option 2 Select (string)",
                                                                                                 "max_length": 1,
                                                                                                     "suffix": "",
@@ -6676,7 +6692,7 @@
                                                                              "identifier": "AV8BNA_ODU_2_Text",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31080,
+                                                                                                   "address": 31082,
                                                                                                "description": "ODU Option 2 Text (string)",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -6690,7 +6706,7 @@
                                                                              "identifier": "AV8BNA_ODU_3_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31084,
+                                                                                                   "address": 31086,
                                                                                                "description": "ODU Option 3 Select (string)",
                                                                                                 "max_length": 1,
                                                                                                     "suffix": "",
@@ -6704,7 +6720,7 @@
                                                                              "identifier": "AV8BNA_ODU_3_Text",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31086,
+                                                                                                   "address": 31088,
                                                                                                "description": "ODU Option 3 Text (string)",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -6718,7 +6734,7 @@
                                                                              "identifier": "AV8BNA_ODU_4_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31090,
+                                                                                                   "address": 31092,
                                                                                                "description": "ODU Option 4 Select (string)",
                                                                                                 "max_length": 1,
                                                                                                     "suffix": "",
@@ -6732,7 +6748,7 @@
                                                                              "identifier": "AV8BNA_ODU_4_Text",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31092,
+                                                                                                   "address": 31094,
                                                                                                "description": "ODU Option 4 Text (string)",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -6746,7 +6762,7 @@
                                                                              "identifier": "AV8BNA_ODU_5_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31096,
+                                                                                                   "address": 31098,
                                                                                                "description": "ODU Option 5 Select (string)",
                                                                                                 "max_length": 1,
                                                                                                     "suffix": "",
@@ -6760,7 +6776,7 @@
                                                                              "identifier": "AV8BNA_ODU_5_Text",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31098,
+                                                                                                   "address": 31100,
                                                                                                "description": "ODU Option 5 Text (string)",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -7097,7 +7113,7 @@
                                                                     "identifier": "STAB_ARROW",
                                                                         "inputs": [  ],
                                                                        "outputs": [ {
-                                                                                          "address": 30884,
+                                                                                          "address": 30886,
                                                                                       "description": "gauge position",
                                                                                              "mask": 65535,
                                                                                         "max_value": 65535,
@@ -7471,7 +7487,7 @@
                                                                                     "identifier": "AV8BNA_UFC_COMM1_DISPLAY_M",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 31056,
+                                                                                                          "address": 31058,
                                                                                                       "description": "UFC Comm 1 Display M (string)",
                                                                                                        "max_length": 2,
                                                                                                            "suffix": "",
@@ -7485,7 +7501,7 @@
                                                                                     "identifier": "AV8BNA_UFC_COMM1_DISPLAY_V",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 31054,
+                                                                                                          "address": 31056,
                                                                                                       "description": "UFC Comm 1 Display V (string)",
                                                                                                        "max_length": 2,
                                                                                                            "suffix": "",
@@ -7499,7 +7515,7 @@
                                                                                     "identifier": "AV8BNA_UFC_COMM2_DISPLAY_M",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 31060,
+                                                                                                          "address": 31062,
                                                                                                       "description": "UFC Comm 2 Display M (string)",
                                                                                                        "max_length": 2,
                                                                                                            "suffix": "",
@@ -7513,7 +7529,7 @@
                                                                                     "identifier": "AV8BNA_UFC_COMM2_DISPLAY_V",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 31058,
+                                                                                                          "address": 31060,
                                                                                                       "description": "UFC Comm 2 Display V (string)",
                                                                                                        "max_length": 2,
                                                                                                            "suffix": "",
@@ -7527,7 +7543,7 @@
                                                                                     "identifier": "AV8BNA_UFC_SCRATCHPAD_L",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 31062,
+                                                                                                          "address": 31064,
                                                                                                       "description": "UFC Scratchpad Left (string)",
                                                                                                        "max_length": 2,
                                                                                                            "suffix": "",
@@ -7541,7 +7557,7 @@
                                                                                     "identifier": "AV8BNA_UFC_SCRATCHPAD_R",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 31064,
+                                                                                                          "address": 31066,
                                                                                                       "description": "UFC Scratchpad Right (string)",
                                                                                                        "max_length": 7,
                                                                                                            "suffix": "",
@@ -8744,7 +8760,7 @@
                                                                            "identifier": "15SEK_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 1,
                                                                                                "max_value": 1,
@@ -8760,7 +8776,7 @@
                                                                            "identifier": "AAA_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 4,
                                                                                                "max_value": 1,
@@ -8776,7 +8792,7 @@
                                                                            "identifier": "AFC_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 256,
                                                                                                "max_value": 1,
@@ -8792,7 +8808,7 @@
                                                                            "identifier": "AFT_BAY_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 2,
                                                                                                "max_value": 1,
@@ -8808,7 +8824,7 @@
                                                                            "identifier": "AG_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 32,
                                                                                                "max_value": 1,
@@ -8824,7 +8840,7 @@
                                                                            "identifier": "AI_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 2,
                                                                                                "max_value": 1,
@@ -8840,7 +8856,7 @@
                                                                            "identifier": "APU_GEN_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 2048,
                                                                                                "max_value": 1,
@@ -8856,7 +8872,7 @@
                                                                            "identifier": "APU_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 2048,
                                                                                                "max_value": 1,
@@ -8872,7 +8888,7 @@
                                                                            "identifier": "AUTFLP_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 128,
                                                                                                "max_value": 1,
@@ -8888,7 +8904,7 @@
                                                                            "identifier": "AV_BIT_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 4,
                                                                                                "max_value": 1,
@@ -8904,7 +8920,7 @@
                                                                            "identifier": "BINGO_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 4,
                                                                                                "max_value": 1,
@@ -8920,7 +8936,7 @@
                                                                            "identifier": "CANOPY_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 8,
                                                                                                "max_value": 1,
@@ -8936,7 +8952,7 @@
                                                                            "identifier": "CMBT_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 128,
                                                                                                "max_value": 1,
@@ -8952,7 +8968,7 @@
                                                                            "identifier": "CS_COOL_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 2,
                                                                                                "max_value": 1,
@@ -8968,7 +8984,7 @@
                                                                            "identifier": "CW_JAM_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 1024,
                                                                                                "max_value": 1,
@@ -8984,7 +9000,7 @@
                                                                            "identifier": "CW_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 1,
                                                                                                "max_value": 1,
@@ -9000,7 +9016,7 @@
                                                                            "identifier": "CW_NOGO_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 32,
                                                                                                "max_value": 1,
@@ -9016,7 +9032,7 @@
                                                                            "identifier": "C_AUT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 512,
                                                                                                "max_value": 1,
@@ -9032,7 +9048,7 @@
                                                                            "identifier": "DC_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 32768,
                                                                                                "max_value": 1,
@@ -9048,7 +9064,7 @@
                                                                            "identifier": "DEP_RES_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 16384,
                                                                                                "max_value": 1,
@@ -9064,7 +9080,7 @@
                                                                            "identifier": "DROOP_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 32768,
                                                                                                "max_value": 1,
@@ -9080,7 +9096,7 @@
                                                                            "identifier": "EFC_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 8192,
                                                                                                "max_value": 1,
@@ -9096,7 +9112,7 @@
                                                                            "identifier": "EFC_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 64,
                                                                                                "max_value": 1,
@@ -9112,7 +9128,7 @@
                                                                            "identifier": "ENG_EXC_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 256,
                                                                                                "max_value": 1,
@@ -9128,7 +9144,7 @@
                                                                            "identifier": "FIRE_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 16,
                                                                                                "max_value": 1,
@@ -9144,7 +9160,7 @@
                                                                            "identifier": "FLAPS1_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 32,
                                                                                                "max_value": 1,
@@ -9160,7 +9176,7 @@
                                                                            "identifier": "FLAPS2_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 64,
                                                                                                "max_value": 1,
@@ -9176,7 +9192,7 @@
                                                                            "identifier": "FLAPS_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 64,
                                                                                                "max_value": 1,
@@ -9192,7 +9208,7 @@
                                                                            "identifier": "GEAR_LEVER_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 4096,
                                                                                                "max_value": 1,
@@ -9208,7 +9224,7 @@
                                                                            "identifier": "GEAR_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 1024,
                                                                                                "max_value": 1,
@@ -9224,7 +9240,7 @@
                                                                            "identifier": "GEN_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 16384,
                                                                                                "max_value": 1,
@@ -9240,7 +9256,7 @@
                                                                            "identifier": "GPS_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 8192,
                                                                                                "max_value": 1,
@@ -9256,7 +9272,7 @@
                                                                            "identifier": "H2O_CONTROL_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 4096,
                                                                                                "max_value": 1,
@@ -9272,7 +9288,7 @@
                                                                            "identifier": "H2O_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 8,
                                                                                                "max_value": 1,
@@ -9288,7 +9304,7 @@
                                                                            "identifier": "H2O_SEL",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 1024,
                                                                                                "max_value": 1,
@@ -9304,7 +9320,7 @@
                                                                            "identifier": "HHYD_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 512,
                                                                                                "max_value": 1,
@@ -9320,7 +9336,7 @@
                                                                            "identifier": "HYD1_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 32768,
                                                                                                "max_value": 1,
@@ -9336,7 +9352,7 @@
                                                                            "identifier": "HYD2_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 1,
                                                                                                "max_value": 1,
@@ -9352,7 +9368,7 @@
                                                                            "identifier": "IFF_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 8192,
                                                                                                "max_value": 1,
@@ -9368,7 +9384,7 @@
                                                                            "identifier": "INS_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 16,
                                                                                                "max_value": 1,
@@ -9384,7 +9400,7 @@
                                                                            "identifier": "JAM_HOT_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 128,
                                                                                                "max_value": 1,
@@ -9400,7 +9416,7 @@
                                                                            "identifier": "JPTL_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 4096,
                                                                                                "max_value": 1,
@@ -9416,7 +9432,7 @@
                                                                            "identifier": "LAW_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 32,
                                                                                                "max_value": 1,
@@ -9432,7 +9448,7 @@
                                                                            "identifier": "LEFT_GEAR_G",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30964,
+                                                                                                 "address": 30966,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 1,
                                                                                                "max_value": 1,
@@ -9448,7 +9464,7 @@
                                                                            "identifier": "LEFT_GEAR_Y",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 32768,
                                                                                                "max_value": 1,
@@ -9464,7 +9480,7 @@
                                                                            "identifier": "LEFT_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 512,
                                                                                                "max_value": 1,
@@ -9496,7 +9512,7 @@
                                                                            "identifier": "LIDS_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 512,
                                                                                                "max_value": 1,
@@ -9512,7 +9528,7 @@
                                                                            "identifier": "LINE2_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 8,
                                                                                                "max_value": 1,
@@ -9528,7 +9544,7 @@
                                                                            "identifier": "LINE_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 4096,
                                                                                                "max_value": 1,
@@ -9544,7 +9560,7 @@
                                                                            "identifier": "LOAD_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 4,
                                                                                                "max_value": 1,
@@ -9560,7 +9576,7 @@
                                                                            "identifier": "LPUMP_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 2,
                                                                                                "max_value": 1,
@@ -9576,7 +9592,7 @@
                                                                            "identifier": "LTANK_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 128,
                                                                                                "max_value": 1,
@@ -9592,7 +9608,7 @@
                                                                            "identifier": "LTRANS_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 8,
                                                                                                "max_value": 1,
@@ -9608,7 +9624,7 @@
                                                                            "identifier": "MAIN_GEAR_G",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30964,
+                                                                                                 "address": 30966,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 16,
                                                                                                "max_value": 1,
@@ -9624,7 +9640,7 @@
                                                                            "identifier": "MAIN_GEAR_Y",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30964,
+                                                                                                 "address": 30966,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 8,
                                                                                                "max_value": 1,
@@ -9656,7 +9672,7 @@
                                                                            "identifier": "MFS_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 2,
                                                                                                "max_value": 1,
@@ -9688,7 +9704,7 @@
                                                                            "identifier": "NAV_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 8,
                                                                                                "max_value": 1,
@@ -9704,7 +9720,7 @@
                                                                            "identifier": "NOSE_GEAR_G",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 16384,
                                                                                                "max_value": 1,
@@ -9720,7 +9736,7 @@
                                                                            "identifier": "NOSE_GEAR_Y",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 8192,
                                                                                                "max_value": 1,
@@ -9736,7 +9752,7 @@
                                                                            "identifier": "NWS_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 128,
                                                                                                "max_value": 1,
@@ -9752,7 +9768,7 @@
                                                                            "identifier": "OIL_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 1024,
                                                                                                "max_value": 1,
@@ -9768,7 +9784,7 @@
                                                                            "identifier": "OT_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 2048,
                                                                                                "max_value": 1,
@@ -9784,7 +9800,7 @@
                                                                            "identifier": "OXY_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 8192,
                                                                                                "max_value": 1,
@@ -9800,7 +9816,7 @@
                                                                            "identifier": "PITCH_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 4096,
                                                                                                "max_value": 1,
@@ -9816,7 +9832,7 @@
                                                                            "identifier": "PROP_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 256,
                                                                                                "max_value": 1,
@@ -9832,7 +9848,7 @@
                                                                            "identifier": "P_JAM_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 64,
                                                                                                "max_value": 1,
@@ -9848,7 +9864,7 @@
                                                                            "identifier": "P_NOGO_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 512,
                                                                                                "max_value": 1,
@@ -9864,7 +9880,7 @@
                                                                            "identifier": "READY_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 1024,
                                                                                                "max_value": 1,
@@ -9880,7 +9896,7 @@
                                                                            "identifier": "REPLY_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 2048,
                                                                                                "max_value": 1,
@@ -9912,7 +9928,7 @@
                                                                            "identifier": "RIGHT_GEAR_G",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30964,
+                                                                                                 "address": 30966,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 4,
                                                                                                "max_value": 1,
@@ -9928,7 +9944,7 @@
                                                                            "identifier": "RIGHT_GEAR_Y",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30964,
+                                                                                                 "address": 30966,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 2,
                                                                                                "max_value": 1,
@@ -9944,7 +9960,7 @@
                                                                            "identifier": "RIGHT_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 2048,
                                                                                                "max_value": 1,
@@ -9960,7 +9976,7 @@
                                                                            "identifier": "ROLL_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 1,
                                                                                                "max_value": 1,
@@ -9976,7 +9992,7 @@
                                                                            "identifier": "RPUMP_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 4,
                                                                                                "max_value": 1,
@@ -9992,7 +10008,7 @@
                                                                            "identifier": "RTANK_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 256,
                                                                                                "max_value": 1,
@@ -10008,7 +10024,7 @@
                                                                            "identifier": "RTRANS_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30852,
+                                                                                                 "address": 30854,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 16,
                                                                                                "max_value": 1,
@@ -10024,7 +10040,7 @@
                                                                            "identifier": "SAM_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30848,
+                                                                                                 "address": 30850,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 32768,
                                                                                                "max_value": 1,
@@ -10040,7 +10056,7 @@
                                                                            "identifier": "SEL_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 64,
                                                                                                "max_value": 1,
@@ -10056,7 +10072,7 @@
                                                                            "identifier": "SKID_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 32,
                                                                                                "max_value": 1,
@@ -10072,7 +10088,7 @@
                                                                            "identifier": "SPD_BRK_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 16384,
                                                                                                "max_value": 1,
@@ -10088,7 +10104,7 @@
                                                                            "identifier": "STBY_TR_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30854,
+                                                                                                 "address": 30856,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 1,
                                                                                                "max_value": 1,
@@ -10104,7 +10120,7 @@
                                                                            "identifier": "STO_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 256,
                                                                                                "max_value": 1,
@@ -10120,7 +10136,7 @@
                                                                            "identifier": "VSTOL_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 16,
                                                                                                "max_value": 1,
@@ -10136,7 +10152,7 @@
                                                                            "identifier": "WSLD_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30850,
+                                                                                                 "address": 30852,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 16384,
                                                                                                "max_value": 1,
@@ -10152,7 +10168,7 @@
                                                                            "identifier": "YAW_WLIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 30856,
+                                                                                                 "address": 30858,
                                                                                              "description": "0 if light is off, 1 if light is on",
                                                                                                     "mask": 16,
                                                                                                "max_value": 1,

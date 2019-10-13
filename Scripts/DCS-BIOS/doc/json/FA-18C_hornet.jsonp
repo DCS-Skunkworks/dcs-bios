@@ -2769,7 +2769,7 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_FORMATION_LIGHTS",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30020,
+                                                                                                                 "address": 30022,
                                                                                                              "description": "Formation Lights",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -2817,7 +2817,7 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_SPEED_BRAKE",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30018,
+                                                                                                                 "address": 30020,
                                                                                                              "description": "Speed Brake",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -4799,28 +4799,44 @@ docdata["FA-18C_hornet"] =
                                                                                    }
                                                      },
                            "Internal Canopy Switch": {
-                                                         "CANOPY_SW": {
-                                                                                     "category": "Internal Canopy Switch",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "Canopy Control Switch, OPEN/HOLD/CLOSE",
-                                                                                   "identifier": "CANOPY_SW",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 2
-                                                                                                 } ],
-                                                                          "momentary_positions": "first_and_last",
-                                                                                      "outputs": [ {
-                                                                                                         "address": 29896,
-                                                                                                     "description": "selector position",
-                                                                                                            "mask": 768,
-                                                                                                       "max_value": 2,
-                                                                                                        "shift_by": 8,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "rocker_switch"
-                                                                      }
+                                                         "CANOPY_POS": {
+                                                                               "category": "Internal Canopy Switch",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Canopy Position",
+                                                                             "identifier": "CANOPY_POS",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 30018,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                          "CANOPY_SW": {
+                                                                                      "category": "Internal Canopy Switch",
+                                                                                  "control_type": "selector",
+                                                                                   "description": "Canopy Control Switch, OPEN/HOLD/CLOSE",
+                                                                                    "identifier": "CANOPY_SW",
+                                                                                        "inputs": [ {
+                                                                                                      "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                                        "interface": "set_state",
+                                                                                                        "max_value": 2
+                                                                                                  } ],
+                                                                           "momentary_positions": "first_and_last",
+                                                                                       "outputs": [ {
+                                                                                                          "address": 29896,
+                                                                                                      "description": "selector position",
+                                                                                                             "mask": 768,
+                                                                                                        "max_value": 2,
+                                                                                                         "shift_by": 8,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ],
+                                                                              "physical_variant": "rocker_switch"
+                                                                       }
                                                      },
                                     "KY-58 Control": {
                                                           "KY58_FILL_SELECT": {
