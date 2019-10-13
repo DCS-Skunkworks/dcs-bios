@@ -211,6 +211,8 @@ defineIndicatorLight("ECM_RPT_LIGHT", 518, "ECM Panel", "ECM RPT Light")
 defineIndicatorLight("ECM_STBY_LIGHT", 519, "ECM Panel", "ECM STBY Light")
 defineIndicatorLight("ECM_REC_LIGHT", 500, "ECM Panel", "ECM REC Light")
 
+defineFloat("CANOPY_VALUE", 26, {0.0, 1.0}, "Cockpit Mechanics", "Canopy Position")
+
 -----------------------
 ------CONTROLS---------
 -----------------------

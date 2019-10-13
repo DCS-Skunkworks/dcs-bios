@@ -1181,6 +1181,8 @@ defineToggleSwitch("FCS_BIT_SW", 2, 3004, 470, "Right Essential Circuit Breakers
 
 -- COCKPIT CONTROLS
 
+defineFloat("CANOPY_POS", 181, {0, 1}, "Internal Canopy Switch", "Canopy Position")
+
 -- 1. Ejection Seat
 
 defineEjectionHandleSwitch("EJECTION_HANDLE_SW", 7, 3008, 510, "Ejection Seat", "Ejection Control Handle")

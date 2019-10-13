@@ -332,6 +332,8 @@ defineFloat("FUEL_QTY_10000", 90, {0, 1}, "Fuel Panel", "Fuel Quantity Counter 1
 defineFloat("FUEL_QTY_1000", 91, {0, 1}, "Fuel Panel", "Fuel Quantity Counter 1000")
 defineFloat("FUEL_QTY_100", 92, {0, 1}, "Fuel Panel", "Fuel Quantity Counter 100")
 
+defineFloat("CANOPY_VALUE", 7, {0.0, 1.0}, "Misc", "Canopy Position")
+
 defineIndicatorLight("MASTER_CAUTION", 404, "UFC", "Master Caution Light")
 
 -- The order in this file roughly follows clickabledata.lua

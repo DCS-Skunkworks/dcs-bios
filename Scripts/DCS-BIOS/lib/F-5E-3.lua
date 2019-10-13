@@ -331,6 +331,8 @@ defineFloat("SAI_PITCH", 438, {0.0, 1.0}, "Gauges", "SAI Pitch")
 defineFloat("SAI_BANK", 439, {0.0, 1.0}, "Gauges", "SAI Bank")
 defineFloat("SAI_OFF", 440, {0.0, 1.0}, "Gauges", "SAI OFF Flag")
 defineFloat("SAI_ARROW", 443, {0.0, 1.0}, "Gauges", "SAI Knob Arrow")
+defineFloat("CANOPY_POS", 181, {0, 1}, "Gauges", "Canopy Position")
+
 
 -- Accelerometer
 definePushButton("ACC", 27, 3001, 904,"Accelerometer" , "Accelerometer - Push to set")

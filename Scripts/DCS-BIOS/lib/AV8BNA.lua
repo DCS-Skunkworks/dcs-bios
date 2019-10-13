@@ -376,6 +376,7 @@ definePotentiometer("FLOOD_L_CAN_T", 28, 3159, 159, {-1, 1}, "Flood Lamps", "Flo
 defineToggleSwitch("CANOPY_HAND_L", 28, 3801, 801,"CANOPY" , "Canopy Handle Left")
 defineToggleSwitch("CANOPY_HAND_R", 28, 3802, 802,"CANOPY" , "Canopy Handle Right")
 defineToggleSwitch("CANOPY_LOCK", 28, 3803, 803,"CANOPY" , "Canopy Locking Lever")
+defineFloat("CANOPY_VALUE", 38, {0.0, 1.0}, "CANOPY", "Canopy Position")
 
 -------------------------------------------------------------------
 -- Indicator Lights & Gauges

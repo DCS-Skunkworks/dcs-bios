@@ -319,6 +319,7 @@ defineToggleSwitch("BACK_EJECT_HANDLE_COVER", 2, 3520, 521, "Misc", "BACK Ejecti
 defineToggleSwitch("BACK_MAN_SEPERATION_HANDLE", 2, 3521, 522, "Misc", "BACK Manual Seperation Handle")
 definePotentiometer("BACK_AIR_VENT", 2, 3523, 1230, nil, "Misc", "BACK Air Vent")
 defineToggleSwitch("BACK_GEAR_HANDLE", 2, 3524, 75, "Misc", "BACK Landing Gear Handle")
+defineFloat("CANOPY_VALUE", 1, {0.0, 1.0}, "Misc", "Canopy Position")
 
 -- WARNING, CAUTION AND INDICATORLIGHTS
 defineIndicatorLight("FRONT_TRANS_GEAR_LIGHT", 9, "Warning, Caution and IndicatorLights","FRONT Transition Gear Light (red)")
@@ -326,8 +327,6 @@ defineIndicatorLight("FRONT_TRANS_GEAR_LIGHT", 9, "Warning, Caution and Indicato
 defineIndicatorLight("FRONT_BACK_COMPUTER_LIGHT", 143, "Warning, Caution and IndicatorLights","FRONT/BACK Computer Light MAN (yellow)")
 defineIndicatorLight("FRONT_BACK_ANTI_ICE_LIGHT", 192, "Warning, Caution and IndicatorLights","FRONT/BACK ANTI-ICE Light ON (yellow)")
 defineIndicatorLight("FRONT_BACK_ENG_START_TLIGHT", 140, "Warning, Caution and IndicatorLights","FRONT/BACK Engine Start Test Light (yellow)")
-
--- GAUGES
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
@@ -353,6 +352,8 @@ end, 1, "External Aircraft Model", "Right Position Light (green)")
 defineIntegerFromGetter("EXT_STROBE_TOP", function()
 	if LoGetAircraftDrawArgumentValue(88) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Top Strobe Light")
+
+
 
 --------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS ------------------------------------
 -- PRESSURIZATION/AIRCON SYSTEM 
