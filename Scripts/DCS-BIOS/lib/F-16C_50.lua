@@ -1,5 +1,6 @@
--- V1.0b by Warlord (aka BlackLibrary)
+-- V1.0c by Warlord (aka BlackLibrary)
 -- Initial version of outputs from mainpanel_init.lua by Matchstick
+-- Tested and fixed by BuzzKillington
 
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
@@ -26,11 +27,55 @@ local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineDoubleCommandButton = BIOS.util.defineDoubleCommandButton
 
+function defineMissionComputerSwitch(msg, device_id, mc1_off_command, mc2_off_command, arg_number, category, description)
+	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+	    local val = dev0:get_argument_value(arg_number)
+		if val == -1 then
+			alloc:setValue(0)
+		elseif val == 0 then
+			alloc:setValue(1)
+		elseif val == 1 then
+			alloc:setValue(2)
+		end
+	end
+	
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "mission_computer_switch",
+		inputs = {
+			{ interface = "set_state", max_value = 2, description = "set the switch position" }
+		},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = alloc.address,
+			  mask = alloc.mask,
+			  shift_by = alloc.shiftBy,
+			  max_value = 2,
+			  description = "switch position -- 0 = emergency, 1 = parking"
+			}
+		}
+	}
+	moduleBeingDefined.inputProcessors[msg] = function(toState)
+		local dev = GetDevice(device_id)
+		dev:performClickableAction(mc1_off_command, 0) 
+		dev:performClickableAction(mc2_off_command, 0) 
+		if toState == "0" then
+			dev:performClickableAction(mc2_off_command, -1) 
+		elseif toState == "2" then
+			dev:performClickableAction(mc1_off_command, 1) 
+		end
+	end
+end
+
 ------------------------------------------------------------------Switches, Buttons---------------------------------------------------------------------------------
 --Control Interface
 defineToggleSwitch("DIGI_BAK_SW", 2, 3001, 566, "Control Interface", "DIGITAL BACKUP Switch, OFF/BACKUP")
 defineToggleSwitch("ALT_FLAPS_SW", 2, 3002, 567, "Control Interface", "ALT FLAPS Switch, NORM/EXTEND")
-definePushButton("BIT_SW", 2, 3003, 574, "Control Interface", "BIT Switch, OFF/BIT")
+defineToggleSwitch("BIT_SW", 2, 3003, 574, "Control Interface", "BIT Switch, OFF/BIT")
 defineToggleSwitch("FLCS_RESET_SW", 2, 3004, 573, "Control Interface", "FLCS RESET Switch, OFF/RESET")
 defineToggleSwitch("LE_FLAPS_SW", 2, 3005, 572, "Control Interface", "LE FLAPS Switch, AUTO/LOCK")
 defineToggleSwitch("TRIM_AP_DISC_SW", 2, 3006, 564, "Control Interface", "TRIM/AP DISC Switch, DISC/NORM")
@@ -86,7 +131,7 @@ definePushButton("DN_LOCK_BTN", 7, 3002, 361, "Gear System", "DN LOCK REL Button
 defineToggleSwitch("HOOK_SW", 7, 3006, 354, "Gear System", "HOOK Switch, UP/DN")
 definePushButton("HORN_SILENCE_BTN", 7, 3007, 359, "Gear System", "HORN SILENCER Button - Push to reset")
 defineToggleSwitch("BRAKE_CHAN_SW", 7, 3005, 356, "Gear System", "BRAKES Channel Switch, CHAN 1/CHAN 2")
-defineDoubleCommandButton("ANTI_SKID_SW", 7, 3003, 3004, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
+defineMissionComputerSwitch("ANTI_SKID_SW", 7, 3003, 3004, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
 
 --ECS
 defineTumb("TEMP_KNB", 13, 3002, 692, 0.1, {-0.3,0.3}, nil, true, "ECS", "TEMP Knob")
@@ -315,10 +360,10 @@ definePushButton("MFD_R_17", 25, 3017, 342,"MFD Right" , "MFD Right Button 17")
 definePushButton("MFD_R_18", 25, 3018, 343,"MFD Right" , "MFD Right Button 18")
 definePushButton("MFD_R_19", 25, 3019, 344,"MFD Right" , "MFD Right Button 19")
 definePushButton("MFD_R_20", 25, 3020, 345,"MFD Right" , "MFD Right Button 20")
-defineRockerSwitch("MFD_R_GAIN_SW", 24, 3021, 3021, 3022, 3022, 346, "MFD Right", "MFD Left Right Rocker Switch")
-defineRockerSwitch("MFD_R_SYM_SW", 24, 3023, 3023, 3024, 3024, 347, "MFD Right", "MFD Left Right Rocker Switch")
-defineRockerSwitch("MFD_R_CON_SW", 24, 3025, 3025, 3026, 3026, 348, "MFD Right", "MFD Left Right Rocker Switch")
-defineRockerSwitch("MFD_R_BRT_SW", 24, 3027, 3027, 3028, 3028, 349, "MFD Right", "MFD Left Right Rocker Switch")
+defineRockerSwitch("MFD_R_GAIN_SW", 25, 3021, 3021, 3022, 3022, 346, "MFD Right", "MFD Right GAIN Rocker Switch")
+defineRockerSwitch("MFD_R_SYM_SW", 25, 3023, 3023, 3024, 3024, 347, "MFD Right", "MFD Right SYM Rocker Switch")
+defineRockerSwitch("MFD_R_CON_SW", 25, 3025, 3025, 3026, 3026, 348, "MFD Right", "MFD Right CON Rocker Switch")
+defineRockerSwitch("MFD_R_BRT_SW", 25, 3027, 3027, 3028, 3028, 349, "MFD Right", "MFD Right BRT Rocker Switch")
 
 --Airspeed/Mach Indicator
 defineRotary("AIRSPEED_SET_KNB", 46, 3001, 71, "Airspeed Indicator", "SET INDEX Knob")
@@ -518,7 +563,7 @@ defineIndicatorLight("LIGHT_ECM_SPL_T", 499, "Warning, Caution and IndicatorLigh
 defineIndicatorLight("LIGHT_MARKER_BEACON", 157, "Warning, Caution and IndicatorLights","MARKER BEACON Light (green)")
 
 ------------------------------------------------------------------Gauges--------------------------------------------------------------------------------------------
-defineFloat("CANOPY_VALUE", 7, {-1.0, 1.0}, "Cockpit Mechanics", "Canopy Value")
+defineFloat("CANOPY_VALUE", 7, {0.0, 1.0}, "Cockpit Mechanics", "Canopy Position")
 --AOA				
 defineFloat("AOA_VALUE", 15, {-1.0, -0.807, 0.0, 1.0}, "AoA", "AoA Value")
 
@@ -576,7 +621,7 @@ defineFloat("SYSB_PRESSURE", 616, {0.0, 0.170, 0.302, 0.496, 0.694, 0.828, 1.0},
 --Oil Pressure
 defineFloat("ENGINE_OIL_PRESSURE", 93, {0, 1}, "Engine", "Oil Pressure Indicator")
 --Nozzle Position Indicators
-defineFloat("ENGINE_NOZZLE_POSITION", 94, {0.0, 0.185, 0.36, 0.533, 0.715, 0.894, 1.0}, "Engine", "Engine Nozzle Position Indicator")
+defineFloat("ENGINE_NOZZLE_POSITION", 94, {0.0, 1.0}, "Engine", "Engine Nozzle Position Indicator")
 --Engine Tachometers
 defineFloat("ENGINE_TACHOMETER", 95, {0.0, 0.114, 0.233, 0.346, 0.377, 0.437, 0.57, 0.705, 0.855, 1.0}, "Engine", "Engine Tachometer Indicator")
 --FTIT
@@ -592,7 +637,7 @@ defineFloat("FUELFLOWCOUNTER_100", 90, {0, 1}, "Fuel System", "Fuel Flow Counter
 
 --Fuel Quantity Indicator (Dual)
 defineFloat("FUEL_AL", 613, {0.0, 1.0}, "Fuel System", "Fuel Quantity Indicator AL")
-defineFloat("FUEL_FR", 614, {0.0, 0.1, 0.2, 0.301, 0.401, 0.502, 0.603, 0.702, 0.801, 0.84}, "Fuel System", "Fuel Quantity Indicator FR")
+defineFloat("FUEL_FR", 614, {0.0, 0.1}, "Fuel System", "Fuel Quantity Indicator FR")
 defineFloat("FUELTOTALIZER_10K", 730, {0, 1}, "Fuel System", "Fuel Totalizer Counter 10K")
 defineFloat("FUELTOTALIZER_1K", 731, {0, 1}, "Fuel System", "Fuel Totalizer Counter 1K")
 defineFloat("FUELTOTALIZER_100", 732, {0, 1}, "Fuel System", "Fuel Totalizer Counter 100")
