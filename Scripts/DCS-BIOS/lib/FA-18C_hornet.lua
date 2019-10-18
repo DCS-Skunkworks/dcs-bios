@@ -943,15 +943,15 @@ definePushButton("RWR_BIT_BTN", 53, 3005, 266, "RWR Control Indicator", "ALR-67 
 definePotentiometer("RWR_DMR_CTRL", 53, 3006, 263, {0, 1}, "RWR Control Indicator", "ALR-67 DMR Control Knob")
 defineTumb("RWR_DIS_TYPE_SW", 53, 3007, 261, 0.1, {0.0, 0.4}, nil, false, "RWR Control Indicator", "ALR-67 DIS TYPE Switch, N/I/A/U/F")
 definePotentiometer("RWR_RWR_INTESITY", 53, 3008, 216, {0, 1}, "RWR Control Indicator", "RWR Intensity Knob")
-defineIndicatorLight("RWR_LOWER_LT", 276, "RWR Control Indicator", "ALR-67 LOWER Light")
-defineIndicatorLight("RWR_LIMIT_LT", 273, "RWR Control Indicator", "ALR-67 LIMIT Light")
-defineIndicatorLight("RWR_DISPLAY_LT", 274, "RWR Control Indicator", "ALR-67 DISPLAY Light")
---defineIndicatorLight("RWR_SPECIAL_EN_LT", 270, "RWR Control Indicator", "ALR-67 SPECIAL ENABLE Light")
-defineIndicatorLight("RWR_SPECIAL_LT", 271, "RWR Control Indicator", "ALR-67 SPECIAL Light")
-defineIndicatorLight("RWR_ENABLE_LT", 267, "RWR Control Indicator", "ALR-67 ENABLE Light")
-defineIndicatorLight("RWR_OFFSET_LT", 268, "RWR Control Indicator", "ALR-67 OFFSET Light")
-defineIndicatorLight("RWR_FAIL_LT", 264, "RWR Control Indicator", "ALR-67 FAIL Light")
-defineIndicatorLight("RWR_BIT_LT", 265, "RWR Control Indicator", "ALR-67 BIT Light")
+defineIndicatorLight("RWR_LOWER_LT", 276, "RWR Control Indicator", "ALR-67 LOWER Light (green)")
+defineIndicatorLight("RWR_LIMIT_LT", 273, "RWR Control Indicator", "ALR-67 LIMIT Light (green)")
+defineIndicatorLight("RWR_DISPLAY_LT", 274, "RWR Control Indicator", "ALR-67 DISPLAY Light (green)")
+defineIndicatorLight("RWR_SPECIAL_EN_LT", 270, "RWR Control Indicator", "ALR-67 SPECIAL ENABLE Light (green)")
+defineIndicatorLight("RWR_SPECIAL_LT", 271, "RWR Control Indicator", "ALR-67 SPECIAL Light (green)")
+defineIndicatorLight("RWR_ENABLE_LT", 267, "RWR Control Indicator", "ALR-67 ENABLE Light (green)")
+defineIndicatorLight("RWR_OFFSET_LT", 268, "RWR Control Indicator", "ALR-67 OFFSET Light (green)")
+defineIndicatorLight("RWR_FAIL_LT", 264, "RWR Control Indicator", "ALR-67 FAIL Light (red)")
+defineIndicatorLight("RWR_BIT_LT", 265, "RWR Control Indicator", "ALR-67 BIT Light (green)")
 
 -- 37. Clock
 defineFloat("CLOCK_HOURS", 278, {0, 1}, "Clock", "Hours")
@@ -1143,7 +1143,8 @@ define3PosTumb("FLIR_SW", 62, 3001, 439, "Sensor Panel", "FLIR Switch, ON/STBY/O
 define3PosTumb("LTD_R_SW", 62, 3002, 441, "Sensor Panel", "LTD/R Switch, ---/SAFE/AFT") -- ARM position is handled by another parameter
 defineToggleSwitch("LST_NFLR_SW", 62, 3004, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF")
 defineToggleSwitch("LTD_R_ARM", 62, 3003, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE")
-defineTumb("RADAR_SW", 42, 3001, 440, 0.1, {0.0, 0.3}, nil, false, "Sensor Panel", "RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
+defineTumb("RADAR_SW", 42, 3001, 440, 0.1, {0.0, 0.3}, nil, false, "Sensor Panel", "RADAR Switch Change ,OFF/STBY/OPR/EMERG(PULL)")
+definePushButton("RADAR_SW_PULL", 42, 3002, 440, "Sensor Panel", "RADAR Switch Pull (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
 defineTumb("INS_SW", 44, 3001, 443, 0.1, {0.0, 0.7}, nil, false, "Sensor Panel", "INS Switch, OFF/CV/GND/NAV/IFA/GYRO/GB/TEST")
 
 -- 6. KY-58 Control
