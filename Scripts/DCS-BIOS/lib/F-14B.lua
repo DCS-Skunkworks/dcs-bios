@@ -659,7 +659,7 @@ defineToggleSwitch("PLT_MASTER_ARM_COVER", 55, 3135, 1046, "Weapons Panel", "PIL
 define3PosTumb("PLT_MASTER_ARM_SW", 55, 3136, 1047, "Weapons Panel", "PILOT Master Arm Switch")
 defineToggleSwitch("PLT_ACM_COVER", 55, 3133, 1049, "Weapons Panel", "PILOT ACM Cover")
 definePushButton("PLT_ACM_JETT", 55, 3138, 1048, "Weapons Panel", "PILOT ACM Jettison")
-definePushButton("PLT_MASTER_CAUTION_RESET", 55, 3056, 9199, "Weapons Panel", "PILOT Master Caution Reset")
+definePushButton("PLT_MASTER_CAUTION_RESET", 34, 3056, 9199, "Weapons Panel", "PILOT Master Caution Reset")
 definePushButton("PLT_GUN_RATE", 55, 3130, 16000, "Weapons Panel", "PILOT Gun Rate")
 definePushButton("PLT_SIDEWINDER_COOL", 55, 3139, 16001, "Weapons Panel", "PILOT Sidewinder Cool")
 definePushButton("PLT_MISSLE_PREP", 55, 3140, 16002, "Weapons Panel", "PILOT Missile Prepare")
