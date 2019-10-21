@@ -1,4 +1,4 @@
--- V1.0e by Warlord (aka BlackLibrary)
+-- V1.0f by Warlord (aka BlackLibrary)
 -- DED Display & Initial version of outputs from mainpanel_init.lua by Matchstick
 -- Tested and fixes by BuzzKillington
 
@@ -720,6 +720,7 @@ local DEDLayout_l3={}
 local DEDLayout_l4={}
 local DEDLayout_l5={}
 
+--CNI
 DEDLayout_l1["UHF Mode Rotary"]={1,3}
 DEDLayout_l1["UHF IncDecSymbol"]={5,1}
 DEDLayout_l1["Selected UHF Frequency"]={6,6}
@@ -762,9 +763,9 @@ DEDLayout_l1["TCN BIG OFF Label"]={5,3,0,"","B","OFF"}
 DEDLayout_l1["ILS Label"]={13,3}
 DEDLayout_l1["ILS Mode"]={18,3}
 --ALOW
-DEDLayout_l1["ALOW label"] = {10,4}
-DEDLayout_l1["Selected Steerpoint"] = {19,2}
-DEDLayout_l1["WPT IncDecSymbol"] = {23,1}
+DEDLayout_l1["ALOW ALOW label"] = {10,4}
+DEDLayout_l1["ALOW Selected Steerpoint"] = {19,2}
+DEDLayout_l1["ALOW WPT IncDecSymbol"] = {23,1}
 --STPT
 DEDLayout_l1["STEERPOINT LABEL"] = {6,4}
 DEDLayout_l1["STEERPOINT NUMBER"] = {12,2,0,"_inv","I"}
@@ -779,9 +780,9 @@ DEDLayout_l1["BINGO IncDecSymbol"] = {21,1}
 DEDLayout_l1["CMDS_Prog_label"] = {15,4}
 DEDLayout_l1["CMDS_Selected_Program"] = {21,2}
 DEDLayout_l1["CMDS_Prog_IncDecSymbol"] = {23,1}
-DEDLayout_l1["CMDS_BINGO_label"] = {5,11}
-DEDLayout_l1["Selected Steerpoint"] = {19,2}
-DEDLayout_l1["WPT IncDecSymbol"] = {23,1}
+DEDLayout_l1["BINGO CMDS_BINGO_label"] = {5,11}
+DEDLayout_l1["BINGO Selected Steerpoint"] = {19,2}
+DEDLayout_l1["BINGO WPT IncDecSymbol"] = {23,1}
 DEDLayout_l1["CMDS_CHAFF_label"] = {2,9}
 DEDLayout_l1["CMDS_FLARE_label"] = {2,9}
 DEDLayout_l1["CMDS_OTHER1_label"] = {2,10}
@@ -923,7 +924,7 @@ DEDLayout_l3["CMDS_FL_Scratchpad"] = {7,2,0,"_inv","I"}
 DEDLayout_l3["CMDS_FL_Asterisks_both"] = {6,1,9,"","I"}
 DEDLayout_l3["CMDS_FDBK_lbl"] = {11,4}
 DEDLayout_l3["CMDS_FDBK_value"] = {19,3,0,"_inv","I"}
-DEDLayout_l3["CMDS_FDBK_Asterisks"] = {18,1,22,"","I"}
+DEDLayout_l3["CMDS_FDBK_Asterisks_both"] = {18,1,22,"","I"}
 --Misc
 DEDLayout_l3["Misc Item 4 Number"]={0,1,0,"","I"}
 DEDLayout_l3["Misc Item 4 Name"]={1,4}
@@ -994,7 +995,7 @@ DEDLayout_l4["List Item 0 Name"]={19,4}
 --T-ILS
 DEDLayout_l4["ILS FRQ Label"]={12,3}
 DEDLayout_l4["ILS FRQ Scratchpad"]={17,6,0,"_inv","I"}
-DEDLayout_l4["ILS FRQ Asterisks_both"]={17,1,24,"","I"}
+DEDLayout_l4["ILS FRQ Asterisks_both"]={16,1,23,"","I"}
 DEDLayout_l4["TCN CHAN Label"] = {0,4}
 DEDLayout_l4["TCN CHAN Scratchpad"]={5,3,0,"_inv","I"}
 DEDLayout_l4["TCN CHAN Asterisks_both"]={4,1,8,"","I"}
@@ -1016,8 +1017,8 @@ DEDLayout_l4["CMDS_SQ_lbl"] = {6,2}
 DEDLayout_l4["CMDS_SQ_Scratchpad"] = {10,2,0,"_inv","I"}
 DEDLayout_l4["CMDS_SQ_Asterisks_both"] = {9,1,13,"","I"}
 DEDLayout_l4["CMDS_O1_lbl"] = {2,2}
-DEDLayout_l4["CMDS_01_Scratchpad"] = {7,2,0,"_inv","I"}
-DEDLayout_l4["CMDS_01_Asterisks_both"] = {6,1,9,"","I"}
+DEDLayout_l4["CMDS_O1_Scratchpad"] = {7,2,0,"_inv","I"}
+DEDLayout_l4["CMDS_O1_Asterisks_both"] = {6,1,9,"","I"}
 DEDLayout_l4["CMDS_REQCTR_lbl"] = {11,6}
 DEDLayout_l4["CMDS_REQCTR_value"] = {19,3,0,"_inv","I"}
 DEDLayout_l4["CMDS_REQCTR_Asterisks_both"] = {18,1,22,"","I"}
@@ -1092,7 +1093,7 @@ DEDLayout_l5["STEERPOINT TOS Asteriscs_both"] = {7,1,16,"","I"}
 --CMDS
 DEDLayout_l5["CMDS_SI_lbl"] = {6,2}
 DEDLayout_l5["CMDS_SI_Scratchpad"] = {10,6,0,"_inv","I"}
-DEDLayout_l5["CMDS_SQ_Asterisks_both"] = {9,1,16,"","I"}
+DEDLayout_l5["CMDS_SI_Asterisks_both"] = {9,1,16,"","I"}
 DEDLayout_l5["CMDS_O2_lbl"] = {2,2}
 DEDLayout_l5["CMDS_O2_Scratchpad"] = {7,2,0,"_inv","I"}
 DEDLayout_l5["CMDS_O2_Asterisks_both"] = {6,1,9,"","I"}
@@ -1112,7 +1113,6 @@ DEDLayout_l5["INTG Scratchpad"] = {10,5,0,"_inv","I"}
 DEDLayout_l5["INTG COUPLE Mode"] = {16,4,0,"_inv","I"}
 DEDLayout_l5["INTG COUPLE Key"] = {20,3}
 --DEDLayout_l5[""] = {,}
-
 DEDLayout = {DEDLayout_l1, DEDLayout_l2, DEDLayout_l3, DEDLayout_l4, DEDLayout_l5}
 
 ------------------------------------------------------------------DED Display Utility Functions---------------------------------------------------------------------
@@ -1175,12 +1175,14 @@ local function buildDEDLine(line)
 	local value
 
 -- Base Output String
-	local dataLine ="                                       "
+	local dataLine ="                         "
 
 -- Check for present of Objects that indicate Duplicate Key Names that need resolving
 	local guard = DED_fields["Guard Label"]
-	local mode = DED_fields["Mode label"]
+	local mode =  DED_fields["Mode label"]
 	local event = DED_fields["Event Occured"]
+	local alow =  DED_fields["ALOW label"]
+	local bingo = DED_fields["CMDS_BINGO_lbl"]
 
 --Loop through Exported DED Objects
 	for k,v in pairs(DED_fields) do
@@ -1193,20 +1195,25 @@ local function buildDEDLine(line)
 -- Handle Duplicate Key Names on IFF POS & TIM page items
 		elseif event ~= nil then
 			label = event.." "..k
+-- Handle Duplicate Key Names on ALOW page Line 1 items
+		elseif alow ~= nil and line == 1 then
+			label = alow.." "..k
+-- Handle Duplicate Key Names on CMDS Bingo page Line 1 items
+		elseif bingo ~= nil and line == 1 then
+			label = bingo.." "..k
 		else
 			label = k
 		end
 --Get layout data associated with current key
 		layout = DEDLayoutLine[label:gsub("_inv","",1):gsub("_lhs","_both",1)]
 		if layout ~= nil then
-			local formatted = false
 --If layout value 6 is present then use this value to override the value returned from DCS
 			if layout[6] ~= nil then
 				value = layout[6]
-				else
+			else
 				value = v
 			end
-
+			
 -- Add Value to dataLine using mergeString because some values are are supposed to fit within others
 			dataLine = mergeString(dataLine, value, layout[1])
 
@@ -1225,7 +1232,6 @@ local DEDLine3 = ""
 local DEDLine4 = ""
 local DEDLine5 = ""
 
-
 -- Build DED Display Lines
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	DEDLine1 = buildDEDLine(1);
@@ -1236,11 +1242,11 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 end
 
 -- Add DED Display Lines to data sent across
-defineString("DED_LINE_1", function() return DEDLine1 end, 50, "DED Output Data", "DED Display Line 1")
-defineString("DED_LINE_2", function() return DEDLine2 end, 50, "DED Output Data", "DED Display Line 2")
-defineString("DED_LINE_3", function() return DEDLine3 end, 50, "DED Output Data", "DED Display Line 3")
-defineString("DED_LINE_4", function() return DEDLine4 end, 50, "DED Output Data", "DED Display Line 4")
-defineString("DED_LINE_5", function() return DEDLine5 end, 50, "DED Output Data", "DED Display Line 5")
+defineString("DED_LINE_1", function() return DEDLine1 end, 25, "DED Output Data", "DED Display Line 1")
+defineString("DED_LINE_2", function() return DEDLine2 end, 25, "DED Output Data", "DED Display Line 2")
+defineString("DED_LINE_3", function() return DEDLine3 end, 25, "DED Output Data", "DED Display Line 3")
+defineString("DED_LINE_4", function() return DEDLine4 end, 25, "DED Output Data", "DED Display Line 4")
+defineString("DED_LINE_5", function() return DEDLine5 end, 25, "DED Output Data", "DED Display Line 5")
 
 ------------------------------------------------------------------Externals-----------------------------------------------------------------------------------------
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
