@@ -1,5 +1,6 @@
 BIOS.protocol.beginModule("F-5E-3", 0x7600)
 BIOS.protocol.setExportModuleAircrafts({"F-5E-3"})
+--by WarLord
 
 local documentation = moduleBeingDefined.documentation
 
@@ -244,7 +245,7 @@ define3PosTumb("AHRS_FAST_SLAVE", 16, 3003, 220, "AHRS", "Compass Switch, DIR GY
 defineTumb("AHRS_NAV_MODE", 16, 3004, 273, 0.1, {0.0, 0.1}, nil, false, "AHRS", "Nav Mode Selector Switch, DF/TACAN")
 
 -- AN/APQ-159 Radar Control Panel
-definePotentiometer("RADAR_ELEVATION", 17, 3001, 321, {0, 1}, "Radar", "AN/APQ-159 Radar Elevation Antenna Tilt Control Knob")
+definePotentiometer("RADAR_ELEVATION", 17, 3001, 321, {-1, 1}, "Radar", "AN/APQ-159 Radar Elevation Antenna Tilt Control Knob")
 defineTumb("RADAR_RANGE", 17, 3004, 315, 0.1, {0.0, 0.3}, nil, false, "Radar", "AN/APQ-159 Radar Range Selector Switch [nm], 5/10/20/40")
 defineTumb("RADAR_MODE", 17, 3005, 316, 0.1, {0.0, 0.3}, nil, false, "Radar", "AN/APQ-159 Radar Mode Selector Switch, OFF/STBY/OPER/TEST")
 definePushButton("RADAR_ACQUIS", 17, 3006, 317, "Radar" , "AN/APQ-159 Radar Acquisition Button")
