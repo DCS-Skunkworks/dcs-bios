@@ -1,5 +1,5 @@
--- V1.0f by Warlord (aka BlackLibrary)
--- DED Display & Initial version of outputs from mainpanel_init.lua by Matchstick
+-- V1.0g by Warlord (aka BlackLibrary)
+-- DED Display, UHF, CMDS & Initial version of outputs from mainpanel_init.lua by Matchstick
 -- Tested and fixes by BuzzKillington
 
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
@@ -1247,6 +1247,58 @@ defineString("DED_LINE_2", function() return DEDLine2 end, 25, "DED Output Data"
 defineString("DED_LINE_3", function() return DEDLine3 end, 25, "DED Output Data", "DED Display Line 3")
 defineString("DED_LINE_4", function() return DEDLine4 end, 25, "DED Output Data", "DED Display Line 4")
 defineString("DED_LINE_5", function() return DEDLine5 end, 25, "DED Output Data", "DED Display Line 5")
+
+------------------------------------------------------------------CMDS Display--------------------------------------------------------------------------------------
+local CMDS_O1_Amount
+local CMDS_O1_Amount
+local CMDS_O2_Amount
+local CMDS_CH_Amount
+local CMDS_FL_Amount
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local cmds = parse_indication(17)
+	CMDS_O1_Amount = "    "
+	CMDS_O2_Amount = "    "
+	CMDS_CH_Amount = "    "
+	CMDS_FL_Amount = "    "
+	if not cmds then
+		return
+	end
+	CMDS_O1_Amount 				= coerce_nil_to_string(cmds.CMDS_O1_Amount)
+	CMDS_O2_Amount 				= coerce_nil_to_string(cmds.CMDS_O2_Amount)
+	CMDS_CH_Amount 				= coerce_nil_to_string(cmds.CMDS_CH_Amount)
+	CMDS_FL_Amount 				= coerce_nil_to_string(cmds.CMDS_FL_Amount)
+end
+
+defineString("CMDS_O1_Amount", function() return CMDS_O1_Amount end, 4, "CMDS", "CMDS O1 Amount Display")
+defineString("CMDS_O2_Amount", function() return CMDS_O2_Amount end, 4, "CMDS", "CMDS O2 Amount Display")
+defineString("CMDS_CH_Amount", function() return CMDS_CH_Amount end, 4, "CMDS", "CMDS CH Amount Display")
+defineString("CMDS_FL_Amount", function() return CMDS_FL_Amount end, 4, "CMDS", "CMDS FL Amount Display")
+
+------------------------------------------------------------------UHF Display---------------------------------------------------------------------------------------
+local function get_UHF_CHAN()
+    local UHF = parse_indication(11)
+	if UHF and UHF.txtPresetChannel then
+		return coerce_nil_to_string(UHF.txtPresetChannel)
+	else
+		return "  "
+	end
+end
+
+defineString("UHF_CHAN_DISP", get_UHF_CHAN, 2, "UHF", "UHF CHAN Display")
+
+local function get_UHF_FREQUENCY()
+    local UHF = parse_indication(12)
+    if UHF and UHF.txtFreqStatus then
+        local UHF_Freq = UHF.txtFreqStatus
+        local UHF_dot =  UHF.txtDot
+        return UHF_Freq:sub(1,3)..UHF_dot..UHF_Freq:sub(4,6)
+    else
+        return "       "
+    end
+end
+
+defineString("UHF_FREQ_DISP", get_UHF_FREQUENCY, 7, "UHF", "UHF Manual Frequency Display")  
 
 ------------------------------------------------------------------Externals-----------------------------------------------------------------------------------------
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
