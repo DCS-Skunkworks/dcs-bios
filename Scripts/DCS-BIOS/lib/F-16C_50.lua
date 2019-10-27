@@ -910,7 +910,7 @@ DEDLayout_l3["CARA ALOW Asterisks_both"] = {14,1,22,"","I"}
 --STPT
 DEDLayout_l3["STEERPOINT Longitude"] = {3,3}
 DEDLayout_l3["STEERPOINT Longitude Value"] = {8,12,0,"_inv","I"}
-DEDLayout_l3["STEERPOINT Latitude Asteriscs_both"] = {7,1,20,"","I"}
+DEDLayout_l3["STEERPOINT Longitude Asteriscs_both"] = {7,1,20,"","I"}
 --BINGO
 DEDLayout_l3["SET label"] = {6,3}
 DEDLayout_l3["BINGO Asterisks_both"] = {10,1,19,"","I"}
