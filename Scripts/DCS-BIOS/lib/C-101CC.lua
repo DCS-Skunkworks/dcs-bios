@@ -312,7 +312,6 @@ definePotentiometer("FRONT_AIR_VENT", 2, 3249, 101, nil, "Misc", "FRONT Air Vent
 defineToggleSwitch("FRONT_GEAR_HANDLE", 2, 3250, 8, "Misc", "FRONT Landing Gear Handle")
 defineMultipositionSwitch("BACK_FLAP_SEL", 2, 3514, 38, 3, 0.5,"Misc" ,"BACK Flap Position Selector")
 defineToggleSwitch("BACK_CPT_EMERG_JETT", 2, 3515, 302, "Misc", "BACK Canopy Emergency Jettison")
-definePotentiometer("BACK_THROTTLE_FRICTION", 2, 3517, 16, nil, "Misc", "BACK Throttle Friction")
 definePotentiometer("BACK_HARNESS_CONTROL", 2, 3518, 523, {0, 1}, "Misc", "BACK Shouldern Harness Control Handle")
 defineToggleSwitch("BACK_EJECT_HANDLE", 2, 3519, 520, "Misc", "BACK Ejection Handle")
 defineToggleSwitch("BACK_EJECT_HANDLE_COVER", 2, 3520, 521, "Misc", "BACK Ejection Handle Safety")

@@ -1,4 +1,4 @@
-BIOS.protocol.beginModule("I-16", 0x3400)
+BIOS.protocol.beginModule("I-16", 0x4000)
 BIOS.protocol.setExportModuleAircrafts({"I-16"})
 
 local documentation = moduleBeingDefined.documentation

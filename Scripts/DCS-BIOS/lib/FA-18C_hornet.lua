@@ -522,8 +522,11 @@ definePushButton("UFC_ENT", 25, 3029, 122, "Up Front Controller (UFC)", "Keyboar
 definePotentiometer("UFC_COMM1_VOL", 25, 3030, 108, {0, 1}, "Up Front Controller (UFC)", "COMM 1 Volume Control Knob")
 definePotentiometer("UFC_COMM2_VOL", 25, 3031, 123, {0, 1}, "Up Front Controller (UFC)", "COMM 2 Volume Control Knob")
 definePotentiometer("UFC_BRT", 25, 3032, 109, {0, 1}, "Up Front Controller (UFC)", "Brightness Control Knob")
+
 defineRotary("UFC_COMM1_CHANNEL_SELECT", 25, 3033, 124, "Up Front Controller (UFC)", "COMM 1 Channel Select Knob")
 defineRotary("UFC_COMM2_CHANNEL_SELECT", 25, 3034, 126, "Up Front Controller (UFC)", "COMM 2 Channel Select Knob")
+BIOS.util.defineFixedStepInput("UFC_COMM1_CHANNEL_SELECT", 25, 3033, {-0.03, 0.03}, "Up Front Controller (UFC)", "COMM 1 Channel Select Knob")
+BIOS.util.defineFixedStepInput("UFC_COMM2_CHANNEL_SELECT", 25, 3034, {-0.03, 0.03}, "Up Front Controller (UFC)", "COMM 2 Channel Select Knob")
 
 local UFC_Comm1Display = ""
 local UFC_Comm2Display = ""
@@ -540,6 +543,18 @@ local UFC_OptionDisplay5 = ""
 local UFC_ScratchPadNumberDisplay = ""
 local UFC_ScratchPadString1Display = ""
 local UFC_ScratchPadString2Display = ""
+
+local function processUfcTwoDigitDisplay(s)
+	if s == "_" then
+		s = "--"
+	end
+	s = s:gsub("^`", "1")
+	s = s:gsub("^~", "2")
+	if s:len() == 1 then
+		s = " " .. s
+	end
+	return s
+end
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local ufc = parse_indication(6)
@@ -562,7 +577,9 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		return
 	end
 	UFC_Comm1Display 				= coerce_nil_to_string(ufc.UFC_Comm1Display)
+	UFC_Comm1Display = processUfcTwoDigitDisplay(UFC_Comm1Display)
 	UFC_Comm2Display 				= coerce_nil_to_string(ufc.UFC_Comm2Display)
+	UFC_Comm2Display = processUfcTwoDigitDisplay(UFC_Comm2Display)
 	UFC_OptionCueing1 				= coerce_nil_to_string(ufc.UFC_OptionCueing1)
 	UFC_OptionCueing2 				= coerce_nil_to_string(ufc.UFC_OptionCueing2)
 	UFC_OptionCueing3 				= coerce_nil_to_string(ufc.UFC_OptionCueing3)
@@ -574,8 +591,11 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	UFC_OptionDisplay4 				= coerce_nil_to_string(ufc.UFC_OptionDisplay4)
 	UFC_OptionDisplay5 				= coerce_nil_to_string(ufc.UFC_OptionDisplay5)
 	UFC_ScratchPadNumberDisplay 	= coerce_nil_to_string(ufc.UFC_ScratchPadNumberDisplay)
+	UFC_ScratchPadNumberDisplay = (" "):rep(8-UFC_ScratchPadNumberDisplay:len())..UFC_ScratchPadNumberDisplay
 	UFC_ScratchPadString1Display 	= coerce_nil_to_string(ufc.UFC_ScratchPadString1Display)
+	UFC_ScratchPadString1Display = processUfcTwoDigitDisplay(UFC_ScratchPadString1Display)
 	UFC_ScratchPadString2Display 	= coerce_nil_to_string(ufc.UFC_ScratchPadString2Display)
+	UFC_ScratchPadString2Display = processUfcTwoDigitDisplay(UFC_ScratchPadString2Display)
 end
 
 defineString("UFC_COMM1_DISPLAY", function() return UFC_Comm1Display end, 2, "Up Front Controller (UFC)", "Comm 1 Display")
