@@ -57,23 +57,19 @@ function BIOS.protocol.beginModule(name, baseAddress)
 	exportModules[name] = moduleBeingDefined
 end
 function BIOS.protocol.endModule()
+	local jsonFileDir = lfs.writedir().."DCS-BIOS JSON"
 	local function saveDoc()
 		local JSON = loadfile([[Scripts\JSON.lua]])()
-		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".json", "w")
+		local file, err = io.open(lfs.writedir()..[[DCS-BIOS JSON\]]..moduleBeingDefined.name..".json", "w")
 		local json_string = JSON:encode_pretty(moduleBeingDefined.documentation)
 		if file then
 			file:write(json_string)
 			file:close()
 		end
-		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".jsonp", "w")
-		if file then
-			file:write('docdata["'..moduleBeingDefined.name..'"] =\n')
-			file:write(json_string)
-			file:write(";\n")
-			file:close()
-		end
 	end
-	pcall(saveDoc)
+	if lfs.attributes(lfs.writedir().."DCS-BIOS JSON") ~= nil then
+		pcall(saveDoc)
+	end
 	moduleBeingDefined = nil
 end
 
