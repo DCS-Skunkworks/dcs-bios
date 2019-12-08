@@ -444,8 +444,13 @@ end, 65535, "External Aircraft Model", "Left Speed Brake")
 defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
 	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Position Lights")
+
 defineIntegerFromGetter("EXT_STROBE_LIGHTS", function()
 	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Strobe Lights")
+
+defineIntegerFromGetter("EXT_BRAKE_CUTE", function()
+	if LoGetAircraftDrawArgumentValue(35) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Brake Cute")
 
 BIOS.protocol.endModule()

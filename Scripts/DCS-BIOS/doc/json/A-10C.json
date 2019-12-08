@@ -8937,6 +8937,22 @@
                                                                                                  } ],
                                                                              "physical_variant": "infinite_rotary"
                                                                       },
+                                                         "IFF_REPLY": {
+                                                                              "category": "IFF",
+                                                                          "control_type": "led",
+                                                                           "description": "IFF REPLY Light",
+                                                                            "identifier": "IFF_REPLY",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 4798,
+                                                                                              "description": "0 if light is off, 1 if light is on",
+                                                                                                     "mask": 16384,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 14,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
                                                      "IFF_REPLY_DIM": {
                                                                               "category": "IFF",
                                                                           "control_type": "limited_dial",
@@ -8991,6 +9007,22 @@
                                                                                                             "type": "integer"
                                                                                                  } ],
                                                                              "physical_variant": "push_button"
+                                                                      },
+                                                          "IFF_TEST": {
+                                                                              "category": "IFF",
+                                                                          "control_type": "led",
+                                                                           "description": "IFF TEST Light",
+                                                                            "identifier": "IFF_TEST",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 4798,
+                                                                                              "description": "0 if light is off, 1 if light is on",
+                                                                                                     "mask": 32768,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 15,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
                                                                       },
                                                       "IFF_TEST_DIM": {
                                                                               "category": "IFF",

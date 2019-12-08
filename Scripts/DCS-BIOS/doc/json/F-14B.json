@@ -6141,11 +6141,11 @@
                                                                                    "identifier": "EXT_ANTI_COL",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5002,
+                                                                                                         "address": 5120,
                                                                                                      "description": "Anticollision Lights",
-                                                                                                            "mask": 32768,
+                                                                                                            "mask": 2048,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 15,
+                                                                                                        "shift_by": 11,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6175,9 +6175,9 @@
                                                                                       "outputs": [ {
                                                                                                          "address": 5002,
                                                                                                      "description": "Position Lights Body",
-                                                                                                            "mask": 16384,
+                                                                                                            "mask": 32768,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 14,
+                                                                                                        "shift_by": 15,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6189,8 +6189,40 @@
                                                                                    "identifier": "EXT_POSITION_LIGHTS_WINGS",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 4872,
+                                                                                                         "address": 5002,
                                                                                                      "description": "Position Lights Wings",
+                                                                                                            "mask": 16384,
+                                                                                                       "max_value": 1,
+                                                                                                        "shift_by": 14,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ]
+                                                                             },
+                                                  "EXT_POSITION_LIGHT_TAIL": {
+                                                                                     "category": "External Aircraft Model",
+                                                                                 "control_type": "metadata",
+                                                                                  "description": "Tail Position Light",
+                                                                                   "identifier": "EXT_POSITION_LIGHT_TAIL",
+                                                                                       "inputs": [  ],
+                                                                                      "outputs": [ {
+                                                                                                         "address": 5120,
+                                                                                                     "description": "Tail Position Light",
+                                                                                                            "mask": 1024,
+                                                                                                       "max_value": 1,
+                                                                                                        "shift_by": 10,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ]
+                                                                             },
+                                                   "EXT_REFUEL_PROBE_LIGHT": {
+                                                                                     "category": "External Aircraft Model",
+                                                                                 "control_type": "metadata",
+                                                                                  "description": "Refuel Probe Light",
+                                                                                   "identifier": "EXT_REFUEL_PROBE_LIGHT",
+                                                                                       "inputs": [  ],
+                                                                                      "outputs": [ {
+                                                                                                         "address": 4872,
+                                                                                                     "description": "Refuel Probe Light",
                                                                                                             "mask": 32768,
                                                                                                        "max_value": 1,
                                                                                                         "shift_by": 15,

@@ -150,7 +150,7 @@ defineFloat("OXYGEN_FLOW_BLINKER", 113, {0.0, 1.0}, "Indicator", "Oxygen_Flow_Bl
 defineFloat("COMPASSHEADING", 45, {0.0, 1.0}, "Indicator", "CompassHeading")
 defineFloat("COMMANDEDCOURSE", 44, {0.0, 1.0}, "Indicator", "CommandedCourse")
 defineFloat("MANIFOLD_PRESSURE", 46, {0.0, 1.0}, "Indicator", "Manifold_Pressure")
-defineFloat("ENGINE_RPM", 47, {0.0, 0.032, 0.082, 0.206, 0.390, 0.601, 0.789, 0.961, 0.983}, "Indicator", "Engine_RPM")
+defineFloat("ENGINE_RPM", 47, {0.0, 0.983}, "Indicator", "Engine_RPM")
 defineFloat("COOLANT_TEMPERATURE", 96, {0.070, 1.0}, "Indicator", "Coolant_Temperature")
 defineFloat("OIL_TEMPERATURE", 97, {0.070, 1.0}, "Indicator", "Oil_Temperature")
 defineFloat("OIL_PRESSURE", 95, {0, 1.0}, "Indicator", "Oil_Pressure")

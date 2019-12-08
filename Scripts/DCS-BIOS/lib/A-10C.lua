@@ -1350,6 +1350,8 @@ defineIndicatorLight("TISL_ENTER_L", 629, "TISL Panel", "TISL ENTER Light")
 defineIndicatorLight("TISL_OVERTEMP_L", 631, "TISL Panel", "TISL OVER TEMP Light")
 defineIndicatorLight("TISL_BITE_L", 633, "TISL Panel", "TISL BITE Light")
 defineIndicatorLight("TISL_TRACK_L", 635, "TISL Panel", "TISL TRACK Light")
+defineIndicatorLight("IFF_REPLY", 798, "IFF", "IFF REPLY Light")
+defineIndicatorLight("IFF_TEST", 799, "IFF", "IFF TEST Light")
 
 
 

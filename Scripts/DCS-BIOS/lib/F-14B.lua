@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 -- Made by WarLord (aka BlackLibrary), ArturDCS and Bullitt
--- v 1.4
+-- v 1.5
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -1469,13 +1469,21 @@ defineIntegerFromGetter("EXT_SPEED_BRAKE_TOP", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(400)*65535)
 end, 65535, "External Aircraft Model", "Top Speed Brake")
 
+defineIntegerFromGetter("EXT_REFUEL_PROBE_LIGHT", function()
+	if LoGetAircraftDrawArgumentValue(610) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Refuel Probe Light")
+
 defineIntegerFromGetter("EXT_POSITION_LIGHTS_WINGS", function()
 	if LoGetAircraftDrawArgumentValue(611) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Position Lights Wings")
 
 defineIntegerFromGetter("EXT_POSITION_LIGHTS_BODY", function()
-	if LoGetAircraftDrawArgumentValue(611) > 0 then return 1 else return 0 end
+	if LoGetAircraftDrawArgumentValue(612) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Position Lights Body")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHT_TAIL", function()
+	if LoGetAircraftDrawArgumentValue(613) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Tail Position Light")
 
 defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)

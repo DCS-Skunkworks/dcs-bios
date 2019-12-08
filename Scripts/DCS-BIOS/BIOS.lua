@@ -1,4 +1,5 @@
-dofile(BIOS.LuaScriptDir..[[lib\AircraftList.lua]])
+BIOS = {}
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AircraftList.lua]])
 
 BIOS.dbg = {}
 BIOS.logfile = io.open(lfs.writedir()..[[Logs\DCS-BIOS.log]], "w")
@@ -15,28 +16,44 @@ package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
   
 socket = require("socket")
 
-dofile(BIOS.LuaScriptDir..[[lib\Util.lua]])
-dofile(BIOS.LuaScriptDir..[[lib\ProtocolIO.lua]])
-dofile(BIOS.LuaScriptDir..[[lib\Protocol.lua]])
-
-
-local JSON = loadfile([[Scripts\JSON.lua]])()
-local plugin_index_file = io.open(BIOS.PluginDir..[[dcs-lua-index.json]], "r")
-if plugin_index_file ~= nil then
-	local plugin_index = JSON:decode(plugin_index_file:read("*a"))
-	plugin_index_file:close()
-
-	for _, plugin in pairs(plugin_index) do
-		BIOS.CurrentPluginDir = plugin.pluginDir
-		dofile(plugin.luaFile)
-	end
-	BIOS.CurrentPluginDir = nil
-end
-
-dofile(BIOS.LuaScriptDir..[[lib\MetadataEnd.lua]])
-dofile(BIOS.LuaScriptDir..[[lib\MetadataStart.lua]])
-
-dofile(BIOS.LuaScriptDir..[[BIOSConfig.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Util.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\ProtocolIO.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Protocol.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataEnd.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataStart.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CommonData.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\A-4E-C.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-10C.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\AJS37.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\AV8BNA.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\Bf-109K-4.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\C-101CC.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\Christen Eagle II.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\F-14B.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\F-16C_50.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\F-5E-3.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\F-86F Sabre.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\FA-18C_hornet.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\FC3.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\FW-190A8.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\FW-190D9.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\I-16.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\JF-17.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\Ka-50.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\L-39ZA.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\M-2000C.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\MB-339PAN.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\Mi-8MT.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\Mig-15bis.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\Mig-19P.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\Mig-21Bis.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\NS430.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\P-51D.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\SA342M.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\SpitfireLFMkIX.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH-1H.lua]])
+dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\Yak-52.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 
 -- Prev Export functions.
 local PrevExport = {}
