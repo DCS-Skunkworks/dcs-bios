@@ -1143,7 +1143,7 @@ definePotentiometer("RWR_BRT", 29, 3001, 16, {0.15, 0.85}, "RWR", "Display Brigh
 
 
 local JSON = loadfile([[Scripts\JSON.lua]])()
-local cdu_indicator_data_file = io.open(BIOS.CurrentPluginDir..[[CDU.json]], "r")
+local cdu_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CDU.json]], "r")
 local cdu_indicator_data = JSON:decode(cdu_indicator_data_file:read("*a"))
 cdu_indicator_data_file:close()
 cdu_indicator_data_file = nil
