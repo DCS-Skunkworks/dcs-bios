@@ -1125,7 +1125,7 @@ definePushButton("ACCEL_PTS", 72, 3001, 904, "Accelerometer", "Push to Set")
 defineMultipositionSwitch("DVADR_FUNCTION", 73, 3001, 789, 3, 0.1, "DVADR", "Function Control Toggle Switch")
 defineMultipositionSwitch("DVADR_VIDEO", 73, 3002, 790, 3, 0.1, "DVADR", "Video Selector Toggle Switch")
 defineIndicatorLight("DVADR_EOT", 791, "DVADR", "DVADR End of Tape Indicator Light")
-defineIndicatorLight("DVADR_REC", 794, "DVADR", "DVADR Record (On) Indicator Light")
+defineIndicatorLight("DVADR_REC_REMOTE", 794, "DVADR", "DVADR Record (On) Remote Panel Indicator Light")
 
 definePushButton("SUIT_TEST", 41, 3014, 776, "Misc", "Anti-G Suit Valve Test Button")
 
@@ -1352,6 +1352,8 @@ defineIndicatorLight("TISL_BITE_L", 633, "TISL Panel", "TISL BITE Light")
 defineIndicatorLight("TISL_TRACK_L", 635, "TISL Panel", "TISL TRACK Light")
 defineIndicatorLight("IFF_REPLY", 798, "IFF", "IFF REPLY Light")
 defineIndicatorLight("IFF_TEST", 799, "IFF", "IFF TEST Light")
+defineIndicatorLight("DVADR_EOT_REMOTE", 793, "DVADR", "DVADR End of Tape Remote Panel Indicator Light")
+defineIndicatorLight("DVADR_REC", 792, "DVADR", "DVADR Record (On) Indicator Light")
 
 
 
