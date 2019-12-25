@@ -19,7 +19,7 @@ local definePushButton = BIOS.util.definePushButton
 
 defineTumb("MAGNETO",2, 3004,75, 0.3, {0,0.9}, nil, false, "Cockpit", "Magneto Switch")
 defineTumb("STARTER_CVR",2, 3006, 104, 1, {0,1}, nil, false, "Cockpit", "Starter Switch Cover")
-defineTumb("STARTER_SWITCH",2, 3008, 105, 0.5, {0,1}, nil, false, "Cockpit", "Starter Switch. Starter Power / Magnetic Clutch")
+defineTumb("STARTER_SWITCH",2, 3008, 105, 0.5, {0,1}, nil, false, "Cockpit", "Starter Switch. Starter Power")
 defineTumb("ING_MODE",2, 3013, 111, 1, {0,1}, nil, false, "Cockpit", "Ingnition Mode Manual/Auto)")
 defineTumb("FUEL_TNK_SEL",6, 3001, 90, 0.1, {0,0.3}, nil, false, "Cockpit", "Fuel Tank Selector Valve (CLOSE/FORWARD/BOTH/AFT)")
 defineTumb("FUEL_GAUGE_SEL",6, 3002, 99, 0.5, {-0.5,1}, nil, false, "Cockpit", "Fuel Gauge Selector (FORWARD/NONE/AFT)")
@@ -220,6 +220,8 @@ defineFloat("ADF_VERTICAL", 29, {-1.0, 1.0}, "Indicator", "ADF_Vertical")
 defineFloat("ADF_HORIZONT", 30, {-1.0, 1.0}, "Indicator", "ADF_Horizont")
 defineFloat("WINDSHIELDDAMAGE", 209, {0.0, 1.0}, "Indicator", "WindshieldDamage")
 defineFloat("CANOPYDAMAGE", 210, {0.0, 1.0}, "Indicator", "CanopyDamage")
+
+defineTumb("STARTER_SWITCH2",2, 3009, 105, 0.5, {0,1}, nil, false, "Cockpit", "Starter Switch. Magnetic Clutch")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()

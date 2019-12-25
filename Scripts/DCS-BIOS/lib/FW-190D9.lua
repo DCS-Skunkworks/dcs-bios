@@ -65,7 +65,7 @@ definePotentiometer("OXY_FLOW_VALVE",4,3003, 110,{0.0,0.5},"Cockpit", "Oxygen Fl
 --defineTumb("FUEL_COLD_START",6, 3007,160, 1, {0,1}, nil, false, "Cockpit", "Cold Start/Wind Screen Washer")
 
 defineTumb("MAGNETO",2, 3004,75, 0.3, {0,0.9}, nil, false, "Cockpit", "Magneto Switch")
-defineTumb("STARTER_SWITCH",2, 3008, 105, 0.5, {0,1}, nil, false, "Cockpit", "Starter Switch. Starter Power / Magnetic Clutch")
+defineTumb("STARTER_SWITCH",2, 3008, 105, 0.5, {0,1}, nil, false, "Cockpit", "Starter Switch. Starter Power")
 defineTumb("MBG_EMG_HNDL",2, 3013, 91, 1, {0,1}, nil, false, "Cockpit", "MBG Emergency Mode Handle")
 defineTumb("FUEL_TNK_SEL",6, 3001, 90, 0.1, {0,0.3}, nil, false, "Cockpit", "Fuel Tank Selector Valve (CLOSE/FORWARD/AFT/BOTH)")
 defineTumb("FUEL_GAUGE_SEL",6, 3002, 99, 0.5, {-0.5,1}, nil, false, "Cockpit", "Fuel Gauge Selector (FORWARD/NONE/AFT)")
@@ -179,6 +179,7 @@ defineFloat("WINDSHIELDDAMAGE", 209, {0.0, 1.0}, "Indicator", "WindshieldDamage"
 defineFloat("CANOPYDAMAGE", 210, {0.0, 1.0}, "Indicator", "CanopyDamage")
 
 defineFixedStepTumb("FUG16_TUNING", 15, 3008, 82, 0.01, {-1, 1}, {-0.01, 0.01}, nil,"Radio", "Radio Tuning (+/-30 kHz)")
+defineTumb("STARTER_SWITCH2",2, 3009, 105, 0.5, {0,1}, nil, false, "Cockpit", "Starter Switch. Magnetic Clutch")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
