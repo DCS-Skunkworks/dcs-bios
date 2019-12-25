@@ -30,7 +30,7 @@ local defineString = BIOS.util.defineString
 
 ----------------------------------------- BIOS-Profile
 --Left Console
-defineToggleSwitch("LG_LEVER", 32, 3006, 505,"Left Console" , "Gear Lever")
+defineToggleSwitch("LG_LEVER", 32, 3005, 505,"Left Console" , "Gear Lever")
 
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("FLASH_LIGHT", 969, "Warning, Caution and IndicatorLights", "Flash Light")
