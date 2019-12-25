@@ -177,13 +177,13 @@ defineRotary("COURSE_SET", 10, 3001, 12, "Cockpit", "Course Set")
 
 -- Instruments
 -- Clock Scale
-defineRotary("CLOCK_SCALE", 4, 3051, 21, "Cockpit", "Clock Scale Set")
+defineRotary("CLOCK_SCALE", 19, 3001, 21, "Cockpit", "Clock Scale Set")
 -- Clock Setter Pinion
-defineRotary("CLOCK_SET", 4, 3054, 22, "Cockpit", "Clock Adjusting Knob")
+defineRotary("CLOCK_SET", 19, 3004, 22, "Cockpit", "Clock Adjusting Knob")
 -- Clock Freeze Lever
-defineTumb("CLOCK_TIME_LEVER",4, 3056, 23, 1, {0,1}, nil, false, "Cockpit", "Time Setting Lever")
+defineTumb("CLOCK_TIME_LEVER",19, 3006, 23, 1, {0,1}, nil, false, "Cockpit", "Time Setting Lever")
 -- Clock Stopwatch Button
-defineTumb("CLOCK_TIMER",4, 3058, 24, 1, {0,1}, nil, false, "Cockpit", "Start/Stop/Reset Chronometer")
+defineTumb("CLOCK_TIMER",19, 3008, 24, 1, {0,1}, nil, false, "Cockpit", "Start/Stop/Reset Chronometer")
 
 
 
