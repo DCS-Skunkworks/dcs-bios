@@ -24,19 +24,24 @@ local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineString = BIOS.util.defineString
 
-
+-- Remove Arg: Stick #970 ; 
 
 -- Extra Functions
 
 ----------------------------------------- BIOS-Profile
-
+--Left Console
+defineToggleSwitch("LG_LEVER", 32, 3006, 505,"Left Console" , "Gear Lever")
 
 -- Warning, Caution and IndicatorLights
+defineIndicatorLight("FLASH_LIGHT", 969, "Warning, Caution and IndicatorLights", "Flash Light")
 
 -- Gauges
+defineFloat("CANOPY_POS", 38, {0, 1}, "Cockpit", "Canopy Position")
+defineFloat("MIRROR_RIGHT", 960, {0, 1}, "Cockpit", "Right Mirror")
+defineFloat("MIRROR_CENTER", 961, {0, 1}, "Cockpit", "Center Mirror")
+defineFloat("MIRROR_LEFT", 962, {0, 1}, "Cockpit", "Left Mirror")
 
-
-defineFloat("CANOPY_POS", XXX, {0, 1}, "Gauges", "Canopy Position")
+defineFloat("MAG_HDG_BAK", 293, {0, 1}, "Gauges", "Backup Magnetic HDG")
 
 --Externals
 
