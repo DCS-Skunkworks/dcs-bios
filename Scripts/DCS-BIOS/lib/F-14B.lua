@@ -775,7 +775,7 @@ defineToggleSwitch("RIO_WEAPON_JETT_STAT_3", 55, 3165, 65, "Armament Panel", "RI
 defineToggleSwitch("RIO_WEAPON_JETT_STAT_4", 55, 3166, 69, "Armament Panel", "RIO Weapon Jettison Station 4")
 defineToggleSwitch("RIO_WEAPON_JETT_STAT_5", 55, 3167, 70, "Armament Panel", "RIO Weapon Jettison Station 5")
 defineToggleSwitch("RIO_WEAPON_JETT_STAT_6", 55, 3168, 64, "Armament Panel", "RIO Weapon Jettison Station 6")
-defineToggleSwitch("RIO_WEAPON_JETT_STAT_8", 55, 3170, 71, "Armament Panel", "RIO Weapon Jettison Station 8")
+define3PosTumb("RIO_WEAPON_JETT_STAT_8", 55, 3170, 71, "Armament Panel", "RIO Weapon Jettison Station 8")
 definePushButton("RIO_WEAPON_AA_LAUNCH", 55, 3161, 74, "Armament Panel", "RIO Weapon A/A Launch")
 definePushButton("RIO_WEAPON_NEXT_LAUNCH", 55, 3162, 9964, "Armament Panel", "RIO Weapon Next Launch")
 
