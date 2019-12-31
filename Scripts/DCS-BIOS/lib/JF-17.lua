@@ -252,6 +252,107 @@ definePushButton("FCS_WARN_BTN", 5, 3211, 844, "Center Front", "FCS Warning")
 
 --------------------------Right Console
 defineToggleSwitch("WARNPANEL_DAY_NIGHT_SW", 5, 3212, 900, "Right Console", "Warning Panel Day/Night Switch")
+definePotentiometer("WARNPANEL_BRIGHT_KNB", 5, 3213, 901, {0, 1}, "Right Console", "Warning Panel Brightness Knob")
+definePushButton("WARNPANEL_TEST_BTN", 5, 3214, 902, "Right Console", "Warning Panel Test Button")
+definePotentiometer("OXY_IND_BRIGHT_KNB", 5, 3214, 903, {0, 1}, "Right Console", "Oxygen Indicator Brightness Knob")
+
+defineToggleSwitch("BATT_SW", 1, 3215, 904, "Right Console", "Battery Switch")
+defineToggleSwitch("MAIN_AC_GEN_SW", 1, 3216, 905, "Right Console", "Main AC Gen Switch")
+defineToggleSwitch("DC_GEN_SW", 1, 3217, 906, "Right Console", "DC Gen Switch")
+
+defineToggleSwitch("HUD_MFCD_DAY_NIGHT_SW", 28, 3218, 907, "Right Console", "HUD/MFCD Day/Night Switch")
+
+defineMultipositionSwitch("INS_MODE_SEL_KNB", 18, 3219, 908, 4, 0.333, "Right Console", "INS Mode Knob Selector")
+
+--AAP 
+definePotentiometer("AAP_BRIGHT_KNB", 28, 3220, 909, {0, 1}, "Right Console", "AAP Brightness Knob")
+defineToggleSwitch("HUD_SYMB_REJECT_SW", 28, 3221, 910, "Right Console", "HUD Symbology Reject Switch")
+definePushButton("AAP_ACMI_BTN", 28, 3222, 911, "Right Console", "AAP ACMI Button")
+definePushButton("AAP_NA1_BTN", 28, 3223, 912, "Right Console", "AAP N/A 1 Button")
+definePushButton("AAP_NA2_BTN", 28, 3224, 913, "Right Console", "AAP N/A 2 Button")
+definePushButton("AAP_NA3_BTN", 28, 3225, 914, "Right Console", "AAP N/A 3 Button")
+definePushButton("AAP_HMD_BTN", 28, 3226, 915, "Right Console", "AAP HMD Button")
+definePushButton("AAP_SPJ_BTN", 28, 3227, 916, "Right Console", "AAP SPJ Button")
+definePushButton("AAP_CLDP_BTN", 28, 3228, 917, "Right Console", "AAP CLDP Button")
+definePushButton("AAP_IRST_BTN", 28, 3229, 918, "Right Console", "AAP IRST Button")
+definePushButton("AAP_RDR_BTN", 28, 3230, 919, "Right Console", "AAP RDR Button")
+definePushButton("AAP_SLNK_BTN", 28, 3231, 920, "Right Console", "AAP SLNK Button")
+definePushButton("AAP_OESP_BTN", 28, 3232, 921, "Right Console", "AAP OESP Button")
+definePushButton("AAP_RWR_BTN", 28, 3233, 922, "Right Console", "AAP RWR Button")
+definePushButton("AAP_COM1_BTN", 28, 3234, 923, "Right Console", "AAP COM1 Button")
+definePushButton("AAP_COM2_BTN", 28, 3235, 924, "Right Console", "AAP COM2 Button")
+definePushButton("AAP_NAV_BTN", 28, 3236, 925, "Right Console", "AAP NAV Button")
+definePushButton("AAP_IFF_BTN", 28, 3237, 926, "Right Console", "AAP IFF Button")
+definePushButton("AAP_INS_BTN", 28, 3238, 927, "Right Console", "AAP INS Button")
+definePushButton("AAP_WMMC1_BTN", 28, 3239, 928, "Right Console", "AAP WMMC1 Button")
+definePushButton("AAP_WMMC2_BTN", 28, 3240, 929, "Right Console", "AAP WMMC2 Button")
+definePushButton("AAP_SAIU_BTN", 28, 3241, 930, "Right Console", "AAP SAIU Button")
+definePushButton("AAP_CMBT_BTN", 28, 3242, 931, "Right Console", "AAP CMBT Button")
+definePushButton("AAP_TRAIN_BTN", 28, 3243, 932, "Right Console", "AAP TRAIN Button")
+definePushButton("AAP_OFF_BTN", 28, 3244, 933, "Right Console", "AAP OFF Button")
+
+-- ACP
+definePotentiometer("COM1_VOL_KNB", 29, 3245, 934, {0, 1}, "Right Console", "COM1 Volume Knob")
+defineToggleSwitch("INTERCOM_SW", 29, 3246, 935, "Right Console", "Intercom Switch")
+defineToggleSwitch("RADIO_ANT_TOP_BOTTOM_SW", 29, 3247, 936, "Right Console", "Radio Top/Bottom Antenna Switch")
+defineToggleSwitch("SPEAKER_CHN_ANT_SW", 29, 3248, 937, "Right Console", "Speaker Control Box Channel Antenna Switch")
+definePotentiometer("COM2_VOL_KNB", 29, 3249, 938, {0, 1}, "Right Console", "COM2 Volume Knob")
+definePotentiometer("TCN_ILS_VOL_KNB", 29, 3250, 939, {0, 1}, "Right Console", "TCN/ILS Volume Knob")
+definePotentiometer("MSL_VOL_KNB", 29, 3251, 940, {0, 1}, "Right Console", "MSL Volume Knob")
+
+-- ECS
+defineMultipositionSwitch("AIR_TEMP_SEL", 30, 3252, 941, 12, 0.833, "Right Console", "Air Temp Knob Selector")
+defineMultipositionSwitch("ECS_MODE_SEL", 30, 3253, 942, 4, 0.333, "Right Console", "ECS Mode Knob Selector")
+definePushButton("DEFOG_SW", 30, 3254, 943, "Right Console", "Defog Switch")
+
+-- INT Lights
+definePotentiometer("INST_LIGHT_KNB", 4, 3255, 944, {0, 1}, "Right Console", "Instrument Light Knob")
+definePotentiometer("CONSOLE_LIGHT_KNB", 4, 3256, 945, {0, 1}, "Right Console", "Console Light Knob")
+definePotentiometer("FLOOD_LIGHT_KNB", 4, 3257, 946, {0, 1}, "Right Console", "Flood Light Knob")
+
+-- EXT Lights
+define3PosTumb("EXT_LIGHT_MASTER_SW", 4, 3258, 947, "Right Console", "Exterior Light Master Switch")
+defineMultipositionSwitch("FORMATION_LIGHT_SEL", 4, 3259, 948, 6, 0.2, "Right Console", "Formation Light Knob Selector")
+defineMultipositionSwitch("ANTICOLL_LIGHT_SEL", 4, 3260, 949, 6, 0.2, "Right Console", "Anti-Collision Light Knob Selector")
+define3PosTumb("NAV_LIGHT_BRIGHT_SW", 4, 3261, 950, "Right Console", "Navigation Light Switch - Bright/Off/Dim")
+defineTumb("NAV_LIGHT_FLASH_SW", 4, 3262, 951, 2, {-1,1}, nil, false, "Right Console", "Navigation Light Switch - Flash/Steady")
+define3PosTumb("LIGHT_SW", 4, 3263, 952, "Right Console", "Light Switch - Tow/Off/Anti-Collision")
+
+-- DTC
+definePushButton("DTC_INSERT", 9, 3264, 953, "Right Console", "DTC Card Insertion")
+definePushButton("DTC_EJECT", 9, 3265, 974, "Right Console", "DTC Card Ejection")
+
+-- Emergency LG
+defineToggleSwitch("EMERG_GEAR_COVER", 32, 3266, 954, "Right Console", "Emergency Landing Gear Cover")
+defineMultipositionSwitch("EMERG_GEAR_HANDLE", 32, 3267, 955, 5, 0.25, "Right Console", "Emergency Landing Gear Handle")
+
+-- Canopy
+defineToggleSwitch("CANOPY_SEAL", 35, 3268, 957, "Right Console", "Canopy Seal Handle")
+defineMultipositionSwitch("CANOPY_OPEN_CLOSE", 35, 3269, 958, 4, 0.333, "Right Console", "Canopy Open/Close Handle")
+defineRotary("CANOPY_OPEN_CLOSE_MAN", 35, 3270, 959, "Right Console", "Canopy Manual Open/Close Crank")
+
+-- Flood light direction
+definePotentiometer("FLOOD_LIGHT_DIRECT_1", 4, 3271, 965, {0, 1}, "Right Console", "Flood Light Direction 1")
+definePotentiometer("FLOOD_LIGHT_DIRECT_2", 4, 3272, 966, {0, 1}, "Right Console", "Flood Light Direction 2")
+definePotentiometer("FLOOD_LIGHT_DIRECT_3", 4, 3273, 967, {0, 1}, "Right Console", "Flood Light Direction 3")
+definePotentiometer("FLOOD_LIGHT_DIRECT_4", 4, 3274, 968, {0, 1}, "Right Console", "Flood Light Direction 4")
+
+-- Flash light
+defineToggleSwitch("FLASH_LIGHT", 0, 3256, 969, "Right Console", "Flash light")
+
+-- Stick
+defineToggleSwitch("STICK_HIDE", 38, 3275, 970, "Right Console", "Stick Show/Hide")
+definePushButton("DTC_INSERT", 6, 10060, 971, "Right Console", "A/P Disengage")
+
+-- Eject Seat
+defineToggleSwitch("SEAT_SAFE_HANDLE", 38, 3276, 972, "Right Console", "Eject Seat Safe/Arm Handle")
+defineToggleSwitch("SEAT_SAFE_PIN", 38, 3277, 973, "Right Console", "Eject Seat Firing Handle Safety Pin")
+
+-- Oxygen
+defineToggleSwitch("OXY_CONNECTOR", 31, 3278, 975, "Right Console", "Oxygen Tube Connector")
+defineRotary("OXY_SUPPLY_VALVE", 31, 3279, 976, "Right Console", "Oxygen Supply Valve")
+defineToggleSwitch("OXY_O2_100", 31, 3280, 977, "Right Console", "Oxygen 100% O2")
+defineToggleSwitch("SEAT_EMERG_O2", 31, 3281, 978, "Right Console", "Eject Seat Emergency O2")
 
 -------------------------------------------------------------------------------------------------------------------------------
 -- Warning, Caution and IndicatorLights
