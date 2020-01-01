@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 -- Made by WarLord (aka BlackLibrary), ArturDCS and Bullitt
--- v 1.5
+-- v 1.6
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -738,8 +738,8 @@ defineToggleSwitch("RIO_DDD_PARA_AMP", 39, 3472, 3900, "DDD", "RIO DDD Parametri
 -- RIO RADAR Panel
 defineMultipositionSwitch("RIO_RADAR_ELE_BARS", 39, 3442, 79, 4, 0.33333, "Radar" ,"RIO Radar Elevation Scan")
 defineMultipositionSwitch("RIO_RADAR_AZI_SCAN", 39, 3443, 80, 4, 0.33333, "Radar" ,"RIO Radar Azimuth Scan")
-definePotentiometer("RIO_RADAR_ELE_CENTER", 39, 3446, 81, {0.0, 1.0}, "Radar", "RIO Radar Elevation Center")
-definePotentiometer("RIO_RADAR_AZI_CENTER", 39, 3447, 82, {0.0, 1.0}, "Radar", "RIO Radar Azimuth Center")
+definePotentiometer("RIO_RADAR_ELE_CENTER", 39, 3446, 81, {-1.0, 1.0}, "Radar", "RIO Radar Elevation Center")
+definePotentiometer("RIO_RADAR_AZI_CENTER", 39, 3447, 82, {-1.0, 1.0}, "Radar", "RIO Radar Azimuth Center")
 defineToggleSwitch("RIO_RADAR_STABI", 39, 3449, 83, "Radar", "RIO Radar Stabilize")
 define3PosTumb("RIO_RADAR_VSL", 39, 3448, 84, "Radar", "RIO Radar VSL Switch")
 
@@ -777,7 +777,7 @@ defineToggleSwitch("RIO_WEAPON_JETT_STAT_5", 55, 3167, 70, "Armament Panel", "RI
 defineToggleSwitch("RIO_WEAPON_JETT_STAT_6", 55, 3168, 64, "Armament Panel", "RIO Weapon Jettison Station 6")
 define3PosTumb("RIO_WEAPON_JETT_STAT_8", 55, 3170, 71, "Armament Panel", "RIO Weapon Jettison Station 8")
 definePushButton("RIO_WEAPON_AA_LAUNCH", 55, 3161, 74, "Armament Panel", "RIO Weapon A/A Launch")
-definePushButton("RIO_WEAPON_NEXT_LAUNCH", 55, 3162, 9964, "Armament Panel", "RIO Weapon Next Launch")
+definePushButton("RIO_WEAPON_NEXT_LAUNCH", 43, 3162, 9964, "Armament Panel", "RIO Weapon Next Launch")
 
 -- Computer Address Panel (CAP)
 defineMultipositionSwitch("RIO_CAP_CATRGORY", 23, 3530, 98, 6, 0.2, "CAP" ,"RIO CAP Category")
