@@ -44,8 +44,8 @@ defineTumb("FLAPS", 1, 3009, 47, 1, {0,1}, nil, false, "Cockpit", "Landing Flaps
 -- U/C Indicator Blind
 defineTumb("UC_BLIND", 1, 3011, 50, 1, {0,1}, nil, false, "Cockpit", "U/C Indicator Blind Up/Down")  
 --Clock Setter Pinion
-definePushButton("CLK_PINION_PULL", 1, 3013, 54, "Cockpit", "Winding/Adjustment Clock Pull out.")  
-defineRotary("CLK_PINION", 1, 3014, 55, "Cockpit", "Winding/Adjustment Clock")  
+definePushButton("CLK_PINION_PULL", 17, 3006, 54, "Cockpit", "Winding/Adjustment Clock Pull out.")  
+defineRotary("CLK_PINION", 17, 3004, 55, "Cockpit", "Winding/Adjustment Clock")  
 --Magnetos Toggles
 defineTumb("MAGNETO0",2, 3015, 56, 1, {0,1}, nil, false, "Engine", "No. 1 Magneto On/Off")
 defineTumb("MAGNETO1",2, 3017, 57, 1, {0,1}, nil, false, "Engine", "No. 2 Magneto On/Off")
