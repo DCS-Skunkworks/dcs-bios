@@ -217,11 +217,11 @@ defineRotary("RIO_AIRSPD_KNOB", 27, 3639, 254, "Airspeed Indicator", "RIO Airspe
 
 -- Altimeter
 define3PosTumb("PLT_ALTIMETER_MODE", 28, 3487, 307, "Altimeter", "PILOT Altimeter Mode Switch")
-defineRotary("PLT_ALTIMETER_KNOB", 28, 3486, 306, {0, 1}, "Altimeter", "PILOT Altimeter Pressure Setting")---
+defineRotary("PLT_ALTIMETER_KNOB", 28, 3486, 306, "Altimeter", "PILOT Altimeter Pressure Setting")
 
 -- RIO Altimeter
 define3PosTumb("RIO_ALTIMETER_MODE", 28, 3490, 20307, "Altimeter", "RIO Altimeter Mode Switch")
-defineRotary("RIO_ALTIMETER_KNOB", 28, 3489, 20306, {0, 1}, "Altimeter", "RIO Altimeter Pressure Setting") ---
+defineRotary("RIO_ALTIMETER_KNOB", 28, 3489, 20306, "Altimeter", "RIO Altimeter Pressure Setting")
 
 -- Gear
 defineToggleSwitch("PLT_GEAR_LEVER", 17, 3016, 326, "Gear", "PILOT Landing Gear Lever")
