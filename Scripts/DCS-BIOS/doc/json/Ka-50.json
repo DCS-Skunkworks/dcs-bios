@@ -6612,6 +6612,35 @@
                                                                                                         } ],
                                                                                     "physical_variant": "toggle_switch"
                                                                              },
+                                                            "LIGHT_CPT_INT": {
+                                                                                            "category": "Lighting Control Panel",
+                                                                                        "control_type": "selector",
+                                                                                         "description": "Lighting cockpit interior lamp switch",
+                                                                                          "identifier": "LIGHT_CPT_INT",
+                                                                                              "inputs": [ {
+                                                                                                            "description": "switch to previous or next state",
+                                                                                                              "interface": "fixed_step"
+                                                                                                        }, {
+                                                                                                            "description": "set position",
+                                                                                                              "interface": "set_state",
+                                                                                                              "max_value": 1
+                                                                                                        }, {
+                                                                                                               "argument": "TOGGLE",
+                                                                                                            "description": "Toggle switch state",
+                                                                                                              "interface": "action"
+                                                                                                        } ],
+                                                                                 "momentary_positions": "none",
+                                                                                             "outputs": [ {
+                                                                                                                "address": 6524,
+                                                                                                            "description": "selector position",
+                                                                                                                   "mask": 4096,
+                                                                                                              "max_value": 1,
+                                                                                                               "shift_by": 12,
+                                                                                                                 "suffix": "",
+                                                                                                                   "type": "integer"
+                                                                                                        } ],
+                                                                                    "physical_variant": "toggle_switch"
+                                                                             },
                                                           "LIGHT_FORMATION": {
                                                                                             "category": "Lighting Control Panel",
                                                                                         "control_type": "selector",
@@ -6665,6 +6694,22 @@
                                                                                                                    "type": "integer"
                                                                                                         } ],
                                                                                     "physical_variant": "toggle_switch"
+                                                                             },
+                                                             "PLAFOND_LAMP": {
+                                                                                     "category": "Lighting Control Panel",
+                                                                                 "control_type": "led",
+                                                                                  "description": "Plafond Lamp (rear left) (yellow)",
+                                                                                   "identifier": "PLAFOND_LAMP",
+                                                                                       "inputs": [  ],
+                                                                                      "outputs": [ {
+                                                                                                         "address": 6524,
+                                                                                                     "description": "0 if light is off, 1 if light is on",
+                                                                                                            "mask": 2048,
+                                                                                                       "max_value": 1,
+                                                                                                        "shift_by": 11,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ]
                                                                              }
                                                     },
                                 "Magnetic Compass": {

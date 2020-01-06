@@ -5763,88 +5763,120 @@ docdata["A-10C"] =
                                                                           }
                                            },
                                   "DVADR": {
-                                                    "DVADR_EOT": {
-                                                                         "category": "DVADR",
-                                                                     "control_type": "led",
-                                                                      "description": "DVADR End of Tape Indicator Light",
-                                                                       "identifier": "DVADR_EOT",
-                                                                           "inputs": [  ],
-                                                                          "outputs": [ {
-                                                                                             "address": 4538,
-                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 64,
-                                                                                           "max_value": 1,
-                                                                                            "shift_by": 6,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ]
-                                                                 },
-                                               "DVADR_FUNCTION": {
-                                                                                "category": "DVADR",
-                                                                            "control_type": "selector",
-                                                                             "description": "Function Control Toggle Switch",
-                                                                              "identifier": "DVADR_FUNCTION",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 2
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4538,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 12,
-                                                                                                  "max_value": 2,
-                                                                                                   "shift_by": 2,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "toggle_switch"
-                                                                 },
-                                                    "DVADR_REC": {
-                                                                         "category": "DVADR",
-                                                                     "control_type": "led",
-                                                                      "description": "DVADR Record (On) Indicator Light",
-                                                                       "identifier": "DVADR_REC",
-                                                                           "inputs": [  ],
-                                                                          "outputs": [ {
-                                                                                             "address": 4538,
-                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 128,
-                                                                                           "max_value": 1,
-                                                                                            "shift_by": 7,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ]
-                                                                 },
-                                                  "DVADR_VIDEO": {
-                                                                                "category": "DVADR",
-                                                                            "control_type": "selector",
-                                                                             "description": "Video Selector Toggle Switch",
-                                                                              "identifier": "DVADR_VIDEO",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 2
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 4538,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 48,
-                                                                                                  "max_value": 2,
-                                                                                                   "shift_by": 4,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "toggle_switch"
-                                                                 }
+                                                      "DVADR_EOT": {
+                                                                           "category": "DVADR",
+                                                                       "control_type": "led",
+                                                                        "description": "DVADR End of Tape Indicator Light",
+                                                                         "identifier": "DVADR_EOT",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 4538,
+                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                  "mask": 64,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 6,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                               "DVADR_EOT_REMOTE": {
+                                                                           "category": "DVADR",
+                                                                       "control_type": "led",
+                                                                        "description": "DVADR End of Tape Remote Panel Indicator Light",
+                                                                         "identifier": "DVADR_EOT_REMOTE",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 4818,
+                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                  "mask": 1,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                                 "DVADR_FUNCTION": {
+                                                                                  "category": "DVADR",
+                                                                              "control_type": "selector",
+                                                                               "description": "Function Control Toggle Switch",
+                                                                                "identifier": "DVADR_FUNCTION",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 2
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 4538,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 12,
+                                                                                                    "max_value": 2,
+                                                                                                     "shift_by": 2,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "toggle_switch"
+                                                                   },
+                                                      "DVADR_REC": {
+                                                                           "category": "DVADR",
+                                                                       "control_type": "led",
+                                                                        "description": "DVADR Record (On) Indicator Light",
+                                                                         "identifier": "DVADR_REC",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 4818,
+                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                  "mask": 2,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 1,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                               "DVADR_REC_REMOTE": {
+                                                                           "category": "DVADR",
+                                                                       "control_type": "led",
+                                                                        "description": "DVADR Record (On) Remote Panel Indicator Light",
+                                                                         "identifier": "DVADR_REC_REMOTE",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 4538,
+                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                  "mask": 128,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 7,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                                    "DVADR_VIDEO": {
+                                                                                  "category": "DVADR",
+                                                                              "control_type": "selector",
+                                                                               "description": "Video Selector Toggle Switch",
+                                                                                "identifier": "DVADR_VIDEO",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 2
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 4538,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 48,
+                                                                                                    "max_value": 2,
+                                                                                                     "shift_by": 4,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "toggle_switch"
+                                                                   }
                                            },
                           "Digital Clock": {
                                                "CLOCK_CTRL": {
@@ -8687,7 +8719,7 @@ docdata["A-10C"] =
                                                      "IFF_MIC_IDENT": {
                                                                                      "category": "IFF",
                                                                                  "control_type": "selector",
-                                                                                  "description": "RAD Test/Mon",
+                                                                                  "description": "Ident/Mic",
                                                                                    "identifier": "IFF_MIC_IDENT",
                                                                                        "inputs": [ {
                                                                                                      "description": "switch to previous or next state",

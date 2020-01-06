@@ -764,7 +764,7 @@ docdata["FW-190D9"] =
                                     "STARTER_SWITCH": {
                                                                      "category": "Cockpit",
                                                                  "control_type": "selector",
-                                                                  "description": "Starter Switch. Starter Power / Magnetic Clutch",
+                                                                  "description": "Starter Switch. Starter Power",
                                                                    "identifier": "STARTER_SWITCH",
                                                                        "inputs": [ {
                                                                                      "description": "switch to previous or next state",
@@ -781,6 +781,31 @@ docdata["FW-190D9"] =
                                                                                             "mask": 6144,
                                                                                        "max_value": 2,
                                                                                         "shift_by": 11,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                   "STARTER_SWITCH2": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Starter Switch. Magnetic Clutch",
+                                                                   "identifier": "STARTER_SWITCH2",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 2
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 13360,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 1536,
+                                                                                       "max_value": 2,
+                                                                                        "shift_by": 9,
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
@@ -1592,9 +1617,9 @@ docdata["FW-190D9"] =
                                                                         "outputs": [ {
                                                                                            "address": 13360,
                                                                                        "description": "Left Position Light (red)",
-                                                                                              "mask": 512,
+                                                                                              "mask": 2048,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 9,
+                                                                                          "shift_by": 11,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1608,9 +1633,9 @@ docdata["FW-190D9"] =
                                                                         "outputs": [ {
                                                                                            "address": 13360,
                                                                                        "description": "Right Position Light (green)",
-                                                                                              "mask": 1024,
+                                                                                              "mask": 4096,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 10,
+                                                                                          "shift_by": 12,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]

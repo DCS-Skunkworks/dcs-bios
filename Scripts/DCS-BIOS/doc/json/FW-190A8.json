@@ -2358,7 +2358,7 @@
                                     "STARTER_SWITCH": {
                                                                      "category": "Cockpit",
                                                                  "control_type": "selector",
-                                                                  "description": "Starter Switch. Starter Power / Magnetic Clutch",
+                                                                  "description": "Starter Switch. Starter Power",
                                                                    "identifier": "STARTER_SWITCH",
                                                                        "inputs": [ {
                                                                                      "description": "switch to previous or next state",
@@ -2375,6 +2375,31 @@
                                                                                             "mask": 24,
                                                                                        "max_value": 2,
                                                                                         "shift_by": 3,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                   "STARTER_SWITCH2": {
+                                                                     "category": "Cockpit",
+                                                                 "control_type": "selector",
+                                                                  "description": "Starter Switch. Magnetic Clutch",
+                                                                   "identifier": "STARTER_SWITCH2",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 2
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 14386,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 384,
+                                                                                       "max_value": 2,
+                                                                                        "shift_by": 7,
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
@@ -2570,9 +2595,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 14386,
                                                                                        "description": "Left Position Light (red)",
-                                                                                              "mask": 128,
+                                                                                              "mask": 512,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 7,
+                                                                                          "shift_by": 9,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -2586,9 +2611,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 14386,
                                                                                        "description": "Right Position Light (green)",
-                                                                                              "mask": 256,
+                                                                                              "mask": 1024,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 8,
+                                                                                          "shift_by": 10,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
