@@ -390,15 +390,12 @@ docdata["F-14B"] =
                                             },
                                "Altimeter": {
                                                 "PLT_ALTIMETER_KNOB": {
+                                                                           "api_variant": "multiturn",
                                                                               "category": "Altimeter",
-                                                                          "control_type": "limited_dial",
+                                                                          "control_type": "analog_dial",
                                                                            "description": "PILOT Altimeter Pressure Setting",
                                                                             "identifier": "PLT_ALTIMETER_KNOB",
                                                                                 "inputs": [ {
-                                                                                              "description": "set the position of the dial",
-                                                                                                "interface": "set_state",
-                                                                                                "max_value": 65535
-                                                                                          }, {
                                                                                                  "description": "turn the dial left or right",
                                                                                                    "interface": "variable_step",
                                                                                                    "max_value": 65535,
@@ -406,11 +403,11 @@ docdata["F-14B"] =
                                                                                           } ],
                                                                                "outputs": [ {
                                                                                                   "address": 4620,
-                                                                                              "description": "position of the potentiometer",
+                                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                      "mask": 65535,
                                                                                                 "max_value": 65535,
                                                                                                  "shift_by": 0,
-                                                                                                   "suffix": "",
+                                                                                                   "suffix": "_KNOB_POS",
                                                                                                      "type": "integer"
                                                                                           } ]
                                                                       },
@@ -440,15 +437,12 @@ docdata["F-14B"] =
                                                                              "physical_variant": "3_position_switch"
                                                                       },
                                                 "RIO_ALTIMETER_KNOB": {
+                                                                           "api_variant": "multiturn",
                                                                               "category": "Altimeter",
-                                                                          "control_type": "limited_dial",
+                                                                          "control_type": "analog_dial",
                                                                            "description": "RIO Altimeter Pressure Setting",
                                                                             "identifier": "RIO_ALTIMETER_KNOB",
                                                                                 "inputs": [ {
-                                                                                              "description": "set the position of the dial",
-                                                                                                "interface": "set_state",
-                                                                                                "max_value": 65535
-                                                                                          }, {
                                                                                                  "description": "turn the dial left or right",
                                                                                                    "interface": "variable_step",
                                                                                                    "max_value": 65535,
@@ -456,11 +450,11 @@ docdata["F-14B"] =
                                                                                           } ],
                                                                                "outputs": [ {
                                                                                                   "address": 4622,
-                                                                                              "description": "position of the potentiometer",
+                                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                      "mask": 65535,
                                                                                                 "max_value": 65535,
                                                                                                  "shift_by": 0,
-                                                                                                   "suffix": "",
+                                                                                                   "suffix": "_KNOB_POS",
                                                                                                      "type": "integer"
                                                                                           } ]
                                                                       },
