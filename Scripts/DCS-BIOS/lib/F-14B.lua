@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 -- Made by WarLord (aka BlackLibrary), ArturDCS and Bullitt
--- v 1.6
+-- v 1.7
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -206,8 +206,8 @@ definePotentiometer("PLT_EMERG_WING_SWEEPLT_LEVER", 16, 3031, 384, {0, 1}, "Wing
 defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_POP", 12, 3030, 15096, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Pop out")
 
 --Radar Altimeter
-definePushButton("PLT_RADAR_ALT_BIT", 29, 3489, 16020, "Radar Altimeter", "PILOT Radar Altimeter BIT Test Button")
-defineRotary("PLT_RADAR_ALT_KNOB", 29, 3490, 308, "Radar Altimeter", "PILOT Radar Altimeter Control Knob")
+definePushButton("PLT_RADAR_ALT_BIT", 29, 3485, 16020, "Radar Altimeter", "PILOT Radar Altimeter BIT Test Button")
+defineRotary("PLT_RADAR_ALT_KNOB", 29, 3484, 308, "Radar Altimeter", "PILOT Radar Altimeter Control Knob")
 
 -- Airspeed Indicator
 definePushButton("PLT_AIRSPD_KNOB_PUSH", 27, 3492, 2127, "Airspeed Indicator", "PILOT Airspeed Indicator Bug Push Knob")
@@ -217,11 +217,11 @@ defineRotary("RIO_AIRSPD_KNOB", 27, 3639, 254, "Airspeed Indicator", "RIO Airspe
 
 -- Altimeter
 define3PosTumb("PLT_ALTIMETER_MODE", 28, 3487, 307, "Altimeter", "PILOT Altimeter Mode Switch")
-definePotentiometer("PLT_ALTIMETER_KNOB", 28, 3486, 306, {0, 1}, "Altimeter", "PILOT Altimeter Pressure Setting")
+defineRotary("PLT_ALTIMETER_KNOB", 28, 3486, 306, {0, 1}, "Altimeter", "PILOT Altimeter Pressure Setting")---
 
 -- RIO Altimeter
 define3PosTumb("RIO_ALTIMETER_MODE", 28, 3490, 20307, "Altimeter", "RIO Altimeter Mode Switch")
-definePotentiometer("RIO_ALTIMETER_KNOB", 28, 3489, 20306, {0, 1}, "Altimeter", "RIO Altimeter Pressure Setting")
+defineRotary("RIO_ALTIMETER_KNOB", 28, 3489, 20306, {0, 1}, "Altimeter", "RIO Altimeter Pressure Setting") ---
 
 -- Gear
 defineToggleSwitch("PLT_GEAR_LEVER", 17, 3016, 326, "Gear", "PILOT Landing Gear Lever")
