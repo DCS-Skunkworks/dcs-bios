@@ -904,27 +904,64 @@ docdata["MiG-15bis"] =
                                                                                                    "type": "integer"
                                                                                         } ]
                                                                     },
-                                                  "CLOCK_LEFT_LVR": {
+                                                 "CLOCK_LEFT_LVR1": {
                                                                                    "category": "Clock",
                                                                                "control_type": "selector",
-                                                                                "description": "AChS-1 Cockpit Chronograph Left Push/Pull",
-                                                                                 "identifier": "CLOCK_LEFT_LVR",
+                                                                                "description": "AChS-1 Cockpit Chronograph Left Push/Pull (Stage 1)",
+                                                                                 "identifier": "CLOCK_LEFT_LVR1",
                                                                                      "inputs": [ {
-                                                                                                   "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
                                                                                                      "interface": "set_state",
-                                                                                                     "max_value": 2
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
                                                                                                } ],
-                                                                        "momentary_positions": "first_and_last",
+                                                                        "momentary_positions": "none",
                                                                                     "outputs": [ {
                                                                                                        "address": 9276,
                                                                                                    "description": "selector position",
-                                                                                                          "mask": 12288,
-                                                                                                     "max_value": 2,
+                                                                                                          "mask": 4096,
+                                                                                                     "max_value": 1,
                                                                                                       "shift_by": 12,
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "rocker_switch"
+                                                                           "physical_variant": "limited_rotary"
+                                                                    },
+                                                 "CLOCK_LEFT_LVR2": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "Clock",
+                                                                               "control_type": "selector",
+                                                                                "description": "AChS-1 Cockpit Chronograph Left Push/Pull (Stage 2)",
+                                                                                 "identifier": "CLOCK_LEFT_LVR2",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 9276,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 8192,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 13,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
                                                                     },
                                                   "CLOCK_LEFT_ROT": {
                                                                          "api_variant": "multiturn",
@@ -3666,7 +3703,6 @@ docdata["MiG-15bis"] =
                                             },
                            "Signal Flares": {
                                                 "SIGNAL_FLARE_GRE": {
-                                                                                "api_variant": "momentary_last_position",
                                                                                    "category": "Signal Flares",
                                                                                "control_type": "selector",
                                                                                 "description": "Signal Flare Green Button",
@@ -3693,10 +3729,9 @@ docdata["MiG-15bis"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "push_button"
+                                                                           "physical_variant": "toggle_switch"
                                                                     },
                                                 "SIGNAL_FLARE_RED": {
-                                                                                "api_variant": "momentary_last_position",
                                                                                    "category": "Signal Flares",
                                                                                "control_type": "selector",
                                                                                 "description": "Signal Flare Red Button",
@@ -3723,7 +3758,7 @@ docdata["MiG-15bis"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "push_button"
+                                                                           "physical_variant": "toggle_switch"
                                                                     },
                                                  "SIGNAL_FLARE_SW": {
                                                                                    "category": "Signal Flares",
@@ -3755,7 +3790,6 @@ docdata["MiG-15bis"] =
                                                                            "physical_variant": "toggle_switch"
                                                                     },
                                                 "SIGNAL_FLARE_WHI": {
-                                                                                "api_variant": "momentary_last_position",
                                                                                    "category": "Signal Flares",
                                                                                "control_type": "selector",
                                                                                 "description": "Signal Flare White Button",
@@ -3782,10 +3816,9 @@ docdata["MiG-15bis"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "push_button"
+                                                                           "physical_variant": "toggle_switch"
                                                                     },
                                                 "SIGNAL_FLARE_YEL": {
-                                                                                "api_variant": "momentary_last_position",
                                                                                    "category": "Signal Flares",
                                                                                "control_type": "selector",
                                                                                 "description": "Signal Flare Yellow Button",
@@ -3812,7 +3845,7 @@ docdata["MiG-15bis"] =
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ],
-                                                                           "physical_variant": "push_button"
+                                                                           "physical_variant": "toggle_switch"
                                                                     }
                                             },
                            "Stick Buttons": {
