@@ -2332,31 +2332,6 @@
                                                                   }
                                             },
                                     "EHSI": {
-                                                   "EHSI_BRT_KNOB": {
-                                                                            "category": "EHSI",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "EHSI Brightness Control Knob - Rotate to adjust brightness",
-                                                                          "identifier": "EHSI_BRT_KNOB",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 17518,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
                                                     "EHSI_CRS_SET": {
                                                                                 "api_variant": "momentary_last_position",
                                                                                    "category": "EHSI",
@@ -2386,6 +2361,28 @@
                                                                                                           "type": "integer"
                                                                                                } ],
                                                                            "physical_variant": "push_button"
+                                                                    },
+                                                "EHSI_CRS_SET_KNB": {
+                                                                         "api_variant": "multiturn",
+                                                                            "category": "EHSI",
+                                                                        "control_type": "analog_dial",
+                                                                         "description": "EHSI CRS Set Knob",
+                                                                          "identifier": "EHSI_CRS_SET_KNB",
+                                                                              "inputs": [ {
+                                                                                               "description": "turn the dial left or right",
+                                                                                                 "interface": "variable_step",
+                                                                                                 "max_value": 65535,
+                                                                                            "suggested_step": 3200
+                                                                                        } ],
+                                                                             "outputs": [ {
+                                                                                                "address": 17518,
+                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "_KNOB_POS",
+                                                                                                   "type": "integer"
+                                                                                        } ]
                                                                     },
                                                 "EHSI_HDG_SET_BTN": {
                                                                                 "api_variant": "momentary_last_position",
