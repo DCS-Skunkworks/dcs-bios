@@ -217,11 +217,11 @@ defineRotary("RIO_AIRSPD_KNOB", 27, 3639, 254, "Airspeed Indicator", "RIO Airspe
 
 -- Altimeter
 define3PosTumb("PLT_ALTIMETER_MODE", 28, 3487, 307, "Altimeter", "PILOT Altimeter Mode Switch")
-defineRotary("PLT_ALTIMETER_KNOB", 28, 3486, 306, "Altimeter", "PILOT Altimeter Pressure Setting")
+defineRotary("PLT_ALTIMETER_KNOB", 28, 3486, 306, {0, 1}, "Altimeter", "PILOT Altimeter Pressure Setting")---
 
 -- RIO Altimeter
 define3PosTumb("RIO_ALTIMETER_MODE", 28, 3490, 20307, "Altimeter", "RIO Altimeter Mode Switch")
-defineRotary("RIO_ALTIMETER_KNOB", 28, 3489, 20306, "Altimeter", "RIO Altimeter Pressure Setting")
+defineRotary("RIO_ALTIMETER_KNOB", 28, 3489, 20306, {0, 1}, "Altimeter", "RIO Altimeter Pressure Setting") ---
 
 -- Gear
 defineToggleSwitch("PLT_GEAR_LEVER", 17, 3016, 326, "Gear", "PILOT Landing Gear Lever")
@@ -571,10 +571,10 @@ definePotentiometer("RIO_DECM_VOL", 53, 3253, 9950, {0.0, 1.0}, "DECM Panel", "R
 -- RWR Control Panel ALR-67
 definePotentiometer("PLT_RWR_BRIGHT", 54, 3261, 16011, {0.0, 1.0}, "RWR Control Panel", "PILOT AN/ALR-67 Display Brightness")
 definePotentiometer("RIO_RWR_BRIGHT", 54, 3263, 376, {0.0, 1.0}, "RWR Control Panel", "RIO AN/ALR-67 Display Brightness")
-defineMultipositionSwitch("RIO_RWR_DIS_TYP", 53, 3257, 2136, 5, 0.25, "DECM Panel" ,"RIO AN/ALR-67 Display Type")
-define3PosTumb("RIO_RWR_MODE", 53, 3256, 2137, "DECM Panel", "RIO AN/ALR-67 Mode")
-define3PosTumb("RIO_RWR_TEST", 53, 3261, 2140, "DECM Panel", "RIO AN/ALR-67 Mode")
-defineToggleSwitch("RIO_RWR_PW", 53, 3259, 2139, "DECM Panel", "RIO AN/ALR-67 Power")
+defineMultipositionSwitch("RIO_RWR_DIS_TYP", 54, 3257, 2136, 5, 0.25, "DECM Panel" ,"RIO AN/ALR-67 Display Type")
+define3PosTumb("RIO_RWR_MODE", 54, 3256, 2137, "DECM Panel", "RIO AN/ALR-67 Mode")
+define3PosTumb("RIO_RWR_TEST", 54, 3261, 2140, "DECM Panel", "RIO AN/ALR-67 Mode")
+defineToggleSwitch("RIO_RWR_PW", 54, 3259, 2139, "DECM Panel", "RIO AN/ALR-67 Power")
 definePotentiometer("RIO_RWR_VOL", 54, 3254, 2138, {0.0, 1.0}, "DECM Panel", "RIO AN/ALR-67 Volume")
 
 -- AN/ALE-39 Mode Panel
@@ -607,7 +607,7 @@ definePushButton("RIO_CMDS_PROG_RESET", 5, 3297, 216, "CMDS", "RIO AN/ALE-37 Pro
 
 -- INS
 defineMultipositionSwitch("RIO_TID_MODE_NAV", 50, 3106, 50, 7, 0.1666667, "INS" ,"RIO TID Navigation Mode")
-defineMultipositionSwitch("RIO_TID_MODE_DEST", 46, 3106, 51, 8, 0.142857, "INS" ,"RIO TID Destination Mode")
+defineMultipositionSwitch("RIO_TID_MODE_DEST", 46, 3109, 51, 8, 0.142857, "INS" ,"RIO TID Destination Mode")
 
 -- AHRS / Compass  (COMP Panel)
 definePotentiometer("PLT_AHRS_HDG_KNOB", 51, 3433, 904, {-1.0, 1.0}, "AHRS", "PILOT Compass HDG Slave Knob")
@@ -672,7 +672,7 @@ definePushButton("RIO_CLOCK_TIMER", 26, 3698, 1053, "Weapons Panel", "RIO Clock 
 
 -- RIO TID
 defineMultipositionSwitch("RIO_TID_MODE", 43, 3112, 2005, 4, 0.33333, "TID" ,"RIO TID Mode")
-defineMultipositionSwitch("RIO_TID_RANGE", 43, 3113, 2006, 5, 0.5, "TID" ,"RIO TID Range")
+defineTumb("RIO_TID_RANGE", 43, 3113, 2006, 0.5, {-1.0, 1.0}, "TID" ,"RIO TID Range")
 definePushButton("RIO_TID_NON_ATTK", 43, 3114, 226, "TID", "RIO TID Non Attack")
 definePushButton("RIO_TID_JAM_STROBE", 43, 3115, 1118, "TID", "RIO TID Jam Strobe")
 definePushButton("RIO_TID_DATA_LINK", 43, 3116, 1117, "TID", "RIO TID Data Link")
