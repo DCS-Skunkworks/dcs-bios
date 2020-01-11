@@ -1138,7 +1138,7 @@ defineFloat("VOLT_U", 400, {0, 1}, "Electrical Power Panel", "Battery U Volts")
 defineFloat("VOLT_E", 401, {0, 1}, "Electrical Power Panel", "Battery E Volts")
 
 -- 2. Environment Control System Panel
-defineTumb("BLEED_AIR_KNOB", 11, 3001, 411, 0.1, {0.0, 0.3}, nil, false, "Environment Control System Panel", "Bleed Air Knob, R OFF/NORM/L OFF/OFF")
+defineTumb("BLEED_AIR_KNOB", 11, 3001, 411, 0.1, {0.0, 0.3}, nil, true, "Environment Control System Panel", "Bleed Air Knob, R OFF/NORM/L OFF/OFF")
 defineToggleSwitch("BLEED_AIR_PULL", 11, 3002, 412, "Environment Control System Panel", "Bleed Air Knob, AUG PULL")
 define3PosTumb("ECS_MODE_SW", 11, 3003, 405, "Environment Control System Panel", "ECS Mode Switch, AUTO/MAN/ OFF/RAM")
 define3PosTumb("CABIN_PRESS_SW", 11, 3004, 408, "Environment Control System Panel", "Cabin Pressure Switch, NORM/DUMP/ RAM/DUMP")
