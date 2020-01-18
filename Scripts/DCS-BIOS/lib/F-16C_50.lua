@@ -681,7 +681,7 @@ defineFloat("SYSB_PRESSURE", 616, {0.0, 1.0}, "Hydraulic Pressure Indicators", "
 --Engine Indicators
 defineFloat("ENGINE_OIL_PRESSURE", 93, {0, 1}, "Engine", "Oil Pressure Indicator")
 defineFloat("ENGINE_NOZZLE_POSITION", 94, {0.0, 1.0}, "Engine", "Engine Nozzle Position Indicator")
-defineFloat("ENGINE_TACHOMETER", 95, {0.0, 0.114, 0.233, 0.346, 0.377, 0.437, 0.57, 0.705, 0.855, 1.0}, "Engine", "Engine Tachometer Indicator")
+defineFloat("ENGINE_TACHOMETER", 95, {0.0, 1.0}, "Engine", "Engine Tachometer Indicator")
 defineFloat("ENGINE_FTIT", 96, {0.0, 1.0}, "Engine", "Engine FTIT Indicator")
 
 --Hydrazin Volume
