@@ -9,11 +9,18 @@ local altFt
 local hdgDeg
 local hdgDegFrac
 local player
+local ias
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	-- skip  this data if ownship export is disabled
 	if not LoIsOwnshipExportAllowed() then return end
 
     player = LoGetPilotName()
+	
+	ias = LoGetIndicatedAirSpeed()
+	iasEU = math.floor(ias * 0.36) * 10
+	iasUS = ias * 1.94384449		-- knots
+	_indicatedAirspeedEU = string.format("%4d", iasEU)
+	_indicatedAirspeedUS = string.format("%4d", iasUS)
 	
 	local selfData = LoGetSelfData()
 	if selfData.LatLongAlt == nil then return end
@@ -41,6 +48,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		hdgDegFrac = hdgDegValue - hdgDeg
 	end
 end
+
 defineString("PILOTNAME", function()
 		if not LoIsOwnshipExportAllowed() then return nil end
 		return player .. string.char(0)
@@ -52,6 +60,19 @@ defineIntegerFromGetter("LAT_SEC_FRAC", function()
 	if not LoIsOwnshipExportAllowed() then return nil end
 	return math.floor(latFractionalSec*65535)
 end, 65535, "Position", "Latitude Fractional Seconds (divide by 65535)")
+
+defineString("IAS_EU", function() return _indicatedAirspeedEU .. string.char(0) end, 4, "Speed", "Indicated Airspeed KM H")
+defineString("IAS_US", function() return _indicatedAirspeedUS .. string.char(0) end, 4, "Speed", "Indicated Airspeed KNT")
+defineIntegerFromGetter("IAS_EU_INT", function()
+	if not LoIsOwnshipExportAllowed() then return nil end
+	return math.floor(ias * 0.36) * 10
+end, 65535, "Speed", "Indicated Airspeed KM H (Int)")
+defineIntegerFromGetter("IAS_US_INT", function()
+	if not LoIsOwnshipExportAllowed() then return nil end
+	return ias * 1.94384449
+end, 65535, "Speed", "Indicated Airspeed KNT (Int)")
+
+
 
 defineIntegerFromGetter("LON_DEG", function() return lonDeg end, 59, "Position", "Longitude Degrees")
 defineIntegerFromGetter("LON_SEC", function() return lonSec end, 59, "Position", "Longitude Seconds")
