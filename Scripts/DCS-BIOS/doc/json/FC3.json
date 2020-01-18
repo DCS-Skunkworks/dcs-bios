@@ -83,7 +83,7 @@
                                                            "identifier": "FC3_G_LOAD_BAR",
                                                                "inputs": [  ],
                                                               "outputs": [ {
-                                                                                 "address": 24626,
+                                                                                 "address": 24628,
                                                                              "description": "G Load Bar",
                                                                                     "mask": 7936,
                                                                                "max_value": 16,
@@ -99,7 +99,7 @@
                                                            "identifier": "FC3_VVI_BAR",
                                                                "inputs": [  ],
                                                               "outputs": [ {
-                                                                                 "address": 24630,
+                                                                                 "address": 24634,
                                                                              "description": "Vertical Velocity Bar",
                                                                                     "mask": 7936,
                                                                                "max_value": 16,
@@ -117,7 +117,7 @@
                                                       "identifier": "FC3_CHAFF",
                                                           "inputs": [  ],
                                                          "outputs": [ {
-                                                                            "address": 24642,
+                                                                            "address": 24646,
                                                                         "description": "Chaff Counter",
                                                                          "max_length": 3,
                                                                              "suffix": "",
@@ -131,7 +131,7 @@
                                                       "identifier": "FC3_FLARE",
                                                           "inputs": [  ],
                                                          "outputs": [ {
-                                                                            "address": 24646,
+                                                                            "address": 24650,
                                                                         "description": "Flare Counter",
                                                                          "max_length": 3,
                                                                              "suffix": "",
@@ -149,7 +149,7 @@
                                                           "outputs": [ {
                                                                              "address": 24624,
                                                                          "description": "RPM Left Engine",
-                                                                          "max_length": 3,
+                                                                          "max_length": 5,
                                                                               "suffix": "",
                                                                                 "type": "string"
                                                                      } ]
@@ -161,9 +161,9 @@
                                                        "identifier": "FC3_RPM_R",
                                                            "inputs": [  ],
                                                           "outputs": [ {
-                                                                             "address": 24628,
+                                                                             "address": 24630,
                                                                          "description": "RPM Left Engine",
-                                                                          "max_length": 3,
+                                                                          "max_length": 5,
                                                                               "suffix": "",
                                                                                 "type": "string"
                                                                      } ]
@@ -175,7 +175,7 @@
                                                        "identifier": "FC3_TEMP_L",
                                                            "inputs": [  ],
                                                           "outputs": [ {
-                                                                             "address": 24632,
+                                                                             "address": 24636,
                                                                          "description": "Temperature Left Engine",
                                                                           "max_length": 3,
                                                                               "suffix": "",
@@ -189,7 +189,7 @@
                                                        "identifier": "FC3_TEMP_R",
                                                            "inputs": [  ],
                                                           "outputs": [ {
-                                                                             "address": 24636,
+                                                                             "address": 24640,
                                                                          "description": "Temperature Left Engine",
                                                                           "max_length": 3,
                                                                               "suffix": "",
@@ -237,7 +237,7 @@
                                                                      "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 24654,
+                                                                                           "address": 24658,
                                                                                        "description": "Left Speed Brake",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -253,7 +253,7 @@
                                                                      "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 24652,
+                                                                                           "address": 24656,
                                                                                        "description": "Right Speed Brake",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -269,7 +269,7 @@
                                                                      "identifier": "EXT_STROBE",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 24626,
+                                                                                           "address": 24628,
                                                                                        "description": "Strobe Light",
                                                                                               "mask": 8192,
                                                                                          "max_value": 1,
@@ -287,7 +287,7 @@
                                                                    "identifier": "FC3_ADI_BANK",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 24634,
+                                                                                         "address": 24638,
                                                                                      "description": "ADI Bank",
                                                                                             "mask": 65280,
                                                                                        "max_value": 255,
@@ -304,7 +304,7 @@
                                                                    "identifier": "FC3_ADI_PITCH",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 24638,
+                                                                                         "address": 24642,
                                                                                      "description": "ADI Pitch",
                                                                                             "mask": 65280,
                                                                                        "max_value": 255,
@@ -321,7 +321,7 @@
                                                                    "identifier": "FC3_ADI_YAW",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 24640,
+                                                                                         "address": 24644,
                                                                                      "description": "ADI Yaw",
                                                                                             "mask": 65280,
                                                                                        "max_value": 255,
@@ -338,7 +338,7 @@
                                                                    "identifier": "FC3_GLIDE_DEVIATION",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 24644,
+                                                                                         "address": 24648,
                                                                                      "description": "Glide Deviation",
                                                                                             "mask": 65280,
                                                                                        "max_value": 255,
@@ -355,7 +355,7 @@
                                                                    "identifier": "FC3_SIDE_DEVIATION",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 24648,
+                                                                                         "address": 24652,
                                                                                      "description": "Side Deviation",
                                                                                             "mask": 65280,
                                                                                        "max_value": 255,
@@ -372,7 +372,7 @@
                                                                    "identifier": "FC3_SLIP_BALL_POSITION",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 24650,
+                                                                                         "address": 24654,
                                                                                      "description": "Slip Ball Position",
                                                                                             "mask": 255,
                                                                                        "max_value": 255,
@@ -391,7 +391,7 @@
                                                      "identifier": "FC3_GEAR",
                                                          "inputs": [  ],
                                                         "outputs": [ {
-                                                                           "address": 24640,
+                                                                           "address": 24644,
                                                                        "description": "Gear Status",
                                                                         "max_length": 1,
                                                                             "suffix": "",
