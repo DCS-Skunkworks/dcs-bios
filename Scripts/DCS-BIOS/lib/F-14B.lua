@@ -217,11 +217,11 @@ defineRotary("RIO_AIRSPD_KNOB", 27, 3639, 254, "Airspeed Indicator", "RIO Airspe
 
 -- Altimeter
 define3PosTumb("PLT_ALTIMETER_MODE", 28, 3487, 307, "Altimeter", "PILOT Altimeter Mode Switch")
-defineRotary("PLT_ALTIMETER_KNOB", 28, 3486, 306, {0, 1}, "Altimeter", "PILOT Altimeter Pressure Setting")---
+defineRotary("PLT_ALTIMETER_KNOB", 28, 3486, 306, "Altimeter", "PILOT Altimeter Pressure Setting")
 
 -- RIO Altimeter
 define3PosTumb("RIO_ALTIMETER_MODE", 28, 3490, 20307, "Altimeter", "RIO Altimeter Mode Switch")
-defineRotary("RIO_ALTIMETER_KNOB", 28, 3489, 20306, {0, 1}, "Altimeter", "RIO Altimeter Pressure Setting") ---
+defineRotary("RIO_ALTIMETER_KNOB", 28, 3489, 20306, "Altimeter", "RIO Altimeter Pressure Setting")
 
 -- Gear
 defineToggleSwitch("PLT_GEAR_LEVER", 17, 3016, 326, "Gear", "PILOT Landing Gear Lever")
@@ -672,7 +672,7 @@ definePushButton("RIO_CLOCK_TIMER", 26, 3698, 1053, "Weapons Panel", "RIO Clock 
 
 -- RIO TID
 defineMultipositionSwitch("RIO_TID_MODE", 43, 3112, 2005, 4, 0.33333, "TID" ,"RIO TID Mode")
-defineTumb("RIO_TID_RANGE", 43, 3113, 2006, 0.5, {-1.0, 1.0}, "TID" ,"RIO TID Range")
+defineTumb("RIO_TID_RANGE", 43, 3113, 2006, 0.5, {-1.0, 1.0}, nil, false, "TID" ,"RIO TID Range")
 definePushButton("RIO_TID_NON_ATTK", 43, 3114, 226, "TID", "RIO TID Non Attack")
 definePushButton("RIO_TID_JAM_STROBE", 43, 3115, 1118, "TID", "RIO TID Jam Strobe")
 definePushButton("RIO_TID_DATA_LINK", 43, 3116, 1117, "TID", "RIO TID Data Link")

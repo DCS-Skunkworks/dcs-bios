@@ -25,6 +25,7 @@ local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
+-- remove Arg# Pilot 3333
 
 --[[--Weapon System--]]--
 defineToggleSwitch("TRIGGER_SAFETY_BRACKET", 2, 3300, 8, "Weapon System", "Trigger Safety Bracket")
@@ -386,6 +387,9 @@ definePotentiometer("RADAR_BRIGHT", 5, 3923, 391, {0, 1},"Radar" , "Radar Bright
 --found no argument
 -- elements["SnabbresM-PTR"] = default_button(_("Snabbresning"), devices.FLIGHTDATAUNIT, 3091, 0) left bottom radar display
 -- elements["PNT_CLOCK_RIGHT"] = default_button(_("Stopwatch Start/Stop/Reset"),devices.FLIGHTDATAUNIT, 3802, 0) right upper clock
+-- elements["PNT_POOP"] = default_axis_limited("Radar Night Filter", 5, 3800, -666, 1, 0.1, true, true)
+-- elements["PNT_400"] = default_1_position_tumb("Missile Select Button (IR-RB FRAMSTEGN)", 2, 3800, -666)
+-- elements["PNT_CMEASURES"] = multiposition_switch_limited("Countermeasure Dispense", 28, 3805, -666, 3, 1, false, -1.0)
 
 local function getAJS37NavIndicator1()
 	local li = list_indication(2)
