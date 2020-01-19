@@ -9,6 +9,7 @@ local parse_indication = BIOS.util.parse_indication
 
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
+local defineIndicatorLightInverted = BIOS.util.defineIndicatorLightInverted
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
@@ -384,11 +385,11 @@ defineIndicatorLight("GEAR_OXY_LUNG", 60, "Left Vertical Forward Panel", "Oxygen
 defineFloat("O2_PRES", 58, {0, 1}, "Left Vertical Forward Panel", "Oxygen Pressure")
 
 --Gear Lights
-defineIndicatorLight("GEAR_NOSE_UP", 9, "Landing Gear Control", "Nose Gear Up Light")
-defineIndicatorLight("GEAR_NOSE_DOWN", 12, "Landing Gear Control", "Nose Gear Down Light")
-defineIndicatorLight("GEAR_LEFT_UP", 10, "Landing Gear Control", "Gear Left Up Light")
+defineIndicatorLightInverted("GEAR_NOSE_UP", 9, "Landing Gear Control", "Gear Nose Up Light")
+defineIndicatorLight("GEAR_NOSE_DOWN", 12, "Landing Gear Control", "Gear Nose Down Light")
+defineIndicatorLightInverted("GEAR_LEFT_UP", 10, "Landing Gear Control", "Gear Left Up Light")
 defineIndicatorLight("GEAR_LEFT_DOWN", 13, "Landing Gear Control", "Gear Left Down Light")
-defineIndicatorLight("GEAR_RIGHT_UP", 11, "Landing Gear Control", "Gear Right Up Light")
+defineIndicatorLightInverted("GEAR_RIGHT_UP", 11, "Landing Gear Control", "Gear Right Up Light")
 defineIndicatorLight("GEAR_RIGHT_DOWN", 14, "Landing Gear Control", "Gear Right Down Light")
 
 --Airspeed Gauges
@@ -559,7 +560,7 @@ defineFloat("ARU_ND", 64, {0, 1}, "ARU/Nosecone Panel", "ARU Needle")
 --Nosecone
 defineFloat("CONE_ND", 66, {0, 1}, "ARU/Nosecone Panel", "Nosecone Position Needle")
 
---Gun Arming (listed in mainpanel_init under the drag chute heading)
+--Gun Arming
 defineIndicatorLight("GUN_GOTOVN", 550, "Weapon Select Panel", "Gun Loaded Light")
 
 --SPO Lights
