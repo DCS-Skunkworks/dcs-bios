@@ -202,7 +202,7 @@ defineMultipositionSwitch("ARK5_MODE", 20, 3349, 349, 3, 0.1,"ARK5 Panel" ,"ARK-
 defineToggleSwitch("ARK5_ANT_MOV", 20, 3350, 350, "ARK5 Panel", "ARK-5 Loop Antenna Rotation Switch, L(EFT)/R(IGHT)")
 definePotentiometer("ARK5_INST_LIGHT", 20, 3351, 351, {0, 1}, "ARK5 Panel", "ARK-5 Frequency Scale Backlight Knob")
 definePotentiometer("ARK5_VOL", 20, 3352, 352, {0, 1}, "ARK5 Panel", "ARK-5 Audio Volume Knob")
-defineRotary("ARK5_FREQ_ZUNE", 20, 3353, 3353, "ARK5 Panel", "ARK-5 Frequency Fine Tuning Handle")
+defineRotary("ARK5_FREQ_ZUNE", 20, 3353, 353, "ARK5 Panel", "ARK-5 Frequency Fine Tuning Handle")
 
 defineToggleSwitch("EMERG_GEAR", 4, 3222, 222, "Right Console", "Landing Gear Emergency Deployment")
 defineToggleSwitch("EMERG_FLAPS", 4, 3223, 223, "Right Console", "Flaps Emergency Deployment")
