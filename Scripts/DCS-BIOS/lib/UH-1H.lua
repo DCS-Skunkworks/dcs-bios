@@ -360,7 +360,7 @@ defineToggleSwitch("INT_RCVR3_SW", 21, 3003, 25, "Intercom Panel", "Receiver 3 S
 defineToggleSwitch("INT_RECVR4_SW", 21, 3004, 26, "Intercom Panel", "Receiver 4 Switch (No Function)")
 defineToggleSwitch("INT_INT_SW", 21, 3005, 27, "Intercom Panel", "INT Receiver Switch")
 defineToggleSwitch("INT_NAV_SW", 21, 3006, 28, "Intercom Panel", "NAV Receiver Switch")
-defineMultipositionSwitch("INT_MODE", 21, 3008, 30, 6, 0.1, "Intercom Mode: PVT - INT - 1 - 2 - 3 - 4")
+defineMultipositionSwitch("INT_MODE", 21, 3008, 30, 6, 0.1, "Intercom Panel", "Intercom Mode: PVT - INT - 1 - 2 - 3 - 4")
 
 defineToggleSwitch("RADIO_ICS_SW", 21, 3009, 194, "Cyclic", "Radio/ICS Switch")
 
