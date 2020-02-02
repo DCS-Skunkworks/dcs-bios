@@ -8,7 +8,7 @@
 --     LIBRARY     	:    Mirage 2000C RAZBAM
 --     CONTIBUTORS 	:    Exo7, Ergo, Matchstick, WarLord 
 --     LINK        	:    https://github.com/Exo7/DCS_BIOS-M2000C_Library/releases/latest
---     VERSION     	:    v1.24
+--     VERSION     	:    v1.25
 --
 -----------------------------------------------------------
 -- Release log : 
@@ -63,6 +63,9 @@
 --
 -- v1.24 by WarLord
 --		Beta Patch adjusts 13.11.2019
+--
+-- v1.25 by WarLord
+--		Comparing to Helios
 -----------------------------------------------------------
 
 BIOS.protocol.beginModule("M-2000C", 0x7200)
@@ -923,7 +926,7 @@ defineFloat("PSV_EL_D_INT", 428, {0, 1}, "LEFT PANEL", "O - PSV - Right Int Elev
 -- MAIN PANEL
 defineIndicatorLight("LIM_IND", 185, "MAIN PANEL", "O - LIM Indicator Light")
 defineIndicatorLight("IFF_IND", 186, "MAIN PANEL", "O - IFF Indicator Light")
-defineiCommand("AUDIO_WARN_RESET", 144, 191, "MAIN PANEL", "I - AL - Audio Warning Reset Button (PANNE)")
+definePushButton("AUDIO_WARN_RESET", 16, 144, 191, "MAIN PANEL", "I - AL - Audio Warning Reset Button (PANNE)")
 defineIndicatorLight("MC_AMBRE", 199, "MAIN PANEL", "O - AL - Amber PANNE Button Light")
 defineIndicatorLight("MC_ROUGE", 200, "MAIN PANEL", "O - AL - Red PANNE Button Light")
 defineIndicatorLight("PC", 373, "MAIN PANEL", "O - AL - PC Light")
@@ -948,7 +951,7 @@ defineTumb("CNPY_REST", 14, 3655, 655, 1, {-1, 1}, nil, false, "MISCELANEOUS", "
 defineTumb("SEAT_ADJUST_SW", 22, 3900, 900, 1, {-1, 1}, nil, false, "MISCELANEOUS", "I - Seat Adjustment Switch")
 
 -- PCA
-defineiCommand("MASTER_ARM_SW", 283, 234, "PCA", "I - PCA - Master Arm Switch")
+defineToggleSwitch("MASTER_ARM_SW", 6, 3234, 234, "PCA", "I - PCA - Master Arm Switch")
 definePushButton("PCA_BTN_1", 6, 3235, 235, "PCA", "I - PCA - Button 1")
 definePushButton("PCA_BTN_2", 6, 3237, 237, "PCA", "I - PCA - Button 2")
 definePushButton("PCA_BTN_3", 6, 3239, 239, "PCA", "I - PCA - Button 3")
@@ -1054,8 +1057,8 @@ defineIndicatorLight("PPA_S530_P", 267, "PPA", "O - PPA - S530 P Light")
 defineIndicatorLight("PPA_S530_MIS", 268, "PPA", "O - PPA - S530 MIS Light")
 defineIndicatorLight("PPA_AUTO", 270, "PPA", "O - PPA - AUTO Light")
 defineIndicatorLight("PPA_MAN", 271, "PPA", "O - PPA - MAN Light")
-defineIndicatorLight("PPA_MAGIC_P", 274, "PPA", "O - PPA - MAGIC Light")
-defineIndicatorLight("PPA_MAGIC_MIS", 275, "PPA", "O - PPA - MAGIC MAG Light")
+defineIndicatorLight("PPA_MAGIC_P", 273, "PPA", "O - PPA - MAGIC Light")
+defineIndicatorLight("PPA_MAGIC_MIS", 274, "PPA", "O - PPA - MAGIC MAG Light")
 defineIndicatorLight("PPA_GUN_ROCKET_PAP", 280, "PPA", "O - PPA - Gun/Rockets Mode PAR Indicator Light")
 defineIndicatorLight("PPA_GUN_ROCKET_TOT", 281, "PPA", "O - PPA - Gun/Rockets Mode TOT Indicator Light")
 defineString("PPA_QTY_DISP", getPPAQtyDisp, 2, "PPA", "O - PPA Quantity Display")
@@ -1093,7 +1096,7 @@ defineIndicatorLight("RAD_VISU", 496, "RADAR", "O - RAD - VISU Button Light")
 defineIndicatorLight("RAD_PSIC", 505, "RADAR", "O - RAD - PSIC Button Light")
 
 -- RIGHT CONSOLE
-defineToggleSwitch("AUDIO_WARN_SW", 3, 3658, 658, "RIGHT CONSOLE", "I - AL - Audio Warning Switch")
+defineToggleSwitch("AUDIO_WARN_SW", 16, 3658, 658, "RIGHT CONSOLE", "I - AL - Audio Warning Switch")
 defineToggleSwitch("EMER_HYD_PUMP_SW", 3, 3657, 657, "RIGHT CONSOLE", "I - Emergency Hydraulic Pump Switch")
 defineToggleSwitch("PITOT_HEAT_COV", 22, 3659, 659, "RIGHT CONSOLE", "I - Pitot Heat Cover")
 defineToggleSwitch("PITOT_HEAT_SW", 22, 3660, 660, "RIGHT CONSOLE", "I - Pitot Heat Switch")
@@ -1159,7 +1162,7 @@ defineTumb("UHF_MODE_SW", 20, 3433, 433, 0.25, {0, 1}, nil, false, "UHF RADIO", 
 defineToggleSwitch("UHF_PWR_5W_25W_SW", 20, 3429, 429, "UHF RADIO", "I - UHF - Power 5W/25W Switch")
 defineToggleSwitch("UHF_SIL_SW", 20, 3430, 430, "UHF RADIO", "I - UHF - SIL Switch")
 defineToggleSwitch("UHF_CDE_SW", 20, 3432, 432, "UHF RADIO", "I - UHF - CDE Switch")
-defineToggleSwitch("UHF_TEST_SW", 20, 3434, 434, "UHF RADIO", "I - UHF - TEST Switch")
+definePushButton("UHF_TEST_SW", 20, 3434, 434, "UHF RADIO", "I - UHF - TEST Switch")
 defineSetCommandTumb("UHF_PRESET_KNOB", 20, 3435, 435, 0.05, {0.05, 1}, nil, true, "UHF RADIO", "Preset Knob UHF")
 defineTumb("UHF_E+A2_SW", 20, 3431, 431, 1, {-1, 1}, nil, false, "UHF RADIO", "I - UHF - E+A2 Switch")
 defineFloat("UHF_PRESET", 436, {0, 1}, "UHF RADIO", "O - UHF - PRESET Display")
@@ -1209,6 +1212,23 @@ defineFloat("VARIO_NEEDLE", 324, {-1, 1}, "VVI", "O - VVI - Needle")
 defineToggleSwitch("NVG_HELMET_MOUNT", 31, 3002, 1, "NVG", "I - NVG - Mount/Unmount NVG on Helmet")
 defineToggleSwitch("NVG_STOW", 31, 3001, 2, "NVG", "I - NVG - STOW/UNSTOW NVG")
 defineToggleSwitch("NVG_LIGHT_FILTER_SW", 16, 3672, 672, "NVG", "I - NVG - NVG Lights Filter Switch")
+
+
+defineIndicatorLight("UHF_REP_L_1", 187, "UHF RADIO", "UHF Repeater COM1 Light (green)")
+defineIndicatorLight("UHF_REP_L_2", 188, "UHF RADIO", "UHF Repeater COM2 Light (green)")
+defineIndicatorLight("UHF_TEST_L", 676, "UHF RADIO", "UHF TEST Light (yellow)")
+defineIndicatorLight("UHF_SECURE_L", 677, "UHF RADIO", "UHF Secure Channel Light (green)")
+defineIndicatorLight("AIR_REFUEL_L", 198, "FUEL SYSTEM", "Air Refueling Light (yellow)")
+
+defineFloat("VORILS_100_DRUM", 611, {0, 1}, "VOR / ILS", "VOR/ILS Drum 100")
+defineFloat("VORILS_10_DRUM", 612, {0, 1}, "VOR / ILS", "VOR/ILS Drum 10")
+defineFloat("VORILS_1_DRUM", 613, {0, 1}, "VOR / ILS", "VOR/ILS Drum 1")
+defineFloat("VORILS_01_DRUM", 614, {0, 1}, "VOR / ILS", "VOR/ILS Drum 0.1")
+defineFloat("VORILS_001_DRUM", 615, {0, 1}, "VOR / ILS", "VOR/ILS Drum 0.01")
+
+defineFloat("VTAC_X_Y_DRUM", 620, {0, 1}, "TACAN", "TACAN X/Y Drum")
+defineFloat("VTAC_10_DRUM", 621, {0, 1}, "TACAN", "TACAN 10 Drum")
+defineFloat("VTAC_1_DRUM", 621, {0, 1}, "TACAN", "TACAN 1 Drum")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()

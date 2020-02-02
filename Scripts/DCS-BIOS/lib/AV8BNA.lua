@@ -203,7 +203,7 @@ definePushButton("MPCD_R_17", 27, 3240, 240,"MPCD Right" , "MPCD Right Button 17
 definePushButton("MPCD_R_18", 27, 3241, 241,"MPCD Right" , "MPCD Right Button 18")
 definePushButton("MPCD_R_19", 27, 3242, 242,"MPCD Right" , "MPCD Right Button 19")
 definePushButton("MPCD_R_20", 27, 3243, 243,"MPCD Right" , "MPCD Right Button 20")
-define3PosTumb("MPCD_R_DAY_NIGHT", 267, 3244, 244,"MPCD Right" , "MPCD Right Display DAY/NIGHT Mode")
+define3PosTumb("MPCD_R_DAY_NIGHT", 27, 3244, 244,"MPCD Right" , "MPCD Right Display DAY/NIGHT Mode")
 define3PosTumb("MPCD_R_SYMBOL", 27, 3245, 245,"MPCD Right" , "MPCD Right Display Symbology")
 define3PosTumb("MPCD_R_GAIN", 27, 3246, 246,"MPCD Right" , "MPCD Right Display Gain")
 define3PosTumb("MPCD_R_CONTRAST", 27, 3247, 247,"MPCD Right" , "MPCD Right Display Contrast")
@@ -400,16 +400,16 @@ defineMultipositionSwitch("CABIN_PRESS_SWITCH", 36, 3643, 643, 3, 0.5,"ECS" ,"Ca
 -------------------------------------------------------------------
 -- FLOOD LAMPS:
 -------------------------------------------------------------------
-definePotentiometer("FLOOD_R_CAN_T", 28, 3150, 150, {-1, 1}, "Flood Lamps", "Flood Right Canopy Frame Top")
-definePotentiometer("FLOOD_R_CAN_B", 28, 3151, 151, {-1, 1}, "Flood Lamps", "Flood Right Canopy Frame Btm")
-definePotentiometer("FLOOD_R_BH_FWD", 28, 3152, 152, {-1, 1}, "Flood Lamps", "Flood Right BH FWD")
-definePotentiometer("FLOOD_R_BH_AFT_F", 28, 3153, 153, {-1, 1}, "Flood Lamps", "Flood Right BH AFT Front")
-definePotentiometer("FLOOD_R_BH_AFT_B", 28, 3154, 154, {-1, 1}, "Flood Lamps", "Flood Right BH AFT Back")
-definePotentiometer("FLOOD_L_BH_AFT_B", 28, 3155, 155, {-1, 1}, "Flood Lamps", "Flood Left BH AFT Back")
-definePotentiometer("FLOOD_L_BH_AFT_F", 28, 3156, 156, {-1, 1}, "Flood Lamps", "Flood Left BH AFT Front")
-definePotentiometer("FLOOD_L_BH_FWD", 28, 3157, 157, {-1, 1}, "Flood Lamps", "Flood Left BH FWD")
-definePotentiometer("FLOOD_L_CAN_B", 28, 3158, 158, {-1, 1}, "Flood Lamps", "Flood Left Canopy Frame Btm")
-definePotentiometer("FLOOD_L_CAN_T", 28, 3159, 159, {-1, 1}, "Flood Lamps", "Flood Left Canopy Frame Top")
+definePotentiometer("FLOOD_R_CAN_T", 34, 3150, 150, {-1, 1}, "Flood Lamps", "Flood Right Canopy Frame Top")
+definePotentiometer("FLOOD_R_CAN_B", 34, 3151, 151, {-1, 1}, "Flood Lamps", "Flood Right Canopy Frame Btm")
+definePotentiometer("FLOOD_R_BH_FWD", 34, 3152, 152, {-1, 1}, "Flood Lamps", "Flood Right BH FWD")
+definePotentiometer("FLOOD_R_BH_AFT_F", 34, 3153, 153, {-1, 1}, "Flood Lamps", "Flood Right BH AFT Front")
+definePotentiometer("FLOOD_R_BH_AFT_B", 34, 3154, 154, {-1, 1}, "Flood Lamps", "Flood Right BH AFT Back")
+definePotentiometer("FLOOD_L_BH_AFT_B", 34, 3155, 155, {-1, 1}, "Flood Lamps", "Flood Left BH AFT Back")
+definePotentiometer("FLOOD_L_BH_AFT_F", 34, 3156, 156, {-1, 1}, "Flood Lamps", "Flood Left BH AFT Front")
+definePotentiometer("FLOOD_L_BH_FWD", 34, 3157, 157, {-1, 1}, "Flood Lamps", "Flood Left BH FWD")
+definePotentiometer("FLOOD_L_CAN_B", 34, 3158, 158, {-1, 1}, "Flood Lamps", "Flood Left Canopy Frame Btm")
+definePotentiometer("FLOOD_L_CAN_T", 34, 3159, 159, {-1, 1}, "Flood Lamps", "Flood Left Canopy Frame Top")
 
 -------------------------------------------------------------------
 -- CANOPY CONTROLS:
@@ -529,7 +529,7 @@ defineFloat("STAB2", 268, {0.0, 1.0}, "Gauges", "STAB 2. Drum Digit")
 defineFloat("H2O1", 269, {0.0, 1.0}, "Gauges", "H2O 1. Drum Digit")
 defineFloat("H2O2", 270, {0.0, 1.0}, "Gauges", "H2O 2. Drum Digit")
 defineFloat("NOZZLE_POINTER", 271, {0.0, 1.0}, "Gauges", "Nozzle Pointer")
-defineIndicatorLight("H2O_CONTROL_LIGHT", 331, "Warning, Caution and IndicatorLights","H2O Control Lamp")
+defineIndicatorLight("H2O_CONTROL_LIGHT", 177, "Warning, Caution and IndicatorLights","H2O Control Lamp (green)")
 ---FUEL PANEL DISPLAY
 defineFloat("FUEL_FLAG", 365, {0.0, 1.0}, "Gauges", "FUEL ON/OFF Flag")
 defineFloat("TOT_FUEL1", 366, {0.0, 1.0}, "Gauges", "TOT FUEL 1. Drum Digit")
@@ -626,6 +626,9 @@ defineFloat("MIP_LIGHTS", 182, {0, 1}, "Gauges", "MIP Backlight Intensity")
 defineFloat("SIDEPANEL_LIGHTS", 183, {0, 1}, "Gauges", "Sidepanel Lightning Intensity")
 defineFloat("COMPASS_LIGHTS", 184, {0, 1}, "Gauges", "Compass Lightning Intensity")
 
+defineFloat("BRAKE_ACCU", 559, {0, 0.4}, "Gauges", "Brake Accummulator")
+defineFloat("TURN_INDI", 652, {-1, 1}, "Gauges", "Turn Indicator")
+defineFloat("SLIP_TURN_FLAG", 654, {0, 1}, "Gauges", "Slip/Turn Flag")
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)

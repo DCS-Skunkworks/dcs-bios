@@ -871,5 +871,7 @@ end, 1, "External Aircraft Model", "Strobe Light")
 
 defineIndicatorLight("PLAFOND_LAMP", 1000, "Lighting Control Panel", "Plafond Lamp (rear left) (yellow)")
 defineToggleSwitch("LIGHT_CPT_INT", 51, 3009, 1001, "Lighting Control Panel", "Lighting cockpit interior lamp switch")
+defineToggleSwitch("REDU_GEAR_OIL_PRESS", 4, 3024, 258, "Right Panel", "Reducing gear box oil pressure indication selector")---action=3024, stop_action=3025
+defineToggleSwitch("SLING_AUT_MAN", 41, 3004, 259, "Right Panel", "Sling load Auto/Manual")
 
 BIOS.protocol.endModule()
