@@ -1581,7 +1581,7 @@ docdata["AV8BNA"] =
                                                                               "identifier": "EXT_FORMATION_LIGHTS",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
-                                                                                                    "address": 31054,
+                                                                                                    "address": 31060,
                                                                                                 "description": "Formation Lights",
                                                                                                        "mask": 65535,
                                                                                                   "max_value": 65535,
@@ -1613,7 +1613,7 @@ docdata["AV8BNA"] =
                                                                               "identifier": "EXT_SPEED_BRAKE",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
-                                                                                                    "address": 31052,
+                                                                                                    "address": 31058,
                                                                                                 "description": "Speed Brake",
                                                                                                        "mask": 65535,
                                                                                                   "max_value": 65535,
@@ -2697,6 +2697,22 @@ docdata["AV8BNA"] =
                                                                                                    "type": "integer"
                                                                                         } ]
                                                                     },
+                                                      "BRAKE_ACCU": {
+                                                                            "category": "Gauges",
+                                                                        "control_type": "analog_gauge",
+                                                                         "description": "Brake Accummulator",
+                                                                          "identifier": "BRAKE_ACCU",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                "address": 31052,
+                                                                                            "description": "gauge position",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
                                                      "CABIN_PRESS": {
                                                                             "category": "Gauges",
                                                                         "control_type": "analog_gauge",
@@ -3721,6 +3737,22 @@ docdata["AV8BNA"] =
                                                                                                    "type": "integer"
                                                                                         } ]
                                                                     },
+                                                  "SLIP_TURN_FLAG": {
+                                                                            "category": "Gauges",
+                                                                        "control_type": "analog_gauge",
+                                                                         "description": "Slip/Turn Flag",
+                                                                          "identifier": "SLIP_TURN_FLAG",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                "address": 31056,
+                                                                                            "description": "gauge position",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
                                                            "STAB1": {
                                                                             "category": "Gauges",
                                                                         "control_type": "analog_gauge",
@@ -3745,6 +3777,22 @@ docdata["AV8BNA"] =
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
                                                                                                 "address": 30890,
+                                                                                            "description": "gauge position",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                      "STAB_ARROW": {
+                                                                            "category": "Gauges",
+                                                                        "control_type": "analog_gauge",
+                                                                         "description": "STAB Arrow up/down Drum Digit",
+                                                                          "identifier": "STAB_ARROW",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                "address": 30886,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -3825,6 +3873,22 @@ docdata["AV8BNA"] =
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
                                                                                                 "address": 30908,
+                                                                                            "description": "gauge position",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                       "TURN_INDI": {
+                                                                            "category": "Gauges",
+                                                                        "control_type": "analog_gauge",
+                                                                         "description": "Turn Indicator",
+                                                                          "identifier": "TURN_INDI",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                "address": 31054,
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -6639,7 +6703,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_1_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31074,
+                                                                                                   "address": 31080,
                                                                                                "description": "ODU Option 1 Select (string)",
                                                                                                 "max_length": 1,
                                                                                                     "suffix": "",
@@ -6653,7 +6717,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_1_Text",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31076,
+                                                                                                   "address": 31082,
                                                                                                "description": "ODU Option 1 Text (string)",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -6667,7 +6731,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_2_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31080,
+                                                                                                   "address": 31086,
                                                                                                "description": "ODU Option 2 Select (string)",
                                                                                                 "max_length": 1,
                                                                                                     "suffix": "",
@@ -6681,7 +6745,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_2_Text",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31082,
+                                                                                                   "address": 31088,
                                                                                                "description": "ODU Option 2 Text (string)",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -6695,7 +6759,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_3_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31086,
+                                                                                                   "address": 31092,
                                                                                                "description": "ODU Option 3 Select (string)",
                                                                                                 "max_length": 1,
                                                                                                     "suffix": "",
@@ -6709,7 +6773,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_3_Text",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31088,
+                                                                                                   "address": 31094,
                                                                                                "description": "ODU Option 3 Text (string)",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -6723,7 +6787,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_4_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31092,
+                                                                                                   "address": 31098,
                                                                                                "description": "ODU Option 4 Select (string)",
                                                                                                 "max_length": 1,
                                                                                                     "suffix": "",
@@ -6737,7 +6801,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_4_Text",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31094,
+                                                                                                   "address": 31100,
                                                                                                "description": "ODU Option 4 Text (string)",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -6751,7 +6815,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_5_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31098,
+                                                                                                   "address": 31104,
                                                                                                "description": "ODU Option 5 Select (string)",
                                                                                                 "max_length": 1,
                                                                                                     "suffix": "",
@@ -6765,7 +6829,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_5_Text",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 31100,
+                                                                                                   "address": 31106,
                                                                                                "description": "ODU Option 5 Text (string)",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -7094,23 +7158,6 @@ docdata["AV8BNA"] =
                                                                                           } ],
                                                                       "physical_variant": "toggle_switch"
                                                                }
-                                            },
-           "STAB Arrow up/down Drum Digit": {
-                                                "STAB_ARROW": {
-                                                                      "category": "STAB Arrow up/down Drum Digit",
-                                                                  "control_type": "analog_gauge",
-                                                                    "identifier": "STAB_ARROW",
-                                                                        "inputs": [  ],
-                                                                       "outputs": [ {
-                                                                                          "address": 30886,
-                                                                                      "description": "gauge position",
-                                                                                             "mask": 65535,
-                                                                                        "max_value": 65535,
-                                                                                         "shift_by": 0,
-                                                                                           "suffix": "",
-                                                                                             "type": "integer"
-                                                                                  } ]
-                                                              }
                                             },
                                     "Seat": {
                                                 "SEAT_SAFE_LEVER": {
@@ -7926,7 +7973,7 @@ docdata["AV8BNA"] =
                                                                            "identifier": "UFC_COMM1_DISPLAY",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 31056,
+                                                                                                 "address": 31062,
                                                                                              "description": "UFC Comm1 Preset Display",
                                                                                               "max_length": 2,
                                                                                                   "suffix": "",
@@ -7940,7 +7987,7 @@ docdata["AV8BNA"] =
                                                                            "identifier": "UFC_COMM2_DISPLAY",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 31058,
+                                                                                                 "address": 31064,
                                                                                              "description": "UFC Comm2 Preset Display",
                                                                                               "max_length": 2,
                                                                                                   "suffix": "",
@@ -8194,7 +8241,7 @@ docdata["AV8BNA"] =
                                                                            "identifier": "UFC_SCRATCHPAD",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 31104,
+                                                                                                 "address": 31110,
                                                                                              "description": "UFC Scratchpad Display",
                                                                                               "max_length": 12,
                                                                                                   "suffix": "",
@@ -9203,7 +9250,7 @@ docdata["AV8BNA"] =
                                                 "H2O_CONTROL_LIGHT": {
                                                                              "category": "Warning, Caution and IndicatorLights",
                                                                          "control_type": "led",
-                                                                          "description": "H2O Control Lamp",
+                                                                          "description": "H2O Control Lamp (green)",
                                                                            "identifier": "H2O_CONTROL_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {

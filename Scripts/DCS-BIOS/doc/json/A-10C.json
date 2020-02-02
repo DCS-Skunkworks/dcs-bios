@@ -3463,6 +3463,36 @@
                                                                                                       "type": "string"
                                                                                            } ]
                                                                        },
+                                                           "CMSC_UNK": {
+                                                                                   "api_variant": "momentary_last_position",
+                                                                                      "category": "CMSC",
+                                                                                  "control_type": "selector",
+                                                                                   "description": "Display Unknown Threats",
+                                                                                    "identifier": "CMSC_UNK",
+                                                                                        "inputs": [ {
+                                                                                                      "description": "switch to previous or next state",
+                                                                                                        "interface": "fixed_step"
+                                                                                                  }, {
+                                                                                                      "description": "set position",
+                                                                                                        "interface": "set_state",
+                                                                                                        "max_value": 1
+                                                                                                  }, {
+                                                                                                         "argument": "TOGGLE",
+                                                                                                      "description": "Toggle switch state",
+                                                                                                        "interface": "action"
+                                                                                                  } ],
+                                                                           "momentary_positions": "none",
+                                                                                       "outputs": [ {
+                                                                                                          "address": 4818,
+                                                                                                      "description": "selector position",
+                                                                                                             "mask": 4,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 2,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ],
+                                                                              "physical_variant": "push_button"
+                                                                       },
                                                           "CMSC_UNKN": {
                                                                                "category": "CMSC",
                                                                            "control_type": "led",
@@ -14318,6 +14348,38 @@
                                                                                     "outputs": [ {
                                                                                                        "address": 4362,
                                                                                                    "description": "position of the potentiometer",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                         "ENG_THROTTLE_L": {
+                                                                                   "category": "Throttle",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Left Engine Throttle",
+                                                                                 "identifier": "ENG_THROTTLE_L",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4820,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                         "ENG_THROTTLE_R": {
+                                                                                   "category": "Throttle",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Right Engine Throttle",
+                                                                                 "identifier": "ENG_THROTTLE_R",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4822,
+                                                                                                   "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
                                                                                                       "shift_by": 0,

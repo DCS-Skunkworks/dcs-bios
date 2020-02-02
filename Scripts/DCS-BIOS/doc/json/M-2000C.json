@@ -3186,7 +3186,7 @@
                                                                        "identifier": "EXT_FORMATION_LIGHTS_AFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29514,
+                                                                                             "address": 29530,
                                                                                          "description": "Aft Formation Lights",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3202,7 +3202,7 @@
                                                                        "identifier": "EXT_FORMATION_LIGHTS_FRONT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29512,
+                                                                                             "address": 29528,
                                                                                          "description": "Front Formation Lights",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3220,9 +3220,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 29504,
                                                                                          "description": "Left Position Light (red)",
-                                                                                                "mask": 16,
+                                                                                                "mask": 512,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 4,
+                                                                                            "shift_by": 9,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3236,9 +3236,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 29504,
                                                                                          "description": "Right Position Light (green)",
-                                                                                                "mask": 32,
+                                                                                                "mask": 1024,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 5,
+                                                                                            "shift_by": 10,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3250,7 +3250,7 @@
                                                                        "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29510,
+                                                                                             "address": 29526,
                                                                                          "description": "Left Speed Brake",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3266,7 +3266,7 @@
                                                                        "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29508,
+                                                                                             "address": 29524,
                                                                                          "description": "Right Speed Brake",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3284,9 +3284,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 29504,
                                                                                          "description": "Bottom Strobe Light",
-                                                                                                "mask": 128,
+                                                                                                "mask": 4096,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 7,
+                                                                                            "shift_by": 12,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3300,9 +3300,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 29504,
                                                                                          "description": "Top Strobe Light",
-                                                                                                "mask": 64,
+                                                                                                "mask": 2048,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 6,
+                                                                                            "shift_by": 11,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3333,6 +3333,22 @@
                                                                                                   "type": "integer"
                                                                                        } ],
                                                                    "physical_variant": "toggle_switch"
+                                                            },
+                                            "AIR_REFUEL_L": {
+                                                                    "category": "FUEL SYSTEM",
+                                                                "control_type": "led",
+                                                                 "description": "Air Refueling Light (yellow)",
+                                                                  "identifier": "AIR_REFUEL_L",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 29504,
+                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                           "mask": 256,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 8,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
                                                             },
                                    "BINGO_FUEL_100_KG_SEL": {
                                                                            "category": "FUEL SYSTEM",
@@ -5560,16 +5576,24 @@
                                },
                  "MAIN PANEL": {
                                    "AUDIO_WARN_RESET": {
+                                                                   "api_variant": "momentary_last_position",
                                                                       "category": "MAIN PANEL",
                                                                   "control_type": "selector",
                                                                    "description": "I - AL - Audio Warning Reset Button (PANNE)",
                                                                     "identifier": "AUDIO_WARN_RESET",
                                                                         "inputs": [ {
-                                                                                      "description": "set iCommand -- 0 = OFF, 1 = ON",
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
                                                                                         "interface": "set_state",
                                                                                         "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
                                                                                   } ],
-                                                           "momentary_positions": "first_and_last",
+                                                           "momentary_positions": "none",
                                                                        "outputs": [ {
                                                                                           "address": 29360,
                                                                                       "description": "selector position",
@@ -5579,7 +5603,7 @@
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
-                                                              "physical_variant": "toggle_switch"
+                                                              "physical_variant": "push_button"
                                                        },
                                                 "DEM": {
                                                                "category": "MAIN PANEL",
@@ -6225,11 +6249,18 @@
                                                                   "description": "I - PCA - Master Arm Switch",
                                                                    "identifier": "MASTER_ARM_SW",
                                                                        "inputs": [ {
-                                                                                     "description": "set iCommand -- 0 = OFF, 1 = ON",
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
                                                                                        "interface": "set_state",
                                                                                        "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
                                                                                  } ],
-                                                          "momentary_positions": "first_and_last",
+                                                          "momentary_positions": "none",
                                                                       "outputs": [ {
                                                                                          "address": 29380,
                                                                                      "description": "selector position",
@@ -9629,6 +9660,54 @@
                                                                                           "type": "integer"
                                                                                } ],
                                                            "physical_variant": "toggle_switch"
+                                                    },
+                                    "VTAC_10_DRUM": {
+                                                            "category": "TACAN",
+                                                        "control_type": "analog_gauge",
+                                                         "description": "TACAN 10 Drum",
+                                                          "identifier": "VTAC_10_DRUM",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 29520,
+                                                                            "description": "gauge position",
+                                                                                   "mask": 65535,
+                                                                              "max_value": 65535,
+                                                                               "shift_by": 0,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                     "VTAC_1_DRUM": {
+                                                            "category": "TACAN",
+                                                        "control_type": "analog_gauge",
+                                                         "description": "TACAN 1 Drum",
+                                                          "identifier": "VTAC_1_DRUM",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 29522,
+                                                                            "description": "gauge position",
+                                                                                   "mask": 65535,
+                                                                              "max_value": 65535,
+                                                                               "shift_by": 0,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                   "VTAC_X_Y_DRUM": {
+                                                            "category": "TACAN",
+                                                        "control_type": "analog_gauge",
+                                                         "description": "TACAN X/Y Drum",
+                                                          "identifier": "VTAC_X_Y_DRUM",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 29518,
+                                                                            "description": "gauge position",
+                                                                                   "mask": 65535,
+                                                                              "max_value": 65535,
+                                                                               "shift_by": 0,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
                                                     }
                                },
                  "TEST PANEL": {
@@ -9973,6 +10052,54 @@
                                                                                    } ],
                                                                "physical_variant": "toggle_switch"
                                                         },
+                                         "UHF_REP_L_1": {
+                                                                "category": "UHF RADIO",
+                                                            "control_type": "led",
+                                                             "description": "UHF Repeater COM1 Light (green)",
+                                                              "identifier": "UHF_REP_L_1",
+                                                                  "inputs": [  ],
+                                                                 "outputs": [ {
+                                                                                    "address": 29504,
+                                                                                "description": "0 if light is off, 1 if light is on",
+                                                                                       "mask": 16,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 4,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ]
+                                                        },
+                                         "UHF_REP_L_2": {
+                                                                "category": "UHF RADIO",
+                                                            "control_type": "led",
+                                                             "description": "UHF Repeater COM2 Light (green)",
+                                                              "identifier": "UHF_REP_L_2",
+                                                                  "inputs": [  ],
+                                                                 "outputs": [ {
+                                                                                    "address": 29504,
+                                                                                "description": "0 if light is off, 1 if light is on",
+                                                                                       "mask": 32,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 5,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ]
+                                                        },
+                                        "UHF_SECURE_L": {
+                                                                "category": "UHF RADIO",
+                                                            "control_type": "led",
+                                                             "description": "UHF Secure Channel Light (green)",
+                                                              "identifier": "UHF_SECURE_L",
+                                                                  "inputs": [  ],
+                                                                 "outputs": [ {
+                                                                                    "address": 29504,
+                                                                                "description": "0 if light is off, 1 if light is on",
+                                                                                       "mask": 128,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 7,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ]
+                                                        },
                                           "UHF_SIL_SW": {
                                                                        "category": "UHF RADIO",
                                                                    "control_type": "selector",
@@ -10002,7 +10129,24 @@
                                                                                    } ],
                                                                "physical_variant": "toggle_switch"
                                                         },
+                                          "UHF_TEST_L": {
+                                                                "category": "UHF RADIO",
+                                                            "control_type": "led",
+                                                             "description": "UHF TEST Light (yellow)",
+                                                              "identifier": "UHF_TEST_L",
+                                                                  "inputs": [  ],
+                                                                 "outputs": [ {
+                                                                                    "address": 29504,
+                                                                                "description": "0 if light is off, 1 if light is on",
+                                                                                       "mask": 64,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 6,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ]
+                                                        },
                                          "UHF_TEST_SW": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "UHF RADIO",
                                                                    "control_type": "selector",
                                                                     "description": "I - UHF - TEST Switch",
@@ -10029,7 +10173,7 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "toggle_switch"
+                                                               "physical_variant": "push_button"
                                                         }
                                },
                   "VHF RADIO": {
@@ -10489,6 +10633,86 @@
                                                     }
                                },
                   "VOR / ILS": {
+                                       "VORILS_001_DRUM": {
+                                                                  "category": "VOR / ILS",
+                                                              "control_type": "analog_gauge",
+                                                               "description": "VOR/ILS Drum 0.01",
+                                                                "identifier": "VORILS_001_DRUM",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 29516,
+                                                                                  "description": "gauge position",
+                                                                                         "mask": 65535,
+                                                                                    "max_value": 65535,
+                                                                                     "shift_by": 0,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                        "VORILS_01_DRUM": {
+                                                                  "category": "VOR / ILS",
+                                                              "control_type": "analog_gauge",
+                                                               "description": "VOR/ILS Drum 0.1",
+                                                                "identifier": "VORILS_01_DRUM",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 29514,
+                                                                                  "description": "gauge position",
+                                                                                         "mask": 65535,
+                                                                                    "max_value": 65535,
+                                                                                     "shift_by": 0,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                       "VORILS_100_DRUM": {
+                                                                  "category": "VOR / ILS",
+                                                              "control_type": "analog_gauge",
+                                                               "description": "VOR/ILS Drum 100",
+                                                                "identifier": "VORILS_100_DRUM",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 29508,
+                                                                                  "description": "gauge position",
+                                                                                         "mask": 65535,
+                                                                                    "max_value": 65535,
+                                                                                     "shift_by": 0,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                        "VORILS_10_DRUM": {
+                                                                  "category": "VOR / ILS",
+                                                              "control_type": "analog_gauge",
+                                                               "description": "VOR/ILS Drum 10",
+                                                                "identifier": "VORILS_10_DRUM",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 29510,
+                                                                                  "description": "gauge position",
+                                                                                         "mask": 65535,
+                                                                                    "max_value": 65535,
+                                                                                     "shift_by": 0,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                         "VORILS_1_DRUM": {
+                                                                  "category": "VOR / ILS",
+                                                              "control_type": "analog_gauge",
+                                                               "description": "VOR/ILS Drum 1",
+                                                                "identifier": "VORILS_1_DRUM",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 29512,
+                                                                                  "description": "gauge position",
+                                                                                         "mask": 65535,
+                                                                                    "max_value": 65535,
+                                                                                     "shift_by": 0,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
                                    "VORILS_FREQ_DECIMAL": {
                                                                          "category": "VOR / ILS",
                                                                      "control_type": "selector",

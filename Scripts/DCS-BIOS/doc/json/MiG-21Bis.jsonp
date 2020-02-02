@@ -2845,9 +2845,9 @@ docdata["MiG-21Bis"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8894,
                                                                                               "description": "Left Position Light (red)",
-                                                                                                     "mask": 1024,
+                                                                                                     "mask": 2048,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 10,
+                                                                                                 "shift_by": 11,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2861,9 +2861,9 @@ docdata["MiG-21Bis"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8894,
                                                                                               "description": "Right Position Light (green)",
-                                                                                                     "mask": 2048,
+                                                                                                     "mask": 4096,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 11,
+                                                                                                 "shift_by": 12,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -2877,9 +2877,9 @@ docdata["MiG-21Bis"] =
                                                                                "outputs": [ {
                                                                                                   "address": 8894,
                                                                                               "description": "Strobe Light",
-                                                                                                     "mask": 4096,
+                                                                                                     "mask": 8192,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 12,
+                                                                                                 "shift_by": 13,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
@@ -4257,7 +4257,7 @@ docdata["MiG-21Bis"] =
                                                 "GEAR_NOSE_DOWN": {
                                                                           "category": "Landing Gear Control",
                                                                       "control_type": "led",
-                                                                       "description": "Nose Gear Down Light",
+                                                                       "description": "Gear Nose Down Light",
                                                                         "identifier": "GEAR_NOSE_DOWN",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -4273,7 +4273,7 @@ docdata["MiG-21Bis"] =
                                                   "GEAR_NOSE_UP": {
                                                                           "category": "Landing Gear Control",
                                                                       "control_type": "led",
-                                                                       "description": "Nose Gear Up Light",
+                                                                       "description": "Gear Nose Up Light",
                                                                         "identifier": "GEAR_NOSE_UP",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6368,6 +6368,22 @@ docdata["MiG-21Bis"] =
                                                                                                  "mask": 8,
                                                                                             "max_value": 1,
                                                                                              "shift_by": 3,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                             "WARN_L_CHECK_STAT": {
+                                                                          "category": "Main Warning Lights",
+                                                                      "control_type": "led",
+                                                                       "description": "WARNING LIGHTS CHECK STATE",
+                                                                        "identifier": "WARN_L_CHECK_STAT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 8894,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 1024,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 10,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ]

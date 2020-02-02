@@ -2768,7 +2768,7 @@
                                                                                            "identifier": "EXT_FORMATION_LIGHTS",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30022,
+                                                                                                                 "address": 30024,
                                                                                                              "description": "Formation Lights",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -2816,7 +2816,7 @@
                                                                                            "identifier": "EXT_SPEED_BRAKE",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30020,
+                                                                                                                 "address": 30022,
                                                                                                              "description": "Speed Brake",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -6793,6 +6793,31 @@
                                                                              }
                                                      },
                             "RWR Control Indicator": {
+                                                            "RWR_AUDIO_CTRL": {
+                                                                                      "category": "RWR Control Indicator",
+                                                                                  "control_type": "limited_dial",
+                                                                                   "description": "ALR-67 AUDIO Control Knob",
+                                                                                    "identifier": "RWR_AUDIO_CTRL",
+                                                                                        "inputs": [ {
+                                                                                                      "description": "set the position of the dial",
+                                                                                                        "interface": "set_state",
+                                                                                                        "max_value": 65535
+                                                                                                  }, {
+                                                                                                         "description": "turn the dial left or right",
+                                                                                                           "interface": "variable_step",
+                                                                                                           "max_value": 65535,
+                                                                                                      "suggested_step": 3200
+                                                                                                  } ],
+                                                                                       "outputs": [ {
+                                                                                                          "address": 30020,
+                                                                                                      "description": "position of the potentiometer",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ]
+                                                                              },
                                                                "RWR_BIT_BTN": {
                                                                                           "api_variant": "momentary_last_position",
                                                                                              "category": "RWR Control Indicator",

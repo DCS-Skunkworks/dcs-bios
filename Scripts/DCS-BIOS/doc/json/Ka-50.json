@@ -10002,6 +10002,66 @@
                                                                                  "physical_variant": "limited_rotary"
                                                                           }
                                                     },
+                                     "Right Panel": {
+                                                        "REDU_GEAR_OIL_PRESS": {
+                                                                                              "category": "Right Panel",
+                                                                                          "control_type": "selector",
+                                                                                           "description": "Reducing gear box oil pressure indication selector",
+                                                                                            "identifier": "REDU_GEAR_OIL_PRESS",
+                                                                                                "inputs": [ {
+                                                                                                              "description": "switch to previous or next state",
+                                                                                                                "interface": "fixed_step"
+                                                                                                          }, {
+                                                                                                              "description": "set position",
+                                                                                                                "interface": "set_state",
+                                                                                                                "max_value": 1
+                                                                                                          }, {
+                                                                                                                 "argument": "TOGGLE",
+                                                                                                              "description": "Toggle switch state",
+                                                                                                                "interface": "action"
+                                                                                                          } ],
+                                                                                   "momentary_positions": "none",
+                                                                                               "outputs": [ {
+                                                                                                                  "address": 6524,
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 8192,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 13,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                                          } ],
+                                                                                      "physical_variant": "toggle_switch"
+                                                                               },
+                                                              "SLING_AUT_MAN": {
+                                                                                              "category": "Right Panel",
+                                                                                          "control_type": "selector",
+                                                                                           "description": "Sling load Auto/Manual",
+                                                                                            "identifier": "SLING_AUT_MAN",
+                                                                                                "inputs": [ {
+                                                                                                              "description": "switch to previous or next state",
+                                                                                                                "interface": "fixed_step"
+                                                                                                          }, {
+                                                                                                              "description": "set position",
+                                                                                                                "interface": "set_state",
+                                                                                                                "max_value": 1
+                                                                                                          }, {
+                                                                                                                 "argument": "TOGGLE",
+                                                                                                              "description": "Toggle switch state",
+                                                                                                                "interface": "action"
+                                                                                                          } ],
+                                                                                   "momentary_positions": "none",
+                                                                                               "outputs": [ {
+                                                                                                                  "address": 6524,
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 16384,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 14,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                                          } ],
+                                                                                      "physical_variant": "toggle_switch"
+                                                                               }
+                                                    },
                            "Rotor Pitch Indicator": {
                                                         "ROTOR_PITCH": {
                                                                                "category": "Rotor Pitch Indicator",
