@@ -32,6 +32,8 @@ local defineFloat = BIOS.util.defineFloat
 local define8BitFloat = BIOS.util.define8BitFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
+-- remove Arg# Pilot 540
+
 function ValueConvert(actual_value, input, output)
 local range=1
 local real_value=0
@@ -864,7 +866,7 @@ defineString("IFEI_Z_TEXTURE", function() return ZTexture end, 1, "Integrated Fu
 definePotentiometer("IFEI", 33, 3007, 174, {0, 1}, "HUD Video Record Panel", "Brightness Control Knob")
 define3PosTumb("SELECT_HMD_LDDI_RDDI", 0, 3104, 175, "HUD Video Record Panel", "Selector Switch, HMD/LDDI/RDDI") -- From TODO, will change
 define3PosTumb("SELECT_HUD_LDDI_RDDI", 0, 3105, 176, "HUD Video Record Panel", "Selector Switch, HUD/LDIR/RDDI") -- From TODO, will change
-define3PosTumb("MODE_SELECTOR_SW", 0, 3106, 176, "HUD Video Record Panel", "Mode Selector Switch, MAN/OFF/AUTO") -- From TODO, will change
+define3PosTumb("MODE_SELECTOR_SW", 0, 3106, 314, "HUD Video Record Panel", "Mode Selector Switch, MAN/OFF/AUTO") -- From TODO, will change
 
 -- 24. AMPCD
 definePotentiometer("AMPCD_BRT_CTL", 37, 3001, 203, {0, 1}, "AMPCD", "Brightness Control Knob")
@@ -1216,6 +1218,22 @@ defineToggleSwitch("HIDE_STICK_TOGGLE", 7, 3013, 575, "Ejection Seat", "Hide Sti
 -- 2. TODO
 definePushButton("LEFT_VIDEO_BIT", 0, 3127, 315, "TODO", "Left Video Sensor BIT Initiate Pushbutton - Push to initiate BIT")
 definePushButton("RIGHT_VIDEO_BIT", 0, 3128, 318, "TODO", "Right Video Sensor BIT Initiate Pushbutton - Push to initiate BIT")
+definePotentiometer("RWR_AUDIO_CTRL", 0, 3130, 262, {0, 1}, "RWR Control Indicator", "ALR-67 AUDIO Control Knob")
+defineToggleSwitch("NUC_WPN_SW", 0, 3100, 507, "TODO", "NUC WPN Switch, ENABLE/DISABLE (no function)")
+defineTumb("THROTTLE_EXT_L_SW", 13, 3041, 494, 2, {-1, 1}, nil, false, "Throttle Quadrant", "Throttle Exterior Lights Switch, ON/OFF")
+
+defineIndicatorLight("CONSOLE_INT_LT", 460, "Internal Lights", "Console Lightning (light green)")
+defineIndicatorLight("FLOOD_INT_LT", 461, "Internal Lights", "Flood Lightning (light green)")
+defineIndicatorLight("NVG_FLOOD_INT_LT", 462, "Internal Lights", "Nvg Flood Lightning (light green)")
+defineIndicatorLight("CHART_INT_LT", 463, "Internal Lights", "Chart Lightning (light green)")
+defineIndicatorLight("EMERG_INSTR_INT_LT", 464, "Internal Lights", "Emergency Instrument Lightning (light green)")
+defineIndicatorLight("ENG_INSTR_INT_LT", 465, "Internal Lights", "Eng Instrument Flood Lightning (light green)")
+defineIndicatorLight("INSTR_INT_LT", 466, "Internal Lights", "Instrument Lightning (light green)")
+defineIndicatorLight("STBY_COMPASS_INT_LT", 467, "Internal Lights", "Stby Compass Lightning (light green)")
+defineIndicatorLight("IFEI_DISP_INT_LT", 468, "Internal Lights", "IFEI Display Lightning (light green)")
+defineIndicatorLight("IFEI_BTN_INT_LT", 469, "Internal Lights", "IFEI Buttons Lightning (light green)")
+defineIndicatorLight("CMSD_JET_SEL_L", 516, "Dispenser/EMC Panel", "ECM JETT JETT SEL Button Light (green)")
+defineIndicatorLight("RWR_LT_BRIGHT", 520, "RWR Control Indicator", "RWR Lights Brightness")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
