@@ -28,15 +28,6 @@ local defineFloat = BIOS.util.defineFloat
 local define8BitFloat = BIOS.util.define8BitFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
---local function defineElectricallyHeldSwitch(msg, device_id, pos_command, neg_command, arg_number, category, description)
---	document { identifier = msg, category = category, description = description, control_type = "electrically_held_switch", value_type = "enum", value_enum = {"0", "1"}, can_set = false, actions = {"PUSH", "RELEASE", "OFF"} }
---	--moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return string.format("%.0f", dev0:get_argument_value(arg_number)) end
---	moduleBeingDefined.inputProcessors[msg] = function(action)
---		if action == "PUSH" then GetDevice(device_id):performClickableAction(pos_command, 1) end
---		if action == "RELEASE" then GetDevice(device_id):performClickableAction(neg_command, 0) end
---		if action == "OFF" then GetDevice(device_id):performClickableAction(pos_command, 0) end
---	end
---end
 
 local function defineRadioWheel(msg, device_id, command1, command2, command_args, arg_number, step, limits, output_map, category, description)
 	defineTumb(msg, device_id, command1, arg_number, step, limits, output_map, "skiplast", category, description)
@@ -94,7 +85,7 @@ end
 
 
 local vhf_lut1 = {
-    ["0.15"] = " 3",
+    ["0.15"] = "3",
     ["0.20"] = "4",
     ["0.25"] = "5",
     ["0.30"] = "6",
@@ -157,20 +148,21 @@ local function getILSFrequency()
         ["0.2"] = "110",
         ["0.3"] = "111"
     }
-    local ils_khz_lut = {["0.0"] = 0.10,
-        ["0.1"] = ".15",
-        ["0.2"] = ".30",
-        ["0.3"] = ".35",
-        ["0.4"] = ".50",
-        ["0.5"] = ".55",
-        ["0.6"] = ".70",
-        ["0.7"] = ".75",
-        ["0.8"] = ".90",
-        ["0.9"] = ".95"
+    local ils_khz_lut = {
+		["0.0"] = "10",
+        ["0.1"] = "15",
+        ["0.2"] = "30",
+        ["0.3"] = "35",
+        ["0.4"] = "50",
+        ["0.5"] = "55",
+        ["0.6"] = "70",
+        ["0.7"] = "75",
+        ["0.8"] = "90",
+        ["0.9"] = "95"
     }
     local mhz = ils_mhz_lut[string.format("%.1f", GetDevice(0):get_argument_value(251))]
     local khz = ils_khz_lut[string.format("%.01f", GetDevice(0):get_argument_value(252))]
-    return mhz .. khz
+    return mhz .. "." .. khz
 end
 
 
@@ -742,6 +734,7 @@ definePotentiometer("SASP_YAW_TRIM", 38, 3013, 192, {-1, 1}, "SAS Panel", "Yaw T
 defineToggleSwitch("EFCP_SPDBK_EMER_RETR", 38, 3015, 174, "Emergency Flight Control Panel", "Speed Brake Emergency Retract")
 defineToggleSwitch("EFCP_TRIM_OVERRIDE", 38, 3016, 175, "Emergency Flight Control Panel", "Pitch/Roll Trim Override EMER - NORM")
 defineTumb("EFCP_EMER_TRIM", 38, 3025, 176, 0.1, {0.0, 0.4}, nil, false, "Emergency Flight Control Panel", "Emergency Trim CENTER - NOSE DN - RWD - NOSE UP - LWD")
+
 moduleBeingDefined.inputProcessors["EFCP_EMER_TRIM"] = function(args)
 	local currentState = tonumber(string.format("%1.1f", GetDevice(0):get_argument_value(176)):sub(3))
 	if args == "INC" then
@@ -993,7 +986,6 @@ defineToggleSwitch("ILS_PWR", 53, 3001, 247, "ILS Panel", "ILS Power")
 defineSetCommandTumb("ILS_MHZ", 53, 3002, 248, 0.1, {0.0, 0.3}, {"108", "109", "110", "111"}, false, "ILS Panel", "ILS Frequency MHz")
 defineSetCommandTumb("ILS_KHZ", 53, 3003, 249, 0.1, {0.0, 0.9}, {"10", "15", "30", "35", "50", "55", "70", "75", "90", "95"}, false, "ILS Panel", "ILS Frequency KHz")
 definePotentiometer("ILS_VOL", 53, 3004, 250, {0, 1}, "ILS Panel", "ILS Volume")
---defineString("ILS_FREQUENCY", getILSFrequency, "ILS Panel", "ILS Frequency")
 
 
 defineTumb("UHF_PRESET_SEL", 54, 3001, 161, 0.05, {0.0, 1.0}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, false, "UHF Radio", "UHF Preset Channel Selector")
@@ -1041,8 +1033,6 @@ moduleBeingDefined.inputProcessors["SET_VHF_AM"] = function(freq)
 	GetDevice(55):set_frequency(freq*1000)
 end
 
---defineString("VHF_AM_FREQUENCY", getVhfAmFreqency, "VHF AM Radio", "VHF AM Frequency")
-
 defineSetCommandTumb("VHFFM_PRESET", 56, 3001, 151, 0.01, {0.0, 0.19}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "VHF FM Radio", "Preset Channel Selector")
 defineMultipositionSwitch("VHFFM_MODE", 56, 3003, 152, 3, 0.1, "VHF FM Radio", "Mode OFF/TR/DF")
 defineMultipositionSwitch("VHFFM_FREQEMER", 56, 3004, 149, 4, 0.1, "VHF FM Radio", "Frequency Selection Dial FM/AM/MAN/PRE")
@@ -1062,12 +1052,7 @@ moduleBeingDefined.inputProcessors["SET_VHF_FM"] = function(freq)
 	GetDevice(56):set_frequency(freq*1000)
 end
 
-
---defineString("VHF_FM_FREQUENCY", getVhfFmFreqency, "VHF FM Radio", "VHF FM Frequency")
-
-
 defineRockerSwitch("SEAT_ADJUST", 39, 3004, 3004, 3005, 3005, 770, "Misc", "Seat Adjust")
---defineString("T", function(d) return string.format("%f", d:get_argument_value(712)) end)
 defineTumb("CANOPY_OPEN", 39, 3007, 712, 0.5, {0.0, 1.0}, nil, false, "Misc", "Canopy Open Switch")
 
 defineToggleSwitch("EMER_BRAKE", 38, 3030, 772, "Misc", "Emergency Brake")
@@ -1357,5 +1342,8 @@ defineIndicatorLight("DVADR_REC", 792, "DVADR", "DVADR Record (On) Indicator Lig
 defineFloat("ENG_THROTTLE_L", 8, {0.0, 1.0}, "Throttle", "Left Engine Throttle")
 defineFloat("ENG_THROTTLE_R", 9, {0.0, 1.0}, "Throttle", "Right Engine Throttle")
 definePushButton("CMSC_UNK", 5, 3005, 371, "CMSC", "Display Unknown Threats")
+defineString("ILS_FREQUENCY_S", getILSFrequency, 6, "ILS Panel", "ILS Frequency (String)")
+defineString("VHF_AM_FREQUENCY_S", getVhfAmFreqency, 7, "VHF AM Radio", "VHF AM Frequency (String)")
+defineString("VHF_FM_FREQUENCY_S", getVhfFmFreqency, 7, "VHF FM Radio", "VHF FM Frequency (String)")
 
 BIOS.protocol.endModule()
