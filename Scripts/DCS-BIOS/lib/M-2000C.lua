@@ -581,40 +581,6 @@ function defineBcdWheel(msg, device_id, arg_number, output_map, category, descri
 	end
 end
 
-function defineiCommand(msg, iCommand_id, arg_number, category, description)
-	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 1 }
-	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-	alloc:setValue(dev0:get_argument_value(arg_number))
-	end
-
-	document {
-		identifier = msg,
-		category = category,
-		description = description,
-		control_type = "selector",
-		momentary_positions = "first_and_last",
-		physical_variant = "toggle_switch",
-		inputs = {
-			{ interface = "set_state", max_value = 1, description = "set iCommand -- 0 = OFF, 1 = ON" },
-		},
-		outputs = {
-			{ ["type"] = "integer",
-			  suffix = "",
-			  address = alloc.address,
-			  mask = alloc.mask,
-			  shift_by = alloc.shiftBy,
-			  max_value = 1,
-			  description = "selector position"
-			}
-		}
-	}
-	
-	moduleBeingDefined.inputProcessors[msg] = function(value)
-			LoSetCommand(iCommand_id, value)
-	end
-	
-end
-
 -- ADI
 defineToggleSwitch("ADI_CAGE_LEV", 1, 3314, 314, "ADI", "I - ADI - Cage Lever")
 defineToggleSwitch("ADI_BKL_SW", 1, 3315, 315, "ADI", "I - ADI - Backlight Switch")
@@ -926,7 +892,7 @@ defineFloat("PSV_EL_D_INT", 428, {0, 1}, "LEFT PANEL", "O - PSV - Right Int Elev
 -- MAIN PANEL
 defineIndicatorLight("LIM_IND", 185, "MAIN PANEL", "O - LIM Indicator Light")
 defineIndicatorLight("IFF_IND", 186, "MAIN PANEL", "O - IFF Indicator Light")
-definePushButton("AUDIO_WARN_RESET", 16, 144, 191, "MAIN PANEL", "I - AL - Audio Warning Reset Button (PANNE)")
+definePushButton("AUDIO_WARN_RESET", 16, 144, 191, "MAIN PANEL", "I - AL - Audio Warning Reset Button (PANNEL)")
 defineIndicatorLight("MC_AMBRE", 199, "MAIN PANEL", "O - AL - Amber PANNE Button Light")
 defineIndicatorLight("MC_ROUGE", 200, "MAIN PANEL", "O - AL - Red PANNE Button Light")
 defineIndicatorLight("PC", 373, "MAIN PANEL", "O - AL - PC Light")
