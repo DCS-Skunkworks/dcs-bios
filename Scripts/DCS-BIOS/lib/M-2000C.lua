@@ -66,6 +66,9 @@
 --
 -- v1.25 by WarLord
 --		Comparing to Helios
+--
+-- v1.26 by WarLord
+--		fixing the BCD Wheels
 -----------------------------------------------------------
 
 BIOS.protocol.beginModule("M-2000C", 0x7200)
@@ -552,35 +555,6 @@ local function getPCNDispPrep() -- by Ergo
 return "         "
 end
 
-
--- Inputs Functions
-
-function defineBcdWheel(msg, device_id, arg_number, output_map, category, description)
-	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 1 }
-	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-	alloc:setValue(dev0:get_argument_value(arg_number))
-	end
-	
-	document {
-		identifier = msg,
-		category = category,
-		description = description,
-		control_type = "selector",
-		momentary_positions = "none",
-		inputs = {
-			{ interface = "BcdWheel", max_value = 1, description = "set position" },
-		},
-		outputs = {
-			{ ["type"] = "integer",
-			}
-		}
-	}
-		
-	moduleBeingDefined.inputProcessors[msg] = function(value)
-			GetDevice(device_id):set_argument_value(arg_number, value)
-	end
-end
-
 -- ADI
 defineToggleSwitch("ADI_CAGE_LEV", 1, 3314, 314, "ADI", "I - ADI - Cage Lever")
 defineToggleSwitch("ADI_BKL_SW", 1, 3315, 315, "ADI", "I - ADI - Backlight Switch")
@@ -628,9 +602,9 @@ definePushButton("AP_MASTER_BTN", 17, 3282, 282, "AUTOPILOT", "I - Autopilot Mas
 definePushButton("ALT_HOLD_BTN", 17, 3285, 285, "AUTOPILOT", "I - Altitude Hold Button")
 definePushButton("SEL_ALT_HOLD_BTN", 17, 3288, 288, "AUTOPILOT", "I - Selected Altitude Hold Button")
 definePushButton("APP_HOLD_BTN", 17, 3294, 294, "AUTOPILOT", "I - Approach Hold Button")
-defineBcdWheel("ALT_10K_FT_SEL", 17, 299, nil, "AUTOPILOT", "I - BCD - Altitude 10000 ft Selector")
-defineBcdWheel("ALT_1K_FT_SEL", 17, 300, nil, "AUTOPILOT", "I - Altitude 1000 ft Selector")
-defineBcdWheel("ALT_100_FT_SEL", 17, 301, nil, "AUTOPILOT", "I - Altitude 100 ft Selector")
+defineMultipositionSwitch("ALT_10K_FT_SEL", 17, 3299, 299, 6, 0.1, "AUTOPILOT", "I - BCD - Altitude 10000 ft Selector")
+defineMultipositionSwitch("ALT_1K_FT_SEL", 17, 3300, 300, 10, 0.1, "AUTOPILOT", "I - Altitude 1000 ft Selector")
+defineMultipositionSwitch("ALT_100_FT_SEL", 17, 3301, 301, 10, 0.1, "AUTOPILOT", "I - Altitude 100 ft Selector")
 definePushButton("AP_LGT_TEST_BTN", 17, 3302, 302, "AUTOPILOT", "I - Autopilot Lights Test Button")
 defineIndicatorLight("AP_MASTER_AMBRE", 283, "AUTOPILOT", "O - AP - Master Amber Light")
 defineIndicatorLight("AP_MASTER_VERT", 284, "AUTOPILOT", "O - AP - Master Green Light")
@@ -774,8 +748,8 @@ defineTumb("LDG_LGT_SW", 16, 3450, 450, 1, {-1, 1}, nil, false, "EXT LIGHTS", "I
 defineMultipositionSwitch("AAR_SW", 7, 3193, 193, 3, 0.5, "FUEL SYSTEM", "I - Air Refuel Transfer Switch")
 defineToggleSwitch("FUEL_DETOT_SW", 0, 3355, 355, "FUEL SYSTEM", "I - DETOT Switch")
 defineToggleSwitch("FUEL_CROF_SW", 4, 3357, 357, "FUEL SYSTEM", "I - Fuel Crossfeeed Switch")
-defineBcdWheel("BINGO_FUEL_1K_KG_SEL", 4, 360, nil, "FUEL SYSTEM", "I - Bingo Fuel 1000 kg Selector")
-defineBcdWheel("BINGO_FUEL_100_KG_SEL", 4, 361, nil, "FUEL SYSTEM", "I - Bingo Fuel 100 kg Selector")
+defineMultipositionSwitch("BINGO_FUEL_1K_KG_SEL", 4, 3360, 360, 10, 0.1, "FUEL SYSTEM", "I - Bingo Fuel 1000 kg Selector")
+defineMultipositionSwitch("BINGO_FUEL_100_KG_SEL", 4, 3361, 361, 10, 0.1, "FUEL SYSTEM", "I - Bingo Fuel 100 kg Selector")
 defineToggleSwitch("FUEL_DMP_SW_COV", 4, 3477, 477, "FUEL SYSTEM", "I - FUEL - Dump Switch Cover")
 defineToggleSwitch("FUEL_DMP_SW", 4, 3478, 478, "FUEL SYSTEM", "I - FUEL - Dump Switch")
 
@@ -1135,8 +1109,7 @@ defineFloat("UHF_PRESET", 436, {0, 1}, "UHF RADIO", "O - UHF - PRESET Display")
 defineString("UHF_FREQUENCY", getUHFFrequency, 5, "UHF RADIO", "O - UHF - Frequency Report Display")
 
 -- VOR / ILS
---This is not working OK. Jumps over 15 & 17
-defineTumb("VORILS_FREQ_WHOLE", 24, 3616, 616, 1.0/11.0, {0, 1}, nil, true, "VOR / ILS", "I - VOR/ILS Frequency Change Whole")
+defineMultipositionSwitch("VORILS_FREQ_WHOLE", 24, 3616, 616, 12, 1.0/11.0, "VOR / ILS", "I - VOR/ILS Frequency Change Whole")
 defineToggleSwitch("VORILS_PWR_DIAL", 24, 3617, 617, "VOR / ILS", "I - VOR/ILS Power Dial")
 defineTumb("VORILS_FREQ_DECIMAL", 24, 3618, 618, 0.05, {0, 0.95}, nil, true, "VOR / ILS", "I - VOR/ILS Frequency Change Decimal")
 defineToggleSwitch("VORILS_TEST_DIAL", 24, 3619, 619, "VOR / ILS", "I - VOR/ILS Test Dial")
@@ -1145,10 +1118,10 @@ defineToggleSwitch("VORILS_TEST_DIAL", 24, 3619, 619, "VOR / ILS", "I - VOR/ILS 
 defineToggleSwitch("VTB_PWR_SW", 5, 3221, 221, "VTB", "I - VTB - Power Switch")
 defineToggleSwitch("VTB_DEC", 5, 3222, 222, "VTB", "I - VTB - Declutter (ALLEG)")
 defineToggleSwitch("VTB_OR_SEL", 5, 3223, 223, "VTB", "I - VTB - Orientation Selector (Inop) (CADR)")
-defineBcdWheel("VTB_ICONS_BRIGHT", 5, 224, nil, "VTB", "I - VTB - Icons and Rulers Brightness (MRQ)")
-defineBcdWheel("VTB_VIDEO_BRIGHT", 5, 225, nil, "VTB", "I - VTB - Video Brightness (LUM GEN)")
-defineBcdWheel("VTB_DISP_CONTRAST", 5, 226, nil, "VTB", "I - VTB - Display Contrast (CONTRAST)")
-defineBcdWheel("VTB_DISP_BRIGHT", 5, 227, nil, "VTB", "I - VTB - Display Brightness (LUM CAV)")
+defineMultipositionSwitch("VTB_ICONS_BRIGHT", 5, 3224, 224, 8, 0.1, "VTB", "I - VTB - Icons and Rulers Brightness (MRQ)")
+defineMultipositionSwitch("VTB_VIDEO_BRIGHT", 5, 3225, 225, 8, 0.1, "VTB", "I - VTB - Video Brightness (LUM GEN)")
+defineMultipositionSwitch("VTB_DISP_CONTRAST", 5, 3226, 226, 8, 0.1, "VTB", "I - VTB - Display Contrast (CONTRAST)")
+defineMultipositionSwitch("VTB_DISP_BRIGHT", 5, 3227, 227, 8, 0.1, "VTB", "I - VTB - Display Brightness (LUM CAV)")
 defineTumb("TGT_DATA_MNL_ENTRY", 5, 3213, 213, 1, {-1, 1}, nil, false, "VTB", "I - VTB - Target Data Manual Entry Begin/End (DEB/FIN)")
 defineTumb("BE_WP_SEL", 5, 3214, 214, 1, {-1, 1}, nil, false, "VTB", "I - VTB - Bullseye Waypoint Selector (N)")
 defineTumb("TGT_RNG_BE", 5, 3215, 215, 1, {-1, 1}, nil, false, "VTB", "I - VTB - Target Range from Bullseye (Rho)")
