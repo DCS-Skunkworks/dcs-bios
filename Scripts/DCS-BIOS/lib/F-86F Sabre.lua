@@ -46,7 +46,7 @@ defineTumb("LDG_LGHTS_CONT",1, 3020, 768, 1, {0,1}, nil, false, "Electrics", "LD
 defineTumb("LDG_LGHTS",1, 3021, 769, 1, {0,1}, nil, false, "Electrics", "LDG Lights")
 defineTumb("FIRE_WARN",1, 3023, 770, 1, {0,1}, nil, false, "Electrics", "Fire Warn.")
 defineTumb("BUS_TIE_CTRL",1, 3024, 771, 1, {0,1}, nil, false, "Electrics", "Bus Tie-In Control")
-defineTumb("SPD_BRAKE",1, 3025, 772, 1, {0,1}, nil, false, "Electrics", "Speed Brake")
+defineTumb("SPD_BRAKE_CB",1, 3025, 772, 1, {0,1}, nil, false, "Electrics", "Speed Brake Circuit Breaker")
 defineTumb("AIR_OIL_TMP_SEL",1, 3026, 773, 1, {0,1}, nil, false, "Electrics", "Free Air & Oil Temp & Air Sel.")
 defineTumb("LDG_GEAR_WARN",1, 3027, 774, 1, {0,1}, nil, false, "Electrics", "LDG Gear Warn.")
 defineTumb("LDG_GEAR_WARN_CTRL",1, 3028, 775, 1, {0,1}, nil, false, "Electrics", "LDG Gear Control")
@@ -76,7 +76,7 @@ defineTumb("ALT_ON_TEST",2, 3007, 684, 1, {0,1}, nil, false, "Hydraulics", "Alte
 defineTumb("ALT_ON_EMG_HANDLE",2, 3008, 706, 1, {0,1}, nil, false, "Hydraulics", "Alternate Hydraulic Emergency Override Handle, IN/OUT")
 defineTumb("FL_CTRL_SWITCH",2, 3003, 647, 1, {-1,1}, nil, false, "Hydraulics", "Flight Control Switch, ALTERNATE ON/NORMAL/RESET")
 defineTumb("LDG_GEAR_HORN",2, 3009, 815, 1, {0,1}, nil, false, "Hydraulics", "Landing Gear Warning Horn Cutout Button (Push to silence horn)")
-defineTumb("SPD_BRAKE",2, 3005, 211, 1, {-1,1}, nil, false, "Hydraulics", "Speed Brake Switch, OUT/HOLD/IN")
+defineTumb("SPD_BRAKE_SW",2, 3005, 211, 1, {-1,1}, nil, false, "Hydraulics", "Speed Brake Switch, OUT/HOLD/IN")
 defineTumb("PRK_BRAKE",2, 3014, 217, 1, {0,1}, nil, false, "Hydraulics", "Parking Brake Handle, ON/OFF")
 
 --12294 / 2048
