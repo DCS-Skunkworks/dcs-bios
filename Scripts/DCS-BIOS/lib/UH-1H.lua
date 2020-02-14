@@ -468,6 +468,10 @@ defineFixedStepTumb("WIPER_SPD", 12, 3001, 229, 0.1, {0.0, 0.4}, {1, -1}, nil, "
 definePushButton("TRIM_PLT", 41, 3001, 189, "Cyclic", "Force Trim (Pilot Side)")
 definePushButton("TRIM_CPLT", 41, 3002, 193, "Cyclic", "Force Trim (Copilot Side)")
 
+local function getFlareCount()
+    local function a(n) return GetDevice(0):get_argument_value(n) end
+    return string.format("%.0f%.0f", a(460)*10, a(461)*10)
+end
 
 defineToggleSwitch("CM_RIPPLE_COVER", 50, 3001, 450, "Countermeasures", "Ripple Fire Cover")
 defineToggleSwitch("CM_RIPPLE_SW", 50, 3002, 451, "Countermeasures", "Ripple Fire Switch")
@@ -477,10 +481,6 @@ definePushButton("CM_FLARE_BTN", 50, 3006, 464, "Countermeasures", "Flare Button
 definePushButton("CM_ARMED_TEST", 50, 3010, 457, "Countermeasures", "Armed Lamp Test")
 defineString("CM_FLARECNT_DISPLAY_STR", getFlareCount, 2, "Countermeasures", "Flare Counter (String)")
 definePushButton("CM_FLARECNT_RESET", 50, 3003, 453, "Countermeasures", "Flare Counter Reset Button")
-local function getFlareCount()
-    local function a(n) return GetDevice(0):get_argument_value(n) end
-    return string.format("%.0f%.0f", a(462)*10, a(463)*10)
-end
 
 defineFixedStepInput("CM_FLARECNT", 50, 3004, {-1, 1}, "Countermeasures", "Flare Counter Decrease/Increase")
 
