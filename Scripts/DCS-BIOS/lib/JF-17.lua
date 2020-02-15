@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("JF-17", 0x4800)
 BIOS.protocol.setExportModuleAircrafts({"JF-17"})
 
 -- Made by WarLord (aka BlackLibrary)
--- v 1.0
+-- v 1.1
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -38,9 +38,9 @@ defineToggleSwitch("GEAR_OVER_BTN", 32, 3003, 503, "Left Console", "Landing Gear
 definePotentiometer("GEAR_IND_LIGHT_KNOB", 32, 3004, 504, {0, 1}, "Left Console", "Landing Gear Indicator Light Knob")
 defineToggleSwitch("GEAR_LEVER", 32, 3005, 505, "Left Console", "Landing Gear Lever")
 
-defineToggleSwitch("GND_JETT_BTN", 12, 3006, 506, "Left Console", "Ground Jettison Button")
-defineToggleSwitch("EMERG_JETT_BTN_COVER", 12, 3007, 507, "Left Console", "Emergency Jettison Button Cover")
-definePushButton("EMERG_JETT_BTN", 12, 3008, 508, "Left Console", "Emergency Jettison Button")
+defineToggleSwitch("GND_JETT_BTN", 16, 3006, 506, "Left Console", "Ground Jettison Button")
+defineToggleSwitch("EMERG_JETT_BTN_COVER", 16, 3007, 507, "Left Console", "Emergency Jettison Button Cover")
+definePushButton("EMERG_JETT_BTN", 16, 3008, 508, "Left Console", "Emergency Jettison Button")
 
 --MASTER ARM
 define3PosTumb("MASTER_ARM_SW", 11, 3009, 509, "Left Console", "Weapon Master Arm Switch")
@@ -50,7 +50,7 @@ define3PosTumb("BRAKE_TEST", 32, 3010, 510, "Left Console", "Brake Test")
 defineTumb("BRAKE_PARK_NORM", 32, 3011, 511, 2, {-1,1}, nil, false, "Left Console", "Brake Park/Norm")
 
 define3PosTumb("LIGHT_SW", 4, 3012, 512, "Left Console", "Light Switch - Land/Off/Taxi")
-define3PosTumb("FLAP_SW", 35, 3013, 513, "Left Console", "TEF Flap Switch - Up/Down")
+defineTumb("FLAP_SW", 35, 3013, 513, 2, {-1,1}, nil, false, "Left Console", "TEF Flap Switch - Up/Down")
 
 --FUEL
 defineToggleSwitch("FEED_CUT_VALVE_COVER", 33, 3014, 514, "Left Console" , "Feed Cut-off Valve Cover")
@@ -85,14 +85,14 @@ defineToggleSwitch("AG1_AG2_SW", 34, 3035, 535, "Left Console", "AG1/AG2 Switch"
 defineToggleSwitch("AA_AG_SW", 34, 3036, 536, "Left Console", "Aa/AG Switch")
 
 --MISC
-defineToggleSwitch("FLARE_DISP_BTN_COVER", 12, 3037, 537, "Left Console", "Flare Dispense Button Cover")
-definePushButton("FLARE_DISP_BTN", 12, 3038, 538, "Left Console", "Flare Dispense Button")
+defineToggleSwitch("FLARE_DISP_BTN_COVER", 16, 3037, 537, "Left Console", "Flare Dispense Button Cover")
+definePushButton("FLARE_DISP_BTN", 16, 3038, 538, "Left Console", "Flare Dispense Button")
 defineToggleSwitch("EMERG_HYD_PUMP_SW", 34, 3039, 539, "Left Console", "Emergency Hydraulic Pump Switch")
 defineToggleSwitch("SHARS_SW", 34, 3040, 540, "Left Console", "SHARS Switch")
 
 defineToggleSwitch("EJECT_SEAT_DESTR_SW", 34, 3041, 541, "Left Console", "Ejection Seat Activate Destruct")
-defineToggleSwitch("SELF_DESTR_BTN_COVER", 12, 3042, 542, "Left Console", "Self Destruct Button Cover")
-definePushButton("SELF_DESTR_BTN", 12, 3043, 543, "Left Console", "Self Destruct Button")
+defineToggleSwitch("SELF_DESTR_BTN_COVER", 16, 3042, 542, "Left Console", "Self Destruct Button Cover")
+definePushButton("SELF_DESTR_BTN", 16, 3043, 543, "Left Console", "Self Destruct Button")
 
 --THROTTLE
 definePotentiometer("THROTTLE_FRIC", 34, 3070, 570, {0, 1}, "Left Console", "Throttle Friction Handle")
@@ -243,7 +243,7 @@ definePushButton("MFCD_R_CONT_MINUS", 47, 3204, 830, "Center Front", "Right MFCD
 definePushButton("MFCD_R_BRT_PLUS", 47, 3205, 831, "Center Front", "Right MFCD Brt +")
 definePushButton("MFCD_R_BRT_MINUS", 47, 3206, 832, "Center Front", "Right MFCD Brt -")
 	
-defineRotary("BARO_ALT_SET_KNB", 7, 3207, 840, "Center Front", "BARO Altitude Setting Knob")
+defineRotary("BARO_ALT_SET_KNB", 8, 3207, 840, "Center Front", "BARO Altitude Setting Knob")
 definePotentiometer("EMERG_BRAKE_HANDLE", 32, 3208, 841, {0, 1}, "Center Front", "Emergency Brake Handle")
 
 definePushButton("MASTER_WARN_BTN", 5, 3209, 842, "Center Front", "Master Warning")
@@ -260,36 +260,36 @@ defineToggleSwitch("BATT_SW", 1, 3215, 904, "Right Console", "Battery Switch")
 defineToggleSwitch("MAIN_AC_GEN_SW", 1, 3216, 905, "Right Console", "Main AC Gen Switch")
 defineToggleSwitch("DC_GEN_SW", 1, 3217, 906, "Right Console", "DC Gen Switch")
 
-defineToggleSwitch("HUD_MFCD_DAY_NIGHT_SW", 28, 3218, 907, "Right Console", "HUD/MFCD Day/Night Switch")
+defineToggleSwitch("HUD_MFCD_DAY_NIGHT_SW", 7, 3218, 907, "Right Console", "HUD/MFCD Day/Night Switch")
 
 defineMultipositionSwitch("INS_MODE_SEL_KNB", 18, 3219, 908, 4, 0.333, "Right Console", "INS Mode Knob Selector")
 
 --AAP 
-definePotentiometer("AAP_BRIGHT_KNB", 28, 3220, 909, {0, 1}, "Right Console", "AAP Brightness Knob")
-defineToggleSwitch("HUD_SYMB_REJECT_SW", 28, 3221, 910, "Right Console", "HUD Symbology Reject Switch")
-definePushButton("AAP_ACMI_BTN", 28, 3222, 911, "Right Console", "AAP ACMI Button")
-definePushButton("AAP_NA1_BTN", 28, 3223, 912, "Right Console", "AAP N/A 1 Button")
-definePushButton("AAP_NA2_BTN", 28, 3224, 913, "Right Console", "AAP N/A 2 Button")
-definePushButton("AAP_NA3_BTN", 28, 3225, 914, "Right Console", "AAP N/A 3 Button")
-definePushButton("AAP_HMD_BTN", 28, 3226, 915, "Right Console", "AAP HMD Button")
-definePushButton("AAP_SPJ_BTN", 28, 3227, 916, "Right Console", "AAP SPJ Button")
-definePushButton("AAP_CLDP_BTN", 28, 3228, 917, "Right Console", "AAP CLDP Button")
-definePushButton("AAP_IRST_BTN", 28, 3229, 918, "Right Console", "AAP IRST Button")
-definePushButton("AAP_RDR_BTN", 28, 3230, 919, "Right Console", "AAP RDR Button")
-definePushButton("AAP_SLNK_BTN", 28, 3231, 920, "Right Console", "AAP SLNK Button")
-definePushButton("AAP_OESP_BTN", 28, 3232, 921, "Right Console", "AAP OESP Button")
-definePushButton("AAP_RWR_BTN", 28, 3233, 922, "Right Console", "AAP RWR Button")
-definePushButton("AAP_COM1_BTN", 28, 3234, 923, "Right Console", "AAP COM1 Button")
-definePushButton("AAP_COM2_BTN", 28, 3235, 924, "Right Console", "AAP COM2 Button")
-definePushButton("AAP_NAV_BTN", 28, 3236, 925, "Right Console", "AAP NAV Button")
-definePushButton("AAP_IFF_BTN", 28, 3237, 926, "Right Console", "AAP IFF Button")
-definePushButton("AAP_INS_BTN", 28, 3238, 927, "Right Console", "AAP INS Button")
-definePushButton("AAP_WMMC1_BTN", 28, 3239, 928, "Right Console", "AAP WMMC1 Button")
-definePushButton("AAP_WMMC2_BTN", 28, 3240, 929, "Right Console", "AAP WMMC2 Button")
-definePushButton("AAP_SAIU_BTN", 28, 3241, 930, "Right Console", "AAP SAIU Button")
-definePushButton("AAP_CMBT_BTN", 28, 3242, 931, "Right Console", "AAP CMBT Button")
-definePushButton("AAP_TRAIN_BTN", 28, 3243, 932, "Right Console", "AAP TRAIN Button")
-definePushButton("AAP_OFF_BTN", 28, 3244, 933, "Right Console", "AAP OFF Button")
+definePotentiometer("AAP_BRIGHT_KNB", 7, 3220, 909, {0, 1}, "Right Console", "AAP Brightness Knob")
+defineToggleSwitch("HUD_SYMB_REJECT_SW", 7, 3221, 910, "Right Console", "HUD Symbology Reject Switch")
+definePushButton("AAP_ACMI_BTN", 7, 3222, 911, "Right Console", "AAP ACMI Button")
+definePushButton("AAP_NA1_BTN", 7, 3223, 912, "Right Console", "AAP N/A 1 Button")
+definePushButton("AAP_NA2_BTN", 7, 3224, 913, "Right Console", "AAP N/A 2 Button")
+definePushButton("AAP_NA3_BTN", 7, 3225, 914, "Right Console", "AAP N/A 3 Button")
+definePushButton("AAP_HMD_BTN", 7, 3226, 915, "Right Console", "AAP HMD Button")
+definePushButton("AAP_SPJ_BTN", 7, 3227, 916, "Right Console", "AAP SPJ Button")
+definePushButton("AAP_CLDP_BTN", 7, 3228, 917, "Right Console", "AAP CLDP Button")
+definePushButton("AAP_IRST_BTN", 7, 3229, 918, "Right Console", "AAP IRST Button")
+definePushButton("AAP_RDR_BTN", 7, 3230, 919, "Right Console", "AAP RDR Button")
+definePushButton("AAP_SLNK_BTN", 7, 3231, 920, "Right Console", "AAP SLNK Button")
+definePushButton("AAP_OESP_BTN", 7, 3232, 921, "Right Console", "AAP OESP Button")
+definePushButton("AAP_RWR_BTN", 7, 3233, 922, "Right Console", "AAP RWR Button")
+definePushButton("AAP_COM1_BTN", 7, 3234, 923, "Right Console", "AAP COM1 Button")
+definePushButton("AAP_COM2_BTN", 7, 3235, 924, "Right Console", "AAP COM2 Button")
+definePushButton("AAP_NAV_BTN", 7, 3236, 925, "Right Console", "AAP NAV Button")
+definePushButton("AAP_IFF_BTN", 7, 3237, 926, "Right Console", "AAP IFF Button")
+definePushButton("AAP_INS_BTN", 7, 3238, 927, "Right Console", "AAP INS Button")
+definePushButton("AAP_WMMC1_BTN", 7, 3239, 928, "Right Console", "AAP WMMC1 Button")
+definePushButton("AAP_WMMC2_BTN", 7, 3240, 929, "Right Console", "AAP WMMC2 Button")
+definePushButton("AAP_SAIU_BTN", 7, 3241, 930, "Right Console", "AAP SAIU Button")
+definePushButton("AAP_CMBT_BTN", 7, 3242, 931, "Right Console", "AAP CMBT Button")
+definePushButton("AAP_TRAIN_BTN", 7, 3243, 932, "Right Console", "AAP TRAIN Button")
+definePushButton("AAP_OFF_BTN", 7, 3244, 933, "Right Console", "AAP OFF Button")
 
 -- ACP
 definePotentiometer("COM1_VOL_KNB", 29, 3245, 934, {0, 1}, "Right Console", "COM1 Volume Knob")
