@@ -5418,11 +5418,11 @@ docdata["JF-17"] =
                                                                                                        } ],
                                                                                    "physical_variant": "push_button"
                                                                             },
-                                                                "LIGHT_SW": {
+                                                        "LND_TAX_LIGHT_SW": {
                                                                                            "category": "Left Console",
                                                                                        "control_type": "selector",
                                                                                         "description": "Light Switch - Land/Off/Taxi",
-                                                                                         "identifier": "LIGHT_SW",
+                                                                                         "identifier": "LND_TAX_LIGHT_SW",
                                                                                              "inputs": [ {
                                                                                                            "description": "switch to previous or next state",
                                                                                                              "interface": "fixed_step"
@@ -6605,6 +6605,31 @@ docdata["JF-17"] =
                                                                                                       } ],
                                                                                   "physical_variant": "toggle_switch"
                                                                            },
+                                                      "ANTI_COL_LIGHT_SW": {
+                                                                                          "category": "Right Console",
+                                                                                      "control_type": "selector",
+                                                                                       "description": "Light Switch - Tow/Off/Anti-Collision",
+                                                                                        "identifier": "ANTI_COL_LIGHT_SW",
+                                                                                            "inputs": [ {
+                                                                                                          "description": "switch to previous or next state",
+                                                                                                            "interface": "fixed_step"
+                                                                                                      }, {
+                                                                                                          "description": "set position",
+                                                                                                            "interface": "set_state",
+                                                                                                            "max_value": 2
+                                                                                                      } ],
+                                                                               "momentary_positions": "none",
+                                                                                           "outputs": [ {
+                                                                                                              "address": 18498,
+                                                                                                          "description": "selector position",
+                                                                                                                 "mask": 6,
+                                                                                                            "max_value": 2,
+                                                                                                             "shift_by": 1,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                                      } ],
+                                                                                  "physical_variant": "3_position_switch"
+                                                                           },
                                                                 "BATT_SW": {
                                                                                           "category": "Right Console",
                                                                                       "control_type": "selector",
@@ -7011,7 +7036,7 @@ docdata["JF-17"] =
                                                             "FLASH_LIGHT": {
                                                                                           "category": "Right Console",
                                                                                       "control_type": "selector",
-                                                                                       "description": "Flash light",
+                                                                                       "description": "Flash Light",
                                                                                         "identifier": "FLASH_LIGHT",
                                                                                             "inputs": [ {
                                                                                                           "description": "switch to previous or next state",
@@ -7323,31 +7348,6 @@ docdata["JF-17"] =
                                                                                                                  "type": "integer"
                                                                                                       } ],
                                                                                   "physical_variant": "toggle_switch"
-                                                                           },
-                                                               "LIGHT_SW": {
-                                                                                          "category": "Right Console",
-                                                                                      "control_type": "selector",
-                                                                                       "description": "Light Switch - Tow/Off/Anti-Collision",
-                                                                                        "identifier": "LIGHT_SW",
-                                                                                            "inputs": [ {
-                                                                                                          "description": "switch to previous or next state",
-                                                                                                            "interface": "fixed_step"
-                                                                                                      }, {
-                                                                                                          "description": "set position",
-                                                                                                            "interface": "set_state",
-                                                                                                            "max_value": 2
-                                                                                                      } ],
-                                                                               "momentary_positions": "none",
-                                                                                           "outputs": [ {
-                                                                                                              "address": 18498,
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 6,
-                                                                                                            "max_value": 2,
-                                                                                                             "shift_by": 1,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                                      } ],
-                                                                                  "physical_variant": "3_position_switch"
                                                                            },
                                                          "MAIN_AC_GEN_SW": {
                                                                                           "category": "Right Console",
@@ -8231,11 +8231,11 @@ docdata["JF-17"] =
                                                                                                      "type": "integer"
                                                                                           } ]
                                                                       },
-                                                       "FLASH_LIGHT": {
+                                                     "FLASH_LIGHT_L": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
                                                                            "description": "Flash Light",
-                                                                            "identifier": "FLASH_LIGHT",
+                                                                            "identifier": "FLASH_LIGHT_L",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
                                                                                                   "address": 18524,

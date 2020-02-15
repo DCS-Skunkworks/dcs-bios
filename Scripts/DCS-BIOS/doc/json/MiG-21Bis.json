@@ -1301,11 +1301,11 @@
                                                                                       } ],
                                                                   "physical_variant": "toggle_switch"
                                                            },
-                                              "SRZO_CIPH": {
+                                            "SRZO_CIPH_L": {
                                                                    "category": "Avionics Power Panel",
                                                                "control_type": "led",
                                                                 "description": "SRZO Cipher Light",
-                                                                 "identifier": "SRZO_CIPH",
+                                                                 "identifier": "SRZO_CIPH_L",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
                                                                                        "address": 8894,
@@ -1317,11 +1317,11 @@
                                                                                           "type": "integer"
                                                                                } ]
                                                            },
-                                              "SRZO_CODE": {
+                                            "SRZO_CODE_L": {
                                                                    "category": "Avionics Power Panel",
                                                                "control_type": "led",
                                                                 "description": "SRZO Code Light",
-                                                                 "identifier": "SRZO_CODE",
+                                                                 "identifier": "SRZO_CODE_L",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
                                                                                        "address": 8894,
@@ -1973,22 +1973,6 @@
                                                                                                       "type": "integer"
                                                                                            } ]
                                                                        },
-                                                            "H_TRI_M": {
-                                                                               "category": "Center Pedestal Panel",
-                                                                           "control_type": "analog_gauge",
-                                                                            "description": "Cockpit Pressure Gauge",
-                                                                             "identifier": "H_TRI_M",
-                                                                                 "inputs": [  ],
-                                                                                "outputs": [ {
-                                                                                                   "address": 8914,
-                                                                                               "description": "gauge position",
-                                                                                                      "mask": 65535,
-                                                                                                 "max_value": 65535,
-                                                                                                  "shift_by": 0,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ]
-                                                                       },
                                                            "OIL_PRES": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "analog_gauge",
@@ -2071,6 +2055,22 @@
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
                                                                                                    "address": 8912,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                     "PIT_PRES_GAUGE": {
+                                                                               "category": "Center Pedestal Panel",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Cockpit Pressure Gauge",
+                                                                             "identifier": "PIT_PRES_GAUGE",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8914,
                                                                                                "description": "gauge position",
                                                                                                       "mask": 65535,
                                                                                                  "max_value": 65535,
@@ -8772,11 +8772,11 @@
                                                                                        } ],
                                                                    "physical_variant": "toggle_switch"
                                                             },
-                                                "SRZO_ERR": {
+                                              "SRZO_ERR_L": {
                                                                     "category": "SRZO/Fuse Panel",
                                                                 "control_type": "led",
                                                                  "description": "SOD Error Light",
-                                                                  "identifier": "SRZO_ERR",
+                                                                  "identifier": "SRZO_ERR_L",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
                                                                                         "address": 8894,
