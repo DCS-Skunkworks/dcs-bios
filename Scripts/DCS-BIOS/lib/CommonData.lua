@@ -17,8 +17,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
     player = LoGetPilotName()
 	
 	ias = LoGetIndicatedAirSpeed()
-	iasEU = math.floor(ias * 0.36) * 10
-	iasUS = ias * 1.94384449		-- knots
+	iasEU = math.floor(0.5 + ias * 3.6) -- km_h
+	iasUS = math.floor(0.5 + ias * 1.94384449)		-- knots
 	_indicatedAirspeedEU = string.format("%4d", iasEU)
 	_indicatedAirspeedUS = string.format("%4d", iasUS)
 	
