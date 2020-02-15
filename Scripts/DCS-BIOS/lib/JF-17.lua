@@ -49,7 +49,7 @@ define3PosTumb("MASTER_ARM_SW", 11, 3009, 509, "Left Console", "Weapon Master Ar
 define3PosTumb("BRAKE_TEST", 32, 3010, 510, "Left Console", "Brake Test")
 defineTumb("BRAKE_PARK_NORM", 32, 3011, 511, 2, {-1,1}, nil, false, "Left Console", "Brake Park/Norm")
 
-define3PosTumb("LIGHT_SW", 4, 3012, 512, "Left Console", "Light Switch - Land/Off/Taxi")
+define3PosTumb("LND_TAX_LIGHT_SW", 4, 3012, 512, "Left Console", "Light Switch - Land/Off/Taxi")
 defineTumb("FLAP_SW", 35, 3013, 513, 2, {-1,1}, nil, false, "Left Console", "TEF Flap Switch - Up/Down")
 
 --FUEL
@@ -316,7 +316,7 @@ defineMultipositionSwitch("FORMATION_LIGHT_SEL", 4, 3259, 948, 6, 0.2, "Right Co
 defineMultipositionSwitch("ANTICOLL_LIGHT_SEL", 4, 3260, 949, 6, 0.2, "Right Console", "Anti-Collision Light Knob Selector")
 define3PosTumb("NAV_LIGHT_BRIGHT_SW", 4, 3261, 950, "Right Console", "Navigation Light Switch - Bright/Off/Dim")
 defineTumb("NAV_LIGHT_FLASH_SW", 4, 3262, 951, 2, {-1,1}, nil, false, "Right Console", "Navigation Light Switch - Flash/Steady")
-define3PosTumb("LIGHT_SW", 4, 3263, 952, "Right Console", "Light Switch - Tow/Off/Anti-Collision")
+define3PosTumb("ANTI_COL_LIGHT_SW", 4, 3263, 952, "Right Console", "Light Switch - Tow/Off/Anti-Collision")
 
 -- DTC
 definePushButton("DTC_INSERT", 9, 3264, 953, "Right Console", "DTC Card Insertion")
@@ -338,7 +338,7 @@ definePotentiometer("FLOOD_LIGHT_DIRECT_3", 4, 3273, 967, {0, 1}, "Right Console
 definePotentiometer("FLOOD_LIGHT_DIRECT_4", 4, 3274, 968, {0, 1}, "Right Console", "Flood Light Direction 4")
 
 -- Flash light
-defineToggleSwitch("FLASH_LIGHT", 0, 3256, 969, "Right Console", "Flash light")
+defineToggleSwitch("FLASH_LIGHT", 0, 3256, 969, "Right Console", "Flash Light")
 
 -- Stick
 defineToggleSwitch("STICK_HIDE", 38, 3275, 970, "Right Console", "Stick Show/Hide")
@@ -471,7 +471,7 @@ defineIndicatorLight("AAP_BTN_L_TRAIN", 281, "Warning, Caution and IndicatorLigh
 
 defineIndicatorLight("RADIO_PAD_ERR_L", 295, "Warning, Caution and IndicatorLights", "Radio PAD Error Light")   
 
-defineIndicatorLight("FLASH_LIGHT", 969, "Warning, Caution and IndicatorLights", "Flash Light")
+defineIndicatorLight("FLASH_LIGHT_L", 969, "Warning, Caution and IndicatorLights", "Flash Light")
 
 -- Gauges
 defineFloat("CANOPY_POS", 38, {0, 1}, "Cockpit", "Canopy Position")

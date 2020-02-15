@@ -261,7 +261,7 @@ defineFloat("FUEL_QUANTITY", 22, {-1.0, 1.0}, "Indicator", "Fuel_Quantity")
 defineFloat("OXYGEN_PRESSURE", 353, {0, 1}, "Indicator", "Oxygen_Pressure")
 defineFloat("OXYGENFLOWBLINKER", 705, {0.0, 1.0}, "Indicator", "OxygenFlowBlinker")
 defineFloat("COCKPITALTIMETER", 114, {0.0, 1.0}, "Indicator", "CockpitAltimeter")
-defineFloat("ARN6_BAND", 804, {0.0, 1.0}, "Indicator", "ARN6_Band")
+defineFloat("ARN6_BAND", 804, {0.0, 1.0}, "Indicator", "ARN6 Band")
 defineFloat("ARN6_TUNINGMETER", 800, {0.0, 1.0}, "Indicator", "ARN6_TuningMeter")
 defineFloat("ARN6_TUNING", 800, {0.0, 1.0}, "Indicator", "ARN6_Tuning")
 defineFloat("ARN6_BEARING", 800, {0.0, 1.0}, "Indicator", "ARN6_Bearing")
@@ -313,7 +313,7 @@ local function getBand()
      local returnValue = (((GetDevice(0):get_argument_value(804))*3)+1)
      return returnValue
 end
-defineIntegerFromGetter("ARN6_BAND", getBand, 65000, 
+defineIntegerFromGetter("ARN6_BAND_DISP", getBand, 65000, 
 "Gauge Values", "ARN-6 Band")
 
 local function getARN6Freq()

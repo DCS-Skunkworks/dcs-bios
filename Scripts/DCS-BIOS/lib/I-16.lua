@@ -111,8 +111,8 @@ defineFloat("QXY_METER", 72, {0, 1}, "Gauges", "Oxygen Manometer")
 defineFloat("QXY_FLOW", 73, {0, 1}, "Gauges", "Oxygen Flow Manometer")
 defineFloat("GEAR_POS_L", 77, {0, 1}, "Gauges", "Left Gear Position Indicator")
 defineFloat("GEAR_POS_R", 78, {0, 1}, "Gauges", "Right Gear Position Indicator")
-defineFloat("DOOR_L", 251, {0, 1}, "Gauges", "Left Door Position")
-defineFloat("DOOR_R", 249, {0, 1}, "Gauges", "Right Door Position")
+defineFloat("DOOR_POS_L", 251, {0, 1}, "Gauges", "Left Door Position")
+defineFloat("DOOR_POS_R", 249, {0, 1}, "Gauges", "Right Door Position")
 
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("PANEL_GLOW", 82, "Warning, Caution and IndicatorLights","Panel Glow (yellow)")

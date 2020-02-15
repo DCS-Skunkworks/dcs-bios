@@ -575,9 +575,9 @@ defineIndicatorLight("SOD_ANS", 606, "SPO RWR", "SOD Answer Light")
 
 --SRZO (labelled as a second SOD category in mainpanel_init)
 defineIndicatorLight("SRZO_PWR_LGHT", 607, "Avionics Power Panel", "SRZO Power Light")
-defineIndicatorLight("SRZO_CODE", 608, "Avionics Power Panel", "SRZO Code Light")
-defineIndicatorLight("SRZO_CIPH", 609, "Avionics Power Panel", "SRZO Cipher Light")
-defineIndicatorLight("SRZO_ERR", 611, "SRZO/Fuse Panel", "SOD Error Light")
+defineIndicatorLight("SRZO_CODE_L", 608, "Avionics Power Panel", "SRZO Code Light")
+defineIndicatorLight("SRZO_CIPH_L", 609, "Avionics Power Panel", "SRZO Cipher Light")
+defineIndicatorLight("SRZO_ERR_L", 611, "SRZO/Fuse Panel", "SOD Error Light")
 
 --Backlights Intensity (Under SRZO category in mainpanel_init)
 defineIndicatorLight("ASP_LGHT_ON", 613, "Backlighting", "ASP Backlight On") --When sight is powered off, all ASP lighting shuts off; Unsure if this will be useful
@@ -595,7 +595,7 @@ defineFloat("H_TRI_M", 658, {0, 1}, "Flight Status/Navigation Panel", "Altimeter
 
 --Cockpit Pressure Gauge
 defineFloat("PIT_PRES_ALT", 655, {0, 1}, "Center Pedestal Panel", "Cockpit Pressure Altimeter")
-defineFloat("H_TRI_M", 656, {0, 1}, "Center Pedestal Panel", "Cockpit Pressure Gauge")
+defineFloat("PIT_PRES_GAUGE", 656, {0, 1}, "Center Pedestal Panel", "Cockpit Pressure Gauge")
 
 defineIndicatorLight("WARN_L_CHECK_STAT", 407, "Main Warning Lights", "WARNING LIGHTS CHECK STATE")
 
