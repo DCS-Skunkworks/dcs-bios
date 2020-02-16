@@ -17,8 +17,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
     player = LoGetPilotName()
 	
 	ias = LoGetIndicatedAirSpeed()
-	iasEU = math.floor(ias * 0.36) * 10
-	iasUS = ias * 1.94384449		-- knots
+	iasEU = math.floor(0.5 + ias * 3.6) -- km_h
+	iasUS = math.floor(0.5 + ias * 1.94384449)		-- knots
 	_indicatedAirspeedEU = string.format("%4d", iasEU)
 	_indicatedAirspeedUS = string.format("%4d", iasUS)
 	
@@ -65,14 +65,12 @@ defineString("IAS_EU", function() return _indicatedAirspeedEU .. string.char(0) 
 defineString("IAS_US", function() return _indicatedAirspeedUS .. string.char(0) end, 4, "Speed", "Indicated Airspeed KNT")
 defineIntegerFromGetter("IAS_EU_INT", function()
 	if not LoIsOwnshipExportAllowed() then return nil end
-	return math.floor(ias * 0.36) * 10
+	return ias * 3.6
 end, 65535, "Speed", "Indicated Airspeed KM H (Int)")
 defineIntegerFromGetter("IAS_US_INT", function()
 	if not LoIsOwnshipExportAllowed() then return nil end
 	return ias * 1.94384449
 end, 65535, "Speed", "Indicated Airspeed KNT (Int)")
-
-
 
 defineIntegerFromGetter("LON_DEG", function() return lonDeg end, 59, "Position", "Longitude Degrees")
 defineIntegerFromGetter("LON_SEC", function() return lonSec end, 59, "Position", "Longitude Seconds")
