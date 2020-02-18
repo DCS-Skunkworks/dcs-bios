@@ -3259,161 +3259,316 @@ docdata["UH-1H"] =
                                                             }
                                    },
                      "Collective": {
-                                            "GOV_RPM_SW": {
-                                                                         "category": "Collective",
-                                                                     "control_type": "selector",
-                                                                      "description": "Governor RPM Rocker Switch",
-                                                                       "identifier": "GOV_RPM_SW",
-                                                                           "inputs": [ {
-                                                                                         "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 2
-                                                                                     } ],
-                                                              "momentary_positions": "first_and_last",
-                                                                          "outputs": [ {
-                                                                                             "address": 5310,
-                                                                                         "description": "selector position",
-                                                                                                "mask": 12288,
-                                                                                           "max_value": 2,
-                                                                                            "shift_by": 12,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "rocker_switch"
-                                                          },
-                                          "LDG_LIGHT_SW": {
-                                                                         "category": "Collective",
-                                                                     "control_type": "selector",
-                                                                      "description": "Landing Lights Switch",
-                                                                       "identifier": "LDG_LIGHT_SW",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                             "address": 5372,
-                                                                                         "description": "selector position",
-                                                                                                "mask": 256,
-                                                                                           "max_value": 1,
-                                                                                            "shift_by": 8,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "toggle_switch"
-                                                          },
-                                           "LDG_LT_CTRL": {
-                                                                         "category": "Collective",
-                                                                     "control_type": "selector",
-                                                                      "description": "Landing Lights Control Switch",
-                                                                       "identifier": "LDG_LT_CTRL",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 2
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                             "address": 5372,
-                                                                                         "description": "selector position",
-                                                                                                "mask": 6144,
-                                                                                           "max_value": 2,
-                                                                                            "shift_by": 11,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "limited_rotary"
-                                                          },
-                                       "SEARCH_LIGHT_SW": {
-                                                                         "category": "Collective",
-                                                                     "control_type": "selector",
-                                                                      "description": "Search Light STOW / OFF / ON",
-                                                                       "identifier": "SEARCH_LIGHT_SW",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 2
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                             "address": 5372,
-                                                                                         "description": "selector position",
-                                                                                                "mask": 1536,
-                                                                                           "max_value": 2,
-                                                                                            "shift_by": 9,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "limited_rotary"
-                                                          },
-                                              "THROTTLE": {
-                                                                  "category": "Collective",
-                                                              "control_type": "limited_dial",
-                                                               "description": "Throttle Axis",
-                                                                "identifier": "THROTTLE",
-                                                                    "inputs": [ {
-                                                                                  "description": "set the position of the dial",
-                                                                                    "interface": "set_state",
-                                                                                    "max_value": 65535
-                                                                              }, {
-                                                                                     "description": "turn the dial left or right",
-                                                                                       "interface": "variable_step",
-                                                                                       "max_value": 65535,
-                                                                                  "suggested_step": 3200
-                                                                              } ],
-                                                                   "outputs": [ {
-                                                                                      "address": 5318,
-                                                                                  "description": "position of the potentiometer",
-                                                                                         "mask": 65535,
-                                                                                    "max_value": 65535,
-                                                                                     "shift_by": 0,
-                                                                                       "suffix": "",
-                                                                                         "type": "integer"
-                                                                              } ]
-                                                          },
-                                         "THROTTLE_STOP": {
-                                                                         "category": "Collective",
-                                                                     "control_type": "selector",
-                                                                      "description": "Throttle Stop",
-                                                                       "identifier": "THROTTLE_STOP",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                             "address": 5310,
-                                                                                         "description": "selector position",
-                                                                                                "mask": 16,
-                                                                                           "max_value": 1,
-                                                                                            "shift_by": 4,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "toggle_switch"
-                                                          }
+                                             "GOV_RPM_SW": {
+                                                                          "category": "Collective",
+                                                                      "control_type": "selector",
+                                                                       "description": "Governor RPM Rocker Switch",
+                                                                        "identifier": "GOV_RPM_SW",
+                                                                            "inputs": [ {
+                                                                                          "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 2
+                                                                                      } ],
+                                                               "momentary_positions": "first_and_last",
+                                                                           "outputs": [ {
+                                                                                              "address": 5310,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 12288,
+                                                                                            "max_value": 2,
+                                                                                             "shift_by": 12,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "rocker_switch"
+                                                           },
+                                            "GOV_RPM_SW2": {
+                                                                          "category": "Collective",
+                                                                      "control_type": "selector",
+                                                                       "description": "Copilot Governor RPM Rocker Switch",
+                                                                        "identifier": "GOV_RPM_SW2",
+                                                                            "inputs": [ {
+                                                                                          "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 2
+                                                                                      } ],
+                                                               "momentary_positions": "first_and_last",
+                                                                           "outputs": [ {
+                                                                                              "address": 5404,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 24576,
+                                                                                            "max_value": 2,
+                                                                                             "shift_by": 13,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "rocker_switch"
+                                                           },
+                                           "LDG_LIGHT_SW": {
+                                                                          "category": "Collective",
+                                                                      "control_type": "selector",
+                                                                       "description": "Landing Lights Switch",
+                                                                        "identifier": "LDG_LIGHT_SW",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 1
+                                                                                      }, {
+                                                                                             "argument": "TOGGLE",
+                                                                                          "description": "Toggle switch state",
+                                                                                            "interface": "action"
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 5372,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 256,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 8,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "toggle_switch"
+                                                           },
+                                          "LDG_LIGHT_SW2": {
+                                                                          "category": "Collective",
+                                                                      "control_type": "selector",
+                                                                       "description": "Copilot Landing Lights Switch",
+                                                                        "identifier": "LDG_LIGHT_SW2",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 1
+                                                                                      }, {
+                                                                                             "argument": "TOGGLE",
+                                                                                          "description": "Toggle switch state",
+                                                                                            "interface": "action"
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 5404,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 32768,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 15,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "toggle_switch"
+                                                           },
+                                            "LDG_LT_CTRL": {
+                                                                          "category": "Collective",
+                                                                      "control_type": "selector",
+                                                                       "description": "Landing Lights Control Switch",
+                                                                        "identifier": "LDG_LT_CTRL",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 2
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 5372,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 6144,
+                                                                                            "max_value": 2,
+                                                                                             "shift_by": 11,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "limited_rotary"
+                                                           },
+                                           "LDG_LT_CTRL2": {
+                                                                          "category": "Collective",
+                                                                      "control_type": "selector",
+                                                                       "description": "Copilot Landing Lights Control Switch",
+                                                                        "identifier": "LDG_LT_CTRL2",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 2
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 5426,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 49152,
+                                                                                            "max_value": 2,
+                                                                                             "shift_by": 14,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "limited_rotary"
+                                                           },
+                                        "SEARCH_LIGHT_SW": {
+                                                                          "category": "Collective",
+                                                                      "control_type": "selector",
+                                                                       "description": "Search Light STOW / OFF / ON",
+                                                                        "identifier": "SEARCH_LIGHT_SW",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 2
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 5372,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 1536,
+                                                                                            "max_value": 2,
+                                                                                             "shift_by": 9,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "limited_rotary"
+                                                           },
+                                       "SEARCH_LIGHT_SW2": {
+                                                                          "category": "Collective",
+                                                                      "control_type": "selector",
+                                                                       "description": "Copilot Search Light STOW / OFF / ON",
+                                                                        "identifier": "SEARCH_LIGHT_SW2",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 2
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 5426,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 12288,
+                                                                                            "max_value": 2,
+                                                                                             "shift_by": 12,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "limited_rotary"
+                                                           },
+                                               "THROTTLE": {
+                                                                   "category": "Collective",
+                                                               "control_type": "limited_dial",
+                                                                "description": "Throttle Axis",
+                                                                 "identifier": "THROTTLE",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the position of the dial",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 65535
+                                                                               }, {
+                                                                                      "description": "turn the dial left or right",
+                                                                                        "interface": "variable_step",
+                                                                                        "max_value": 65535,
+                                                                                   "suggested_step": 3200
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5318,
+                                                                                   "description": "position of the potentiometer",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                              "THROTTLE2": {
+                                                                   "category": "Collective",
+                                                               "control_type": "limited_dial",
+                                                                "description": "Copilot Throttle Axis",
+                                                                 "identifier": "THROTTLE2",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the position of the dial",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 65535
+                                                                               }, {
+                                                                                      "description": "turn the dial left or right",
+                                                                                        "interface": "variable_step",
+                                                                                        "max_value": 65535,
+                                                                                   "suggested_step": 3200
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5428,
+                                                                                   "description": "position of the potentiometer",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                          "THROTTLE_STOP": {
+                                                                          "category": "Collective",
+                                                                      "control_type": "selector",
+                                                                       "description": "Throttle Stop Switch, ON/OFF",
+                                                                        "identifier": "THROTTLE_STOP",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 1
+                                                                                      }, {
+                                                                                             "argument": "TOGGLE",
+                                                                                          "description": "Toggle switch state",
+                                                                                            "interface": "action"
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 5310,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 16,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 4,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "toggle_switch"
+                                                           },
+                                         "THROTTLE_STOP2": {
+                                                                          "category": "Collective",
+                                                                      "control_type": "selector",
+                                                                       "description": "Copilot Throttle Stop Switch, ON/OFF",
+                                                                        "identifier": "THROTTLE_STOP2",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 1
+                                                                                      }, {
+                                                                                             "argument": "TOGGLE",
+                                                                                          "description": "Toggle switch state",
+                                                                                            "interface": "action"
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 5404,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 4096,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 12,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "toggle_switch"
+                                                           }
                                    },
                     "Copilot RMI": {
                                        "RMI_CRS1": {

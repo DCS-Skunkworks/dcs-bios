@@ -778,6 +778,40 @@
                                                                          "physical_variant": "push_button"
                                                                   }
                                },
+                     "Damage": {
+                                   "WINDSHIELDCRACKS": {
+                                                               "category": "Damage",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Windshield Crack Holes",
+                                                             "identifier": "WINDSHIELDCRACKS",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 20670,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                      "WINDSHIELDOIL": {
+                                                               "category": "Damage",
+                                                           "control_type": "led",
+                                                            "description": "Windshield Oil Splashes",
+                                                             "identifier": "WINDSHIELDOIL",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 20586,
+                                                                               "description": "0 if light is off, 1 if light is on",
+                                                                                      "mask": 32768,
+                                                                                 "max_value": 1,
+                                                                                  "shift_by": 15,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       }
+                               },
                     "Detrola": {
                                    "DETROLA_FREQUENCY": {
                                                                 "category": "Detrola",

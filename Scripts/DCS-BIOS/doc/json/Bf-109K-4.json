@@ -185,6 +185,64 @@
                                                                                   } ],
                                                               "physical_variant": "limited_rotary"
                                                        },
+                                     "COCKPIT_VENT_L": {
+                                                                      "category": "Cockpit",
+                                                                  "control_type": "selector",
+                                                                   "description": "Left Cockpit Vent",
+                                                                    "identifier": "COCKPIT_VENT_L",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                           "momentary_positions": "none",
+                                                                       "outputs": [ {
+                                                                                          "address": 17064,
+                                                                                      "description": "selector position",
+                                                                                             "mask": 4,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 2,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ],
+                                                              "physical_variant": "toggle_switch"
+                                                       },
+                                     "COCKPIT_VENT_R": {
+                                                                      "category": "Cockpit",
+                                                                  "control_type": "selector",
+                                                                   "description": "Right Cockpit Vent",
+                                                                    "identifier": "COCKPIT_VENT_R",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                           "momentary_positions": "none",
+                                                                       "outputs": [ {
+                                                                                          "address": 17064,
+                                                                                      "description": "selector position",
+                                                                                             "mask": 8,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 3,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ],
+                                                              "physical_variant": "toggle_switch"
+                                                       },
                                          "COURSE_SET": {
                                                             "api_variant": "multiturn",
                                                                "category": "Cockpit",
@@ -1087,35 +1145,156 @@
                                                     }
                                },
                   "Flare Gun": {
-                                   "FLARE_GUN": {
-                                                               "category": "Flare Gun",
-                                                           "control_type": "selector",
-                                                            "description": "Fire Flare Gun",
-                                                             "identifier": "FLARE_GUN",
-                                                                 "inputs": [ {
-                                                                               "description": "switch to previous or next state",
-                                                                                 "interface": "fixed_step"
-                                                                           }, {
-                                                                               "description": "set position",
-                                                                                 "interface": "set_state",
-                                                                                 "max_value": 1
-                                                                           }, {
-                                                                                  "argument": "TOGGLE",
-                                                                               "description": "Toggle switch state",
-                                                                                 "interface": "action"
-                                                                           } ],
-                                                    "momentary_positions": "none",
-                                                                "outputs": [ {
-                                                                                   "address": 16928,
-                                                                               "description": "selector position",
-                                                                                      "mask": 256,
-                                                                                 "max_value": 1,
-                                                                                  "shift_by": 8,
-                                                                                    "suffix": "",
-                                                                                      "type": "integer"
-                                                                           } ],
-                                                       "physical_variant": "limited_rotary"
-                                                }
+                                      "FLARE_GUN": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Flare Gun",
+                                                              "control_type": "selector",
+                                                               "description": "Fire Flare Gun",
+                                                                "identifier": "FLARE_GUN",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 16928,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 256,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 8,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "push_button"
+                                                   },
+                                   "FLARE_GUN_GN": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Flare Gun",
+                                                              "control_type": "selector",
+                                                               "description": "Fire Flare Gun Green",
+                                                                "identifier": "FLARE_GUN_GN",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 17064,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 16,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 4,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "push_button"
+                                                   },
+                                   "FLARE_GUN_RD": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Flare Gun",
+                                                              "control_type": "selector",
+                                                               "description": "Fire Flare Gun Red",
+                                                                "identifier": "FLARE_GUN_RD",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 17064,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 32,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 5,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "push_button"
+                                                   },
+                                   "FLARE_GUN_WH": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Flare Gun",
+                                                              "control_type": "selector",
+                                                               "description": "Fire Flare Gun White",
+                                                                "identifier": "FLARE_GUN_WH",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 17064,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 64,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 6,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "push_button"
+                                                   },
+                                   "FLARE_GUN_YE": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Flare Gun",
+                                                              "control_type": "selector",
+                                                               "description": "Fire Flare Gun Yellow",
+                                                                "identifier": "FLARE_GUN_YE",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 17064,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 128,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 7,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "push_button"
+                                                   }
                                },
                "Gauge Values": {
                                                "AIRSPEED_VALUE": {
