@@ -17,7 +17,7 @@ local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
---Remove Pilot Arg# 165
+--Remove Pilot Arg# 275 / Remove Instructor Arg# 276
 
 --- Fore Pit
 ----- Fore Main Panel
@@ -43,11 +43,16 @@ definePushButton("FRONT_CLOCK_PUSH_L", 6, 3023, 119,"Fore Main Panel" , "Fore Cl
 defineRotary("FRONT_CLOCK_ROTATE_L", 22, 3024, 120, "Fore Main Panel", "Fore Clock Left Rotate Knob")
 definePushButton("FRONT_CLOCK_PUSH_R", 6, 3025, 121,"Fore Main Panel" , "Fore Clock Right Push Button")
 defineRotary("FRONT_CLOCK_ROTATE_R", 22, 3026, 122, "Fore Main Panel", "Fore Clock Right Rotate Knob")
+----- SPU-9
+definePotentiometer("FRONT_ICOM_VOL", 28, 3001, 80, {0, 1}, "SPU9", "Fore Intercom Volume Knob")
+definePotentiometer("FRONT_RADIO_VOL", 28, 3004, 81, {0, 1}, "SPU9", "Fore Radio Volume Knob")
+defineToggleSwitch("FRONT_ICOM_STBY_DISTR_SW", 28, 3007, 82,"SPU9" , "Fore Intercom STBY Distributive Switch")
+defineToggleSwitch("FRONT_ICOM_RDF_SW", 28, 3009, 83,"SPU9" , "Fore Intercom RDF Switch")
 ----- BAKLAN-5
-definePotentiometer("FRONT_RADIO_VOL", 24, 3002,  90, {0, 1}, "BAKLAN-5", "Fore Radio Volume Knob")
-defineRotary("FRONT_RADIO_MHZ", 24, 3011, 88, "BAKLAN-5", "Fore Radio Tune mhz")
-defineRotary("FRONT_RADIO_KHZ", 24, 3008, 89, "BAKLAN-5", "Fore Radio Tune khz")
-defineToggleSwitch("FRONT_RADIO_SQ", 24, 3020, 91,"BAKLAN-5" , "Fore Radio Squelch")
+definePotentiometer("FRONT_RADIO_VOL", 27, 3002,  90, {0, 1}, "BAKLAN-5", "Fore Radio Volume Knob")
+defineRotary("FRONT_RADIO_MHZ", 27, 3011, 88, "BAKLAN-5", "Fore Radio Tune mhz")
+defineRotary("FRONT_RADIO_KHZ", 27, 3008, 89, "BAKLAN-5", "Fore Radio Tune khz")
+defineToggleSwitch("FRONT_RADIO_SQ", 27, 3020, 91,"BAKLAN-5" , "Fore Radio Squelch")
 ----- Starboard Circuit Breakers Panel
 defineToggleSwitch("FRONT_CB_BATTERY", 4, 3001, 96,"Circuit Breakers" , "Fore Battery Selector")
 defineToggleSwitch("FRONT_CB_GENERATOR", 4, 3004, 97,"Circuit Breakers" , "Fore Generator CB")
@@ -57,8 +62,8 @@ definePushButton("FRONT_CB_OILDIL", 4, 3016, 232,"Circuit Breakers" , "Fore Oil 
 defineToggleSwitch("FRONT_CB_E_HEAT", 4, 3018, 233,"Circuit Breakers" , "Fore SSKUA-1 Heater CB")
 defineToggleSwitch("FRONT_CB_STALL", 4, 3021, 234,"Circuit Breakers" , "Fore SSKUA-1 CB")
 ----- Port Wall
-definePushButton("FRONT_RADIO_TX", 24, 3001, 192,"Throttle Quadrant" , "Fore Radio Button")
-definePushButton("FRONT_INTERCOM_TX", 24, 3023, 194,"Throttle Quadrant" , "Fore Intercom Button")
+definePushButton("FRONT_RADIO_TX", 27, 3001, 192,"Throttle Quadrant" , "Fore Radio Button")
+definePushButton("FRONT_INTERCOM_TX", 27, 3023, 194,"Throttle Quadrant" , "Fore Intercom Button")
 definePotentiometer("FRONT_PROP_LEVER", 3, 3019, 198, {0, 1}, "Throttle Quadrant", "Fore Airscrew Lever")
 definePotentiometer("FRONT_FRIC_LEVER", 3, 3027, 210, {0, 1}, "Throttle Quadrant", "Fore Left Frictioner Lever")
 defineRotary("FRONT_TRIM_WHEEL", 2, 3032, 228, "Port Wall", "Fore Elevator Trim Wheel")
@@ -116,14 +121,19 @@ definePushButton("REAR_CLOCK_PUSH_L", 6, 3027, 131,"Rear Main Panel" , "Rear Clo
 defineRotary("REAR_CLOCK_ROTATE_L", 22, 3028, 132, "Rear Main Panel", "Rear Clock Left Rotate Knob")
 definePushButton("REAR_CLOCK_PUSH_R", 6, 3029, 133,"Rear Main Panel" , "Rear Clock Right Push Button")
 defineRotary("REAR_CLOCK_ROTATE_R", 22, 3030, 134, "Rear Main Panel", "Rear Clock Right Rotate Knob")
+----- SPU-9
+definePotentiometer("REAR_ICOM_VOL", 28, 3011, 84, {0, 1}, "SPU9", "Rear Intercom Volume Knob")
+definePotentiometer("REAR_RADIO_VOL", 28, 3014, 85, {0, 1}, "SPU9", "Rear Radio Volume Knob")
+defineToggleSwitch("REAR_ICOM_STBY_DISTR_SW", 28, 3017, 86,"SPU9" , "Rear Intercom STBY Distributive Switch")
+defineToggleSwitch("REAR_ICOM_RDF_SW", 28, 3019, 87,"SPU9" , "Rear Intercom RDF Switch")
 ----- Starboard Trainer Panel
 defineToggleSwitch("REAR_CB_TPANEL_MASTER", 4, 3051, 100,"Circuit Breakers" , "Rear Trainer Master CB")
 defineToggleSwitch("REAR_CB_TPANEL_SPEED", 4, 3057, 101,"Circuit Breakers" , "Rear Trainer Speedo CB")
 defineToggleSwitch("REAR_CB_TPANEL_AH", 4, 3054, 102,"Circuit Breakers" , "Rear Trainer AH CB")
 defineToggleSwitch("REAR_CB_TPANEL_STAT", 4, 3060, 103,"Circuit Breakers" , "Rear Trainer Statistics CB")
 ----- Port Wall
-definePushButton("REAR_RADIO_TX", 24, 3051, 196,"Throttle Quadrant" , "Rear Radio Button")
-definePushButton("REAR_INTERCOM_TX", 24, 3052, 197,"Throttle Quadrant" , "Rear Intercom Button")
+definePushButton("REAR_RADIO_TX", 27, 3051, 196,"Throttle Quadrant" , "Rear Radio Button")
+definePushButton("REAR_INTERCOM_TX", 27, 3052, 197,"Throttle Quadrant" , "Rear Intercom Button")
 definePotentiometer("REAR_PROP_LEVER", 3, 3022, 199, {0, 1}, "Throttle Quadrant", "Rear Airscrew Lever")
 definePotentiometer("REAR_FRIC_LEVER", 3, 3030, 211, {0, 1}, "Throttle Quadrant", "Rear Left Frictioner Lever")
 defineRotary("REAR_TRIM_WHEEL", 2, 3035, 229, "Port Wall", "Rear Elevator Trim Wheel")

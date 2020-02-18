@@ -348,4 +348,7 @@ end
 defineIntegerFromGetter("ACCELEROMETER_VALUE", getAccel, 65000,
 "Gauge Values", "Accelerometer")
 
+defineIndicatorLight("WINDSHIELDOIL", 412, "Damage", "Windshield Oil Splashes")
+defineFloat("WINDSHIELDCRACKS", 413, {0.0, 1.0}, "Damage", "Windshield Crack Holes")
+
 BIOS.protocol.endModule()

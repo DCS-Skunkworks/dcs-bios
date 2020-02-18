@@ -317,7 +317,7 @@ defineToggleSwitchToggleOnly("CLOCK_ADJUST_PULL", 30, 3001, 131, "Clock", "Adjus
 defineRotary("CLOCK_ADJUST", 30, 3002, 130, "Clock", "Adjustment Dial")
 
 definePotentiometer("THROTTLE", 3, 3024, 250, {-1.0, 0.4}, "Collective", "Throttle Axis")
-defineToggleSwitch("THROTTLE_STOP", 3, 3027, 206, "Collective", "Throttle Stop")
+defineToggleSwitch("THROTTLE_STOP", 3, 3027, 206, "Collective", "Throttle Stop Switch, ON/OFF")
 
 defineToggleSwitch("ENG_DEICE", 3, 3002, 84, "Engine Panel", "De-Ice Switch")
 defineToggleSwitch("LOW_RPM_AUDIO", 3, 3021, 80, "Engine Panel", "Low RPM Audio Switch")
@@ -549,5 +549,14 @@ local function getChaffCountAsNumber()
     return tonumber(digit1 .. digit2)
 end
 defineIntegerFromGetter("CM_CHAFFCNT_DISPLAY", getChaffCountAsNumber, 60, "Countermeasures", "Chaff Counter Display (Number)")
+
+definePotentiometer("THROTTLE2", 3, 3030, 250, {-1.0, 0.4}, "Collective", "Copilot Throttle Axis")
+defineToggleSwitch("THROTTLE_STOP2", 3, 3031, 213, "Collective", "Copilot Throttle Stop Switch, ON/OFF")
+defineRockerSwitch("GOV_RPM_SW2", 3, 3029, 3029, 3029, 3029, 210, "Collective", "Copilot Governor RPM Rocker Switch")
+
+defineToggleSwitch("LDG_LIGHT_SW2", 7, 3034, 209, "Collective", "Copilot Landing Lights Switch")
+defineTumb("SEARCH_LIGHT_SW2", 7, 3035, 208, 1, {-1, 1}, nil, false, "Collective", "Copilot Search Light STOW / OFF / ON")
+defineTumb("LDG_LT_CTRL2", 7, 3036, 212, 1, {-1, 1}, nil, false, "Collective", "Copilot Landing Lights Control Switch")
+
 
 BIOS.protocol.endModule()

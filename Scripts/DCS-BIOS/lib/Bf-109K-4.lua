@@ -227,7 +227,7 @@ defineTumb("FLAPS_RETRACT",4, 3011, 144, 1, {0,1}, nil, false, "Flaps", "Retract
 definePushButton("ORD_EMG_DUMP", 3, 3018, 92, "Weapon Control", "Ordinance Emergency Release")
 
 -- Flare Gun Trigger
-defineTumb("FLARE_GUN",4, 3095, 72, 1, {0,1}, nil, false, "Flare Gun", "Fire Flare Gun")
+definePushButton("FLARE_GUN",20, 3001, 72, "Flare Gun", "Fire Flare Gun")
 
 
 -- Throttle Lever
@@ -420,6 +420,14 @@ end, 1, "External Aircraft Model", "Left Position Light (red)")
 defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Right Position Light (green)")
+
+defineToggleSwitch("COCKPIT_VENT_L", 4, 3060, 98, "Cockpit", "Left Cockpit Vent")
+defineToggleSwitch("COCKPIT_VENT_R", 4, 3062, 99, "Cockpit", "Right Cockpit Vent")
+
+definePushButton("FLARE_GUN_GN",20, 3003, 165, "Flare Gun", "Fire Flare Gun Green")
+definePushButton("FLARE_GUN_RD",20, 3004, 165, "Flare Gun", "Fire Flare Gun Red")
+definePushButton("FLARE_GUN_WH",20, 3005, 165, "Flare Gun", "Fire Flare Gun White")
+definePushButton("FLARE_GUN_YE",20, 3006, 165, "Flare Gun", "Fire Flare Gun Yellow")
 
 
 BIOS.protocol.endModule()

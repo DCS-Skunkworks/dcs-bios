@@ -44,7 +44,7 @@ defineToggleSwitch("RADAR_GAIN", 5, 3209, 214, "Radar", "Lin/Log Radar Gain Swit
 defineToggleSwitch("RADAR_PULSE_NORMAL_SHORT", 5, 3328, 218, "Radar", "Pulse Normal/Short Switch")
 defineToggleSwitch("RADAR_RECCE_ON_OFF", 5, 3350, 216, "Radar", "Passive Recce On/Off Switch")
 defineToggleSwitch("RADAR_MAINTENANCE_TEST", 5, 3914, 1006, "Radar", "Radar/EL Maintenance Test")
-defineToggleSwitch("RADAR_IGNITION_COILS", 5, 3918, 395, "Radar", "Ignition Coils")
+defineToggleSwitch("RADAR_IGNITION_COILS", 21, 3918, 395, "Radar", "Ignition Coils")
 definePushButton("RADAR_IFF_ID", 5, 3922, 1205, "Radar", "IFF Identification")
 
 --[[--Reversal--]]--
@@ -104,7 +104,7 @@ defineToggleSwitch("DME_SELECTOR", 18, 3919, 1206, "Engine Panel", "DME Selector
 defineToggleSwitch("IGNITION_SYSTEM", 18, 3003, 205, "Engine Panel", "Ignition System")
 defineToggleSwitch("MAN_AFTERBURN_FUEL_REG", 18, 3006, 313, "Engine Panel", "Manual Afterburner Fuel Regulator")
 defineTumb("FLIGHT_RECORDER", 18, 3924, 384, 0.5, {0.0, 1.0}, nil, false, "Engine Panel", "Flight Recorder")
-definePushButton("RESTART", 18, 3004, 208, "Engine Panel", "Restart")
+definePushButton("RESTART", 18, 3401, 208, "Engine Panel", "Restart")
 defineTumb("AFK_LEVER", 18, 3304, 13, 1.138, {0, 1.138}, nil, false, "Engine Panel", "AFK Lever")
 defineToggleSwitch("DATA_CARTRIDGE", 18, 3925, 4200, "Engine Panel", "Insert/Remove Data Cartridge")
 definePushButton("MISSILE_SELECT_BUTTON", 18, 3000, 400, "Engine Panel", "Missile Select Button")
