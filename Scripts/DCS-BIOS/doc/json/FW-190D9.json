@@ -1766,12 +1766,15 @@
                                                              "physical_variant": "limited_rotary"
                                                       },
                                    "SIGHT_WING_SPAN": {
-                                                           "api_variant": "multiturn",
                                                               "category": "Gun Sight",
-                                                          "control_type": "analog_dial",
+                                                          "control_type": "limited_dial",
                                                            "description": "EZ42 Gunsight Target Wingspan Knob",
                                                             "identifier": "SIGHT_WING_SPAN",
                                                                 "inputs": [ {
+                                                                              "description": "set the position of the dial",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 65535
+                                                                          }, {
                                                                                  "description": "turn the dial left or right",
                                                                                    "interface": "variable_step",
                                                                                    "max_value": 65535,
@@ -1779,11 +1782,11 @@
                                                                           } ],
                                                                "outputs": [ {
                                                                                   "address": 13334,
-                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                              "description": "position of the potentiometer",
                                                                                      "mask": 65535,
                                                                                 "max_value": 65535,
                                                                                  "shift_by": 0,
-                                                                                   "suffix": "_KNOB_POS",
+                                                                                   "suffix": "",
                                                                                      "type": "integer"
                                                                           } ]
                                                       }
