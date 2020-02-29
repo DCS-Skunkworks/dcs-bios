@@ -15,7 +15,7 @@ v 1.01	beta release	Jan 2019 								--by Dehuman
 	-several other bug fixes and functions redefined/reclassified
 v 1.02	updates for 1.3, external Lights 	APR 2019		--by WarLord
 v 1.03	updates for 1.3.1, external Lights 	APR 2019		--by WarLord
-
+v 1.03	updates for 1.4 (develop)			FEB 2020		--by WarLord
 ]]
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -265,7 +265,8 @@ defineToggleSwitch("arm_master", 3, 3002, 709, "ArmamentPanel", "Master armament
 defineToggleSwitch("radar_planprofile", 7, 3055, 721, "RadarScope", "Radar Plan/Profile")
 defineToggleSwitch("radar_range", 7, 3056, 722, "RadarScope", "Radar Long/Short Range")
 defineMultipositionSwitch("bdhi_mode", 20, 3044, 724, 3, 1.0, "BDHI", "BDHI mode")
-definePotentiometer("shrike_volume", 2, 3126, 726, {0,1}, "ArmamentPanel", "Shrike Volume Knob")
+defineMultipositionSwitch("SHRIKE_SEL_KNB", 2, 3140, 725, 5, 0.1, "ArmamentPanel", "Shrike Selector Knob")
+definePotentiometer("SIDEWINDER_VOL", 2, 3128, 726, {-1,1}, "ArmamentPanel", "Sidewinder Volume Knob")
 
 --AFCS Panel
 defineToggleSwitch("afcs_standby", 26, 3088, 160, "AFCS", "AFCS standby")
@@ -291,7 +292,17 @@ defineTumb("flaps", 11, 3015, 132, 1, {-1,1}, nil, false, "Mechanical Systems", 
 definePotentiometer("rudder_trim", 25, 3085, 82, {-1,1}, "Mechanical Systems", "Rudder trim")
 defineTumb("throttle_click", 17, 3087, 0, 1, {-1,1}, nil, true, "Mechanical Systems", "Throttle cutoff/start/idle")
 definePushButton("push_starter_switch", 17, 3013, 100, "Mechanical Systems", "Starter Button")
-defineToggleSwitch("emer_fuel_shutoff", 17, 3134, 8, "Mechanical Systems", "Emergency Fuel Shutoff Control")
+--defineToggleSwitch("HIDE_STICK_SW", 14, 10141, nil, "Mechanical Systems", "Hide Stick Toggle")
+
+--Fuel Systems
+defineTumb("DROP_PRESS_REFUEL", 17, 3147, 101, 1, {-1,1}, nil, false, "Fuel Systems", "Drop Tanks Pressurization and Flight Refuel Switch")
+defineTumb("EMERG_TRANS_FUEL_DUMP", 17, 3146, 103, 1, {-1,1}, nil, false, "Fuel Systems", "Emer Transfer and Wing Fuel Dump Switch")
+defineToggleSwitch("FUEL_CONTROL", 17, 3148, 104, "Fuel Systems", "Fuel control switch")
+defineToggleSwitch("MAN_FUEL_OFF_LV", 17, 3149, 130, "Fuel Systems", "Manual Fuel Shutoff Lever")
+defineToggleSwitch("MAN_FUEL_OFF_CATCH", 17, 3150, 131, "Fuel Systems", "Manual Fuel Shutoff Catch")
+
+-- OXYGEN and ANTI-G PANEL
+defineToggleSwitch("OXY_SW", 21, 3141, 125, "Avionics", "Oxygen Switch")
 
 --Avionics
 definePushButton("accel_reset", 21, 3111, 139, "Avionics", "Reset Accelerometer")
@@ -321,13 +332,20 @@ definePotentiometer("tacan_volume", 20, 3072, 903, {-1,1}, "TACAN", "TACAN Volum
 defineMultipositionSwitch("doppler_select", 20, 3045, 170, 5, 0.1, "DopplerNav", "APN-153 Doppler Radar Mode")
 definePushButton("doppler_memory_test", 20, 3046, 247, "DopplerNav", "APN-153 Memory Light Test")
 defineMultipositionSwitch("nav_select", 20, 3047, 176, 5, 0.1, "DopplerNav", "ASN-41 Navigation Mode")
-defineRotary("ppos_lat", 20, 3051, 177, "DopplerNav Position", "ASN-41 Present Position - Latitude")
-defineRotary("ppos_lon", 20, 3052, 183, "DopplerNav Position", "ASN-41 Present Position - Longitude")
-defineRotary("dest_lat", 20, 3053, 190, "DopplerNav Destination", "ASN-41 Destination - Latitude")
-defineRotary("dest_lon", 20, 3054, 196, "DopplerNav Destination", "ASN-41 Destination - Longitude")
-defineRotary("asn41_magvar", 20, 3048, 203, "DopplerNav", "ASN-41 Magnetic Variation")
-defineRotary("asn41_windspeed", 20, 3049, 209, "DopplerNav", "ASN-41 Wind Speed")
-defineRotary("asn41_winddir", 20, 3050, 213, "DopplerNav", "ASN-41 Wind Bearing")
+defineRotary("ppos_lat_knb", 20, 3051, 177, "DopplerNav Position", "ASN-41 Present Position - Latitude Knob")
+definePushButton("ppos_lat_btn", 20, 3153, 236, "DopplerNav Position", "ASN-41 Present Position - Latitude Button")
+defineRotary("ppos_lon_knb", 20, 3052, 183, "DopplerNav Position", "ASN-41 Present Position - Longitude Knob")
+definePushButton("ppos_lon_btn", 20, 3154, 237, "DopplerNav Position", "ASN-41 Present Position - Longitude  Button")
+defineRotary("dest_lat_knb", 20, 3053, 190, "DopplerNav Destination", "ASN-41 Destination - Latitude Knob")
+definePushButton("dest_lat_btn", 20, 3155, 238, "DopplerNav Destination", "ASN-41 Destination - Latitude  Button")
+defineRotary("dest_lon_knb", 20, 3054, 196, "DopplerNav Destination", "ASN-41 Destination - Longitude Knob")
+definePushButton("dest_lon_btn", 20, 3156, 239, "DopplerNav Destination", "ASN-41 Destination - Longitude  Button")
+defineRotary("asn41_magvar_knb", 20, 3048, 203, "DopplerNav", "ASN-41 Magnetic Variation Knob")
+definePushButton("asn41_magvar_btn", 20, 3157, 240, "DopplerNav", "ASN-41 Magnetic Variation  Button")
+defineRotary("asn41_windspeed_knb", 20, 3049, 209, "DopplerNav", "ASN-41 Wind Speed Knob")
+definePushButton("asn41_windspeed_btn", 20, 3158, 241, "DopplerNav", "ASN-41 Wind Speed  Button")
+defineRotary("asn41_winddir_knb", 20, 3050, 213, "DopplerNav", "ASN-41 Wind Bearing Knob")
+definePushButton("asn41_winddir_btn", 20, 3159, 242, "DopplerNav", "ASN-41 Wind Bearing  Button")
 
 --Lights
 defineMultipositionSwitch("extlight_master", 24, 3073, 83, 3, 1, "Lights", "Master Lighting ON/OFF/Momentary")
@@ -360,7 +378,13 @@ defineToggleSwitch("emer_gen_deploy", 3, 3023, 1243, "T Handles", "Emergency gen
 defineToggleSwitch("emer_gen_bypass", 3, 3022, 1061, "T Handles", "Emergency generator bypass")
 defineToggleSwitch("man_flight_control", 4, 3136, 1242, "T Handles", "Manual Flight Control")
 
--- ECM Panel
+--COMPASS CONTROLLER
+--defineRotary("COMP_LAT_KNB", XX, 3145, 509, "Compass", "Compass latitude knob")
+--defineTumb("COMP_SET_HDG", XX, 3142, 511, 1, {-1,1}, nil, false, "Compass", "Compass heading set knob")
+--defineToggleSwitch("COMP_FREE_SLAVE_SW", XX, 3144, 512, "Compass", "Compass Free/Slaved Mode Switch")
+--definePushButton("COMP_SYNC", XX, 3143, 513, "Compass", "Compass Push to Sync")
+
+--ECM Panel
 defineToggleSwitch("ecm_audio", 33, 3115, 503, "ECM Panel", "Audio APR/25 - APR/27")
 defineToggleSwitch("ecm_apr25_pw", 33, 3114, 504, "ECM Panel", "APR/25 on/off")
 defineToggleSwitch("ecm_apr27_pw", 33, 3116, 501, "ECM Panel", "APR/27 on/off")
@@ -370,10 +394,14 @@ definePotentiometer("ecm_prf_volume", 33, 3119, 506, {-0.8,0.8}, "ECM Panel", "P
 definePotentiometer("ecm_msl_volume", 33, 3120, 505, {-0.8,0.8}, "ECM Panel", "MSL volume (outer knob)")
 defineMultipositionSwitch("ecm_selector", 33, 3121, 502, 4, 0.33, "ECM Panel", "ECM selector knob")
 
--- AIR CONDITIONING PANEL
+--AIR CONDITIONING PANEL
 defineToggleSwitch("cabin_pressure", 3, 3131, 224, "Air Condition", "Cabin Pressure Switch")
 defineTumb("wind_defrost", 3, 3132, 225, 1, {-1,1}, nil, false, "Air Condition", "Windshield Defrost")
 definePotentiometer("cabin_temp", 3, 3133, 226, {0,1}, "Air Condition", "Cabin Temp Knob")
+
+--EJECTION SEAT
+defineToggleSwitch("HARNESS_REEL_CONTR", 21, 3151, 24, "Ejection Seat", "Shoulder Harness Inertia Reel Control")
+defineToggleSwitch("SEC_EJECT_HANDLE", 21, 3152, 25, "Ejection Seat", "Secondary Ejection Handle")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKES", function()
