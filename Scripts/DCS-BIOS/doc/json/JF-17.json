@@ -6629,6 +6629,36 @@
                                                                                                       } ],
                                                                                   "physical_variant": "3_position_switch"
                                                                            },
+                                                           "AP_DISENGAGE": {
+                                                                                       "api_variant": "momentary_last_position",
+                                                                                          "category": "Right Console",
+                                                                                      "control_type": "selector",
+                                                                                       "description": "A/P Disengage",
+                                                                                        "identifier": "AP_DISENGAGE",
+                                                                                            "inputs": [ {
+                                                                                                          "description": "switch to previous or next state",
+                                                                                                            "interface": "fixed_step"
+                                                                                                      }, {
+                                                                                                          "description": "set position",
+                                                                                                            "interface": "set_state",
+                                                                                                            "max_value": 1
+                                                                                                      }, {
+                                                                                                             "argument": "TOGGLE",
+                                                                                                          "description": "Toggle switch state",
+                                                                                                            "interface": "action"
+                                                                                                      } ],
+                                                                               "momentary_positions": "none",
+                                                                                           "outputs": [ {
+                                                                                                              "address": 18498,
+                                                                                                          "description": "selector position",
+                                                                                                                 "mask": 16384,
+                                                                                                            "max_value": 1,
+                                                                                                             "shift_by": 14,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                                      } ],
+                                                                                  "physical_variant": "push_button"
+                                                                           },
                                                                 "BATT_SW": {
                                                                                           "category": "Right Console",
                                                                                       "control_type": "selector",
@@ -6902,7 +6932,7 @@
                                                                                        "api_variant": "momentary_last_position",
                                                                                           "category": "Right Console",
                                                                                       "control_type": "selector",
-                                                                                       "description": "A/P Disengage",
+                                                                                       "description": "DTC Card Insertion",
                                                                                         "identifier": "DTC_INSERT",
                                                                                             "inputs": [ {
                                                                                                           "description": "switch to previous or next state",
@@ -6920,9 +6950,9 @@
                                                                                            "outputs": [ {
                                                                                                               "address": 18498,
                                                                                                           "description": "selector position",
-                                                                                                                 "mask": 16384,
+                                                                                                                 "mask": 8,
                                                                                                             "max_value": 1,
-                                                                                                             "shift_by": 14,
+                                                                                                             "shift_by": 3,
                                                                                                                "suffix": "",
                                                                                                                  "type": "integer"
                                                                                                       } ],
