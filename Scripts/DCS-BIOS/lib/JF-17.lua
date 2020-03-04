@@ -88,8 +88,9 @@ defineToggleSwitch("FLARE_DISP_BTN_COVER", 16, 3039, 537, "Left Console", "Flare
 definePushButton("FLARE_DISP_BTN", 16, 3040, 538, "Left Console", "Flare Dispense Button")
 defineToggleSwitch("EMERG_HYD_PUMP_SW", 34, 3041, 539, "Left Console", "Emergency Hydraulic Pump Switch")
 defineToggleSwitch("SHARS_SW", 34, 3042, 540, "Left Console", "SHARS Switch")
-
-defineToggleSwitch("EJECT_SEAT_DESTR_SW", 34, 3043, 541, "Left Console", "Ejection Seat Activate Destruct")
+defineToggleSwitch("PH_TEST_SW", 34, 3065, 563, "Left Console", "P.H. Test Switch")
+defineToggleSwitch("CSS_SW", 34, 3064, 562, "Left Console", "CSS Handle")
+defineToggleSwitch("EJECT_SEAT_DESTR_SW", 16, 3043, 541, "Left Console", "Ejection Seat Activate Destruct")
 defineToggleSwitch("SELF_DESTR_BTN_COVER", 16, 3044, 542, "Left Console", "Self Destruct Button Cover")
 definePushButton("SELF_DESTR_BTN", 16, 3045, 543, "Left Console", "Self Destruct Button")
 
@@ -169,8 +170,8 @@ definePushButton("MFCD_L_D2", 47, 3263, 761, "Center Front", "Left MFCD D2")
 definePushButton("MFCD_L_D3", 47, 3264, 762, "Center Front", "Left MFCD D3")
 definePushButton("MFCD_L_D4", 47, 3265, 763, "Center Front", "Left MFCD D4")
 definePushButton("MFCD_L_D5", 47, 3266, 764, "Center Front", "Left MFCD D5")
-definePushButton("MFCD_L_BRT_PLUS", 47, 3267, 765, "Center Front", "Left MFCD Brt +")
-definePushButton("MFCD_L_BRT_MINUS", 47, 3268, 766, "Center Front", "Left MFCD Brt -")
+definePushButton("MFCD_L_BRT_PLUS", 47, 3267, 765, "Center Front", "Left MFCD Brightness +")
+definePushButton("MFCD_L_BRT_MINUS", 47, 3268, 766, "Center Front", "Left MFCD Brightness -")
 
 --Center MFCD
 definePushButton("MFCD_C_SYM_PLUS", 47, 3269, 767, "Center Front", "Center MFCD Sym +")
@@ -204,8 +205,8 @@ definePushButton("MFCD_C_D4", 47, 3296, 794, "Center Front", "Center MFCD D4")
 definePushButton("MFCD_C_D5", 47, 3297, 795, "Center Front", "Center MFCD D5")
 definePushButton("MFCD_C_CONT_PLUS", 47, 3298, 796, "Center Front", "Center MFCD Cont +")
 definePushButton("MFCD_C_CONT_MINUS", 47, 3299, 797, "Center Front", "Center MFCD Cont -")
-definePushButton("MFCD_C_BRT_PLUS", 47, 3300, 798, "Center Front", "Center MFCD Brt +")
-definePushButton("MFCD_C_BRT_MINUS", 47, 3301, 799, "Center Front", "Center MFCD Brt -")
+definePushButton("MFCD_C_BRT_PLUS", 47, 3300, 798, "Center Front", "Center MFCD Brightness +")
+definePushButton("MFCD_C_BRT_MINUS", 47, 3301, 799, "Center Front", "Center MFCD Brightness -")
 
 -- Right MFCD
 definePushButton("MFCD_R_SYM_PLUS", 47, 3302, 800, "Center Front", "Right MFCD Sym +")
@@ -239,8 +240,8 @@ definePushButton("MFCD_R_D4", 47, 3329, 827, "Center Front", "Right MFCD D4")
 definePushButton("MFCD_R_D5", 47, 3330, 828, "Center Front", "Right MFCD D5")
 definePushButton("MFCD_R_CONT_PLUS", 47, 3331, 829, "Center Front", "Right MFCD Cont +")
 definePushButton("MFCD_R_CONT_MINUS", 47, 3332, 830, "Center Front", "Right MFCD Cont -")
-definePushButton("MFCD_R_BRT_PLUS", 47, 3333, 831, "Center Front", "Right MFCD Brt +")
-definePushButton("MFCD_R_BRT_MINUS", 47, 3334, 832, "Center Front", "Right MFCD Brt -")
+definePushButton("MFCD_R_BRT_PLUS", 47, 3333, 831, "Center Front", "Right MFCD Brightness +")
+definePushButton("MFCD_R_BRT_MINUS", 47, 3334, 832, "Center Front", "Right MFCD Brightness -")
 	
 defineRotary("BARO_ALT_SET_KNB", 8, 3342, 840, "Center Front", "BARO Altitude Setting Knob")
 definePotentiometer("EMERG_BRAKE_HANDLE", 32, 3343, 841, {0, 1}, "Center Front", "Emergency Brake Handle")
@@ -248,6 +249,12 @@ definePotentiometer("EMERG_BRAKE_HANDLE", 32, 3343, 841, {0, 1}, "Center Front",
 definePushButton("MASTER_WARN_BTN", 5, 3344, 842, "Center Front", "Master Warning")
 definePushButton("FIRE_WARN_BTN", 5, 3345, 843, "Center Front", "Fire Warning")
 definePushButton("FCS_WARN_BTN", 5, 3346, 844, "Center Front", "FCS Warning")
+
+defineToggleSwitch("DIG_CLOCK_SW", 49, 3347, 845, "Clock", "Digital Clock Switch")
+definePushButton("DIG_CLOCK_BRT_UP", 49, 3348, 846, "Clock", "Digital Clock Brightness +")
+definePushButton("DIG_CLOCK_BRT_DN", 49, 3349, 847, "Clock", "Digital Clock Brightness -")
+definePushButton("DIG_CLOCK_UTC", 49, 3350, 848, "Clock", "Digital Clock UTC")
+definePushButton("DIG_CLOCK_CHR", 49, 3351, 849, "Clock", "Digital Clock CHR")
 
 --------------------------Right Console
 defineToggleSwitch("WARNPANEL_DAY_NIGHT_SW", 5, 3402, 900, "Right Console", "Warning Panel Day/Night Switch")
@@ -317,6 +324,9 @@ define3PosTumb("NAV_LIGHT_BRIGHT_SW", 4, 3452, 950, "Right Console", "Navigation
 defineTumb("NAV_LIGHT_FLASH_SW", 4, 3453, 951, 2, {-1,1}, nil, false, "Right Console", "Navigation Light Switch - Flash/Steady")
 define3PosTumb("ANTI_COL_LIGHT_SW", 4, 3454, 952, "Right Console", "Light Switch - Tow/Off/Anti-Collision")
 
+defineTumb("AAR_L_SW", 4, 3465, 963, 2, {-1,1}, nil, false, "Right Console", "AAR Light Switch")
+definePotentiometer("AAR_L_BRT_KNB", 4, 3466, 964, {0, 1}, "Right Console", "AAR Light Brightness Knob")
+
 -- DTC
 definePushButton("DTC_INSERT", 9, 3455, 953, "Right Console", "DTC Card Insertion")
 definePushButton("DTC_EJECT", 9, 3476, 974, "Right Console", "DTC Card Ejection")
@@ -363,11 +373,13 @@ defineIndicatorLight("LG_L_S_B", 104, "Warning, Caution and IndicatorLights", "L
 defineIndicatorLight("LG_L_D_CH", 105, "Warning, Caution and IndicatorLights", "Landing Gear D CH Light (red)")
 defineIndicatorLight("LG_L_TEF", 106, "Warning, Caution and IndicatorLights", "Landing Gear TEF Light (green)")   
 
-defineIndicatorLight("FCS_RESET_L", 110, "Warning, Caution and IndicatorLights", "FCS Reset Light")     
+defineIndicatorLight("FCS_RESET_L", 110, "Warning, Caution and IndicatorLights", "FCS Reset Light (green)")     
 
-defineIndicatorLight("CONSOLES_L", 120, "Warning, Caution and IndicatorLights", "Console Lights")
-defineIndicatorLight("INST_DISP_L", 121, "Warning, Caution and IndicatorLights", "Instrument Display Lights")
-defineIndicatorLight("FLOOD_L", 122, "Warning, Caution and IndicatorLights", "Flood Lights")    
+defineIndicatorLight("BACK_CONSOLES_L", 120, "Warning, Caution and IndicatorLights", "Console Backlights (green)")
+defineIndicatorLight("BACK_INST_DISP_L", 121, "Warning, Caution and IndicatorLights", "Instrument Display Backlights (green)")
+defineIndicatorLight("BACK_CLOCK_L", 122, "Warning, Caution and IndicatorLights", "Clock Backlights") 
+defineIndicatorLight("WARN_L_BRT", 123, "Warning, Caution and IndicatorLights", "Warn Lights Brightness") 
+defineIndicatorLight("BACK_FLOOD_L", 125, "Warning, Caution and IndicatorLights", "All Flood Backlights (green)")    
     
 defineIndicatorLight("WARN_L_MASTER", 130, "Warning, Caution and IndicatorLights", "Warning Light MASTER WARNING (red)")
 defineIndicatorLight("WARN_L_FIRE", 131, "Warning, Caution and IndicatorLights", "Warning Light FIRE (red)")
@@ -468,7 +480,9 @@ defineIndicatorLight("AAP_BTN_L_SAIU", 279, "Warning, Caution and IndicatorLight
 defineIndicatorLight("AAP_BTN_L_CMBT", 280, "Warning, Caution and IndicatorLights", "AAP Button Light CMBT (green)")
 defineIndicatorLight("AAP_BTN_L_TRAIN", 281, "Warning, Caution and IndicatorLights", "AAP Button Light TRAIN (green)")     
 
-defineIndicatorLight("RADIO_PAD_ERR_L", 295, "Warning, Caution and IndicatorLights", "Radio PAD Error Light")   
+defineIndicatorLight("RADIO_PAD_ERR_L", 295, "Warning, Caution and IndicatorLights", "Radio PAD Error Light (red)")
+
+defineIndicatorLight("AAR_L", 419, "Warning, Caution and IndicatorLights", "AAR Light")    
 
 defineIndicatorLight("FLASH_LIGHT_L", 969, "Warning, Caution and IndicatorLights", "Flash Light")
 
