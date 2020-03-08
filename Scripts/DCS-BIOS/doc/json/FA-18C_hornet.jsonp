@@ -2785,7 +2785,7 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_FORMATION_LIGHTS",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30026,
+                                                                                                                 "address": 30030,
                                                                                                              "description": "Formation Lights",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -2833,7 +2833,7 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_SPEED_BRAKE",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30024,
+                                                                                                                 "address": 30028,
                                                                                                              "description": "Speed Brake",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -8904,7 +8904,7 @@ docdata["FA-18C_hornet"] =
                                                          "SAI_ATT_WARNING_FLAG": {
                                                                                          "category": "Standby Attitude Reference Indicator",
                                                                                      "control_type": "analog_gauge",
-                                                                                      "description": "Attitude Warning Flag",
+                                                                                      "description": "SAI Attitude Warning Flag",
                                                                                        "identifier": "SAI_ATT_WARNING_FLAG",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -8920,7 +8920,7 @@ docdata["FA-18C_hornet"] =
                                                                      "SAI_BANK": {
                                                                                          "category": "Standby Attitude Reference Indicator",
                                                                                      "control_type": "analog_gauge",
-                                                                                      "description": "Bank",
+                                                                                      "description": "SAI Bank",
                                                                                        "identifier": "SAI_BANK",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -8937,7 +8937,7 @@ docdata["FA-18C_hornet"] =
                                                                                              "api_variant": "momentary_last_position",
                                                                                                 "category": "Standby Attitude Reference Indicator",
                                                                                             "control_type": "selector",
-                                                                                             "description": "Pull to uncage",
+                                                                                             "description": "SAI Pull to uncage",
                                                                                               "identifier": "SAI_CAGE",
                                                                                                   "inputs": [ {
                                                                                                                 "description": "switch to previous or next state",
@@ -8966,7 +8966,7 @@ docdata["FA-18C_hornet"] =
                                                             "SAI_MAN_PITCH_ADJ": {
                                                                                          "category": "Standby Attitude Reference Indicator",
                                                                                      "control_type": "analog_gauge",
-                                                                                      "description": "Manual Pitch Adjustment",
+                                                                                      "description": "SAI Manual Pitch Adjustment",
                                                                                        "identifier": "SAI_MAN_PITCH_ADJ",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -8982,7 +8982,7 @@ docdata["FA-18C_hornet"] =
                                                                     "SAI_PITCH": {
                                                                                          "category": "Standby Attitude Reference Indicator",
                                                                                      "control_type": "analog_gauge",
-                                                                                      "description": "Pitch",
+                                                                                      "description": "SAI Pitch",
                                                                                        "identifier": "SAI_PITCH",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -8995,10 +8995,42 @@ docdata["FA-18C_hornet"] =
                                                                                                                 "type": "integer"
                                                                                                      } ]
                                                                                  },
+                                                              "SAI_POINTER_HOR": {
+                                                                                         "category": "Standby Attitude Reference Indicator",
+                                                                                     "control_type": "analog_gauge",
+                                                                                      "description": "SAI Horisontal Pointer",
+                                                                                       "identifier": "SAI_POINTER_HOR",
+                                                                                           "inputs": [  ],
+                                                                                          "outputs": [ {
+                                                                                                             "address": 30026,
+                                                                                                         "description": "gauge position",
+                                                                                                                "mask": 65535,
+                                                                                                           "max_value": 65535,
+                                                                                                            "shift_by": 0,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                                     } ]
+                                                                                 },
+                                                              "SAI_POINTER_VER": {
+                                                                                         "category": "Standby Attitude Reference Indicator",
+                                                                                     "control_type": "analog_gauge",
+                                                                                      "description": "SAI Vertical Pointer",
+                                                                                       "identifier": "SAI_POINTER_VER",
+                                                                                           "inputs": [  ],
+                                                                                          "outputs": [ {
+                                                                                                             "address": 30024,
+                                                                                                         "description": "gauge position",
+                                                                                                                "mask": 65535,
+                                                                                                           "max_value": 65535,
+                                                                                                            "shift_by": 0,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                                     } ]
+                                                                                 },
                                                              "SAI_RATE_OF_TURN": {
                                                                                          "category": "Standby Attitude Reference Indicator",
                                                                                      "control_type": "analog_gauge",
-                                                                                      "description": "Rate Of Turn",
+                                                                                      "description": "SAI Rate Of Turn",
                                                                                        "identifier": "SAI_RATE_OF_TURN",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -9015,7 +9047,7 @@ docdata["FA-18C_hornet"] =
                                                                                       "api_variant": "multiturn",
                                                                                          "category": "Standby Attitude Reference Indicator",
                                                                                      "control_type": "analog_dial",
-                                                                                      "description": "Adjust Attitude",
+                                                                                      "description": "SAI Adjust Attitude",
                                                                                        "identifier": "SAI_SET",
                                                                                            "inputs": [ {
                                                                                                             "description": "turn the dial left or right",
@@ -9036,7 +9068,7 @@ docdata["FA-18C_hornet"] =
                                                                 "SAI_SLIP_BALL": {
                                                                                          "category": "Standby Attitude Reference Indicator",
                                                                                      "control_type": "analog_gauge",
-                                                                                      "description": "Slip Ball",
+                                                                                      "description": "SAI Slip Ball",
                                                                                        "identifier": "SAI_SLIP_BALL",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -9053,7 +9085,7 @@ docdata["FA-18C_hornet"] =
                                                                                              "api_variant": "momentary_last_position",
                                                                                                 "category": "Standby Attitude Reference Indicator",
                                                                                             "control_type": "selector",
-                                                                                             "description": "Test Button",
+                                                                                             "description": "SAI Test Button",
                                                                                               "identifier": "SAI_TEST_BTN",
                                                                                                   "inputs": [ {
                                                                                                                 "description": "switch to previous or next state",
