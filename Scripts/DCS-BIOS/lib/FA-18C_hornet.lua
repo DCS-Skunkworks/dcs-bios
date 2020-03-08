@@ -1,4 +1,4 @@
--- F/A-18 Module created by AndrewW v1.2 for DCS Beta 2.5.5 modified by WarLord, DeadMeat
+-- F/A-18 Module created by AndrewW for DCS Beta 2.5.6 modified by WarLord, DeadMeat v1.3
 -- Many thanks to Capt Zeen for the pointers on analog outputs and UFC/IFEI export
 -- And of course huge thanks to [FSF]Ian for writing DCS-BIOS in the first place
 -- Added new functions by Capt Zeen to get radios frecuencies and channels
@@ -892,15 +892,15 @@ definePushButton("AMPCD_PB_19", 37, 3029, 201, "AMPCD", "Pushbutton 19")
 definePushButton("AMPCD_PB_20", 37, 3030, 202, "AMPCD", "Pushbutton 20")
 
 -- 25. Standby Attitude Reference Indicator
-definePushButton("SAI_TEST_BTN", 32, 3001, 215, "Standby Attitude Reference Indicator", "Test Button")
-definePushButton("SAI_CAGE", 32, 3002, 213, "Standby Attitude Reference Indicator", "Pull to uncage")
-defineRotary("SAI_SET", 32, 3003, 214, "Standby Attitude Reference Indicator", "Adjust Attitude")
-defineFloat("SAI_PITCH", 205, {0, 1}, "Standby Attitude Reference Indicator", "Pitch")
-defineFloat("SAI_BANK", 206, {0, 1}, "Standby Attitude Reference Indicator", "Bank")
-defineFloat("SAI_ATT_WARNING_FLAG", 209, {0, 1}, "Standby Attitude Reference Indicator", "Attitude Warning Flag")
-defineFloat("SAI_MAN_PITCH_ADJ", 210, {0, 1}, "Standby Attitude Reference Indicator", "Manual Pitch Adjustment")
-defineFloat("SAI_SLIP_BALL", 207, {0, 1}, "Standby Attitude Reference Indicator", "Slip Ball")
-defineFloat("SAI_RATE_OF_TURN", 208, {0, 1}, "Standby Attitude Reference Indicator", "Rate Of Turn")
+definePushButton("SAI_TEST_BTN", 32, 3001, 215, "Standby Attitude Reference Indicator", "SAI Test Button")
+definePushButton("SAI_CAGE", 32, 3002, 213, "Standby Attitude Reference Indicator", "SAI Pull to uncage")
+defineRotary("SAI_SET", 32, 3003, 214, "Standby Attitude Reference Indicator", "SAI Adjust Attitude")
+defineFloat("SAI_PITCH", 205, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Pitch")
+defineFloat("SAI_BANK", 206, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Bank")
+defineFloat("SAI_ATT_WARNING_FLAG", 209, {0, 1}, "Standby Attitude Reference Indicator", "SAI Attitude Warning Flag")
+defineFloat("SAI_MAN_PITCH_ADJ", 210, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Manual Pitch Adjustment")
+defineFloat("SAI_SLIP_BALL", 207, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Slip Ball")
+defineFloat("SAI_RATE_OF_TURN", 208, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Rate Of Turn")
 
 -- 26. Azimuth Indicator
 
@@ -1230,6 +1230,9 @@ defineIndicatorLight("IFEI_DISP_INT_LT", 468, "Internal Lights", "IFEI Display L
 defineIndicatorLight("IFEI_BTN_INT_LT", 469, "Internal Lights", "IFEI Buttons Lightning (light green)")
 defineIndicatorLight("CMSD_JET_SEL_L", 516, "Dispenser/EMC Panel", "ECM JETT JETT SEL Button Light (green)")
 defineIndicatorLight("RWR_LT_BRIGHT", 520, "RWR Control Indicator", "RWR Lights Brightness")
+
+defineFloat("SAI_POINTER_VER", 211, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Vertical Pointer")
+defineFloat("SAI_POINTER_HOR", 212, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Horisontal Pointer")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
