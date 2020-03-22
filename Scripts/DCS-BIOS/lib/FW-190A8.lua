@@ -17,7 +17,7 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local definePushButton = BIOS.util.definePushButton
 
-defineTumb("MAGNETO",2, 3004,75, 0.3, {0,0.9}, nil, false, "Cockpit", "Magneto Switch")
+defineTumb("MAGNETO",2, 3004, 75, 0.3, {0,0.9}, nil, false, "Cockpit", "Magneto Switch")
 defineTumb("STARTER_CVR",2, 3006, 104, 1, {0,1}, nil, false, "Cockpit", "Starter Switch Cover")
 defineTumb("STARTER_SWITCH",2, 3008, 105, 0.5, {0,1}, nil, false, "Cockpit", "Starter Switch. Starter Power")
 defineTumb("ING_MODE",2, 3013, 111, 1, {0,1}, nil, false, "Cockpit", "Ingnition Mode Manual/Auto)")
@@ -27,11 +27,11 @@ defineTumb("FUEL_PRIM_PMPL",6, 3009, 162, 1, {0,1}, nil, false,"Cockpit", "Prime
 definePushButton("FUEL_CUTTOFF", 6, 3010, 91, "Cockpit", "Fuel Cutoff Handle")
 definePushButton("STARTER_BRUSH", 6, 3017, 93, "Cockpit", "Retract starter brushes")
 definePotentiometer("OXY_FLOW_VALVE",4,3003, 110,{0.0,0.5},"Cockpit", "Oxygen Flow Valve")
-defineTumb("OXY_EMG_KNOB",4, 3001,190, 1, {0,1}, nil, false, "Cockpit", "Oxygen Emergency Knob")
+defineTumb("OXY_EMG_KNOB",4, 3001, 190, 1, {0,1}, nil, false, "Cockpit", "Oxygen Emergency Knob")
 defineTumb("EL_KILL",1, 3075, 79, 1, {0,1}, nil, false, "Cockpit", "Electric Kill-switch")
-defineTumb("CANOPY_EMG_REL",3, 3006,115, 1, {0,1}, nil, false, "Cockpit", "Canopy Emergency Release Handle")
+defineTumb("CANOPY_EMG_REL",3, 3006, 115, 1, {0,1}, nil, false, "Cockpit", "Canopy Emergency Release Handle")
 defineRotary("CANOPY_HAND_CRK",3, 3001, 114, "Cockpit", "Canopy Hand Crank")
-defineTumb("THR_LOCK",2, 3011,200, 1, {0,1}, nil, false, "Cockpit", "Throttle Lock")
+defineTumb("THR_LOCK",2, 3011, 200, 1, {0,1}, nil, false, "Cockpit", "Throttle Lock")
 defineRotary("ALT_PRESS_SET",10, 3001, 34, "Cockpit", "Altimeter Pressure Set")
 definePotentiometer("HOR_CAGE",12,3001, 39,{0.511, 1.0},"Cockpit", "Horizon Cage")
 defineRotary("TURN_BEZ",13, 3004, 24, "Cockpit", "Turnable Bezel")
@@ -41,26 +41,26 @@ defineTumb("STOPWATCH",13, 3003, 28, 1, {0,1}, nil, false, "Cockpit", "Stopwatch
 defineTumb("HOR_STAB_TRIM",8, 3012, 77, 1, {-1,1}, nil, false, "Cockpit", "Stabilizer Trimmer Up/Down")
 defineRotary("INSTR_LGHT_CTRL",7, 3001, 78, "Cockpit", "Instrument Lights Brightness")
 
-defineTumb("FLAPS_UP_TOGGLE",8, 3001,62, 1, {0,1}, nil, false, "Flaps", "Flaps Up")
-defineTumb("FLAPS_TO",8, 3002,63, 1, {0,1}, nil, false, "Flaps", "Flaps Take Off")
-defineTumb("FLAPS_LAND",8, 3003,64, 1, {0,1}, nil, false, "Flaps", "Flaps Landing")
+defineTumb("FLAPS_UP_TOGGLE",8, 3001, 62, 1, {0,1}, nil, false, "Flaps", "Flaps Up")
+defineTumb("FLAPS_TO",8, 3002, 63, 1, {0,1}, nil, false, "Flaps", "Flaps Take Off")
+defineTumb("FLAPS_LAND",8, 3003, 64, 1, {0,1}, nil, false, "Flaps", "Flaps Landing")
 defineRotary("COOL_FLAP_CTRL",8, 3013, 159, "Flaps", "Cooling Flaps Control")
 
 defineTumb("LG_RET",8, 3005,65, 1, {0,1}, nil, false, "Gear", "Landing Gears Retraction")
-defineTumb("LG_RET_CVR",8, 3006,66, 1, {0,1}, nil, false, "Gear", "Landing Gears Retraction Cover")
+defineTumb("LG_RET_CVR",8, 3006, 66, 1, {0,1}, nil, false, "Gear", "Landing Gears Retraction Cover")
 defineTumb("LG_EXT",8, 3007,67, 1, {0,1}, nil, false, "Gear", "Landing Gears Extending")
 defineTumb("EMG_LG_REL",8, 3008, 89, 1, {0,1}, nil, false, "Gear", "Landing Gear Emergency Release Handle")
 
 defineRockerSwitch("PROP_PITCH", 2, 3014, 3014, 3015, 3015, 3, "Engine", "Propellor Pitch De/Increase")
 
-defineTumb("MASTER_ARM",20, 3001,48, 1, {0,1}, nil, false, "Weapon Control", "Master Arm")
-defineTumb("QUT_WING_ARM",20, 3020,49, 1, {0,1}, nil, false, "Weapon Control", "Outer Wing Guns Arm")
+defineTumb("MASTER_ARM",20, 3001, 48, 1, {0,1}, nil, false, "Weapon Control", "Master Arm")
+defineTumb("QUT_WING_ARM",20, 3020, 49, 1, {0,1}, nil, false, "Weapon Control", "Outer Wing Guns Arm")
 defineRotary("GUN1_AMM_C",20, 3003, 51, "Weapon Control", "Set Gun 1 Ammunition Count")
 defineRotary("GUN2_AMM_C",20, 3005, 54, "Weapon Control", "Set Gun 2 Ammunition Count")
 defineRotary("GUN3_AMM_C",20, 3007, 57, "Weapon Control", "Set Gun 3 Ammunition Count")
 defineRotary("GUN4_AMM_C",20, 3009, 60, "Weapon Control", "Set Gun 4 Ammunition Count")
 defineTumb("BMB_FUSE_SEL",20, 3011, 109, 0.1, {0,0.4}, nil, false, "Weapon Control", "Bomb Fusing Selector")
-defineTumb("JETT_FUS_STORES",20, 3018,92, 1, {0,1}, nil, false, "Weapon Control", "Jettison Fuselage Stores")
+defineTumb("JETT_FUS_STORES",20, 3018, 92, 1, {0,1}, nil, false, "Weapon Control", "Jettison Fuselage Stores")
 
 defineRotary("SIGHT_BRIGHT",21, 3001, 133, "Gun Sight", "Gunsight Brightness Rheostat")
 defineTumb("SIGHT_SMOKE",21, 3004, 134, 1, {0,1}, nil, false, "Gun Sight", "Gun Sight Smoked Screen Controls")
@@ -222,6 +222,9 @@ defineFloat("WINDSHIELDDAMAGE", 209, {0.0, 1.0}, "Indicator", "WindshieldDamage"
 defineFloat("CANOPYDAMAGE", 210, {0.0, 1.0}, "Indicator", "CanopyDamage")
 
 defineTumb("STARTER_SWITCH2",2, 3009, 105, 0.5, {0,1}, nil, false, "Cockpit", "Starter Switch. Magnetic Clutch")
+
+defineTumb("ROCKET_MAIN_SW",20, 3022, 135, 1, {0,1}, nil, false, "Weapon Control", "Main Rocket Switch")
+defineTumb("ROCKET_EMERG_JETT",20, 3024, 140, 1, {0,1}, nil, false, "Weapon Control", "Rocket Emergency Release")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()

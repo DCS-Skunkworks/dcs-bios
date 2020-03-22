@@ -57,6 +57,7 @@ defineToggleSwitch("FEED_CUT_VALVE", 33, 3017, 515, "Left Console" , "Feed Cut-o
 defineToggleSwitch("ACT_FUEL_CUT_VALVE_COVER", 33, 3018, 516, "Left Console" , "Active Fuel Cut-off Valve Cover")
 defineToggleSwitch("ACT_FUEL_CUT_VALVE", 33, 3019, 517, "Left Console" , "Active Fuel Cut-off Valve")
 defineToggleSwitch("FUEL_PUMP_SW", 33, 3020, 518, "Left Console" , "Fuel Pump Switch")
+define3PosTumb("AAR_SW", 33, 3066, 564, "Left Console", "AAR Switch")
 
 --ENG
 defineToggleSwitch("ENG_CONTR_SW", 34, 3021, 519, "Left Console", "Engine Control Switch")

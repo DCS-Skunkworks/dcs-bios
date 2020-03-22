@@ -25,9 +25,8 @@ local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
-local defineDoubleCommandButton = BIOS.util.defineDoubleCommandButton
 
-function define3Pos2CommandSwitch(msg, device_id, switch1, switch2, arg_number, category, description)
+local function define3Pos2CommandSwitch(msg, device_id, switch1, switch2, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 	    local val = dev0:get_argument_value(arg_number)
@@ -74,7 +73,7 @@ function define3Pos2CommandSwitch(msg, device_id, switch1, switch2, arg_number, 
 end
 
 --Seems to be F16C specific
-function defineSpringloaded_3_pos_tumb(msg, device_id, downSwitch, upSwitch, arg_number, category, description)
+local function defineSpringloaded_3_pos_tumb(msg, device_id, downSwitch, upSwitch, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 	    local val = dev0:get_argument_value(arg_number)
@@ -267,8 +266,8 @@ defineSpringloaded_3_pos_tumb("ICP_DED_SW", 17, 3031, 3030, 183, "UFC", "ICP DED
 defineSpringloaded_3_pos_tumb("ICP_FLIR_SW", 17, 3026, 3025, 188, "UFC", "ICP FLIR Increment/Decrement Switch")
 defineSpringloaded_3_pos_tumb("ICP_DRIFT_SW", 17, 3029, 3028, 186, "UFC", "ICP DRIFT CUTOUT/WARN RESET Switch, DRIFT C/O /NORM/WARN RESET")
 defineTumb("ICP_DATA_RTN_SW", 17, 3032, 184, 1, {-1, 0}, nil, true, "UFC", "ICP Data Control Switch, RTN") ---
-defineToggleSwitch("ICP_DATA_SEQ_SW", 17, 3033, 184, "UFC", "ICP Data Control Switch, SEQ")
-defineToggleSwitch("ICP_DATA_UP_SW", 17, 3034, 185, "UFC", "ICP Data Control Switch, UP")
+definePushButton("ICP_DATA_SEQ_SW", 17, 3033, 184, "UFC", "ICP Data Control Switch, SEQ")
+definePushButton("ICP_DATA_UP_SW", 17, 3034, 185, "UFC", "ICP Data Control Switch, UP")
 defineTumb("ICP_DATA_DN_SW", 17, 3035, 185, 1, {-1, 0}, nil, true, "UFC", "ICP Data Control Switch, DN") ---
 definePushButton("F_ACK_BTN", 17, 3036, 122, "UFC", "F-ACK Button")
 definePushButton("IFF_ID_BTN", 17, 3037, 125, "UFC", "IFF IDENT Button")
