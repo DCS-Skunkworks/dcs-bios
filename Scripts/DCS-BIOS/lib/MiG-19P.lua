@@ -33,18 +33,18 @@ definePushButton("GEAR_LIGHT_TEST", 10, 3333, 333, "Landing Gear Panel", "PPS-2 
 defineToggleSwitch("EMERG_BRAKE", 4, 3301, 301, "Landing Gear Panel", "Emergency Brake")
 defineToggleSwitch("NOSE_GEAR_BRAKE", 4, 3302, 302, "Landing Gear Panel", "Nose Gear Brake System On/Off")
 
-defineMultipositionSwitch("NAV_LIGHTS", 5, 3261, 261, 5, 0.2,"Exterior Lights Panel" ,"Navigation Lights")
+defineMultipositionSwitch("NAV_LIGHTS", 5, 3261, 261, 6, 0.2,"Exterior Lights Panel" ,"Navigation Lights")
 define3PosTumb("NOSE_LIGHTS", 5, 3262, 262, "Exterior Lights Panel", "Nose Lights Switch, LANDING/OFF/TAXI")
 
 definePushButton("GIK1_ALIGN", 9, 3224, 224, "Flight Instruments Panel", "GIK-1 Needle Alignment")
 definePushButton("ARU2V_LAMP_TEST", 4, 3300, 300, "Flight Instruments Panel", "ARU-2V Lamp Test Button")
-defineRotary("GIK1_CRS_SEL", 9, 3359, 3359, "Flight Instruments Panel", "GIK-1 Course Selector")
+defineRotary("GIK1_CRS_SEL", 9, 3359, 359, "Flight Instruments Panel", "GIK-1 Course Selector")
 definePotentiometer("AGI1_TRIM", 9, 3360, 360, {-1, 1}, "Flight Instruments Panel", "AGI-1 Artificial Horizon Pitch Trim Knob")
 defineToggleSwitch("AGI1_CAGE", 9, 3361, 361, "Landing Gear Panel", "AGI-1 Artificial Horizon Cage Button - Push to cage")
 defineRotary("BALT_PRESS_SEL", 9, 3362, 362, "Flight Instruments Panel", "Barometric Altimeter Setting (bars)")
 defineRotary("CLOCK_R_KNOB_TURN", 9, 3364, 364, "Flight Instruments Panel", "AChS-1 Chronograph Right Knob (Turn)")
 definePushButton("CLOCK_R_KNOB_PRESS", 4, 3508, 508, "Flight Instruments Panel", "AChS-1 Chronograph Right Knob (Press)")
-defineRotary("CLOCK_L_KNOB_TURN", 9, 3365, 3645, "Flight Instruments Panel", "AChS-1 Chronograph Left Knob (Turn)")
+defineRotary("CLOCK_L_KNOB_TURN", 9, 3365, 365, "Flight Instruments Panel", "AChS-1 Chronograph Left Knob (Turn)")
 define3PosTumb("CLOCK_L_KNOB_PRESS", 9, 3366, 366, "Flight Instruments Panel", "AChS-1 Chronograph Left Knob (PRESS)")
 definePushButton("GMETER_RESET", 9, 3515, 515, "Flight Instruments Panel", "AM-10 Accelerometer Min/Max G Reset Button")
 
@@ -104,7 +104,7 @@ defineToggleSwitch("R_ENG_AIR_START_COVER", 2, 3278, 278, "Bulkhead Panel 5", "R
 definePushButton("L_ENG_AIR_START", 2, 3328, 328, "Bulkhead Panel 5", "Left Air Engine Start")
 definePushButton("R_ENG_AIR_START", 2, 3329, 329, "Bulkhead Panel 5", "Right Air Engine Start")
 
-defineMultipositionSwitch("ASP5_AIM_MODE", 7, 3344, 344, 3, 0.1,"Armament Sight Panel" ,"ASP-5 Sight Aiming Mode")
+defineMultipositionSwitch("ASP5_AIM_MODE", 7, 3344, 344, 4, 0.1,"Armament Sight Panel" ,"ASP-5 Sight Aiming Mode")
 defineToggleSwitch("ASP5_OP_MODE", 11, 3345, 345, "Armament Sight Panel", "ASP-5 Sight Operational Mode (Radar/Optic)")
 defineToggleSwitch("BOMB_REL_MODE", 7, 3346, 346, "Armament Sight Panel", "Bomb Release Mode (Single/Auto)")
 
@@ -114,8 +114,8 @@ defineToggleSwitch("ROCKET_COUNTER_MODE", 7, 3337, 337, "Rocket Pod Panel", "Roc
 defineToggleSwitch("RADAR_ECCM", 14, 3338, 338, "Radar Control Panel", "RP-5 Radar ECCM Mode Switch, ON/OFF")
 definePushButton("RADAR_BIT_TEST", 14, 3339, 339, "Radar Control Panel", "RP-5 Radar Built-In Test (BIT) Button - Press 2 seconds to start test")
 defineToggleSwitch("RADAR_GAUGE_MODE", 14, 3340, 340, "Radar Control Panel", "RP-5 Radar Gauge Display Mode Switch, VOLTAGE/AIR PRESSURE")
-defineMultipositionSwitch("RADAR_MODE", 14, 3341, 341, 3, 0.5,"Radar Control Panel" ,"RP-5 Radar Mode Control Switch, ON/STANDBY/OFF")
-defineRotary("RADAR_ANT_ELEVATION", 14, 3342, 3342, "Flight Instruments Panel", "RP-5 Radar Electronic Horizon Elevation Adjustment Knob")
+defineMultipositionSwitch("RADAR_MODE", 14, 3341, 341, 4, 0.5,"Radar Control Panel" ,"RP-5 Radar Mode Control Switch, ON/STANDBY/OFF")
+defineRotary("RADAR_ANT_ELEVATION", 14, 3342, 342, "Flight Instruments Panel", "RP-5 Radar Electronic Horizon Elevation Adjustment Knob")
 defineToggleSwitch("RADAR_SCR_MODE", 14, 3343, 343, "Radar Control Panel", "RP-5 Radar Screen Mode Switch, DAY/NIGHT")
 defineToggleSwitch("RADAR_TGT_LOCK", 14, 3434, 434, "Radar Control Panel", "RP-5 Radar Target Lock Switch (AR-18-16 Tracking Antenna), ON/OFF")
 definePotentiometer("RADAR_SCR_BRIGHT", 14, 3486, 486, {0, 1}, "Radar Control Panel", "RP-5 Radar Screen Brightness Adjustment Knob")
@@ -195,14 +195,15 @@ defineToggleSwitch("IFF_PW_COVER", 16, 3267, 267, "Bulkhead Panel 2", "SRO-2 IFF
 defineToggleSwitch("IFF_PW", 16, 3268, 268, "Bulkhead Panel 2", "SRO-2 IFF Power Switch, ON/OFF")
 defineToggleSwitch("FLOOD_LAMP_R", 6, 3522, 522, "Bulkhead Panel 2", "Right Side Flood Lamp Switch, ON/OFF")
 
-defineMultipositionSwitch("ARK5_CHAN_SEL", 20, 3335, 335, 2, 0.5,"ARK5 Panel" ,"ARK-5 NEAR Frequency Band Selector Switch")
+defineMultipositionSwitch("ARK5_CHAN_SEL", 20, 3335, 335, 3, 0.5,"ARK5 Panel" ,"ARK-5 NEAR Frequency Band Selector Switch")
 defineToggleSwitch("ARK5_RECV_MODE", 20, 3347, 347, "ARK5 Panel", "ARK-5 Receiver Mode Switch, TLG(Telegraph)/TLF(Telephony)")
-defineMultipositionSwitch("ARK5_FREQ_SEL", 20, 3348, 348, 2, 0.5,"ARK5 Panel" ,"ARK-5 FAR/NDB Frequency Band Selector Switch")
-defineMultipositionSwitch("ARK5_MODE", 20, 3349, 349, 3, 0.1,"ARK5 Panel" ,"ARK-5 Function Selector Switch, OFF/COMP/ANT./LOOP")
-defineToggleSwitch("ARK5_ANT_MOV", 20, 3350, 350, "ARK5 Panel", "ARK-5 Loop Antenna Rotation Switch, L(EFT)/R(IGHT)")
+defineMultipositionSwitch("ARK5_FREQ_SEL", 20, 3348, 348, 3, 0.5,"ARK5 Panel" ,"ARK-5 FAR/NDB Frequency Band Selector Switch")
+defineMultipositionSwitch("ARK5_MODE", 20, 3349, 349, 4, 0.1,"ARK5 Panel" ,"ARK-5 Function Selector Switch, OFF/COMP/ANT./LOOP")
+define3PosTumb("ARK5_ANT_MOV", 20, 3350, 350, "ARK5 Panel", "ARK-5 Loop Antenna Rotation Switch, L(EFT)/R(IGHT)")
 definePotentiometer("ARK5_INST_LIGHT", 20, 3351, 351, {0, 1}, "ARK5 Panel", "ARK-5 Frequency Scale Backlight Knob")
 definePotentiometer("ARK5_VOL", 20, 3352, 352, {0, 1}, "ARK5 Panel", "ARK-5 Audio Volume Knob")
-defineRotary("ARK5_FREQ_ZUNE", 20, 3353, 353, "ARK5 Panel", "ARK-5 Frequency Fine Tuning Handle")
+defineRotary("ARK5_FREQ_TUNE", 20, 3353, 353, "ARK5 Panel", "ARK-5 Frequency Fine Tuning Handle") ----
+
 
 defineToggleSwitch("EMERG_GEAR", 4, 3222, 222, "Right Console", "Landing Gear Emergency Deployment")
 defineToggleSwitch("EMERG_FLAPS", 4, 3223, 223, "Right Console", "Flaps Emergency Deployment")
