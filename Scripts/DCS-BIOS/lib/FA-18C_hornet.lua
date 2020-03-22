@@ -1234,6 +1234,8 @@ defineIndicatorLight("RWR_LT_BRIGHT", 520, "RWR Control Indicator", "RWR Lights 
 defineFloat("SAI_POINTER_VER", 211, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Vertical Pointer")
 defineFloat("SAI_POINTER_HOR", 212, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Horisontal Pointer")
 
+defineIndicatorLight("SAI_ATT_WARN_FLAG_L", 209, "Standby Attitude Reference Indicator", "SAI Attitude Warning Flag as Light")
+
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(183)*65535)
