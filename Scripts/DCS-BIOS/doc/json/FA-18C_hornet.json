@@ -2802,9 +2802,9 @@
                                                                                               "outputs": [ {
                                                                                                                  "address": 30022,
                                                                                                              "description": "Left Position Light",
-                                                                                                                    "mask": 64,
+                                                                                                                    "mask": 128,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 6,
+                                                                                                                "shift_by": 7,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2818,9 +2818,9 @@
                                                                                               "outputs": [ {
                                                                                                                  "address": 30022,
                                                                                                              "description": "Right Position Light",
-                                                                                                                    "mask": 128,
+                                                                                                                    "mask": 256,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 7,
+                                                                                                                "shift_by": 8,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2850,9 +2850,9 @@
                                                                                               "outputs": [ {
                                                                                                                  "address": 30022,
                                                                                                              "description": "Strobe Lights",
-                                                                                                                    "mask": 256,
+                                                                                                                    "mask": 512,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 8,
+                                                                                                                "shift_by": 9,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -8912,6 +8912,22 @@
                                                                                                                 "mask": 65535,
                                                                                                            "max_value": 65535,
                                                                                                             "shift_by": 0,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                                     } ]
+                                                                                 },
+                                                          "SAI_ATT_WARN_FLAG_L": {
+                                                                                         "category": "Standby Attitude Reference Indicator",
+                                                                                     "control_type": "led",
+                                                                                      "description": "SAI Attitude Warning Flag as Light",
+                                                                                       "identifier": "SAI_ATT_WARN_FLAG_L",
+                                                                                           "inputs": [  ],
+                                                                                          "outputs": [ {
+                                                                                                             "address": 30022,
+                                                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                                                "mask": 64,
+                                                                                                           "max_value": 1,
+                                                                                                            "shift_by": 6,
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
                                                                                                      } ]

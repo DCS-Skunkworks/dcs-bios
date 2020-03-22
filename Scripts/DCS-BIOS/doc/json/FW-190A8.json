@@ -2595,9 +2595,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 14386,
                                                                                        "description": "Left Position Light (red)",
-                                                                                              "mask": 512,
+                                                                                              "mask": 2048,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 9,
+                                                                                          "shift_by": 11,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -2611,9 +2611,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 14386,
                                                                                        "description": "Right Position Light (green)",
-                                                                                              "mask": 1024,
+                                                                                              "mask": 4096,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 10,
+                                                                                          "shift_by": 12,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -4270,205 +4270,263 @@
                                                    }
                                },
              "Weapon Control": {
-                                      "BMB_FUSE_SEL": {
-                                                                     "category": "Weapon Control",
-                                                                 "control_type": "selector",
-                                                                  "description": "Bomb Fusing Selector",
-                                                                   "identifier": "BMB_FUSE_SEL",
-                                                                       "inputs": [ {
-                                                                                     "description": "switch to previous or next state",
-                                                                                       "interface": "fixed_step"
-                                                                                 }, {
-                                                                                     "description": "set position",
-                                                                                       "interface": "set_state",
-                                                                                       "max_value": 4
-                                                                                 } ],
-                                                          "momentary_positions": "none",
-                                                                      "outputs": [ {
-                                                                                         "address": 14364,
-                                                                                     "description": "selector position",
-                                                                                            "mask": 7,
-                                                                                       "max_value": 4,
-                                                                                        "shift_by": 0,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
-                                                                                 } ],
-                                                             "physical_variant": "limited_rotary"
-                                                      },
-                                        "GUN1_AMM_C": {
-                                                           "api_variant": "multiturn",
-                                                              "category": "Weapon Control",
-                                                          "control_type": "analog_dial",
-                                                           "description": "Set Gun 1 Ammunition Count",
-                                                            "identifier": "GUN1_AMM_C",
-                                                                "inputs": [ {
-                                                                                 "description": "turn the dial left or right",
-                                                                                   "interface": "variable_step",
-                                                                                   "max_value": 65535,
-                                                                              "suggested_step": 3200
-                                                                          } ],
-                                                               "outputs": [ {
-                                                                                  "address": 14356,
-                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                     "mask": 65535,
-                                                                                "max_value": 65535,
-                                                                                 "shift_by": 0,
-                                                                                   "suffix": "_KNOB_POS",
-                                                                                     "type": "integer"
-                                                                          } ]
-                                                      },
-                                        "GUN2_AMM_C": {
-                                                           "api_variant": "multiturn",
-                                                              "category": "Weapon Control",
-                                                          "control_type": "analog_dial",
-                                                           "description": "Set Gun 2 Ammunition Count",
-                                                            "identifier": "GUN2_AMM_C",
-                                                                "inputs": [ {
-                                                                                 "description": "turn the dial left or right",
-                                                                                   "interface": "variable_step",
-                                                                                   "max_value": 65535,
-                                                                              "suggested_step": 3200
-                                                                          } ],
-                                                               "outputs": [ {
-                                                                                  "address": 14358,
-                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                     "mask": 65535,
-                                                                                "max_value": 65535,
-                                                                                 "shift_by": 0,
-                                                                                   "suffix": "_KNOB_POS",
-                                                                                     "type": "integer"
-                                                                          } ]
-                                                      },
-                                        "GUN3_AMM_C": {
-                                                           "api_variant": "multiturn",
-                                                              "category": "Weapon Control",
-                                                          "control_type": "analog_dial",
-                                                           "description": "Set Gun 3 Ammunition Count",
-                                                            "identifier": "GUN3_AMM_C",
-                                                                "inputs": [ {
-                                                                                 "description": "turn the dial left or right",
-                                                                                   "interface": "variable_step",
-                                                                                   "max_value": 65535,
-                                                                              "suggested_step": 3200
-                                                                          } ],
-                                                               "outputs": [ {
-                                                                                  "address": 14360,
-                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                     "mask": 65535,
-                                                                                "max_value": 65535,
-                                                                                 "shift_by": 0,
-                                                                                   "suffix": "_KNOB_POS",
-                                                                                     "type": "integer"
-                                                                          } ]
-                                                      },
-                                        "GUN4_AMM_C": {
-                                                           "api_variant": "multiturn",
-                                                              "category": "Weapon Control",
-                                                          "control_type": "analog_dial",
-                                                           "description": "Set Gun 4 Ammunition Count",
-                                                            "identifier": "GUN4_AMM_C",
-                                                                "inputs": [ {
-                                                                                 "description": "turn the dial left or right",
-                                                                                   "interface": "variable_step",
-                                                                                   "max_value": 65535,
-                                                                              "suggested_step": 3200
-                                                                          } ],
-                                                               "outputs": [ {
-                                                                                  "address": 14362,
-                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                     "mask": 65535,
-                                                                                "max_value": 65535,
-                                                                                 "shift_by": 0,
-                                                                                   "suffix": "_KNOB_POS",
-                                                                                     "type": "integer"
-                                                                          } ]
-                                                      },
-                                   "JETT_FUS_STORES": {
-                                                                     "category": "Weapon Control",
-                                                                 "control_type": "selector",
-                                                                  "description": "Jettison Fuselage Stores",
-                                                                   "identifier": "JETT_FUS_STORES",
-                                                                       "inputs": [ {
-                                                                                     "description": "switch to previous or next state",
-                                                                                       "interface": "fixed_step"
-                                                                                 }, {
-                                                                                     "description": "set position",
-                                                                                       "interface": "set_state",
-                                                                                       "max_value": 1
-                                                                                 }, {
-                                                                                        "argument": "TOGGLE",
-                                                                                     "description": "Toggle switch state",
-                                                                                       "interface": "action"
-                                                                                 } ],
-                                                          "momentary_positions": "none",
-                                                                      "outputs": [ {
-                                                                                         "address": 14364,
-                                                                                     "description": "selector position",
-                                                                                            "mask": 8,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 3,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
-                                                                                 } ],
-                                                             "physical_variant": "limited_rotary"
-                                                      },
-                                        "MASTER_ARM": {
-                                                                     "category": "Weapon Control",
-                                                                 "control_type": "selector",
-                                                                  "description": "Master Arm",
-                                                                   "identifier": "MASTER_ARM",
-                                                                       "inputs": [ {
-                                                                                     "description": "switch to previous or next state",
-                                                                                       "interface": "fixed_step"
-                                                                                 }, {
-                                                                                     "description": "set position",
-                                                                                       "interface": "set_state",
-                                                                                       "max_value": 1
-                                                                                 }, {
-                                                                                        "argument": "TOGGLE",
-                                                                                     "description": "Toggle switch state",
-                                                                                       "interface": "action"
-                                                                                 } ],
-                                                          "momentary_positions": "none",
-                                                                      "outputs": [ {
-                                                                                         "address": 14342,
-                                                                                     "description": "selector position",
-                                                                                            "mask": 16384,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 14,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
-                                                                                 } ],
-                                                             "physical_variant": "limited_rotary"
-                                                      },
-                                      "QUT_WING_ARM": {
-                                                                     "category": "Weapon Control",
-                                                                 "control_type": "selector",
-                                                                  "description": "Outer Wing Guns Arm",
-                                                                   "identifier": "QUT_WING_ARM",
-                                                                       "inputs": [ {
-                                                                                     "description": "switch to previous or next state",
-                                                                                       "interface": "fixed_step"
-                                                                                 }, {
-                                                                                     "description": "set position",
-                                                                                       "interface": "set_state",
-                                                                                       "max_value": 1
-                                                                                 }, {
-                                                                                        "argument": "TOGGLE",
-                                                                                     "description": "Toggle switch state",
-                                                                                       "interface": "action"
-                                                                                 } ],
-                                                          "momentary_positions": "none",
-                                                                      "outputs": [ {
-                                                                                         "address": 14342,
-                                                                                     "description": "selector position",
-                                                                                            "mask": 32768,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 15,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
-                                                                                 } ],
-                                                             "physical_variant": "limited_rotary"
-                                                      }
+                                        "BMB_FUSE_SEL": {
+                                                                       "category": "Weapon Control",
+                                                                   "control_type": "selector",
+                                                                    "description": "Bomb Fusing Selector",
+                                                                     "identifier": "BMB_FUSE_SEL",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 4
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 14364,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 7,
+                                                                                         "max_value": 4,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "limited_rotary"
+                                                        },
+                                          "GUN1_AMM_C": {
+                                                             "api_variant": "multiturn",
+                                                                "category": "Weapon Control",
+                                                            "control_type": "analog_dial",
+                                                             "description": "Set Gun 1 Ammunition Count",
+                                                              "identifier": "GUN1_AMM_C",
+                                                                  "inputs": [ {
+                                                                                   "description": "turn the dial left or right",
+                                                                                     "interface": "variable_step",
+                                                                                     "max_value": 65535,
+                                                                                "suggested_step": 3200
+                                                                            } ],
+                                                                 "outputs": [ {
+                                                                                    "address": 14356,
+                                                                                "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                       "mask": 65535,
+                                                                                  "max_value": 65535,
+                                                                                   "shift_by": 0,
+                                                                                     "suffix": "_KNOB_POS",
+                                                                                       "type": "integer"
+                                                                            } ]
+                                                        },
+                                          "GUN2_AMM_C": {
+                                                             "api_variant": "multiturn",
+                                                                "category": "Weapon Control",
+                                                            "control_type": "analog_dial",
+                                                             "description": "Set Gun 2 Ammunition Count",
+                                                              "identifier": "GUN2_AMM_C",
+                                                                  "inputs": [ {
+                                                                                   "description": "turn the dial left or right",
+                                                                                     "interface": "variable_step",
+                                                                                     "max_value": 65535,
+                                                                                "suggested_step": 3200
+                                                                            } ],
+                                                                 "outputs": [ {
+                                                                                    "address": 14358,
+                                                                                "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                       "mask": 65535,
+                                                                                  "max_value": 65535,
+                                                                                   "shift_by": 0,
+                                                                                     "suffix": "_KNOB_POS",
+                                                                                       "type": "integer"
+                                                                            } ]
+                                                        },
+                                          "GUN3_AMM_C": {
+                                                             "api_variant": "multiturn",
+                                                                "category": "Weapon Control",
+                                                            "control_type": "analog_dial",
+                                                             "description": "Set Gun 3 Ammunition Count",
+                                                              "identifier": "GUN3_AMM_C",
+                                                                  "inputs": [ {
+                                                                                   "description": "turn the dial left or right",
+                                                                                     "interface": "variable_step",
+                                                                                     "max_value": 65535,
+                                                                                "suggested_step": 3200
+                                                                            } ],
+                                                                 "outputs": [ {
+                                                                                    "address": 14360,
+                                                                                "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                       "mask": 65535,
+                                                                                  "max_value": 65535,
+                                                                                   "shift_by": 0,
+                                                                                     "suffix": "_KNOB_POS",
+                                                                                       "type": "integer"
+                                                                            } ]
+                                                        },
+                                          "GUN4_AMM_C": {
+                                                             "api_variant": "multiturn",
+                                                                "category": "Weapon Control",
+                                                            "control_type": "analog_dial",
+                                                             "description": "Set Gun 4 Ammunition Count",
+                                                              "identifier": "GUN4_AMM_C",
+                                                                  "inputs": [ {
+                                                                                   "description": "turn the dial left or right",
+                                                                                     "interface": "variable_step",
+                                                                                     "max_value": 65535,
+                                                                                "suggested_step": 3200
+                                                                            } ],
+                                                                 "outputs": [ {
+                                                                                    "address": 14362,
+                                                                                "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                       "mask": 65535,
+                                                                                  "max_value": 65535,
+                                                                                   "shift_by": 0,
+                                                                                     "suffix": "_KNOB_POS",
+                                                                                       "type": "integer"
+                                                                            } ]
+                                                        },
+                                     "JETT_FUS_STORES": {
+                                                                       "category": "Weapon Control",
+                                                                   "control_type": "selector",
+                                                                    "description": "Jettison Fuselage Stores",
+                                                                     "identifier": "JETT_FUS_STORES",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 14364,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 8,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 3,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "limited_rotary"
+                                                        },
+                                          "MASTER_ARM": {
+                                                                       "category": "Weapon Control",
+                                                                   "control_type": "selector",
+                                                                    "description": "Master Arm",
+                                                                     "identifier": "MASTER_ARM",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 14342,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 16384,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 14,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "limited_rotary"
+                                                        },
+                                        "QUT_WING_ARM": {
+                                                                       "category": "Weapon Control",
+                                                                   "control_type": "selector",
+                                                                    "description": "Outer Wing Guns Arm",
+                                                                     "identifier": "QUT_WING_ARM",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 14342,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 32768,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 15,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "limited_rotary"
+                                                        },
+                                   "ROCKET_EMERG_JETT": {
+                                                                       "category": "Weapon Control",
+                                                                   "control_type": "selector",
+                                                                    "description": "Rocket Emergency Release",
+                                                                     "identifier": "ROCKET_EMERG_JETT",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 14386,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 1024,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 10,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "limited_rotary"
+                                                        },
+                                      "ROCKET_MAIN_SW": {
+                                                                       "category": "Weapon Control",
+                                                                   "control_type": "selector",
+                                                                    "description": "Main Rocket Switch",
+                                                                     "identifier": "ROCKET_MAIN_SW",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 14386,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 512,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 9,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "limited_rotary"
+                                                        }
                                }
 }
