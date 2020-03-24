@@ -14,6 +14,7 @@ local document = BIOS.util.document
 local parse_indication = BIOS.util.parse_indication
 
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
+local defineIndicatorLightInverted = BIOS.util.defineIndicatorLightInverted
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
@@ -1234,7 +1235,7 @@ defineIndicatorLight("RWR_LT_BRIGHT", 520, "RWR Control Indicator", "RWR Lights 
 defineFloat("SAI_POINTER_VER", 211, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Vertical Pointer")
 defineFloat("SAI_POINTER_HOR", 212, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Horisontal Pointer")
 
-defineIndicatorLight("SAI_ATT_WARN_FLAG_L", 209, "Standby Attitude Reference Indicator", "SAI Attitude Warning Flag as Light")
+defineIndicatorLightInverted("SAI_ATT_WARN_FLAG_L", 209, "Standby Attitude Reference Indicator", "SAI Attitude Warning Flag as Light")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
