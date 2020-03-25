@@ -426,8 +426,6 @@ function BIOS.util.defineRotary(msg, device_id, command, arg_number, category, d
 			}
 		}
 	}
-
-	--document { msg = msg, category = category, description = description, msg_type = "rotary", value_type = "float", value_range = {0, 1}, can_set = false, actions = {"DEC", "INC"}, address = value.address, mask = value.mask }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		value:setValue(dev0:get_argument_value(arg_number) * 65535)
 	end
@@ -754,7 +752,6 @@ function BIOS.util.defineString(msg, getter, maxLength, category, description)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		alloc:setValue(getter(dev0))
 	end
-	--document { msg = msg, category = category, description = description, msg_type = "string", value_type = "string", can_set = false, actions = {}, address = alloc.address, max_length = alloc.max_length }
 
 	document {
 		identifier = msg,
@@ -907,7 +904,6 @@ function BIOS.util.defineFloat(msg, arg_number, limits, category, description)
 			}
 		}
 	}
-	--document { msg = msg, category = category, description = description, msg_type = "int", value_type = "int", value_range = limits, can_set = false, actions = {}, address = alloc.address }
 end
 
 function BIOS.util.define8BitFloat(msg, arg_number, limits, category, description)
@@ -935,7 +931,6 @@ function BIOS.util.define8BitFloat(msg, arg_number, limits, category, descriptio
 			}
 		}
 	}
-	--document { msg = msg, category = category, description = description, msg_type = "int", value_type = "int", value_range = limits, can_set = false, actions = {}, address = alloc.address }
 end
 
 function BIOS.util.defineIntegerFromGetter(msg, getter, maxValue, category, description)
