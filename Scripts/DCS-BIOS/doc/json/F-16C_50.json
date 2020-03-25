@@ -7172,11 +7172,11 @@
                                                                                                       } ],
                                                                                "momentary_positions": "none",
                                                                                            "outputs": [ {
-                                                                                                              "address": 17456,
+                                                                                                              "address": 17446,
                                                                                                           "description": "selector position",
-                                                                                                                 "mask": 512,
+                                                                                                                 "mask": 32768,
                                                                                                             "max_value": 1,
-                                                                                                             "shift_by": 9,
+                                                                                                             "shift_by": 15,
                                                                                                                "suffix": "",
                                                                                                                  "type": "integer"
                                                                                                       } ],
@@ -7602,123 +7602,45 @@
                                                                                                       } ],
                                                                                   "physical_variant": "push_button"
                                                                            },
-                                                         "ICP_DATA_DN_SW": {
-                                                                                          "category": "UFC",
-                                                                                      "control_type": "selector",
-                                                                                       "description": "ICP Data Control Switch, DN",
-                                                                                        "identifier": "ICP_DATA_DN_SW",
-                                                                                            "inputs": [ {
-                                                                                                          "description": "switch to previous or next state",
-                                                                                                            "interface": "fixed_step"
-                                                                                                      }, {
-                                                                                                          "description": "set position",
-                                                                                                            "interface": "set_state",
-                                                                                                            "max_value": 1
-                                                                                                      }, {
-                                                                                                             "argument": "TOGGLE",
-                                                                                                          "description": "Toggle switch state",
-                                                                                                            "interface": "action"
-                                                                                                      } ],
-                                                                               "momentary_positions": "none",
-                                                                                           "outputs": [ {
-                                                                                                              "address": 17456,
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 256,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 8,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                                      } ],
-                                                                                  "physical_variant": "infinite_rotary"
+                                                    "ICP_DATA_RTN_SEQ_SW": {
+                                                                                   "category": "UFC",
+                                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                                "description": "ICP Data Control Switch, RTN-SEQ",
+                                                                                 "identifier": "ICP_DATA_RTN_SEQ_SW",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "set the switch position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 2
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 17456,
+                                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                                          "mask": 192,
+                                                                                                     "max_value": 2,
+                                                                                                      "shift_by": 6,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
                                                                            },
-                                                        "ICP_DATA_RTN_SW": {
-                                                                                          "category": "UFC",
-                                                                                      "control_type": "selector",
-                                                                                       "description": "ICP Data Control Switch, RTN",
-                                                                                        "identifier": "ICP_DATA_RTN_SW",
-                                                                                            "inputs": [ {
-                                                                                                          "description": "switch to previous or next state",
-                                                                                                            "interface": "fixed_step"
-                                                                                                      }, {
-                                                                                                          "description": "set position",
-                                                                                                            "interface": "set_state",
-                                                                                                            "max_value": 1
-                                                                                                      }, {
-                                                                                                             "argument": "TOGGLE",
-                                                                                                          "description": "Toggle switch state",
-                                                                                                            "interface": "action"
-                                                                                                      } ],
-                                                                               "momentary_positions": "none",
-                                                                                           "outputs": [ {
-                                                                                                              "address": 17446,
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 32768,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 15,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                                      } ],
-                                                                                  "physical_variant": "infinite_rotary"
-                                                                           },
-                                                        "ICP_DATA_SEQ_SW": {
-                                                                                       "api_variant": "momentary_last_position",
-                                                                                          "category": "UFC",
-                                                                                      "control_type": "selector",
-                                                                                       "description": "ICP Data Control Switch, SEQ",
-                                                                                        "identifier": "ICP_DATA_SEQ_SW",
-                                                                                            "inputs": [ {
-                                                                                                          "description": "switch to previous or next state",
-                                                                                                            "interface": "fixed_step"
-                                                                                                      }, {
-                                                                                                          "description": "set position",
-                                                                                                            "interface": "set_state",
-                                                                                                            "max_value": 1
-                                                                                                      }, {
-                                                                                                             "argument": "TOGGLE",
-                                                                                                          "description": "Toggle switch state",
-                                                                                                            "interface": "action"
-                                                                                                      } ],
-                                                                               "momentary_positions": "none",
-                                                                                           "outputs": [ {
-                                                                                                              "address": 17456,
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 64,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 6,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                                      } ],
-                                                                                  "physical_variant": "push_button"
-                                                                           },
-                                                         "ICP_DATA_UP_SW": {
-                                                                                       "api_variant": "momentary_last_position",
-                                                                                          "category": "UFC",
-                                                                                      "control_type": "selector",
-                                                                                       "description": "ICP Data Control Switch, UP",
-                                                                                        "identifier": "ICP_DATA_UP_SW",
-                                                                                            "inputs": [ {
-                                                                                                          "description": "switch to previous or next state",
-                                                                                                            "interface": "fixed_step"
-                                                                                                      }, {
-                                                                                                          "description": "set position",
-                                                                                                            "interface": "set_state",
-                                                                                                            "max_value": 1
-                                                                                                      }, {
-                                                                                                             "argument": "TOGGLE",
-                                                                                                          "description": "Toggle switch state",
-                                                                                                            "interface": "action"
-                                                                                                      } ],
-                                                                               "momentary_positions": "none",
-                                                                                           "outputs": [ {
-                                                                                                              "address": 17456,
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 128,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 7,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                                      } ],
-                                                                                  "physical_variant": "push_button"
+                                                      "ICP_DATA_UP_DN_SW": {
+                                                                                   "category": "UFC",
+                                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                                "description": "ICP Data Control Switch, UP-DN",
+                                                                                 "identifier": "ICP_DATA_UP_DN_SW",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "set the switch position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 2
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 17456,
+                                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                                          "mask": 768,
+                                                                                                     "max_value": 2,
+                                                                                                      "shift_by": 8,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
                                                                            },
                                                              "ICP_DED_SW": {
                                                                                    "category": "UFC",
