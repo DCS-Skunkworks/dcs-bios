@@ -127,7 +127,7 @@ definePotentiometer("CONS_LGTH",17,3001, 812, {0, 1},"Lights", "Console and Pane
 definePotentiometer("ARC_27_VOL",26,3002, 806, {0.1, 0.9},"Radio", "AN/ARC-27 UHF Audio Volume Knob")
 definePotentiometer("ARN_6_VOL",27,3004, 802, {0.1, 0.9},"Radio", "AN/ARN-6 Audio Volume Control")
 definePotentiometer("J8_ATT_PTC_TRIM",24,3002, 200, {0.0, 1.0},"Attitude Indicator", "J-8 Attitude Indicator Pitch Trim Knob")
-defineRotary("ARN_6_TUNE",27, 3003, nil, "Radio", "AN/ARN-6 Tuning Crank")
+defineRotary("ARN_6_TUNE",27, 3003, 801, "Radio", "AN/ARN-6 Tuning Crank")
 defineRotary("ARN_6_E_W_VAR",27, 3008, 826, "Radio", "AN/ARN-6 East/West Variation Knob")
 defineRotary("ALT_MET_REF_PRESS",7, 3001, 218, "Cockpit", "Altimeter reference pressure adjusting knob")
 defineRotary("COMP_DIRECTION",20, 3001, nil, "Gyro Compass", "Compass Correction")
