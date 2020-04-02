@@ -49,10 +49,15 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	end
 end
 
+local function getVersion()
+	return "0.7.35"
+end
+defineString("DCS_BIOS", getVersion, 6,  "Metadata" , "DCS Bios Version")
+
 defineString("PILOTNAME", function()
 		if not LoIsOwnshipExportAllowed() then return nil end
 		return player .. string.char(0)
-end, 24, "String", "Pilot Name")
+end, 24, "Metadata", "Pilot Name")
 
 defineIntegerFromGetter("LAT_DEG", function() return latDeg end, 59, "Position", "Latitude Degrees")
 defineIntegerFromGetter("LAT_SEC", function() return latSec end, 59, "Position", "Latitude Seconds")
