@@ -1,15 +1,7 @@
------------------------------------------------------------
---  ____   ____ ____    ____ ___ ___  ____  
--- |  _ \ / ___/ ___|  | __ |_ _/ _ \/ ___| 
--- | | | | |   \___ \  |  _ \| | | | \___ \ 
--- | |_| | |___ ___) | | |_) | | |_| |___) |
--- |____/ \____|____/  |____|___\___/|____/ 
---                                          
+-----------------------------------------------------------                                         
 --     LIBRARY     	:    Mirage 2000C RAZBAM
 --     CONTIBUTORS 	:    Exo7, Ergo, Matchstick, WarLord 
---     LINK        	:    https://github.com/Exo7/DCS_BIOS-M2000C_Library/releases/latest
---     VERSION     	:    v1.25
---
+--     VERSION     	:    v1.27
 -----------------------------------------------------------
 -- Release log : 
 -- v1.12 by Exo7 
@@ -69,6 +61,9 @@
 --
 -- v1.26 by WarLord
 --		fixing the BCD Wheels
+--
+-- v1.27 by WarLord, Matchstick
+--		fixing readouts;UHF Preset fixed;cleanup
 -----------------------------------------------------------
 
 BIOS.protocol.beginModule("M-2000C", 0x7200)
@@ -98,7 +93,7 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 -- Get Displays Functions
 
 local function getUHFFrequency()
-	local li = list_indication(9)
+	local li = list_indication(7)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
 		local name, value = m()
@@ -115,7 +110,7 @@ end
  
 
  local function getVHFFrequency()
-	local li = list_indication(9)
+	local li = list_indication(7)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
 		local name, value = m()
@@ -130,7 +125,7 @@ return "         "
  end
 
  local function getFuelFlow()
-	local li = list_indication(5)
+	local li = list_indication(3)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -177,7 +172,7 @@ return "         "
 end
 
 local function getPCAUR1Disp()
-	local li = list_indication(6)
+	local li = list_indication(4)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -192,7 +187,7 @@ return "         "
 end
 
 local function getPCAUR2Disp()
-	local li = list_indication(6)
+	local li = list_indication(4)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -207,7 +202,7 @@ return "         "
 end
 
 local function getPCAUR3Disp()
-	local li = list_indication(6)
+	local li = list_indication(4)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -222,7 +217,7 @@ return "         "
 end
 
 local function getPCAUR4Disp()
-	local li = list_indication(6)
+	local li = list_indication(4)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -237,7 +232,7 @@ return "         "
 end
 
 local function getPCAUR5Disp()
-	local li = list_indication(6)
+	local li = list_indication(4)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -253,7 +248,7 @@ end
 
 
 local function getPCABR1Disp()
-	local li = list_indication(7)
+	local li = list_indication(5)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -268,7 +263,7 @@ return "         "
 end
 
 local function getPCABR2Disp()
-	local li = list_indication(7)
+	local li = list_indication(5)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -283,7 +278,7 @@ return "         "
 end
 
 local function getPCABR3Disp()
-	local li = list_indication(7)
+	local li = list_indication(5)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -298,7 +293,7 @@ return "         "
 end
 
 local function getPCABR4Disp()
-	local li = list_indication(7)
+	local li = list_indication(5)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -313,7 +308,7 @@ return "         "
 end
 
 local function getPCABR5Disp()
-	local li = list_indication(7)
+	local li = list_indication(5)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -328,7 +323,7 @@ return "         "
 end
 
 local function getPPAQtyDisp()
-	local li = list_indication(8)
+	local li = list_indication(6)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -343,7 +338,7 @@ return "         "
 end
 
 local function getPPAIntDisp()
-	local li = list_indication(8)
+	local li = list_indication(6)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
 	while true do
         local name, value = m()
@@ -358,7 +353,7 @@ return "         "
 end
 
 local function getPCNDispL() -- by Ergo
-   local li = list_indication(10)
+   local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    while true do
         local name, value = m()
@@ -373,7 +368,7 @@ return "         "
 end
 
 local function getPCNDispR() -- by Ergo
-   local li = list_indication(10)
+   local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    while true do
         local name, value = m()
@@ -388,7 +383,7 @@ return "         "
 end
 
 local function getPCNDigitR()  -- by Ergo
-   local li = list_indication(10)
+   local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    local count = 0
    local ret = " "
@@ -421,7 +416,7 @@ return ret
 end
 
 local function getPCNDigitL()  -- by Ergo
-   local li = list_indication(10)
+   local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    local count = 0
    local ret = " "
@@ -454,7 +449,7 @@ return ret
 end
 
 local function getPCN2DigitR()  -- by Ergo
-   local li = list_indication(10)
+   local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    local east = ""
    local west = ""
@@ -484,7 +479,7 @@ local function getPCN2DigitR()  -- by Ergo
 end
 
 local function getPCN2DigitL()  -- by Ergo
-   local li = list_indication(10)
+   local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    local north = ""
    local south = ""
@@ -514,7 +509,7 @@ local function getPCN2DigitL()  -- by Ergo
 end
 
 local function getPCNDispDest()  -- by Ergo
-   local li = list_indication(11)
+   local li = list_indication(10)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    while true do
         local name, value = m()
@@ -535,7 +530,7 @@ return "         "
 end
 
 local function getPCNDispPrep() -- by Ergo
-   local li = list_indication(11)
+   local li = list_indication(10)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    while true do
         local name, value = m()
@@ -1103,7 +1098,7 @@ defineToggleSwitch("UHF_PWR_5W_25W_SW", 20, 3429, 429, "UHF RADIO", "I - UHF - P
 defineToggleSwitch("UHF_SIL_SW", 20, 3430, 430, "UHF RADIO", "I - UHF - SIL Switch")
 defineToggleSwitch("UHF_CDE_SW", 20, 3432, 432, "UHF RADIO", "I - UHF - CDE Switch")
 definePushButton("UHF_TEST_SW", 20, 3434, 434, "UHF RADIO", "I - UHF - TEST Switch")
-defineSetCommandTumb("UHF_PRESET_KNOB", 20, 3435, 435, 0.05, {0.05, 1}, nil, true, "UHF RADIO", "Preset Knob UHF")
+defineSetCommandTumb("UHF_PRESET_KNOB", 20, 3435, 435, 0.05, {0, 1}, {" 1", " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "UHF RADIO", "Preset Knob UHF")
 defineTumb("UHF_E+A2_SW", 20, 3431, 431, 1, {-1, 1}, nil, false, "UHF RADIO", "I - UHF - E+A2 Switch")
 defineFloat("UHF_PRESET", 436, {0, 1}, "UHF RADIO", "O - UHF - PRESET Display")
 defineString("UHF_FREQUENCY", getUHFFrequency, 5, "UHF RADIO", "O - UHF - Frequency Report Display")
