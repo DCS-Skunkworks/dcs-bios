@@ -31,7 +31,7 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- remove Arg# Pilot 540
 
-function ValueConvert(actual_value, input, output)
+local function ValueConvert(actual_value, input, output)
 local range=1
 local real_value=0
 local slope = {}
@@ -51,7 +51,7 @@ local slope = {}
 	return final_value
 end
 
-function coerce_nil_to_string(value)
+local function coerce_nil_to_string(value)
 	if value == nil then
 		return ""
 	else
@@ -59,7 +59,7 @@ function coerce_nil_to_string(value)
 	end
 end
 
-function parse_indication(indicator_id)  -- Thanks to [FSF]Ian code
+local function parse_indication(indicator_id)  -- Thanks to [FSF]Ian code
 	local ret = {}
 	local li = list_indication(indicator_id)
 	if li == "" then return nil end
@@ -72,7 +72,7 @@ function parse_indication(indicator_id)  -- Thanks to [FSF]Ian code
 	return ret
 end
 
-function defineEmergencyParkingBrake(msg, device_id, emergency_command, park_command, arg_number, category, description)
+local function defineEmergencyParkingBrake(msg, device_id, emergency_command, park_command, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 1 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		if dev0:get_argument_value(arg_number) < 0.5 then
@@ -117,7 +117,7 @@ function defineEmergencyParkingBrake(msg, device_id, emergency_command, park_com
 	end
 end
 
-function defineToggleSwitchToggleOnly2(msg, device_id, command, arg_number, category, description)
+local function defineToggleSwitchToggleOnly2(msg, device_id, command, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 1 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		if dev0:get_argument_value(arg_number) < 0.5 then
@@ -158,7 +158,7 @@ function defineToggleSwitchToggleOnly2(msg, device_id, command, arg_number, cate
 	end
 end
 
-function defineMissionComputerSwitch(msg, device_id, mc1_off_command, mc2_off_command, arg_number, category, description)
+local function defineMissionComputerSwitch(msg, device_id, mc1_off_command, mc2_off_command, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 	    local val = dev0:get_argument_value(arg_number)
@@ -202,7 +202,7 @@ function defineMissionComputerSwitch(msg, device_id, mc1_off_command, mc2_off_co
 	end
 end
 
-function defineEjectionHandleSwitch(msg, device_id, command, arg_number, category, description)
+local function defineEjectionHandleSwitch(msg, device_id, command, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 1 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		if dev0:get_argument_value(arg_number) < 0.5 then
@@ -243,7 +243,7 @@ function defineEjectionHandleSwitch(msg, device_id, command, arg_number, categor
 end
 
 
-function defineFloatWithValueConversion(msg, arg_number, limits, input_range, output_range, category, description)
+local function defineFloatWithValueConversion(msg, arg_number, limits, input_range, output_range, category, description)
 	local intervalLength = limits[2] - limits[1]
 	local alloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 65535 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
@@ -271,7 +271,7 @@ end
 
 
 -- functions by Capt Zeen
-function defineFrequency(msg, id_device_number, category, description)
+local function defineFrequency(msg, id_device_number, category, description)
 	
 	local alloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 65535 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(freq)
@@ -298,7 +298,7 @@ function defineFrequency(msg, id_device_number, category, description)
 end
 
 
-function defineFloatFromUFCChannel(msg, _channel, category, description)
+local function defineFloatFromUFCChannel(msg, _channel, category, description)
 	
 	
 		 
@@ -374,19 +374,13 @@ function defineFloatFromUFCChannel(msg, _channel, category, description)
 	}
 
 end
-
-
 -- end of functions adeed by Capt Zeen
-
 
 -- radio freqs: by Capt Zeen
 defineFrequency("COMM1_FREQ", 38, "Comms frequency", "COMM1 FREQ")
 defineFrequency("COMM2_FREQ", 39, "Comms frequency", "COMM2 FREQ")
 defineFloatFromUFCChannel("COMM1_CHANNEL_NUMERIC", 1, "Comms frequency", "Comm 1 Channel as number")   
 defineFloatFromUFCChannel("COMM2_CHANNEL_NUMERIC", 2, "Comms frequency", "Comm 2 Channel as number")   
-
-
-
 
 -- INSTRUMENT PANEL
 
