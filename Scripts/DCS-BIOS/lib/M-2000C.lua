@@ -1,7 +1,7 @@
 -----------------------------------------------------------                                         
 --     LIBRARY     	:    Mirage 2000C RAZBAM
 --     CONTIBUTORS 	:    Exo7, Ergo, Matchstick, WarLord 
---     VERSION     	:    v1.27
+--     VERSION     	:    v1.27a
 -----------------------------------------------------------
 -- Release log : 
 -- v1.12 by Exo7 
@@ -62,7 +62,7 @@
 -- v1.26 by WarLord
 --		fixing the BCD Wheels
 --
--- v1.27 by WarLord, Matchstick
+-- v1.27a by WarLord, Matchstick
 --		fixing readouts;UHF Preset fixed;cleanup
 -----------------------------------------------------------
 
@@ -139,37 +139,37 @@ return "         "
 return "         "
 end
 
+-- 04 Apr 2020 - ECM BOX modified in recent versions of M2000C module cockpit so display functions have been removed
+--local function getEMDisp()
+--	local li = list_indication(3)
+--	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+--	while true do
+--        local name, value = m()
+--        if not name then break end
+--		if name == "text_ECM_CHF"
+--        then
+--        value = "   "..value
+--        return value:sub(-3)
+--      end
+--    end
+--return "         "
+--end
 
-local function getEMDisp()
-	local li = list_indication(3)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "text_ECM_CHF"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
-end
 
-
-local function getIRDisp()
-	local li = list_indication(4)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "text_ECM_FLR"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
-end
+--local function getIRDisp()
+--	local li = list_indication(4)
+--	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+--	while true do
+--        local name, value = m()
+--        if not name then break end
+--		if name == "text_ECM_FLR"
+--        then
+--        value = "   "..value
+--        return value:sub(-3)
+--      end
+--    end
+--return "         "
+--end
 
 local function getPCAUR1Disp()
 	local li = list_indication(4)
@@ -688,12 +688,18 @@ defineIndicatorLight("CONF_AUX", 418, "CONFIGURATION PANEL", "O - CONF - Aux Lan
 defineIndicatorLight("CONF_D", 419, "CONFIGURATION PANEL", "O - CONF - Right Landing Gear Light")
 
 -- ECM BOX
-defineToggleSwitch("ECM_BOX_SW", 13, 3195, 195, "ECM BOX", "I - ECM Box Switch")
-defineToggleSwitch("ECM_BOX_LGT_SW", 13, 3196, 196, "ECM BOX", "I - ECM Box Lights Switch")
-defineTumb("ECM_BOX_MODE_SW", 13, 3194, 194, 0.5, {0, 1}, nil, false, "ECM BOX", "I - ECM Box Mode Switch")
-definePotentiometer("ECM_BOX_LCD_BRIGHT", 13, 3197, 197, {0, 1}, "ECM BOX", "I - ECM Box LCD Display Brightness")
-defineString("ECM_FLR_DISP", getIRDisp, 3, "ECM BOX", "O - ECM Box FLR Display")
-defineString("ECM_EM_DISP", getEMDisp, 3, "ECM BOX", "O - ECM Box EM Display")
+-- 04 Apr 2020 - ECM BOX modified in recent versions of M2000 module cockpit so old items removed and replaced with current ones
+--defineToggleSwitch("ECM_BOX_SW", 13, 3195, 195, "ECM BOX", "I - ECM Box Switch")
+--defineToggleSwitch("ECM_BOX_LGT_SW", 13, 3196, 196, "ECM BOX", "I - ECM Box Lights Switch")
+--defineTumb("ECM_BOX_MODE_SW", 13, 3194, 194, 0.5, {0, 1}, nil, false, "ECM BOX", "I - ECM Box Mode Switch")
+--definePotentiometer("ECM_BOX_LCD_BRIGHT", 13, 3197, 197, {0, 1}, "ECM BOX", "I - ECM Box LCD Display Brightness")
+--defineString("ECM_FLR_DISP", getIRDisp, 3, "ECM BOX", "O - ECM Box FLR Display")
+--defineString("ECM_EM_DISP", getEMDisp, 3, "ECM BOX", "O - ECM Box EM Display")
+definePushButton("ECM_BOX_BLT_SW", 13, 3990, 990, "ECM BOX", "I - ECM Box Clear Button")
+defineIndicatorLight("ECM_BOX_LL", 991, "ECM BOX", "O - ECM Box LL Light (green)")
+defineIndicatorLight("ECM_BOX_EM", 992, "ECM BOX", "O - ECM Box EM EM Light (yellow)")
+defineIndicatorLight("ECM_BOX_IR", 993, "ECM BOX", "O - ECM Box IR Light (yellow)")
+defineIndicatorLight("ECM_BOX_EO", 994, "ECM BOX", "O - ECM Box EO Light (yellow)")
 
 --ENVIRONMENT CONTROL PANEL
 defineToggleSwitch("ECS_MAIN_MODE_SW", 25, 3630, 630, "ECS PANEL", "I - ECS Main Mode Switch")
@@ -1147,7 +1153,6 @@ defineToggleSwitch("NVG_HELMET_MOUNT", 31, 3002, 1, "NVG", "I - NVG - Mount/Unmo
 defineToggleSwitch("NVG_STOW", 31, 3001, 2, "NVG", "I - NVG - STOW/UNSTOW NVG")
 defineToggleSwitch("NVG_LIGHT_FILTER_SW", 16, 3672, 672, "NVG", "I - NVG - NVG Lights Filter Switch")
 
-
 defineIndicatorLight("UHF_REP_L_1", 187, "UHF RADIO", "UHF Repeater COM1 Light (green)")
 defineIndicatorLight("UHF_REP_L_2", 188, "UHF RADIO", "UHF Repeater COM2 Light (green)")
 defineIndicatorLight("UHF_TEST_L", 676, "UHF RADIO", "UHF TEST Light (yellow)")
@@ -1193,6 +1198,5 @@ end, 65535, "External Aircraft Model", "Front Formation Lights")
 defineIntegerFromGetter("EXT_FORMATION_LIGHTS_AFT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(201)*65535)
 end, 65535, "External Aircraft Model", "Aft Formation Lights")
-
 
 BIOS.protocol.endModule()
