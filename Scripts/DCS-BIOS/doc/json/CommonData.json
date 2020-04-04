@@ -7,7 +7,7 @@
                                         "identifier": "ALT_MSL_FT",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                              "address": 1068,
+                                                              "address": 1074,
                                                           "description": "Altitude MSL (ft)",
                                                                  "mask": 65535,
                                                             "max_value": 65535,
@@ -25,7 +25,7 @@
                                           "identifier": "HDG_DEG",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1070,
+                                                                "address": 1076,
                                                             "description": "Heading (Degrees)",
                                                                    "mask": 511,
                                                               "max_value": 360,
@@ -41,7 +41,7 @@
                                           "identifier": "HDG_DEG_FRAC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1070,
+                                                                "address": 1076,
                                                             "description": "Heading (Fractional Degrees, divide by 127)",
                                                                    "mask": 65024,
                                                               "max_value": 127,
@@ -51,6 +51,36 @@
                                                         } ]
                                     }
                 },
+    "Metadata": {
+                     "DCS_BIOS": {
+                                         "category": "Metadata",
+                                     "control_type": "display",
+                                      "description": "DCS Bios Version",
+                                       "identifier": "DCS_BIOS",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1024,
+                                                         "description": "DCS Bios Version",
+                                                          "max_length": 6,
+                                                              "suffix": "",
+                                                                "type": "string"
+                                                     } ]
+                                 },
+                    "PILOTNAME": {
+                                         "category": "Metadata",
+                                     "control_type": "display",
+                                      "description": "Pilot Name",
+                                       "identifier": "PILOTNAME",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1030,
+                                                         "description": "Pilot Name",
+                                                          "max_length": 24,
+                                                              "suffix": "",
+                                                                "type": "string"
+                                                     } ]
+                                 }
+                },
     "Position": {
                          "LAT_DEG": {
                                             "category": "Position",
@@ -59,7 +89,7 @@
                                           "identifier": "LAT_DEG",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1048,
+                                                                "address": 1054,
                                                             "description": "Latitude Degrees",
                                                                    "mask": 63,
                                                               "max_value": 59,
@@ -75,7 +105,7 @@
                                           "identifier": "LAT_SEC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1048,
+                                                                "address": 1054,
                                                             "description": "Latitude Seconds",
                                                                    "mask": 4032,
                                                               "max_value": 59,
@@ -91,7 +121,7 @@
                                           "identifier": "LAT_SEC_FRAC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1050,
+                                                                "address": 1056,
                                                             "description": "Latitude Fractional Seconds (divide by 65535)",
                                                                    "mask": 65535,
                                                               "max_value": 65535,
@@ -107,7 +137,7 @@
                                           "identifier": "LON_DEG",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1064,
+                                                                "address": 1070,
                                                             "description": "Longitude Degrees",
                                                                    "mask": 63,
                                                               "max_value": 59,
@@ -123,7 +153,7 @@
                                           "identifier": "LON_SEC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1064,
+                                                                "address": 1070,
                                                             "description": "Longitude Seconds",
                                                                    "mask": 4032,
                                                               "max_value": 59,
@@ -139,7 +169,7 @@
                                           "identifier": "LON_SEC_FRAC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1066,
+                                                                "address": 1072,
                                                             "description": "Longitude Fractional Seconds (divide by 65535)",
                                                                    "mask": 65535,
                                                               "max_value": 65535,
@@ -157,7 +187,7 @@
                                         "identifier": "IAS_EU",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                              "address": 1052,
+                                                              "address": 1058,
                                                           "description": "Indicated Airspeed KM H",
                                                            "max_length": 4,
                                                                "suffix": "",
@@ -171,7 +201,7 @@
                                         "identifier": "IAS_EU_INT",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                              "address": 1060,
+                                                              "address": 1066,
                                                           "description": "Indicated Airspeed KM H (Int)",
                                                                  "mask": 65535,
                                                             "max_value": 65535,
@@ -187,7 +217,7 @@
                                         "identifier": "IAS_US",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                              "address": 1056,
+                                                              "address": 1062,
                                                           "description": "Indicated Airspeed KNT",
                                                            "max_length": 4,
                                                                "suffix": "",
@@ -201,7 +231,7 @@
                                         "identifier": "IAS_US_INT",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                              "address": 1062,
+                                                              "address": 1068,
                                                           "description": "Indicated Airspeed KNT (Int)",
                                                                  "mask": 65535,
                                                             "max_value": 65535,
@@ -210,21 +240,5 @@
                                                                  "type": "integer"
                                                       } ]
                                   }
-                },
-      "String": {
-                    "PILOTNAME": {
-                                         "category": "String",
-                                     "control_type": "display",
-                                      "description": "Pilot Name",
-                                       "identifier": "PILOTNAME",
-                                           "inputs": [  ],
-                                          "outputs": [ {
-                                                             "address": 1024,
-                                                         "description": "Pilot Name",
-                                                          "max_length": 24,
-                                                              "suffix": "",
-                                                                "type": "string"
-                                                     } ]
-                                 }
                 }
 }

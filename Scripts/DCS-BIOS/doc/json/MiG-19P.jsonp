@@ -77,29 +77,26 @@ docdata["MiG-19P"] =
                                                                           "physical_variant": "toggle_switch"
                                                                    },
                                                  "ARK5_FREQ_TUNE": {
-                                                                                  "category": "ARK5 Panel",
-                                                                              "control_type": "selector",
-                                                                               "description": "ARK-5 Frequency Fine Tuning Handle",
-                                                                                "identifier": "ARK5_FREQ_TUNE",
-                                                                                    "inputs": [ {
-                                                                                                  "description": "switch to previous or next state",
-                                                                                                    "interface": "fixed_step"
-                                                                                              }, {
-                                                                                                  "description": "set position",
-                                                                                                    "interface": "set_state",
-                                                                                                    "max_value": 20
-                                                                                              } ],
-                                                                       "momentary_positions": "none",
-                                                                                   "outputs": [ {
-                                                                                                      "address": 5684,
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 1984,
-                                                                                                    "max_value": 20,
-                                                                                                     "shift_by": 6,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                                              } ],
-                                                                          "physical_variant": "infinite_rotary"
+                                                                        "api_variant": "multiturn",
+                                                                           "category": "ARK5 Panel",
+                                                                       "control_type": "analog_dial",
+                                                                        "description": "ARK-5 Frequency Fine Tuning Handle",
+                                                                         "identifier": "ARK5_FREQ_TUNE",
+                                                                             "inputs": [ {
+                                                                                              "description": "turn the dial left or right",
+                                                                                                "interface": "variable_step",
+                                                                                                "max_value": 65535,
+                                                                                           "suggested_step": 3200
+                                                                                       } ],
+                                                                            "outputs": [ {
+                                                                                               "address": 5690,
+                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                  "mask": 65535,
+                                                                                             "max_value": 65535,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "_KNOB_POS",
+                                                                                                  "type": "integer"
+                                                                                       } ]
                                                                    },
                                                 "ARK5_INST_LIGHT": {
                                                                            "category": "ARK5 Panel",
@@ -2060,11 +2057,11 @@ docdata["MiG-19P"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 5692,
+                                                                                                    "address": 5694,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 2048,
+                                                                                                       "mask": 64,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 11,
+                                                                                                   "shift_by": 6,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -2089,11 +2086,11 @@ docdata["MiG-19P"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 5692,
+                                                                                                    "address": 5694,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 4096,
+                                                                                                       "mask": 128,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 12,
+                                                                                                   "shift_by": 7,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -2118,11 +2115,11 @@ docdata["MiG-19P"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 5692,
+                                                                                                    "address": 5694,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 8192,
+                                                                                                       "mask": 256,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 13,
+                                                                                                   "shift_by": 8,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -2147,11 +2144,11 @@ docdata["MiG-19P"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 5692,
+                                                                                                    "address": 5694,
                                                                                                 "description": "selector position",
-                                                                                                       "mask": 16384,
+                                                                                                       "mask": 512,
                                                                                                   "max_value": 1,
-                                                                                                   "shift_by": 14,
+                                                                                                   "shift_by": 9,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ],
@@ -2253,11 +2250,11 @@ docdata["MiG-19P"] =
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5692,
+                                                                                                      "address": 5694,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 512,
+                                                                                                         "mask": 16,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 9,
+                                                                                                     "shift_by": 4,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2282,11 +2279,11 @@ docdata["MiG-19P"] =
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5692,
+                                                                                                      "address": 5694,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 64,
+                                                                                                         "mask": 2,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 6,
+                                                                                                     "shift_by": 1,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2311,11 +2308,11 @@ docdata["MiG-19P"] =
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5692,
+                                                                                                      "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 4,
+                                                                                                         "mask": 8192,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 2,
+                                                                                                     "shift_by": 13,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2340,11 +2337,11 @@ docdata["MiG-19P"] =
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5692,
+                                                                                                      "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 8,
+                                                                                                         "mask": 16384,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 3,
+                                                                                                     "shift_by": 14,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2369,11 +2366,11 @@ docdata["MiG-19P"] =
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5692,
+                                                                                                      "address": 5694,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 32,
+                                                                                                         "mask": 1,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 5,
+                                                                                                     "shift_by": 0,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2398,11 +2395,11 @@ docdata["MiG-19P"] =
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5692,
+                                                                                                      "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 16,
+                                                                                                         "mask": 32768,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 4,
+                                                                                                     "shift_by": 15,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2427,11 +2424,11 @@ docdata["MiG-19P"] =
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5692,
+                                                                                                      "address": 5694,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 256,
+                                                                                                         "mask": 8,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 8,
+                                                                                                     "shift_by": 3,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2456,11 +2453,11 @@ docdata["MiG-19P"] =
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5692,
+                                                                                                      "address": 5694,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 128,
+                                                                                                         "mask": 4,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 7,
+                                                                                                     "shift_by": 2,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2485,11 +2482,11 @@ docdata["MiG-19P"] =
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5692,
+                                                                                                      "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 2,
+                                                                                                         "mask": 4096,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 1,
+                                                                                                     "shift_by": 12,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2514,11 +2511,11 @@ docdata["MiG-19P"] =
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5692,
+                                                                                                      "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 1,
+                                                                                                         "mask": 2048,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 0,
+                                                                                                     "shift_by": 11,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2543,11 +2540,11 @@ docdata["MiG-19P"] =
                                                                                               } ],
                                                                        "momentary_positions": "none",
                                                                                    "outputs": [ {
-                                                                                                      "address": 5692,
+                                                                                                      "address": 5694,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 1024,
+                                                                                                         "mask": 32,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 10,
+                                                                                                     "shift_by": 5,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -2692,11 +2689,11 @@ docdata["MiG-19P"] =
                                                                                   "identifier": "EXT_POSITION_LIGHT_LEFT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 5700,
+                                                                                                        "address": 5702,
                                                                                                     "description": "Left Position Light (red)",
-                                                                                                           "mask": 128,
+                                                                                                           "mask": 4,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 7,
+                                                                                                       "shift_by": 2,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -2708,11 +2705,11 @@ docdata["MiG-19P"] =
                                                                                   "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 5700,
+                                                                                                        "address": 5702,
                                                                                                     "description": "Right Position Light (green)",
-                                                                                                           "mask": 256,
+                                                                                                           "mask": 8,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 8,
+                                                                                                       "shift_by": 3,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -2724,7 +2721,7 @@ docdata["MiG-19P"] =
                                                                                   "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 5816,
+                                                                                                        "address": 5818,
                                                                                                     "description": "Left Speed Brake",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -2740,7 +2737,7 @@ docdata["MiG-19P"] =
                                                                                   "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 5814,
+                                                                                                        "address": 5816,
                                                                                                     "description": "Right Speed Brake",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -3352,7 +3349,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "AGI1_ART_HORIZON_BANK",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5748,
+                                                                                                       "address": 5750,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3368,7 +3365,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "AGI1_ART_HORIZON_PITCH",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5746,
+                                                                                                       "address": 5748,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3384,7 +3381,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "AIRSPEED_IAS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5722,
+                                                                                                       "address": 5724,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3400,7 +3397,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "AIRSPEED_TAS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5724,
+                                                                                                       "address": 5726,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3416,7 +3413,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "ARK5P_FREQ_150",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5800,
+                                                                                                       "address": 5802,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3432,7 +3429,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "ARK5P_FREQ_310",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5802,
+                                                                                                       "address": 5804,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3448,7 +3445,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "ARK5P_FREQ_640",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5804,
+                                                                                                       "address": 5806,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3464,7 +3461,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "ARK5P_SIG_STRENGTH",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5798,
+                                                                                                       "address": 5800,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3480,7 +3477,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "ARK5_FREQ_SCALE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5702,
+                                                                                                       "address": 5704,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3496,7 +3493,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "ARU2V_STABI_IND",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5750,
+                                                                                                       "address": 5752,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3512,7 +3509,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "ASP5N_DIVE_ANGLE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5808,
+                                                                                                       "address": 5810,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3528,7 +3525,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "ASP5N_TRG_SPAN",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5806,
+                                                                                                       "address": 5808,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3544,7 +3541,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "BARO_ALT_100",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5712,
+                                                                                                       "address": 5714,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3560,7 +3557,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "BARO_ALT_1000",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5710,
+                                                                                                       "address": 5712,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3576,7 +3573,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "BARO_ALT_SEL",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5714,
+                                                                                                       "address": 5716,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3592,7 +3589,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "BRAKE_PRESS_L",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5776,
+                                                                                                       "address": 5778,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3608,7 +3605,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "BRAKE_PRESS_R",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5778,
+                                                                                                       "address": 5780,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3624,7 +3621,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "CLOCK_DAY",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5744,
+                                                                                                       "address": 5746,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3640,7 +3637,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "CLOCK_FLIGHT_H",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5732,
+                                                                                                       "address": 5734,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3656,7 +3653,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "CLOCK_FLIGHT_M",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5734,
+                                                                                                       "address": 5736,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3672,7 +3669,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "CLOCK_H",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5736,
+                                                                                                       "address": 5738,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3688,7 +3685,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "CLOCK_M",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5738,
+                                                                                                       "address": 5740,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3704,7 +3701,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "CLOCK_S",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5740,
+                                                                                                       "address": 5742,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3720,7 +3717,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "CPT_ALTIMETER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5770,
+                                                                                                       "address": 5772,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3736,7 +3733,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "CPT_DIFF_PRESS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5772,
+                                                                                                       "address": 5774,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3752,7 +3749,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "EGT_GAUGE_L",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5752,
+                                                                                                       "address": 5754,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3768,7 +3765,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "EGT_GAUGE_R",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5754,
+                                                                                                       "address": 5756,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3784,7 +3781,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "EMERG_FLAPS_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5794,
+                                                                                                       "address": 5796,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3800,7 +3797,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "EMERG_GEAR_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5790,
+                                                                                                       "address": 5792,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3816,7 +3813,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "EUP53_TURN",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5726,
+                                                                                                       "address": 5728,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3832,7 +3829,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "FUEL_FLOW_IND",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5766,
+                                                                                                       "address": 5768,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3848,7 +3845,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "FUEL_IND",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5764,
+                                                                                                       "address": 5766,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3864,7 +3861,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "GIK_CRS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5718,
+                                                                                                       "address": 5720,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3880,7 +3877,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "GIK_HDG",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5716,
+                                                                                                       "address": 5718,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3896,7 +3893,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "GIK_NDB",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5720,
+                                                                                                       "address": 5722,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3912,7 +3909,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "G_METER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5782,
+                                                                                                       "address": 5784,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3928,7 +3925,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "G_METER_L_POINTER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5786,
+                                                                                                       "address": 5788,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3944,7 +3941,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "G_METER_R_POINTER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5784,
+                                                                                                       "address": 5786,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3960,7 +3957,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "HYD_BOOST_PRESS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5780,
+                                                                                                       "address": 5782,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3976,7 +3973,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "HYD_SYS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5792,
+                                                                                                       "address": 5794,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3992,7 +3989,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "L_RPM",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5758,
+                                                                                                       "address": 5760,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4008,7 +4005,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "MACH_IND",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5762,
+                                                                                                       "address": 5764,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4024,7 +4021,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "OXY_FLOW_INDICATOR",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5708,
+                                                                                                       "address": 5710,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4040,7 +4037,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "OXY_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5706,
+                                                                                                       "address": 5708,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4056,7 +4053,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "OXY_SYS_ALT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5774,
+                                                                                                       "address": 5776,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4072,7 +4069,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "PNEU_SYS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5796,
+                                                                                                       "address": 5798,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4088,7 +4085,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "RADAR_ALT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5730,
+                                                                                                       "address": 5732,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4104,7 +4101,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "R_RPM",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5760,
+                                                                                                       "address": 5762,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4120,7 +4117,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "SLIP_INDICATOR",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5728,
+                                                                                                       "address": 5730,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4136,7 +4133,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "STOPWATCH_S",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5742,
+                                                                                                       "address": 5744,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4152,7 +4149,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "TARGET_DIS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5788,
+                                                                                                       "address": 5790,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4168,7 +4165,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "USB1_L_AMMO_COUNT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5810,
+                                                                                                       "address": 5812,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4184,7 +4181,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "USB1_R_AMMO_COUNT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5812,
+                                                                                                       "address": 5814,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4200,7 +4197,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "VARIOMETER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5756,
+                                                                                                       "address": 5758,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4216,7 +4213,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "VOLTMETER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5768,
+                                                                                                       "address": 5770,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4232,7 +4229,7 @@ docdata["MiG-19P"] =
                                                                                  "identifier": "VOLT_MANOMETER_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5704,
+                                                                                                       "address": 5706,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -5288,7 +5285,7 @@ docdata["MiG-19P"] =
                                                                                            "suggested_step": 3200
                                                                                        } ],
                                                                             "outputs": [ {
-                                                                                               "address": 5690,
+                                                                                               "address": 5692,
                                                                                            "description": "position of the potentiometer",
                                                                                                   "mask": 65535,
                                                                                              "max_value": 65535,
@@ -5314,9 +5311,9 @@ docdata["MiG-19P"] =
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 24576,
+                                                                                                         "mask": 768,
                                                                                                     "max_value": 2,
-                                                                                                     "shift_by": 13,
+                                                                                                     "shift_by": 8,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -5343,9 +5340,9 @@ docdata["MiG-19P"] =
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 32768,
+                                                                                                         "mask": 1024,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 15,
+                                                                                                     "shift_by": 10,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -5372,9 +5369,9 @@ docdata["MiG-19P"] =
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 4096,
+                                                                                                         "mask": 128,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 12,
+                                                                                                     "shift_by": 7,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -5401,9 +5398,9 @@ docdata["MiG-19P"] =
                                                                                    "outputs": [ {
                                                                                                       "address": 5684,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 2048,
+                                                                                                         "mask": 64,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 11,
+                                                                                                     "shift_by": 6,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -5832,9 +5829,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8,
+                                                                                                              "mask": 16384,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 3,
+                                                                                                          "shift_by": 14,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5846,11 +5843,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "AIRBRAKE_DOWN",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5694,
+                                                                                                           "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 64,
+                                                                                                              "mask": 2,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 6,
+                                                                                                          "shift_by": 1,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5864,9 +5861,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8,
+                                                                                                              "mask": 16384,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 3,
+                                                                                                          "shift_by": 14,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5878,11 +5875,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "ARU2V_TAKEOFF_LAND_POS_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5694,
+                                                                                                           "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1024,
+                                                                                                              "mask": 32,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 10,
+                                                                                                          "shift_by": 5,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5894,11 +5891,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "BEACON_MARK_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5694,
+                                                                                                           "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 512,
+                                                                                                              "mask": 16,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 9,
+                                                                                                          "shift_by": 4,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5910,11 +5907,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "BOMB_FUSE_ARM_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5696,
+                                                                                                           "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 512,
+                                                                                                              "mask": 16,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 9,
+                                                                                                          "shift_by": 4,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5926,11 +5923,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "DROP_TANK_EMPTY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5696,
+                                                                                                           "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4096,
+                                                                                                              "mask": 128,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 12,
+                                                                                                          "shift_by": 7,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5944,9 +5941,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4,
+                                                                                                              "mask": 8192,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 2,
+                                                                                                          "shift_by": 13,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5958,11 +5955,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "FLAPS_DOWN",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5694,
+                                                                                                           "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32,
+                                                                                                              "mask": 1,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 5,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5974,11 +5971,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "FUEL_550_REST",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5696,
+                                                                                                           "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32,
+                                                                                                              "mask": 1,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 5,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5992,9 +5989,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16,
+                                                                                                              "mask": 32768,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 4,
+                                                                                                          "shift_by": 15,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6008,9 +6005,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2,
+                                                                                                              "mask": 4096,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 1,
+                                                                                                          "shift_by": 12,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6024,9 +6021,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1,
+                                                                                                              "mask": 2048,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 0,
+                                                                                                          "shift_by": 11,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6040,9 +6037,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16,
+                                                                                                              "mask": 32768,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 4,
+                                                                                                          "shift_by": 15,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6056,9 +6053,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1,
+                                                                                                              "mask": 2048,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 0,
+                                                                                                          "shift_by": 11,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6070,11 +6067,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "GUNSIGHT_LOCK_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5696,
+                                                                                                           "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32768,
+                                                                                                              "mask": 1024,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 15,
+                                                                                                          "shift_by": 10,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6086,11 +6083,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "HYD_LOW_PRESS_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5696,
+                                                                                                           "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 64,
+                                                                                                              "mask": 2,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 6,
+                                                                                                          "shift_by": 1,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6102,11 +6099,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "IFF_SELFDESTRUCT_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5692,
+                                                                                                           "address": 5694,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32768,
+                                                                                                              "mask": 1024,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 15,
+                                                                                                          "shift_by": 10,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6118,11 +6115,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "L_CANNON_ARM",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5696,
+                                                                                                           "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1024,
+                                                                                                              "mask": 32,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 10,
+                                                                                                          "shift_by": 5,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6134,11 +6131,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "L_CONSOLE_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5698,
+                                                                                                           "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16384,
+                                                                                                              "mask": 512,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 14,
+                                                                                                          "shift_by": 9,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6152,9 +6149,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1,
+                                                                                                              "mask": 2048,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 0,
+                                                                                                          "shift_by": 11,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6166,11 +6163,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "L_ENGINE_MIL",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5694,
+                                                                                                           "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4096,
+                                                                                                              "mask": 128,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 12,
+                                                                                                          "shift_by": 7,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6182,11 +6179,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "L_ENG_AIRSTART",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5696,
+                                                                                                           "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 128,
+                                                                                                              "mask": 4,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 7,
+                                                                                                          "shift_by": 2,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6200,9 +6197,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4,
+                                                                                                              "mask": 8192,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 2,
+                                                                                                          "shift_by": 13,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6216,9 +6213,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4,
+                                                                                                              "mask": 8192,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 2,
+                                                                                                          "shift_by": 13,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6230,11 +6227,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "L_GEAR_UP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5698,
+                                                                                                           "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32768,
+                                                                                                              "mask": 1024,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 15,
+                                                                                                          "shift_by": 10,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6246,11 +6243,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "L_GEN_FAIL",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5694,
+                                                                                                           "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16384,
+                                                                                                              "mask": 512,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 14,
+                                                                                                          "shift_by": 9,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6262,11 +6259,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "L_WING_LOAD",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5696,
+                                                                                                           "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8192,
+                                                                                                              "mask": 256,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 13,
+                                                                                                          "shift_by": 8,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6280,9 +6277,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8,
+                                                                                                              "mask": 16384,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 3,
+                                                                                                          "shift_by": 14,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6296,9 +6293,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1,
+                                                                                                              "mask": 2048,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 0,
+                                                                                                          "shift_by": 11,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6310,11 +6307,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "PITCH_TRIM_NEUTRAL_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5694,
+                                                                                                           "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 256,
+                                                                                                              "mask": 8,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 8,
+                                                                                                          "shift_by": 3,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6328,9 +6325,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4,
+                                                                                                              "mask": 8192,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 2,
+                                                                                                          "shift_by": 13,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6342,11 +6339,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "RADAR_EMIT_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5694,
+                                                                                                           "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 128,
+                                                                                                              "mask": 4,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 7,
+                                                                                                          "shift_by": 2,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6360,9 +6357,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2,
+                                                                                                              "mask": 4096,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 1,
+                                                                                                          "shift_by": 12,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6374,11 +6371,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "RADAR_OVERHEAT_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5694,
+                                                                                                           "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2048,
+                                                                                                              "mask": 64,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 11,
+                                                                                                          "shift_by": 6,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6390,11 +6387,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "ROCKET_1_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5698,
+                                                                                                           "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32,
+                                                                                                              "mask": 1,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 5,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6406,11 +6403,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "ROCKET_2_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5698,
+                                                                                                           "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 64,
+                                                                                                              "mask": 2,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 6,
+                                                                                                          "shift_by": 1,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6422,11 +6419,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "ROCKET_3_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5698,
+                                                                                                           "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 128,
+                                                                                                              "mask": 4,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 7,
+                                                                                                          "shift_by": 2,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6438,11 +6435,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "ROCKET_4_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5698,
+                                                                                                           "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 256,
+                                                                                                              "mask": 8,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 8,
+                                                                                                          "shift_by": 3,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6454,11 +6451,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "ROCKET_5_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5698,
+                                                                                                           "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 512,
+                                                                                                              "mask": 16,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 9,
+                                                                                                          "shift_by": 4,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6470,11 +6467,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "ROCKET_6_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5698,
+                                                                                                           "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1024,
+                                                                                                              "mask": 32,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 10,
+                                                                                                          "shift_by": 5,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6486,11 +6483,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "ROCKET_7_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5698,
+                                                                                                           "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2048,
+                                                                                                              "mask": 64,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 11,
+                                                                                                          "shift_by": 6,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6502,11 +6499,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "ROCKET_8_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5698,
+                                                                                                           "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4096,
+                                                                                                              "mask": 128,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 12,
+                                                                                                          "shift_by": 7,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6520,9 +6517,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16,
+                                                                                                              "mask": 32768,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 4,
+                                                                                                          "shift_by": 15,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6534,11 +6531,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "R_CANNON_ARM",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5696,
+                                                                                                           "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2048,
+                                                                                                              "mask": 64,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 11,
+                                                                                                          "shift_by": 6,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6550,11 +6547,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "R_CONSOLE_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5698,
+                                                                                                           "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8192,
+                                                                                                              "mask": 256,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 13,
+                                                                                                          "shift_by": 8,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6568,9 +6565,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2,
+                                                                                                              "mask": 4096,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 1,
+                                                                                                          "shift_by": 12,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6582,11 +6579,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "R_ENGINE_MIL",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5694,
+                                                                                                           "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8192,
+                                                                                                              "mask": 256,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 13,
+                                                                                                          "shift_by": 8,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6598,11 +6595,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "R_ENG_AIRSTART",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5696,
+                                                                                                           "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 256,
+                                                                                                              "mask": 8,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 8,
+                                                                                                          "shift_by": 3,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6616,9 +6613,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8,
+                                                                                                              "mask": 16384,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 3,
+                                                                                                          "shift_by": 14,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6632,9 +6629,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16,
+                                                                                                              "mask": 32768,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 4,
+                                                                                                          "shift_by": 15,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6648,9 +6645,9 @@ docdata["MiG-19P"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 5700,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2,
+                                                                                                              "mask": 4096,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 1,
+                                                                                                          "shift_by": 12,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6662,11 +6659,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "R_GEN_FAIL",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5694,
+                                                                                                           "address": 5696,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32768,
+                                                                                                              "mask": 1024,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 15,
+                                                                                                          "shift_by": 10,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6678,11 +6675,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "R_WING_LOAD",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5696,
+                                                                                                           "address": 5698,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16384,
+                                                                                                              "mask": 512,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 14,
+                                                                                                          "shift_by": 9,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6694,11 +6691,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "SRO2B_RWR_LOCK",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5700,
+                                                                                                           "address": 5702,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 64,
+                                                                                                              "mask": 2,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 6,
+                                                                                                          "shift_by": 1,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -6710,11 +6707,11 @@ docdata["MiG-19P"] =
                                                                                      "identifier": "SRO2B_RWR_PW",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5700,
+                                                                                                           "address": 5702,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32,
+                                                                                                              "mask": 1,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 5,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
