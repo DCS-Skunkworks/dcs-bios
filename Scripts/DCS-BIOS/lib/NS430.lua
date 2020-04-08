@@ -11,6 +11,7 @@ local parse_indication = BIOS.util.parse_indication
 local defineRotary = BIOS.util.defineRotary
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local defineMomentaryRockerSwitch = BIOS.util.defineMomentaryRockerSwitch
+local definePotentiometer = BIOS.util.definePotentiometer
 local defineDoubleCommandButton = BIOS.util.defineDoubleCommandButton
 
 -- 1.0 by Capt Zeen
@@ -33,8 +34,8 @@ defineDoubleCommandButton("NS430_CLR", 257, 3023, 3044, 17, "NS430", "CLR")
 defineDoubleCommandButton("NS430_ENT", 257, 3024, 3045, 18, "NS430", "ENT")
 defineDoubleCommandButton("NS430_SMALL_RIGHT_BTN_PUSH", 257, 3027, 3046, 20, "NS430", "SMALL_RIGHT_BTN Push")
 
-defineRotary("NS430_PWR_VOL_PUSH_SQ_VOL", 257, 3002, 0, "NS430", "PWR-VOL_PUSH-SQ COM Volume")
-defineRotary("NS430_VOL_PUSH_ID_VOL", 257, 3005, 2, "NS430", "VOL_PUSH-ID VLOC volume")
+definePotentiometer("NS430_PWR_VOL_PUSH_SQ_VOL", 257, 3002, 0, {0, 1}, "NS430", "PWR-VOL_PUSH-SQ COM Volume")
+definePotentiometer("NS430_VOL_PUSH_ID_VOL", 257, 3005, 2, {0, 1}, "NS430", "VOL_PUSH-ID VLOC Volume")
 defineRotary("NS430_BIG_LEFT_BTN", 257, 3007, 4, "NS430", "BIG_LEFT_BTN")
 defineRotary("NS430_SMALL_LEFT_BTN_ROT", 257, 3010, 6, "NS430", "SMALL_LEFT_BTN rotate")
 defineRotary("NS430_BIG_RIGHT_BTN", 257, 3025, 19, "NS430", "BIG_RIGHT_BTN")
