@@ -8,17 +8,17 @@ local lonDeg, lonSec, lonFractionalSec
 local altFt
 local hdgDeg
 local hdgDegFrac
-local player
-local ias
+local playerName
+local iasDisp
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	-- skip  this data if ownship export is disabled
 	if not LoIsOwnshipExportAllowed() then return end
 
-    player = LoGetPilotName()
+    playerName = LoGetPilotName()
 	
-	ias = LoGetIndicatedAirSpeed()
-	iasEU = math.floor(0.5 + ias * 3.6) -- km_h
-	iasUS = math.floor(0.5 + ias * 1.94384449)		-- knots
+	iasDisp = LoGetIndicatedAirSpeed()
+	iasEU = math.floor(0.5 + iasDisp * 3.6)             -- km/h
+	iasUS = math.floor(0.5 + iasDisp * 1.94384449)		-- knots
 	_indicatedAirspeedEU = string.format("%4d", iasEU)
 	_indicatedAirspeedUS = string.format("%4d", iasUS)
 	
@@ -54,10 +54,7 @@ local function getVersion()
 end
 defineString("DCS_BIOS", getVersion, 6,  "Metadata" , "DCS Bios Version")
 
-defineString("PILOTNAME", function()
-		if not LoIsOwnshipExportAllowed() then return nil end
-		return player .. string.char(0)
-end, 24, "Metadata", "Pilot Name")
+defineString("PILOTNAME", function() return playerName end, 24, "Metadata", "Pilot Name")
 
 defineIntegerFromGetter("LAT_DEG", function() return latDeg end, 59, "Position", "Latitude Degrees")
 defineIntegerFromGetter("LAT_SEC", function() return latSec end, 59, "Position", "Latitude Seconds")
@@ -70,11 +67,11 @@ defineString("IAS_EU", function() return _indicatedAirspeedEU .. string.char(0) 
 defineString("IAS_US", function() return _indicatedAirspeedUS .. string.char(0) end, 4, "Speed", "Indicated Airspeed KNT")
 defineIntegerFromGetter("IAS_EU_INT", function()
 	if not LoIsOwnshipExportAllowed() then return nil end
-	return ias * 3.6
+	return iasDisp * 3.6
 end, 65535, "Speed", "Indicated Airspeed KM H (Int)")
 defineIntegerFromGetter("IAS_US_INT", function()
 	if not LoIsOwnshipExportAllowed() then return nil end
-	return ias * 1.94384449
+	return iasDisp * 1.94384449
 end, 65535, "Speed", "Indicated Airspeed KNT (Int)")
 
 defineIntegerFromGetter("LON_DEG", function() return lonDeg end, 59, "Position", "Longitude Degrees")

@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 -- Made by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
--- v 1.7b
+-- v 1.7c
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -52,7 +52,7 @@ local function defineIndicatorLightMulti1(msg, arg_number, category, description
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "0 if light is off, 1 if light is on"
+			  description = "Light is on between 0.4 and 0.59"
 			}
 		}
 	}
@@ -83,7 +83,7 @@ local function defineIndicatorLightMulti2(msg, arg_number, category, description
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "0 if light is off, 1 if light is on"
+			  description = "Light is on between 0.8 and 0.98"
 			}
 		}
 	}
@@ -114,7 +114,7 @@ local function defineIndicatorLightLANTTop(msg, arg_number, category, descriptio
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "0 if light is off, 1 if light is on"
+			  description = "Light is on between 0.24 and 0.48"
 			}
 		}
 	}
@@ -145,7 +145,7 @@ local function defineIndicatorLightLANT(msg, arg_number, category, description)
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "0 if light is off, 1 if light is on"
+			  description = "Light is on between 0.49 and 0.53"
 			}
 		}
 	}
@@ -176,7 +176,7 @@ local function defineIndicatorLightLANTBottom(msg, arg_number, category, descrip
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "0 if light is off, 1 if light is on"
+			  description = "Light is on between 0.55 and 0.98"
 			}
 		}
 	}
@@ -198,6 +198,39 @@ function parse_indication_number_index(indicator_id)  -- Thanks to [FSF]Ian code
 	end
 	t[0] = counter
 	return t
+end
+
+local function get_radio_remote_display(indicatorId,testButtonId)-- Get data from specified device (9 for Pilot UHF, 10 for RIO UHF, 13 for Pilot VHF/UHF)
+	local data = parse_indication_number_index(indicatorId);
+-- Get status of relevant test button (ID 15004 for Pilot UHF, 405 for RIO UHF, 15003 for Pilot VHF/UHF)
+	local testPressed = GetDevice(0):get_argument_value(testButtonId)
+	local retVal
+
+	if data and data[0] then
+-- data[0] holds the length of the data table. 7 Indicates it is in manual frequency mode otherwise it is in preset mode.
+-- testPressed indicates the current value of the specified radio display test button - if pressed we need to return the test value not the current manual or preset frequency.
+-- depending on the type of data and the test button status assemble the result including separator if necessary.
+		if data[0]==7 and testPressed == 0 then
+			retVal  = data[5]:sub(1,3) .. data[6] .. data[5]:sub(4)
+		elseif data[0]==7 then
+			retVal  = data[3]:sub(1,3) .. data[4] .. data[3]:sub(4)
+		elseif testPressed == 0 then
+			retVal = data[5]
+		else
+			retVal = data[3]:sub(1,3)  .. data[4] .. data[3]:sub(4)
+		end
+	end
+	return retVal
+end
+
+local PLT_UHF_REMOTE_DISP = ""
+local RIO_UHF_REMOTE_DISP = ""
+local PLT_VUHF_REMOTE_DISP = ""
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	PLT_UHF_REMOTE_DISP = get_radio_remote_display(9,15004)
+	RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,405)
+	PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003)
 end
 
 ----------------------------------------- BIOS-Profile
@@ -562,7 +595,6 @@ defineIntegerFromGetter("RIO_VUHF_HIGH_FREQ", getARC182_High_Frequency, 400, "VU
 moduleBeingDefined.inputProcessors["SET_VUHF_FREQ"] = function(freq)
 	freq = freq:gsub("%.", "")
 	freq = tonumber(freq)
-	
 	if type(freq) == "nil" then return end
 	
 	GetDevice(4):set_frequency(freq*1000)
@@ -1257,8 +1289,8 @@ defineFloat("PLT_HYD_SPOIL_FLAG", 1023, {0, 1}, "Gauges", "PILOT Hydraulic Spoil
 defineFloat("PLT_HYD_EMERG_HI_FLAG", 1024, {0, 1}, "Gauges", "PILOT Hydraulic Emergency HI Flag")
 defineFloat("PLT_HYD_EMERG_LOW_FLAG", 1025, {0, 1}, "Gauges", "PILOT Hydraulic Emergency LOW Flag")
 defineFloat("PLT_GUN_ELEVATION_PLUSMINUS", 2273, {0, 1}, "Gauges", "PILOT Gun Elevation Plus / Minus")
-defineFloat("PLT_ACCEL_METER_Needle2", 15076, {-1, 1}, "Gauges", "PILOT Accelerometer Needle 2")
-defineFloat("PLT_ACCEL_METER_Needle3", 15077, {-1, 1}, "Gauges", "PILOT Accelerometer Needle 3")
+defineFloat("PLT_ACCEL_METER_NEEDLE2", 15076, {-1, 1}, "Gauges", "PILOT Accelerometer Needle 2")
+defineFloat("PLT_ACCEL_METER_NEEDLE3", 15077, {-1, 1}, "Gauges", "PILOT Accelerometer Needle 3")
 defineFloat("PLT_HSD_BIT_INDICATOR", 15079, {0, 1}, "Gauges", "PILOT HSD BIT Indicator Flag")
 defineFloat("PLT_FUEL_AFT_L", 1054, {0, 1}, "Gauges", "PILOT Fuel AFT & L")
 defineFloat("PLT_FUEL_FWD_R", 1055, {0, 1}, "Gauges", "PILOT Fuel FWD & R")
@@ -1474,6 +1506,10 @@ defineFloat("RIO_RECORD_MIN_LOW", 11602, {0, 1}, "Gauges", "RIO Record Minutes L
 
 defineFloat("CANOPY_POS", 403, {0, 1}, "Gauges", "Canopy Position")
 
+defineString("PLT_UHF_REMOTE_DISP", function() return PLT_UHF_REMOTE_DISP end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")  
+defineString("RIO_UHF_REMOTE_DISP", function() return RIO_UHF_REMOTE_DISP end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")  
+defineString("PLT_VUHF_REMOTE_DISP", function() return PLT_VUHF_REMOTE_DISP end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")  
+
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(402)*65535)
@@ -1510,42 +1546,5 @@ end, 65535, "External Aircraft Model", "Formation Lights")
 defineIntegerFromGetter("EXT_ANTI_COL", function()
 	if LoGetAircraftDrawArgumentValue(620) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Anticollision Lights")
-
-local function get_radio_remote_display(indicatorId,testButtonId)-- Get data from specified device (9 for Pilot UHF, 10 for RIO UHF, 13 for Pilot VHF/UHF)
-	local data = parse_indication_number_index(indicatorId);
--- Get status of relevant test buttom (ID 15004 for Pilot UHF, 405 for RIO UHF, 15003 for Pilot VHF/UHF)
-	local testPressed = GetDevice(0):get_argument_value(testButtonId)
-	local retVal
-
-	if data and data[0] then
--- data[0] holds the length of the data table. 7 Indicates it is in manual frequency mode otherwise it is in preset mode.
--- testPressed indicates the current value of the specified radio display test button - if pressed we need to return the test value not the current manual or preset frequency.
--- depending on the type of data and the test button status assemble the result including separator if necessary.
-		if data[0]==7 and testPressed == 0 then
-			retVal  = data[5]:sub(1,3) .. data[6] .. data[5]:sub(4)
-		elseif data[0]==7 then
-			retVal  = data[3]:sub(1,3) .. data[4] .. data[3]:sub(4)
-		elseif testPressed == 0 then
-			retVal = data[5]
-		else
-			retVal = data[3]:sub(1,3)  .. data[4] .. data[3]:sub(4)
-		end
-	end
-	return retVal
-end
-
-local PLT_UHF_REMOTE_DISP = ""
-local RIO_UHF_REMOTE_DISP = ""
-local PLT_VUHF_REMOTE_DISP = ""
-
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	PLT_UHF_REMOTE_DISP = get_radio_remote_display(9,15004)
-	RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,405)
-	PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003)
-end
-
-defineString("PLT_UHF_REMOTE_DISP", function() return PLT_UHF_REMOTE_DISP end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")  
-defineString("RIO_UHF_REMOTE_DISP", function() return RIO_UHF_REMOTE_DISP end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")  
-defineString("PLT_VUHF_REMOTE_DISP", function() return PLT_VUHF_REMOTE_DISP end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")  
 
 BIOS.protocol.endModule()
