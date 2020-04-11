@@ -286,9 +286,13 @@ defineIndicatorLight("N_GEAR_DOWN", 493, "Warning, Caution and IndicatorLights",
 defineIndicatorLight("R_GEAR_DOWN", 494, "Warning, Caution and IndicatorLights","Right Gear DOWN Lamp (green)")
 defineIndicatorLight("SRO2B_RWR_PW", 496, "Warning, Caution and IndicatorLights","Radar Warning Receiver Power Lamp (red)")
 defineIndicatorLight("SRO2B_RWR_LOCK", 497, "Warning, Caution and IndicatorLights","Radar Warning Receiver LOCK Lamp (red)")
+defineIndicatorLight("ARK5_FREQ_SCALE_L", 519, "Warning, Caution and IndicatorLights","ARK5 Frequency Scale Light (yellow)")
 
 -- Gauges 
 defineFloat("ARK5_FREQ_SCALE", 354, {-1, 1}, "Gauges", "ARK5 Frequency Scale")
+defineFloat("ARK5_FREQ_150_SCALE", 413, {0, 1}, "Gauges", "ARK5 Frequency 150-310 Scale")
+defineFloat("ARK5_FREQ_310_SCALE", 414, {0, 1}, "Gauges", "ARK5 Frequency 310-640 Scale")
+defineFloat("ARK5_FREQ_640_SCALE", 415, {0, 1}, "Gauges", "ARK5 Frequency 640-1300 Scale")
 defineFloat("VOLT_MANOMETER_GAUGE", 370, {0.0, 0.3}, "Gauges", "Voltmeter/Manometer Gauge")
 defineFloat("OXY_PRESS_GAUGE", 371, {0, 1}, "Gauges", "IK-18 Oxygen Pressure")
 defineFloat("OXY_FLOW_INDICATOR", 435, {0, 1}, "Gauges", "IK-18 Oxygen Flow Indicator")
