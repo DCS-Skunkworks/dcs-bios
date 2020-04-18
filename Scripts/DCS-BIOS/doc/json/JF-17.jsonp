@@ -4251,70 +4251,134 @@ docdata["JF-17"] =
                                                                     }
                                             },
                                  "Cockpit": {
-                                                   "CANOPY_POS": {
-                                                                         "category": "Cockpit",
-                                                                     "control_type": "analog_gauge",
-                                                                      "description": "Canopy Position",
-                                                                       "identifier": "CANOPY_POS",
-                                                                           "inputs": [  ],
-                                                                          "outputs": [ {
-                                                                                             "address": 18530,
-                                                                                         "description": "gauge position",
-                                                                                                "mask": 65535,
-                                                                                           "max_value": 65535,
-                                                                                            "shift_by": 0,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ]
-                                                                 },
-                                                "MIRROR_CENTER": {
-                                                                         "category": "Cockpit",
-                                                                     "control_type": "analog_gauge",
-                                                                      "description": "Center Mirror",
-                                                                       "identifier": "MIRROR_CENTER",
-                                                                           "inputs": [  ],
-                                                                          "outputs": [ {
-                                                                                             "address": 18534,
-                                                                                         "description": "gauge position",
-                                                                                                "mask": 65535,
-                                                                                           "max_value": 65535,
-                                                                                            "shift_by": 0,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ]
-                                                                 },
-                                                  "MIRROR_LEFT": {
-                                                                         "category": "Cockpit",
-                                                                     "control_type": "analog_gauge",
-                                                                      "description": "Left Mirror",
-                                                                       "identifier": "MIRROR_LEFT",
-                                                                           "inputs": [  ],
-                                                                          "outputs": [ {
-                                                                                             "address": 18536,
-                                                                                         "description": "gauge position",
-                                                                                                "mask": 65535,
-                                                                                           "max_value": 65535,
-                                                                                            "shift_by": 0,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ]
-                                                                 },
-                                                 "MIRROR_RIGHT": {
-                                                                         "category": "Cockpit",
-                                                                     "control_type": "analog_gauge",
-                                                                      "description": "Right Mirror",
-                                                                       "identifier": "MIRROR_RIGHT",
-                                                                           "inputs": [  ],
-                                                                          "outputs": [ {
-                                                                                             "address": 18532,
-                                                                                         "description": "gauge position",
-                                                                                                "mask": 65535,
-                                                                                           "max_value": 65535,
-                                                                                            "shift_by": 0,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ]
-                                                                 }
+                                                 "CANOPY_GLASS_DM": {
+                                                                            "category": "Cockpit",
+                                                                        "control_type": "led",
+                                                                         "description": "Canopy Glass Damage",
+                                                                          "identifier": "CANOPY_GLASS_DM",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                "address": 18528,
+                                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                                   "mask": 32768,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 15,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                "CANOPY_GLASS_FOG": {
+                                                                            "category": "Cockpit",
+                                                                        "control_type": "analog_gauge",
+                                                                         "description": "Canopy Glass Fog",
+                                                                          "identifier": "CANOPY_GLASS_FOG",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                "address": 18540,
+                                                                                            "description": "gauge position",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                      "CANOPY_POS": {
+                                                                            "category": "Cockpit",
+                                                                        "control_type": "analog_gauge",
+                                                                         "description": "Canopy Position",
+                                                                          "identifier": "CANOPY_POS",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                "address": 18530,
+                                                                                            "description": "gauge position",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                   "MIRROR_CENTER": {
+                                                                            "category": "Cockpit",
+                                                                        "control_type": "analog_gauge",
+                                                                         "description": "Center Mirror",
+                                                                          "identifier": "MIRROR_CENTER",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                "address": 18534,
+                                                                                            "description": "gauge position",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                     "MIRROR_LEFT": {
+                                                                            "category": "Cockpit",
+                                                                        "control_type": "analog_gauge",
+                                                                         "description": "Left Mirror",
+                                                                          "identifier": "MIRROR_LEFT",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                "address": 18536,
+                                                                                            "description": "gauge position",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                    "MIRROR_RIGHT": {
+                                                                            "category": "Cockpit",
+                                                                        "control_type": "analog_gauge",
+                                                                         "description": "Right Mirror",
+                                                                          "identifier": "MIRROR_RIGHT",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                "address": 18532,
+                                                                                            "description": "gauge position",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                     "WS_GLASS_DM": {
+                                                                            "category": "Cockpit",
+                                                                        "control_type": "led",
+                                                                         "description": "Windscreen Glass Damage",
+                                                                          "identifier": "WS_GLASS_DM",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                "address": 18538,
+                                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                                   "mask": 1,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                    "WS_GLASS_FOG": {
+                                                                            "category": "Cockpit",
+                                                                        "control_type": "analog_gauge",
+                                                                         "description": "Windscreen Glass Fog",
+                                                                          "identifier": "WS_GLASS_FOG",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                "address": 18542,
+                                                                                            "description": "gauge position",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    }
                                             },
                  "External Aircraft Model": {
                                                             "EXT_BRAKE_CUTE": {
@@ -4324,11 +4388,11 @@ docdata["JF-17"] =
                                                                                     "identifier": "EXT_BRAKE_CUTE",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 18528,
+                                                                                                          "address": 18538,
                                                                                                       "description": "Brake Cute",
-                                                                                                             "mask": 4096,
+                                                                                                             "mask": 2,
                                                                                                         "max_value": 1,
-                                                                                                         "shift_by": 12,
+                                                                                                         "shift_by": 1,
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ]
@@ -4340,11 +4404,11 @@ docdata["JF-17"] =
                                                                                     "identifier": "EXT_POSITION_LIGHT_LEFT_B",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 18528,
+                                                                                                          "address": 18538,
                                                                                                       "description": "Left Body Position Light (red)",
-                                                                                                             "mask": 32768,
+                                                                                                             "mask": 16,
                                                                                                         "max_value": 1,
-                                                                                                         "shift_by": 15,
+                                                                                                         "shift_by": 4,
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ]
@@ -4356,11 +4420,11 @@ docdata["JF-17"] =
                                                                                     "identifier": "EXT_POSITION_LIGHT_LEFT_W",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 18554,
+                                                                                                          "address": 18538,
                                                                                                       "description": "Left Wing Position Light (red)",
-                                                                                                             "mask": 2,
+                                                                                                             "mask": 64,
                                                                                                         "max_value": 1,
-                                                                                                         "shift_by": 1,
+                                                                                                         "shift_by": 6,
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ]
@@ -4372,11 +4436,11 @@ docdata["JF-17"] =
                                                                                     "identifier": "EXT_POSITION_LIGHT_RIGHT_B",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 18554,
+                                                                                                          "address": 18538,
                                                                                                       "description": "Right Body Position Light (green)",
-                                                                                                             "mask": 1,
+                                                                                                             "mask": 32,
                                                                                                         "max_value": 1,
-                                                                                                         "shift_by": 0,
+                                                                                                         "shift_by": 5,
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ]
@@ -4388,11 +4452,11 @@ docdata["JF-17"] =
                                                                                     "identifier": "EXT_POSITION_LIGHT_RIGHT_W",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 18554,
+                                                                                                          "address": 18538,
                                                                                                       "description": "Right Wing Position Light (green)",
-                                                                                                             "mask": 4,
+                                                                                                             "mask": 128,
                                                                                                         "max_value": 1,
-                                                                                                         "shift_by": 2,
+                                                                                                         "shift_by": 7,
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ]
@@ -4404,11 +4468,11 @@ docdata["JF-17"] =
                                                                                     "identifier": "EXT_POSITION_LIGHT_TAIL",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 18528,
+                                                                                                          "address": 18538,
                                                                                                       "description": "Tail Position Light",
-                                                                                                             "mask": 8192,
+                                                                                                             "mask": 4,
                                                                                                         "max_value": 1,
-                                                                                                         "shift_by": 13,
+                                                                                                         "shift_by": 2,
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ]
@@ -4420,7 +4484,7 @@ docdata["JF-17"] =
                                                                                     "identifier": "EXT_SPEED_BRAKE_BTM_L",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 18552,
+                                                                                                          "address": 18558,
                                                                                                       "description": "Bottom Left Speed Brake",
                                                                                                              "mask": 65535,
                                                                                                         "max_value": 65535,
@@ -4436,7 +4500,7 @@ docdata["JF-17"] =
                                                                                     "identifier": "EXT_SPEED_BRAKE_BTM_R",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 18550,
+                                                                                                          "address": 18556,
                                                                                                       "description": "Bottom Right Speed Brake",
                                                                                                              "mask": 65535,
                                                                                                         "max_value": 65535,
@@ -4452,7 +4516,7 @@ docdata["JF-17"] =
                                                                                     "identifier": "EXT_SPEED_BRAKE_TOP_L",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 18548,
+                                                                                                          "address": 18554,
                                                                                                       "description": "Top Left Speed Brake",
                                                                                                              "mask": 65535,
                                                                                                         "max_value": 65535,
@@ -4468,7 +4532,7 @@ docdata["JF-17"] =
                                                                                     "identifier": "EXT_SPEED_BRAKE_TOP_R",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 18546,
+                                                                                                          "address": 18552,
                                                                                                       "description": "Top Right Speed Brake",
                                                                                                              "mask": 65535,
                                                                                                         "max_value": 65535,
@@ -4484,11 +4548,11 @@ docdata["JF-17"] =
                                                                                     "identifier": "EXT_STROBE_TAIL",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 18528,
+                                                                                                          "address": 18538,
                                                                                                       "description": "Tail Strobe Light",
-                                                                                                             "mask": 16384,
+                                                                                                             "mask": 8,
                                                                                                         "max_value": 1,
-                                                                                                         "shift_by": 14,
+                                                                                                         "shift_by": 3,
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ]
@@ -4502,7 +4566,7 @@ docdata["JF-17"] =
                                                                         "identifier": "EMERG_PNEU_IND",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 18542,
+                                                                                              "address": 18548,
                                                                                           "description": "gauge position",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -4518,7 +4582,7 @@ docdata["JF-17"] =
                                                                         "identifier": "MAG_HDG_BAK",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 18544,
+                                                                                              "address": 18550,
                                                                                           "description": "gauge position",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -4534,7 +4598,7 @@ docdata["JF-17"] =
                                                                         "identifier": "MAIN_PNEU_IND",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 18540,
+                                                                                              "address": 18546,
                                                                                           "description": "gauge position",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -4550,7 +4614,7 @@ docdata["JF-17"] =
                                                                         "identifier": "OXYGEN_NEEDLE",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 18538,
+                                                                                              "address": 18544,
                                                                                           "description": "gauge position",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -8733,6 +8797,54 @@ docdata["JF-17"] =
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
                                                                                                   "address": 18502,
+                                                                                              "description": "0 if light is off, 1 if light is on",
+                                                                                                     "mask": 16384,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 14,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                  "MFCD_BACKLIGHT_C": {
+                                                                              "category": "Warning, Caution and IndicatorLights",
+                                                                          "control_type": "led",
+                                                                           "description": "MFCD Backlight Center",
+                                                                            "identifier": "MFCD_BACKLIGHT_C",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 18528,
+                                                                                              "description": "0 if light is off, 1 if light is on",
+                                                                                                     "mask": 8192,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 13,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                  "MFCD_BACKLIGHT_L": {
+                                                                              "category": "Warning, Caution and IndicatorLights",
+                                                                          "control_type": "led",
+                                                                           "description": "MFCD Backlight Left",
+                                                                            "identifier": "MFCD_BACKLIGHT_L",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 18528,
+                                                                                              "description": "0 if light is off, 1 if light is on",
+                                                                                                     "mask": 4096,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 12,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                  "MFCD_BACKLIGHT_R": {
+                                                                              "category": "Warning, Caution and IndicatorLights",
+                                                                          "control_type": "led",
+                                                                           "description": "MFCD Backlight Right",
+                                                                            "identifier": "MFCD_BACKLIGHT_R",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 18528,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 16384,
                                                                                                 "max_value": 1,

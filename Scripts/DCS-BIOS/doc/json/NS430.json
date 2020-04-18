@@ -336,12 +336,15 @@
                                                       "physical_variant": "push_button"
                                                },
                   "NS430_PWR_VOL_PUSH_SQ_VOL": {
-                                                    "api_variant": "multiturn",
                                                        "category": "NS430",
-                                                   "control_type": "analog_dial",
+                                                   "control_type": "limited_dial",
                                                     "description": "PWR-VOL_PUSH-SQ COM Volume",
                                                      "identifier": "NS430_PWR_VOL_PUSH_SQ_VOL",
                                                          "inputs": [ {
+                                                                       "description": "set the position of the dial",
+                                                                         "interface": "set_state",
+                                                                         "max_value": 65535
+                                                                   }, {
                                                                           "description": "turn the dial left or right",
                                                                             "interface": "variable_step",
                                                                             "max_value": 65535,
@@ -349,11 +352,11 @@
                                                                    } ],
                                                         "outputs": [ {
                                                                            "address": 32770,
-                                                                       "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                       "description": "position of the potentiometer",
                                                                               "mask": 65535,
                                                                          "max_value": 65535,
                                                                           "shift_by": 0,
-                                                                            "suffix": "_KNOB_POS",
+                                                                            "suffix": "",
                                                                               "type": "integer"
                                                                    } ]
                                                },
@@ -527,12 +530,15 @@
                                                       "physical_variant": "push_button"
                                                },
                       "NS430_VOL_PUSH_ID_VOL": {
-                                                    "api_variant": "multiturn",
                                                        "category": "NS430",
-                                                   "control_type": "analog_dial",
-                                                    "description": "VOL_PUSH-ID VLOC volume",
+                                                   "control_type": "limited_dial",
+                                                    "description": "VOL_PUSH-ID VLOC Volume",
                                                      "identifier": "NS430_VOL_PUSH_ID_VOL",
                                                          "inputs": [ {
+                                                                       "description": "set the position of the dial",
+                                                                         "interface": "set_state",
+                                                                         "max_value": 65535
+                                                                   }, {
                                                                           "description": "turn the dial left or right",
                                                                             "interface": "variable_step",
                                                                             "max_value": 65535,
@@ -540,11 +546,11 @@
                                                                    } ],
                                                         "outputs": [ {
                                                                            "address": 32772,
-                                                                       "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                       "description": "position of the potentiometer",
                                                                               "mask": 65535,
                                                                          "max_value": 65535,
                                                                           "shift_by": 0,
-                                                                            "suffix": "_KNOB_POS",
+                                                                            "suffix": "",
                                                                               "type": "integer"
                                                                    } ]
                                                }

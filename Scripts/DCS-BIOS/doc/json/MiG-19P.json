@@ -2690,9 +2690,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 5702,
                                                                                                     "description": "Left Position Light (red)",
-                                                                                                           "mask": 4,
+                                                                                                           "mask": 8,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 2,
+                                                                                                       "shift_by": 3,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -2706,9 +2706,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 5702,
                                                                                                     "description": "Right Position Light (green)",
-                                                                                                           "mask": 8,
+                                                                                                           "mask": 16,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 3,
+                                                                                                       "shift_by": 4,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -2720,7 +2720,7 @@
                                                                                   "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 5818,
+                                                                                                        "address": 5824,
                                                                                                     "description": "Left Speed Brake",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -2736,7 +2736,7 @@
                                                                                   "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 5816,
+                                                                                                        "address": 5822,
                                                                                                     "description": "Right Speed Brake",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -3348,7 +3348,7 @@
                                                                                  "identifier": "AGI1_ART_HORIZON_BANK",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5750,
+                                                                                                       "address": 5756,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3364,7 +3364,7 @@
                                                                                  "identifier": "AGI1_ART_HORIZON_PITCH",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5748,
+                                                                                                       "address": 5754,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3380,7 +3380,7 @@
                                                                                  "identifier": "AIRSPEED_IAS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5724,
+                                                                                                       "address": 5730,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3396,7 +3396,7 @@
                                                                                  "identifier": "AIRSPEED_TAS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5726,
+                                                                                                       "address": 5732,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3412,7 +3412,7 @@
                                                                                  "identifier": "ARK5P_FREQ_150",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5802,
+                                                                                                       "address": 5808,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3428,7 +3428,7 @@
                                                                                  "identifier": "ARK5P_FREQ_310",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5804,
+                                                                                                       "address": 5810,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3444,7 +3444,7 @@
                                                                                  "identifier": "ARK5P_FREQ_640",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5806,
+                                                                                                       "address": 5812,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3460,7 +3460,55 @@
                                                                                  "identifier": "ARK5P_SIG_STRENGTH",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5800,
+                                                                                                       "address": 5806,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                    "ARK5_FREQ_150_SCALE": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "ARK5 Frequency 150-310 Scale",
+                                                                                 "identifier": "ARK5_FREQ_150_SCALE",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5706,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                    "ARK5_FREQ_310_SCALE": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "ARK5 Frequency 310-640 Scale",
+                                                                                 "identifier": "ARK5_FREQ_310_SCALE",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5708,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                    "ARK5_FREQ_640_SCALE": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "ARK5 Frequency 640-1300 Scale",
+                                                                                 "identifier": "ARK5_FREQ_640_SCALE",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5710,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3492,7 +3540,7 @@
                                                                                  "identifier": "ARU2V_STABI_IND",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5752,
+                                                                                                       "address": 5758,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3508,7 +3556,7 @@
                                                                                  "identifier": "ASP5N_DIVE_ANGLE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5810,
+                                                                                                       "address": 5816,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3524,7 +3572,7 @@
                                                                                  "identifier": "ASP5N_TRG_SPAN",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5808,
+                                                                                                       "address": 5814,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3540,7 +3588,7 @@
                                                                                  "identifier": "BARO_ALT_100",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5714,
+                                                                                                       "address": 5720,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3556,7 +3604,7 @@
                                                                                  "identifier": "BARO_ALT_1000",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5712,
+                                                                                                       "address": 5718,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3572,7 +3620,7 @@
                                                                                  "identifier": "BARO_ALT_SEL",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5716,
+                                                                                                       "address": 5722,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3588,7 +3636,7 @@
                                                                                  "identifier": "BRAKE_PRESS_L",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5778,
+                                                                                                       "address": 5784,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3604,7 +3652,7 @@
                                                                                  "identifier": "BRAKE_PRESS_R",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5780,
+                                                                                                       "address": 5786,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3620,7 +3668,7 @@
                                                                                  "identifier": "CLOCK_DAY",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5746,
+                                                                                                       "address": 5752,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3636,7 +3684,7 @@
                                                                                  "identifier": "CLOCK_FLIGHT_H",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5734,
+                                                                                                       "address": 5740,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3652,7 +3700,7 @@
                                                                                  "identifier": "CLOCK_FLIGHT_M",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5736,
+                                                                                                       "address": 5742,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3668,7 +3716,7 @@
                                                                                  "identifier": "CLOCK_H",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5738,
+                                                                                                       "address": 5744,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3684,7 +3732,7 @@
                                                                                  "identifier": "CLOCK_M",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5740,
+                                                                                                       "address": 5746,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3700,7 +3748,7 @@
                                                                                  "identifier": "CLOCK_S",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5742,
+                                                                                                       "address": 5748,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3716,7 +3764,7 @@
                                                                                  "identifier": "CPT_ALTIMETER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5772,
+                                                                                                       "address": 5778,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3732,7 +3780,7 @@
                                                                                  "identifier": "CPT_DIFF_PRESS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5774,
+                                                                                                       "address": 5780,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3748,7 +3796,7 @@
                                                                                  "identifier": "EGT_GAUGE_L",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5754,
+                                                                                                       "address": 5760,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3764,7 +3812,7 @@
                                                                                  "identifier": "EGT_GAUGE_R",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5756,
+                                                                                                       "address": 5762,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3780,7 +3828,7 @@
                                                                                  "identifier": "EMERG_FLAPS_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5796,
+                                                                                                       "address": 5802,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3796,7 +3844,7 @@
                                                                                  "identifier": "EMERG_GEAR_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5792,
+                                                                                                       "address": 5798,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3812,7 +3860,7 @@
                                                                                  "identifier": "EUP53_TURN",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5728,
+                                                                                                       "address": 5734,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3828,7 +3876,7 @@
                                                                                  "identifier": "FUEL_FLOW_IND",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5768,
+                                                                                                       "address": 5774,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3844,7 +3892,7 @@
                                                                                  "identifier": "FUEL_IND",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5766,
+                                                                                                       "address": 5772,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3860,7 +3908,7 @@
                                                                                  "identifier": "GIK_CRS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5720,
+                                                                                                       "address": 5726,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3876,7 +3924,7 @@
                                                                                  "identifier": "GIK_HDG",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5718,
+                                                                                                       "address": 5724,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3892,7 +3940,7 @@
                                                                                  "identifier": "GIK_NDB",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5722,
+                                                                                                       "address": 5728,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3908,7 +3956,7 @@
                                                                                  "identifier": "G_METER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5784,
+                                                                                                       "address": 5790,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3924,7 +3972,7 @@
                                                                                  "identifier": "G_METER_L_POINTER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5788,
+                                                                                                       "address": 5794,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3940,7 +3988,7 @@
                                                                                  "identifier": "G_METER_R_POINTER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5786,
+                                                                                                       "address": 5792,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3956,7 +4004,7 @@
                                                                                  "identifier": "HYD_BOOST_PRESS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5782,
+                                                                                                       "address": 5788,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3972,7 +4020,7 @@
                                                                                  "identifier": "HYD_SYS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5794,
+                                                                                                       "address": 5800,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -3988,7 +4036,7 @@
                                                                                  "identifier": "L_RPM",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5760,
+                                                                                                       "address": 5766,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4004,7 +4052,7 @@
                                                                                  "identifier": "MACH_IND",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5764,
+                                                                                                       "address": 5770,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4020,7 +4068,7 @@
                                                                                  "identifier": "OXY_FLOW_INDICATOR",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5710,
+                                                                                                       "address": 5716,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4036,7 +4084,7 @@
                                                                                  "identifier": "OXY_PRESS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5708,
+                                                                                                       "address": 5714,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4052,7 +4100,7 @@
                                                                                  "identifier": "OXY_SYS_ALT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5776,
+                                                                                                       "address": 5782,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4068,7 +4116,7 @@
                                                                                  "identifier": "PNEU_SYS_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5798,
+                                                                                                       "address": 5804,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4084,7 +4132,7 @@
                                                                                  "identifier": "RADAR_ALT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5732,
+                                                                                                       "address": 5738,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4100,7 +4148,7 @@
                                                                                  "identifier": "R_RPM",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5762,
+                                                                                                       "address": 5768,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4116,7 +4164,7 @@
                                                                                  "identifier": "SLIP_INDICATOR",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5730,
+                                                                                                       "address": 5736,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4132,7 +4180,7 @@
                                                                                  "identifier": "STOPWATCH_S",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5744,
+                                                                                                       "address": 5750,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4148,7 +4196,7 @@
                                                                                  "identifier": "TARGET_DIS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5790,
+                                                                                                       "address": 5796,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4164,7 +4212,7 @@
                                                                                  "identifier": "USB1_L_AMMO_COUNT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5812,
+                                                                                                       "address": 5818,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4180,7 +4228,7 @@
                                                                                  "identifier": "USB1_R_AMMO_COUNT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5814,
+                                                                                                       "address": 5820,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4196,7 +4244,7 @@
                                                                                  "identifier": "VARIOMETER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5758,
+                                                                                                       "address": 5764,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4212,7 +4260,7 @@
                                                                                  "identifier": "VOLTMETER",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5770,
+                                                                                                       "address": 5776,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -4228,7 +4276,7 @@
                                                                                  "identifier": "VOLT_MANOMETER_GAUGE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 5706,
+                                                                                                       "address": 5712,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -5863,6 +5911,22 @@
                                                                                                               "mask": 16384,
                                                                                                          "max_value": 1,
                                                                                                           "shift_by": 14,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                          "ARK5_FREQ_SCALE_L": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "ARK5 Frequency Scale Light (yellow)",
+                                                                                     "identifier": "ARK5_FREQ_SCALE_L",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5702,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 2,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
