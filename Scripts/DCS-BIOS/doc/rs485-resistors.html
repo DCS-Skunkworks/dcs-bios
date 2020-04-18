@@ -550,7 +550,7 @@ table.CodeRay td.code>pre{padding:0}
     <div id="step3_output"></div>
     
     <p>
-      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/jquery-3.5.0.min.js"></script>
     </p>
     <p>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
     <p>The MAX485 will only handle up to 32 devices instead of 128, but more importantly, the MAX485 is not slew-rate limited, which means you probably will have to terminate the bus. If the various schematics I found online for those modules are correct, they also include termination and bias resistors on every module. If you are using termination resistors at all, you only want those at the start and end of the bus, so you'll have to modify any module you use in the middle. As far as we know, when using the slew-rate limited MAX487 and keeping the bus length below 10 meters, biasing and termination resistors are not required. (Termination is not required if the bus is short enough, and without external termination resistors, the internal biasing resistors in the MAX487 should be enough -- this is the "fail-safe feature" that is mentioned in the datasheet.)<br>
