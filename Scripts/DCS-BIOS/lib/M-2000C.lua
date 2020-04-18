@@ -1118,7 +1118,7 @@ defineToggleSwitch("VORILS_TEST_DIAL", 24, 3619, 619, "VOR / ILS", "I - VOR/ILS 
 -- VTB
 defineToggleSwitch("VTB_PWR_SW", 5, 3221, 221, "VTB", "I - VTB - Power Switch")
 defineToggleSwitch("VTB_DEC", 5, 3222, 222, "VTB", "I - VTB - Declutter (ALLEG)")
-defineToggleSwitch("VTB_OR_SEL", 5, 3223, 223, "VTB", "I - VTB - Orientation Selector (Inop) (CADR)")
+defineToggleSwitch("VTB_OR_SEL", 5, 3223, 223, "VTB", "I - VTB - Orientation Selector (CADR)")
 defineMultipositionSwitch("VTB_ICONS_BRIGHT", 5, 3224, 224, 8, 0.1, "VTB", "I - VTB - Icons and Rulers Brightness (MRQ)")
 defineMultipositionSwitch("VTB_VIDEO_BRIGHT", 5, 3225, 225, 8, 0.1, "VTB", "I - VTB - Video Brightness (LUM GEN)")
 defineMultipositionSwitch("VTB_DISP_CONTRAST", 5, 3226, 226, 8, 0.1, "VTB", "I - VTB - Display Contrast (CONTRAST)")

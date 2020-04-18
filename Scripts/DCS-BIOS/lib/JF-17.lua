@@ -487,16 +487,26 @@ defineIndicatorLight("AAR_L", 419, "Warning, Caution and IndicatorLights", "AAR 
 
 defineIndicatorLight("FLASH_LIGHT_L", 969, "Warning, Caution and IndicatorLights", "Flash Light")
 
+defineIndicatorLight("MFCD_BACKLIGHT_L", 140, "Warning, Caution and IndicatorLights", "MFCD Backlight Left")
+defineIndicatorLight("MFCD_BACKLIGHT_C", 142, "Warning, Caution and IndicatorLights", "MFCD Backlight Center")
+defineIndicatorLight("MFCD_BACKLIGHT_R", 144, "Warning, Caution and IndicatorLights", "MFCD Backlight Right")
+
 -- Gauges
 defineFloat("CANOPY_POS", 38, {0, 1}, "Cockpit", "Canopy Position")
 defineFloat("MIRROR_RIGHT", 960, {0, 1}, "Cockpit", "Right Mirror")
 defineFloat("MIRROR_CENTER", 961, {0, 1}, "Cockpit", "Center Mirror")
 defineFloat("MIRROR_LEFT", 962, {0, 1}, "Cockpit", "Left Mirror")
+defineIndicatorLight("CANOPY_GLASS_DM", 50, "Cockpit", "Canopy Glass Damage")
+defineIndicatorLight("WS_GLASS_DM", 51, "Cockpit", "Windscreen Glass Damage")
+defineFloat("CANOPY_GLASS_FOG", 52, {0, 1}, "Cockpit", "Canopy Glass Fog")
+defineFloat("WS_GLASS_FOG", 53, {0, 1}, "Cockpit", "Windscreen Glass Fog")
 
 defineFloat("OXYGEN_NEEDLE", 290, {0, 1}, "Gauges", "Oxygen Pressure Indicator")
 defineFloat("MAIN_PNEU_IND", 291, {0, 1}, "Gauges", "Main Pneumatic System Pressure Indicator")
 defineFloat("EMERG_PNEU_IND", 292, {0, 1}, "Gauges", "Emergency Pneumatic System Pressure Indicator")
 defineFloat("MAG_HDG_BAK", 293, {0, 1}, "Gauges", "Backup Magnetic HDG")
+
+
 
 --Externals
 

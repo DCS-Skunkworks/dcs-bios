@@ -231,8 +231,8 @@ defineString("FC3_VERTICAL_VELOCITY", function() return _verticalVelocity .. str
 defineIntegerFromGetter("FC3_RADAR_ALTITUDE", function() return _radarAltitude end, 1, "Altitude", "Radar Altitude")
 
 --Engine
-defineString("FC3_RPM_L", function() return _RPMLeft .. string.char(0) end, 3, "Engine", "RPM Left Engine")
-defineString("FC3_RPM_R", function() return _RPMRight .. string.char(0) end, 3, "Engine", "RPM Left Engine")
+defineString("FC3_RPM_L", function() return _RPMLeft .. string.char(0) end, 5, "Engine", "RPM Left Engine")
+defineString("FC3_RPM_R", function() return _RPMRight .. string.char(0) end, 5, "Engine", "RPM Left Engine")
 defineString("FC3_TEMP_L", function() return _TEMPLeft .. string.char(0) end, 3, "Engine", "Temperature Left Engine")
 defineString("FC3_TEMP_R", function() return _TEMPRight .. string.char(0) end, 3, "Engine", "Temperature Left Engine")
 

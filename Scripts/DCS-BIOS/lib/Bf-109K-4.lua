@@ -18,6 +18,8 @@ local defineString = BIOS.util.defineString
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
+-- remove Arg# Pilot 540
+
 defineTumb("GEN_ON_OFF",1, 3075, 114, 1, {0,1}, nil, false, "Generator", "Generator On/Off")
 defineTumb("GEN_ON",1, 3077, 114, 1,  {1, 1}, nil, false, "Generator", "Generator On")
 defineTumb("GEN_OFF",1, 3092, 151, 1, {0,1}, nil, false, "Generator", "Generator Off")

@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 -- Made by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
--- v 1.7c
+-- v 1.8
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -233,7 +233,46 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003)
 end
 
------------------------------------------ BIOS-Profile
+local function getHUD_Mode()
+    local hud_m = ""
+    if GetDevice(0):get_argument_value(1015) == 1 then  --Take Off
+        hud_m = "1"
+    end
+    if GetDevice(0):get_argument_value(1014) == 1 then  --Cruise  
+        hud_m = "2"
+    end		
+    if GetDevice(0):get_argument_value(1013) == 1 then  --A2A  
+        hud_m = "3"
+    end		
+    if GetDevice(0):get_argument_value(1012) == 1 then  --A2G 
+        hud_m = "4"
+    end		
+    if GetDevice(0):get_argument_value(1011) == 1 then  --Landing  
+        hud_m = "5"    
+    end
+    return hud_m
+end
+
+local function getSTEER_Mode()
+    local steer_m = ""
+    if GetDevice(0):get_argument_value(1002) == 1 then  --TACAN
+        steer_m = "1"
+    end
+    if GetDevice(0):get_argument_value(1003) == 1 then  --DEST 
+        steer_m = "2"
+    end		
+    if GetDevice(0):get_argument_value(1004) == 1 then  --AWL/PCD  
+        steer_m = "3"
+    end		
+    if GetDevice(0):get_argument_value(1005) == 1 then  --Vector
+        steer_m = "4"
+    end		
+    if GetDevice(0):get_argument_value(1006) == 1 then  --Manual  
+        steer_m = "5"    
+    end
+    return steer_m
+end
+----------------------------------------- BIOS-Profile  
 
 
 -- Hydraulics
@@ -263,8 +302,8 @@ defineRotary("PLT_RADAR_ALT_KNOB", 29, 3484, 308, "Radar Altimeter", "PILOT Rada
 -- Airspeed Indicator
 definePushButton("PLT_AIRSPD_KNOB_PUSH", 27, 3492, 2127, "Airspeed Indicator", "PILOT Airspeed Indicator Bug Push Knob")
 defineRotary("PLT_AIRSPD_KNOB", 27, 3491, 310, "Airspeed Indicator", "PILOT Airspeed Indicator Bug Knob")
-definePushButton("RIO_AIRSPD_KNOB_PUSH", 27, 3638, 255, "Airspeed Indicator", "RIO Airspeed Indicator Bug Push Knob")
-defineRotary("RIO_AIRSPD_KNOB", 27, 3639, 254, "Airspeed Indicator", "RIO Airspeed Indicator Bug Knob")
+definePushButton("RIO_AIRSPD_KNOB_PUSH", 27, 3651, 255, "Airspeed Indicator", "RIO Airspeed Indicator Bug Push Knob")
+defineRotary("RIO_AIRSPD_KNOB", 27, 3652, 254, "Airspeed Indicator", "RIO Airspeed Indicator Bug Knob")
 
 -- Altimeter
 define3PosTumb("PLT_ALTIMETER_MODE", 28, 3487, 307, "Altimeter", "PILOT Altimeter Mode Switch")
@@ -276,9 +315,9 @@ defineRotary("RIO_ALTIMETER_KNOB", 28, 3489, 20306, "Altimeter", "RIO Altimeter 
 
 -- Gear
 defineToggleSwitch("PLT_GEAR_LEVER", 17, 3016, 326, "Gear", "PILOT Landing Gear Lever")
-defineToggleSwitch("PLT_GEAR_LEVER_EMERG", 17, 3633, 16015, "Gear", "PILOT Landing Gear Lever RB emergency extend")
-definePushButton("PLT_LAUNCHBAR_ABORT", 17, 3659, 497, "Gear", "PILOT Launch Bar Abort")
-defineToggleSwitch("PLT_LAUNCHBAR_ABORT_COVER", 17, 3660, 496, "Gear", "PILOT Launch Bar Abort Switch Cover")
+defineToggleSwitch("PLT_GEAR_LEVER_EMERG", 17, 3646, 16015, "Gear", "PILOT Landing Gear Lever RB emergency extend")
+definePushButton("PLT_LAUNCHBAR_ABORT", 17, 3672, 497, "Gear", "PILOT Launch Bar Abort")
+defineToggleSwitch("PLT_LAUNCHBAR_ABORT_COVER", 17, 3673, 496, "Gear", "PILOT Launch Bar Abort Switch Cover")
 define3PosTumb("PLT_NOSE_STRUT_SW", 17, 3019, 1075, "Gear", "PILOT Nose Strut Compression Switch")
 
 -- Hook
@@ -343,7 +382,7 @@ defineToggleSwitch("RIO_CANOPY_JETT", 11, 3184, 2051, "Cockpit Mechanics", "RIO 
 defineToggleSwitch("RIO_EJECT_CMD", 11, 3185, 2049, "Cockpit Mechanics", "RIO Ejection CMD Lever")
 defineToggleSwitch("PLT_EJECT_SEAT_SAFE", 11, 3186, 404, "Cockpit Mechanics", "PILOT Ejection Seat Safety")
 defineToggleSwitch("RIO_EJECT_SEAT_SAFE", 11, 3187, 498, "Cockpit Mechanics", "RIO Ejection Seat Safety")
-defineToggleSwitch("RIO_STORAGE_BOX", 11, 3599, 122, "Cockpit Mechanics", "RIO Storage Box")
+defineToggleSwitch("RIO_STORAGE_BOX", 11, 3612, 122, "Cockpit Mechanics", "RIO Storage Box")
 
 -- Enivornment Control
 defineToggleSwitch("PLT_OXY_ON", 11, 3190, 8114, "Enivornment Control", "PILOT Oxygen On")
@@ -354,17 +393,17 @@ definePushButton("PLT_AIR_SOURCE_OFF", 11, 3194, 933, "Enivornment Control", "PI
 definePushButton("PLT_AIR_SOURCE_L", 11, 3195, 930, "Enivornment Control", "PILOT Air Left Engine")
 definePushButton("PLT_AIR_SOURCE_R", 11, 3196, 931, "Enivornment Control", "PILOT Air Right Engine")
 definePushButton("PLT_AIR_SOURCE_BOTH", 11, 3197, 932, "Enivornment Control", "PILOT Air Both Engines")
-define3PosTumb("PLT_WINDSHIELD_AIR", 11, 3634, 942, "Enivornment Control", "PILOT Wind Shield Air")
-defineMultipositionSwitch("PLT_TEMP", 11, 3635, 950, 9, 0.125,"Enivornment Control" ,"PILOT Cabin Temperature Switch")
-defineToggleSwitch("PLT_TEMP_AUTO_MAN", 11, 3636, 940, "Enivornment Control", "PILOT Temperature Auto/Man")
-defineToggleSwitch("PLT_RAM_AIR", 11, 3637, 938, "Enivornment Control", "PILOT Ram Air")
+define3PosTumb("PLT_WINDSHIELD_AIR", 11, 3647, 942, "Enivornment Control", "PILOT Wind Shield Air")
+defineMultipositionSwitch("PLT_TEMP", 11, 3648, 950, 9, 0.125,"Enivornment Control" ,"PILOT Cabin Temperature Switch")
+defineToggleSwitch("PLT_TEMP_AUTO_MAN", 11, 3649, 940, "Enivornment Control", "PILOT Temperature Auto/Man")
+defineToggleSwitch("PLT_RAM_AIR", 11, 3650, 938, "Enivornment Control", "PILOT Ram Air")
 
 -- BIT Panel
 defineTumb("PLT_BIT_SWITCH", 10, 3076, 934, 1/11, {0.0, 1.0}, nil, false, "BIT Panel", "PILOT Master Test Selector (LB to rotate)")
 defineToggleSwitch("PLT_BIT_SWITCH_PUSH", 10, 3077, 15098, "BIT Panel", "PILOT Master Test Selector (RB to pull/push)")
 
 -- Light Panel
-defineToggleSwitch("PLT_HOOK_BYPASS", 25, 3653, 915, "Light Panel", "PILOT Hook Bypass")
+defineToggleSwitch("PLT_HOOK_BYPASS", 25, 3666, 915, "Light Panel", "PILOT Hook Bypass")
 defineToggleSwitch("PLT_TAXI_LIGHT", 11, 3171, 918, "Light Panel", "PILOT Taxi Light")
 define3PosTumb("PLT_FLOOD_LIGHT_RED", 11, 3172, 924, "Light Panel", "PILOT Red Flood Light")
 define3PosTumb("PLT_FLOOD_LIGHT_WH", 11, 3173, 921, "Light Panel", "PILOT White Flood Light")
@@ -379,10 +418,10 @@ defineMultipositionSwitch("PLT_LIGHT_INTENT_CONSOLE", 11, 3180, 15008, 9, 0.125,
 defineMultipositionSwitch("PLT_LIGHT_INTENT_FORMATION", 11, 3181, 15009, 9, 0.125,"Light Panel" ,"PILOT Formation Light Intensity")
 
 -- Light panel RIO
-define3PosTumb("RIO_FLOOD_LIGHT_RED", 11, 3693, 194, "Light Panel", "RIO Red Flood Light")
-define3PosTumb("RIO_FLOOD_LIGHT_WH", 11, 3694, 159, "Light Panel", "RIO White Flood Light")
-defineMultipositionSwitch("RIO_LIGHT_INTENT_INSTRUMENT", 11, 3695, 193, 9, 0.125,"Light Panel" ,"RIO Instrument Light Intensity")
-defineMultipositionSwitch("RIO_LIGHT_INTENT_CONSOLE", 11, 3696, 192, 9, 0.125,"Light Panel" ,"RIO Console Light Intensity")
+define3PosTumb("RIO_FLOOD_LIGHT_RED", 11, 3706, 194, "Light Panel", "RIO Red Flood Light")
+define3PosTumb("RIO_FLOOD_LIGHT_WH", 11, 3707, 159, "Light Panel", "RIO White Flood Light")
+defineMultipositionSwitch("RIO_LIGHT_INTENT_INSTRUMENT", 11, 3708, 193, 9, 0.125,"Light Panel" ,"RIO Instrument Light Intensity")
+defineMultipositionSwitch("RIO_LIGHT_INTENT_CONSOLE", 11, 3709, 192, 9, 0.125,"Light Panel" ,"RIO Console Light Intensity")
 
 -- DISPLAY Panel: Power
 defineToggleSwitch("PLT_VDI_PW_SW", 42, 3214, 1010, "Display", "PILOT VDI Power On/Off")
@@ -461,7 +500,7 @@ define3PosTumb("RIO_ICS_KY_MODE", 2, 3597, 382, "ICS", "RIO KY MODE Switch")
 -- UHF ARC-159
 defineTumb("PLT_UHF1_FREQ_MODE", 3, 3375, 2033, 0.5, {0.0, 1.5}, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode GUARD/MANUAL/PRESET")
 defineMultipositionSwitch("PLT_UHF1_FUNCTION", 3, 3371, 2034, 4, 0.333333, "UHF 1", "PILOT UHF ARC-159 Function ADF/BOTH/MAIN/OFF")
-defineMultipositionSwitch("PLT_UHF1_PRESETS", 3, 3373, 2032, 20, 0.0833333333, "UHF 1", "PILOT UHF ARC-159 Preset Channel Selector")
+defineTumb("PLT_UHF1_PRESETS", 3, 3373, 2032, 0.0833333333, {0.0, 1.0}, nil, true, "UHF 1", "PILOT UHF ARC-159 Preset Channel Selector")
 defineToggleSwitch("PLT_UHF1_SQUELCH", 3, 3365, 2035, "UHF 1", "PILOT UHF ARC-159 Squelch Switch")
 define3PosTumb("PLT_UHF1_110_DIAL", 3, 3367, 2030, "UHF 1", "PILOT UHF ARC-159 100MHz & 10MHz Dial")
 define3PosTumb("PLT_UHF1_1_DIAL", 3, 3368, 2029, "UHF 1", "PILOT UHF ARC-159 1MHz Dial")
@@ -522,7 +561,7 @@ end
 -- VHF/UHF ARC-182 ("V/UHF 2")
 defineMultipositionSwitch("RIO_VUHF_FREQ_MODE", 4, 3417, 353, 6, 0.2, "VUHF", "RIO VHF/UHF ARC-182 Frequency Mode 243 MAN G PRESET READ LOAD")
 defineMultipositionSwitch("RIO_VUHF_MODE", 4, 3413, 358, 5, 0.25, "VUHF", "RIO VHF/UHF ARC-182 MODE OFF T/R T/R&G DF TEST")
-defineMultipositionSwitch("RIO_VUHF_PRESETS", 4, 3415, 352, 30, 0.0833333333, "VUHF", "RIO VHF/UHF ARC-182 Preset Channel Selector")
+defineTumb("RIO_VUHF_PRESETS", 4, 3415, 352, 0.0833333333, {0.0, 1.0}, nil, true, "VUHF", "RIO VHF/UHF ARC-182 Preset Channel Selector")
 defineToggleSwitch("RIO_VUHF_FM_AM", 4, 3419, 359, "VUHF", "RIO VHF/UHF ARC-182 FM/AM Switch")
 defineToggleSwitch("RIO_VUHF_SQUELCH", 4, 3407, 351, "VUHF", "RIO VHF/UHF ARC-182 Squelch Switch")
 define3PosTumb("RIO_VUHF_110_DIAL", 4, 3409, 354, "VUHF", "RIO VUHF ARC-182 100MHz & 10MHz Dial")
@@ -603,7 +642,7 @@ end
 -- KY-28
 defineTumb("RIO_KY28_POWER", 2, 3423, 116, 0.5, {0.0, 1.5}, nil, false, "KY-28", "RIO KY-28 Power Mode")
 defineTumb("RIO_KY28_RADIO_SELECTOR", 2, 3425, 115, 0.5, {0.0, 1.5}, nil, false, "KY-28", "RIO KY-28 Radio Selector")
-defineToggleSwitch("RIO_KY28_FLIPCOVER", 2, 3595, 150, "KY-28", "RIO KY-28 ZEROIZE Cover")
+defineToggleSwitch("RIO_KY28_FLIPCOVER", 2, 3608, 150, "KY-28", "RIO KY-28 ZEROIZE Cover")
 defineToggleSwitch("RIO_KY28_ZEROIZE", 2, 3427, 361, "KY-28", "RIO KY-28 ZEROIZE")
 
 -- UHF/VHF/UHF Pilot/RIO Remote Display
@@ -717,8 +756,8 @@ definePushButton("PLT_MISSLE_MODE", 55, 3141, 16003, "Weapons Panel", "PILOT Mis
 definePushButton("PLT_EMERG_STORE_JETT", 55, 3142, 239, "Weapons Panel", "PILOT Emergency Stores Jettison")
 defineRotary("PLT_CLOCK_WIND", 26, 3042, 1051, "Weapons Panel", "PILOT Clock Wind")
 definePushButton("PLT_CLOCK_TIMER", 26, 3043, 1000, "Weapons Panel", "PILOT Clock Timer Start/Stop/Reset")
-defineRotary("RIO_CLOCK_WIND", 26, 3697, 1052, "Weapons Panel", "RIO Clock Wind")
-definePushButton("RIO_CLOCK_TIMER", 26, 3698, 1053, "Weapons Panel", "RIO Clock Timer Start/Stop/Reset")
+defineRotary("RIO_CLOCK_WIND", 26, 3710, 1052, "Weapons Panel", "RIO Clock Wind")
+definePushButton("RIO_CLOCK_TIMER", 26, 3711, 1053, "Weapons Panel", "RIO Clock Timer Start/Stop/Reset")
 
 -- RIO TID
 defineMultipositionSwitch("RIO_TID_MODE", 43, 3112, 2005, 4, 0.33333, "TID" ,"RIO TID Mode")
@@ -743,8 +782,8 @@ defineToggleSwitch("RIO_HCU_DDD", 58, 3098, 2009, "HCU", "RIO HCU DDD Mode")
 defineToggleSwitch("RIO_HCU_TID", 58, 3099, 2010, "HCU", "RIO HCU TID Mode")
 define3PosTumb("RIO_HCU_TVIR_SW", 37, 3100, 2011, "HCU", "RIO HCU TV/IR Switch")
 define3PosTumb("RIO_HCU_WCS", 39, 3101, 2012, "HCU", "RIO HCU WCS Switch")
-definePushButton("RIO_HCU_PW_RESET", 39, 3631, 2013, "HCU", "RIO HCU Power Reset")
-definePushButton("RIO_HCU_LIGHT_TEST", 39, 3632, 2014, "HCU", "RIO HCU Light Test")
+definePushButton("RIO_HCU_PW_RESET", 39, 3644, 2013, "HCU", "RIO HCU Power Reset")
+definePushButton("RIO_HCU_LIGHT_TEST", 39, 3645, 2014, "HCU", "RIO HCU Light Test")
 
 -- RIO DDD
 definePushButton("RIO_RADAR_5", 39, 3450, 40, "DDD", "RIO Radar 5 NM")
@@ -764,9 +803,9 @@ definePushButton("RIO_RADAR_PDSTT", 39, 3463, 9916, "DDD", "RIO Radar Pulse Dopp
 definePushButton("RIO_DDD_IFF", 39, 3464, 17, "DDD", "RIO DDD Interrogate Friend or Foe")
 definePushButton("RIO_DDD_IR", 39, 3465, 18, "DDD", "RIO DDD Infrared")
 definePushButton("RIO_DDD_RADAR", 39, 3466, 19, "DDD", "RIO DDD Radar")
-definePushButton("RIO_CCM_SPL", 39, 3673, 1812, "DDD", "RIO CCM SPL")
-definePushButton("RIO_CCM_ALT_DIFF", 39, 3674, 1813, "DDD", "RIO CCM ALT DIFF")
-definePushButton("RIO_CCM_VGS", 39, 3675, 1814, "DDD", "RIO CCM VGS")
+definePushButton("RIO_CCM_SPL", 39, 3686, 1812, "DDD", "RIO CCM SPL")
+definePushButton("RIO_CCM_ALT_DIFF", 39, 3687, 1813, "DDD", "RIO CCM ALT DIFF")
+definePushButton("RIO_CCM_VGS", 39, 3688, 1814, "DDD", "RIO CCM VGS")
 definePotentiometer("RIO_RADAR_IR_GAIN", 39, 3473, 20, {0.0, 1.0}, "DDD", "RIO Radar IR Gain")
 definePotentiometer("RIO_RADAR_IR_VOL", 39, 3474, 21, {0.0, 1.0}, "DDD", "RIO Radar IR Volume")
 definePotentiometer("RIO_RADAR_IR_THERESHOLD", 39, 3475, 22, {0.0, 1.0}, "DDD", "RIO Radar IR Threshold")
@@ -797,9 +836,9 @@ define3PosTumb("RIO_RADAR_VSL", 39, 3448, 84, "Radar", "RIO Radar VSL Switch")
 define3PosTumb("RIO_TCS_ACQ", 37, 3495, 87, "TCS", "RIO TCS Acquisition")
 defineToggleSwitch("RIO_TCS_FOV", 37, 3494, 88, "TCS", "RIO TCS FOV")
 define3PosTumb("RIO_TCS_SLAVE", 37, 3496, 89, "TCS", "RIO TCS Slave")
-define3PosTumb("RIO_RECORD_PW", 37, 3604, 90, "TCS", "RIO Record Power")
-defineMultipositionSwitch("RIO_RECORD_MODE", 37, 3605, 91, 5, 1.0/4.0, "TCS" ,"RIO Record Mode")
-definePotentiometer("RIO_RECORD_RESET", 37, 3609, 16016, {0.0, 1.0}, "Radar", "RIO Record Reset")
+define3PosTumb("RIO_RECORD_PW", 37, 3617, 90, "TCS", "RIO Record Power")
+defineMultipositionSwitch("RIO_RECORD_MODE", 37, 3618, 91, 5, 1.0/4.0, "TCS" ,"RIO Record Mode")
+definePotentiometer("RIO_RECORD_RESET", 37, 3622, 16016, {0.0, 1.0}, "Radar", "RIO Record Reset")
 
 -- RIO Armament Panel
 defineMultipositionSwitch("RIO_WEAPON_TYPE", 55, 3146, 59, 44, 1.0/43.0, "Armament Panel" ,"RIO Weapon Type Wheel")
@@ -811,7 +850,7 @@ defineMultipositionSwitch("RIO_WEAPON_ATTK_MODE", 55, 3151, 2022, 5, 0.25, "Arma
 defineMultipositionSwitch("RIO_WEAPON_ELEC_FUSE", 55, 3152, 58, 5, 0.25, "Armament Panel" ,"RIO Weapon Elec Fuse")
 defineMultipositionSwitch("RIO_WEAPON_MSL_SPD", 55, 3153, 72, 6, 0.2, "Armament Panel" ,"RIO Weapon Missile Speed Gate")
 define3PosTumb("RIO_WEAPON_SEL_JETT", 55, 3154, 78, "Armament Panel", "RIO Weapon Selective Jettison")
-defineToggleSwitch("RIO_WEAPON_SEL_JETT_COVER", 55, 3655, 1069, "Armament Panel", "RIO Weapon Selective Jettison Aux Guard")
+defineToggleSwitch("RIO_WEAPON_SEL_JETT_COVER", 55, 3668, 1069, "Armament Panel", "RIO Weapon Selective Jettison Aux Guard")
 define3PosTumb("RIO_WEAPON_MECH_FUSE", 55, 3155, 63, "Armament Panel", "RIO RIO Weapon Mech Fuse")
 define3PosTumb("RIO_WEAPON_MSL_OPT", 55, 3156, 75, "Armament Panel", "RIO RIO Weapon Missile Option")
 defineToggleSwitch("RIO_WEAPON_BOMB_SINGLE", 55, 3157, 60, "Armament Panel", "RIO Weapon Bomb Single/Pairs")
@@ -859,50 +898,50 @@ definePushButton("RIO_CAP_CLEAR", 23, 3531, 148, "CAP", "RIO CAP Clear")
 definePushButton("RIO_CAP_ENTER", 23, 3534, 149, "CAP", "RIO CAP Enter")
 
 -- Datalink
-define3PosTumb("RIO_DATALINK_PW", 52, 3589, 413, "Datalink", "RIO Datalink Power")
-defineToggleSwitch("RIO_DATALINK_ANT", 52, 3590, 175, "Datalink", "RIO Datalink Antenna")
-defineToggleSwitch("RIO_DATALINK_REPLY", 52, 3591, 176, "Datalink", "RIO Datalink Reply")
-defineToggleSwitch("RIO_DATALINK_CAINS", 52, 3592, 177, "Datalink", "RIO Datalink CAINS/TAC")
-define3PosTumb("RIO_DATALINK_ANTIJAM", 52, 3585, 191, "Datalink", "RIO Datalink Antijam")
-defineTumb("RIO_DATALINK_FREQ_10", 52, 3586, 196, 0.111, {0.0, 1.0}, nil, false, "Datalink", "RIO Datalink Freq 10MHz")
-defineTumb("RIO_DATALINK_FREQ_1", 52, 3587, 195, 0.111, {0.0, 1.0}, nil, false, "Datalink", "RIO Datalink Freq 1MHz")
-defineTumb("RIO_DATALINK_FREQ_100", 52, 3588, 197, 0.111, {0.0, 1.0}, nil, false, "Datalink", "RIO Datalink Freq 100kHz")
-defineTumb("RIO_DATALINK_ADDR_HI", 52, 3593, 222, 0.111, {0.0, 1.0}, nil, false, "Datalink", "RIO Datalink Address High")
-defineTumb("RIO_DATALINK_ADDR_LO", 52, 3594, 223, 0.111, {0.0, 1.0}, nil, false, "Datalink", "RIO Datalink Address Low")
-defineMultipositionSwitch("RIO_BEACON_MODE", 52, 3680, 118, 7, 0.1666667, "Datalink" ,"RIO Beacon Mode")
-definePushButton("RIO_BEACON_ACLS", 52, 3679, 117, "Datalink", "RIO Beacon ACLS Test")
-define3PosTumb("RIO_BEACON_PW", 52, 3678, 96, "Datalink", "RIO Beacon Power")
+define3PosTumb("RIO_DATALINK_PW", 52, 3602, 413, "Datalink", "RIO Datalink Power")
+defineToggleSwitch("RIO_DATALINK_ANT", 52, 3603, 175, "Datalink", "RIO Datalink Antenna")
+defineToggleSwitch("RIO_DATALINK_REPLY", 52, 3604, 176, "Datalink", "RIO Datalink Reply")
+defineToggleSwitch("RIO_DATALINK_CAINS", 52, 3605, 177, "Datalink", "RIO Datalink CAINS/TAC")
+define3PosTumb("RIO_DATALINK_ANTIJAM", 52, 3598, 191, "Datalink", "RIO Datalink Antijam")
+defineTumb("RIO_DATALINK_FREQ_10", 52, 3599, 196, 0.111, {0.0, 1.0}, nil, false, "Datalink", "RIO Datalink Freq 10MHz")
+defineTumb("RIO_DATALINK_FREQ_1", 52, 3600, 195, 0.111, {0.0, 1.0}, nil, false, "Datalink", "RIO Datalink Freq 1MHz")
+defineTumb("RIO_DATALINK_FREQ_100", 52, 3601, 197, 0.111, {0.0, 1.0}, nil, false, "Datalink", "RIO Datalink Freq 100kHz")
+defineTumb("RIO_DATALINK_ADDR_HI", 52, 3606, 222, 0.111, {0.0, 1.0}, nil, false, "Datalink", "RIO Datalink Address High")
+defineTumb("RIO_DATALINK_ADDR_LO", 52, 3607, 223, 0.111, {0.0, 1.0}, nil, false, "Datalink", "RIO Datalink Address Low")
+defineMultipositionSwitch("RIO_BEACON_MODE", 52, 3693, 118, 7, 0.1666667, "Datalink" ,"RIO Beacon Mode")
+definePushButton("RIO_BEACON_ACLS", 52, 3692, 117, "Datalink", "RIO Beacon ACLS Test")
+define3PosTumb("RIO_BEACON_PW", 52, 3691, 96, "Datalink", "RIO Beacon Power")
 
 -- IFF Panel
-define3PosTumb("RIO_IFF_AUDIOLIGHT", 64, 3613, 161, "IFF", "RIO IFF Audio/Light")
-define3PosTumb("RIO_IFF_M1", 64, 3614, 162, "IFF", "RIO IFF M1")
-define3PosTumb("RIO_IFF_M2", 64, 3615, 163, "IFF", "RIO IFF M2")
-define3PosTumb("RIO_IFF_M3A", 64, 3616, 164, "IFF", "RIO IFF M3/A")
-define3PosTumb("RIO_IFF_MC", 64, 3617, 165, "IFF", "RIO IFF MC")
-define3PosTumb("RIO_IFF_RAD", 64, 3618, 166, "IFF", "RIO IFF RAD")
-define3PosTumb("RIO_IFF_IDENT", 64, 3619, 167, "IFF", "RIO IFF Ident")
-defineToggleSwitch("RIO_IFF_M4", 64, 3620, 181, "IFF", "RIO IFF M4")
-defineMultipositionSwitch("RIO_IFF_CODE", 64, 3621, 183, 4, 1.0/3.0, "IFF" ,"RIO IFF Code")
-defineMultipositionSwitch("RIO_IFF_MASTER", 64, 3622, 184, 5, 1.0/4.0, "IFF" ,"RIO IFF Master")
-definePushButton("RIO_IFF_TEST", 64, 3623, 185, "IFF", "RIO IFF Test")
-definePushButton("RIO_IFF_REPLY", 64, 3624, 186, "IFF", "RIO IFF Reply")
-defineTumb("RIO_IFF_M3_1", 64, 3625, 2262, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M3 Code 1s")
-defineTumb("RIO_IFF_M3_10", 64, 3626, 2261, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M3 Code 10s")
-defineTumb("RIO_IFF_M3_100", 64, 3627, 198, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M3 Code 100s")
-defineTumb("RIO_IFF_M3_1000", 64, 3628, 199, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M3 Code 1000s")
-defineTumb("RIO_IFF_M1_1", 64, 3629, 200, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M1 Code 1s")
-defineTumb("RIO_IFF_M1_10", 64, 3630, 201, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M1 Code 10s")
+define3PosTumb("RIO_IFF_AUDIOLIGHT", 64, 3626, 161, "IFF", "RIO IFF Audio/Light")
+define3PosTumb("RIO_IFF_M1", 64, 3627, 162, "IFF", "RIO IFF M1")
+define3PosTumb("RIO_IFF_M2", 64, 3628, 163, "IFF", "RIO IFF M2")
+define3PosTumb("RIO_IFF_M3A", 64, 3629, 164, "IFF", "RIO IFF M3/A")
+define3PosTumb("RIO_IFF_MC", 64, 3630, 165, "IFF", "RIO IFF MC")
+define3PosTumb("RIO_IFF_RAD", 64, 3631, 166, "IFF", "RIO IFF RAD")
+define3PosTumb("RIO_IFF_IDENT", 64, 3632, 167, "IFF", "RIO IFF Ident")
+defineToggleSwitch("RIO_IFF_M4", 64, 3633, 181, "IFF", "RIO IFF M4")
+defineMultipositionSwitch("RIO_IFF_CODE", 64, 3634, 183, 4, 1.0/3.0, "IFF" ,"RIO IFF Code")
+defineMultipositionSwitch("RIO_IFF_MASTER", 64, 3635, 184, 5, 1.0/4.0, "IFF" ,"RIO IFF Master")
+definePushButton("RIO_IFF_TEST", 64, 3636, 185, "IFF", "RIO IFF Test")
+definePushButton("RIO_IFF_REPLY", 64, 3637, 186, "IFF", "RIO IFF Reply")
+defineTumb("RIO_IFF_M3_1", 64, 3638, 2262, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M3 Code 1s")
+defineTumb("RIO_IFF_M3_10", 64, 3639, 2261, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M3 Code 10s")
+defineTumb("RIO_IFF_M3_100", 64, 3640, 198, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M3 Code 100s")
+defineTumb("RIO_IFF_M3_1000", 64, 3641, 199, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M3 Code 1000s")
+defineTumb("RIO_IFF_M1_1", 64, 3642, 200, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M1 Code 1s")
+defineTumb("RIO_IFF_M1_10", 64, 3643, 201, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M1 Code 10s")
 
 
 -- LIQUID Cooling
-define3PosTumb("RIO_LIQUD_COOL", 39, 3681, 95, "Radar Panel", "RIO Liquid Cooling Switch")
+define3PosTumb("RIO_LIQUD_COOL", 39, 3694, 95, "Radar Panel", "RIO Liquid Cooling Switch")
 
 -- LANTIRN (Panel Arg:666)
-defineMultipositionSwitch("RIO_LANTIRN_PW", 38, 3676, 667, 3, 1.0/2.0, "LANTIRN" ,"RIO LANTIRN Power")
+defineMultipositionSwitch("RIO_LANTIRN_PW", 38, 3689, 667, 3, 1.0/2.0, "LANTIRN" ,"RIO LANTIRN Power")
 defineToggleSwitch("RIO_LANTIRN_LASER_ARM", 38, 3516, 668, "LANTIRN", "RIO LANTIRN Laser Arm Switch")
 definePushButton("RIO_LANTIRN_TCS_SEL", 38, 3498, 670, "LANTIRN", "RIO Video Output Toggle (TCS/LANTIRN)")
-definePushButton("RIO_LANTIRN_TCS_SEL", 38, 3691, 669, "LANTIRN", "RIO LANTIRN Operate Mode (Unstow)")
-definePushButton("RIO_LANTIRN_IBIT", 38, 3677, 671, "LANTIRN", "RIO LANTIRN IBIT")
+definePushButton("RIO_LANTIRN_TCS_SEL", 38, 3704, 669, "LANTIRN", "RIO LANTIRN Operate Mode (Unstow)")
+definePushButton("RIO_LANTIRN_IBIT", 38, 3690, 671, "LANTIRN", "RIO LANTIRN IBIT")
 defineIndicatorLightLANTTop("RIO_LANTIRN_1_OPER", 673, "LANTIRN","RIO LANTIRN STBY Light (TOP) (green)")
 defineIndicatorLightLANT("RIO_LANTIRN_2_OPERSTBY", 673, "LANTIRN","RIO LANTIRN OPER STBY Light (BOOTH) (green)")
 defineIndicatorLightLANTBottom("RIO_LANTIRN_3_STBY", 673, "LANTIRN","RIO LANTIRN STBY Light (BOTTOM) (green)")
@@ -1508,7 +1547,9 @@ defineFloat("CANOPY_POS", 403, {0, 1}, "Gauges", "Canopy Position")
 
 defineString("PLT_UHF_REMOTE_DISP", function() return PLT_UHF_REMOTE_DISP end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")  
 defineString("RIO_UHF_REMOTE_DISP", function() return RIO_UHF_REMOTE_DISP end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")  
-defineString("PLT_VUHF_REMOTE_DISP", function() return PLT_VUHF_REMOTE_DISP end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")  
+defineString("PLT_VUHF_REMOTE_DISP", function() return PLT_VUHF_REMOTE_DISP end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")
+defineString("PLT_HUD_MODE", getHUD_Mode, 1, "Display", "PILOT HUD Mode (as string)")  
+defineString("PLT_STEER_MODE", getSTEER_Mode, 1, "Display", "PILOT STEER Mode (as string)")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
