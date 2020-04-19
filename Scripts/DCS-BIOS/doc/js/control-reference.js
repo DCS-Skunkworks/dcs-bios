@@ -19,8 +19,10 @@ $(function() {
 	_.each(docdata, function(value, key) {
 		moduleSelect.append($("<option>").attr("value", key).text(key));
 	});
-	$("#app").append($("<span>").text("Module: "));
-	$("#app").append(moduleSelect);
+	var headerDiv=$("<div style='background-color:#8EEF96; position:fixed; top:0px; left:0px; width:100%; z-index:10000'>");
+	headerDiv.append($("<span>").text("Module: "));
+	headerDiv.append(moduleSelect);
+	$("#app").attr("style", "padding-top: 50px;");
 	
 	var viewSelect = $("<select>");
 	viewSelect.append($("<option>").attr("value", "simple").text("Simple"));
@@ -33,22 +35,23 @@ $(function() {
 			}
 		}
 	}
-	$("#app").append($("<span>").text(" View: "));
-	$("#app").append(viewSelect);
+	headerDiv.append($("<span>").text(" View: "));
+	headerDiv.append(viewSelect);
 
 	
 	var categoryFilter = $("<select>");
-	$("#app").append($("<span>").text(" Category Filter: "));
-	$("#app").append(categoryFilter);
+	headerDiv.append($("<span>").text(" Category Filter: "));
+	headerDiv.append(categoryFilter);
 	
-	$("#app").append($('<span> </span>'));
+	headerDiv.append($('<span> </span>'));
 	
 	var button = $("<button>").text("Pointer Calibration Tool");
 	button.on("click", function() {
 		$("#pointercal").toggle(!$("#pointercal").is(':visible'));
 	});
-	$("#app").append(button);
+	headerDiv.append(button);
 	
+	$("#app").append(headerDiv);
 	$("#app").append($('<iframe id="pointercal" style="display:none" src="pointercal.html" width="100%" height="500"></iframe>'));
 
 
