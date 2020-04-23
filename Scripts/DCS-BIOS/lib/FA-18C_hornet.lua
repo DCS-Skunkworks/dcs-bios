@@ -1175,7 +1175,7 @@ defineTumb("KY58_POWER_SELECT", 41, 3004, 447, 0.1, {0.0, 0.2}, nil, false, "KY-
 -- 10. Utility Light
 
 -- 11. Defog Panel
-definePotentiometer("DEFOG_HANDLE", 11, 3005, 451, {0, 1}, "Defog Panel", "Defog Handle")
+definePotentiometer("DEFOG_HANDLE", 11, 3005, 451, {-1, 1}, "Defog Panel", "Defog Handle")
 define3PosTumb("WSHIELD_ANTI_ICE_SW", 11, 3009, 452, "Defog Panel", "Windshield Anti-Ice/Rain Switch, ANTI ICE/OFF/RAIN")
 
 -- 12. Internal Canopy Switch
