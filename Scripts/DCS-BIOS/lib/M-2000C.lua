@@ -1082,7 +1082,8 @@ defineIndicatorLight("TEST_VERT", 513, "TEST PANEL", "O - TEST - Green Indicator
 
 -- VHF RADIO
 defineMultipositionSwitch("VHF_MODE", 19, 3950, 950,  7, 0.10, "VHF RADIO", "I - VHF - MODE Switch")
-defineMultipositionSwitch("VHF_CH_SEL", 19, 3951, 951, 20, 0.05, "VHF RADIO", "I - VHF - Channel Selector")
+--defineMultipositionSwitch("VHF_CH_SEL", 19, 3951, 951, 20, 0.05, "VHF RADIO", "I - VHF - Channel Selector")
+defineTumb("VHF_CH_SEL", 19, 3951, 951, 0.05, {0, 0.95}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "VHF RADIO", "I - VHF - Channel Selector")
 definePushButton("VHF_MEM_CLR", 19, 3952, 952, "VHF RADIO", "I - VHF - MEM/CLR Button")
 definePushButton("VHF_VLD_XFR", 19, 3953, 953, "VHF RADIO", "I - VHF -  VLD/XFR Button")
 definePushButton("VHF_1_READ", 19, 3954, 954, "VHF RADIO", "I - VHF - 1/READ Button")
