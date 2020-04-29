@@ -13286,12 +13286,20 @@
                                                                              },
                                                         "PLT_TACAN_CHANNEL": {
                                                                                             "category": "TACAN",
-                                                                                        "control_type": "discrete_dial",
+                                                                                        "control_type": "selector",
                                                                                          "description": "PILOT TACAN Channel XY",
                                                                                           "identifier": "PLT_TACAN_CHANNEL",
                                                                                               "inputs": [ {
                                                                                                             "description": "switch to previous or next state",
                                                                                                               "interface": "fixed_step"
+                                                                                                        }, {
+                                                                                                            "description": "set position",
+                                                                                                              "interface": "set_state",
+                                                                                                              "max_value": 1
+                                                                                                        }, {
+                                                                                                               "argument": "TOGGLE",
+                                                                                                            "description": "Toggle switch state",
+                                                                                                              "interface": "action"
                                                                                                         } ],
                                                                                  "momentary_positions": "none",
                                                                                              "outputs": [ {
@@ -13303,7 +13311,7 @@
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ],
-                                                                                    "physical_variant": "infinite_rotary"
+                                                                                    "physical_variant": "toggle_switch"
                                                                              },
                                                      "PLT_TACAN_CMD_BUTTON": {
                                                                                             "category": "TACAN",
@@ -13411,12 +13419,20 @@
                                                                              },
                                                 "PLT_TACAN_MODE_NORMAL_INV": {
                                                                                             "category": "TACAN",
-                                                                                        "control_type": "discrete_dial",
+                                                                                        "control_type": "selector",
                                                                                          "description": "PILOT TACAN Mode Normal/Inverse",
                                                                                           "identifier": "PLT_TACAN_MODE_NORMAL_INV",
                                                                                               "inputs": [ {
                                                                                                             "description": "switch to previous or next state",
                                                                                                               "interface": "fixed_step"
+                                                                                                        }, {
+                                                                                                            "description": "set position",
+                                                                                                              "interface": "set_state",
+                                                                                                              "max_value": 1
+                                                                                                        }, {
+                                                                                                               "argument": "TOGGLE",
+                                                                                                            "description": "Toggle switch state",
+                                                                                                              "interface": "action"
                                                                                                         } ],
                                                                                  "momentary_positions": "none",
                                                                                              "outputs": [ {
@@ -13428,7 +13444,7 @@
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ],
-                                                                                    "physical_variant": "infinite_rotary"
+                                                                                    "physical_variant": "toggle_switch"
                                                                              },
                                                          "PLT_TACAN_VOLUME": {
                                                                                      "category": "TACAN",
