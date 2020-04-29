@@ -554,7 +554,7 @@ defineTumb("R863_CNL_SEL", 38, start_command + 3, 370, 0.05, {0, 0.949768}, nil,
 
 local R863_FREQ1_POS = {
   ["0"] = "10",
-	["1"] = "11",
+  ["1"] = "11",
   ["2"] = "12",
   ["3"] = "13",
   ["4"] = "14",
@@ -579,10 +579,8 @@ local R863_FREQ1_POS = {
 }
 
 local R863_FREQ09_POS = {
-  ["100"] = "0",
-  ["10"] = "0",
   ["0"] = "0",
-	["1"] = "1",
+  ["1"] = "1",
   ["2"] = "2",
   ["3"] = "3",
   ["4"] = "4",
@@ -590,30 +588,35 @@ local R863_FREQ09_POS = {
   ["6"] = "6",
   ["7"] = "7",
   ["8"] = "8",
-  ["9"] = "9"
+  ["9"] = "9",
+  ["10"] = "0"
 }
 
 local R863_FREQ4_POS = {
-  ["100"] = "00",
   ["0"] = "00",
-	["25"] = "25",
+  ["25"] = "25",
   ["50"] = "50",
-  ["75"] = "75"
+  ["75"] = "75",
+  ["100"] = "00"
 }
 
 defineFixedStepTumb("R863_FREQ1", 38, start_command + 6, 157, 0.01, {0, 0.23}, {-0.1, 0.1}, {"10", "11", "12", "13", "14", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"}, "R-863", "R-863, 10MHz Rotary Knob")
 defineFixedStepTumb("R863_FREQ2", 38, start_command + 7, 158, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 1MHz Rotary Knob")
 defineFixedStepTumb("R863_FREQ3", 38, start_command + 8, 159, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 100KHz Rotary Knob")
-defineFixedStepTumb("R863_FREQ4", 38, start_command + 9, 160, 0.3, {0, 1}, {-0.1, 0.1}, {"00", "25", "50", "75"}, "R-863", "R-863, 1KHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ4", 38, start_command + 9, 160, 0.25, {0, 1}, {-0.1, 0.1}, {"00", "25", "50", "75", "00"}, "R-863", "R-863, 1KHz Rotary Knob")
 
 
 local function getR863Frequency()
     local freq1 = R863_FREQ1_POS[string.format("%.0f", GetDevice(0):get_argument_value(157)*100)]
     local freq2 = R863_FREQ09_POS[string.format("%.0f", GetDevice(0):get_argument_value(158)*10)]
+	if freq2 == nil then freq2 = "0" end
     local freq3 = R863_FREQ09_POS[string.format("%.0f", GetDevice(0):get_argument_value(159)*10)]
+	if freq3 == nil then freq3 = "0" end
     local freq4 = R863_FREQ4_POS[string.format("%.0f", GetDevice(0):get_argument_value(160)*100)]
+	if freq4 == nil then freq4 = "00" end
 	return  freq1 .. freq2 .. "." .. freq3 .. freq4
 end
+
 defineTumb("R828_PRST_CHAN_SEL", 39, start_command + 1, 735, 0.1, {0, 0.9}, nil, false, "R-828", "R-828, Radio Channel Selector Knob")
 
 defineFixedStepTumb("YADRO1A_FREQ1", 37, start_command + 2, 745, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1MHz")
@@ -624,22 +627,19 @@ defineFixedStepTumb("YADRO1A_FREQ5", 37, start_command + 6, 749, 0.1, {0, 1}, {-
 defineTumb("YADRO1A_SQL", 37, start_command + 8, 741, 0.7, {0, 0.7}, nil, false, "YaDRO-1A", "YaDRO-1A, Squelch Switch")
 
 local function getYadro1AFrequency()
-    local freq1 = string.format("%.0f", GetDevice(0):get_argument_value(750)*10)
-    local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(745)*10)
-    local freq3 = string.format("%.0f", GetDevice(0):get_argument_value(746)*10)
-    local freq4 = string.format("%.0f", GetDevice(0):get_argument_value(747)*10)
-    local freq5 = string.format("%.0f", GetDevice(0):get_argument_value(748)*10)
-    local freq6 = string.format("%.0f", GetDevice(0):get_argument_value(749)*10)
-	return  freq1 .. freq2 .. freq3 .. freq4 .. freq5 .. "." .. freq6
+    local yfreq1 = string.format("%.0f", GetDevice(0):get_argument_value(750)*10)
+    local yfreq2 = string.format("%.0f", GetDevice(0):get_argument_value(745)*10)
+    local yfreq3 = string.format("%.0f", GetDevice(0):get_argument_value(746)*10)
+    local yfreq4 = string.format("%.0f", GetDevice(0):get_argument_value(747)*10)
+    local yfreq5 = string.format("%.0f", GetDevice(0):get_argument_value(748)*10)
+    local yfreq6 = string.format("%.0f", GetDevice(0):get_argument_value(749)*10)
+	return  yfreq1 .. yfreq2 .. yfreq3 .. yfreq4 .. yfreq5 .. "." .. yfreq6
 end
 
 defineString("YADRO1A_FREQ", getYadro1AFrequency, 7, "YaDRO-1A", "YaDRO-1A, Frequency")
 
 defineTumb("WPN_SIGHT_DBL", 47, start_command + 5, 856, 0.5, {0, 0.5}, nil, false, "Weapons", "PKV Sight Double")
-
 defineTumb("WPN_SIGHT_SUN", 47, start_command + 6, 903, 1, {0, 1}, nil, false, "Weapons", "PKV Sun Filter")
---TODO Mech clock (CO-Pilot)
-
 
 defineTumb("STC_PRS_SYSTEM", 25, start_command + 1, 839, 0.1, {0, 0.2}, nil, false, "Pitot", "Static Pressure System Mode Selector, LEFT/COMMON/RIGHT")
 defineTumb("CMD_FLARE_SEL", 48, start_command + 2, 859, 0.5, {0, 1}, nil, false, "Dispenser", "CMD Board Flares Dispensers Switch, LEFT/BOTH/RIGHT")
@@ -982,7 +982,7 @@ defineFloat("RECORDERP503B_PANELLIGHTNESS", 920, {1.0, 0.0}, "Indicator", "Recor
 defineFloat("WINDSCREENWIPERL", 254, {0.0, 1.0}, "Indicator", "WindscreenWiperL")
 defineFloat("WINDSCREENWIPERR", 255, {0.0, 1.0}, "Indicator", "WindscreenWiperR")
 
-defineString("R863_FREQ", getR863Frequency, 7, "R-863", "R863, Frequency")
+defineString("R863_FREQ", getR863Frequency, 7, "R-863", "R863, Frequency (String)")
 
 defineRotary("CLOCK_R_LEV_TURN", 45, start_command + 5, 60, "Clock", "Mech Clock Right Lever (Turn)")
 definePushButton("CLOCK_R_LEV_PRESS", 45, start_command + 4, 59, "Clock", "Mech Clock Right Lever (Press)")
@@ -990,10 +990,10 @@ defineRotary("CLOCK_L_LEV_TURN", 45, start_command + 3, 58, "Clock", "Mech clock
 defineTumb("CLOCK_L_LEV_PULL", 45, start_command + 1, 57, 1, {0, 1}, nil, false, "Clock", "Mech Clock Left Lever (Pull)")
 defineTumb("CLOCK_L_LEV_PRESS", 45, start_command + 2, 57, 1, {-1, 0}, nil, false, "Clock", "Mech Clock Left Lever (Press)")
 
-defineFloat("R863_FREQ1_TUBE", 157, {0.0,0.23}, "Indicator", "R-863, 10MHz Tube")
-defineFloat("R863_FREQ2_TUBE", 157, {0.0,0.23}, "Indicator", "R-863, 1MHz Tube")
-defineFloat("R863_FREQ3_TUBE", 157, {0.0,0.23}, "Indicator", "R-863, 100KHz Tube")
-defineFloat("R863_FREQ4_TUBE", 157, {0.0,0.23}, "Indicator", "R-863, 1KHz Tube")
+defineFloat("R863_FREQ1_TUBE", 157, {0, 1}, "Indicator", "R-863, 10MHz Tube")
+defineFloat("R863_FREQ2_TUBE", 158, {0, 1}, "Indicator", "R-863, 1MHz Tube")
+defineFloat("R863_FREQ3_TUBE", 159, {0, 1}, "Indicator", "R-863, 100KHz Tube")
+defineFloat("R863_FREQ4_TUBE", 116, {0, 1}, "Indicator", "R-863, 1KHz Tube")
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
