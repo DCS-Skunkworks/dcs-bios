@@ -403,7 +403,7 @@ defineTumb("PLT_BIT_SWITCH", 10, 3076, 934, 1/11, {0.0, 1.0}, nil, false, "BIT P
 defineToggleSwitch("PLT_BIT_SWITCH_PUSH", 10, 3077, 15098, "BIT Panel", "PILOT Master Test Selector (RB to pull/push)")
 
 -- Light Panel
-defineToggleSwitch("PLT_HOOK_BYPASS", 25, 3666, 915, "Light Panel", "PILOT Hook Bypass")
+defineToggleSwitch("PLT_HOOK_BYPASS", 25, 3211, 915, "Light Panel", "PILOT Hook Bypass")
 defineToggleSwitch("PLT_TAXI_LIGHT", 11, 3171, 918, "Light Panel", "PILOT Taxi Light")
 define3PosTumb("PLT_FLOOD_LIGHT_RED", 11, 3172, 924, "Light Panel", "PILOT Red Flood Light")
 define3PosTumb("PLT_FLOOD_LIGHT_WH", 11, 3173, 921, "Light Panel", "PILOT White Flood Light")
