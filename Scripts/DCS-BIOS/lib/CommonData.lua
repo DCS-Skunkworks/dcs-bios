@@ -8,23 +8,23 @@ local lonDeg, lonSec, lonFractionalSec
 local altFt
 local hdgDeg
 local hdgDegFrac
-local playerName
 local iasDisp
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	-- skip  this data if ownship export is disabled
 	if not LoIsOwnshipExportAllowed() then return end
-
-    playerName = LoGetPilotName()
+	
+	playerName = LoGetPilotName()
+		if playerName == nil then playerName = "XXX" end
 	
 	iasDisp = LoGetIndicatedAirSpeed()
-	if iasDisp == nil then iasDisp = "0" end
+		if iasDisp == nil then iasDisp = "0" end
 	iasEU = math.floor(0.5 + iasDisp * 3.6)             -- km/h
 	iasUS = math.floor(0.5 + iasDisp * 1.94384449)		-- knots
 	_indicatedAirspeedEU = string.format("%4d", iasEU)
 	_indicatedAirspeedUS = string.format("%4d", iasUS)
 	
 	local selfData = LoGetSelfData()
-	if selfData.LatLongAlt == nil then return end
+		if selfData.LatLongAlt == nil then return end
 	altFt = selfData.LatLongAlt.Alt / 0.3048
 	local lat = selfData.LatLongAlt.Lat
 	local lon = selfData.LatLongAlt.Long
