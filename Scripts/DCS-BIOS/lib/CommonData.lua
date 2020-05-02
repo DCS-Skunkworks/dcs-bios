@@ -1,5 +1,6 @@
 BIOS.protocol.beginModule("CommonData", 0x400)
 BIOS.protocol.setExportModuleAircrafts(BIOS.ALL_PLAYABLE_AIRCRAFT)
+
 local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
@@ -17,11 +18,9 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		if playerName == nil then playerName = "XXX" end
 	
 	iasDisp = LoGetIndicatedAirSpeed()
-		if iasDisp == nil then iasDisp = "0" end
-	iasEU = math.floor(0.5 + iasDisp * 3.6)             -- km/h
-	iasUS = math.floor(0.5 + iasDisp * 1.94384449)		-- knots
-	_indicatedAirspeedEU = string.format("%4d", iasEU)
-	_indicatedAirspeedUS = string.format("%4d", iasUS)
+		if iasDisp == nil then iasDisp = "0000" end
+	iasEU = string.format("%4d", math.floor(0.5 + iasDisp * 3.6))           -- km/h
+	iasUS = string.format("%4d", math.floor(0.5 + iasDisp * 1.94384449))	-- knots
 	
 	local selfData = LoGetSelfData()
 		if selfData.LatLongAlt == nil then return end
@@ -64,8 +63,8 @@ defineIntegerFromGetter("LAT_SEC_FRAC", function()
 	return math.floor(latFractionalSec*65535)
 end, 65535, "Position", "Latitude Fractional Seconds (divide by 65535)")
 
-defineString("IAS_EU", function() return _indicatedAirspeedEU .. string.char(0) end, 4, "Speed", "Indicated Airspeed KM H")
-defineString("IAS_US", function() return _indicatedAirspeedUS .. string.char(0) end, 4, "Speed", "Indicated Airspeed KNT")
+defineString("IAS_EU", function() return iasEU end, 4, "Speed", "Indicated Airspeed KM H")
+defineString("IAS_US", function() return iasUS end, 4, "Speed", "Indicated Airspeed KNT")
 defineIntegerFromGetter("IAS_EU_INT", function()
 	if not LoIsOwnshipExportAllowed() then return nil end
 	return iasDisp * 3.6
