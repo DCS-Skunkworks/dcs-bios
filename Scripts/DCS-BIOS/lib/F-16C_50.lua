@@ -1,6 +1,8 @@
--- V1.5b by Warlord (aka BlackLibrary)
--- DED Display, MAGV,INS,UHF, CMDS & Initial version of outputs from mainpanel_init.lua by Matchstick
+-- V1.5c by Warlord (aka BlackLibrary)
+-- Added DED TIME, NAV and MAN pages and DED fixes by Matchstick
+--
 -- Tested and fixes by BuzzKillington
+-- DED Display,MAGV,INS,UHF,CMDS by Matchstick
 
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
@@ -123,13 +125,6 @@ local function defineSpringloaded_3_pos_tumb(msg, device_id, downSwitch, upSwitc
 	end
 end
 
-local function coerce_nil_to_string(value)
-	if value == nil then
-		return ""
-	else
-		return value
-	end
-end
 
 ------------------------------------------------------------------Switches, Buttons---------------------------------------------------------------------------------
 --Control Interface
@@ -781,10 +776,23 @@ DEDLayout_l1["STEERPOINT NUMBER"] = {12,2,0,"_inv","I"}
 DEDLayout_l1["STEERPOINT IncDecSymbol"] = {16,1}
 DEDLayout_l1["STEERPOINT SEQUENCE"] = {18,4}
 DEDLayout_l1["STEERPOINT NUMBER Asteriscs_both"] = {11,1,15,"","I"}
+--TIME
+DEDLayout_l1["TIME_label"] = {9,4}
 --BINGO
 DEDLayout_l1["BINGO label"] = {9,5}
 DEDLayout_l1["BINGO STPT Num"] = {20,2}
-DEDLayout_l1["BINGO IncDecSymbol"] = {21,1}
+DEDLayout_l1["BINGO IncDecSymbol"] = {23,1}
+--NAV
+DEDLayout_l1["NAV STATUS NAV Status lbl"] = {7,10}
+DEDLayout_l1["NAV COMMANDS NAV Status lbl"] = {6,12}
+DEDLayout_l1["NAV STATUS INS_SelectedSteerpoint"] = {20,2}
+DEDLayout_l1["NAV STATUS INS_STPT_IncDecSymbol"] = {23,1}
+DEDLayout_l1["NAV COMMANDS INS_SelectedSteerpoint"] = {20,2}
+DEDLayout_l1["NAV COMMANDS INS_STPT_IncDecSymbol"] = {23,1}
+--MAN
+DEDLayout_l1["MAN Label"] = {10,3}
+DEDLayout_l1["MAN STPT Num"] = {20,2}
+DEDLayout_l1["MAN IncDecSymbol"] = {23,1}
 --INS
 DEDLayout_l1["INS_SelectedSteerpoint"] = {20,2}
 DEDLayout_l1["INS_STPT_IncDecSymbol"] = {23,1}
@@ -859,6 +867,18 @@ DEDLayout_l2["List Item R Name"]={19,4}
 DEDLayout_l2["STEERPOINT Latitude"] = {3,3}
 DEDLayout_l2["STEERPOINT Latitude Value"] = {8,12,0,"_inv","I"}
 DEDLayout_l2["STEERPOINT Latitude Asteriscs_both"] = {7,1,20,"","I"}
+--TIME
+DEDLayout_l2["SYSTEM_label"]={4,6}
+DEDLayout_l2["GPS_SYSTEM_label"]={0,10}
+DEDLayout_l2["SYSTEM_value"]={13,8,0,"_inv","I"}
+DEDLayout_l2["Asterisks_on_SYSTEM_both"]= {12,1,21,"","I"}
+--NAV
+DEDLayout_l2["NAV STATUS SYS ACCURACY label"] = {3,9}
+DEDLayout_l2["NAV STATUS SYS ACCURACY value"] = {14,4}
+--MAN
+DEDLayout_l2["WSPAN Label"] = {6,5}
+DEDLayout_l2["WSPAN DATA"] =  {13,5,0,"_inv","I"}
+DEDLayout_l2["WSPAN Asteriscs_both"] = {12,1,18,"","I"}
 --INS
 DEDLayout_l2["INS_LAT_lbl"] = {2,3}
 DEDLayout_l2["INS_LAT_Scratchpad"] = {7,10,0,"_inv","I"}
@@ -977,10 +997,23 @@ DEDLayout_l3["CARA ALOW Asterisks_both"] = {14,1,22,"","I"}
 DEDLayout_l3["STEERPOINT Longitude"] = {3,3}
 DEDLayout_l3["STEERPOINT Longitude Value"] = {8,12,0,"_inv","I"}
 DEDLayout_l3["STEERPOINT Longitude Asteriscs_both"] = {7,1,20,"","I"}
+--TIME
+DEDLayout_l3["HACK_label"] = {6,4}
+DEDLayout_l3["HACK_value"] = {13,8,0,"_inv","I"}
+DEDLayout_l3["Asterisks_on_HACK_both"] = {12,1,21,"","I"}
+DEDLayout_l3["HACK_IncDecSymbol"] = {23,1}
 --BINGO
 DEDLayout_l3["SET label"] = {6,3}
 DEDLayout_l3["BINGO Asterisks_both"] = {10,1,19,"","I"}
 DEDLayout_l3["BINGO Scratchpad"] = {11,8,0,"_inv","I"}
+--NAV
+DEDLayout_l3["NAV STATUS GPS ACCURACY label"] = {3,9}
+DEDLayout_l3["NAV STATUS GPS ACCURACY value"] = {14,5}
+DEDLayout_l3["NAV COMMANDS FILTER MODE label"] = {3,11}
+DEDLayout_l3["NAV COMMANDS FILTER MODE value"] = {16,4}
+DEDLayout_l3["NAV COMMANDS Asterisks_both"] = {15,1,20,"","I"}
+--MAN
+DEDLayout_l3["MBAL Label"] = {10,4}
 --INS
 DEDLayout_l3["INS_LNG_lbl"] = {2,3}
 DEDLayout_l3["INS_LNG_Scratchpad"] = {7,10,0,"_inv","I"}
@@ -1115,10 +1148,25 @@ DEDLayout_l4["MSL FLOOR Asterisks_both"] = {14,1,22,"","I"}
 DEDLayout_l4["STEERPOINT Elevation"] = {2,3}
 DEDLayout_l4["STEERPOINT Elevation Value"] = {8,8,0,"_inv","I"}
 DEDLayout_l4["STEERPOINT Elevation Asteriscs_both"] = {7,1,16,"","I"}
+--TIME
+DEDLayout_l4["DELTA_TOS_label"] = {1,9}
+DEDLayout_l4["DELTA_TOS_value"] = {12,9,0,"_inv","I"}
+DEDLayout_l4["Asterisks_on_DELTA_TOS_both"] = {11,1,21,"","I"}
 --BINGO
 DEDLayout_l4["TOTAL label"] = {4,5}
 DEDLayout_l4["TOTAL value"] = {11,5}
 DEDLayout_l4["TOTAL LBS label"] = {16,3}
+--NAV
+DEDLayout_l4["NAV STATUS MSN DUR label"] = {3,7}
+DEDLayout_l4["NAV STATUS DAYS label"] = {16,4}
+DEDLayout_l4["NAV STATUS Scratchpad"] = {12,2,0,"_inv","I"}
+DEDLayout_l4["NAV STATUS Asterisks on Scratchpad_both"] = {11,1,14,"","I"}
+DEDLayout_l4["NAV COMMANDS RESET GPS label"] = {6,11}
+DEDLayout_l4["NAV COMMANDS Asterisks on RESET_both"] = {5,1,17,"","I"}
+--MAN
+DEDLayout_l4["RNG Label"] = {8,3}
+DEDLayout_l4["RNG Data"] = {11,7}
+DEDLayout_l4["RNG FT"] = {18,2}
 --INS
 DEDLayout_l4["INS_SALT_lbl"] = {1,4}
 DEDLayout_l4["INS_SALT_Scratchpad"] = {8,7,0,"_inv","I"}
@@ -1225,6 +1273,18 @@ DEDLayout_l5["TCN BAND Key"] = {6,3}
 DEDLayout_l5["STEERPOINT Time over current STP"] = {3,3}
 DEDLayout_l5["STEERPOINT TOS Value"] = {8,8,0,"_inv","I"}
 DEDLayout_l5["STEERPOINT TOS Asteriscs_both"] = {7,1,16,"","I"}
+--TIME
+DEDLayout_l5["DATE_FORMAT_label"] = {2,8}
+DEDLayout_l5["DATE_value"] = {13,8,0,"_inv","I"}
+DEDLayout_l5["Asterisks_on_DATE_both"] = {12,1,21,"","I"}
+--NAV
+DEDLayout_l5["NAV STATUS Keys Msg"] = {3,18}
+DEDLayout_l5["NAV COMMANDS ZEROIZE GPS label"] = {6,11}
+DEDLayout_l5["NAV COMMANDS Asterisks on ZEROIZE_both"] = {5,1,17,"","I"}
+--MAN
+DEDLayout_l5["TOF Label"] = {8,3}
+DEDLayout_l5["TOF Data"] = {11,6}
+DEDLayout_l5["TOF SEC"]	= {17,3}
 --INS
 DEDLayout_l5["INS_THDG_lbl"] = {1,4}
 DEDLayout_l5["INS_THDG_Scratchpad"] = {7,6,0,"_inv","I"}
@@ -1328,8 +1388,8 @@ local function buildDEDLine(line)
 	local bingo = DED_fields["CMDS_BINGO_lbl"]
 	local inflt_algn = DED_fields["INS_INFLT_ALGN_lbl"]
 	local intraflight = DED_fields["INTRAFLIGHT lbl"]
-	local dlnk_A_G= DED_fields["A-G DL lbl"]
-
+	local dlnk_A_G = DED_fields["A-G DL lbl"]
+	local nav_status = DED_fields["NAV Status lbl"]
 --Loop through Exported DED Objects
 	for k,v in pairs(DED_fields) do
 -- Handle Duplicate Key Names on COM2 Guard page items        
@@ -1356,6 +1416,9 @@ local function buildDEDLine(line)
 -- Handle Duplicate Key Names on DLNK A-G page Line 2 items
 		elseif dlnk_A_G ~= nil and line == 2 then
 			label = dlnk_A_G.." "..k
+-- Handle Duplicate Key Names on NAV page		
+		elseif nav_status ~= nil then
+			label = nav_status.." "..k
 		else
 			label = k
 		end
