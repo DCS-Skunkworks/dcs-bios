@@ -95,6 +95,24 @@ defineToggleSwitch("EJECT_SEAT_DESTR_SW", 16, 3043, 541, "Left Console", "Ejecti
 defineToggleSwitch("SELF_DESTR_BTN_COVER", 16, 3044, 542, "Left Console", "Self Destruct Button Cover")
 definePushButton("SELF_DESTR_BTN", 16, 3045, 543, "Left Console", "Self Destruct Button")
 
+--RADIO
+definePotentiometer("RADIO_VOL", 24, 3047, 545, {0, 1}, "Radio", "Radio Volume Knob")
+defineToggleSwitch("RADIO_SQUELCH", 24, 3048, 546, "Radio", "Squelch OFF/SQL/ACKN")
+defineMultipositionSwitch("RADIO_MODE_SEL", 24, 3049, 547, 6, 0.2, "Radio", "Radio Mode Selector")    
+definePushButton("RADIO_CONT_HANDOVER", 24, 3050, 548, "Radio", "Radio Control Handover")
+definePushButton("RADIO_BTN_1", 24, 3051, 549, "Radio", "Radio Button 1/TONE")
+definePushButton("RADIO_BTN_2", 24, 3052, 550, "Radio", "Radio Button 2/-")
+definePushButton("RADIO_BTN_3", 24, 3053, 551, "Radio", "Radio Button 3/+")
+definePushButton("RADIO_BTN_4", 24, 3054, 552, "Radio", "Radio Button 4/H")
+definePushButton("RADIO_BTN_5", 24, 3055, 553, "Radio", "Radio Button 5/A")
+definePushButton("RADIO_BTN_6", 24, 3056, 554, "Radio", "Radio Button 6/M")
+definePushButton("RADIO_BTN_7", 24, 3057, 555, "Radio", "Radio Button 7/P")
+definePushButton("RADIO_BTN_8", 24, 3058, 556, "Radio", "Radio Button 8/C")
+definePushButton("RADIO_BTN_9", 24, 3059, 557, "Radio", "Radio Button 9/T")
+definePushButton("RADIO_BTN_MAN", 24, 3060, 558, "Radio", "Radio Button <-/MAN")
+definePushButton("RADIO_BTN_0", 24, 3061, 559, "Radio", "Radio Button 0/PRE")
+definePushButton("RADIO_BTN_ENT", 24, 3062, 560, "Radio", "Radio Button ->/ENT")
+
 --THROTTLE
 definePotentiometer("THROTTLE_FRIC", 34, 3072, 570, {0, 1}, "Left Console", "Throttle Friction Handle")
 definePushButton("THROTTLE_UNCAGE", 34, 3073, 571, "Left Console", "Throttle Uncage: Stop To Idle")
