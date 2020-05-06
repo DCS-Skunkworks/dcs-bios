@@ -9,13 +9,14 @@ credit to [FSF]Ian for the amazing "DCS DIOS"
 	CHANGELOG
 		detail version changes here
 	
-v 1.00	original compile, development version 	Jan 2019		--by Dehuman
-v 1.01	beta release	Jan 2019 								--by Dehuman
+v 1.00	original compile, development version 		JAN 2019		--by Dehuman
+v 1.01	beta release								JAN 2019		--by Dehuman
 	-function breaking bugs fixed
 	-several other bug fixes and functions redefined/reclassified
-v 1.02	updates for 1.3, external Lights 	APR 2019		--by WarLord
-v 1.03	updates for 1.3.1, external Lights 	APR 2019		--by WarLord
-v 1.03	updates for 1.4 (develop)			FEB 2020		--by WarLord
+v 1.02	updates for 1.3, 	external Lights 		APR 2019		--by WarLord
+v 1.03	updates for 1.3.1, 	external Lights 		APR 2019		--by WarLord
+v 1.03a	updates for WIP 1.4,						FEB 2020		--by WarLord
+v 1.03b	updates for WIP 1.4, rework of Commands		MAY 2020		--by WarLord
 ]]
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -217,172 +218,174 @@ defineFloat("CANOPY_VALUE", 26, {0.0, 1.0}, "Cockpit Mechanics", "Canopy Positio
 -----------------------
 
 -- RADAR CONTROL PANEL
-defineMultipositionSwitch("radar_mode", 7, 3063, 120, 5, 0.10, "RadarControlPanel", "Radar Mode")
-defineToggleSwitch("radar_aoacomp", 7, 3064, 121, "RadarControlPanel", "Radar AoA Compensation")
-definePotentiometer("radar_angle", 7, 3065, 122, {0,1}, "RadarControlPanel", "Radar Antenna Elevation")
-definePotentiometer("radar_volume", 7, 3068, 123, {-1,1}, "RadarControlPanel", "Radar Warning Volume")
+defineMultipositionSwitch("radar_mode", 7, 3064, 120, 5, 0.10, "RadarControlPanel", "Radar Mode")
+defineToggleSwitch("radar_aoacomp", 7, 3065, 121, "RadarControlPanel", "Radar AoA Compensation")
+definePotentiometer("radar_angle", 7, 3066, 122, {0,1}, "RadarControlPanel", "Radar Antenna Elevation")
+definePotentiometer("radar_volume", 7, 3067, 123, {-1,1}, "RadarControlPanel", "Radar Warning Volume")
 
 -- RADAR SCOPE
-definePotentiometer("radar_storage", 7, 3057, 400, {-1,1}, "RadarScope", "Radar Storage")
-definePotentiometer("radar_brilliance", 7, 3058, 401, {-1,1}, "RadarScope", "Radar Brilliance")
-definePotentiometer("radar_detail", 7, 3059, 402, {-1,1}, "RadarScope", "Radar Detail")
-definePotentiometer("radar_gain", 7, 3060, 403, {-1,1}, "RadarScope", "Radar Gain")
-definePotentiometer("radar_reticle", 7, 3062, 404, {-1,1}, "RadarScope", "Radar Reticle")
-defineToggleSwitch("radar_filter", 7, 3061, 405, "RadarScope", "Radar Filter Plate")
+definePotentiometer("radar_storage", 7, 3058, 400, {-1,1}, "RadarScope", "Radar Storage")
+definePotentiometer("radar_brilliance", 7, 3059, 401, {-1,1}, "RadarScope", "Radar Brilliance")
+definePotentiometer("radar_detail", 7, 3060, 402, {-1,1}, "RadarScope", "Radar Detail")
+definePotentiometer("radar_gain", 7, 3061, 403, {-1,1}, "RadarScope", "Radar Gain")
+definePotentiometer("radar_reticle", 7, 3063, 404, {-1,1}, "RadarScope", "Radar Reticle")
+defineToggleSwitch("radar_filter", 7, 3062, 405, "RadarScope", "Radar Filter Plate")
 
 --Gunpods
-defineMultipositionSwitch("gunpod_chargeclear", 2, 3012, 390, 3, 1, "Gunpods", "Charge/Off/Clear")
-defineToggleSwitch("gunpod_l", 2, 3009, 391, "Gunpods", "Left Enable")
-defineToggleSwitch("gunpod_c", 2, 3010, 392, "Gunpods", "Center Enable")
-defineToggleSwitch("gunpod_r", 2, 3011, 393, "Gunpods", "Right Enable")
+defineMultipositionSwitch("gunpod_chargeclear", 2, 3013, 390, 3, 1, "Gunpods", "Charge/Off/Clear")
+defineToggleSwitch("gunpod_l", 2, 3010, 391, "Gunpods", "Left Enable")
+defineToggleSwitch("gunpod_c", 2, 3011, 392, "Gunpods", "Center Enable")
+defineToggleSwitch("gunpod_r", 2, 3012, 393, "Gunpods", "Right Enable")
 
 --Countermeasures
-defineMultipositionSwitch("cm_bank", 34, 3106, 522, 3, 1, "Countermeasures", "Bank Select")
-definePushButton("cm_auto", 34, 3107, 523, "Countermeasures", "Auto Pushbutton")
-defineRotary("cm_adj1", 34, 3108, 524, "Countermeasures", "Bank 1 Adjust")
-defineRotary("cm_adj2", 34, 3109, 525, "Countermeasures", "Bank 2 Adjust")
-defineToggleSwitch("cm_pwr", 34, 3110, 530, "Countermeasures", "Power Toggle")
+defineMultipositionSwitch("cm_bank", 34, 3107, 522, 3, 1, "Countermeasures", "Bank Select")
+definePushButton("cm_auto", 34, 3108, 523, "Countermeasures", "Auto Pushbutton")
+defineRotary("cm_adj1", 34, 3109, 524, "Countermeasures", "Bank 1 Adjust")
+defineRotary("cm_adj2", 34, 3110, 525, "Countermeasures", "Bank 2 Adjust")
+defineToggleSwitch("cm_pwr", 34, 3111, 530, "Countermeasures", "Power Toggle")
 defineFloat("CM_BANK1_Xx", 526, {0,1}, "Countermeasures", "Bank 1 10's")
 defineFloat("CM_BANK1_xX", 527, {0,1}, "Countermeasures", "Bank 1 1's")
 defineFloat("CM_BANK2_Xx", 528, {0,1}, "Countermeasures", "Bank 2 10's")
 defineFloat("CM_BANK2_xX", 529, {0,1}, "Countermeasures", "Bank 2 1's")
 
 --Armament Panel
-defineMultipositionSwitch("arm_emer_sel", 2, 3025, 700, 7, 0.1, "ArmamentPanel", "Emergency release selector")
-defineToggleSwitch("arm_gun", 2, 3001, 701, "ArmamentPanel", "Guns switch")
-defineTumb("arm_bomb", 2, 3026, 702, 1, {-1,1}, nil, false, "ArmamentPanel", "Bomb arm switch")
-defineToggleSwitch("arm_station1", 2, 3003, 703, "ArmamentPanel", "Station 1 select")
-defineToggleSwitch("arm_station2", 2, 3004, 704, "ArmamentPanel", "Station 2 select")
-defineToggleSwitch("arm_station3", 2, 3005, 705, "ArmamentPanel", "Station 3 select")
-defineToggleSwitch("arm_station4", 2, 3006, 706, "ArmamentPanel", "Station 4 select")
-defineToggleSwitch("arm_station5", 2, 3007, 707, "ArmamentPanel", "Station 5 select")
-defineMultipositionSwitch("arm_func_selector", 2, 3008, 708, 6, 0.1, "ArmamentPanel", "Function selector")
-defineMultipositionSwitch("AWRS_quantity", 2, 3031, 740, 12, 0.05, "ArmamentPanel", "AWRS quantity selector")
-definePotentiometer("AWRS_drop_interval", 2, 3032, 742, {0,0.9}, "ArmamentPanel", "AWRS drop interval")
-defineToggleSwitch("AWRS_multiplier", 2, 3033, 743, "ArmamentPanel", "AWRS multiplier")
-defineMultipositionSwitch("AWRS_stepripple", 2, 3034, 744, 6, 0.1, "ArmamentPanel", "AWRS mode")
-defineToggleSwitch("arm_master", 3, 3002, 709, "ArmamentPanel", "Master armament")
-defineToggleSwitch("radar_planprofile", 7, 3055, 721, "RadarScope", "Radar Plan/Profile")
-defineToggleSwitch("radar_range", 7, 3056, 722, "RadarScope", "Radar Long/Short Range")
-defineMultipositionSwitch("bdhi_mode", 20, 3044, 724, 3, 1.0, "BDHI", "BDHI mode")
-defineMultipositionSwitch("SHRIKE_SEL_KNB", 2, 3140, 725, 5, 0.1, "ArmamentPanel", "Shrike Selector Knob")
-definePotentiometer("SIDEWINDER_VOL", 2, 3128, 726, {-1,1}, "ArmamentPanel", "Sidewinder Volume Knob")
+defineMultipositionSwitch("arm_emer_sel", 2, 3026, 700, 7, 0.1, "ArmamentPanel", "Emergency release selector")
+defineToggleSwitch("arm_gun", 2, 3002, 701, "ArmamentPanel", "Guns switch")
+defineTumb("arm_bomb", 2, 3027, 702, 1, {-1,1}, nil, false, "ArmamentPanel", "Bomb arm switch")
+defineToggleSwitch("arm_station1", 2, 3004, 703, "ArmamentPanel", "Station 1 select")
+defineToggleSwitch("arm_station2", 2, 3005, 704, "ArmamentPanel", "Station 2 select")
+defineToggleSwitch("arm_station3", 2, 3006, 705, "ArmamentPanel", "Station 3 select")
+defineToggleSwitch("arm_station4", 2, 3007, 706, "ArmamentPanel", "Station 4 select")
+defineToggleSwitch("arm_station5", 2, 3008, 707, "ArmamentPanel", "Station 5 select")
+defineMultipositionSwitch("arm_func_selector", 2, 3009, 708, 6, 0.1, "ArmamentPanel", "Function selector")
+defineMultipositionSwitch("AWRS_quantity", 2, 3032, 740, 12, 0.05, "ArmamentPanel", "AWRS quantity selector")
+definePotentiometer("AWRS_drop_interval", 2, 3033, 742, {0,0.9}, "ArmamentPanel", "AWRS drop interval")
+defineToggleSwitch("AWRS_multiplier", 2, 3034, 743, "ArmamentPanel", "AWRS multiplier")
+defineMultipositionSwitch("AWRS_stepripple", 2, 3035, 744, 6, 0.1, "ArmamentPanel", "AWRS mode")
+defineToggleSwitch("arm_master", 3, 3003, 709, "ArmamentPanel", "Master armament")
+defineToggleSwitch("radar_planprofile", 7, 3056, 721, "RadarScope", "Radar Plan/Profile")
+defineToggleSwitch("radar_range", 7, 3057, 722, "RadarScope", "Radar Long/Short Range")
+defineMultipositionSwitch("bdhi_mode", 20, 3045, 724, 3, 1.0, "BDHI", "BDHI mode")
+defineMultipositionSwitch("SHRIKE_SEL_KNB", 2, 3138, 725, 5, 0.1, "ArmamentPanel", "Shrike Selector Knob")
+definePotentiometer("SIDEWINDER_VOL", 2, 3126, 726, {-1,1}, "ArmamentPanel", "Sidewinder Volume Knob")
 
 --AFCS Panel
-defineToggleSwitch("afcs_standby", 26, 3088, 160, "AFCS", "AFCS standby")
-defineToggleSwitch("afcs_engage", 26, 3089, 161, "AFCS", "AFCS engage")
-defineToggleSwitch("afcs_hdg_sel", 26, 3090, 162, "AFCS", "AFCS preselect heading")
-defineToggleSwitch("afcs_alt", 26, 3091, 163, "AFCS", "AFCS altitude hold")
-definePotentiometer("afcs_hdg_set", 26, 3092, 164, {0,1}, "AFCS", "AFCS heading selector")
-defineToggleSwitch("afcs_stab_aug", 26, 3093, 165, "AFCS", "AFCS stability aug")
-defineToggleSwitch("afcs_ail_trim", 26, 3094, 166, "AFCS", "AFCS aileron trim")
+defineToggleSwitch("afcs_standby", 26, 3089, 160, "AFCS", "AFCS standby")
+defineToggleSwitch("afcs_engage", 26, 3090, 161, "AFCS", "AFCS engage")
+defineToggleSwitch("afcs_hdg_sel", 26, 3091, 162, "AFCS", "AFCS preselect heading")
+defineToggleSwitch("afcs_alt", 26, 3092, 163, "AFCS", "AFCS altitude hold")
+definePotentiometer("afcs_hdg_set", 26, 3093, 164, {0,1}, "AFCS", "AFCS heading selector")
+defineToggleSwitch("afcs_stab_aug", 26, 3094, 165, "AFCS", "AFCS stability aug")
+defineToggleSwitch("afcs_ail_trim", 26, 3095, 166, "AFCS", "AFCS aileron trim")
 
 --Approach Power Compensator
-defineMultipositionSwitch("apc_engagestbyoff", 26, 3095, 135, 3, 1.0, "ApproachPowerCompensator", "APC Enable/Stby/Off")
-defineMultipositionSwitch("apc_hotstdcold", 26, 3096, 136, 3, 1.0, "ApproachPowerCompensator", "APC Cold/Std/Hot")
+defineMultipositionSwitch("apc_engagestbyoff", 26, 3096, 135, 3, 1.0, "ApproachPowerCompensator", "APC Enable/Stby/Off")
+defineMultipositionSwitch("apc_hotstdcold", 26, 3097, 136, 3, 1.0, "ApproachPowerCompensator", "APC Cold/Std/Hot")
 
 --Mechanical Systems
-defineToggleSwitch("Gear", 12, 3020, 8, "Mechanical Systems", "Landing Gear Handle")
-defineToggleSwitch("HOOK_HANDLE", 12, 3021, 10,"Gear" , "Landing Hook Handle")
-defineToggleSwitch("spoiler_arm", 13, 3017, 84, "Mechanical Systems", "Spoiler Arm Switch")
-defineToggleSwitch("speedbrake", 10, 3024, 85, "Mechanical Systems", "Speedbrake switch")
-defineTumb("speedbrake_emer", 10, 3035, 128, 1, {-1,1}, nil, false, "Mechanical Systems", "Speedbrake emergency")
+defineToggleSwitch("GEAR HANDLE", 12, 3021, 8, "Mechanical Systems", "Landing Gear Handle")
+defineToggleSwitch("HOOK_HANDLE", 12, 3022, 10,"Gear" , "Landing Hook Handle")
+defineToggleSwitch("spoiler_arm", 13, 3018, 84, "Mechanical Systems", "Spoiler Arm Switch")
+defineToggleSwitch("speedbrake", 10, 3025, 85, "Mechanical Systems", "Speedbrake switch")
+defineTumb("speedbrake_emer", 10, 3036, 128, 1, {-1,1}, nil, false, "Mechanical Systems", "Speedbrake emergency")
 defineToggleSwitch("Canopy", 14, 71, 0, "Mechanical Systems", "Canopy")
-defineTumb("flaps", 11, 3015, 132, 1, {-1,1}, nil, false, "Mechanical Systems", "Flaps Lever")
-definePotentiometer("rudder_trim", 25, 3085, 82, {-1,1}, "Mechanical Systems", "Rudder trim")
-defineTumb("throttle_click", 17, 3087, 0, 1, {-1,1}, nil, true, "Mechanical Systems", "Throttle cutoff/start/idle")
-definePushButton("push_starter_switch", 17, 3013, 100, "Mechanical Systems", "Starter Button")
+defineTumb("flaps", 11, 3016, 132, 1, {-1,1}, nil, false, "Mechanical Systems", "Flaps Lever")
+definePotentiometer("rudder_trim", 25, 3086, 82, {-1,1}, "Mechanical Systems", "Rudder trim")
+defineTumb("throttle_click", 17, 3088, 0, 1, {-1,1}, nil, true, "Mechanical Systems", "Throttle cutoff/start/idle")
+definePushButton("push_starter_switch", 17, 3014, 100, "Mechanical Systems", "Starter Button")
+defineToggleSwitch("JATO_ARM", 21, 3159, 133, "Mechanical Systems", "JATO ARM-OFF Switch")
+defineToggleSwitch("JATO_JETT_SAFE", 21, 3160, 134, "Mechanical Systems", "JATO JETTISON-SAFE Switch")
 --defineToggleSwitch("HIDE_STICK_SW", 14, 10141, nil, "Mechanical Systems", "Hide Stick Toggle")
 
 --Fuel Systems
-defineTumb("DROP_PRESS_REFUEL", 17, 3147, 101, 1, {-1,1}, nil, false, "Fuel Systems", "Drop Tanks Pressurization and Flight Refuel Switch")
-defineTumb("EMERG_TRANS_FUEL_DUMP", 17, 3146, 103, 1, {-1,1}, nil, false, "Fuel Systems", "Emer Transfer and Wing Fuel Dump Switch")
-defineToggleSwitch("FUEL_CONTROL", 17, 3148, 104, "Fuel Systems", "Fuel control switch")
-defineToggleSwitch("MAN_FUEL_OFF_LV", 17, 3149, 130, "Fuel Systems", "Manual Fuel Shutoff Lever")
-defineToggleSwitch("MAN_FUEL_OFF_CATCH", 17, 3150, 131, "Fuel Systems", "Manual Fuel Shutoff Catch")
+defineTumb("DROP_PRESS_REFUEL", 17, 3145, 101, 1, {-1,1}, nil, false, "Fuel Systems", "Drop Tanks Pressurization and Flight Refuel Switch")
+defineTumb("EMERG_TRANS_FUEL_DUMP", 17, 3144, 103, 1, {-1,1}, nil, false, "Fuel Systems", "Emer Transfer and Wing Fuel Dump Switch")
+defineToggleSwitch("FUEL_CONTROL", 17, 3146, 104, "Fuel Systems", "Fuel control switch")
+defineToggleSwitch("MAN_FUEL_OFF_LV", 17, 3147, 130, "Fuel Systems", "Manual Fuel Shutoff Lever")
+defineToggleSwitch("MAN_FUEL_OFF_CATCH", 17, 3148, 131, "Fuel Systems", "Manual Fuel Shutoff Catch")
 
 -- OXYGEN and ANTI-G PANEL
-defineToggleSwitch("OXY_SW", 21, 3141, 125, "Avionics", "Oxygen Switch")
+defineToggleSwitch("OXY_SW", 21, 3139, 125, "Avionics", "Oxygen Switch")
 
 --Avionics
-definePushButton("accel_reset", 21, 3111, 139, "Avionics", "Reset Accelerometer")
-definePushButton("clock_stopwatch", 5, 3105, 146, "Clock", "Stopwatch start/stop")
-definePushButton("radar_alt_switch", 16, 3038, 603, "Avionics", "Radar altitude warning button")
-defineRotary("radar_alt_indexer", 16, 3037, 602, "Avionics", "Radar altitude warning knob")
-definePushButton("stby_att_index_button", 21, 3042, 663, "Avionics", "Standby attitude horizon button")
-defineRotary("stby_att_index_knob", 21, 3043, 662, "Avionics", "Standby attitude horizon knob")
-definePushButton("FuelGaugeExtButton", 21, 3018, 720, "Avionics", "Show EXT Fuel")
-definePushButton("master_test", 21, 3039, 723, "Avionics", "Master test")
-defineRotary("AltPressureKnob", 21, 3019, 827, "Avionics", "Altimeter Setting")
-definePushButton("ias_index_button", 21, 3040, 885, "Avionics", "IAS Index button")
-definePotentiometer("ias_index_knob", 21, 3041, 884, {0,1}, "Avionics", "IAS Index knob")
+definePushButton("accel_reset", 21, 3112, 139, "Avionics", "Reset Accelerometer")
+definePushButton("clock_stopwatch", 5, 3106, 146, "Clock", "Stopwatch start/stop")
+definePushButton("radar_alt_switch", 16, 3039, 603, "Avionics", "Radar altitude warning button")
+defineRotary("radar_alt_indexer", 16, 3038, 602, "Avionics", "Radar altitude warning knob")
+definePushButton("stby_att_index_button", 21, 3043, 663, "Avionics", "Standby attitude horizon button")
+defineRotary("stby_att_index_knob", 21, 3044, 662, "Avionics", "Standby attitude horizon knob")
+definePushButton("FuelGaugeExtButton", 21, 3019, 720, "Avionics", "Show EXT Fuel")
+definePushButton("master_test", 21, 3040, 723, "Avionics", "Master test")
+defineRotary("AltPressureKnob", 21, 3020, 827, "Avionics", "Altimeter Setting")
+definePushButton("ias_index_button", 21, 3041, 885, "Avionics", "IAS Index button")
+definePotentiometer("ias_index_knob", 21, 3042, 884, {0,1}, "Avionics", "IAS Index knob")
 
 --Gunsight
-defineRotary("GunsightBrightness", 19, 3030, 895, "Gunsight", "Gunsight brightness")
-defineToggleSwitch("GunsightDayNight", 19, 3029, 891, "Gunsight", "Gunsight day/night")
-definePotentiometer("GunsightKnob", 19, 3028, 892, {0,1}, "Gunsight", "Gunsight elevation")
+defineRotary("GunsightBrightness", 19, 3031, 895, "Gunsight", "Gunsight Light Control")
+defineToggleSwitch("GunsightDayNight", 19, 3030, 891, "Gunsight", "Gunsight Day/Night Switch")
+definePotentiometer("GunsightKnob", 19, 3029, 892, {0,1}, "Gunsight", "Gunsight Elevation Control")
 
 --TACAN
-defineMultipositionSwitch("tacan_mode", 20, 3069, 900, 4, 0.1, "TACAN", "TACAN Mode")
-defineMultipositionSwitch("tacan_ch_major", 20, 3070, 901, 13, 0.05, "TACAN", "TACAN Channel Major")
-defineMultipositionSwitch("tacan_ch_minor", 20, 3071, 902, 10, 0.1, "TACAN", "TACAN Channel Minor")
-definePotentiometer("tacan_volume", 20, 3072, 903, {-1,1}, "TACAN", "TACAN Volume")
+defineMultipositionSwitch("tacan_mode", 20, 3070, 900, 4, 0.1, "TACAN", "TACAN Mode")
+defineMultipositionSwitch("tacan_ch_major", 20, 3071, 901, 13, 0.05, "TACAN", "TACAN Channel Major")
+defineMultipositionSwitch("tacan_ch_minor", 20, 3072, 902, 10, 0.1, "TACAN", "TACAN Channel Minor")
+definePotentiometer("tacan_volume", 20, 3073, 903, {-1,1}, "TACAN", "TACAN Volume")
 
 --Doppler Navigation Computer
-defineMultipositionSwitch("doppler_select", 20, 3045, 170, 5, 0.1, "DopplerNav", "APN-153 Doppler Radar Mode")
-definePushButton("doppler_memory_test", 20, 3046, 247, "DopplerNav", "APN-153 Memory Light Test")
-defineMultipositionSwitch("nav_select", 20, 3047, 176, 5, 0.1, "DopplerNav", "ASN-41 Navigation Mode")
-defineRotary("ppos_lat_knb", 20, 3051, 177, "DopplerNav Position", "ASN-41 Present Position - Latitude Knob")
-definePushButton("ppos_lat_btn", 20, 3153, 236, "DopplerNav Position", "ASN-41 Present Position - Latitude Button")
-defineRotary("ppos_lon_knb", 20, 3052, 183, "DopplerNav Position", "ASN-41 Present Position - Longitude Knob")
-definePushButton("ppos_lon_btn", 20, 3154, 237, "DopplerNav Position", "ASN-41 Present Position - Longitude  Button")
-defineRotary("dest_lat_knb", 20, 3053, 190, "DopplerNav Destination", "ASN-41 Destination - Latitude Knob")
-definePushButton("dest_lat_btn", 20, 3155, 238, "DopplerNav Destination", "ASN-41 Destination - Latitude  Button")
-defineRotary("dest_lon_knb", 20, 3054, 196, "DopplerNav Destination", "ASN-41 Destination - Longitude Knob")
+defineMultipositionSwitch("doppler_select", 20, 3046, 170, 5, 0.1, "DopplerNav", "APN-153 Doppler Radar Mode")
+definePushButton("doppler_memory_test", 20, 3047, 247, "DopplerNav", "APN-153 Memory Light Test")
+defineMultipositionSwitch("nav_select", 20, 3048, 176, 5, 0.1, "DopplerNav", "ASN-41 Navigation Mode")
+defineRotary("ppos_lat_knb", 20, 3052, 177, "DopplerNav Position", "ASN-41 Present Position - Latitude Knob")
+definePushButton("ppos_lat_btn", 20, 3151, 236, "DopplerNav Position", "ASN-41 Present Position - Latitude Button")
+defineRotary("ppos_lon_knb", 20, 3053, 183, "DopplerNav Position", "ASN-41 Present Position - Longitude Knob")
+definePushButton("ppos_lon_btn", 20, 3152, 237, "DopplerNav Position", "ASN-41 Present Position - Longitude  Button")
+defineRotary("dest_lat_knb", 20, 3054, 190, "DopplerNav Destination", "ASN-41 Destination - Latitude Knob")
+definePushButton("dest_lat_btn", 20, 3153, 238, "DopplerNav Destination", "ASN-41 Destination - Latitude  Button")
+defineRotary("dest_lon_knb", 20, 3055, 196, "DopplerNav Destination", "ASN-41 Destination - Longitude Knob")
 definePushButton("dest_lon_btn", 20, 3156, 239, "DopplerNav Destination", "ASN-41 Destination - Longitude  Button")
-defineRotary("asn41_magvar_knb", 20, 3048, 203, "DopplerNav", "ASN-41 Magnetic Variation Knob")
-definePushButton("asn41_magvar_btn", 20, 3157, 240, "DopplerNav", "ASN-41 Magnetic Variation  Button")
-defineRotary("asn41_windspeed_knb", 20, 3049, 209, "DopplerNav", "ASN-41 Wind Speed Knob")
-definePushButton("asn41_windspeed_btn", 20, 3158, 241, "DopplerNav", "ASN-41 Wind Speed  Button")
-defineRotary("asn41_winddir_knb", 20, 3050, 213, "DopplerNav", "ASN-41 Wind Bearing Knob")
-definePushButton("asn41_winddir_btn", 20, 3159, 242, "DopplerNav", "ASN-41 Wind Bearing  Button")
+defineRotary("asn41_magvar_knb", 20, 3049, 203, "DopplerNav", "ASN-41 Magnetic Variation Knob")
+definePushButton("asn41_magvar_btn", 20, 3155, 240, "DopplerNav", "ASN-41 Magnetic Variation  Button")
+defineRotary("asn41_windspeed_knb", 20, 3050, 209, "DopplerNav", "ASN-41 Wind Speed Knob")
+definePushButton("asn41_windspeed_btn", 20, 3156, 241, "DopplerNav", "ASN-41 Wind Speed  Button")
+defineRotary("asn41_winddir_knb", 20, 3051, 213, "DopplerNav", "ASN-41 Wind Bearing Knob")
+definePushButton("asn41_winddir_btn", 20, 3157, 242, "DopplerNav", "ASN-41 Wind Bearing  Button")
 
 --Lights
-defineMultipositionSwitch("extlight_master", 24, 3073, 83, 3, 1, "Lights", "Master Lighting ON/OFF/Momentary")
-defineMultipositionSwitch("extlight_probe", 24, 3074, 217, 3, 1, "Lights", "Probe Light")
-defineToggleSwitch("extlight_taxi", 24, 3075, 218, "Lights", "Taxi Light")
-defineToggleSwitch("extlight_anticoll", 24, 3076, 219, "Lights", "Anti-Collision Lights")
-defineMultipositionSwitch("extlight_fuselage", 24, 3077, 220, 3, 1, "Lights", "Fuselage Lights")
-defineToggleSwitch("extlight_flashsteady", 24, 3078, 221, "Lights", "Lighting Flash/Steady mode")
-defineMultipositionSwitch("extlight_nav", 24, 3079, 222, 3, 1, "Lights", "Navigation Lights")
-defineMultipositionSwitch("extlight_tail", 24, 3080, 223, 3, 1, "Lights", "Tail Light")
-definePotentiometer("intlight_instruments", 21, 3082, 106, {0,1}, "Lights", "Instrument Lighting")
-definePotentiometer("intlight_console", 21, 3083, 107, {0,1}, "Lights", "Console Lighting")
-defineMultipositionSwitch("intlight_brightness", 24, 3084, 108, 3, 1, "Lights", "Console Light Intensity")
-definePotentiometer("intlight_whiteflood", 21, 3081, 110, {0,1}, "Lights", "White Floodlight Control")
+defineMultipositionSwitch("extlight_master", 24, 3074, 83, 3, 1, "Lights", "Master Lighting ON/OFF/Momentary")
+defineMultipositionSwitch("extlight_probe", 24, 3075, 217, 3, 1, "Lights", "Probe Light")
+defineToggleSwitch("extlight_taxi", 24, 3076, 218, "Lights", "Taxi Light")
+defineToggleSwitch("extlight_anticoll", 24, 3077, 219, "Lights", "Anti-Collision Lights")
+defineMultipositionSwitch("extlight_fuselage", 24, 3078, 220, 3, 1, "Lights", "Fuselage Lights")
+defineToggleSwitch("extlight_flashsteady", 24, 3079, 221, "Lights", "Lighting Flash/Steady mode")
+defineMultipositionSwitch("extlight_nav", 24, 3080, 222, 3, 1, "Lights", "Navigation Lights")
+defineMultipositionSwitch("extlight_tail", 24, 3081, 223, 3, 1, "Lights", "Tail Light")
+definePotentiometer("intlight_instruments", 21, 3083, 106, {0,1}, "Lights", "Instrument Lighting")
+definePotentiometer("intlight_console", 21, 3084, 107, {0,1}, "Lights", "Console Lighting")
+defineMultipositionSwitch("intlight_brightness", 24, 3085, 108, 3, 1, "Lights", "Console Light Intensity")
+definePotentiometer("intlight_whiteflood", 21, 3082, 110, {0,1}, "Lights", "White Floodlight Control")
 
 --UHF Radio
-defineMultipositionSwitch("arc51_freq_preset", 27, 3101, 361, 20, 0.05, "UHF Radio", "ARC-51 UHF Preset Channel")
-definePotentiometer("arc51_volume", 27, 3099, 365, {0,1}, "UHF Radio", "ARC-51 UHF Volume")
-defineMultipositionSwitch("arc51_xmitmode", 27, 3098, 366, 3, 1, "UHF Radio", "ARC-51 UHF Frequency Mode")
-defineMultipositionSwitch("arc51_freq_XXxxx", 27, 3102, 367, 18, 0.05, "UHF Radio", "ARC-51 UHF Manual Frequency 10 MHz")
-defineMultipositionSwitch("arc51_freq_xxXxx", 27, 3103, 368, 10, 0.1, "UHF Radio", "ARC-51 UHF Manual Frequency 1 MHz")
-defineMultipositionSwitch("arc51_freq_xxxXX", 27, 3104, 369, 20, 0.05, "UHF Radio", "ARC-51 UHF Manual Frequency 50 kHz")
-defineToggleSwitch("arc51_squelch", 27, 3100, 370, "UHF Radio", "ARC-51 UHF Squelch Disable")
-defineMultipositionSwitch("arc51_mode", 27, 3097, 372, 4, 0.1, "UHF Radio", "ARC-51 UHF Mode")
+defineMultipositionSwitch("arc51_freq_preset", 27, 3102, 361, 20, 0.05, "UHF Radio", "ARC-51 UHF Preset Channel")
+definePotentiometer("arc51_volume", 27, 3100, 365, {0,1}, "UHF Radio", "ARC-51 UHF Volume")
+defineMultipositionSwitch("arc51_xmitmode", 27, 3099, 366, 3, 1, "UHF Radio", "ARC-51 UHF Frequency Mode")
+defineMultipositionSwitch("arc51_freq_XXxxx", 27, 3103, 367, 18, 0.05, "UHF Radio", "ARC-51 UHF Manual Frequency 10 MHz")
+defineMultipositionSwitch("arc51_freq_xxXxx", 27, 3104, 368, 10, 0.1, "UHF Radio", "ARC-51 UHF Manual Frequency 1 MHz")
+defineMultipositionSwitch("arc51_freq_xxxXX", 27, 3105, 369, 20, 0.05, "UHF Radio", "ARC-51 UHF Manual Frequency 50 kHz")
+defineToggleSwitch("arc51_squelch", 27, 3101, 370, "UHF Radio", "ARC-51 UHF Squelch Disable")
+defineMultipositionSwitch("arc51_mode", 27, 3098, 372, 4, 0.1, "UHF Radio", "ARC-51 UHF Mode")
 
 --T Handles
-defineToggleSwitch("emer_gear_release", 12, 3036, 1240, "T Handles", "Emergency gear release")
-defineToggleSwitch("emer_bomb_release", 2, 3027, 1241, "T Handles", "Emergency bomb release")
-defineToggleSwitch("emer_gen_deploy", 3, 3023, 1243, "T Handles", "Emergency generator deploy")
-defineToggleSwitch("emer_gen_bypass", 3, 3022, 1061, "T Handles", "Emergency generator bypass")
-defineToggleSwitch("man_flight_control", 4, 3136, 1242, "T Handles", "Manual Flight Control")
+defineToggleSwitch("emer_gear_release", 12, 3037, 1240, "T Handles", "Emergency gear release")
+defineToggleSwitch("emer_bomb_release", 2, 3028, 1241, "T Handles", "Emergency bomb release")
+defineToggleSwitch("emer_gen_deploy", 3, 3024, 1243, "T Handles", "Emergency generator deploy")
+defineToggleSwitch("emer_gen_bypass", 3, 3023, 1061, "T Handles", "Emergency generator bypass")
+defineToggleSwitch("man_flight_control", 4, 3137, 1242, "T Handles", "Manual Flight Control")
 
 --COMPASS CONTROLLER
---defineRotary("COMP_LAT_KNB", XX, 3145, 509, "Compass", "Compass latitude knob")
---defineTumb("COMP_SET_HDG", XX, 3142, 511, 1, {-1,1}, nil, false, "Compass", "Compass heading set knob")
---defineToggleSwitch("COMP_FREE_SLAVE_SW", XX, 3144, 512, "Compass", "Compass Free/Slaved Mode Switch")
---definePushButton("COMP_SYNC", XX, 3143, 513, "Compass", "Compass Push to Sync")
+--defineRotary("COMP_LAT_KNB", XX, 3143, 509, "Compass", "Compass latitude knob")
+--defineTumb("COMP_SET_HDG", XX, 3140, 511, 1, {-1,1}, nil, false, "Compass", "Compass heading set knob")
+--defineToggleSwitch("COMP_FREE_SLAVE_SW", XX, 3142, 512, "Compass", "Compass Free/Slaved Mode Switch")
+--definePushButton("COMP_SYNC", XX, 3141, 513, "Compass", "Compass Push to Sync")
 
 --ECM Panel
 defineToggleSwitch("ecm_audio", 33, 3115, 503, "ECM Panel", "Audio APR/25 - APR/27")
@@ -395,13 +398,13 @@ definePotentiometer("ecm_msl_volume", 33, 3120, 505, {-0.8,0.8}, "ECM Panel", "M
 defineMultipositionSwitch("ecm_selector", 33, 3121, 502, 4, 0.33, "ECM Panel", "ECM selector knob")
 
 --AIR CONDITIONING PANEL
-defineToggleSwitch("cabin_pressure", 3, 3131, 224, "Air Condition", "Cabin Pressure Switch")
-defineTumb("wind_defrost", 3, 3132, 225, 1, {-1,1}, nil, false, "Air Condition", "Windshield Defrost")
-definePotentiometer("cabin_temp", 3, 3133, 226, {0,1}, "Air Condition", "Cabin Temp Knob")
+defineToggleSwitch("cabin_pressure", 3, 3134, 224, "Air Condition", "Cabin Pressure Switch")
+defineTumb("wind_defrost", 3, 3135, 225, 1, {-1,1}, nil, false, "Air Condition", "Windshield Defrost")
+definePotentiometer("cabin_temp", 3, 3136, 226, {0,1}, "Air Condition", "Cabin Temp Knob")
 
 --EJECTION SEAT
-defineToggleSwitch("HARNESS_REEL_CONTR", 21, 3151, 24, "Ejection Seat", "Shoulder Harness Inertia Reel Control")
-defineToggleSwitch("SEC_EJECT_HANDLE", 21, 3152, 25, "Ejection Seat", "Secondary Ejection Handle")
+defineToggleSwitch("HARNESS_REEL_CONTR", 21, 3149, 24, "Ejection Seat", "Shoulder Harness Inertia Reel Control")
+defineToggleSwitch("SEC_EJECT_HANDLE", 21, 3150, 25, "Ejection Seat", "Secondary Ejection Handle")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKES", function()
