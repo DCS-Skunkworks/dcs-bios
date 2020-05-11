@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("JF-17", 0x4800)
 BIOS.protocol.setExportModuleAircrafts({"JF-17"})
 
 -- Made by WarLord (aka BlackLibrary)
--- v 1.1
+-- v 1.2
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -366,7 +366,7 @@ definePotentiometer("FLOOD_LIGHT_DIRECT_3", 4, 3469, 967, {0, 1}, "Lights", "Flo
 definePotentiometer("FLOOD_LIGHT_DIRECT_4", 4, 3470, 968, {0, 1}, "Lights", "Flood Light Direction 4")
 
 -- Flash light
--- defineToggleSwitch("FLASH_LIGHT", 0, 3471, 969, "Lights", "Flash Light")
+defineToggleSwitch("FLASH_LIGHT", 0, 3256, 969, "Lights", "Flash Light")
 
 -- Stick
 defineToggleSwitch("STICK_HIDE", 38, 3472, 970, "Right Console", "Stick Show/Hide")
