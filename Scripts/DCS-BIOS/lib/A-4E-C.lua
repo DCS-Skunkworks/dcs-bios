@@ -417,13 +417,20 @@ end, 1, "External Aircraft Model", "Left Position Light (red)")
 defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Right Position Light (green)")
-
-defineIntegerFromGetter("EXT_STROBE_TAIL", function()
+defineIntegerFromGetter("EXT_TAIL_LIGHT", function()
 	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Tail Strobe Light")
+end, 1, "External Aircraft Model", "Tail Light (white)")
+
+defineIntegerFromGetter("EXT_STROBE_TOP", function()
+	if LoGetAircraftDrawArgumentValue(198) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Top Strobe Light (red)")
 defineIntegerFromGetter("EXT_STROBE_BOTTOM", function()
 	if LoGetAircraftDrawArgumentValue(199) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Bottom Strobe Light")
+end, 1, "External Aircraft Model", "Bottom Strobe Light (red)")
+
+defineIntegerFromGetter("EXT_TAXI_LIGHT", function()
+	if LoGetAircraftDrawArgumentValue(208) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Taxi Light (white)")
 
 
 BIOS.protocol.endModule()
