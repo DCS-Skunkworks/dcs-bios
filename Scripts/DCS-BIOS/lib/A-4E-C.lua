@@ -188,7 +188,7 @@ defineFloat("ARC51-FREQ-xxxXX", 364, {0,0.95}, "UHF Radio", "Frequency nnnXX")
 defineFloat("ARC51-FREQ-PRESET", 371, {0,0.95}, "UHF Radio", "Frequency Preset")
 
 --Cockpit Lights
-defineFloat("LIGHTS-FLOOD-WHITE", 111, {0,1}, "Lights", "White flood lights")
+defineFloat("LIGHTS-FLOOD-WHITE", 111, {0,0.75}, "Lights", "White flood lights")
 defineFloat("LIGHTS-FLOOD-RED", 114, {0,1}, "Lights", "Red flood lights")
 defineFloat("LIGHTS-INSTRUMENTS", 117, {0,1}, "Lights", "Instrument lights")
 defineFloat("LIGHTS-CONSOLE", 119, {0,1}, "Lights", "Console lights")
