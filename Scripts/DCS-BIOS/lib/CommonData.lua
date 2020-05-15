@@ -26,21 +26,21 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		if selfData.LatLongAlt == nil then return end
 	altFt = selfData.LatLongAlt.Alt / 0.3048
 	local lat = selfData.LatLongAlt.Lat
+			 if lat < 0 then lat = 0 - lat
+			else lat = lat end
 	local lon = selfData.LatLongAlt.Long
+		 if lon < 0 then lon = 0 - lon
+		 else lon = lon end
 	
 	latDeg = math.floor(lat)
-	lat = lat - latDeg
-	lat = lat * 60 -- convert to seconds
-	latSec = math.floor(lat)
-	lat = lat - latSec
-	latFractionalSec = lat
+	lat1 = (lat - latDeg) * 60 -- convert to seconds
+	latSec = math.floor(lat1)
+	latFractionalSec = lat1 - latSec
 
 	lonDeg = math.floor(lon)
-	lon = lon - lonDeg
-	lon = lon * 60 -- convert to seconds
-	lonSec = math.floor(lon)
-	lon = lon - lonSec
-	lonFractionalSec = lon
+	lon1 = (lon - lonDeg) * 60 -- convert to seconds
+	lonSec = math.floor(lon1)
+	lonFractionalSec = lon1 - lonSec
 	
 	if selfData.Heading ~= nil then
 		local hdgDegValue = selfData.Heading / (2 * math.pi) * 360
@@ -56,7 +56,7 @@ defineString("DCS_BIOS", getVersion, 6,  "Metadata" , "DCS Bios Version")
 
 defineString("PILOTNAME", function() return playerName end, 24, "Metadata", "Pilot Name")
 
-defineIntegerFromGetter("LAT_DEG", function() return latDeg end, 59, "Position", "Latitude Degrees")
+defineIntegerFromGetter("LAT_DEG", function() return latDeg end, 90, "Position", "Latitude Degrees")
 defineIntegerFromGetter("LAT_SEC", function() return latSec end, 59, "Position", "Latitude Seconds")
 defineIntegerFromGetter("LAT_SEC_FRAC", function()
 	if not LoIsOwnshipExportAllowed() then return nil end
@@ -74,7 +74,7 @@ defineIntegerFromGetter("IAS_US_INT", function()
 	return iasDisp * 1.94384449
 end, 65535, "Speed", "Indicated Airspeed KNT (Int)")
 
-defineIntegerFromGetter("LON_DEG", function() return lonDeg end, 59, "Position", "Longitude Degrees")
+defineIntegerFromGetter("LON_DEG", function() return lonDeg end, 180, "Position", "Longitude Degrees")
 defineIntegerFromGetter("LON_SEC", function() return lonSec end, 59, "Position", "Longitude Seconds")
 defineIntegerFromGetter("LON_SEC_FRAC", function()
 	if not LoIsOwnshipExportAllowed() then return nil end
