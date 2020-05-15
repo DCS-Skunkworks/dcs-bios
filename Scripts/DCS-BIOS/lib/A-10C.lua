@@ -85,6 +85,7 @@ end
 
 
 local vhf_lut1 = {
+    ["0.0"] = "3",
     ["0.15"] = "3",
     ["0.20"] = "4",
     ["0.25"] = "5",
@@ -1014,7 +1015,7 @@ moduleBeingDefined.inputProcessors["SET_UHF"] = function(freq)
 	GetDevice(54):set_frequency(freq*1000)
 end
 
-defineSetCommandTumb("VHFAM_PRESET", 55, 3001, 137, 0.01, {0.0, 0.19}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "VHF AM Radio", "Preset Channel Selector")
+defineRadioWheel("VHFAM_PRESET", 55, 3001, 3001, {-0.01, 0.01}, 137, 0.01, {0, 0.2}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, "VHF AM Radio", "Preset Channel Selector")
 defineMultipositionSwitch("VHFAM_MODE", 55, 3003, 138, 3, 0.1, "VHF AM Radio", "Mode OFF/TR/DF")
 defineMultipositionSwitch("VHFAM_FREQEMER", 55, 3004, 135, 4, 0.1, "VHF AM Radio", "Frequency Selection Dial FM/AM/MAN/PRE")
 definePotentiometer("VHFAM_VOL", 55, 3005, 133, {0, 1}, "VHF AM Radio", "VHF AM Volume Control")
@@ -1033,7 +1034,7 @@ moduleBeingDefined.inputProcessors["SET_VHF_AM"] = function(freq)
 	GetDevice(55):set_frequency(freq*1000)
 end
 
-defineSetCommandTumb("VHFFM_PRESET", 56, 3001, 151, 0.01, {0.0, 0.19}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "VHF FM Radio", "Preset Channel Selector")
+defineRadioWheel("VHFFM_PRESET", 56, 3001, 3001, {-0.01, 0.01}, 151, 0.01, {0, 0.2}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, "VHF FM Radio", "Preset Channel Selector")
 defineMultipositionSwitch("VHFFM_MODE", 56, 3003, 152, 3, 0.1, "VHF FM Radio", "Mode OFF/TR/DF")
 defineMultipositionSwitch("VHFFM_FREQEMER", 56, 3004, 149, 4, 0.1, "VHF FM Radio", "Frequency Selection Dial FM/AM/MAN/PRE")
 definePotentiometer("VHFFM_VOL", 56, 3005, 147, {0, 1}, "VHF FM Radio", "VHF FM Volume Control")
@@ -1345,5 +1346,12 @@ definePushButton("CMSC_UNK", 5, 3005, 371, "CMSC", "Display Unknown Threats")
 defineString("ILS_FREQUENCY_S", getILSFrequency, 6, "ILS Panel", "ILS Frequency (String)")
 defineString("VHF_AM_FREQUENCY_S", getVhfAmFreqency, 7, "VHF AM Radio", "VHF AM Frequency (String)")
 defineString("VHF_FM_FREQUENCY_S", getVhfFmFreqency, 7, "VHF FM Radio", "VHF FM Frequency (String)")
+
+defineFloat("INT_CONSOLE_L_BRIGHT", 800, {0, 1}, "Light System Control Panel", "Console Light Brightness")
+defineFloat("INT_ENG_INST_L_BRIGHT", 801, {0, 1}, "Light System Control Panel", "Engine Instrument Light Brightness")
+defineFloat("INT_FLT_INST_L_BRIGHT", 802, {0, 1}, "Light System Control Panel", "Flight Instruments Light Brightness")
+defineFloat("INT_AUX_INST_L_BRIGHT", 803, {0, 1}, "Light System Control Panel", "Auxiliary Instruments Light Brightness")
+defineFloat("INT_FLOOD_L_BRIGHT", 806, {0, 1}, "Light System Control Panel", "Flood Light Brightness")
+defineFloat("INT_CAUTION_L_BRIGHT", 905, {0, 1}, "Light System Control Panel", "Flood Light Brightness")
 
 BIOS.protocol.endModule()

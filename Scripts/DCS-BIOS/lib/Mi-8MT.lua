@@ -25,8 +25,6 @@ local cb_end_cmd = cb_start_cmd + 63
 -- remove Arg# Pilot 933 / CoPilot 934 / Crew 935
 
 --###############################################Electrical system############################################
-
---defineTumb(msg, device_id, command, arg_number, step, limits, output_map, cycle, category, description)
 defineTumb("GEN1_SWITCH", 1, start_command + 15, 538, 1, {0, 1}, nil, false, "Electrical system", "Generator 1 Switch, ON/OFF")
 defineTumb("GEN2_SWITCH", 1, start_command + 16, 539, 1, {0, 1}, nil, false, "Electrical system", "Generator 2 Switch, ON/OFF")
 
@@ -52,7 +50,6 @@ definePotentiometer("GEN2_RHEO", 1, start_command + 18, 537, {0, 1}, "Electrical
 defineTumb("BATT_HEAT_SWITCH", 1, cb_start_cmd + 75, 522, 1, {0, 1}, nil, false, "Electrical system", "Battery Heating Switch, ON/OFF")
 
 --###############################################AZS Left Panel Line 1############################################
-
 defineTumb("CB_BW_ESBR", 1, cb_start_cmd, 590, 1, {0, 1}, nil, false, "AZS Left Panel Line 1", "CB BW ESBR, ON/OFF")
 defineTumb("CB_EXPLODE", 1, cb_start_cmd + 1, 591, 1, {0, 1}, nil, false, "AZS Left Panel Line 1", "CB Explode, ON/OFF")
 defineTumb("CB_CTRL", 1, cb_start_cmd + 2, 592, 1, {0, 1}, nil, false, "AZS Left Panel Line 1", "CB Control, ON/OFF_mi8")
@@ -62,7 +59,6 @@ defineTumb("CB_RS_GUV_WARN", 1, cb_start_cmd + 5, 595, 1, {0, 1}, nil, false, "A
 defineTumb("CB_ESBR_HEAT", 1, cb_start_cmd + 6, 596, 1, {0, 1}, nil, false, "AZS Left Panel Line 1", "CB ESBR Heating, ON/OFF")
 
 --################################################AZS Left Panel Line 2###########################################
-
 defineTumb("CB_311", 1, cb_start_cmd + 7, 597, 1, {0, 1}, nil, false, "AZS Left Panel Line 2", "CB 311, ON/OFF")
 defineTumb("CB_GUV_OUTER_LEFT", 1, cb_start_cmd + 8, 598, 1, {0, 1}, nil, false, "AZS Left Panel Line 2", "CB GUV: Outer 800 Left, ON/OFF")
 defineTumb("CB_GUV_OUTER_RIGHT", 1, cb_start_cmd + 9, 599, 1, {0, 1}, nil, false, "AZS Left Panel Line 2", "CB GUV: Outer 800 Right, ON/OFF")
@@ -72,7 +68,6 @@ defineTumb("CB_GUV_622_RIGHT_INNER_LEFT", 1, cb_start_cmd + 12, 602, 1, {0, 1}, 
 defineTumb("CB_GUV_622_RIGHT_INNER_RIGHT", 1, cb_start_cmd + 13, 603, 1, {0, 1}, nil, false, "AZS Left Panel Line 2", "CB GUV: Inner Right 622 Right, ON/OFF")
 
 --################################################AZS Left Panel Line 3###########################################
-
 defineTumb("CB_ELEC_LAUNCH_LEFT", 1, cb_start_cmd + 14, 604, 1, {0, 1}, nil, false, "AZS Left Panel Line 3", "CB Electric Launch 800 Left, ON/OFF")
 defineTumb("CB_ELEC_LAUNCH_RIGHT", 1, cb_start_cmd + 15, 605, 1, {0, 1}, nil, false, "AZS Left Panel Line 3", "CB Electric Launch 800 Right, ON/OFF")
 defineTumb("CB_PKT", 1, cb_start_cmd + 16, 606, 1, {0, 1}, nil, false, "AZS Left Panel Line 3", "CB PKT, ON/OFF")
@@ -82,7 +77,6 @@ defineTumb("CB_JET_ARM", 1, cb_start_cmd + 19, 609, 1, {0, 1}, nil, false, "AZS 
 defineTumb("CB_SIG_FLARE", 1, cb_start_cmd + 20, 610, 1, {0, 1}, nil, false, "AZS Left Panel Line 3", "CB Signal Flare, ON/OFF")
 
 --################################################AZS Right Panel Left Line 1###########################################
-
 defineTumb("CB_APU_START", 1, cb_start_cmd + 21, 611, 1, {0, 1}, nil, false, "AZS Right Panel Left Line 1", "CB APU Start, ON/OFF")
 defineTumb("CB_APU_IGN", 1, cb_start_cmd + 22, 612, 1, {0, 1}, nil, false, "AZS Right Panel Left Line 1", "CB APU Ignition, ON/OFF")
 defineTumb("CB_ENG_START", 1, cb_start_cmd + 23, 613, 1, {0, 1}, nil, false, "AZS Right Panel Left Line 1", "CB Engine Start, ON/OFF")
@@ -94,7 +88,6 @@ defineTumb("CB_CTRL_RES", 1, cb_start_cmd + 28, 618, 1, {0, 1}, nil, false, "AZS
 defineTumb("CB_TURN", 1, cb_start_cmd + 29, 619, 1, {0, 1}, nil, false, "AZS Right Panel Left Line 1", "CB TURN INDICATOR, ON/OFF")
 
 --################################################AZS Right Panel Left Line 2###########################################
-
 defineTumb("CB_FUEL_BYPASS", 1, cb_start_cmd + 39, 629, 1, {0, 1}, nil, false, "AZS Right Panel Left Line 2", "CB Fuel System: Bypass Valve, ON/OFF")
 defineTumb("CB_FUEL_LEFT_VALVE", 1, cb_start_cmd + 40, 630, 1, {0, 1}, nil, false, "AZS Right Panel Left Line 2", "CB Fuel System: Left Valve, ON/OFF")
 defineTumb("CB_FUEL_RIGHT_VALVE", 1, cb_start_cmd + 41, 631, 1, {0, 1}, nil, false, "AZS Right Panel Left Line 2", "CB Fuel System: Right Valve, ON/OFF")
@@ -106,7 +99,6 @@ defineTumb("CB_T819", 1, cb_start_cmd + 46, 636, 1, {0, 1}, nil, false, "AZS Rig
 defineTumb("CB_SPUU52", 1, cb_start_cmd + 47, 637, 1, {0, 1}, nil, false, "AZS Right Panel Left Line 2", "CB SPUU-52, ON/OFF")
 
 --################################################AZS Right Panel Left Line 3###########################################
-
 defineTumb("CB_LIGHTS_LEFT_CTRL", 1, cb_start_cmd + 57, 647, 1, {0, 1}, nil, false, "AZS Right Panel Left Line 3", "CB Headlights: Left: Control, ON/OFF")
 defineTumb("CB_LIGHTS_LEFT_LIGHT", 1, cb_start_cmd + 58, 648, 1, {0, 1}, nil, false, "AZS Right Panel Left Line 3", "CB Headlights: Left: Light, ON/OFF")
 defineTumb("CB_LIGHTS_RIGHT_CTRL", 1, cb_start_cmd + 59, 649, 1, {0, 1}, nil, false, "AZS Right Panel Left Line 3", "CB Headlights: Right: Control, ON/OFF")
@@ -119,7 +111,6 @@ defineTumb("CB_PRF4_LEFT", 1, cb_start_cmd + 64, 918, 1, {0, 1}, nil, false, "AZ
 defineTumb("CB_PRF4_RIGHT", 1, cb_start_cmd + 65, 919, 1, {0, 1}, nil, false, "AZS Right Panel Left Line 3", "CB PRF-4 Light Right, ON/OFF")
 
 --################################################AZS Right Panel Right Line 1###########################################
-
 defineTumb("CB_AUTO_PILOT_MAIN", 1, cb_start_cmd + 30, 620, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 1", "CB Autopilot: Main, ON/OFF")
 defineTumb("CB_AUTO_PILOT_FRICTION", 1, cb_start_cmd + 31, 621, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 1", "CB Autopilot: Friction, ON/OFF")
 defineTumb("CB_AUTO_PILOT_CLUTCH", 1, cb_start_cmd + 32, 622, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 1", "CB Autopilot: Electric Clutches, ON/OFF")
@@ -131,7 +122,6 @@ defineTumb("CB_R863", 1, cb_start_cmd + 37, 627, 1, {0, 1}, nil, false, "AZS Rig
 defineTumb("CB_6201", 1, cb_start_cmd + 38, 628, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 1", "CB Radio: 6201, ON/OFF")
 
 --################################################AZS Right Panel Right Line 2###########################################
-
 defineTumb("CB_FIRE_SIG", 1, cb_start_cmd + 48, 638, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 2", "CB Fire Protection System: Signalization, ON/OFF")
 defineTumb("CB_FIRE_1_LEFT", 1, cb_start_cmd + 49, 639, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 2", "CB Fire Protection System: 1 Queue Left, ON/OFF")
 defineTumb("CB_FIRE_1_RIGHT", 1, cb_start_cmd + 50, 640, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 2", "CB Fire Protection System: 1 Queue Right, ON/OFF")
@@ -144,7 +134,6 @@ defineTumb("CB_RADIO_METER", 1, cb_start_cmd + 56, 646, 1, {0, 1}, nil, false, "
 
 
 --################################################AZS Right Panel Right Line 3###########################################
-
 defineTumb("CB_DFRST_CTRL", 1, cb_start_cmd + 66, 656, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 3", "CB Defrost System: Control, ON/OFF")
 defineTumb("CB_DFRST_LEFT", 1, cb_start_cmd + 67, 657, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 3", "CB Defrost System: Left Engine, ON/OFF")
 defineTumb("CB_DFRST_RIGHT", 1, cb_start_cmd + 68, 658, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 3", "CB Defrost System: Right Engine, ON/OFF")
@@ -156,7 +145,6 @@ defineTumb("CB_RIO3", 1, cb_start_cmd + 73, 663, 1, {0, 1}, nil, false, "AZS Rig
 defineTumb("CB_KO50", 1, cb_start_cmd + 74, 664, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 3", "CB Heater KO-50, ON/OFF")
 
 --################################################AZS PANEL GROUP BUTTONS###########################################
-
 defineToggleSwitch("AZS_GRP_BTN1", 1, start_command + 22, 882, "AZS Panel Group Buttons", "Group 1 On")
 defineToggleSwitch("AZS_GRP_BTN4", 1, start_command + 25, 883, "AZS Panel Group Buttons", "Group 4 On")
 defineToggleSwitch("AZS_GRP_BTN7", 1, start_command + 28, 884, "AZS Panel Group Buttons", "Group 7 On")
@@ -168,7 +156,6 @@ defineToggleSwitch("AZS_GRP_BTN6", 1, start_command + 27, 889, "AZS Panel Group 
 defineToggleSwitch("AZS_GRP_BTN9", 1, start_command + 30, 890, "AZS Panel Group Buttons", "Group 9 On")
 
 --################################################FUEL SYSTEM###########################################
-
 defineTumb("FUEL_FEED_PUMP", 2, start_command + 6, 438, 1, {0, 1}, nil, false, "Fuel System", "Feed Tank Pump Switch, ON/OFF")
 defineTumb("FUEL_LEFT_PUMP", 2, start_command + 3, 439, 1, {0, 1}, nil, false, "Fuel System", "Left Tank Pump Switch, ON/OFF")
 defineTumb("FUEL_RIGTH_PUMP", 2, start_command + 5, 440, 1, {0, 1}, nil, false, "Fuel System", "Right Tank Pump Switch, ON/OFF")
@@ -183,13 +170,11 @@ defineTumb("FUEL_BYPASS_COVER", 2, start_command + 12, 432, 1, {0, 1}, nil, fals
 defineTumb("FUEL_REFUEL", 2, start_command + 14, 437, 0.5, {0, 1}, nil, false, "Fuel System", "Refueling Control Switch, REFUEL/OFF/CHECK")
 
 --################################################Engine start panel - APU Launch Panel###########################################
-
 defineTumb("APU_START_MODE", 3, start_command + 12, 412, 1, {-1, 1}, nil, false, "APU Launch Panel", "APU Start Mode Switch, START/COLD CRANKING/FALSE START")
 defineTumb("APU_START", 3, start_command + 26, 413, 1, {0, 1}, nil, false, "APU Launch Panel", "APU Start Button - Push to start APU")
 defineTumb("APU_STOP", 3, start_command + 7, 415, 1, {0, 1}, nil, false, "APU Launch Panel", "APU Stop Button - Push to stop APU")
 
 --################################################Engine start panel - Engines Launch Panel###########################################
-
 defineTumb("ENG_START", 3, start_command + 5, 419, 1, {0, 1}, nil, false, "Engines Launch Panel", "Engine Start Button - Push to start engine")
 defineTumb("ENG_ABORT_START", 3, start_command + 6, 421, 1, {0, 1}, nil, false, "Engines Launch Panel", "Abort Start Engine Button - Push to abort start")
 defineTumb("ENG_SEL", 3, start_command + 8, 422, 1, {-1, 1}, nil, false, "Engines Launch Panel", "Engine Selector Switch, LEFT/OFF/RIGHT")
@@ -197,7 +182,6 @@ defineTumb("ENG_START_MODE", 3, start_command + 27, 423, 1, {-1, 1}, nil, false,
 defineTumb("ENG_IGN_CHK", 3, start_command + 74, 425, 1, {-1, 1}, nil, false, "Engines Launch Panel", "Engine Ignition Check Switch, LEFT/OFF/RIGHT")
 
 --################################################Engine management###########################################
-
 defineTumb("ENG_LEFT_STOP", 3, start_command + 9, 204, 1, {0, 1}, nil, false, "Engines management", "Left Engine Stop Lever")
 defineTumb("ENG_RIGHT_STOP", 3, start_command + 10, 206, 1, {0, 1}, nil, false, "Engines management", "Right Engine Stop Lever")
 defineTumb("ENG_RTR_BRAKE", 3, start_command + 11, 208, 1, {0, 1}, nil, false, "Engines management", "Rotor Brake Handle, UP/DOWN")
@@ -210,7 +194,6 @@ defineTumb("ENG_LEFT_FREE_TURB_RPM", 3, start_command + 63, 202, 1, {-1, 1}, nil
 defineTumb("ENG_RIGHT_FREE_TURB_RPM", 3, start_command + 64, 867, 1, {-1, 1}, nil, false, "Engines management", "Readjust Right Free Turbine RPM Switch, MORE/OFF/LESS")
 
 --################################################Center Console###########################################
-
 defineTumb("ENG_LEFT_ECC", 3, start_command + 1, 167, 1, {0, 1}, nil, false, "Center Console", "Left Engine EEC Switch, ON/OFF")
 defineTumb("ENG_RIGHT_ECC", 3, start_command + 3, 173, 1, {0, 1}, nil, false, "Center Console", "Right Engine EEC Switch, ON/OFF")
 defineTumb("ENG_LEFT_ER", 3, start_command + 52, 168, 1, {0, 1}, nil, false, "Center Console", "Left Engine ER Switch, ON/OFF")
@@ -220,14 +203,12 @@ defineTumb("ENG_RIGHT_FT_CHECK", 3, start_command + 51, 171, 1, {-1, 1}, nil, fa
 defineTumb("ENG_CT_CHECK", 3, start_command + 54, 170, 1, {-1, 1}, nil, false, "Center Console", "CT Check Switch, RIGHT/WORK/LEFT")
 
 --################################################Hydraulic system###########################################
-
 defineTumb("HYDR_MAIN_SWITCH", 4, start_command + 1, 406, 1, {0, 1}, nil, false, "Hydraulic system", "Main Hydraulic Switch, ON/OFF")
 defineTumb("HYDR_AUX_SWITCH", 4, start_command + 2, 410, 1, {0, 1}, nil, false, "Hydraulic system", "Auxiliary Hydraulic Switch, ON/OFF")
 defineTumb("HYDR_AUX_COVER", 4, start_command + 6, 409, 1, {0, 1}, nil, false, "Hydraulic system", "Auxiliary Hydraulic Switch Cover, OPEN/CLOSE")
 defineTumb("HYDR_AUX_OFF", 4, start_command + 3, 411, 1, {0, 1}, nil, false, "Hydraulic system", "Auxiliary Hydraulic Shut Off Button - Push to shut off")
 
 --################################################Autopilot###########################################
-
 definePushButton("AUTOPILOT_HDG_ON", 16, start_command + 3, 134, "Autopilot", "Autopilot Heading ON Button")
 definePotentiometer("AUTOPILOT_HDG_ON_LMP", 16, start_command + 19, 868, {0.0, 1.0}, "Autopilot", "Autopilot Heading ON Lamp Dimmer")
 definePushButton("AUTOPILOT_HDG_OFF", 16, start_command + 5, 135, "Autopilot", "Autopilot Heading OFF Button")
@@ -247,8 +228,6 @@ defineTumb("AUTOPILOT_OFF_RIGHT", 16, start_command + 30, 226, 1, {0, 1}, nil, f
 
 --NOT WORKING PROPERLY TRIMS LEFT ONLY
 defineTumb("AUTOPILOT_TRM_LEFT", 16, start_command + 31, 184, 1, {-1, 1}, nil, false, "Autopilot", "Trimmer Left Button")
-
---NOT WORKING PROPERLY TRIMS LEFT ONLY
 defineTumb("AUTOPILOT_TRM_RIGHT", 16, start_command + 32, 227, 1, {-1, 1}, nil, false, "Autopilot", "Trimmer Right Button")
 
 --################################################Radar altimeter###########################################
@@ -256,7 +235,7 @@ defineTumb("RADAR_ALT_TEST", 18, start_command + 2, 32, 1, {0, 1}, nil, false, "
 defineRotary("RADAR_ALT_DANGER_ALT", 18, start_command + 1, 29, "Autopilot", "Dangerous RALT Knob")
 defineTumb("RADAR_ALT_PWR", 18, start_command + 3, 35, 1, {0, 1}, nil, false, "Radar altimeter", "Radar Altimeter Power Switch, ON/OFF")
 
---################################################WEAPONS ###########################################
+--################################################WEAPONS###########################################
 defineTumb("WPN_ARM",12, start_command + 27, 921, 1, {0,1}, nil, false, "Weapons", "Weapon Safe/Armed Switch, ON/OFF")
 defineTumb("WPN_EMGR_EXPLODE",12, start_command + 7, 707, 1, {0,1}, nil, false, "Weapons", "Emergency Explode Switch, ON/OFF")
 defineTumb("WPN_EMGR_EXPLODE_COVER",12, start_command + 49, 706, 1, {0,1}, nil, false, "Weapons", "Emergency Explode Switch Cover, OPEN/CLOSE")
@@ -366,7 +345,7 @@ defineTumb("LGHT_5_5V",46, start_command + 4, 479, 1, {0,1}, nil, false, "Lights
 defineTumb("LGHT_CARGO",46, start_command + 22, 511, 1, {0,1}, nil, false, "Lights", "Cargo Cabin Duty Lights Switch, ON/OFF")
 defineTumb("LGHT_CARGO2",46, start_command + 23, 512, 1, {0,1}, nil, false, "Lights", "Cargo Cabin Common Lights Switch, ON/OFF")
 
---################################################ SPU-7###########################################
+--################################################SPU-7###########################################
 
 defineTumb("SPU7_L_ICS",36, start_command + 4, 553, 1, {0,1}, nil, false, "SPU-7", "Radio/ICS Switch Left")
 defineTumb("SPU7_L_NETWORK",36, start_command + 7, 551, 1, {0,1}, nil, false, "SPU-7", "Network 1/2 Switch (N/F) Left")
@@ -578,42 +557,22 @@ local R863_FREQ1_POS = {
   ["22"] = "39"
 }
 
-local R863_FREQ09_POS = {
-  ["0"] = "0",
-  ["1"] = "1",
-  ["2"] = "2",
-  ["3"] = "3",
-  ["4"] = "4",
-  ["5"] = "5",
-  ["6"] = "6",
-  ["7"] = "7",
-  ["8"] = "8",
-  ["9"] = "9",
-  ["10"] = "0"
-}
-
-local R863_FREQ4_POS = {
-  ["0"] = "00",
-  ["25"] = "25",
-  ["50"] = "50",
-  ["75"] = "75",
-  ["100"] = "00"
-}
-
 defineFixedStepTumb("R863_FREQ1", 38, start_command + 6, 157, 0.01, {0, 0.23}, {-0.1, 0.1}, {"10", "11", "12", "13", "14", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"}, "R-863", "R-863, 10MHz Rotary Knob")
 defineFixedStepTumb("R863_FREQ2", 38, start_command + 7, 158, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 1MHz Rotary Knob")
 defineFixedStepTumb("R863_FREQ3", 38, start_command + 8, 159, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 100KHz Rotary Knob")
 defineFixedStepTumb("R863_FREQ4", 38, start_command + 9, 160, 0.25, {0, 1}, {-0.1, 0.1}, {"00", "25", "50", "75", "00"}, "R-863", "R-863, 1KHz Rotary Knob")
 
-
 local function getR863Frequency()
     local freq1 = R863_FREQ1_POS[string.format("%.0f", GetDevice(0):get_argument_value(157)*100)]
-    local freq2 = R863_FREQ09_POS[string.format("%.0f", GetDevice(0):get_argument_value(158)*10)]
+	if freq1 == nil then freq1 = "00" end
+    local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(158)*10)
 	if freq2 == nil then freq2 = "0" end
-    local freq3 = R863_FREQ09_POS[string.format("%.0f", GetDevice(0):get_argument_value(159)*10)]
+    local freq3 = string.format("%.0f", GetDevice(0):get_argument_value(159)*10)
 	if freq3 == nil then freq3 = "0" end
-    local freq4 = R863_FREQ4_POS[string.format("%.0f", GetDevice(0):get_argument_value(160)*100)]
+    local freq4 = string.format("%.0f", GetDevice(0):get_argument_value(160)*100)
 	if freq4 == nil then freq4 = "00" end
+	if freq4 == "10" then freq4 = "00" end
+	if freq4 == "0" then freq4 = "00" end
 	return  freq1 .. freq2 .. "." .. freq3 .. freq4
 end
 
@@ -628,15 +587,21 @@ defineTumb("YADRO1A_SQL", 37, start_command + 8, 741, 0.7, {0, 0.7}, nil, false,
 
 local function getYadro1AFrequency()
     local yfreq1 = string.format("%.0f", GetDevice(0):get_argument_value(750)*10)
+	if yfreq1 == nil then yfreq1 = "0" end
     local yfreq2 = string.format("%.0f", GetDevice(0):get_argument_value(745)*10)
+	if yfreq2 == nil then yfreq2 = "0" end
     local yfreq3 = string.format("%.0f", GetDevice(0):get_argument_value(746)*10)
+	if yfreq3 == nil then yfreq3 = "0" end
     local yfreq4 = string.format("%.0f", GetDevice(0):get_argument_value(747)*10)
+	if yfreq4 == nil then yfreq4 = "0" end
     local yfreq5 = string.format("%.0f", GetDevice(0):get_argument_value(748)*10)
+	if yfreq5 == nil then yfreq5 = "0" end
     local yfreq6 = string.format("%.0f", GetDevice(0):get_argument_value(749)*10)
+	if yfreq6 == nil then yfreq6 = "0" end
 	return  yfreq1 .. yfreq2 .. yfreq3 .. yfreq4 .. yfreq5 .. "." .. yfreq6
 end
 
-defineString("YADRO1A_FREQ", getYadro1AFrequency, 7, "YaDRO-1A", "YaDRO-1A, Frequency")
+defineString("YADRO1A_FREQ", getYadro1AFrequency, 7, "YaDRO-1A", "YaDRO-1A, Frequency (String)")
 
 defineTumb("WPN_SIGHT_DBL", 47, start_command + 5, 856, 0.5, {0, 0.5}, nil, false, "Weapons", "PKV Sight Double")
 defineTumb("WPN_SIGHT_SUN", 47, start_command + 6, 903, 1, {0, 1}, nil, false, "Weapons", "PKV Sun Filter")
@@ -994,7 +959,8 @@ defineFloat("R863_FREQ1_TUBE", 157, {0, 1}, "Indicator", "R-863, 10MHz Tube")
 defineFloat("R863_FREQ2_TUBE", 158, {0, 1}, "Indicator", "R-863, 1MHz Tube")
 defineFloat("R863_FREQ3_TUBE", 159, {0, 1}, "Indicator", "R-863, 100KHz Tube")
 defineFloat("R863_FREQ4_TUBE", 116, {0, 1}, "Indicator", "R-863, 1KHz Tube")
---Externals
+
+--################################################Externals################################################
 defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Position Lights")
