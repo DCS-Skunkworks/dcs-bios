@@ -103,18 +103,26 @@ local vhf_lut1 = {
 
 local function getVhfAmFreqency()
     local freq1 = vhf_lut1[string.format("%.2f",GetDevice(0):get_argument_value(143))]
+	if freq1 == nil then freq1 = "3" end
     local freq2 = string.format("%1.1f", GetDevice(0):get_argument_value(144)):sub(3)
+	if freq2 == nil then freq1 = "0" end
     local freq3 = string.format("%1.1f", GetDevice(0):get_argument_value(145)):sub(3)
+	if freq3 == nil then freq1 = "0" end
     local freq4 = string.format("%1.2f", GetDevice(0):get_argument_value(146)):sub(3)
+	if freq4 == nil then freq1 = "00" end
 
     return freq1 .. freq2 .. "." .. freq3 .. freq4
 end
 
 local function getVhfFmFreqency()
     local freq1 = vhf_lut1[string.format("%.2f",GetDevice(0):get_argument_value(157))]
+	if freq1 == nil then freq1 = "3" end
     local freq2 = string.format("%1.1f", GetDevice(0):get_argument_value(158)):sub(3)
+	if freq2 == nil then freq1 = "0" end
     local freq3 = string.format("%1.1f", GetDevice(0):get_argument_value(159)):sub(3)
+	if freq3 == nil then freq1 = "0" end
     local freq4 = string.format("%1.2f", GetDevice(0):get_argument_value(160)):sub(3)
+	if freq4 == nil then freq1 = "00" end
 
     return freq1 .. freq2 .. "." .. freq3 .. freq4
 end
@@ -162,7 +170,9 @@ local function getILSFrequency()
         ["0.9"] = "95"
     }
     local mhz = ils_mhz_lut[string.format("%.1f", GetDevice(0):get_argument_value(251))]
+	if mhz == nil then mhz = "108" end
     local khz = ils_khz_lut[string.format("%.01f", GetDevice(0):get_argument_value(252))]
+	if khz == nil then khz = "10" end
     return mhz .. "." .. khz
 end
 
@@ -466,7 +476,6 @@ defineRockerSwitch("RMFD_BRT", 3, 3027, 3029, 3028, 3029, 348, "Right MFCD", "BR
 defineRockerSwitch("RMFD_CON", 3, 3030, 3032, 3031, 3032, 349, "Right MFCD", "CON")
 defineRockerSwitch("RMFD_SYM", 3, 3033, 3035, 3034, 3035, 350, "Right MFCD", "SYM")
 defineTumb("RMFD_PWR", 3, 3036, 351, 0.1, {0.0, 0.2}, nil, false, "Right MFCD", "PWR OFF - NT - DAY")
-
 
 definePushButton("CMSP_ARW1", 4, 3001, 352, "CMSP", "SET Button 1")
 definePushButton("CMSP_ARW2", 4, 3002, 353, "CMSP", "SET Button 2")
