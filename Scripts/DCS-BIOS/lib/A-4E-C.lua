@@ -1,22 +1,17 @@
 BIOS.protocol.beginModule("A-4E-C", 0x8400)
 BIOS.protocol.setExportModuleAircrafts({"A-4E-C"})
 --[[
-DCS BIOS for A-4E-C
-
-
-credit to [FSF]Ian for the amazing "DCS DIOS"
-
 	CHANGELOG
 		detail version changes here
 	
-v 1.00	original compile, development version 		JAN 2019		--by Dehuman
-v 1.01	beta release								JAN 2019		--by Dehuman
-	-function breaking bugs fixed
-	-several other bug fixes and functions redefined/reclassified
-v 1.02	updates for 1.3, 	external Lights 		APR 2019		--by WarLord
-v 1.03	updates for 1.3.1, 	external Lights 		APR 2019		--by WarLord
-v 1.03a	updates for WIP 1.4,						FEB 2020		--by WarLord
-v 1.03b	updates for WIP 1.4, rework of Commands		MAY 2020		--by WarLord
+v 1.00		original compile, development version 		JAN 2019		--by Dehuman
+v 1.01		beta release								JAN 2019		--by Dehuman
+			-function breaking bugs fixed
+			-several other bug fixes and functions redefined/reclassified
+v 1.02		updates from 1.3, external Lights 			APR 2019		--by WarLord
+v 1.03		updates from 1.3.1, external Lights 		APR 2019		--by WarLord
+v 1.03a		updates from WIP 1.4,						FEB 2020		--by WarLord
+v 1.03b/c	updates from WIP 1.4, rework of Commands	MAY 2020		--by WarLord
 ]]
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -334,21 +329,21 @@ definePotentiometer("tacan_volume", 20, 3073, 903, {-1,1}, "TACAN", "TACAN Volum
 --Doppler Navigation Computer
 defineMultipositionSwitch("doppler_select", 20, 3046, 170, 5, 0.1, "DopplerNav", "APN-153 Doppler Radar Mode")
 definePushButton("doppler_memory_test", 20, 3047, 247, "DopplerNav", "APN-153 Memory Light Test")
-defineMultipositionSwitch("nav_select", 20, 3048, 176, 5, 0.1, "DopplerNav", "ASN-41 Navigation Mode")
+defineMultipositionSwitch("nav_select", 20, 3048, 176, 5, 0.1, "DopplerNav", "ASN-41 Function Selector Switch")
 defineRotary("ppos_lat_knb", 20, 3052, 177, "DopplerNav Position", "ASN-41 Present Position - Latitude Knob")
 definePushButton("ppos_lat_btn", 20, 3151, 236, "DopplerNav Position", "ASN-41 Present Position - Latitude Button")
 defineRotary("ppos_lon_knb", 20, 3053, 183, "DopplerNav Position", "ASN-41 Present Position - Longitude Knob")
-definePushButton("ppos_lon_btn", 20, 3152, 237, "DopplerNav Position", "ASN-41 Present Position - Longitude  Button")
+definePushButton("ppos_lon_btn", 20, 3152, 237, "DopplerNav Position", "ASN-41 Present Position - Longitude Button")
 defineRotary("dest_lat_knb", 20, 3054, 190, "DopplerNav Destination", "ASN-41 Destination - Latitude Knob")
-definePushButton("dest_lat_btn", 20, 3153, 238, "DopplerNav Destination", "ASN-41 Destination - Latitude  Button")
+definePushButton("dest_lat_btn", 20, 3153, 238, "DopplerNav Destination", "ASN-41 Destination - Latitude Button")
 defineRotary("dest_lon_knb", 20, 3055, 196, "DopplerNav Destination", "ASN-41 Destination - Longitude Knob")
-definePushButton("dest_lon_btn", 20, 3156, 239, "DopplerNav Destination", "ASN-41 Destination - Longitude  Button")
+definePushButton("dest_lon_btn", 20, 3156, 239, "DopplerNav Destination", "ASN-41 Destination - Longitude Button")
 defineRotary("asn41_magvar_knb", 20, 3049, 203, "DopplerNav", "ASN-41 Magnetic Variation Knob")
-definePushButton("asn41_magvar_btn", 20, 3155, 240, "DopplerNav", "ASN-41 Magnetic Variation  Button")
+definePushButton("asn41_magvar_btn", 20, 3155, 240, "DopplerNav", "ASN-41 Magnetic Variation Button")
 defineRotary("asn41_windspeed_knb", 20, 3050, 209, "DopplerNav", "ASN-41 Wind Speed Knob")
-definePushButton("asn41_windspeed_btn", 20, 3156, 241, "DopplerNav", "ASN-41 Wind Speed  Button")
-defineRotary("asn41_winddir_knb", 20, 3051, 213, "DopplerNav", "ASN-41 Wind Bearing Knob")
-definePushButton("asn41_winddir_btn", 20, 3157, 242, "DopplerNav", "ASN-41 Wind Bearing  Button")
+definePushButton("asn41_windspeed_btn", 20, 3156, 241, "DopplerNav", "ASN-41 Wind Speed Button")
+defineRotary("asn41_winddir_knb", 20, 3051, 213, "DopplerNav", "ASN-41 Wind Direction Knob")
+definePushButton("asn41_winddir_btn", 20, 3157, 242, "DopplerNav", "ASN-41 Wind Bearing Button")
 
 --Lights
 defineMultipositionSwitch("extlight_master", 24, 3074, 83, 3, 1, "Lights", "Master Lighting ON/OFF/Momentary")
