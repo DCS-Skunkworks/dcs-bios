@@ -11007,288 +11007,384 @@
                                                            }
                                            },
              "Light System Control Panel": {
-                                                  "LCP_ACCEL_COMP": {
-                                                                                   "category": "Light System Control Panel",
-                                                                               "control_type": "selector",
-                                                                                "description": "Accelerometer and Compass Lights",
-                                                                                 "identifier": "LCP_ACCEL_COMP",
-                                                                                     "inputs": [ {
-                                                                                                   "description": "switch to previous or next state",
-                                                                                                     "interface": "fixed_step"
-                                                                                               }, {
-                                                                                                   "description": "set position",
-                                                                                                     "interface": "set_state",
-                                                                                                     "max_value": 1
-                                                                                               }, {
-                                                                                                      "argument": "TOGGLE",
-                                                                                                   "description": "Toggle switch state",
-                                                                                                     "interface": "action"
-                                                                                               } ],
-                                                                        "momentary_positions": "none",
-                                                                                    "outputs": [ {
-                                                                                                       "address": 4420,
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 1024,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 10,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ],
-                                                                           "physical_variant": "toggle_switch"
-                                                                    },
-                                               "LCP_ANTICOLLISION": {
-                                                                            "category": "Light System Control Panel",
-                                                                        "control_type": "electrically_held_switch",
-                                                                         "description": "Anticollision Lights",
-                                                                          "identifier": "LCP_ANTICOLLISION",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the switch position -- 0 = off, 1 = try to turn it on",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 1
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4420,
-                                                                                            "description": "switch position -- 0 = off, 1 = on",
-                                                                                                   "mask": 128,
-                                                                                              "max_value": 1,
-                                                                                               "shift_by": 7,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                    "LCP_AUX_INST": {
-                                                                            "category": "Light System Control Panel",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "Aux Instrument Lights",
-                                                                          "identifier": "LCP_AUX_INST",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4428,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                     "LCP_CONSOLE": {
-                                                                            "category": "Light System Control Panel",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "Console Lights",
-                                                                          "identifier": "LCP_CONSOLE",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4432,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                    "LCP_ENG_INST": {
-                                                                            "category": "Light System Control Panel",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "Engine Instrument Lights",
-                                                                          "identifier": "LCP_ENG_INST",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4424,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                 "LCP_FLIGHT_INST": {
-                                                                            "category": "Light System Control Panel",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "Flight Instrument Lights",
-                                                                          "identifier": "LCP_FLIGHT_INST",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4426,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                       "LCP_FLOOD": {
-                                                                            "category": "Light System Control Panel",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "Flood Lights",
-                                                                          "identifier": "LCP_FLOOD",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4430,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                   "LCP_FORMATION": {
-                                                                            "category": "Light System Control Panel",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "Formation Lights",
-                                                                          "identifier": "LCP_FORMATION",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4422,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                  "LCP_NOSE_ILLUM": {
-                                                                                   "category": "Light System Control Panel",
-                                                                               "control_type": "selector",
-                                                                                "description": "Nose Illumination",
-                                                                                 "identifier": "LCP_NOSE_ILLUM",
-                                                                                     "inputs": [ {
-                                                                                                   "description": "switch to previous or next state",
-                                                                                                     "interface": "fixed_step"
-                                                                                               }, {
-                                                                                                   "description": "set position",
-                                                                                                     "interface": "set_state",
-                                                                                                     "max_value": 1
-                                                                                               }, {
-                                                                                                      "argument": "TOGGLE",
-                                                                                                   "description": "Toggle switch state",
-                                                                                                     "interface": "action"
-                                                                                               } ],
-                                                                        "momentary_positions": "none",
-                                                                                    "outputs": [ {
-                                                                                                       "address": 4420,
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 256,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 8,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ],
-                                                                           "physical_variant": "toggle_switch"
-                                                                    },
-                                                    "LCP_POSITION": {
-                                                                                   "category": "Light System Control Panel",
-                                                                               "control_type": "selector",
-                                                                                "description": "Position Lights FLASH/OFF/STEADY",
-                                                                                 "identifier": "LCP_POSITION",
-                                                                                     "inputs": [ {
-                                                                                                   "description": "switch to previous or next state",
-                                                                                                     "interface": "fixed_step"
-                                                                                               }, {
-                                                                                                   "description": "set position",
-                                                                                                     "interface": "set_state",
-                                                                                                     "max_value": 2
-                                                                                               } ],
-                                                                        "momentary_positions": "none",
-                                                                                    "outputs": [ {
-                                                                                                       "address": 4420,
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 12,
-                                                                                                     "max_value": 2,
-                                                                                                      "shift_by": 2,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ],
-                                                                           "physical_variant": "limited_rotary"
-                                                                    },
-                                               "LCP_SIGNAL_LIGHTS": {
-                                                                                   "category": "Light System Control Panel",
-                                                                               "control_type": "selector",
-                                                                                "description": "Signal Lights",
-                                                                                 "identifier": "LCP_SIGNAL_LIGHTS",
-                                                                                     "inputs": [ {
-                                                                                                   "description": "switch to previous or next state",
-                                                                                                     "interface": "fixed_step"
-                                                                                               }, {
-                                                                                                   "description": "set position",
-                                                                                                     "interface": "set_state",
-                                                                                                     "max_value": 1
-                                                                                               }, {
-                                                                                                      "argument": "TOGGLE",
-                                                                                                   "description": "Toggle switch state",
-                                                                                                     "interface": "action"
-                                                                                               } ],
-                                                                        "momentary_positions": "none",
-                                                                                    "outputs": [ {
-                                                                                                       "address": 4420,
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 512,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 9,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ],
-                                                                           "physical_variant": "toggle_switch"
-                                                                    }
+                                               "INT_AUX_INST_L_BRIGHT": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "analog_gauge",
+                                                                             "description": "Auxiliary Instruments Light Brightness",
+                                                                              "identifier": "INT_AUX_INST_L_BRIGHT",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4852,
+                                                                                                "description": "gauge position",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                "INT_CAUTION_L_BRIGHT": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "analog_gauge",
+                                                                             "description": "Flood Light Brightness",
+                                                                              "identifier": "INT_CAUTION_L_BRIGHT",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4856,
+                                                                                                "description": "gauge position",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                "INT_CONSOLE_L_BRIGHT": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "analog_gauge",
+                                                                             "description": "Console Light Brightness",
+                                                                              "identifier": "INT_CONSOLE_L_BRIGHT",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4846,
+                                                                                                "description": "gauge position",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                               "INT_ENG_INST_L_BRIGHT": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "analog_gauge",
+                                                                             "description": "Engine Instrument Light Brightness",
+                                                                              "identifier": "INT_ENG_INST_L_BRIGHT",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4848,
+                                                                                                "description": "gauge position",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                  "INT_FLOOD_L_BRIGHT": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "analog_gauge",
+                                                                             "description": "Flood Light Brightness",
+                                                                              "identifier": "INT_FLOOD_L_BRIGHT",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4854,
+                                                                                                "description": "gauge position",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                               "INT_FLT_INST_L_BRIGHT": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "analog_gauge",
+                                                                             "description": "Flight Instruments Light Brightness",
+                                                                              "identifier": "INT_FLT_INST_L_BRIGHT",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4850,
+                                                                                                "description": "gauge position",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                      "LCP_ACCEL_COMP": {
+                                                                                       "category": "Light System Control Panel",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "Accelerometer and Compass Lights",
+                                                                                     "identifier": "LCP_ACCEL_COMP",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                           "address": 4420,
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 1024,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 10,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "toggle_switch"
+                                                                        },
+                                                   "LCP_ANTICOLLISION": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "electrically_held_switch",
+                                                                             "description": "Anticollision Lights",
+                                                                              "identifier": "LCP_ANTICOLLISION",
+                                                                                  "inputs": [ {
+                                                                                                "description": "set the switch position -- 0 = off, 1 = try to turn it on",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            } ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4420,
+                                                                                                "description": "switch position -- 0 = off, 1 = on",
+                                                                                                       "mask": 128,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 7,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                        "LCP_AUX_INST": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "limited_dial",
+                                                                             "description": "Aux Instrument Lights",
+                                                                              "identifier": "LCP_AUX_INST",
+                                                                                  "inputs": [ {
+                                                                                                "description": "set the position of the dial",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 65535
+                                                                                            }, {
+                                                                                                   "description": "turn the dial left or right",
+                                                                                                     "interface": "variable_step",
+                                                                                                     "max_value": 65535,
+                                                                                                "suggested_step": 3200
+                                                                                            } ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4428,
+                                                                                                "description": "position of the potentiometer",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                         "LCP_CONSOLE": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "limited_dial",
+                                                                             "description": "Console Lights",
+                                                                              "identifier": "LCP_CONSOLE",
+                                                                                  "inputs": [ {
+                                                                                                "description": "set the position of the dial",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 65535
+                                                                                            }, {
+                                                                                                   "description": "turn the dial left or right",
+                                                                                                     "interface": "variable_step",
+                                                                                                     "max_value": 65535,
+                                                                                                "suggested_step": 3200
+                                                                                            } ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4432,
+                                                                                                "description": "position of the potentiometer",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                        "LCP_ENG_INST": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "limited_dial",
+                                                                             "description": "Engine Instrument Lights",
+                                                                              "identifier": "LCP_ENG_INST",
+                                                                                  "inputs": [ {
+                                                                                                "description": "set the position of the dial",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 65535
+                                                                                            }, {
+                                                                                                   "description": "turn the dial left or right",
+                                                                                                     "interface": "variable_step",
+                                                                                                     "max_value": 65535,
+                                                                                                "suggested_step": 3200
+                                                                                            } ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4424,
+                                                                                                "description": "position of the potentiometer",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                     "LCP_FLIGHT_INST": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "limited_dial",
+                                                                             "description": "Flight Instrument Lights",
+                                                                              "identifier": "LCP_FLIGHT_INST",
+                                                                                  "inputs": [ {
+                                                                                                "description": "set the position of the dial",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 65535
+                                                                                            }, {
+                                                                                                   "description": "turn the dial left or right",
+                                                                                                     "interface": "variable_step",
+                                                                                                     "max_value": 65535,
+                                                                                                "suggested_step": 3200
+                                                                                            } ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4426,
+                                                                                                "description": "position of the potentiometer",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                           "LCP_FLOOD": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "limited_dial",
+                                                                             "description": "Flood Lights",
+                                                                              "identifier": "LCP_FLOOD",
+                                                                                  "inputs": [ {
+                                                                                                "description": "set the position of the dial",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 65535
+                                                                                            }, {
+                                                                                                   "description": "turn the dial left or right",
+                                                                                                     "interface": "variable_step",
+                                                                                                     "max_value": 65535,
+                                                                                                "suggested_step": 3200
+                                                                                            } ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4430,
+                                                                                                "description": "position of the potentiometer",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                       "LCP_FORMATION": {
+                                                                                "category": "Light System Control Panel",
+                                                                            "control_type": "limited_dial",
+                                                                             "description": "Formation Lights",
+                                                                              "identifier": "LCP_FORMATION",
+                                                                                  "inputs": [ {
+                                                                                                "description": "set the position of the dial",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 65535
+                                                                                            }, {
+                                                                                                   "description": "turn the dial left or right",
+                                                                                                     "interface": "variable_step",
+                                                                                                     "max_value": 65535,
+                                                                                                "suggested_step": 3200
+                                                                                            } ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4422,
+                                                                                                "description": "position of the potentiometer",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                      "LCP_NOSE_ILLUM": {
+                                                                                       "category": "Light System Control Panel",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "Nose Illumination",
+                                                                                     "identifier": "LCP_NOSE_ILLUM",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                           "address": 4420,
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 256,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 8,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "toggle_switch"
+                                                                        },
+                                                        "LCP_POSITION": {
+                                                                                       "category": "Light System Control Panel",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "Position Lights FLASH/OFF/STEADY",
+                                                                                     "identifier": "LCP_POSITION",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 2
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                           "address": 4420,
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 12,
+                                                                                                         "max_value": 2,
+                                                                                                          "shift_by": 2,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "limited_rotary"
+                                                                        },
+                                                   "LCP_SIGNAL_LIGHTS": {
+                                                                                       "category": "Light System Control Panel",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "Signal Lights",
+                                                                                     "identifier": "LCP_SIGNAL_LIGHTS",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                           "address": 4420,
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 512,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 9,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "toggle_switch"
+                                                                        }
                                            },
                                    "Misc": {
                                                               "AUX_GEAR": {
@@ -15994,29 +16090,25 @@
                                                                      },
                                                      "VHFAM_PRESET": {
                                                                                     "category": "VHF AM Radio",
-                                                                                "control_type": "selector",
+                                                                                "control_type": "discrete_dial",
                                                                                  "description": "Preset Channel Selector",
                                                                                   "identifier": "VHFAM_PRESET",
                                                                                       "inputs": [ {
                                                                                                     "description": "switch to previous or next state",
                                                                                                       "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 20
                                                                                                 } ],
                                                                          "momentary_positions": "none",
                                                                                      "outputs": [ {
                                                                                                         "address": 4476,
                                                                                                     "description": "selector position",
                                                                                                            "mask": 63488,
-                                                                                                      "max_value": 20,
+                                                                                                      "max_value": 19,
                                                                                                        "shift_by": 11,
                                                                                                          "suffix": "_INT",
                                                                                                            "type": "integer"
                                                                                                 }, {
                                                                                                         "address": 4490,
-                                                                                                    "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" \" 1\" ",
+                                                                                                    "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
                                                                                                      "max_length": 2,
                                                                                                          "suffix": "_STR",
                                                                                                            "type": "string"
@@ -16331,29 +16423,25 @@
                                                                      },
                                                      "VHFFM_PRESET": {
                                                                                     "category": "VHF FM Radio",
-                                                                                "control_type": "selector",
+                                                                                "control_type": "discrete_dial",
                                                                                  "description": "Preset Channel Selector",
                                                                                   "identifier": "VHFFM_PRESET",
                                                                                       "inputs": [ {
                                                                                                     "description": "switch to previous or next state",
                                                                                                       "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 20
                                                                                                 } ],
                                                                          "momentary_positions": "none",
                                                                                      "outputs": [ {
                                                                                                         "address": 4500,
                                                                                                     "description": "selector position",
                                                                                                            "mask": 31,
-                                                                                                      "max_value": 20,
+                                                                                                      "max_value": 19,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "_INT",
                                                                                                            "type": "integer"
                                                                                                 }, {
                                                                                                         "address": 4502,
-                                                                                                    "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" \" 1\" ",
+                                                                                                    "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
                                                                                                      "max_length": 2,
                                                                                                          "suffix": "_STR",
                                                                                                            "type": "string"

@@ -3380,12 +3380,28 @@
                                                 "EXT_STROBE_BOTTOM": {
                                                                              "category": "External Aircraft Model",
                                                                          "control_type": "metadata",
-                                                                          "description": "Bottom Strobe Light",
+                                                                          "description": "Bottom Strobe Light (red)",
                                                                            "identifier": "EXT_STROBE_BOTTOM",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                  "address": 34114,
-                                                                                             "description": "Bottom Strobe Light",
+                                                                                             "description": "Bottom Strobe Light (red)",
+                                                                                                    "mask": 512,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 9,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                   "EXT_STROBE_TOP": {
+                                                                             "category": "External Aircraft Model",
+                                                                         "control_type": "metadata",
+                                                                          "description": "Top Strobe Light (red)",
+                                                                           "identifier": "EXT_STROBE_TOP",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 34114,
+                                                                                             "description": "Top Strobe Light (red)",
                                                                                                     "mask": 256,
                                                                                                "max_value": 1,
                                                                                                 "shift_by": 8,
@@ -3393,18 +3409,34 @@
                                                                                                     "type": "integer"
                                                                                          } ]
                                                                      },
-                                                  "EXT_STROBE_TAIL": {
+                                                   "EXT_TAIL_LIGHT": {
                                                                              "category": "External Aircraft Model",
                                                                          "control_type": "metadata",
-                                                                          "description": "Tail Strobe Light",
-                                                                           "identifier": "EXT_STROBE_TAIL",
+                                                                          "description": "Tail Light (white)",
+                                                                           "identifier": "EXT_TAIL_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                  "address": 34114,
-                                                                                             "description": "Tail Strobe Light",
+                                                                                             "description": "Tail Light (white)",
                                                                                                     "mask": 128,
                                                                                                "max_value": 1,
                                                                                                 "shift_by": 7,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                   "EXT_TAXI_LIGHT": {
+                                                                             "category": "External Aircraft Model",
+                                                                         "control_type": "metadata",
+                                                                          "description": "Taxi Light (white)",
+                                                                           "identifier": "EXT_TAXI_LIGHT",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 34114,
+                                                                                             "description": "Taxi Light (white)",
+                                                                                                    "mask": 1024,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 10,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]

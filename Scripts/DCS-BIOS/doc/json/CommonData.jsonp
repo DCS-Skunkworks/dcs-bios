@@ -92,8 +92,8 @@ docdata["CommonData"] =
                                              "outputs": [ {
                                                                 "address": 1054,
                                                             "description": "Latitude Degrees",
-                                                                   "mask": 63,
-                                                              "max_value": 59,
+                                                                   "mask": 127,
+                                                              "max_value": 90,
                                                                "shift_by": 0,
                                                                  "suffix": "",
                                                                    "type": "integer"
@@ -108,9 +108,9 @@ docdata["CommonData"] =
                                              "outputs": [ {
                                                                 "address": 1054,
                                                             "description": "Latitude Seconds",
-                                                                   "mask": 4032,
+                                                                   "mask": 8064,
                                                               "max_value": 59,
-                                                               "shift_by": 6,
+                                                               "shift_by": 7,
                                                                  "suffix": "",
                                                                    "type": "integer"
                                                         } ]
@@ -140,8 +140,8 @@ docdata["CommonData"] =
                                              "outputs": [ {
                                                                 "address": 1070,
                                                             "description": "Longitude Degrees",
-                                                                   "mask": 63,
-                                                              "max_value": 59,
+                                                                   "mask": 255,
+                                                              "max_value": 180,
                                                                "shift_by": 0,
                                                                  "suffix": "",
                                                                    "type": "integer"
@@ -156,9 +156,9 @@ docdata["CommonData"] =
                                              "outputs": [ {
                                                                 "address": 1070,
                                                             "description": "Longitude Seconds",
-                                                                   "mask": 4032,
+                                                                   "mask": 16128,
                                                               "max_value": 59,
-                                                               "shift_by": 6,
+                                                               "shift_by": 8,
                                                                  "suffix": "",
                                                                    "type": "integer"
                                                         } ]
