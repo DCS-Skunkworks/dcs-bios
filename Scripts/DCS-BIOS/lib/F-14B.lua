@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 -- Made by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
--- v 1.8a
+-- v 1.8b
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -181,7 +181,7 @@ local function defineIndicatorLightLANTBottom(msg, arg_number, category, descrip
 		}
 	}
 end
-
+--------------------------------- Matchstick ---------------------------------
 function parse_indication_number_index(indicator_id)  -- Thanks to [FSF]Ian code
 -- Custom version of parse_indication function that uses numbers for the index of the output table
 -- for use in situations where the names of values in the indication are unusable (eg random GUID)
@@ -232,43 +232,40 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,405)
 	PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003)
 end
+--------------------------------- Matchstick End ---------------------------------
 
 local function getHUD_Mode()
     local hud_m = ""
     if GetDevice(0):get_argument_value(1015) == 1 then  --Take Off
-        hud_m = "1"
+        hud_m = "1"   
+    elseif GetDevice(0):get_argument_value(1014) == 1 then  --Cruise  
+        hud_m = "2"		
+    elseif GetDevice(0):get_argument_value(1013) == 1 then  --A2A  
+        hud_m = "3"	
+    elseif GetDevice(0):get_argument_value(1012) == 1 then  --A2G 
+        hud_m = "4"	
+    elseif GetDevice(0):get_argument_value(1011) == 1 then  --Landing  
+        hud_m = "5"
+	else
+	    hud_m = "1"
     end
-    if GetDevice(0):get_argument_value(1014) == 1 then  --Cruise  
-        hud_m = "2"
-    end		
-    if GetDevice(0):get_argument_value(1013) == 1 then  --A2A  
-        hud_m = "3"
-    end		
-    if GetDevice(0):get_argument_value(1012) == 1 then  --A2G 
-        hud_m = "4"
-    end		
-    if GetDevice(0):get_argument_value(1011) == 1 then  --Landing  
-        hud_m = "5"    
-    end
-    return hud_m
+	return hud_m
 end
 
 local function getSTEER_Mode()
     local steer_m = ""
     if GetDevice(0):get_argument_value(1002) == 1 then  --TACAN
         steer_m = "1"
-    end
-    if GetDevice(0):get_argument_value(1003) == 1 then  --DEST 
-        steer_m = "2"
-    end		
-    if GetDevice(0):get_argument_value(1004) == 1 then  --AWL/PCD  
-        steer_m = "3"
-    end		
-    if GetDevice(0):get_argument_value(1005) == 1 then  --Vector
-        steer_m = "4"
-    end		
-    if GetDevice(0):get_argument_value(1006) == 1 then  --Manual  
-        steer_m = "5"    
+    elseif GetDevice(0):get_argument_value(1003) == 1 then  --DEST 
+        steer_m = "2"	
+    elseif GetDevice(0):get_argument_value(1004) == 1 then  --AWL/PCD  
+        steer_m = "3"	
+    elseif GetDevice(0):get_argument_value(1005) == 1 then  --Vector
+        steer_m = "4"	
+    elseif GetDevice(0):get_argument_value(1006) == 1 then  --Manual  
+        steer_m = "5"
+	else
+	    steer_m = "2"		
     end
     return steer_m
 end

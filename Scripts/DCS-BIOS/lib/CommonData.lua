@@ -23,6 +23,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	iasUS = string.format("%4d", math.floor(0.5 + iasDisp * 1.94384449))	-- knots
 	
 	local selfData = LoGetSelfData()
+	if selfData == nil then return end
 		if selfData.LatLongAlt == nil then return end
 	altFt = selfData.LatLongAlt.Alt / 0.3048
 	local lat = selfData.LatLongAlt.Lat
