@@ -20,7 +20,7 @@ local defineString = BIOS.util.defineString
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
--- remove Arg# Pilot 540
+-- remove Pilot Arg# 540 / Hide Stick Arg# 1005
 
 local function defineLedPushButton(msg, device_id, device_command, arg_number, category, description)
 	BIOS.util.defineTumb(msg, device_id, device_command, arg_number, 0.3, {0, 0.3}, nil, false, category, description)

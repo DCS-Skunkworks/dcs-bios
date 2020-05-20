@@ -1,4 +1,4 @@
--- V1.5c by Warlord (aka BlackLibrary)
+-- V1.5d by Warlord (aka BlackLibrary)
 -- Added DED TIME, NAV and MAN pages and DED fixes by Matchstick
 --
 -- Tested and fixes by BuzzKillington
@@ -644,6 +644,7 @@ defineFloat("MACH_INDICATOR", 49, {0.0, 1.0}, "Airspeed Indicator", "Mach Indica
 --Standby Attitude Indicator
 defineFloat("SAI_PITCH", 63, {-1.0, -0.902, -0.793, -0.687, -0.576, -0.450, -0.339, -0.225, -0.115, 0.0, 0.114, 0.225, 0.336, 0.445, 0.569, 0.679, 0.784, 0.893, 0.995}, "SAI", " SAI Pitch")
 defineFloat("SAI_BANK", 64, {1.0, -1.0}, "SAI", "SAI Bank")
+defineFloat("SAI_BANK_ARROW", 72, {-1, 1}, "SAI", "SAI Bank Arrow")
 defineFloat("SAI_OFF_FLAG", 65, {0, 1}, "SAI", "SAI Off Flag")
 defineFloat("SAI_AIRCRAFTREFERENCESYMBOL", 68, {-1, 1}, "SAI", "SAI Aircraft Reference Symbol")
 defineFloat("SAI_KNB_ARROW", 69, {-1, 1}, "SAI", "SAI Knob Arrow")

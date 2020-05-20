@@ -73,12 +73,13 @@ local function parse_indication(indicator_id)  -- Thanks to [FSF]Ian code
 end
 
 local function defineEmergencyParkingBrake(msg, device_id, emergency_command, park_command, arg_number, category, description)
-	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 1 }
+	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.5 then
+		if dev0:get_argument_value(arg_number) < 0.6 then
 			alloc:setValue(0)
-		else
-			alloc:setValue(1)
+		elseif dev0:get_argument_value(arg_number) > 0.7 then
+			alloc:setValue(2)			
+		else alloc:setValue(1)
 		end
 	end
 	
@@ -88,7 +89,7 @@ local function defineEmergencyParkingBrake(msg, device_id, emergency_command, pa
 		description = description,
 		control_type = "emergency_parking_brake",
 		inputs = {
-			{ interface = "set_state", max_value = 1, description = "set the switch position -- 0 = emergency, 1 = parking" }
+			{ interface = "set_state", max_value = 2, description = "set the switch position -- 0 = emergency, 1 = parking, 2 = release" }
 		},
 		outputs = {
 			{ ["type"] = "integer",
@@ -96,23 +97,25 @@ local function defineEmergencyParkingBrake(msg, device_id, emergency_command, pa
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  max_value = 1,
-			  description = "switch position -- 0 = emergency, 1 = parking"
+			  max_value = 2,
+			  description = "switch position -- 0 = emergency, 1 = parking, 2 = release"
 			}
 		}
 	}
-	moduleBeingDefined.inputProcessors[msg] = function(toState)
+		moduleBeingDefined.inputProcessors[msg] = function(toState)
 		local dev = GetDevice(device_id)
-		local fromState = GetDevice(0):get_argument_value(arg_number)
-		if fromState > 0.5 then fromState = 1 end
-		if fromState == 0 and toState == "1" then
-			dev:performClickableAction(park_command, 0) 
-			dev:performClickableAction(park_command, 1) 
-			dev:performClickableAction(park_command, 0) 
-		elseif fromState == 1 and toState == "0" then
-			dev:performClickableAction(emergency_command, 0) 
-			dev:performClickableAction(emergency_command, 1) 
-			dev:performClickableAction(emergency_command, 0) 
+		 if toState == "0" then --off
+		 dev:performClickableAction(emergency_command, 0)
+			 dev:performClickableAction(emergency_command, 1)
+dev:performClickableAction(emergency_command, 0) 			 
+	     elseif toState == "1" then --Middle 
+		 dev:performClickableAction(park_command, 0)	
+			 dev:performClickableAction(park_command, 0.66)
+dev:performClickableAction(park_command, 0)			 
+		 elseif toState == "2" then --Up
+		 dev:performClickableAction(park_command, 0)	
+			 dev:performClickableAction(park_command, 1)
+dev:performClickableAction(park_command, 0)			 
 		end
 	end
 end
@@ -177,7 +180,7 @@ local function defineMissionComputerSwitch(msg, device_id, mc1_off_command, mc2_
 		description = description,
 		control_type = "mission_computer_switch",
 		inputs = {
-			{ interface = "set_state", max_value = 2, description = "set the switch position -- 0 = emergency, 1 = parking" }
+			{ interface = "set_state", max_value = 2, description = "set the switch position -- 0 = 1OFF, 1 = NORM, 2 = 2OFF" }
 		},
 		outputs = {
 			{ ["type"] = "integer",
@@ -186,7 +189,7 @@ local function defineMissionComputerSwitch(msg, device_id, mc1_off_command, mc2_
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
 			  max_value = 2,
-			  description = "switch position -- 0 = emergency, 1 = parking"
+			  description = "switch position -- 0 = 1OFF, 1 = NORM, 2 = 2OFF"
 			}
 		}
 	}
@@ -1153,9 +1156,9 @@ defineToggleSwitch("LIGHTS_TEST_SW", 9, 3007, 416, "Interior Lights Panel", "Lig
 
 -- 5. Sensor Panel
 define3PosTumb("FLIR_SW", 62, 3001, 439, "Sensor Panel", "FLIR Switch, ON/STBY/OFF")
-define3PosTumb("LTD_R_SW", 62, 3002, 441, "Sensor Panel", "LTD/R Switch, ---/SAFE/AFT") -- ARM position is handled by another parameter
+define3PosTumb("LTD_R_SW", 62, 3002, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE/AFT") 
 defineToggleSwitch("LST_NFLR_SW", 62, 3004, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF")
-defineToggleSwitch("LTD_R_ARM", 62, 3003, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE")
+--defineToggleSwitch("LTD_R_ARM", 62, 3003, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE")
 defineTumb("RADAR_SW", 42, 3001, 440, 0.1, {0.0, 0.3}, nil, false, "Sensor Panel", "RADAR Switch Change ,OFF/STBY/OPR/EMERG(PULL)")
 definePushButton("RADAR_SW_PULL", 42, 3002, 440, "Sensor Panel", "RADAR Switch Pull (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
 defineTumb("INS_SW", 44, 3001, 443, 0.1, {0.0, 0.7}, nil, false, "Sensor Panel", "INS Switch, OFF/CV/GND/NAV/IFA/GYRO/GB/TEST")

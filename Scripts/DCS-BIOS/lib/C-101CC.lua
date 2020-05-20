@@ -192,7 +192,9 @@ definePotentiometer("BACK_ENG_START_TEST_KNB", 2, 3537, 1275, {0, 1}, "Engine St
 
 -- OXYGEN SYSTEM 
 defineToggleSwitch("FRONT_OXY_SUPPLY", 2, 3117, 425, "Oxygen System", "FRONT Oxygen Supply")
+defineToggleSwitch("FRONT_OXY_REGULATOR", 2, 3996, 997, "Oxygen System", "FRONT Oxygen Regulator - 100%/AIRMIX")
 defineToggleSwitch("BACK_OXY_SUPPLY", 2, 3429, 253, "Oxygen System", "BACK Oxygen Supply")
+defineToggleSwitch("BACK_OXY_REGULATOR", 2, 3997, 999, "Oxygen System", "BACK Oxygen Regulator - 100%/AIRMIX")
 
 -- CLOCK
 definePushButton("FRONT_CHRONO", 2, 3149, 519, "Clock", "FRONT Chronograph")
@@ -400,7 +402,7 @@ definePotentiometer("FRONT_IFR_Hood", 2, 3557, 256, {0, 1}, "Misc", "FRONT IFR H
 
 --------------------------------------- REAR COCKPIT ONLY FUNCTIONS ---------------------------------------
 -- OXYGEN SYSTEM 
-defineToggleSwitch("BACK_OXY_PRESS_WARN_SW", 2, 3527, 1196, "Misc", "BACK Oxygen Pressure Waring Switch")
+defineToggleSwitch("BACK_OXY_PRESS_WARN_SW", 2, 3527, 1196, "Misc", "BACK Oxygen Pressure Warning Switch")
 
 -- IFR hood 
 defineToggleSwitch("BACK_IFR_HOOD", 2, 3551, 329, "Misc", "BACK IFR Hood Close/Open")
