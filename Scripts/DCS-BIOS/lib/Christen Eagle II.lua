@@ -51,7 +51,7 @@ defineToggleSwitch("ALTER_FUSE", 7, 3073, 355,"Electric" , "Alternator Fuse")
 definePushButton("V_A_METER", 7, 3043, 377,"Electric" , "Volt/Ampere Meter mode (Voltage / Amperage)")
 
 --Lights
-defineToggleSwitch("NAV_LIGHTS", 13, 3051, 359,"Lights" , "Nav Lights")
+defineToggleSwitch("NAV_LIGHTS", 13, 3051, 459,"Lights" , "Nav Lights")
 defineToggleSwitch("LAND_LIGHTS", 13, 3054, 360,"Lights" , "Landing Lights")
 definePotentiometer("COCKPIT_LIGHTS", 13, 3053, 361, {0, 1},"Lights" , "Cockpit Lights")
 defineToggleSwitch("COCKPIT_LIGHTS_RED", 13, 3055, 397,"Lights" , "Red Cockpit Lights")
