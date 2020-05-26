@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 -- Made by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
--- v 1.8b
+-- v 1.8d
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -181,7 +181,8 @@ local function defineIndicatorLightLANTBottom(msg, arg_number, category, descrip
 		}
 	}
 end
---------------------------------- Matchstick ---------------------------------
+
+--------------------------------- Matchstick --------------------------------- 
 function parse_indication_number_index(indicator_id)  -- Thanks to [FSF]Ian code
 -- Custom version of parse_indication function that uses numbers for the index of the output table
 -- for use in situations where the names of values in the indication are unusable (eg random GUID)
@@ -228,28 +229,33 @@ local RIO_UHF_REMOTE_DISP = ""
 local PLT_VUHF_REMOTE_DISP = ""
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	PLT_UHF_REMOTE_DISP = get_radio_remote_display(9,15004)
-	RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,405)
-	PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003)
+	if PLT_UHF_REMOTE_DISP == nil then PLT_UHF_REMOTE_DISP = "0000000"
+	else PLT_UHF_REMOTE_DISP = get_radio_remote_display(9,15004) end
+	
+	if RIO_UHF_REMOTE_DISP == nil then RIO_UHF_REMOTE_DISP = "0000000"
+	else RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,405) end
+	
+	if PLT_VUHF_REMOTE_DISP == nil then PLT_VUHF_REMOTE_DISP = "0000000"
+	else PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003) end
 end
---------------------------------- Matchstick End ---------------------------------
+--------------------------------- Matchstick End ---------------------------------  
 
 local function getHUD_Mode()
     local hud_m = ""
     if GetDevice(0):get_argument_value(1015) == 1 then  --Take Off
-        hud_m = "1"   
+        hud_m = "1"
     elseif GetDevice(0):get_argument_value(1014) == 1 then  --Cruise  
-        hud_m = "2"		
+        hud_m = "2"
     elseif GetDevice(0):get_argument_value(1013) == 1 then  --A2A  
-        hud_m = "3"	
+        hud_m = "3"
     elseif GetDevice(0):get_argument_value(1012) == 1 then  --A2G 
-        hud_m = "4"	
+        hud_m = "4"
     elseif GetDevice(0):get_argument_value(1011) == 1 then  --Landing  
-        hud_m = "5"
+        hud_m = "5"    
 	else
 	    hud_m = "1"
     end
-	return hud_m
+    return hud_m
 end
 
 local function getSTEER_Mode()
@@ -257,13 +263,13 @@ local function getSTEER_Mode()
     if GetDevice(0):get_argument_value(1002) == 1 then  --TACAN
         steer_m = "1"
     elseif GetDevice(0):get_argument_value(1003) == 1 then  --DEST 
-        steer_m = "2"	
+        steer_m = "2"
     elseif GetDevice(0):get_argument_value(1004) == 1 then  --AWL/PCD  
-        steer_m = "3"	
+        steer_m = "3"
     elseif GetDevice(0):get_argument_value(1005) == 1 then  --Vector
-        steer_m = "4"	
+        steer_m = "4"
     elseif GetDevice(0):get_argument_value(1006) == 1 then  --Manual  
-        steer_m = "5"
+        steer_m = "5"    
 	else
 	    steer_m = "2"		
     end
@@ -540,6 +546,7 @@ function getARC159_String_Frequency()
 	--Export : 225000192.000000
 	local arc_159 = GetDevice(3)
 	local freq = tostring(arc_159:get_frequency())
+	if freq == nil then freq = "0000000" end
 	return freq:sub(1,3) .. "." .. freq:sub(4,6)	
 end
 defineString("PLT_UHF_STRING_FREQ", getARC159_String_Frequency, 7, "UHF 1", "PILOT ARC-159 Frequency (string)")
@@ -612,10 +619,10 @@ function getARC182_Decimal_DIAL4_Frequency()
 end
 
 function getARC182_String_Frequency()
-	--225975288
-	-- 65975056
+
 	local arc_182 = GetDevice(4)
 	local freq = tostring(arc_182:get_frequency())
+		if freq == nil then freq = "0000000" end
 	if(string.len(freq) == 8) then
 		--559.9752
 		return freq:sub(1,2) .. "." .. freq:sub(3,5)	
@@ -1343,9 +1350,13 @@ defineFloat("PLT_FUEL_LEFT_1", 6003, {0, 1}, "Gauges", "PILOT Fuel Left 1")
 local function getPLTFuelLeft()
     local function a(n) return GetDevice(0):get_argument_value(n) end
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(6000)*10)
+	if digit1 == nil then digit1 = "0" end
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(6001)*10)
+	if digit2 == nil then digit2 = "0" end
 	local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(6002)*10)
+	if digit3 == nil then digit3 = "0" end
     local digit4 = string.format("%.0f", GetDevice(0):get_argument_value(6003)*10)
+	if digit4 == nil then digit4 = "0" end
     return tonumber(digit1 .. digit2 .. digit3 .. digit4)
 end
 defineIntegerFromGetter("PLT_FUEL_LEFT_DISP", getPLTFuelLeft, 9999, "Gauges", "PILOT Fuel Left Display")
@@ -1357,9 +1368,13 @@ defineFloat("PLT_FUEL_RIGHT_1", 6007, {0, 1}, "Gauges", "PILOT Fuel Right 1")
 local function getPLTFuelRight()
     local function a(n) return GetDevice(0):get_argument_value(n) end
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(6004)*10)
+	if digit1 == nil then digit1 = "0" end
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(6005)*10)
+	if digit2 == nil then digit2 = "0" end
 	local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(6006)*10)
+	if digit3 == nil then digit3 = "0" end
     local digit4 = string.format("%.0f", GetDevice(0):get_argument_value(6007)*10)
+	if digit4 == nil then digit4 = "0" end
     return tonumber(digit1 .. digit2 .. digit3 .. digit4)
 end
 defineIntegerFromGetter("PLT_FUEL_RIGHT_DISP", getPLTFuelRight, 9999, "Gauges", "PILOT Fuel Right Display")
@@ -1372,10 +1387,15 @@ defineFloat("PLT_FUEL_TOTAL_1", 6014, {0, 1}, "Gauges", "PILOT Fuel Total 1")
 local function getPLTFuelTotal()
     local function a(n) return GetDevice(0):get_argument_value(n) end
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(6010)*10)
+	if digit1 == nil then digit1 = "0" end
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(6011)*10)
+	if digit2 == nil then digit2 = "0" end
 	local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(6012)*10)
+	if digit3 == nil then digit3 = "0" end
     local digit4 = string.format("%.0f", GetDevice(0):get_argument_value(6013)*10)
+	if digit4 == nil then digit4 = "0" end
 	local digit5 = string.format("%.0f", GetDevice(0):get_argument_value(6014)*10)
+	if digit5 == nil then digit5 = "0" end
     return tonumber(digit1 .. digit2 .. digit3 .. digit4 .. digit5)
 end
 defineIntegerFromGetter("PLT_FUEL_TOTAL_DISP", getPLTFuelTotal, 59999, "Gauges", "PILOT Fuel Total Display")
@@ -1435,8 +1455,11 @@ defineFloat("PLT_AMMO_1", 4062, {0, 1}, "Gauges", "PILOT Ammo 1")
 local function getAmmo()
     local function a(n) return GetDevice(0):get_argument_value(n) end
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(4060)*10)
+	if digit1 == nil then digit1 = "0" end
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(4061)*10)
+	if digit2 == nil then digit2 = "0" end
 	local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(4062)*10)
+	if digit3 == nil then digit3 = "0" end
     return tonumber(digit1 .. digit2 .. digit3)
 end
 defineIntegerFromGetter("PLT_AMMO_DISP", getAmmo, 999, "Gauges", "PILOT Ammo Display")
@@ -1447,8 +1470,11 @@ defineFloat("PLT_GUN_LEAD_1", 2272, {0, 1}, "Gauges", "PILOT Gun Lead 1")
 local function getGunLead()
     local function a(n) return GetDevice(0):get_argument_value(n) end
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(2270)*10)
+	if digit1 == nil then digit1 = "0" end
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(2271)*10)
+	if digit2 == nil then digit2 = "0" end
 	local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(2272)*10)
+	if digit3 == nil then digit3 = "0" end
     return tonumber(digit1 .. digit2 .. digit3)
 end
 defineIntegerFromGetter("PLT_GUN_LEAD_DISP", getGunLead, 999, "Gauges", "PILOT Gun Lead Display")
@@ -1471,7 +1497,9 @@ defineFloat("RIO_CMDS_CHAFF_COUNT_1", 393, {0, 1}, "Gauges", "RIO CMDS Chaff Cou
 local function getChaffCount()
     local function a(n) return GetDevice(0):get_argument_value(n) end
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(392)*10)
+	if digit1 == nil then digit1 = "0" end
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(393)*10)
+	if digit2 == nil then digit2 = "0" end
     return tonumber(digit1 .. digit2)
 end
 defineIntegerFromGetter("RIO_CMDS_CHAFFCNT_DISPLAY", getChaffCount, 99, "CMDS", "RIO CMDS Chaff Counter Display")	
@@ -1481,7 +1509,9 @@ defineFloat("RIO_CMDS_FLARE_COUNT_1", 395, {0, 1}, "Gauges", "RIO CMDS Flare Cou
 local function getFlareCount()
     local function a(n) return GetDevice(0):get_argument_value(n) end
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(394)*10)
+	if digit1 == nil then digit1 = "0" end
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(395)*10)
+	if digit2 == nil then digit2 = "0" end
     return tonumber(digit1 .. digit2)
 end
 defineIntegerFromGetter("RIO_CMDS_FLARECNT_DISPLAY", getFlareCount, 99, "CMDS", "RIO CMDS Flare Counter Display")
@@ -1491,7 +1521,9 @@ defineFloat("RIO_CMDS_JAMM_COUNT_1", 397, {0, 1}, "Gauges", "RIO CMDS Jammer Cou
 local function getJammerCount()
     local function a(n) return GetDevice(0):get_argument_value(n) end
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(396)*10)
+	if digit1 == nil then digit1 = "0" end
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(397)*10)
+	if digit2 == nil then digit2 = "0" end
     return tonumber(digit1 .. digit2)
 end
 defineIntegerFromGetter("RIO_CMDS_JAMMCNT_DISPLAY", getJammerCount, 99, "CMDS", "RIO CMDS Jammer Counter Display")
@@ -1512,10 +1544,15 @@ defineFloat("RIO_FUEL_TOTAL_1", 2135, {0, 1}, "Gauges", "RIO Fuel Total 1")
 local function getRIOFuelTotal()
     local function a(n) return GetDevice(0):get_argument_value(n) end
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(2117)*10)
+	if digit1 == nil then digit1 = "0" end
     local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(2118)*10)
+	if digit2 == nil then digit2 = "0" end
 	local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(2119)*10)
+	if digit3 == nil then digit3 = "0" end
     local digit4 = string.format("%.0f", GetDevice(0):get_argument_value(2120)*10)
+	if digit4 == nil then digit4 = "0" end
 	local digit5 = string.format("%.0f", GetDevice(0):get_argument_value(2135)*10)
+	if digit5 == nil then digit5 = "0" end
     return tonumber(digit1 .. digit2 .. digit3 .. digit4 .. digit5)
 end
 defineIntegerFromGetter("RIO_FUEL_TOTAL_DISP", getRIOFuelTotal, 65535, "Gauges", "RIO Fuel Total Display")
