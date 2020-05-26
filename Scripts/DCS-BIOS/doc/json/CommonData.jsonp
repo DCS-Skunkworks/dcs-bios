@@ -8,7 +8,7 @@ docdata["CommonData"] =
                                         "identifier": "ALT_MSL_FT",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                              "address": 1074,
+                                                              "address": 1076,
                                                           "description": "Altitude MSL (ft)",
                                                                  "mask": 65535,
                                                             "max_value": 65535,
@@ -26,7 +26,7 @@ docdata["CommonData"] =
                                           "identifier": "HDG_DEG",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1076,
+                                                                "address": 1078,
                                                             "description": "Heading (Degrees)",
                                                                    "mask": 511,
                                                               "max_value": 360,
@@ -42,7 +42,7 @@ docdata["CommonData"] =
                                           "identifier": "HDG_DEG_FRAC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1076,
+                                                                "address": 1078,
                                                             "description": "Heading (Fractional Degrees, divide by 127)",
                                                                    "mask": 65024,
                                                               "max_value": 127,
@@ -92,9 +92,9 @@ docdata["CommonData"] =
                                              "outputs": [ {
                                                                 "address": 1054,
                                                             "description": "Latitude Degrees",
-                                                                   "mask": 127,
+                                                                   "mask": 32512,
                                                               "max_value": 90,
-                                                               "shift_by": 0,
+                                                               "shift_by": 8,
                                                                  "suffix": "",
                                                                    "type": "integer"
                                                         } ]
@@ -106,11 +106,11 @@ docdata["CommonData"] =
                                           "identifier": "LAT_SEC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1054,
+                                                                "address": 1056,
                                                             "description": "Latitude Seconds",
-                                                                   "mask": 8064,
+                                                                   "mask": 63,
                                                               "max_value": 59,
-                                                               "shift_by": 7,
+                                                               "shift_by": 0,
                                                                  "suffix": "",
                                                                    "type": "integer"
                                                         } ]
@@ -122,13 +122,27 @@ docdata["CommonData"] =
                                           "identifier": "LAT_SEC_FRAC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1056,
+                                                                "address": 1058,
                                                             "description": "Latitude Fractional Seconds (divide by 65535)",
                                                                    "mask": 65535,
                                                               "max_value": 65535,
                                                                "shift_by": 0,
                                                                  "suffix": "",
                                                                    "type": "integer"
+                                                        } ]
+                                    },
+                       "LAT_Z_DIR": {
+                                            "category": "Position",
+                                        "control_type": "display",
+                                         "description": "Latitude Direction",
+                                          "identifier": "LAT_Z_DIR",
+                                              "inputs": [  ],
+                                             "outputs": [ {
+                                                                "address": 1054,
+                                                            "description": "Latitude Direction",
+                                                             "max_length": 1,
+                                                                 "suffix": "",
+                                                                   "type": "string"
                                                         } ]
                                     },
                          "LON_DEG": {
@@ -138,11 +152,11 @@ docdata["CommonData"] =
                                           "identifier": "LON_DEG",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1070,
+                                                                "address": 1056,
                                                             "description": "Longitude Degrees",
-                                                                   "mask": 255,
+                                                                   "mask": 16320,
                                                               "max_value": 180,
-                                                               "shift_by": 0,
+                                                               "shift_by": 6,
                                                                  "suffix": "",
                                                                    "type": "integer"
                                                         } ]
@@ -154,7 +168,7 @@ docdata["CommonData"] =
                                           "identifier": "LON_SEC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1070,
+                                                                "address": 1072,
                                                             "description": "Longitude Seconds",
                                                                    "mask": 16128,
                                                               "max_value": 59,
@@ -170,13 +184,27 @@ docdata["CommonData"] =
                                           "identifier": "LON_SEC_FRAC",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                "address": 1072,
+                                                                "address": 1074,
                                                             "description": "Longitude Fractional Seconds (divide by 65535)",
                                                                    "mask": 65535,
                                                               "max_value": 65535,
                                                                "shift_by": 0,
                                                                  "suffix": "",
                                                                    "type": "integer"
+                                                        } ]
+                                    },
+                       "LON_Z_DIR": {
+                                            "category": "Position",
+                                        "control_type": "display",
+                                         "description": "Longitude Direction",
+                                          "identifier": "LON_Z_DIR",
+                                              "inputs": [  ],
+                                             "outputs": [ {
+                                                                "address": 1072,
+                                                            "description": "Longitude Direction",
+                                                             "max_length": 1,
+                                                                 "suffix": "",
+                                                                   "type": "string"
                                                         } ]
                                     }
                 },
@@ -188,7 +216,7 @@ docdata["CommonData"] =
                                         "identifier": "IAS_EU",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                              "address": 1058,
+                                                              "address": 1060,
                                                           "description": "Indicated Airspeed KM H",
                                                            "max_length": 4,
                                                                "suffix": "",
@@ -202,7 +230,7 @@ docdata["CommonData"] =
                                         "identifier": "IAS_EU_INT",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                              "address": 1066,
+                                                              "address": 1068,
                                                           "description": "Indicated Airspeed KM H (Int)",
                                                                  "mask": 65535,
                                                             "max_value": 65535,
@@ -218,7 +246,7 @@ docdata["CommonData"] =
                                         "identifier": "IAS_US",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                              "address": 1062,
+                                                              "address": 1064,
                                                           "description": "Indicated Airspeed KNT",
                                                            "max_length": 4,
                                                                "suffix": "",
@@ -232,7 +260,7 @@ docdata["CommonData"] =
                                         "identifier": "IAS_US_INT",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                              "address": 1068,
+                                                              "address": 1070,
                                                           "description": "Indicated Airspeed KNT (Int)",
                                                                  "mask": 65535,
                                                             "max_value": 65535,
