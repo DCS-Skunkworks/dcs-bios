@@ -1,4 +1,4 @@
--- F/A-18 Module created by AndrewW for DCS Beta 2.5.6 modified by WarLord, DeadMeat v1.3
+-- F/A-18 Module created by AndrewW for DCS Beta 2.5.6 modified by WarLord, DeadMeat v1.3a
 -- Many thanks to Capt Zeen for the pointers on analog outputs and UFC/IFEI export
 -- And of course huge thanks to [FSF]Ian for writing DCS-BIOS in the first place
 -- Added new functions by Capt Zeen to get radios frecuencies and channels
@@ -1161,7 +1161,7 @@ defineToggleSwitch("LIGHTS_TEST_SW", 9, 3007, 416, "Interior Lights Panel", "Lig
 -- 5. Sensor Panel
 define3PosTumb("FLIR_SW", 62, 3001, 439, "Sensor Panel", "FLIR Switch, ON/STBY/OFF")
 defineToggleSwitch("LTD_R_SW", 62, 3002, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE") 
-defineToggleSwitch("LST_NFLR_SW", 62, 3004, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF")
+defineToggleSwitch("LST_NFLR_SW", 62, 3003, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF")
 defineTumb("RADAR_SW", 42, 3001, 440, 0.1, {0.0, 0.3}, nil, false, "Sensor Panel", "RADAR Switch Change ,OFF/STBY/OPR/EMERG(PULL)")
 definePushButton("RADAR_SW_PULL", 42, 3002, 440, "Sensor Panel", "RADAR Switch Pull (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
 defineTumb("INS_SW", 44, 3001, 443, 0.1, {0.0, 0.7}, nil, false, "Sensor Panel", "INS Switch, OFF/CV/GND/NAV/IFA/GYRO/GB/TEST")
