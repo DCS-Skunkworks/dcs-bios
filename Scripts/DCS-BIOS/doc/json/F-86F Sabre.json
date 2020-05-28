@@ -2792,6 +2792,54 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
+                                                               },
+                                               "EXT_WOW_LEFT": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Weight ON Wheels Left Gear",
+                                                                     "identifier": "EXT_WOW_LEFT",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 12488,
+                                                                                       "description": "Weight ON Wheels Left Gear",
+                                                                                              "mask": 1,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                               "EXT_WOW_NOSE": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Weight ON Wheels Nose Gear",
+                                                                     "identifier": "EXT_WOW_NOSE",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 12356,
+                                                                                       "description": "Weight ON Wheels Nose Gear",
+                                                                                              "mask": 16384,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 14,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                              "EXT_WOW_RIGHT": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Weight ON Wheels Right Gear",
+                                                                     "identifier": "EXT_WOW_RIGHT",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 12356,
+                                                                                       "description": "Weight ON Wheels Right Gear",
+                                                                                              "mask": 32768,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 15,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
                                                                }
                                },
                 "Fire Alarms": {
@@ -3009,7 +3057,7 @@
                                                                    "identifier": "AIRSPEED_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12498,
+                                                                                         "address": 12500,
                                                                                      "description": "Airspeed Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3025,7 +3073,7 @@
                                                                    "identifier": "ALTITUDE_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12500,
+                                                                                         "address": 12502,
                                                                                      "description": "Altitude Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3041,7 +3089,7 @@
                                                                    "identifier": "ARN6_BAND_DISP",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12488,
+                                                                                         "address": 12490,
                                                                                      "description": "ARN-6 Band",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3057,7 +3105,7 @@
                                                                    "identifier": "ARN6_BEARING_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12492,
+                                                                                         "address": 12494,
                                                                                      "description": "ARN-6 Bearing Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3073,7 +3121,7 @@
                                                                    "identifier": "ARN6_FREQUENCY",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12490,
+                                                                                         "address": 12492,
                                                                                      "description": "ARN-6 Frequency",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3089,7 +3137,7 @@
                                                                    "identifier": "ARN6_SCALE_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12494,
+                                                                                         "address": 12496,
                                                                                      "description": "ARN-6 Scale Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3105,7 +3153,7 @@
                                                                    "identifier": "COCKPIT_ALT_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12520,
+                                                                                         "address": 12522,
                                                                                      "description": "Cockpit Altitude Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3121,7 +3169,7 @@
                                                                    "identifier": "DC_VOLTAGE_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12508,
+                                                                                         "address": 12510,
                                                                                      "description": "DC Voltage Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3137,7 +3185,7 @@
                                                                    "identifier": "EXHAUST_TEMP_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12502,
+                                                                                         "address": 12504,
                                                                                      "description": "Exhaust Temperature Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3153,7 +3201,7 @@
                                                                    "identifier": "FUEL_FLOW_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12506,
+                                                                                         "address": 12508,
                                                                                      "description": "Fuel Flow Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3169,7 +3217,7 @@
                                                                    "identifier": "FUEL_QUANTITY_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12516,
+                                                                                         "address": 12518,
                                                                                      "description": "Fuel Quantity Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3185,7 +3233,7 @@
                                                                    "identifier": "HEADING_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12522,
+                                                                                         "address": 12524,
                                                                                      "description": "Heading Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3201,7 +3249,7 @@
                                                                    "identifier": "HYDRAULIC_PRES_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12514,
+                                                                                         "address": 12516,
                                                                                      "description": "Hydraulic Pressure Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3217,7 +3265,7 @@
                                                                    "identifier": "LOADMETER_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12510,
+                                                                                         "address": 12512,
                                                                                      "description": "Loadmeter Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3233,7 +3281,7 @@
                                                                    "identifier": "MACH_NUMBER_VALUE_X.XX",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12496,
+                                                                                         "address": 12498,
                                                                                      "description": "Mach Number Value Read As X.XX",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3249,7 +3297,7 @@
                                                                    "identifier": "OIL_PRESSURE_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12504,
+                                                                                         "address": 12506,
                                                                                      "description": "Oil Pressure Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3265,7 +3313,7 @@
                                                                    "identifier": "OXYGEN_PRESSURE_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12518,
+                                                                                         "address": 12520,
                                                                                      "description": "Oxygen Pressure Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3281,7 +3329,7 @@
                                                                    "identifier": "TACHOMETER_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12512,
+                                                                                         "address": 12514,
                                                                                      "description": "Tachometer Value",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,
@@ -3297,7 +3345,7 @@
                                                                    "identifier": "VVI_VALUE",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 12524,
+                                                                                         "address": 12526,
                                                                                      "description": "Verticl Velocity VVI",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65000,

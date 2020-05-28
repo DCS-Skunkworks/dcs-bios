@@ -1258,6 +1258,56 @@
                                                                                 "physical_variant": "toggle_switch"
                                                                          }
                                             },
+                 "External Aircraft Model": {
+                                                 "EXT_WOW_LEFT": {
+                                                                         "category": "External Aircraft Model",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Weight ON Wheels Left Gear",
+                                                                       "identifier": "EXT_WOW_LEFT",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 8372,
+                                                                                         "description": "Weight ON Wheels Left Gear",
+                                                                                                "mask": 128,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 7,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                 "EXT_WOW_NOSE": {
+                                                                         "category": "External Aircraft Model",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Weight ON Wheels Nose Gear",
+                                                                       "identifier": "EXT_WOW_NOSE",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 8372,
+                                                                                         "description": "Weight ON Wheels Nose Gear",
+                                                                                                "mask": 32,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 5,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                "EXT_WOW_RIGHT": {
+                                                                         "category": "External Aircraft Model",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Weight ON Wheels Right Gear",
+                                                                       "identifier": "EXT_WOW_RIGHT",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 8372,
+                                                                                         "description": "Weight ON Wheels Right Gear",
+                                                                                                "mask": 64,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 6,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 }
+                                            },
                          "Fore Main Panel": {
                                                       "FRONT_ACCEL_BTN": {
                                                                                      "api_variant": "momentary_last_position",

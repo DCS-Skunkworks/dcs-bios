@@ -3295,9 +3295,9 @@ docdata["UH-1H"] =
                                                                            "outputs": [ {
                                                                                               "address": 5404,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 24576,
+                                                                                                 "mask": 49152,
                                                                                             "max_value": 2,
-                                                                                             "shift_by": 13,
+                                                                                             "shift_by": 14,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -3351,11 +3351,11 @@ docdata["UH-1H"] =
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 5404,
+                                                                                              "address": 5426,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 32768,
+                                                                                                 "mask": 4096,
                                                                                             "max_value": 1,
-                                                                                             "shift_by": 15,
+                                                                                             "shift_by": 12,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -3401,11 +3401,11 @@ docdata["UH-1H"] =
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 5426,
+                                                                                              "address": 5430,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 49152,
+                                                                                                 "mask": 3,
                                                                                             "max_value": 2,
-                                                                                             "shift_by": 14,
+                                                                                             "shift_by": 0,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -3453,9 +3453,9 @@ docdata["UH-1H"] =
                                                                            "outputs": [ {
                                                                                               "address": 5426,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 12288,
+                                                                                                 "mask": 24576,
                                                                                             "max_value": 2,
-                                                                                             "shift_by": 12,
+                                                                                             "shift_by": 13,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -3561,9 +3561,9 @@ docdata["UH-1H"] =
                                                                            "outputs": [ {
                                                                                               "address": 5404,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 4096,
+                                                                                                 "mask": 8192,
                                                                                             "max_value": 1,
-                                                                                             "shift_by": 12,
+                                                                                             "shift_by": 13,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -4505,6 +4505,22 @@ docdata["UH-1H"] =
                                                                                                   "mask": 2048,
                                                                                              "max_value": 1,
                                                                                               "shift_by": 11,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                                        "EXT_WOW": {
+                                                                           "category": "External Aircraft Model",
+                                                                       "control_type": "metadata",
+                                                                        "description": "Weight ON Wheels",
+                                                                         "identifier": "EXT_WOW",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 5404,
+                                                                                           "description": "Weight ON Wheels",
+                                                                                                  "mask": 4096,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 12,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]

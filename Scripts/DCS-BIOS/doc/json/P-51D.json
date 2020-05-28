@@ -802,11 +802,11 @@
                                                              "identifier": "WINDSHIELDOIL",
                                                                  "inputs": [  ],
                                                                 "outputs": [ {
-                                                                                   "address": 20586,
+                                                                                   "address": 20630,
                                                                                "description": "0 if light is off, 1 if light is on",
-                                                                                      "mask": 32768,
+                                                                                      "mask": 8,
                                                                                  "max_value": 1,
-                                                                                  "shift_by": 15,
+                                                                                  "shift_by": 3,
                                                                                     "suffix": "",
                                                                                       "type": "integer"
                                                                            } ]
@@ -1693,22 +1693,6 @@
                                                      }
                                },
     "External Aircraft Model": {
-                                       "EXT_FORMATION_LIGHTS": {
-                                                                       "category": "External Aircraft Model",
-                                                                   "control_type": "metadata",
-                                                                    "description": "Formation Lights",
-                                                                     "identifier": "EXT_FORMATION_LIGHTS",
-                                                                         "inputs": [  ],
-                                                                        "outputs": [ {
-                                                                                           "address": 20630,
-                                                                                       "description": "Formation Lights",
-                                                                                              "mask": 65535,
-                                                                                         "max_value": 65535,
-                                                                                          "shift_by": 0,
-                                                                                            "suffix": "",
-                                                                                              "type": "integer"
-                                                                                   } ]
-                                                               },
                                     "EXT_POSITION_LIGHT_LEFT": {
                                                                        "category": "External Aircraft Model",
                                                                    "control_type": "metadata",
@@ -1737,6 +1721,118 @@
                                                                                               "mask": 16384,
                                                                                          "max_value": 1,
                                                                                           "shift_by": 14,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                    "EXT_POSITION_LIGHT_TAIL": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Tail Position Light  (white)",
+                                                                     "identifier": "EXT_POSITION_LIGHT_TAIL",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 20586,
+                                                                                       "description": "Tail Position Light  (white)",
+                                                                                              "mask": 32768,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 15,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                         "EXT_RECOC_LIGHT_GN": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Green Recognition Light (green)",
+                                                                     "identifier": "EXT_RECOC_LIGHT_GN",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 20630,
+                                                                                       "description": "Green Recognition Light (green)",
+                                                                                              "mask": 2,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 1,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                         "EXT_RECOC_LIGHT_RD": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Red Recognition Light (red)",
+                                                                     "identifier": "EXT_RECOC_LIGHT_RD",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 20630,
+                                                                                       "description": "Red Recognition Light (red)",
+                                                                                              "mask": 1,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                         "EXT_RECOC_LIGHT_YE": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Amber Recognition Light (yellow)",
+                                                                     "identifier": "EXT_RECOC_LIGHT_YE",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 20630,
+                                                                                       "description": "Amber Recognition Light (yellow)",
+                                                                                              "mask": 4,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 2,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                               "EXT_WOW_LEFT": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Weight ON Wheels Left Gear",
+                                                                     "identifier": "EXT_WOW_LEFT",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 20630,
+                                                                                       "description": "Weight ON Wheels Left Gear",
+                                                                                              "mask": 64,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 6,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                              "EXT_WOW_RIGHT": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Weight ON Wheels Right Gear",
+                                                                     "identifier": "EXT_WOW_RIGHT",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 20630,
+                                                                                       "description": "Weight ON Wheels Right Gear",
+                                                                                              "mask": 32,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 5,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                               "EXT_WOW_TAIL": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Weight ON Wheels Tail Gear",
+                                                                     "identifier": "EXT_WOW_TAIL",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 20630,
+                                                                                       "description": "Weight ON Wheels Tail Gear",
+                                                                                              "mask": 16,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 4,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
