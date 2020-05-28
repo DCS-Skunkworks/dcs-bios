@@ -6,7 +6,6 @@
 BIOS.protocol.beginModule("MetadataStart", 0x0000)
 
 local defineString = BIOS.util.defineString
-local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- "data" will be set by the Protocol module
 moduleBeingDefined.data = {}

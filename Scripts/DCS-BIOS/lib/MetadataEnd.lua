@@ -5,7 +5,6 @@
 
 BIOS.protocol.beginModule("MetadataEnd", 0xfffe)
 
-local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- "data" will be set by the Protocol module
