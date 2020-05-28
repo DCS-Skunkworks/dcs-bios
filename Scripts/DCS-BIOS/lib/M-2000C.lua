@@ -1,7 +1,7 @@
 -----------------------------------------------------------                                         
 --     LIBRARY     	:    Mirage 2000C RAZBAM
 --     CONTIBUTORS 	:    Exo7, Ergo, Matchstick, WarLord 
---     VERSION     	:    v1.27a
+--     VERSION     	:    v1.27b
 -----------------------------------------------------------
 -- Release log : 
 -- v1.12 by Exo7 
@@ -64,6 +64,8 @@
 --
 -- v1.27a by WarLord, Matchstick
 --		fixing readouts;UHF Preset fixed;cleanup
+--
+-- v1.27b by WarLord add WoW Code
 -----------------------------------------------------------
 
 BIOS.protocol.beginModule("M-2000C", 0x7200)
@@ -1199,5 +1201,15 @@ end, 65535, "External Aircraft Model", "Front Formation Lights")
 defineIntegerFromGetter("EXT_FORMATION_LIGHTS_AFT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(201)*65535)
 end, 65535, "External Aircraft Model", "Aft Formation Lights")
+
+defineIntegerFromGetter("EXT_WOW_NOSE", function()
+	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
+defineIntegerFromGetter("EXT_WOW_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(4) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
+defineIntegerFromGetter("EXT_WOW_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
 BIOS.protocol.endModule()

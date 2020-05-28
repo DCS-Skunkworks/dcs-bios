@@ -300,6 +300,16 @@ defineIntegerFromGetter("EXT_STROBE_BOTTOM", function()
 	if LoGetAircraftDrawArgumentValue(194) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Bottom Strobe Light")
 
+defineIntegerFromGetter("EXT_WOW_NOSE", function()
+	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
+defineIntegerFromGetter("EXT_WOW_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(4) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
+defineIntegerFromGetter("EXT_WOW_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+
 --[[--Gauge Values--]]--
 
 local function getBand()

@@ -344,7 +344,6 @@ defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(88)*65535)
 end, 65535, "External Aircraft Model", "Formation Lights")
 
-
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Left Position Light (red)")
@@ -356,7 +355,15 @@ defineIntegerFromGetter("EXT_STROBE_TOP", function()
 	if LoGetAircraftDrawArgumentValue(88) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Top Strobe Light")
 
-
+defineIntegerFromGetter("EXT_WOW_NOSE", function()
+	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
+defineIntegerFromGetter("EXT_WOW_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(4) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
+defineIntegerFromGetter("EXT_WOW_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
 --------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS ------------------------------------
 -- PRESSURIZATION/AIRCON SYSTEM 

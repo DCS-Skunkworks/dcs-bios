@@ -1317,14 +1317,12 @@ defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
 end, 65535, "External Aircraft Model", "Formation Lights")
 
-
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Left Position Light (red)")
 defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Right Position Light (green)")
-
 
 defineIntegerFromGetter("EXT_STROBE_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
@@ -1335,6 +1333,16 @@ end, 1, "External Aircraft Model", "Left Strobe Light")
 defineIntegerFromGetter("EXT_STROBE_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(196) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Right Strobe Light")
+
+defineIntegerFromGetter("EXT_WOW_NOSE", function()
+	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
+defineIntegerFromGetter("EXT_WOW_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(4) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
+defineIntegerFromGetter("EXT_WOW_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
 defineFloat("CANOPY_VALUE", 7, {0.0, 1.0}, "Misc", "Canopy Position")
 

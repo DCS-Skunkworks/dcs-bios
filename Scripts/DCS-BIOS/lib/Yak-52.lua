@@ -264,4 +264,15 @@ defineIndicatorLight("L_FUEL_60_WARNL", 209, "Warning, Caution and IndicatorLigh
 defineIndicatorLight("F_ARC15_LIGHT", 250, "Warning, Caution and IndicatorLights","Front ARC-15 Signal Light (green)")
 defineIndicatorLight("R_ARC15_LIGHT", 257, "Warning, Caution and IndicatorLights","Rear ARC-15 Signal Light (green)")
 
+--Externals
+defineIntegerFromGetter("EXT_WOW_NOSE", function()
+	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
+defineIntegerFromGetter("EXT_WOW_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(4) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
+defineIntegerFromGetter("EXT_WOW_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+
 BIOS.protocol.endModule()

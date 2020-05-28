@@ -338,6 +338,16 @@ defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
 	if LoGetAircraftDrawArgumentValue(812) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Formation Lights")
 
+defineIntegerFromGetter("EXT_WOW_NOSE", function()
+	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
+defineIntegerFromGetter("EXT_WOW_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(4) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
+defineIntegerFromGetter("EXT_WOW_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+
  ---- added by Warlord
 definePushButton("MAX_G_RESET", 25, 3722, 175, "Flight Data Unit", "Max G Reset")
 definePushButton("BACK_ADI_CAGE", 25, 3720, 123, "Flight Data Unit", "Backup ADI Cage")

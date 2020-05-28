@@ -575,4 +575,14 @@ defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT_W", function()
 	if LoGetAircraftDrawArgumentValue(201) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Right Wing Position Light (green)")
 
+defineIntegerFromGetter("EXT_WOW_NOSE", function()
+	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
+defineIntegerFromGetter("EXT_WOW_RIGHT", function()
+	if LoGetAircraftDrawArgumentValue(4) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
+defineIntegerFromGetter("EXT_WOW_LEFT", function()
+	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+
 BIOS.protocol.endModule()
