@@ -515,9 +515,9 @@ end, 1, "External Aircraft Model", "Right Position Light (green)")
 defineIntegerFromGetter("EXT_STROBE", function()
 	if LoGetAircraftDrawArgumentValue(193) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Strobe Light")
-defineIntegerFromGetter("EXT_WOW", function()
+defineIntegerFromGetter("EXT_WOW_SKID", function()
 	if LoGetAircraftDrawArgumentValue(104) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Weight ON Wheels")
+end, 1, "External Aircraft Model", "Weight ON Skids")
 
 
 -- Radar Altimeter Display, Chaff and Flare counters as numeric values
