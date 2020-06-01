@@ -27,6 +27,7 @@ local _adiYaw = 0.0
 
 local function LoGetSelfPlane()
 	local self = LoGetSelfData()
+	if self == nil then self = "XXX" end
 	return self.Name
 end
 
