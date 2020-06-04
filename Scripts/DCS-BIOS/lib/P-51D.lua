@@ -188,7 +188,7 @@ defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
 end, 1, "External Aircraft Model", "Right Position Light (green)")
 defineIntegerFromGetter("EXT_POSITION_LIGHT_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Tail Position Light  (white)")
+end, 1, "External Aircraft Model", "Tail Position Light (white)")
 defineIntegerFromGetter("EXT_RECOC_LIGHT_RD", function()
 	if LoGetAircraftDrawArgumentValue(200) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Red Recognition Light (red)")
@@ -370,5 +370,9 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+
+defineIntegerFromGetter("EXT_LANDING_LIGHT", function()
+	if LoGetAircraftDrawArgumentValue(208) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Landing Light (white)")
 
 BIOS.protocol.endModule()
