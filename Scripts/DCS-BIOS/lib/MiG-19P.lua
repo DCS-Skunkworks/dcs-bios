@@ -224,10 +224,11 @@ defineToggleSwitch("CB_AILERON_ACT", 3, 3239, 239, "Circuit Breakers", "BU-13M A
 defineToggleSwitch("CB_ROCKET_PODS", 3, 3240, 240, "Circuit Breakers", "Rocket Pods Circuit Breaker")
 
 -- CANOPY
-defineToggleSwitch("CANOPY_LOCK_L", 4, 3429, 429, "Canopy", "Canopy Lock Lever L")
-defineToggleSwitch("CANOPY_LOCK_R", 4, 3430, 430, "Canopy", "Canopy Lock Lever R")
+defineToggleSwitch("CANOPY_LOCK_L", 4, 3436, 429, "Canopy", "Canopy Lock Lever L")
+defineToggleSwitch("CANOPY_LOCK_R", 4, 3429, 429, "Canopy", "Canopy Lock Lever R")
 defineToggleSwitch("CANOPY_PRESS", 4, 3431, 431, "Canopy", "Canopy Pressurization Switch")
-defineToggleSwitch("EMERG_CANOPY", 4, 3229, 229, "Canopy", "Canopy Pressurization Switch")
+defineToggleSwitch("EMERG_CANOPY", 4, 3229, 229, "Canopy", "Emergency Canopy Release Lever")
+defineToggleSwitch("CANOPY_OPEN", 4, 3204, 204, "Canopy", "Canopy Open/Close Handle")
 
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("IFF_SELFDESTRUCT_LAMP", 205, "Warning, Caution and IndicatorLights","SRO-2 Self-destruction Lamp (red)")
