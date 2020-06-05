@@ -277,7 +277,6 @@ local function getSTEER_Mode()
 end
 ----------------------------------------- BIOS-Profile  
 
-
 -- Hydraulics
 defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_SW", 12, 3001, 629, "Hydraulics", "PILOT Hydraulic Transfer Pump Switch")
 defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_COVER", 12, 3002, 630, "Hydraulics", "PILOT Hydraulic Transfer Pump Switch Cover")

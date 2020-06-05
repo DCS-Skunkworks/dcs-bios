@@ -26,15 +26,101 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- Remove PILOT Arg# 135
+-- Extra Functions
+local function defineIndicatorLightMulti1(msg, arg_number, category, description)
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 1
+	}
+	assert(value.shiftBy ~= nil)
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		if dev0:get_argument_value(arg_number) > 0.51 then
+			value:setValue(0)
+		else
+		    value:setValue(1)
+		end
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "Multi Led Color 1",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 1,
+			  description = "Light is on below 0.51"
+			}
+		}
+	}
+end
 
+local function defineIndicatorLightMulti2(msg, arg_number, category, description)
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 1
+	}
+	assert(value.shiftBy ~= nil)
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		if dev0:get_argument_value(arg_number) <= 0.51 then
+			value:setValue(0)
+		else
+		    value:setValue(1)
+		end
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "Multi Led Color 2",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 1,
+			  description = "Light is on grater than 0.51"
+			}
+		}
+	}
+end
+
+----------------------------------------- BIOS-Profile 
 --Joystick
 definePushButton("STICK_MG_TRIGGER", 13, 3001, 53, "Weapons", "Stick MG Trigger")
 definePushButton("STICK_SEC_TRIGGER", 13, 3002, 52, "Weapons", "Stick Secondary & Drop Ordnance Trigger")
+
+--Canopy
+define3PosTumb("CANOPY_SW", 2, 3013, 39, "Canopy Controls", "Canopy Switch, OPEN/OFF/CLOSE")
+defineToggleSwitch("CANOPY_JETT_SW", 2, 3020, 157, "Canopy Controls", "Cockpit Jettison Pull Handle")
+
+--Main Panel
+definePushButton("CLK_PINION_PULL", 5, 3006, 8, "Main Panel", "Clock Pull out.")  
+defineRotary("CLK_PINION", 5, 3004, 7, "Main Panel", "Clock Winding/Adjustment ") 
+define3PosTumb("STARTER_SW", 3, 3021, 63, "Main Panel", "Starter Switch")
+definePotentiometer("PRIMER_TURN", 3, 3022, 65, {0,1}, "Main Panel", "Primer Pump Turn")
+definePushButton("PRIMER_PULL", 3, 3025, 64, "Main Panel", "Primer Pump Pull")
+defineToggleSwitch("COWL_FLAP_SW", 3, 3032, 112, "Main Panel", "Cowl Flaps Button")
+defineToggleSwitch("DEFROSTER_KNB", 2, 3046, 149, "Main Panel", "Defroster Knob")
+defineToggleSwitch("COCKPIT_VENT_KNB", 2, 3049, 129, "Main Panel", "Cockpit Ventilation Knob")
+defineMultipositionSwitch("MAGNETO_SEL", 3, 3028, 66, 4, 0.1,"Main Panel" ,"Magneto Selector")
+defineRotary("DI", 2, 3053, 13, "Main Panel", "Directional Gyro Adjust")
+
+-- Warning, Caution and IndicatorLights
+defineIndicatorLight("GAUGES_GLOW", 192, "Warning, Caution and IndicatorLights","Photoluminescence Gauges (green)")
 
 --Gauges
 defineFloat("PANEL_SHAKE_Z", 180, {-0.8, 0.8}, "Cockpit", "Common Panel Shaker (Z Axis)")
 defineFloat("PANEL_SHAKE_Y", 484, {-0.8, 0.8}, "Cockpit", "Common Panel Shaker (Y Axis)")
 defineFloat("PANEL_SHAKE_X", 489, {-0.8, 0.8}, "Cockpit", "Common Panel Shaker (X Axis)")
+
+defineFloat("CLOCK_NEEDLE_H", 4, {0, 1}, "Gauges", "Clock Hours Needle")
+defineFloat("CLOCK_NEEDLE_M", 5, {0, 1}, "Gauges", "Clock Minutes Needle")
+defineFloat("CLOCK_NEEDLE_S", 6, {0, 1}, "Gauges", "Clock Seconds Needle")
 
 defineFloat("SUCTION_GAUGE", 9, {0, 1}, "Gauges", "Suction Gauge")
 defineFloat("MANI_PRESS_GAUGE", 10, {0, 1}, "Gauges", "Manifold Pressur Gauge")
