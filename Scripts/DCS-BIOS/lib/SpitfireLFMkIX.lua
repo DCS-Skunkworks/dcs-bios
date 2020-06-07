@@ -16,7 +16,6 @@ local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local definePushButton = BIOS.util.definePushButton
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
-
 -- remove Arg# Pilot 165
 
 --Oxygen Apparatus Controls
@@ -184,9 +183,9 @@ defineTumb("HATCH_JETTISON", 1, 3057, 140, 1, {0,1}, nil, false, "Cockpit", "Jet
 defineTumb("SIDE_DOOR",1, 3059, 147, 1, {0,1}, nil, false, "Cockpit", "Side Door Open/Close")
 
 -- Indicators
-defineFloat("CANOPY_TRUCKS", 162, {0, 1}, "Indicator", "Canopy_Trucks")
-defineFloat("CANOPY_VISIBILITY", 163, {0, 1}, "Indicator", "Canopy_Visibility")
-defineFloat("CANOPY_CRANK", 147, {0.0, 1.0}, "Indicator", "Canopy_Crank")
+defineFloat("CANOPY_TRUCKS", 162, {0, 1}, "Indicator", "Canopy_Trucks") --not Working
+defineFloat("CANOPY_VISIBILITY", 163, {0, 1}, "Indicator", "Canopy_Visibility") --not Working
+defineFloat("CANOPY_CRANK", 147, {0.0, 1.0}, "Indicator", "Canopy_Crank") --not Working
 defineFloat("OXYGENDELIVERYGAUGE", 11, {0.0, 0.4}, "Indicator", "OxygenDeliveryGauge")
 defineFloat("OXYGENSUPPLYGAUGE", 12, {0.0, 1.0}, "Indicator", "OxygenSupplyGauge")
 defineFloat("TRIMGAUGE", 17, {-1.0, 1.0}, "Indicator", "TrimGauge")
@@ -248,5 +247,9 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
+defineFloat("CANOPY_POS", 138, {0, 1}, "Indicator", "Canopy Position")
+defineFloat("PANEL_SHAKE_Z", 142, {-0.8, 0.8}, "Indicator", "Common Panel Shaker (Z Axis)")
+defineFloat("PANEL_SHAKE_Y", 143, {-0.8, 0.8}, "Indicator", "Common Panel Shaker (Y Axis)")
+defineFloat("PANEL_SHAKE_X", 144, {-0.8, 0.8}, "Indicator", "Common Panel Shaker (X Axis)")
 
 BIOS.protocol.endModule()

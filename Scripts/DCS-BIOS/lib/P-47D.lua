@@ -111,9 +111,22 @@ defineMultipositionSwitch("MAGNETO_SEL", 3, 3028, 66, 4, 0.1,"Main Panel" ,"Magn
 defineRotary("DI", 2, 3053, 13, "Main Panel", "Directional Gyro Adjust")
 
 -- Warning, Caution and IndicatorLights
+defineIndicatorLight("TURB_OVER_SP_L", 59, "Warning, Caution and IndicatorLights","Turbine Overspeed Light (red)")
+defineIndicatorLight("FUEL_LVL_WARN_L", 69, "Warning, Caution and IndicatorLights","Fuel Level Warning Light (yellow)")
+defineIndicatorLight("GEAR_GN_L", 80, "Warning, Caution and IndicatorLights","Landing Warning Light Right (green)")
+defineIndicatorLight("GEAR_RD_L", 82, "Warning, Caution and IndicatorLights","Landing Warning Light Left (red)")
+defineIndicatorLight("RECOC_L_KEY_L", 95, "Warning, Caution and IndicatorLights","Recognition Lights KEY Light (yellow)")
+defineIndicatorLight("INSTR_L", 191, "Warning, Caution and IndicatorLights","Instrument Lights (white)")
 defineIndicatorLight("GAUGES_GLOW", 192, "Warning, Caution and IndicatorLights","Photoluminescence Gauges (green)")
+defineIndicatorLight("VHF_RADIO_A_L", 120, "Warning, Caution and IndicatorLights", "VHF Radio A Light (green)")
+defineIndicatorLight("VHF_RADIO_B_L", 121, "Warning, Caution and IndicatorLights", "VHF Radio B Light (green)")
+defineIndicatorLight("VHF_RADIO_C_L", 122, "Warning, Caution and IndicatorLights", "VHF Radio C Light (green)")
+defineIndicatorLight("VHF_RADIO_D_L", 123, "Warning, Caution and IndicatorLights", "VHF Radio D Light (green)")
+defineIndicatorLight("VHF_RADIO_TX_L", 124, "Warning, Caution and IndicatorLights", "VHF Radio TX Light (white)")
 
 --Gauges
+defineFloat("CANOPY_POS", 38, {0, 1}, "Cockpit", "Canopy Position")
+
 defineFloat("PANEL_SHAKE_Z", 180, {-0.8, 0.8}, "Cockpit", "Common Panel Shaker (Z Axis)")
 defineFloat("PANEL_SHAKE_Y", 484, {-0.8, 0.8}, "Cockpit", "Common Panel Shaker (Y Axis)")
 defineFloat("PANEL_SHAKE_X", 489, {-0.8, 0.8}, "Cockpit", "Common Panel Shaker (X Axis)")
