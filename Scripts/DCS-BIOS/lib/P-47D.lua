@@ -97,6 +97,7 @@ definePushButton("STICK_SEC_TRIGGER", 13, 3002, 52, "Weapons", "Stick Secondary 
 --Canopy
 define3PosTumb("CANOPY_SW", 2, 3013, 39, "Canopy Controls", "Canopy Switch, OPEN/OFF/CLOSE")
 defineToggleSwitch("CANOPY_JETT_SW", 2, 3020, 157, "Canopy Controls", "Cockpit Jettison Pull Handle")
+definePushButton("HATCH_KNB", 2, 3016, 154, "Canopy Controls", "Canopy Hatch Knobs")
 
 --Main Panel
 definePushButton("CLK_PINION_PULL", 5, 3006, 8, "Main Panel", "Clock Pull out.")  
@@ -109,6 +110,49 @@ defineToggleSwitch("DEFROSTER_KNB", 2, 3046, 149, "Main Panel", "Defroster Knob"
 defineToggleSwitch("COCKPIT_VENT_KNB", 2, 3049, 129, "Main Panel", "Cockpit Ventilation Knob")
 defineMultipositionSwitch("MAGNETO_SEL", 3, 3028, 66, 4, 0.1,"Main Panel" ,"Magneto Selector")
 defineRotary("DI", 2, 3053, 13, "Main Panel", "Directional Gyro Adjust")
+defineRotary("AH_PITCH_ADJUST", 9, 3002, 17, "Main Panel", "Artificial Horizon Pitch Adjustment") ------------------------WIP
+defineToggleSwitch("AH_CAGE", 2, 3007, 18, "Main Panel", "Artificial Horizon Cage Switch") -------------------------------WIP
+defineRotary("ALT_SET_PRESS", 2, 3010, 22, "Main Panel", "Altimeter Set Pressure")
+definePushButton("ACCEL_RESET", 11, 3001, 176, "Main Panel", "Accelerometer Reset")
+definePushButton("TURB_OVER_SP_T_BTN", 2, 3021, 60, "Main Panel", "Turbine Overspeed Lamp Test Button")
+definePushButton("LAND_WARN_GN_T_BTN", 2, 3022, 81, "Main Panel", "Landing Warning Green Lamp Test Button")
+definePushButton("LAND_WARN_RD_T_BTN", 2, 3023, 83, "Main Panel", "Landing Warning Red Lamp Test Button")
+definePushButton("FUEL_PRESS_T_BTN", 2, 3024, 70, "Main Panel", "Fuel Pressure Lamp Test Button")
+defineToggleSwitch("BATTERY_SW", 7, 3032, 79, "Main Panel", "Battery Switch")
+defineToggleSwitch("PARK_BRAKE", 2, 3028, 84, "Main Panel", "Parking Brake Handle")
+
+--Drop Ordinance Arming Panel
+definePushButton("JETT_STORES_L", 13, 3008, 126, "Arming Panel", "Jettison Left Stores Pull Handle")
+definePushButton("JETT_STORES_R", 13, 3009, 127, "Arming Panel", "Jettison Right Stores Pull Handle")
+definePushButton("JETT_STORES_B", 13, 3010, 128, "Arming Panel", "Jettison Belly Pull Handle")
+defineToggleSwitch("L_WING_BOMB_SW_C", 13, 3011, 139, "Arming Panel", "Left Wing Bomb Switch Cover")
+defineToggleSwitch("L_WING_BOMB_SW", 13, 3013, 140, "Arming Panel", "Left Wing Bomb Switch")
+defineToggleSwitch("R_WING_BOMB_SW_C", 13, 3015, 141, "Arming Panel", "Right Wing Bomb Switch Cover")
+defineToggleSwitch("R_WING_BOMB_SW", 13, 3017, 142, "Arming Panel", "Right Wing Bomb Switch")
+defineToggleSwitch("B_WING_BOMB_SW_C", 13, 3019, 143, "Arming Panel", "Belly Bomb Switch Cover")
+defineToggleSwitch("B_WING_BOMB_SW", 13, 3021, 144, "Arming Panel", "Belly Bomb Switch")
+defineToggleSwitch("L_CHEM_SW_C", 13, 3023, 145, "Arming Panel", "Left Chemical Switch Cover")
+defineToggleSwitch("L_CHEM_SW", 13, 3025, 146, "Arming Panel", "Left Chemical Switch")
+defineToggleSwitch("R_CHEM_SW_C", 13, 3027, 147, "Arming Panel", "Right Chemical Switch Cover")
+defineToggleSwitch("R_CHEM_SW", 13, 3029, 148, "Arming Panel", "Right Chemical Switch")
+
+---- Port Wall
+defineToggleSwitch("RECOV_FLAP_SW_C", 13, 3036, 143, "Port Wall", "Recovery Flaps Switch Cover")
+defineToggleSwitch("RECOV_FLAP_SW", 13, 3039, 144, "Port Wall", "Recovery Flaps Switch")
+
+--Throttle Quadrant
+definePushButton("VHF_PTT_BTN", 21, 3099, 44, "Throttle Quadrant", "Radio PTT Button")
+definePushButton("NOS_BTN", 3, 3001, 40, "Throttle Quadrant", "NOS Push Button")
+defineToggleSwitch("NOS_LOCK_SW", 3, 3002, 41, "Throttle Quadrant", "NOS Lock Switch")
+definePotentiometer("PROP_RPM_LVR", 3, 3006, 46, {0,1}, "Throttle Quadrant", "Propeller RPM Lever")
+definePushButton("PROP_LOCK", 3, 3037, 45, "Throttle Quadrant", "Propeller RPM Lever Lock")
+definePotentiometer("BOOST_LVR", 3, 3009, 58, {0,1}, "Throttle Quadrant", "Boost Lever")
+definePushButton("BOOST_LOCK", 3, 3039, 49, "Throttle Quadrant", "Boost Lever Lock")
+definePotentiometer("MIX_LVR", 3, 3012, 48, {0,1}, "Throttle Quadrant", "Mixture Lever")
+definePotentiometer("THROTTLE_FRIC", 3, 3018, 57, {0,1}, "Throttle Quadrant", "Throttle Frictioner")
+
+-- Propellor Control
+defineMultipositionSwitch("PROP_CONTR_SW", 3, 3029, 72, 4, 0.1,"Propellor Control" ,"Propellor Control Switch")
 
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("TURB_OVER_SP_L", 59, "Warning, Caution and IndicatorLights","Turbine Overspeed Light (red)")
@@ -123,6 +167,11 @@ defineIndicatorLight("VHF_RADIO_B_L", 121, "Warning, Caution and IndicatorLights
 defineIndicatorLight("VHF_RADIO_C_L", 122, "Warning, Caution and IndicatorLights", "VHF Radio C Light (green)")
 defineIndicatorLight("VHF_RADIO_D_L", 123, "Warning, Caution and IndicatorLights", "VHF Radio D Light (green)")
 defineIndicatorLight("VHF_RADIO_TX_L", 124, "Warning, Caution and IndicatorLights", "VHF Radio TX Light (white)")
+--defineIndicatorLightMulti1("L_UV_LAMP_RD", 167, "Warning, Caution and IndicatorLights","Left UV Instruments Lamp (red)")------------------------WIP
+defineIndicatorLightMulti2("L_UV_LAMP_BL", 167, "Warning, Caution and IndicatorLights","Left UV Instruments Lamp (blue)")
+--defineIndicatorLightMulti1("R_UV_LAMP_RD", 169, "Warning, Caution and IndicatorLights","Right UV Instruments Lamp (red)")
+defineIndicatorLightMulti2("R_UV_LAMP_BL", 169, "Warning, Caution and IndicatorLights","Right UV Instruments Lamp (blue)")
+defineIndicatorLight("OXY_LOW_L", 179, "Warning, Caution and IndicatorLights","Oxygen Low Light (red)")
 
 --Gauges
 defineFloat("CANOPY_POS", 38, {0, 1}, "Cockpit", "Canopy Position")
