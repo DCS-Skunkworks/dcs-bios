@@ -10,6 +10,7 @@ local parse_indication = BIOS.util.parse_indication
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePotentiometer = BIOS.util.definePotentiometer
+local define3Pos2CommandSwitchWW2 = BIOS.util.define3Pos2CommandSwitchWW2
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
@@ -103,9 +104,7 @@ defineTumb("RCTRL_DIM",15, 3006, 125, 1, {0,1}, nil, false, "Radio", "Radio Chan
 --Transmit Lock Toggle
 defineTumb("RCTRL_TLOCK",15, 3017, 155, 1, {0,1}, nil, false, "Radio", "Switch Locking Lever")
 --Mode Selector
---TODO NOT WORKING PROPERLY
-defineTumb("RCTRL_T_MODE1",15, 3007, 156, 1, {0,1}, nil, false, "Radio", "Radio Mode 1")
-defineTumb("RCTRL_T_MODE2",15, 3008, 156, 1, {-1,0}, nil, false, "Radio", "Radio Mode 2")
+define3Pos2CommandSwitchWW2("RCTRL_T_MODE", 15, 3008, 3007, 156, "Radio", "Radio Mode Switch")
 -- Throttle Quadrant
 --Bomb Drop Button
 definePushButton("BUTTON_BOMB",5, 3015, 128, "Weapons", "Drop Bombs")

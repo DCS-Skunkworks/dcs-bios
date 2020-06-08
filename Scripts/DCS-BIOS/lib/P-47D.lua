@@ -11,6 +11,7 @@ local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local define3PosTumb = BIOS.util.define3PosTumb
+local define3Pos2CommandSwitchWW2 = BIOS.util.define3Pos2CommandSwitchWW2
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
@@ -88,7 +89,6 @@ local function defineIndicatorLightMulti2(msg, arg_number, category, description
 		}
 	}
 end
-
 ----------------------------------------- BIOS-Profile 
 --Joystick
 definePushButton("STICK_MG_TRIGGER", 13, 3001, 53, "Weapons", "Stick MG Trigger")
@@ -110,7 +110,7 @@ defineToggleSwitch("DEFROSTER_KNB", 2, 3046, 149, "Main Panel", "Defroster Knob"
 defineToggleSwitch("COCKPIT_VENT_KNB", 2, 3049, 129, "Main Panel", "Cockpit Ventilation Knob")
 defineMultipositionSwitch("MAGNETO_SEL", 3, 3028, 66, 4, 0.1,"Main Panel" ,"Magneto Selector")
 defineRotary("DI", 2, 3053, 13, "Main Panel", "Directional Gyro Adjust")
-defineRotary("AH_PITCH_ADJUST", 9, 3002, 17, "Main Panel", "Artificial Horizon Pitch Adjustment") ------------------------WIP
+definePotentiometer("AH_PITCH_ADJUST", 9, 3002, 17, {0,1}, "Main Panel", "Artificial Horizon Pitch Adjustment")
 defineToggleSwitch("AH_CAGE", 2, 3007, 18, "Main Panel", "Artificial Horizon Cage Switch") -------------------------------WIP
 defineRotary("ALT_SET_PRESS", 2, 3010, 22, "Main Panel", "Altimeter Set Pressure")
 definePushButton("ACCEL_RESET", 11, 3001, 176, "Main Panel", "Accelerometer Reset")
@@ -121,7 +121,6 @@ definePushButton("FUEL_PRESS_T_BTN", 2, 3024, 70, "Main Panel", "Fuel Pressure L
 defineToggleSwitch("BATTERY_SW", 7, 3032, 79, "Main Panel", "Battery Switch")
 defineToggleSwitch("PARK_BRAKE", 2, 3028, 84, "Main Panel", "Parking Brake Handle")
 
---Drop Ordinance Arming Panel
 definePushButton("JETT_STORES_L", 13, 3008, 126, "Arming Panel", "Jettison Left Stores Pull Handle")
 definePushButton("JETT_STORES_R", 13, 3009, 127, "Arming Panel", "Jettison Right Stores Pull Handle")
 definePushButton("JETT_STORES_B", 13, 3010, 128, "Arming Panel", "Jettison Belly Pull Handle")
@@ -136,11 +135,10 @@ defineToggleSwitch("L_CHEM_SW", 13, 3025, 146, "Arming Panel", "Left Chemical Sw
 defineToggleSwitch("R_CHEM_SW_C", 13, 3027, 147, "Arming Panel", "Right Chemical Switch Cover")
 defineToggleSwitch("R_CHEM_SW", 13, 3029, 148, "Arming Panel", "Right Chemical Switch")
 
----- Port Wall
+--Port Wall
 defineToggleSwitch("RECOV_FLAP_SW_C", 13, 3036, 143, "Port Wall", "Recovery Flaps Switch Cover")
 defineToggleSwitch("RECOV_FLAP_SW", 13, 3039, 144, "Port Wall", "Recovery Flaps Switch")
 
---Throttle Quadrant
 definePushButton("VHF_PTT_BTN", 21, 3099, 44, "Throttle Quadrant", "Radio PTT Button")
 definePushButton("NOS_BTN", 3, 3001, 40, "Throttle Quadrant", "NOS Push Button")
 defineToggleSwitch("NOS_LOCK_SW", 3, 3002, 41, "Throttle Quadrant", "NOS Lock Switch")
@@ -151,10 +149,29 @@ definePushButton("BOOST_LOCK", 3, 3039, 49, "Throttle Quadrant", "Boost Lever Lo
 definePotentiometer("MIX_LVR", 3, 3012, 48, {0,1}, "Throttle Quadrant", "Mixture Lever")
 definePotentiometer("THROTTLE_FRIC", 3, 3018, 57, {0,1}, "Throttle Quadrant", "Throttle Frictioner")
 
--- Propellor Control
 defineMultipositionSwitch("PROP_CONTR_SW", 3, 3029, 72, 4, 0.1,"Propellor Control" ,"Propellor Control Switch")
 
--- Warning, Caution and IndicatorLights
+--Starboard Wall
+definePushButton("RLB_KEY", 7, 3035, 96, "Recognition Lights", "Recognition Lights KEY Button")
+define3PosTumb("RLB_WHITE", 7, 3036, 97, "Recognition Lights", "Recognition Lights Switch White")
+define3PosTumb("RLB_RED", 7, 3039, 98, "Recognition Lights", "Recognition Lights Switch Red")
+define3PosTumb("RLB_GREEN", 7, 3042, 99, "Recognition Lights", "Recognition Lights Switch Green")
+define3PosTumb("RLB_YELLOW", 7, 3045, 100, "Recognition Lights", "Recognition Lights Switch Yellow")
+
+defineToggleSwitch("RCTRL_OFF", 21, 3001, 115, "Radio", "Radio Power OFF")
+defineToggleSwitch("RCTRL_A", 21, 3002, 116, "Radio", "Radio Channel A")
+defineToggleSwitch("RCTRL_B", 21, 3003, 117, "Radio", "Radio Channel B")
+defineToggleSwitch("RCTRL_C", 21, 3004, 118, "Radio", "Radio Channel C")
+defineToggleSwitch("RCTRL_D", 21, 3005, 119, "Radio", "Radio Channel D")
+defineToggleSwitch("RCTRL_DIM", 21, 3006, 125, "Radio", "Radio Channel Dimmer")
+defineToggleSwitch("RCTRL_TLOCK", 21, 3017, 155, "Radio", "Switch Locking Lever")
+define3Pos2CommandSwitchWW2("RCTRL_T_MODE", 21, 3008, 3007, 156, "Radio", "Radio Mode Switch")
+definePotentiometer("RCTRL_VOL", 21, 3015, 77, {0,1}, "Radio", "Radio Volume")
+
+definePotentiometer("DETROLA_FREQU_SEL", 22, 3001, 137, {0,1}, "Detrola Receiver", "Detrola Frequency Selector")
+definePotentiometer("DETROLA_VOL", 22, 3002, 138, {0,1}, "Detrola Receiver", "Detrola Volume")
+
+--Warning, Caution and IndicatorLights
 defineIndicatorLight("TURB_OVER_SP_L", 59, "Warning, Caution and IndicatorLights","Turbine Overspeed Light (red)")
 defineIndicatorLight("FUEL_LVL_WARN_L", 69, "Warning, Caution and IndicatorLights","Fuel Level Warning Light (yellow)")
 defineIndicatorLight("GEAR_GN_L", 80, "Warning, Caution and IndicatorLights","Landing Warning Light Right (green)")
@@ -169,7 +186,7 @@ defineIndicatorLight("VHF_RADIO_D_L", 123, "Warning, Caution and IndicatorLights
 defineIndicatorLight("VHF_RADIO_TX_L", 124, "Warning, Caution and IndicatorLights", "VHF Radio TX Light (white)")
 --defineIndicatorLightMulti1("L_UV_LAMP_RD", 167, "Warning, Caution and IndicatorLights","Left UV Instruments Lamp (red)")------------------------WIP
 defineIndicatorLightMulti2("L_UV_LAMP_BL", 167, "Warning, Caution and IndicatorLights","Left UV Instruments Lamp (blue)")
---defineIndicatorLightMulti1("R_UV_LAMP_RD", 169, "Warning, Caution and IndicatorLights","Right UV Instruments Lamp (red)")
+--defineIndicatorLightMulti1("R_UV_LAMP_RD", 169, "Warning, Caution and IndicatorLights","Right UV Instruments Lamp (red)") ----------------------WIP
 defineIndicatorLightMulti2("R_UV_LAMP_BL", 169, "Warning, Caution and IndicatorLights","Right UV Instruments Lamp (blue)")
 defineIndicatorLight("OXY_LOW_L", 179, "Warning, Caution and IndicatorLights","Oxygen Low Light (red)")
 
