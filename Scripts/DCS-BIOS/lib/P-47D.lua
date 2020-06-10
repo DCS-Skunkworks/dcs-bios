@@ -111,7 +111,7 @@ defineToggleSwitch("COCKPIT_VENT_KNB", 2, 3049, 129, "Main Panel", "Cockpit Vent
 defineMultipositionSwitch("MAGNETO_SEL", 3, 3028, 66, 4, 0.1,"Main Panel" ,"Magneto Selector")
 defineRotary("DI", 2, 3053, 13, "Main Panel", "Directional Gyro Adjust")
 definePotentiometer("AH_PITCH_ADJUST", 9, 3002, 17, {0,1}, "Main Panel", "Artificial Horizon Pitch Adjustment")
-defineToggleSwitch("AH_CAGE", 2, 3007, 18, "Main Panel", "Artificial Horizon Cage Switch") -------------------------------WIP
+defineToggleSwitch("AH_CAGE", 9, 3007, 18, "Main Panel", "Artificial Horizon Cage Switch")
 defineRotary("ALT_SET_PRESS", 2, 3010, 22, "Main Panel", "Altimeter Set Pressure")
 definePushButton("ACCEL_RESET", 11, 3001, 176, "Main Panel", "Accelerometer Reset")
 definePushButton("TURB_OVER_SP_T_BTN", 2, 3021, 60, "Main Panel", "Turbine Overspeed Lamp Test Button")
@@ -138,6 +138,8 @@ defineToggleSwitch("R_CHEM_SW", 13, 3029, 148, "Arming Panel", "Right Chemical S
 --Port Wall
 defineToggleSwitch("RECOV_FLAP_SW_C", 13, 3036, 143, "Port Wall", "Recovery Flaps Switch Cover")
 defineToggleSwitch("RECOV_FLAP_SW", 13, 3039, 144, "Port Wall", "Recovery Flaps Switch")
+define3PosTumb("INTCOOL_FLP_SW", 3, 3041, 87, "Port Wall", "Intercooler Flap Switch")
+define3PosTumb("OILCOOL_FLP_SW", 3, 3044, 88, "Port Wall", "Oil Cooler Flap Switch")
 
 definePushButton("VHF_PTT_BTN", 21, 3099, 44, "Throttle Quadrant", "Radio PTT Button")
 definePushButton("NOS_BTN", 3, 3001, 40, "Throttle Quadrant", "NOS Push Button")
@@ -150,6 +152,20 @@ definePotentiometer("MIX_LVR", 3, 3012, 48, {0,1}, "Throttle Quadrant", "Mixture
 definePotentiometer("THROTTLE_FRIC", 3, 3018, 57, {0,1}, "Throttle Quadrant", "Throttle Frictioner")
 
 defineMultipositionSwitch("PROP_CONTR_SW", 3, 3029, 72, 4, 0.1,"Propellor Control" ,"Propellor Control Switch")
+
+definePotentiometer("MSB_GUNSIGHT", 7, 3001, 194, {0,1}, "Main Switch Box", "Gun Sight Rheostat")
+definePotentiometer("MSB_COMPASS", 7, 3004, 195, {0,1}, "Main Switch Box", "Compass Light Rheostat")
+definePotentiometer("MSB_UV", 17, 3001, 196, {0,1}, "Main Switch Box", "UV Instruments Light Rheostat")
+definePotentiometer("MSB_BOOSTERPUMP", 7, 3010, 61, {0,1}, "Main Switch Box", "Booster Pumps Control Rheostat")
+define3PosTumb("MSB_NAV1", 7, 3013, 197, "Main Switch Box", "Wing Tips Nav. Lights Switch")
+define3PosTumb("MSB_NAV2", 7, 3016, 198, "Main Switch Box", "Tail Nav. Lights Switch")
+define3PosTumb("MSB_LANDING", 7, 3019, 199, "Main Switch Box", "Landing Lights Switch")
+define3PosTumb("MSB_CPT_LIGHT", 7, 3022, 71, "Main Switch Box", "Cockpit Light Switch")
+defineToggleSwitch("MSB_GENERATOR", 7, 3024, 200, "Main Switch Box", "Generator Switch")
+defineToggleSwitch("MSB_PITOT", 7, 3026, 201, "Main Switch Box", "Pitot Heater Switch")
+defineToggleSwitch("MSB_DILUTE", 7, 3028, 62, "Main Switch Box", "Oil Dilution Switch")
+define3PosTumb("MSB_TEST1", 7, 3030, 202, "Main Switch Box", "LG/FL Test Switch")
+define3PosTumb("MSB_TEST2", 7, 3031, 203, "Main Switch Box", "OXY/TRB Test Switch")
 
 --Starboard Wall
 definePushButton("RLB_KEY", 7, 3035, 96, "Recognition Lights", "Recognition Lights KEY Button")
