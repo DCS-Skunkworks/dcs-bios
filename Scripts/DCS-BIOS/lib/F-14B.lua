@@ -241,7 +241,7 @@ end
 --------------------------------- Matchstick End ---------------------------------  
 
 local function getHUD_Mode()
-    local hud_m = ""
+    local hud_m = "1"
     if GetDevice(0):get_argument_value(1015) == 1 then  --Take Off
         hud_m = "1"
     elseif GetDevice(0):get_argument_value(1014) == 1 then  --Cruise  
@@ -259,7 +259,7 @@ local function getHUD_Mode()
 end
 
 local function getSTEER_Mode()
-    local steer_m = ""
+    local steer_m = "2"
     if GetDevice(0):get_argument_value(1002) == 1 then  --TACAN
         steer_m = "1"
     elseif GetDevice(0):get_argument_value(1003) == 1 then  --DEST 
