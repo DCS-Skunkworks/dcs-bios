@@ -505,6 +505,22 @@
                                                                                                      "type": "integer"
                                                                                           } ]
                                                                       },
+                                                        "CANOPY_POS": {
+                                                                              "category": "Cockpit Mechanical",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "Canopy Position",
+                                                                            "identifier": "CANOPY_POS",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 20672,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
                                                      "MICROPHONE_ON": {
                                                                                   "api_variant": "momentary_last_position",
                                                                                      "category": "Cockpit Mechanical",
@@ -1693,6 +1709,22 @@
                                                      }
                                },
     "External Aircraft Model": {
+                                          "EXT_LANDING_LIGHT": {
+                                                                       "category": "External Aircraft Model",
+                                                                   "control_type": "metadata",
+                                                                    "description": "Landing Light (white)",
+                                                                     "identifier": "EXT_LANDING_LIGHT",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 20630,
+                                                                                       "description": "Landing Light (white)",
+                                                                                              "mask": 128,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 7,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
                                     "EXT_POSITION_LIGHT_LEFT": {
                                                                        "category": "External Aircraft Model",
                                                                    "control_type": "metadata",
@@ -1728,12 +1760,12 @@
                                     "EXT_POSITION_LIGHT_TAIL": {
                                                                        "category": "External Aircraft Model",
                                                                    "control_type": "metadata",
-                                                                    "description": "Tail Position Light  (white)",
+                                                                    "description": "Tail Position Light (white)",
                                                                      "identifier": "EXT_POSITION_LIGHT_TAIL",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
                                                                                            "address": 20586,
-                                                                                       "description": "Tail Position Light  (white)",
+                                                                                       "description": "Tail Position Light (white)",
                                                                                               "mask": 32768,
                                                                                          "max_value": 1,
                                                                                           "shift_by": 15,
@@ -2917,7 +2949,7 @@
                                        "LANDING_GEAR_GREEN": {
                                                                      "category": "Light System",
                                                                  "control_type": "led",
-                                                                  "description": "Landing Gear Green Light",
+                                                                  "description": "Landing Gear Green Light (green)",
                                                                    "identifier": "LANDING_GEAR_GREEN",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
@@ -2933,7 +2965,7 @@
                                          "LANDING_GEAR_RED": {
                                                                      "category": "Light System",
                                                                  "control_type": "led",
-                                                                  "description": "Landing Gear Red Light",
+                                                                  "description": "Landing Gear Red Light (red)",
                                                                    "identifier": "LANDING_GEAR_RED",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
@@ -3497,7 +3529,7 @@
                                    "RADAR_WARNING_LIGHT": {
                                                                   "category": "Tail Warning Radar",
                                                               "control_type": "led",
-                                                               "description": "Radar Warning Light",
+                                                               "description": "Radar Warning Light (yellow)",
                                                                 "identifier": "RADAR_WARNING_LIGHT",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -3754,7 +3786,7 @@
                                      "VHF_RADIO_A_LIGHT": {
                                                                   "category": "VHF Radio",
                                                               "control_type": "led",
-                                                               "description": "VHF Radio A Light",
+                                                               "description": "VHF Radio A Light (green)",
                                                                 "identifier": "VHF_RADIO_A_LIGHT",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -3770,7 +3802,7 @@
                                      "VHF_RADIO_B_LIGHT": {
                                                                   "category": "VHF Radio",
                                                               "control_type": "led",
-                                                               "description": "VHF Radio B Light",
+                                                               "description": "VHF Radio B Light (green)",
                                                                 "identifier": "VHF_RADIO_B_LIGHT",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -3906,7 +3938,7 @@
                                      "VHF_RADIO_C_LIGHT": {
                                                                   "category": "VHF Radio",
                                                               "control_type": "led",
-                                                               "description": "VHF Radio C Light",
+                                                               "description": "VHF Radio C Light (green)",
                                                                 "identifier": "VHF_RADIO_C_LIGHT",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -3922,7 +3954,7 @@
                                      "VHF_RADIO_D_LIGHT": {
                                                                   "category": "VHF Radio",
                                                               "control_type": "led",
-                                                               "description": "VHF Radio D Light",
+                                                               "description": "VHF Radio D Light (green)",
                                                                 "identifier": "VHF_RADIO_D_LIGHT",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -3968,7 +4000,7 @@
                                     "VHF_RADIO_TX_LIGHT": {
                                                                   "category": "VHF Radio",
                                                               "control_type": "led",
-                                                               "description": "VHF Radio TX Light",
+                                                               "description": "VHF Radio TX Light (white)",
                                                                 "identifier": "VHF_RADIO_TX_LIGHT",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {

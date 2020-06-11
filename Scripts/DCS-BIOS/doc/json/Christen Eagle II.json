@@ -210,6 +210,22 @@
                                                                                      } ],
                                                                  "physical_variant": "push_button"
                                                           },
+                                            "CANOPY_POS": {
+                                                                  "category": "Canopy",
+                                                              "control_type": "analog_gauge",
+                                                               "description": "Canopy Position",
+                                                                "identifier": "CANOPY_POS",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 10296,
+                                                                                  "description": "gauge position",
+                                                                                         "mask": 65535,
+                                                                                    "max_value": 65535,
+                                                                                     "shift_by": 0,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
                                    "CANOPY_UNLOCK_FRONT": {
                                                                       "api_variant": "momentary_last_position",
                                                                          "category": "Canopy",
@@ -543,7 +559,7 @@
                                                                      "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 10296,
+                                                                                           "address": 10298,
                                                                                        "description": "Right Position Light (green)",
                                                                                               "mask": 1,
                                                                                          "max_value": 1,
@@ -559,7 +575,7 @@
                                                                      "identifier": "EXT_WOW_LEFT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 10296,
+                                                                                           "address": 10298,
                                                                                        "description": "Weight ON Wheels Left Gear",
                                                                                               "mask": 8,
                                                                                          "max_value": 1,
@@ -575,7 +591,7 @@
                                                                      "identifier": "EXT_WOW_RIGHT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 10296,
+                                                                                           "address": 10298,
                                                                                        "description": "Weight ON Wheels Right Gear",
                                                                                               "mask": 4,
                                                                                          "max_value": 1,
@@ -591,7 +607,7 @@
                                                                      "identifier": "EXT_WOW_TAIL",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 10296,
+                                                                                           "address": 10298,
                                                                                        "description": "Weight ON Wheels Tail Gear",
                                                                                               "mask": 2,
                                                                                          "max_value": 1,
