@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 -- Made by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
--- v 1.8e
+-- v 1.8f
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -229,13 +229,13 @@ local RIO_UHF_REMOTE_DISP = ""
 local PLT_VUHF_REMOTE_DISP = ""
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	if PLT_UHF_REMOTE_DISP == nil then PLT_UHF_REMOTE_DISP = "0000000"
+	if PLT_UHF_REMOTE_DISP == nil then PLT_UHF_REMOTE_DISP = "000.000"
 	else PLT_UHF_REMOTE_DISP = get_radio_remote_display(9,15004) end
 	
-	if RIO_UHF_REMOTE_DISP == nil then RIO_UHF_REMOTE_DISP = "0000000"
+	if RIO_UHF_REMOTE_DISP == nil then RIO_UHF_REMOTE_DISP = "000.000"
 	else RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,405) end
 	
-	if PLT_VUHF_REMOTE_DISP == nil then PLT_VUHF_REMOTE_DISP = "0000000"
+	if PLT_VUHF_REMOTE_DISP == nil then PLT_VUHF_REMOTE_DISP = "000.000"
 	else PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003) end
 end
 --------------------------------- Matchstick End ---------------------------------  
@@ -545,7 +545,7 @@ function getARC159_String_Frequency()
 	--Export : 225000192.000000
 	local arc_159 = GetDevice(3)
 	local freq = tostring(arc_159:get_frequency())
-	if freq == nil then freq = "0000000" end
+	if freq == "nan" then freq = "000000" end
 	return freq:sub(1,3) .. "." .. freq:sub(4,6)	
 end
 defineString("PLT_UHF_STRING_FREQ", getARC159_String_Frequency, 7, "UHF 1", "PILOT ARC-159 Frequency (string)")
@@ -621,9 +621,8 @@ function getARC182_String_Frequency()
 
 	local arc_182 = GetDevice(4)
 	local freq = tostring(arc_182:get_frequency())
-		if freq == nil then freq = "0000000" end
+		if freq == "nan" then freq = "000000" end
 	if(string.len(freq) == 8) then
-		--559.9752
 		return freq:sub(1,2) .. "." .. freq:sub(3,5)	
 	else
 		return freq:sub(1,3) .. "." .. freq:sub(4,6)	
@@ -1022,8 +1021,8 @@ defineIndicatorLight("PLT_WARN_LOILHOT", 15017, "Warning, Caution and IndicatorL
 defineIndicatorLight("PLT_WARN_LFUELPRESS", 15018, "Warning, Caution and IndicatorLights","PILOT Warning Lamp Left Fuel Pressure (yellow)")
 defineIndicatorLight("PLT_WARN_ENGFIREEXT", 15019, "Warning, Caution and IndicatorLights","PILOT Warning Lamp Engine Fire Extinguisher (green)")
 defineIndicatorLight("PLT_WARN_RGEN", 15020, "Warning, Caution and IndicatorLights","PILOT Warning Lamp Right Generator (yellow)")
-defineIndicatorLight("PLT_WARN_ROILHOT", 15021, "Warning, Caution and IndicatorLights","PILOT Warning Lamp Right Oil Hot (yellow)")
-defineIndicatorLight("PLT_WARN_RFUELPRESS", 15022, "Warning, Caution and IndicatorLights","PILOT Warning Lamp Right Fuel Pressure (yellow)")
+defineIndicatorLight("PLT_WARN_ROILHOT", 15022, "Warning, Caution and IndicatorLights","PILOT Warning Lamp Right Oil Hot (yellow)")
+defineIndicatorLight("PLT_WARN_RFUELPRESS", 15021, "Warning, Caution and IndicatorLights","PILOT Warning Lamp Right Fuel Pressure (yellow)")
 defineIndicatorLight("PLT_WARN_WINGSWEEP", 15023, "Warning, Caution and IndicatorLights","PILOT Warning Lamp Wing Sweep (green)")
 defineIndicatorLight("PLT_WARN_AUXFIREEXT", 15024, "Warning, Caution and IndicatorLights","PILOT Warning Lamp Auxiliary Fire Extinguisher (green)")
 defineIndicatorLight("PLT_WARN_YAWSTABOP", 15025, "Warning, Caution and IndicatorLights","PILOT Warning Lamp Yaw Stabilizer Op (yellow)")
@@ -1587,8 +1586,8 @@ defineFloat("CANOPY_POS", 403, {0, 1}, "Gauges", "Canopy Position")
 defineString("PLT_UHF_REMOTE_DISP", function() return PLT_UHF_REMOTE_DISP end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")  
 defineString("RIO_UHF_REMOTE_DISP", function() return RIO_UHF_REMOTE_DISP end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")  
 defineString("PLT_VUHF_REMOTE_DISP", function() return PLT_VUHF_REMOTE_DISP end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")
-defineString("PLT_HUD_MODE", getHUD_Mode, 1, "Display", "PILOT HUD Mode (as string)")  
-defineString("PLT_STEER_MODE", getSTEER_Mode, 1, "Display", "PILOT STEER Mode (as string)")
+defineString("PLT_HUD_MODE", getHUD_Mode, 1, "Display", "PILOT HUD Mode (string)")  
+defineString("PLT_STEER_MODE", getSTEER_Mode, 1, "Display", "PILOT STEER Mode (string)")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
