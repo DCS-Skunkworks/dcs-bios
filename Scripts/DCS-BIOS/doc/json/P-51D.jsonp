@@ -4063,6 +4063,27 @@ docdata["P-51D"] =
                                                                                 } ],
                                                             "physical_variant": "toggle_switch"
                                                      },
+                                    "RKT_COUNT_CON": {
+                                                                    "category": "Weapon Control",
+                                                                "control_type": "discrete_dial",
+                                                                 "description": "Rockets Counter Control",
+                                                                  "identifier": "RKT_COUNT_CON",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 20630,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 3840,
+                                                                                      "max_value": 9,
+                                                                                       "shift_by": 8,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "infinite_rotary"
+                                                     },
                                    "RKT_DEL_SWITCH": {
                                                                     "category": "Weapon Control",
                                                                 "control_type": "selector",
