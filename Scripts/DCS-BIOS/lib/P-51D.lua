@@ -1,6 +1,7 @@
 BIOS.protocol.beginModule("P-51D", 0x5000)
 BIOS.protocol.setExportModuleAircrafts({"P-51D", "TF-51D", "P-51D-30-NA"})
 
+local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -17,6 +18,23 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+
+local function defineRadioWheel(msg, device_id, command1, command2, command_args, arg_number, step, limits, output_map, category, description)
+	defineTumb(msg, device_id, command1, arg_number, step, limits, output_map, "skiplast", category, description)
+	local docentry = moduleBeingDefined.documentation[category][msg]
+	assert(docentry.inputs[2].interface == "set_state")
+	docentry.inputs[2] = nil
+	moduleBeingDefined.documentation[category][msg].control_type = "discrete_dial"
+	inputProcessors[msg] = function(state)
+		if state == "INC" then
+			GetDevice(device_id):performClickableAction(command2, command_args[2])
+		end
+		if state == "DEC" then
+			GetDevice(device_id):performClickableAction(command1, command_args[1])
+		end
+	end
+end
+
 
 defineToggleSwitch("GEN", 14, 3003, 102, "Right Switch Panel", "Generator")
 defineToggleSwitch("BAT", 14, 3001, 103, "Right Switch Panel", "Battery")
@@ -370,5 +388,6 @@ defineIntegerFromGetter("EXT_LANDING_LIGHT", function()
 end, 1, "External Aircraft Model", "Landing Light (white)")
 
 defineFloat("CANOPY_POS", 162, {0, 1}, "Cockpit Mechanical", "Canopy Position")
+defineRadioWheel("RKT_COUNT_CON", 4, 3009, 3010, {-0.1, 0.1}, 75, 0.1, {0, 1.0}, nil, "Weapon Control", "Rockets Counter Control")
 
 BIOS.protocol.endModule()
