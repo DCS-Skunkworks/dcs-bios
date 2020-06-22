@@ -45,6 +45,9 @@ defineFloat("FUEL_WING", 23, {0, 1}, "Gauges", "Wing Tanks Fuel Gauge")
 defineIntegerFromGetter("EXT_LIGHTS", function()
 	if LoGetAircraftDrawArgumentValue(421) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "External Lights (red,green,white)")
+defineIntegerFromGetter("EXT_PAINTGLOW", function()
+	if LoGetAircraftDrawArgumentValue(424) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Paintjob Glow")
 
 --- suspension Not programmed in Modell 
 -- defineIntegerFromGetter("EXT_WOW_TAIL", function()

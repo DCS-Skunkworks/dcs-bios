@@ -3,7 +3,7 @@
 -- And of course huge thanks to [FSF]Ian for writing DCS-BIOS in the first place
 
 BIOS.protocol.beginModule("FA-18C_hornet", 0x7400)
-BIOS.protocol.setExportModuleAircrafts({"FA-18C_hornet"})
+BIOS.protocol.setExportModuleAircrafts({"FA-18C_hornet", "EA-18G", "FA-18E", "FA-18F"}) -- FA-18C + Mods
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
