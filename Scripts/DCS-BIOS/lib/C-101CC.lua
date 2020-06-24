@@ -52,13 +52,13 @@ definePushButton("BACK_PRI_ADI_TEST", 2, 3688, 995, "ADI", "BACK Primary ADI Tes
 
 -- Backup ADI
 definePushButton("FRONT_BAK_ADI_CAGE_BNT", 2, 3014, 41, "ADI", "FRONT Cage Standby Attitude Indicator Button")
-defineRotary("FRONT_BAK_ADI_CAGE_KNOB", 2, 3241, 533, "ADI", "FRONT Cage Standby Attitude Indicator Knob")
+definePotentiometer("FRONT_BAK_ADI_CAGE_KNOB", 2, 3241, 533, {0, 1}, "ADI", "FRONT Cage Standby Attitude Indicator Knob")
 definePushButton("BACK_BAK_ADI_CAGE_BNT", 2, 3408, 782, "ADI", "BACK Cage Standby Attitude Indicator Button")
-defineRotary("BACK_BAK_ADI_CAGE_KNOB", 2, 3409, 783, "ADI", "BACK Cage Standby Attitude Indicator Knob")
+definePotentiometer("BACK_BAK_ADI_CAGE_KNOB", 2, 3409, 783, {0, 1}, "ADI", "BACK Cage Standby Attitude Indicator Knob")
 
 -- ALTIMETER 
-definePotentiometer("FRONT_ALTIMETER_KNOB", 2, 3015, 66, {0, 1}, "Altimeter", "FRONT Altimeter Baro Adjust")
-definePotentiometer("BACK_ALTIMETER_KNOB", 2, 3410, 792, {0, 1}, "Altimeter", "BACK Altimeter Baro Adjust")
+defineRotary("FRONT_ALTIMETER_KNOB", 2, 3015, 66, "Altimeter", "FRONT Altimeter Baro Adjust")
+defineRotary("BACK_ALTIMETER_KNOB", 2, 3410, 792, "Altimeter", "BACK Altimeter Baro Adjust")
 
 -- CAWS ALERT RESET
 definePushButton("FRONT_CAWS_FAULT_RESET", 2, 3016, 513, "CAWS Alert", "FRONT Fault Alert Reset")
@@ -69,10 +69,10 @@ definePushButton("BACK_CAWS_FIRE_RESET", 2, 3413, 636, "CAWS Alert", "BACK Fire 
 definePushButton("BACK_CAWS_CAUTION_RESET", 2, 3414, 637, "CAWS Alert", "BACK Caution Alert Reset")
 
 -- CRS AND HDG BUGS
-definePotentiometer("FRONT_CRS_KNOB", 2, 3029, 344, {0, 1}, "CRS HDG Bugs", "FRONT Course Knob")
-definePotentiometer("FRONT_HDG_KNOB", 2, 3030, 345, {0, 1}, "CRS HDG Bugs", "FRONT Heading Knob")
-definePotentiometer("BACK_CRS_KNOB", 2, 3525, 943, {0, 1}, "CRS HDG Bugs", "BACK Course Knob")
-definePotentiometer("BACK_HDG_KNOB", 2, 3526, 944, {0, 1}, "CRS HDG Bugs", "BACK Heading Knob")
+defineRotary("FRONT_CRS_KNOB", 2, 3029, 344, "CRS HDG Bugs", "FRONT Course Knob")
+defineRotary("FRONT_HDG_KNOB", 2, 3030, 345, "CRS HDG Bugs", "FRONT Heading Knob")
+defineRotary("BACK_CRS_KNOB", 2, 3525, 943, "CRS HDG Bugs", "BACK Course Knob")
+defineRotary("BACK_HDG_KNOB", 2, 3526, 944, "CRS HDG Bugs", "BACK Heading Knob")
 
 -- CANOPY
 defineToggleSwitch("FRONT_CANOPY_SAFE", 2, 3040, 11, "Canopy", "FRONT Canopy Safety Catch")
@@ -85,11 +85,11 @@ definePushButton("FRONT_GMETER_RESET", 2, 3042, 25, "G Meter", "FRONT Reset Max/
 definePushButton("BACK_GMETER_RESET", 2, 3415, 774, "G Meter", "BACK Reset Max/Min Needles")
 
 -- COCKPIT LIGHTING
-defineToggleSwitch("FRONT_LIGHTS_FLOODRED", 3, 3102, 370, "Cockpit Lighting", "FRONT Red Flood Lights")
+defineTumb("FRONT_LIGHTS_FLOODRED", 3, 3102, 370, 0.5, {0, 1}, nil, false, "Cockpit Lighting", "FRONT Red Flood Lights")
 defineToggleSwitch("FRONT_LIGHTS_STORM", 3, 3103, 369, "Cockpit Lighting", "FRONT Storm Lights")
 definePotentiometer("FRONT_LIGHTS_CONSOLE", 3, 3104, 365, {0, 1}, "Cockpit Lighting", "FRONT Console Integral Lights")
 definePotentiometer("FRONT_LIGHTS_INSTR", 3, 3105, 364, {0, 1}, "Cockpit Lighting", "FRONT Instrument Lights")
-defineToggleSwitch("BACK_LIGHTS_FLOODRED", 3, 3416, 248, "Cockpit Lighting", "BACK Red Flood Lights")
+defineTumb("BACK_LIGHTS_FLOODRED", 3, 3416, 248, 0.5, {0, 1}, nil, false, "Cockpit Lighting", "BACK Red Flood Lights")
 defineToggleSwitch("BACK_LIGHTS_STORM", 3, 3417, 249, "Cockpit Lighting", "BACK Storm Lights")
 definePotentiometer("BACK_LIGHTS_CONSOLE", 3, 3418, 251, {0, 1}, "Cockpit Lighting", "BACK Console Integral Lights")
 definePotentiometer("BACK_LIGHTS_INSTR", 3, 3419, 250, {0, 1}, "Cockpit Lighting", "BACK Instrument Lights")
@@ -199,10 +199,10 @@ defineToggleSwitch("BACK_OXY_REGULATOR", 2, 3997, 999, "Oxygen System", "BACK Ox
 -- CLOCK
 definePushButton("FRONT_CHRONO", 2, 3149, 519, "Clock", "FRONT Chronograph")
 definePushButton("FRONT_CLOCK_BTN", 2, 3147, 518, "Clock", "FRONT Set Clock Button")
-definePotentiometer("FRONT_CLOCK_KNOB", 2, 3148, 517, {0, 1}, "Clock", "FRONT Set Clock Knob")
+defineRotary("FRONT_CLOCK_KNOB", 2, 3148, 517, "Clock", "FRONT Set Clock Knob")
 definePushButton("BACK_CHRONO", 2, 3433, 811, "Clock", "BACK Chronograph")
 definePushButton("BACK_CLOCK_BTN", 2, 3431, 810, "Clock", "BACK Set Clock Button")
-definePotentiometer("BACK_CLOCK_KNOB", 2, 3432, 809, {0, 1}, "Clock", "BACK Set Clock Knob")
+defineRotary("BACK_CLOCK_KNOB", 2, 3432, 809, "Clock", "BACK Set Clock Knob")
 
 -- EMERGENCY LANDING GEAR EXTEND
 defineToggleSwitch("FRONT_EMERG_GEAR", 2, 3150, 197, "Emergency", "FRONT Emergency Landing Gear Extension")
@@ -267,7 +267,7 @@ definePotentiometer("FRONT_INTER_VOR_VOL", 7, 3008, 399, {0, 1}, "Intercom", "FR
 defineToggleSwitch("FRONT_INTER_MK_SW", 7, 3009, 286, "Intercom", "FRONT Intercom MK Switch")
 definePotentiometer("FRONT_INTER_MK_VOL", 7, 3010, 400, {0, 1}, "Intercom", "FRONT Intercom MK Volume")
 defineToggleSwitch("FRONT_CB_HOTMIC", 7, 3011, 287, "Intercom", "FRONT Circuit Breaker TALK (Hot Mic)")
-definePushButton("FRONT_CALL_BTN", 2, 3012, 402, "Intercom", "FRONT Call Button")
+definePushButton("FRONT_CALL_BTN", 7, 3012, 402, "Intercom", "FRONT Call Button")
 definePotentiometer("FRONT_INTER_VOL", 7, 3013, 403, {0, 1}, "Intercom", "FRONT Intercom Volume")
 defineToggleSwitch("BACK_INTER_INT_SW", 7, 3024, 884, "Intercom", "BACK Intercom INT Switch")
 definePotentiometer("BACK_INTER_INT_VOL", 7, 3025, 894, {0, 1}, "Intercom", "BACK Intercom INT Volume")
@@ -280,7 +280,7 @@ definePotentiometer("BACK_INTER_VOR_VOL", 7, 3031, 899, {0, 1}, "Intercom", "BAC
 defineToggleSwitch("BACK_INTER_MK_SW", 7, 3032, 890, "Intercom", "BACK Intercom MK Switch")
 definePotentiometer("BACK_INTER_MK_VOL", 7, 3033, 901, {0, 1}, "Intercom", "BACK Intercom MK Volume")
 defineToggleSwitch("BACK_CB_HOTMIC", 7, 3034, 891, "Intercom", "BACK Circuit Breaker TALK (Hot Mic)")
-definePushButton("BACK_CALL_BTN", 2, 3035, 945, "Intercom", "BACK Call Button")
+definePushButton("BACK_CALL_BTN", 7, 3035, 945, "Intercom", "BACK Call Button")
 definePotentiometer("BACK_INTER_VOL", 7, 3036, 946, {0, 1}, "Intercom", "BACK Intercom Volume")
 
 -- MISC FUNCTIONS 
@@ -299,10 +299,10 @@ definePushButton("BACK_PITOT_PW", 2, 3488, 940, "Misc", "BACK Pitot Heat ON/OFF"
 definePushButton("BACK_GEAR_MUTE", 2, 3489, 770, "Misc", "BACK Landing Gear Warning Mute")
 definePushButton("BACK_GEAR_OVER", 2, 3490, 939, "Misc", "BACK Landing Gear Override")
 defineToggleSwitch("FRONT_PARK_BRAKE_LVR", 2, 3238, 333, "Misc", "FRONT Parking Brake Lever")
-defineToggleSwitch("BACK_PARK_BRAKE_LVR", 2, 3492, 65, "Misc", "BACK Parking Brake Lever")
-defineToggleSwitch("FRONT_RUDDER_ADJ", 2, 3888, 1279, "Misc", "FRONT Adjust Rudder Pedals")
-definePotentiometer("FRONT_RUDDER_ADJ_h", 2, 3240, 311, {0, 1}, "Misc", "FRONT Adjust Rudder Pedals Handle")
-defineToggleSwitch("BACK_RUDDER_ADJ_H", 2, 3889, 1280, "Misc", "BACK Adjust Rudder Pedals Handle")
+defineToggleSwitch("BACK_PARK_BRAKE_LVR", 2, 3492, 65, "Misc", "BACK Parking Brake Lever") 
+defineTumb("FRONT_RUDDER_ADJ_H", 2, 3888, 1279, 2, {-1, 1}, nil, false, "Misc", "FRONT Adjust Rudder Pedals Handle")
+definePotentiometer("FRONT_RUDDER_ADJ", 2, 3240, 311, {0, 1}, "Misc", "FRONT Adjust Rudder Pedals")
+defineTumb("BACK_RUDDER_ADJ_H", 2, 3889, 1280, 2, {-1, 1}, nil, false, "Misc", "BACK Adjust Rudder Pedals Handle")
 definePotentiometer("BACK_RUDDER_ADJ", 2, 3696, 1202, {0, 1}, "Misc", "BACK Adjust Rudder Pedals")
 defineMultipositionSwitch("FRONT_FLAP_SEL", 2, 3224, 14, 3, 0.5,"Misc" ,"FRONT Flap Position Selector")
 defineToggleSwitch("FRONT_CPT_EMERG_JETT", 2, 3226, 12, "Misc", "FRONT Canopy Emergency Jettison")
@@ -326,7 +326,6 @@ defineFloat("CANOPY_VALUE", 1, {0.0, 1.0}, "Misc", "Canopy Position")
 
 -- WARNING, CAUTION AND INDICATORLIGHTS
 defineIndicatorLight("FRONT_TRANS_GEAR_LIGHT", 9, "Warning, Caution and IndicatorLights","FRONT Transition Gear Light (red)")
-
 defineIndicatorLight("FRONT_BACK_COMPUTER_LIGHT", 143, "Warning, Caution and IndicatorLights","FRONT/BACK Computer Light MAN (yellow)")
 defineIndicatorLight("FRONT_BACK_ANTI_ICE_LIGHT", 192, "Warning, Caution and IndicatorLights","FRONT/BACK ANTI-ICE Light ON (yellow)")
 defineIndicatorLight("FRONT_BACK_ENG_START_TLIGHT", 140, "Warning, Caution and IndicatorLights","FRONT/BACK Engine Start Test Light (yellow)")
@@ -375,7 +374,7 @@ definePotentiometer("FRONT_TEMP_REGULATOR", 2, 3124, 423, {0, 1}, "Aircon System
 defineTumb("FRONT_TEMP_CONTROL_MAN", 2, 3125, 424, 2, {-1, 1}, nil, false, "Aircon System", "FRONT Manual Temperatur Control")
 
 -- STALL SYSTEM 
-defineTumb("FRONT_STALL_WARN_TEST", 2, 3199, 331, 2, {-1, 1}, nil, false, "Stall System", "FRONT Stall Warning Test")
+define3PosTumb("FRONT_STALL_WARN_TEST", 2, 3199, 331, "Stall System", "FRONT Stall Warning Test")
 defineToggleSwitch("FRONT_STALL_WARN_PW", 2, 3200, 332, "Stall System", "FRONT Stall Warning Power")
 
 -- IFF PANEL 
@@ -402,10 +401,10 @@ defineMultipositionSwitch("FRONT_IFF_IDENT", 2, 3220, 361, 3, 0.5,"IFF" ,"FRONT 
 
 -- MISC FUNCTIONS
 defineToggleSwitch("FRONT_MIRROR", 2, 3239, 10, "Misc", "FRONT Mirror")
-defineToggleSwitch("FRONT_COMPASS_LIGHT", 2, 3252, 850, "Misc", "FRONT Compass Light Switch")
+defineToggleSwitch("FRONT_COMPASS_LIGHT", 3, 3252, 850, "Misc", "FRONT Compass Light Switch")
 defineToggleSwitch("FRONT_PITCH_TRIM_TONE_MUTE", 2, 3236, 196, "Misc", "FRONT Pitch Trim Tone Mute")
 definePushButton("FRONT_ANTI_RAIN", 2, 3222, 314, "Misc", "FRONT Anti-Rain Fluid")
-definePotentiometer("FRONT_IFR_Hood", 2, 3557, 256, {0, 1}, "Misc", "FRONT IFR Hood")
+
 
 --------------------------------------- REAR COCKPIT ONLY FUNCTIONS ---------------------------------------
 -- OXYGEN SYSTEM 
@@ -417,6 +416,7 @@ defineToggleSwitch("BACK_IFR_HOOD", 2, 3551, 329, "Misc", "BACK IFR Hood Close/O
 -- UNKNOWN BUTTONS/SWITCHES
 defineToggleSwitch("BACK_EJECT_PRIO_LEVER", 2, 3691, 1182, "Misc", "BACK Ejection Seat Priority Lever")
 definePotentiometer("BACK_STORAGE_BOX", 2, 3522, 299, {0, 1}, "Misc", "BACK Storage Box Cover")
+definePotentiometer("BACK_IFR_HOOD", 2, 3557, 256, {0, 1}, "Misc", "BACK IFR Hood !equip via ME!")
 
 --================================================================ C-101CC COCKPIT ==================================================================
 -- MANUAL POWER RESERVE (MPR)
@@ -673,54 +673,54 @@ defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_108", 12,3013,910,10,0.1,"VHF" ,
 defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_9", 12,3014,911,10,0.1,"VHF" ,"C-101EB BACK VHF NAV 0-9 Frequency Selector")
 defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_50", 12,3015,912,2,0.5,"VHF" ,"C-101EB BACK VHF NAV 00/50 Frequency Selector")
 definePotentiometer("EB_BACK_VHF_NAV_VOL", 12,3016,913, {0, 1}, "VHF", "C-101EB BACK VHF NAV Volume")
-definePotentiometer("EB_FRONT_VHF_COMM_BRIGHT", 9,3008,412, {0, 1}, "VHF", "C-101EB FRONT VHF COMM Brightness")
-definePotentiometer("EB_FRONT_VHF_COMM_VOL", 9,3007,411, {0, 1}, "VHF", "C-101EB FRONT VHF COMM Volume")
-defineToggleSwitch("EB_FRONT_VHF_COMM_PW", 9,3001,413,"VHF" ,"C-101EB FRONT VHF COMM Power Switch")
-definePushButton("EB_FRONT_VHF_COMM_TEST", 9,3006,414, "VHF", "C-101EB FRONT VHF COMM Display Test")
-defineMultipositionSwitch("EB_FRONT_VHF_NAV_FREQ_X0XXXX", 9,3002,415,4,0.25,"VHF" ,"C-101EB FRONT VHF COMM Frequency Selector (X0X.XXX)")
-defineMultipositionSwitch("EB_FRONT_VHF_NAV_FREQ_XX0XXX", 9,3003,416,10,0.1,"VHF" ,"C-101EB FRONT VHF COMM Frequency Selector (XX0.XXX)")
-defineMultipositionSwitch("EB_FRONT_VHF_NAV_FREQ_XXX0XX", 9,3004,417,10,0.1,"VHF" ,"C-101EB FRONT VHF COMM Frequency Selector (XXX.0XX)")
-defineMultipositionSwitch("EB_FRONT_VHF_NAV_FREQ_XXXX00", 9,3005,418,4,0.25,"VHF" ,"C-101EB FRONT VHF COMM Frequency Selector (XXX.X00)")
-definePotentiometer("EB_BACK_VHF_COMM_BRIGHT", 9,3017,924, {0, 1}, "VHF", "C-101EB BACK VHF COMM Brightness")
-definePotentiometer("EB_BACK_VHF_COMM_VOL", 9,3016,923, {0, 1}, "VHF", "C-101EB BACK VHF COMM Volume")
-defineToggleSwitch("EB_BACK_VHF_COMM_PW", 9,3010,925,"VHF" ,"C-101EB BACK VHF COMM Power Switch")
-definePushButton("EB_BACK_VHF_COMM_TEST", 9,3015,926, "VHF", "C-101EB BACK VHF COMM Display Test")
-defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_X0XXXX", 9,3011,927,4,0.25,"VHF" ,"C-101EB BACK VHF COMM Frequency Selector (X0X.XXX)")
-defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_XX0XXX", 9,3012,928,10,0.1,"VHF" ,"C-101EB BACK VHF COMM Frequency Selector (XX0.XXX)")
-defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_XXX0XX", 9,3013,929,10,0.1,"VHF" ,"C-101EB BACK VHF COMM Frequency Selector (XXX.0XX)")
-defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_XXXX00", 9,3014,930,4,0.25,"VHF" ,"C-101EB BACK VHF COMM Frequency Selector (XXX.X00)")
+definePotentiometer("EB_FRONT_VHF_COMM_BRIGHT", 14,3008,412, {0, 1}, "VHF", "C-101EB FRONT VHF COMM Brightness")
+definePotentiometer("EB_FRONT_VHF_COMM_VOL", 14,3007,411, {0, 1}, "VHF", "C-101EB FRONT VHF COMM Volume")
+defineToggleSwitch("EB_FRONT_VHF_COMM_PW", 14,3001,413,"VHF" ,"C-101EB FRONT VHF COMM Power Switch")
+definePushButton("EB_FRONT_VHF_COMM_TEST", 14,3006,414, "VHF", "C-101EB FRONT VHF COMM Display Test")
+defineMultipositionSwitch("EB_FRONT_VHF_NAV_FREQ_X0XXXX", 14,3002,415,4,0.25,"VHF" ,"C-101EB FRONT VHF COMM Frequency Selector (X0X.XXX)")
+defineMultipositionSwitch("EB_FRONT_VHF_NAV_FREQ_XX0XXX", 14,3003,416,10,0.1,"VHF" ,"C-101EB FRONT VHF COMM Frequency Selector (XX0.XXX)")
+defineMultipositionSwitch("EB_FRONT_VHF_NAV_FREQ_XXX0XX", 14,3004,417,10,0.1,"VHF" ,"C-101EB FRONT VHF COMM Frequency Selector (XXX.0XX)")
+defineMultipositionSwitch("EB_FRONT_VHF_NAV_FREQ_XXXX00", 14,3005,418,4,0.25,"VHF" ,"C-101EB FRONT VHF COMM Frequency Selector (XXX.X00)")
+definePotentiometer("EB_BACK_VHF_COMM_BRIGHT", 14,3017,924, {0, 1}, "VHF", "C-101EB BACK VHF COMM Brightness")
+definePotentiometer("EB_BACK_VHF_COMM_VOL", 14,3016,923, {0, 1}, "VHF", "C-101EB BACK VHF COMM Volume")
+defineToggleSwitch("EB_BACK_VHF_COMM_PW", 14,3010,925,"VHF" ,"C-101EB BACK VHF COMM Power Switch")
+definePushButton("EB_BACK_VHF_COMM_TEST", 14,3015,926, "VHF", "C-101EB BACK VHF COMM Display Test")
+defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_X0XXXX", 14,3011,927,4,0.25,"VHF" ,"C-101EB BACK VHF COMM Frequency Selector (X0X.XXX)")
+defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_XX0XXX", 14,3012,928,10,0.1,"VHF" ,"C-101EB BACK VHF COMM Frequency Selector (XX0.XXX)")
+defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_XXX0XX", 14,3013,929,10,0.1,"VHF" ,"C-101EB BACK VHF COMM Frequency Selector (XXX.0XX)")
+defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_XXXX00", 14,3014,930,4,0.25,"VHF" ,"C-101EB BACK VHF COMM Frequency Selector (XXX.X00)")
 
 -- UHF RADIO
-defineMultipositionSwitch("EB_FRONT_UHF_SEL100", 10, 3002, 226, 2, 0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 100 MHz Selector")
-defineMultipositionSwitch("EB_FRONT_UHF_SEL10", 10,3003,227,10,0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 10 MHz Selector")
-defineMultipositionSwitch("EB_FRONT_UHF_SEL1", 10,3004,228,10,0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 1 MHz Selector")
-defineMultipositionSwitch("EB_FRONT_UHF_SEL01", 10,3005,229,10,0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 0.1 MHz Selector")
-defineMultipositionSwitch("EB_FRONT_UHF_SEL0025", 10,3006,230,4,0.25,"UHF Radio" ,"C-101EB FRONT UHF Radio 0.025 MHz Selector")
-defineMultipositionSwitch("EB_FRONT_UHF_PRESET", 10,3001,231,20,0.05,"UHF Radio" ,"C-101EB FRONT UHF Radio Preset Channel Selector")
-defineMultipositionSwitch("EB_FRONT_UHF_FUNCT", 10,3008,232,4,0.25,"UHF Radio" ,"C-101EB FRONT UHF Radio Function Dial")
-defineMultipositionSwitch("EB_FRONT_UHF_FREQU", 10,3007,233,3,0.5,"UHF Radio" ,"C-101EB FRONT UHF Radio Frequency Mode Dial")
-definePotentiometer("EB_FRONT_UHF_VOL", 10,3011,234, {0, 1}, "UHF Radio", "C-101EB FRONT UHF Volume")
-definePushButton("EB_FRONT_UHF_T_TONE", 10,3009,235, "UHF Radio", "C-101EB FRONT UHV T-Tone")
-defineToggleSwitch("EB_FRONT_UHF_SQL", 10, 3010,236, "UHF Radio", "C-101EB FRONT UHF Radio Squelch Switch")
-definePotentiometer("EB_FRONT_UHF_COVER", 10,3015,854, {0, 1}, "UHF Radio", "C-101EB FRONT UHF Cover")
-definePushButton("EB_FRONT_UHF_PRESET", 10,3016,855, "UHF Radio", "C-101EB FRONT UHV Preset Button")
-defineMultipositionSwitch("EB_BACK_UHF_SEL100", 10,3027,862,3,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio 100 MHz Selector")
-defineMultipositionSwitch("EB_BACK_UHF_SEL10", 10,3028,863,11,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio 10 MHz Selector")
-defineMultipositionSwitch("EB_BACK_UHF_SEL1", 10,3029,864,11,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio 1 MHz Selector")
-defineMultipositionSwitch("EB_BACK_UHF_SEL01", 10,3030,865,11,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio 0.1 MHz Selector")
-defineMultipositionSwitch("EB_BACK_UHF_SEL0025", 10,3031,866,5,0.25,"UHF Radio" ,"C-101EB BACK UHF Radio 0.025 MHz Selector")
-defineMultipositionSwitch("EB_BACK_UHF_PRESET", 10,3026,867,21,0.05,"UHF Radio" ,"C-101EB BACK UHF Radio Preset Channel Selector")
-defineMultipositionSwitch("EB_BACK_UHF_FUNCT", 10,3033,868,4,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio Function Dial")
-defineMultipositionSwitch("EB_BACK_UHF_FREQU", 10,3032,869,3,0.5,"UHF Radio" ,"C-101EB BACK UHF Radio Frequency Mode Dial")
-definePotentiometer("EB_BACK_UHF_VOL", 10,3036,870, {0, 1}, "UHF Radio", "C-101EB BACK UHF Volume")
-definePushButton("EB_BACK_UHF_T_TONE", 10,3034,871, "UHF Radio", "C-101EB BACK UHV T-Tone")
-defineToggleSwitch("EB_BACK_UHF_SQL", 10, 3035,872, "UHF Radio", "C-101EB BACK UHF Radio Squelch Switch")
-definePotentiometer("EB_BACK_UHF_COVER", 10,3040,1167, {0, 1}, "UHF Radio", "C-101EB BACK UHF Cover")
-definePushButton("EB_BACK_UHF_PRESET", 10,3041,1169, "UHF Radio", "C-101EB BACK UHV Preset Button")
-define3PosTumb("FRONT_UHF_TEST_SW", 10, 3010, 207, "UHF Radio", "C-101EB FRONT UHF Frequency/Test Switch")
-definePotentiometer("EB_FRONT_UHF_DIM", 10,3014,206, {0, 1}, "UHF Radio", "C-101EB FRONT UHF Digital Display Dimmer")
-define3PosTumb("FRONT_UHF_TEST_SW", 10, 3037, 844, "UHF Radio", "C-101EB FRONT UHF Frequency/Test Switch")
-definePotentiometer("EB_BACK_UHF_DIM", 10,3039,845, {0, 1}, "UHF Radio", "C-101EB BACK UHF Digital Display Dimmer")
+defineMultipositionSwitch("EB_FRONT_UHF_SEL100", 15, 3002, 226, 2, 0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 100 MHz Selector")
+defineMultipositionSwitch("EB_FRONT_UHF_SEL10", 15,3003,227,10,0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 10 MHz Selector")
+defineMultipositionSwitch("EB_FRONT_UHF_SEL1", 15,3004,228,10,0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 1 MHz Selector")
+defineMultipositionSwitch("EB_FRONT_UHF_SEL01", 15,3005,229,10,0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 0.1 MHz Selector")
+defineMultipositionSwitch("EB_FRONT_UHF_SEL0025", 15,3006,230,4,0.25,"UHF Radio" ,"C-101EB FRONT UHF Radio 0.025 MHz Selector")
+defineMultipositionSwitch("EB_FRONT_UHF_PRESET", 15,3001,231,20,0.05,"UHF Radio" ,"C-101EB FRONT UHF Radio Preset Channel Selector")
+defineMultipositionSwitch("EB_FRONT_UHF_FUNCT", 15,3008,232,4,0.25,"UHF Radio" ,"C-101EB FRONT UHF Radio Function Dial")
+defineMultipositionSwitch("EB_FRONT_UHF_FREQU", 15,3007,233,3,0.5,"UHF Radio" ,"C-101EB FRONT UHF Radio Frequency Mode Dial")
+definePotentiometer("EB_FRONT_UHF_VOL", 15,3011,234, {0, 1}, "UHF Radio", "C-101EB FRONT UHF Volume")
+definePushButton("EB_FRONT_UHF_T_TONE", 15,3009,235, "UHF Radio", "C-101EB FRONT UHV T-Tone")
+defineToggleSwitch("EB_FRONT_UHF_SQL", 15, 3010,236, "UHF Radio", "C-101EB FRONT UHF Radio Squelch Switch")
+definePotentiometer("EB_FRONT_UHF_COVER", 15,3015,854, {0, 1}, "UHF Radio", "C-101EB FRONT UHF Cover")
+definePushButton("EB_FRONT_UHF_PRESET", 15,3016,855, "UHF Radio", "C-101EB FRONT UHV Preset Button")
+defineMultipositionSwitch("EB_BACK_UHF_SEL100", 15,3027,862,3,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio 100 MHz Selector")
+defineMultipositionSwitch("EB_BACK_UHF_SEL10", 15,3028,863,11,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio 10 MHz Selector")
+defineMultipositionSwitch("EB_BACK_UHF_SEL1", 15,3029,864,11,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio 1 MHz Selector")
+defineMultipositionSwitch("EB_BACK_UHF_SEL01", 15,3030,865,11,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio 0.1 MHz Selector")
+defineMultipositionSwitch("EB_BACK_UHF_SEL0025", 15,3031,866,5,0.25,"UHF Radio" ,"C-101EB BACK UHF Radio 0.025 MHz Selector")
+defineMultipositionSwitch("EB_BACK_UHF_PRESET", 15,3026,867,21,0.05,"UHF Radio" ,"C-101EB BACK UHF Radio Preset Channel Selector")
+defineMultipositionSwitch("EB_BACK_UHF_FUNCT", 15,3033,868,4,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio Function Dial")
+defineMultipositionSwitch("EB_BACK_UHF_FREQU", 15,3032,869,3,0.5,"UHF Radio" ,"C-101EB BACK UHF Radio Frequency Mode Dial")
+definePotentiometer("EB_BACK_UHF_VOL", 15,3036,870, {0, 1}, "UHF Radio", "C-101EB BACK UHF Volume")
+definePushButton("EB_BACK_UHF_T_TONE", 15,3034,871, "UHF Radio", "C-101EB BACK UHV T-Tone")
+defineToggleSwitch("EB_BACK_UHF_SQL", 15, 3035,872, "UHF Radio", "C-101EB BACK UHF Radio Squelch Switch")
+definePotentiometer("EB_BACK_UHF_COVER", 15,3040,1167, {0, 1}, "UHF Radio", "C-101EB BACK UHF Cover")
+definePushButton("EB_BACK_UHF_PRESET", 15,3041,1169, "UHF Radio", "C-101EB BACK UHV Preset Button")
+define3PosTumb("FRONT_UHF_TEST_SW", 15, 3010, 207, "UHF Radio", "C-101EB FRONT UHF Frequency/Test Switch")
+definePotentiometer("EB_FRONT_UHF_DIM", 15,3014,206, {0, 1}, "UHF Radio", "C-101EB FRONT UHF Digital Display Dimmer")
+define3PosTumb("FRONT_UHF_TEST_SW", 15, 3037, 844, "UHF Radio", "C-101EB FRONT UHF Frequency/Test Switch")
+definePotentiometer("EB_BACK_UHF_DIM", 15,3039,845, {0, 1}, "UHF Radio", "C-101EB BACK UHF Digital Display Dimmer")
 
 -- FLIGHT DIRECTOR 
 definePushButton("EB_FRONT_FD_GO_MODE", 2,3170,210, "Flight Director", "C-101EB FRONT Flight Director GO-Around Mode")
@@ -757,12 +757,12 @@ defineToggleSwitch("EB_BACK_AHRS_GYRO_MODE",2,3642,967, "AHRS", "C-101EB BACK AH
 
 -- MISC FUNCTIONS
 definePushButton("EB_FRONT_VOR_TCN_NAV_SEL", 2, 3037, 337, "Misc", "C-101EB FRONT VOR/TCN Nav Selector")
-definePotentiometer("EB_FRONT_AIR_SPEED_IND_BUG", 2, 3237, 102, {0, 1}, "Misc", "C-101EB FRONT Airspeed Indicator Bug")
+defineRotary("EB_FRONT_AIR_SPEED_IND_BUG", 2, 3237, 102, "Misc", "C-101EB FRONT Airspeed Indicator Bug")
 definePushButton("EB_BACK_VOR_TCN_NAV_SEL", 2, 3641, 840, "Misc", "C-101EB BACK VOR/TCN Nav Selector")
-definePotentiometer("EB_BACK_AIR_SPEED_IND_BUG", 2, 3491, 803, {0, 1}, "Misc", "C-101EB BACK Airspeed Indicator Bug")
+defineRotary("EB_BACK_AIR_SPEED_IND_BUG", 2, 3491, 803, "Misc", "C-101EB BACK Airspeed Indicator Bug")
 defineMultipositionSwitch("EB_FRONT_UHF_ANT_SEL", 2,3221,338,3,0.5,"Misc" ,"C-101EB FRONT UHF Antenna Selection")
-definePotentiometer("EB_FRONT_ADJ_RED_LIGHT", 2,3229,260, {0, 1}, "Misc", "C-101EB FRONT Adjust Red Light")
-definePotentiometer("EB_BACK_ADJ_RED_LIGHT", 2,3640,265, {0, 1}, "Misc", "C-101EB BACK Adjust Red Light")
+definePotentiometer("EB_FRONT_ADJ_RED_LIGHT", 2,3229,260, {0, 1}, "Misc", "C-101EB FRONT Adjust Main Panel Red Light")
+definePotentiometer("EB_BACK_ADJ_RED_LIGHT", 2,3640,265, {0, 1}, "Misc", "C-101EB BACK Adjust Main Panel Red Light")
 definePotentiometer("EB_FRONT_ADJ_ADI_PITCH", 2,3165,112, {0, 1}, "Misc", "C-101EB FRONT ADI Pitch Adjust")
 definePotentiometer("EB_BACK_ADJ_ADI_PITCH", 2,3600,990, {0, 1}, "Misc", "C-101EB BACK ADI Pitch Adjust")
 definePotentiometer("EB_FRONT_HSI_BRIGHT", 2,3161,343, {0, 1}, "Misc", "C-101EB FRONT HSI Digit Brightness")
@@ -770,12 +770,12 @@ definePotentiometer("EB_BACK_HSI_BRIGHT", 2,3443,766, {0, 1}, "Misc", "C-101EB B
 
 --------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS ------------------------------------
 -- TACAN PANEL
-defineRotary("EB_FRONT_TCN_CHAN_10", 11, 3001, 387, "TACAN", "C-101EB FRONT TACAN Channel 00x-12x")
-defineMultipositionSwitch("EB_FRONT_TCN_CHAN_1", 11,3002,388,10,0.1,"TACAN" ,"C-101EB FRONT TACAN Channel xx1")
-defineToggleSwitch("EB_FRONT_TCN_CHAN_XY", 11, 3003, 389, "TACAN", "C-101EB FRONT TACAN Channel X/Y")
-definePushButton("EB_FRONT_TCN_TEST", 11,3004,390, "TACAN", "C-101EB FRONT TACAN Test")
-definePotentiometer("EB_FRONT_TCN_VOL", 11,3005,392, {0, 1}, "TACAN", "C-101EB FRONT TACAN Volume")
-defineMultipositionSwitch("EB_FRONT_TCN_MODE", 11,3006,393,5,0.25,"TACAN" ,"C-101EB FRONT TACAN Mode")
+defineRotary("EB_FRONT_TCN_CHAN_10", 16, 3001, 387, "TACAN", "C-101EB FRONT TACAN Channel 00x-12x")
+defineMultipositionSwitch("EB_FRONT_TCN_CHAN_1", 16, 3002, 388,10,0.1,"TACAN" ,"C-101EB FRONT TACAN Channel xx1")
+defineToggleSwitch("EB_FRONT_TCN_CHAN_XY", 16, 3003, 389, "TACAN", "C-101EB FRONT TACAN Channel X/Y")
+definePushButton("EB_FRONT_TCN_TEST", 16, 3004, 390, "TACAN", "C-101EB FRONT TACAN Test")
+definePotentiometer("EB_FRONT_TCN_VOL", 16, 3005, 392, {0, 1}, "TACAN", "C-101EB FRONT TACAN Volume")
+defineMultipositionSwitch("EB_FRONT_TCN_MODE", 16, 3006, 393, 5, 0.25,"TACAN" ,"C-101EB FRONT TACAN Mode")
 
 -- CIRCUIT BREAKERS 
 defineToggleSwitch("EB_FRONT_CB_VERT_GYRO_DC",2,3064,436, "CB Panel", "C-101EB FRONT Circuit Breaker Vertical Gyro DC")
