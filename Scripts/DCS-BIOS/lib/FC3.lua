@@ -33,6 +33,7 @@ end
 
 local function LoGetFuelAll()
 	local eng = LoGetEngineInfo()
+	if eng == nil then return end
 	return eng.fuel_internal + eng.fuel_external
 end
 

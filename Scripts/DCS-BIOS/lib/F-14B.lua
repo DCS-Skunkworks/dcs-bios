@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 -- Made by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
--- v 1.8f
+-- v 1.8g
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -198,6 +198,7 @@ function parse_indication_number_index(indicator_id)  -- Thanks to [FSF]Ian code
 				t[counter]=value
 	end
 	t[0] = counter
+	if t == nil then return end
 	return t
 end
 
@@ -221,6 +222,7 @@ local function get_radio_remote_display(indicatorId,testButtonId)-- Get data fro
 			retVal = data[3]:sub(1,3)  .. data[4] .. data[3]:sub(4)
 		end
 	end
+	if retVal == nil then return end
 	return retVal
 end
 
@@ -229,13 +231,13 @@ local RIO_UHF_REMOTE_DISP = ""
 local PLT_VUHF_REMOTE_DISP = ""
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	if PLT_UHF_REMOTE_DISP == nil then PLT_UHF_REMOTE_DISP = "000.000"
+	if PLT_UHF_REMOTE_DISP == nil then PLT_UHF_REMOTE_DISP = "0000000"
 	else PLT_UHF_REMOTE_DISP = get_radio_remote_display(9,15004) end
 	
-	if RIO_UHF_REMOTE_DISP == nil then RIO_UHF_REMOTE_DISP = "000.000"
+	if RIO_UHF_REMOTE_DISP == nil then RIO_UHF_REMOTE_DISP = "0000000"
 	else RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,405) end
 	
-	if PLT_VUHF_REMOTE_DISP == nil then PLT_VUHF_REMOTE_DISP = "000.000"
+	if PLT_VUHF_REMOTE_DISP == nil then PLT_VUHF_REMOTE_DISP = "0000000"
 	else PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003) end
 end
 --------------------------------- Matchstick End ---------------------------------  
@@ -515,40 +517,35 @@ definePotentiometer("PLT_UHF1_BRIGHTNESS", 3, 3363, 2027, {0.0, 1.0}, "UHF 1", "
 definePushButton("PLT_UHF1_LOAD", 3, 3378, 16009, "UHF 1", "PILOT UHF ARC-159 Load")
 definePushButton("PLT_UHF1_TONE", 3, 3379, 16010, "UHF 1", "PILOT UHF ARC-159 Tone")
 
-function getARC159_High_Frequency()
+local function getARC159_High_Frequency()
 	--Export : 225000192.000000
 	local arc_159 = GetDevice(3)
 	local freq = tostring(arc_159:get_frequency())
+	if freq == "nan" then freq = "000000" end
 	freq = string.sub(freq, 1, 3)
 	return tonumber(freq)	
 end
-function getARC159_Decimal_DIAL3_Frequency()
+local function getARC159_Decimal_DIAL3_Frequency()
 	--Export : 225975
 	local arc_159 = GetDevice(3)
 	local freq = tostring(arc_159:get_frequency())
+	if freq == "nan" then freq = "000000" end
 	--Get the 9
 	freq = string.sub(freq, 4, 4)
 	return tonumber(freq)	
 end
 
-function getARC159_Decimal_DIAL4_Frequency()
+local function getARC159_Decimal_DIAL4_Frequency()
 	--Export : 225975192.000000
 	--00 25 50 75
 	local arc_159 = GetDevice(3)
 	local freq = tostring(arc_159:get_frequency())
+	if freq == "nan" then freq = "000000" end
 	--Get the 75
 	freq = string.sub(freq, 5, 6)
 	return tonumber(freq)	
 end
 
-function getARC159_String_Frequency()
-	--Export : 225000192.000000
-	local arc_159 = GetDevice(3)
-	local freq = tostring(arc_159:get_frequency())
-	if freq == "nan" then freq = "000000" end
-	return freq:sub(1,3) .. "." .. freq:sub(4,6)	
-end
-defineString("PLT_UHF_STRING_FREQ", getARC159_String_Frequency, 7, "UHF 1", "PILOT ARC-159 Frequency (string)")
 defineIntegerFromGetter("PLT_UHF_DIAL4_FREQ", getARC159_Decimal_DIAL4_Frequency, 100, "UHF 1", "PILOT Dial 4 ARC-159 Frequency")
 defineIntegerFromGetter("PLT_UHF_DIAL3_FREQ", getARC159_Decimal_DIAL3_Frequency, 10, "UHF 1", "PILOT Dial 3 ARC-159 Frequency")
 defineIntegerFromGetter("PLT_UHF_HIGH_FREQ", getARC159_High_Frequency, 400, "UHF 1", "PILOT High ARC-159 Frequency")
@@ -575,12 +572,12 @@ definePotentiometer("RIO_VUHF_VOL", 4, 3401, 350, {0.0, 1.0}, "VUHF", "RIO VUHF 
 definePotentiometer("PLT_VUHF_VOL", 4, 3403, 2038, {0.0, 1.0}, "VUHF", "PILOT VUHF ARC-182 Volume")
 definePotentiometer("RIO_VUHF_BRIGHTNESS", 4, 3405, 360, {0.0, 1.0}, "VUHF", "RIO VUHF ARC-182 Display Brightness")
 
-function getARC182_High_Frequency()
+local function getARC182_High_Frequency()
 	--225000288
 	-- 65000056	
 	local arc_182 = GetDevice(4)
 	local freq = tostring(arc_182:get_frequency())
-
+    if freq == "nan" then freq = "000000" end
 	if(string.len(freq) == 8) then
 		freq = string.sub(freq, 1, 2)
 	else
@@ -588,11 +585,12 @@ function getARC182_High_Frequency()
 	end
 	return tonumber(freq)	
 end
-function getARC182_Decimal_DIAL3_Frequency()
+local function getARC182_Decimal_DIAL3_Frequency()
 	--225975288
 	-- 65975056
 	local arc_182 = GetDevice(4)
 	local freq = tostring(arc_182:get_frequency())
+	if freq == "nan" then freq = "000000" end
 	--Get the 9
 	if(string.len(freq) == 8) then
 		freq = string.sub(freq, 3, 3)
@@ -602,12 +600,13 @@ function getARC182_Decimal_DIAL3_Frequency()
 	return tonumber(freq)	
 end
 
-function getARC182_Decimal_DIAL4_Frequency()
+local function getARC182_Decimal_DIAL4_Frequency()
 	--225975288
 	-- 65975056
 	--00 25 50 75
 	local arc_182 = GetDevice(4)
 	local freq = tostring(arc_182:get_frequency())
+	if freq == "nan" then freq = "000000" end
 	--Get the 75
 	if(string.len(freq) == 8) then
 		freq = string.sub(freq, 4, 5)
@@ -617,18 +616,6 @@ function getARC182_Decimal_DIAL4_Frequency()
 	return tonumber(freq)	
 end
 
-function getARC182_String_Frequency()
-
-	local arc_182 = GetDevice(4)
-	local freq = tostring(arc_182:get_frequency())
-		if freq == "nan" then freq = "000000" end
-	if(string.len(freq) == 8) then
-		return freq:sub(1,2) .. "." .. freq:sub(3,5)	
-	else
-		return freq:sub(1,3) .. "." .. freq:sub(4,6)	
-	end	
-end
-defineString("RIO_VUHF_STRING_FREQ", getARC182_String_Frequency, 7, "VUHF", "RIO ARC-182 Frequency (string)")
 defineIntegerFromGetter("RIO_VUHF_DIAL4_FREQ", getARC182_Decimal_DIAL4_Frequency, 100, "VUHF", "RIO Dial 4 ARC-182 Frequency")
 defineIntegerFromGetter("RIO_VUHF_DIAL3_FREQ", getARC182_Decimal_DIAL3_Frequency, 10, "VUHF", "RIO Dial 3 ARC-182 Frequency")
 defineIntegerFromGetter("RIO_VUHF_HIGH_FREQ", getARC182_High_Frequency, 400, "VUHF", "RIO High ARC-182 Frequency")
