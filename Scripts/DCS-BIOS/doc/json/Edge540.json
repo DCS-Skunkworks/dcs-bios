@@ -18,22 +18,38 @@
                                                               }
                                             },
                  "External Aircraft Model": {
-                                                "EXT_LIGHTS": {
-                                                                      "category": "External Aircraft Model",
-                                                                  "control_type": "metadata",
-                                                                   "description": "External Lights (red,green,white)",
-                                                                    "identifier": "EXT_LIGHTS",
-                                                                        "inputs": [  ],
-                                                                       "outputs": [ {
-                                                                                          "address": 22018,
-                                                                                      "description": "External Lights (red,green,white)",
-                                                                                             "mask": 4,
-                                                                                        "max_value": 1,
-                                                                                         "shift_by": 2,
-                                                                                           "suffix": "",
-                                                                                             "type": "integer"
-                                                                                  } ]
-                                                              }
+                                                   "EXT_LIGHTS": {
+                                                                         "category": "External Aircraft Model",
+                                                                     "control_type": "metadata",
+                                                                      "description": "External Lights (red,green,white)",
+                                                                       "identifier": "EXT_LIGHTS",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 22018,
+                                                                                         "description": "External Lights (red,green,white)",
+                                                                                                "mask": 4,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 2,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                "EXT_PAINTGLOW": {
+                                                                         "category": "External Aircraft Model",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Paintjob Glow",
+                                                                       "identifier": "EXT_PAINTGLOW",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 22018,
+                                                                                         "description": "Paintjob Glow",
+                                                                                                "mask": 8,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 3,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 }
                                             },
                                   "Gauges": {
                                                  "AIRSPEED": {
