@@ -39,6 +39,7 @@ end
 
 local function LoGetGLoad()
 	local au = LoGetAccelerationUnits()
+	if au == nil then return end
 	return au.y
 end
 
@@ -54,19 +55,19 @@ local function BarFuel(fuel, plane)
 	elseif plane == "Su-27" or plane == "Su-33" or plane == "J-11A" then maxFuel = 9400
 	end
 
-	local bar = math.ceil((fuel / maxFuel) * 16)
-	if bar > 16 then bar = 16 end
-
-	return bar
+	local barf = math.ceil((fuel / maxFuel) * 16)
+	if barf > 16 then barf = 16 end
+    if barf == nil then return end
+	return barf
 end
 
 local function BarGLoad(gload)
-	local bar = math.floor((gload / 11) * 16)
+	local barg = math.floor((gload / 11) * 16)
 
-	if bar < 0 then bar = 0
-	elseif bar > 16 then bar = 16 end
-
-	return bar
+	if barg < 0 then barg = 0
+	elseif barg > 16 then barg = 16 end
+    if barg == nil then return end
+	return barg
 end
 
 local function BarVVI(vvi, plane)
@@ -79,7 +80,7 @@ local function BarVVI(vvi, plane)
 	elseif bar > 8 then bar = 8
 	elseif bar > 0 then bar = math.ceil(bar)
 	end
-
+    if bar == nil then return end
 	return bar + 8
 end
 
@@ -183,7 +184,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 
 	if fuel > 100 then _fuel = string.format("%4d", fuel)
 	else _fuel = string.format("%4.1f", fuel) end
-
+     if _fuel == nil then return end
+	 
 	-- G LOAD
 	if plane == "A-10A" then
 		if gload < -5 then gload = -5
