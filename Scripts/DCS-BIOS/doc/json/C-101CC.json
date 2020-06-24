@@ -10576,7 +10576,7 @@
                                                                  "BACK_IFR_HOOD": {
                                                                                           "category": "Misc",
                                                                                       "control_type": "limited_dial",
-                                                                                       "description": "BACK IFR Hood !equip via ME!",
+                                                                                       "description": "BACK IFR Hood (Equip via ME)",
                                                                                         "identifier": "BACK_IFR_HOOD",
                                                                                             "inputs": [ {
                                                                                                           "description": "set the position of the dial",
@@ -13977,6 +13977,26 @@
                                                                         }
                                             },
                                "UHF Radio": {
+                                                    "BACK_UHF_TEST_SW": {
+                                                                                "category": "UHF Radio",
+                                                                            "control_type": "3Pos_2Command_Switch",
+                                                                             "description": "C-101EB BACK UHF Frequency/Test Switch",
+                                                                              "identifier": "BACK_UHF_TEST_SW",
+                                                                                  "inputs": [ {
+                                                                                                "description": "set the switch position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 2
+                                                                                            } ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 14124,
+                                                                                                "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                                       "mask": 96,
+                                                                                                  "max_value": 2,
+                                                                                                   "shift_by": 5,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
                                                    "CC_BACK_UHF_FREQU": {
                                                                                        "category": "UHF Radio",
                                                                                    "control_type": "selector",
@@ -15234,29 +15254,24 @@
                                                                                             } ]
                                                                         },
                                                    "FRONT_UHF_TEST_SW": {
-                                                                                       "category": "UHF Radio",
-                                                                                   "control_type": "selector",
-                                                                                    "description": "C-101EB FRONT UHF Frequency/Test Switch",
-                                                                                     "identifier": "FRONT_UHF_TEST_SW",
-                                                                                         "inputs": [ {
-                                                                                                       "description": "switch to previous or next state",
-                                                                                                         "interface": "fixed_step"
-                                                                                                   }, {
-                                                                                                       "description": "set position",
-                                                                                                         "interface": "set_state",
-                                                                                                         "max_value": 2
-                                                                                                   } ],
-                                                                            "momentary_positions": "none",
-                                                                                        "outputs": [ {
-                                                                                                           "address": 14124,
-                                                                                                       "description": "selector position",
-                                                                                                              "mask": 96,
-                                                                                                         "max_value": 2,
-                                                                                                          "shift_by": 5,
-                                                                                                            "suffix": "",
-                                                                                                              "type": "integer"
-                                                                                                   } ],
-                                                                               "physical_variant": "3_position_switch"
+                                                                                "category": "UHF Radio",
+                                                                            "control_type": "3Pos_2Command_Switch",
+                                                                             "description": "C-101EB FRONT UHF Frequency/Test Switch",
+                                                                              "identifier": "FRONT_UHF_TEST_SW",
+                                                                                  "inputs": [ {
+                                                                                                "description": "set the switch position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 2
+                                                                                            } ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 14124,
+                                                                                                "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                                       "mask": 24,
+                                                                                                  "max_value": 2,
+                                                                                                   "shift_by": 3,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
                                                                         }
                                             },
                                      "VHF": {
