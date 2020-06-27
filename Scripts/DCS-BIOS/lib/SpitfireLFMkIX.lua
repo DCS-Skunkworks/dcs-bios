@@ -63,8 +63,8 @@ defineTumb("BOOSTER_COVER",2, 3025, 66, 1, {0,1}, nil, false, "Engine", "Booster
 --Booster Coil Button
 defineTumb("BOOSTER",2, 3027, 67, 1, {0,1}, nil, false, "Engine", "Booster Coil")
 --Primer Pump
-definePotentiometer("PRIMER_TURN",1, 3030, 69, {0,1}, "Engine", "Primer Pump Turn")
-definePushButton("PRIMER_PULL",1, 3029, 68, "Engine", "Primer Pump Pull")
+definePotentiometer("PRIMER_TURN",2, 3029, 68, {0,1}, "Engine", "Primer Pump Turn")
+definePushButton("PRIMER_PULL",2, 3030, 69, "Engine", "Primer Pump Pull")
 --Tank Pressurizer Lever
 defineTumb("TANK_PRS",2, 3033, 70, 1, {0,1}, nil, false, "Engine", "Fuel Tank Pressure On/Off")
 --Magnetic Compass
