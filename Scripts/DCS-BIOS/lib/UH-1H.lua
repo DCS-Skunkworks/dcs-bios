@@ -561,5 +561,4 @@ defineToggleSwitch("LDG_LIGHT_SW2", 7, 3034, 209, "Collective", "Copilot Landing
 defineTumb("SEARCH_LIGHT_SW2", 7, 3035, 208, 1, {-1, 1}, nil, false, "Collective", "Copilot Search Light STOW / OFF / ON")
 defineTumb("LDG_LT_CTRL2", 7, 3036, 212, 1, {-1, 1}, nil, false, "Collective", "Copilot Landing Lights Control Switch")
 
-
 BIOS.protocol.endModule()

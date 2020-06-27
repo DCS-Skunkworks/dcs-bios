@@ -65,6 +65,7 @@ a("NONE", false)
 --MODs
 a("A-4E-C", true)
 a("AC_130", false)
+a("AH-6", true)
 a("Bell47_2", true)
 a("Cessna_210N", false)
 a("DC3", false)
