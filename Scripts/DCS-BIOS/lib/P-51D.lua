@@ -389,5 +389,9 @@ end, 1, "External Aircraft Model", "Landing Light (white)")
 
 defineFloat("CANOPY_POS", 162, {0, 1}, "Cockpit Mechanical", "Canopy Position")
 defineRadioWheel("RKT_COUNT_CON", 4, 3009, 3010, {-0.1, 0.1}, 75, 0.1, {0, 1.0}, nil, "Weapon Control", "Rockets Counter Control")
+defineFloat("AILERON_TRIM_G", 170, {-1.0, 1.0}, "Control System", "Aileron Trim Gauge")
+defineFloat("RUDDER_TRIM_G", 172, {-1.0, 1.0}, "Control System", "Rudder Trim Gauge")
+defineFloat("ELEVATOR_TRIM_G", 171, {-1.0, 1.0}, "Control System", "Elevator Trim Gauge")
+defineFloat("CONTR_LOCK_BRACK", 174, {0.0, 1.0}, "Control System", "Control Lock Bracket")
 
 BIOS.protocol.endModule()
