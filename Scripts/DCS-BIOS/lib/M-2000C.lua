@@ -1,15 +1,15 @@
------------------------------------------------------------                                         
+-----------------------------------------------------------
 --     LIBRARY     	:    Mirage 2000C RAZBAM
---     CONTIBUTORS 	:    Exo7, Ergo, Matchstick, WarLord 
+--     CONTIBUTORS 	:    Exo7, Ergo, Matchstick, WarLord
 --     VERSION     	:    v1.27b
 -----------------------------------------------------------
--- Release log : 
--- v1.12 by Exo7 
+-- Release log :
+-- v1.12 by Exo7
 --      Original stuff
--- 
+--
 -- v1.12-mod-Ergo-1 by Ergo
---      Adding INS Parameter Selector 
---      Adding INS VAL Button 
+--      Adding INS Parameter Selector
+--      Adding INS VAL Button
 --
 -- v1.12-mod-Ergo-2 by Ergo
 --      Adding all PCN text in PCN_DISP
@@ -66,6 +66,10 @@
 --		fixing readouts;UHF Preset fixed;cleanup
 --
 -- v1.27b by WarLord add WoW Code
+--
+-- v1.28 by MisterKnife
+--		fixed landing toggle and HSI knobs
+--
 -----------------------------------------------------------
 
 BIOS.protocol.beginModule("M-2000C", 0x7200)
@@ -108,8 +112,8 @@ local function getUHFFrequency()
     end
 return "         "
 end
- 
- 
+
+
 
  local function getVHFFrequency()
 	local li = list_indication(7)
@@ -336,7 +340,7 @@ local function getPPAQtyDisp()
         return value:sub(-2)
       end
     end
-return "         "	
+return "         "
 end
 
 local function getPPAIntDisp()
@@ -351,7 +355,7 @@ local function getPPAIntDisp()
         return value:sub(-2)
       end
     end
-return "         "	
+return "         "
 end
 
 local function getPCNDispL() -- by Ergo
@@ -745,7 +749,7 @@ defineToggleSwitch("ANTI-COL_LGT_SW", 16, 3453, 453, "EXT LIGHTS", "I - Anti-Col
 defineToggleSwitch("NAV_LGT_SW", 16, 3454, 454, "EXT LIGHTS", "I - Navigation Lights Switch")
 defineToggleSwitch("FORM_LGT_SW", 16, 3455, 455, "EXT LIGHTS", "I - Formation Lights Switch")
 definePotentiometer("REFUEL_LGT_BRIGHT_KNOB", 16, 3920, 920, {0, 1}, "EXT LIGHTS", "I - Refuel Lights Brightness Knob")
-defineTumb("LDG_LGT_SW", 16, 3450, 450, 1, {-1, 1}, nil, false, "EXT LIGHTS", "I - Landing Lights Switch")
+defineTumb("LDG_LGT_SW", 16, 3450, 450, 0.5, {0, 1}, nil, false, "EXT LIGHTS", "I - Landing Lights Switch")
 
 -- FUEL SYSTEM
 defineMultipositionSwitch("AAR_SW", 7, 3193, 193, 3, 0.5, "FUEL SYSTEM", "I - Air Refuel Transfer Switch")
@@ -766,7 +770,6 @@ defineFloat("FUEL_DETOT_TENS", 354, {0, 1}, "FUEL SYSTEM", "O - FUEL - x10 DETOT
 defineFloat("FUEL_JAUG_G", 358, {0, 1}, "FUEL SYSTEM", "O - FUEL - LEFT JAUGE display")
 defineFloat("FUEL_JAUG_D", 359, {0, 1}, "FUEL SYSTEM", "O - FUEL - RIGHT JAUGE display")
 
-
 defineIndicatorLight("FUEL_RL_G", 362, "FUEL SYSTEM", "O - FUEL - Left RL Light")
 defineIndicatorLight("FUEL_RL_M", 363, "FUEL SYSTEM", "O - FUEL - Center RL Light")
 defineIndicatorLight("FUEL_RL_D", 364, "FUEL SYSTEM", "O - FUEL - Right RL Light")
@@ -780,8 +783,8 @@ defineString("FUEL_FLOW", getFuelFlow, 3, "FUEL SYSTEM", "O - FUEL - Fuel Flow D
 defineFloat("GMETER_NEEDLE", 347, {-1, 1}, "G-METER", "O - ACC - G Needle")
 
 -- HSI
-definePotentiometer("HSI_VAD_SEL", 2, 3340, 340, {0, 1}, "HSI", "I - HSI - VAD Selector")
-defineTumb("HSI_MODE_SEL_SW", 2, 3341, 341, 0.2, {0, 1}, nil, false, "HSI", "I - HSI - Mode Selector Switch")
+defineTumb("HSI_VAD_SEL", 2, 3340, 340, 0.1, {0, 1}, nil, true, "HSI", "I - HSI - VAD Selector")
+defineTumb("HSI_MODE_SEL_SW", 2, 3341, 341, 0.1, {0, 1}, nil, false, "HSI", "I - HSI - Mode Selector Switch")
 defineFloat("HSI_HDG", 333, {0, 1}, "HSI", "O - HSI - AP Heading (Green Arrow)")
 defineFloat("HSI_D_NEEDLE", 334, {0, 1}, "HSI", "O - HSI - COURSE (Double Needle)")
 defineFloat("HSI_NEEDLE", 335, {0, 1}, "HSI", "O - HSI - VAD (Simple Needle)")
