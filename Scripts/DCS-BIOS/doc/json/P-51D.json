@@ -575,6 +575,38 @@
                                                                                                  "type": "integer"
                                                                                       } ]
                                                                   },
+                                                "AILERON_TRIM_G": {
+                                                                          "category": "Control System",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Aileron Trim Gauge",
+                                                                        "identifier": "AILERON_TRIM_G",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 20674,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 65535,
+                                                                                            "max_value": 65535,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                              "CONTR_LOCK_BRACK": {
+                                                                          "category": "Control System",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Control Lock Bracket",
+                                                                        "identifier": "CONTR_LOCK_BRACK",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 20680,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 65535,
+                                                                                            "max_value": 65535,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
                                                  "ELEVATOR_TRIM": {
                                                                        "api_variant": "multiturn",
                                                                           "category": "Control System",
@@ -594,6 +626,22 @@
                                                                                             "max_value": 65535,
                                                                                              "shift_by": 0,
                                                                                                "suffix": "_KNOB_POS",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                               "ELEVATOR_TRIM_G": {
+                                                                          "category": "Control System",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Elevator Trim Gauge",
+                                                                        "identifier": "ELEVATOR_TRIM_G",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 20678,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 65535,
+                                                                                            "max_value": 65535,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ]
                                                                   },
@@ -730,6 +778,22 @@
                                                                                             "max_value": 65535,
                                                                                              "shift_by": 0,
                                                                                                "suffix": "_KNOB_POS",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                 "RUDDER_TRIM_G": {
+                                                                          "category": "Control System",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Rudder Trim Gauge",
+                                                                        "identifier": "RUDDER_TRIM_G",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 20676,
+                                                                                          "description": "gauge position",
+                                                                                                 "mask": 65535,
+                                                                                            "max_value": 65535,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ]
                                                                   },
