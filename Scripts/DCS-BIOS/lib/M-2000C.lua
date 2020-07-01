@@ -1,17 +1,16 @@
------------------------------------------------------------
+-----------------------------------------------------------                                         
 --     LIBRARY     	:    Mirage 2000C RAZBAM
---     CONTIBUTORS 	:    Exo7, Ergo, Matchstick, WarLord
---     VERSION     	:    v1.27b
+--     VERSION     	:    v1.28
 -----------------------------------------------------------
--- Release log :
--- v1.12 by Exo7
+-- Release log : 
+-- v1.12 by Exo7 
 --      Original stuff
+-- 
+-- v1.12 by Ergo
+--      Adding INS Parameter Selector 
+--      Adding INS VAL Button 
 --
--- v1.12-mod-Ergo-1 by Ergo
---      Adding INS Parameter Selector
---      Adding INS VAL Button
---
--- v1.12-mod-Ergo-2 by Ergo
+-- v1.12 by Ergo
 --      Adding all PCN text in PCN_DISP
 --
 -- v1.13 by Exo7
@@ -69,7 +68,6 @@
 --
 -- v1.28 by MisterKnife
 --		fixed landing toggle and HSI knobs
---
 -----------------------------------------------------------
 
 BIOS.protocol.beginModule("M-2000C", 0x7200)
@@ -112,8 +110,8 @@ local function getUHFFrequency()
     end
 return "         "
 end
-
-
+ 
+ 
 
  local function getVHFFrequency()
 	local li = list_indication(7)
@@ -340,7 +338,7 @@ local function getPPAQtyDisp()
         return value:sub(-2)
       end
     end
-return "         "
+return "         "	
 end
 
 local function getPPAIntDisp()
@@ -355,7 +353,7 @@ local function getPPAIntDisp()
         return value:sub(-2)
       end
     end
-return "         "
+return "         "	
 end
 
 local function getPCNDispL() -- by Ergo
