@@ -18,7 +18,7 @@ local defineString = BIOS.util.defineString
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
---[[--Electric System--]]--
+--Electric System
 definePushButton("WIPER_ONCE", 2, 3018, 53, "Electric System", "Wiper Once")
 defineToggleSwitch("BATTERY", 2, 3001, 264, "Electric System", "Battery")
 defineToggleSwitch("ALTERNATOR", 2, 3002, 265, "Electric System", "Alternator")
@@ -38,23 +38,23 @@ definePushButton("REARM_GENE", 2, 3015, 67, "Electric System", "Gene Rearm")
 defineToggleSwitch("CONVOY_TANK", 2, 3016, 63, "Electric System", "Convoy Tank On/Off")
 defineToggleSwitch("SAND_FILTER", 2, 3017, 64, "Electric System", "Sand Filter On/Off")
 
---[[--Intercom Pilot--]]--
+--Intercom Pilot
 defineRotary("VHF_AM_RADIO_VOLUME_1", 4, 3001, 68, "Intercom", "VHF AM Radio Volume 1")
 defineRotary("FM_RADIO_VOLUME_1", 4, 3002, 70, "Intercom", "FM Radio Volume 1")
 defineRotary("UHF_RADIO_VOLUME_1", 4, 3003, 69, "Intercom", "UHF Radio Volume 1")
 
---[[--Intercom Copilot--]]--
+--Intercom Copilot
 defineRotary("VHF_AM_RADIO_VOLUME_2", 4, 3031, 79, "Intercom", "VHF AM Radio Volume 2")
 defineRotary("FM_RADIO_VOLUME_2", 4, 3032, 81, "Intercom", "FM Radio Volume 2")
 defineRotary("UHF_RADIO_VOLUME_2", 4, 3033, 80, "Intercom", "UHF Radio Volume 2")
 
---[[--AM Radio--]]--
+--AM Radio
 defineTumb("AM_RADIO_SELECTOR", 5, 3001, 128, 0.33, {0, 1}, nil, false, "AM Radio", "AM Radio Selector")
 defineRotary("AM_RADIO_FREQUENCY_DIAL_RIGHT", 5, 3002, 129, "AM Radio", "AM Radio Frequency Dial Right")
 defineToggleSwitch("AM_FREQUENCY_SELECTOR", 5, 3003, 130, "AM Radio", "AM Radio 25/50kHz Selector")
 defineRotary("AM_RADIO_FREQUENCY_DIAL_LEFT", 5, 3004, 131, "AM Radio", "AM Radio Frequency Dial Left")
 
---[[--Autopilot--]]--
+--Autopilot
 definePushButton("AUTOPILOT_BUTTON", 7, 3028, 209, "Autopilot", "Autopilot Button")
 definePushButton("AUTOPILOT_SLAVE", 7, 3012, 293, "Autopilot", "Autopilot Slave")
 definePushButton("AUTO_HOVER", 7, 3008, 294, "Autopilot", "Auto-Hover")
@@ -70,7 +70,7 @@ defineTumb("AUTOPILOT_MODE", 7, 3005, 35, 1, {-1, 1}, nil, false, "Autopilot", "
 defineToggleSwitch("AUTOPILOT_TRIM", 7, 3006, 60, "Autopilot", "Autopilot Trim")
 defineToggleSwitch("MAGNETIC_BRAKE", 7, 3007, 65, "Autopilot", "Magnetic Brake")
 
---[[--Controls & Flight Controls--]]--
+--Controls & Flight Controls
 definePushButton("MAGNETIC_BRAKE_BUTTON", 8, 3001, 50, "Controls", "Magnetic Brake Button")
 definePushButton("HA_UNLOCK", 9, 3002, 116, "Flight Controls", "HA Unlock")
 defineRotary("HA_ADJUST", 9, 3001, 115, "Flight Controls", "HA Adjust")
@@ -78,19 +78,19 @@ definePushButton("STANDBY_HA_UNLOCK", 9, 3004, 216, "Flight Controls", "Standby 
 defineRotary("STANDBY_HA_ADJUST", 9, 3003, 215, "Flight Controls", "Standby HA Adjust")
 defineTumb("HA_SOURCE", 9, 3007, 218, 0.33, {0, 1}, nil, false, "Flight Controls", "HA Source")
 
---[[--Fuel--]]--
+--Fuel
 defineToggleSwitch("FUEL_FLOW_LEVER", 10, 3001, 557, "Fuel", "Fuel Flow Lever")
 
---[[--Rotors--]]--
+--Rotors
 defineToggleSwitch("ROTOR_BRAKE", 11, 3001, 556, "Rotors", "Rotor Brake")
 
---[[--TV--]]--
+--TV
 defineToggleSwitch("TV_ON_OFF", 13, 3001, 124, "TV", "TV On/Off")
 definePotentiometer("TV_CONTRAST", 13, 3002, 125, {0, 1}, "TV", "TV Contrast")
 definePotentiometer("TV_BRIGHTNESS", 13, 3003, 123, {0, 1}, "TV", "TV Brightness")
 defineToggleSwitch("TV_COVER", 13, 3004, 126, "TV", "TV Cover")
 
---[[--Lights--]]--
+--Lights
 definePotentiometer("DASHBOARD_LIGHTING", 14, 3001, 22, {0, 1}, "Lights", "Main Dashboard Lighting")
 definePotentiometer("CONSOLE_LIGHTING", 14, 3002, 21, {0, 1}, "Lights", "Console Lighting")
 definePotentiometer("UV_LIGHTING", 14, 3003, 145, {0, 1}, "Lights", "UV Lighting")
@@ -98,7 +98,7 @@ defineToggleSwitch("LIGHTS_NORM_BNL", 14, 3004, 23, "Lights", "Lights Norm/BNL")
 definePotentiometer("ROOF_LAMP", 14, 3005, 147, {0, 1}, "Lights", "Roof Lamp Knob")
 defineToggleSwitch("RED_LENS_ON_OFF", 14, 3006, 154, "Lights", "Red Lens On/Off")
 
---[[--Navlights--]]--
+--Navlights
 defineTumb("NAV_LIGHTS", 15, 3001, 146, 1, {-1, 1}, nil, false, "Navlights", "Navigation Lights CLI/OFF/FIX")
 defineTumb("ANTICOLL_LIGHTS", 15, 3002, 228, 1, {-1, 1}, nil, false, "Navlights", "Anticollision Light NOR/OFF/ATT")
 defineTumb("LANDING_LIGHTS", 15, 3003, 105, 1, {-1, 1}, nil, false, "Navlights", "Landing Light Off/Vario/On")
@@ -109,7 +109,7 @@ definePotentiometer("ANTICOLL_INTENSITY", 15, 3010, 30, {0, 1}, "Navlights", "An
 defineToggleSwitch("FORMATION_LIGHTS", 15, 3011, 229, "Navlights", "Formation Lights On/Off")
 definePotentiometer("FORMATION_INTENSITY", 15, 3012, 230, {0, 1}, "Navlights", "Formation Lights Intensity")
 
---[[--PE--]]--
+--PE
 defineToggleSwitch("LASING_BUTTON_COVER", 16, 3021, 255, "PE", "Lasing Button Cover")
 definePushButton("LASING_BUTTON", 16, 3022, 256, "PE", "Lasing Button")
 defineToggleSwitch("MISSILE_LAUNCH_COVER", 16, 3023, 257, "PE", "Missile Launch Cover")
@@ -132,25 +132,25 @@ defineTumb("CTH_POWER", 16, 3005, 366, 0.5, {0, 1}, nil, false, "PE", "CTH Power
 defineToggleSwitch("LASER_POWER", 16, 3006, 367, "PE", "Laser Power")
 defineTumb("CAMERA_MODE", 16, 3007, 370, 0.25, {0, 1}, nil, false, "PE", "Camera Mode")
 
---[[--Torque--]]--
+--Torque
 definePushButton("TORQUE_TEST", 17, 3001, 58, "Torque", "Torque Test")
 defineRotary("TORQUE_BUG_ADJUST", 17, 3002, 299, "Torque", "Torque Bug Adjust")
 
---[[--Radar Altimeter--]]--
+--Radar Altimeter
 defineRotary("RADAR_ALT_BUG", 18, 3001, 93, "Radar Altimeter", "Radar Altimeter Bug Adjust")
 defineRotary("RADAR_ALT_POWER", 18, 3002, 91, "Radar Altimeter", "Radar Altimeter Power")
 definePushButton("RADAR_ALT_TEST", 18, 3003, 100, "Radar Altimeter", "Radar Altimeter Test")
 
---[[--Baro Altimeter--]]--
+--Baro Altimeter
 defineRotary("BAROMETRIC_ALTIMETER", 19, 3001, 89, "Baro Altimeter", "Barometric Pressure Adjust")
 
---[[--Clock--]]--
+--Clock
 definePushButton("CLOCK_PUSH_BUTTON", 20 , 3004, 270, "Clock", "Clock Push Button")
 defineRotary("CLOCK_SET", 20, 3001, 45, "Clock", "Clock Set")
 definePushButton("CLOCK_START_STOP", 20 , 3002, 46, "Clock", "Clock Start Stop")
 definePushButton("CLOCK_RESET", 20 , 3003, 47, "Clock", "Clock Reset")
 
---[[--ADF--]]--
+--ADF
 defineToggleSwitch("ADF1_ADF2_SELECT", 21, 3001, 166, "ADF", "ADF1/ADF2 Select")
 defineToggleSwitch("ADF_TONE_ON_OFF", 21, 3002, 167, "ADF", "ADF Tone On/Off")
 defineTumb("ADF_MODE", 21, 3003, 178, 0.33, {0, 1}, nil, false, "ADF", "ADF Mode")
@@ -162,7 +162,7 @@ defineRotary("ADF_NAV2_100", 21, 3008, 174, "ADF", "ADF NAV2 100s")
 defineRotary("ADF_NAV2_10", 21, 3009, 175, "ADF", "ADF NAV2 10s")
 defineRotary("ADF_NAV2_1", 21, 3010, 176, "ADF", "ADF NAV2 1s")
 
---[[--NADIR--]]--
+--NADIR
 definePotentiometer("NADIR_ON_OFF_BRIGHTNESS", 23, 3001, 330, {0, 1}, "NADIR", "NADIR On/Off/Brightness")
 defineTumb("NADIR_DOPPLER_MODE", 23, 3002, 331, 0.2, {0, 1}, nil, false, "NADIR", "NADIR Doppler Mode")
 defineTumb("NADIR_PARAMETER", 23, 3003, 332, 0.2, {0, 1}, nil, false, "NADIR", "NADIR Parameter")
@@ -187,21 +187,21 @@ definePushButton("NADIR_POS_BUTTON", 23, 3021, 349, "NADIR", "NADIR POS Button")
 definePushButton("NADIR_GEL_BUTTON", 23, 3022, 350, "NADIR", "NADIR GEL Button")
 definePushButton("NADIR_EFF_BUTTON", 23, 3023, 352, "NADIR", "NADIR EFF Button")
 
---[[--RWR--]]--
+--RWR
 defineTumb("RWR_OFF_ON_CROC", 24, 3001, 148, 1, {-1, 1}, nil, false, "RWR", "RWR Off/On/Croc")
 definePushButton("RWR_MARKER", 24, 3002, 149, "RWR", "RWR Marker")
 definePushButton("RWR_PAGE", 24, 3003, 150, "RWR", "RWR Page")
 definePotentiometer("RWR_AUDIO", 24, 3004, 121, {0, 1}, "RWR", "RWR Audio Volume")
 definePotentiometer("RWR_BRIGHTNESS", 24, 3005, 122, {0, 1}, "RWR", "RWR Brightness")
 
---[[--Flare Dispenser--]]--
+--Flare Dispenser
 defineTumb("FLARE_DISP_SIDE_SELECT", 25, 3001, 220, 1, {-1, 1}, nil, false, "Flare Dispenser", "Flare Dispenser Side Selector D/G+D/G")
 defineToggleSwitch("FLARE_DISPENSE_MODE", 25, 3002, 221, "Flare Dispenser", "Flare Dispense Mode")
 defineTumb("FLARE_DISPENSER_OFF_ON", 25, 3003, 222, 1, {-1, 1}, nil, false, "Flare Dispenser", "Flare Dispenser Off/On/Speed Select")
 defineToggleSwitch("FLARE_DISP_FIRE_CAP", 25, 3004, 194, "Flare Dispenser", "Flare Dispense Fire Button Cap")
 definePushButton("FLARE_DISPENSE_BUTTON", 25, 3005, 195, "Flare Dispenser", "Flare Dispenser Fire Button")
 
---[[--Weapons--]]--
+--Weapons
 defineTumb("WEAPONS_PANEL_1_OFF_ON_STBY", 26, 3004, 354, 1, {-1, 1}, nil, false, "Weapons", "Weapons Panel 1 Off/On/Standby")
 definePotentiometer("WEAPONS_PANEL_1_DISP_BRIGHT", 26, 3009, 357, {0, 1}, "Weapons", "Weapons Panel 1 Display Brightness")
 defineToggleSwitch("LEFT_MASTER_ARM", 26, 3010, 372, "Weapons", "Left Master Arm On/Off")
@@ -212,12 +212,12 @@ defineToggleSwitch("WEAPON_LAUNCH_SEQ", 26, 3014, 376, "Weapons", "Weapon Launch
 defineToggleSwitch("PILOT_SIGHT", 26, 3002, 171, "Weapons", "Pilot Sight")
 defineToggleSwitch("WEAPONS_MASTER_ARM", 26, 3001, 269, "Weapons", "Weapons Master Arm On/Off")
 
---[[--PH/HOT3--]]--
+--PH/HOT3
 defineTumb("HOT3_PANEL_TEST_OFF_ON", 27, 3001, 180, 0.25, {0, 1}, nil, false, "HOT3", "HOT3 Panel Test/Off/On")
 defineTumb("HOT3_STATION_SELECT", 27, 3002, 181, 0.125, {0, 1}, nil, false, "HOT3", "HOT3 Station Select")
 definePotentiometer("HOT3_BRIGHTNESS", 27, 3003, 182, {0, 1}, "HOT3", "HOT3 Brightness")
 
---[[--FM Radio--]]--
+--FM Radio
 defineTumb("FM_RADIO_MODE", 28, 3001, 272, 0.25, {0, 1}, nil, false, "FM Radio", "FM Radio Mode Select")
 defineTumb("FM_RADIO_CHANNEL", 28, 3002, 273, 0.143, {0, 1}, nil, false, "FM Radio", "FM Radio Channel Select")
 definePushButton("FM_RADIO_BUTTON_7", 28, 3003, 274, "FM Radio", "FM Radio Button 7")
@@ -236,7 +236,7 @@ definePushButton("FM_RADIO_BUTTON_3", 28, 3015, 286, "FM Radio", "FM Radio Butto
 definePushButton("FM_RADIO_BUTTON_VAL", 28, 3016, 287, "FM Radio", "FM Radio Button VAL")
 definePushButton("FM_RADIO_BUTTON_DOWN", 28, 3017, 288, "FM Radio", "FM Radio Button DOWN")
 
---[[--UHF Radio--]]--
+--UHF Radio
 defineTumb("UHF_RADIO_MODE", 31, 3001, 383, 0.167, {0, 1}, nil, false, "UHF Radio", "UHF Radio Mode Select")
 definePushButton("UHF_RADIO_BUTTON_DRW", 31, 3002, 384, "UHF Radio", "UHF Radio Button DRW")
 definePushButton("UHF_RADIO_BUTTON_VLD", 31, 3003, 385, "UHF Radio", "UHF Radio Button VLD")
@@ -253,7 +253,7 @@ definePushButton("UHF_RADIO_BUTTON_8", 31, 3013, 395, "UHF Radio", "UHF Radio Bu
 definePushButton("UHF_RADIO_BUTTON_9", 31, 3014, 396, "UHF Radio", "UHF Radio Button 9")
 definePushButton("UHF_RADIO_BUTTON_0", 31, 3015, 397, "UHF Radio", "UHF Radio Button 0")
 
---[[--Indicator Lights--]]--
+--Indicator Lights
 defineIndicatorLight("FD_LAMP_VE", 233, "Indicator Lights", "FD Lamp VE")
 defineIndicatorLight("FD_LAMP_G_OPE)", 231, "Indicator Lights", "FD Lamp G OPE")
 defineIndicatorLight("FD_LAMP_D_OPE", 232, "Indicator Lights", "FD Lamp D OPE")
@@ -280,7 +280,7 @@ defineIndicatorLight("TV_LAMP", 127, "Indicator Lights", "TV Lamp")
 defineIndicatorLight("WP2_LEFT_LAMP", 377, "Indicator Lights", "Weapons Panel 2 Left Lamp")
 defineIndicatorLight("WP2_RIGHT_LAMP", 378, "Indicator Lights", "Weapons Panel 2 Right Lamp")
 
---[[--Warning Panel--]]--
+--Warning Panel
 defineIndicatorLight("PITOT_TUBE_WARNING", 1, "Warning Panel", "Pitot Tube Warning")
 defineIndicatorLight("TURBINE_OIL_PRESSURE", 2, "Warning Panel", "Turbine Oil Pressure Warning")
 defineIndicatorLight("ROTOR_OIL_PRESSURE", 3, "Warning Panel", "Main Rotor Oil Pressure Warning")
@@ -295,7 +295,7 @@ defineIndicatorLight("LOW_ROTOR_RPM", 11, "Warning Panel", "Low Rotor RPM Warnin
 defineIndicatorLight("CHIPS_IN_OIL", 12, "Warning Panel", "Chips In Oil Warning")
 defineIndicatorLight("SAND_FILTER_WARNING", 13, "Warning Panel", "Sand Filter Warning")
 
---[[--Raw Guage Values--]]--
+--Raw Guage Values
 defineFloat("GYRO_NEEDLE", 200, {-1, 1}, "Raw Gauge Values", "Gyro Needle")
 defineFloat("PITCH_NEEDLE", 37, {-1, 1}, "Raw Gauge Values", "Pitch Needle")
 defineFloat("ROLL_NEEDLE", 38, {-1, 1}, "Raw Gauge Values", "Roll Needle")
@@ -373,8 +373,7 @@ defineFloat("AM_RADIO_FREQ_1s", 136, {0, 1}, "Raw Gauge Values", "AM Radio Frequ
 defineFloat("AM_RADIO_FREQ_TENTHS", 138, {0, 1}, "Raw Gauge Values", "AM Radio Frequency Tenths")
 defineFloat("AM_RADIO_FREQ_HUNDREDTHS", 139, {0, 1}, "Raw Gauge Values", "AM Radio Frequency Hundredths")
 
---[[--Actual Gauge Values--]]--
-
+--Actual Gauge Values
 local function getHDG()
      local returnValue = (GetDevice(0):get_argument_value(26))*360
      return returnValue
