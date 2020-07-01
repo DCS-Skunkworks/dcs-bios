@@ -1,5 +1,6 @@
 BIOS.protocol.beginModule("Christen Eagle II", 0x2800)
 BIOS.protocol.setExportModuleAircrafts({"Christen Eagle II"})
+--by WarLord (aka BlackLibrary)
 
 local documentation = moduleBeingDefined.documentation
 

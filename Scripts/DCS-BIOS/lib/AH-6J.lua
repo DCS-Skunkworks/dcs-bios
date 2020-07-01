@@ -1,5 +1,6 @@
 BIOS.protocol.beginModule("AH-6J", 0x6200)
 BIOS.protocol.setExportModuleAircrafts({"AH-6"})
+--by WarLord (aka BlackLibrary)
 
 local documentation = moduleBeingDefined.documentation
 

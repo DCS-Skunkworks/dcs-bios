@@ -1,5 +1,6 @@
 BIOS.protocol.beginModule("MiG-19P", 0x1600)
 BIOS.protocol.setExportModuleAircrafts({"MiG-19P"})
+--by WarLord (aka BlackLibrary)
 
 local documentation = moduleBeingDefined.documentation
 

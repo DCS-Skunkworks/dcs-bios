@@ -1,7 +1,7 @@
 BIOS.protocol.beginModule("JF-17", 0x4800)
 BIOS.protocol.setExportModuleAircrafts({"JF-17"})
 
--- Made by WarLord (aka BlackLibrary)
+-- by WarLord (aka BlackLibrary)
 -- v 1.2
 
 local inputProcessors = moduleBeingDefined.inputProcessors

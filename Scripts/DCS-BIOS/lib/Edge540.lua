@@ -1,5 +1,6 @@
 BIOS.protocol.beginModule("Edge540", 0x5600)
 BIOS.protocol.setExportModuleAircrafts({"Edge540"})
+--by WarLord (aka BlackLibrary)
 
 local documentation = moduleBeingDefined.documentation
 

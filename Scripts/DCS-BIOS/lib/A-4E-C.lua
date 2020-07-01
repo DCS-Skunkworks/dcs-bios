@@ -8,10 +8,10 @@ v 1.00		original compile, development version 		JAN 2019		--by Dehuman
 v 1.01		beta release								JAN 2019		--by Dehuman
 			-function breaking bugs fixed
 			-several other bug fixes and functions redefined/reclassified
-v 1.02		updates from 1.3, external Lights 			APR 2019		--by WarLord
-v 1.03		updates from 1.3.1, external Lights 		APR 2019		--by WarLord
-v 1.03a		updates from WIP 1.4,						FEB 2020		--by WarLord
-v 1.03b/c	updates from WIP 1.4, rework of Commands	MAY 2020		--by WarLord
+v 1.02		updates from 1.3, external Lights 			APR 2019		--by WarLord (aka BlackLibrary)
+v 1.03		updates from 1.3.1, external Lights 		APR 2019		--by WarLord (aka BlackLibrary)
+v 1.03a		updates from WIP 1.4,						FEB 2020		--by WarLord (aka BlackLibrary)
+v 1.03b/c	updates from WIP 1.4, rework of Commands	MAY 2020		--by WarLord (aka BlackLibrary)
 ]]
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation

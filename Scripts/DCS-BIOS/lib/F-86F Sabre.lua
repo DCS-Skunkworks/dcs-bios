@@ -72,8 +72,6 @@ defineTumb("LDG_GEAR_HORN",2, 3009, 815, 1, {0,1}, nil, false, "Hydraulics", "La
 defineTumb("SPD_BRAKE_SW",2, 3005, 211, 1, {-1,1}, nil, false, "Hydraulics", "Speed Brake Switch, OUT/HOLD/IN")
 defineTumb("PRK_BRAKE",2, 3014, 217, 1, {0,1}, nil, false, "Hydraulics", "Parking Brake Handle, ON/OFF")
 
---12294 / 2048
---defineToggleSwitch("FUEL_DENS_SEL", 3, 3001, 672, "Fuel", "Fuel Densitometer Selection Switch, IN/OUT")
 defineTumb("FUEL_DENS_SEL",3, 3001, 672, 1, {0,1}, nil, false, "Fuel", "Fuel Densitometer Selection Switch, IN/OUT")
 
 defineTumb("FUEL_DENS_SEL_CVR",3, 3002, 673, 1, {0,1}, nil, false, "Fuel", "Fuel Densitometer Selection Switch Cover")

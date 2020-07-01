@@ -1,5 +1,6 @@
 BIOS.protocol.beginModule("AV8BNA", 0x7800)
 BIOS.protocol.setExportModuleAircrafts({"AV8BNA"})
+--by WarLord (aka BlackLibrary)
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation

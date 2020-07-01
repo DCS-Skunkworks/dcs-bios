@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-5E-3", 0x7600)
 BIOS.protocol.setExportModuleAircrafts({"F-5E-3"})
---by WarLord
+--by WarLord (aka BlackLibrary)
 
 local documentation = moduleBeingDefined.documentation
 

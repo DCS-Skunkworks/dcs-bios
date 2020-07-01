@@ -1,8 +1,7 @@
 BIOS.protocol.beginModule("MB-339PAN", 0x8200)
 BIOS.protocol.setExportModuleAircrafts({"MB-339PAN"})
-
---For the mod visit: http://www.freccetricolorivirtuali.net/mod%20ftv.htm
---for MB-339_v2.0
+--by WarLord (aka BlackLibrary)
+--for MB-339_v2.0.1
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
