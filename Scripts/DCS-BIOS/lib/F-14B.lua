@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 --by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
---v 1.8g
+--v 1.8h
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -403,7 +403,7 @@ defineToggleSwitch("PLT_TEMP_AUTO_MAN", 11, 3649, 940, "Enivornment Control", "P
 defineToggleSwitch("PLT_RAM_AIR", 11, 3650, 938, "Enivornment Control", "PILOT Ram Air")
 
 -- BIT Panel
-defineTumb("PLT_BIT_SWITCH", 10, 3076, 934, 1/11, {0.0, 1.0}, nil, false, "BIT Panel", "PILOT Master Test Selector (LB to rotate)")
+defineTumb("PLT_BIT_SWITCH", 10, 3076, 934, 1/11, {0, 1}, nil, false, "BIT Panel", "PILOT Master Test Selector (LB to rotate)")
 defineToggleSwitch("PLT_BIT_SWITCH_PUSH", 10, 3077, 15098, "BIT Panel", "PILOT Master Test Selector (RB to pull/push)")
 
 -- Light Panel
@@ -462,27 +462,27 @@ defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "TACAN", "PILOT TACAN 
 defineToggleSwitch("RIO_TACAN_CMD_BUTTON", 47, 3325, 135, "TACAN", "RIO TACAN CMD Button")
 
 -- TACAN Pilot Panel  (TACAN PANEL)
-defineTumb("PLT_TACAN_MODE", 47, 3326, 2041, 0.25, {0.0, 1.25}, nil, false, "TACAN", "PILOT TACAN Mode")
-definePotentiometer("PLT_TACAN_VOLUME", 47, 3328, 2036, {0.0, 1.0}, "TACAN", "PILOT TACAN Volume")
+defineTumb("PLT_TACAN_MODE", 47, 3326, 2041, 0.25, {0, 1}, nil, false, "TACAN", "PILOT TACAN Mode")
+definePotentiometer("PLT_TACAN_VOLUME", 47, 3328, 2036, {0, 1}, "TACAN", "PILOT TACAN Volume")
 defineMultipositionSwitch("PLT_TACAN_MODE_NORMAL_INV", 47, 3335, 2042, 2, 2, "TACAN", "PILOT TACAN Mode Normal/Inverse")
 defineMultipositionSwitch("PLT_TACAN_CHANNEL", 47, 3336, 2043, 2, 2, "TACAN", "PILOT TACAN Channel XY")
 definePushButton("PLT_TACAN_BIT", 47, 3334, 2115, "TACAN", "PILOT TACAN Bit")
-defineTumb("PLT_TACAN_DIAL_TENS", 47, 3330, 8888, 1/12, {0.0, 1.08333333333}, nil, false, "TACAN", "PILOT TACAN Channel Wheel (Tens)")
-defineTumb("PLT_TACAN_DIAL_ONES", 47, 3332, 8889, 1/9, {0.0, 1.11111111111}, nil, false, "TACAN", "PILOT TACAN Channel Lever (Ones)")
+defineTumb("PLT_TACAN_DIAL_TENS", 47, 3330, 8888, 1/12, {0, 1}, nil, false, "TACAN", "PILOT TACAN Channel Wheel (Tens)")
+defineTumb("PLT_TACAN_DIAL_ONES", 47, 3332, 8889, 1/9, {0, 1}, nil, false, "TACAN", "PILOT TACAN Channel Lever (Ones)")
 
 -- TACAN RIO Panel
-defineTumb("RIO_TACAN_MODE", 47, 3338, 374, 0.25, {0.0, 1.25}, nil, false, "TACAN", "RIO TACAN Mode")
-definePotentiometer("RIO_TACAN_VOLUME", 47, 3340, 375, {0.0, 1.0}, "TACAN", "RIO TACAN Volume")
+defineTumb("RIO_TACAN_MODE", 47, 3338, 374, 0.25, {0, 1}, nil, false, "TACAN", "RIO TACAN Mode")
+definePotentiometer("RIO_TACAN_VOLUME", 47, 3340, 375, {0, 1}, "TACAN", "RIO TACAN Volume")
 defineToggleSwitch("RIO_TACAN_MODE_NORMAL_INV", 47, 3347, 373, "TACAN", "RIO TACAN Mode Normal/Inverse")
 defineToggleSwitch("RIO_TACAN_CHANNEL", 47, 3348, 372, "TACAN", "RIO TACAN Channel XY")
 definePushButton("RIO_TACAN_BIT", 47, 3346, 371, "TACAN", "RIO TACAN Bit")
-defineTumb("RIO_TACAN_DIAL_TENS", 47, 3342, 8891, 1/12, {0.0, 1.08333333333}, nil, false, "TACAN", "RIO TACAN Channel Wheel (Tens)")
-defineTumb("RIO_TACAN_DIAL_ONES", 47, 3344, 8890, 1/9, {0.0, 1.11111111111}, nil, false, "TACAN", "RIO TACAN Channel Lever (Ones)")
+defineTumb("RIO_TACAN_DIAL_TENS", 47, 3342, 8891, 1/12, {0, 1}, nil, false, "TACAN", "RIO TACAN Channel Wheel (Tens)")
+defineTumb("RIO_TACAN_DIAL_ONES", 47, 3344, 8890, 1/9, {0, 1}, nil, false, "TACAN", "RIO TACAN Channel Lever (Ones)")
 
 -- AN/ARA-63 Panel
 defineToggleSwitch("PLT_ARA63_PW", 48, 3319, 910, "ANARA63 Panel", "PILOT AN/ARA-63 Power")
 definePushButton("PLT_ARA63_BIT", 48, 3321, 911, "ANARA63 Panel", "PILOT AN/ARA-63 BIT Button")
-defineMultipositionSwitch("PLT_ARA63_CHAN", 11, 3322, 912, 20, 1/19,"ANARA63 Panel" ,"PILOT AN/ARA-63 Channel Knob")
+defineTumb("PLT_ARA63_CHAN", 48, 3322, 912, 1/19, {0 ,1}, nil, true, "ANARA63 Panel" ,"PILOT AN/ARA-63 Channel Knob")
 
 -- Pilot TONE VOLUME Panel
 definePotentiometer("PLT_ALR67_VOL", 2, 3395, 2040, {0.0, 1.0}, "Volume Panel", "PILOT ALR-67 Volume")
@@ -502,7 +502,7 @@ define3PosTumb("RIO_ICS_UHF_LWR", 2, 3598, 380, "ICS", "RIO V/UHF 2 ANT Switch")
 define3PosTumb("RIO_ICS_KY_MODE", 2, 3597, 382, "ICS", "RIO KY MODE Switch")
 
 -- UHF ARC-159
-defineTumb("PLT_UHF1_FREQ_MODE", 3, 3375, 2033, 0.5, {0.0, 1.5}, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode GUARD/MANUAL/PRESET")
+defineTumb("PLT_UHF1_FREQ_MODE", 3, 3375, 2033, 0.5, {0, 1}, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode GUARD/MANUAL/PRESET")
 defineMultipositionSwitch("PLT_UHF1_FUNCTION", 3, 3371, 2034, 4, 0.333333, "UHF 1", "PILOT UHF ARC-159 Function ADF/BOTH/MAIN/OFF")
 defineTumb("PLT_UHF1_PRESETS", 3, 3373, 2032, 0.0833333333, {0.0, 1.0}, nil, true, "UHF 1", "PILOT UHF ARC-159 Preset Channel Selector")
 defineToggleSwitch("PLT_UHF1_SQUELCH", 3, 3365, 2035, "UHF 1", "PILOT UHF ARC-159 Squelch Switch")
@@ -629,8 +629,8 @@ moduleBeingDefined.inputProcessors["SET_VUHF_FREQ"] = function(freq)
 end
 
 -- KY-28
-defineTumb("RIO_KY28_POWER", 2, 3423, 116, 0.5, {0.0, 1.5}, nil, false, "KY-28", "RIO KY-28 Power Mode")
-defineTumb("RIO_KY28_RADIO_SELECTOR", 2, 3425, 115, 0.5, {0.0, 1.5}, nil, false, "KY-28", "RIO KY-28 Radio Selector")
+defineTumb("RIO_KY28_POWER", 2, 3423, 116, 0.5, {0, 1}, nil, false, "KY-28", "RIO KY-28 Power Mode")
+defineTumb("RIO_KY28_RADIO_SELECTOR", 2, 3425, 115, 0.5, {0, 1}, nil, false, "KY-28", "RIO KY-28 Radio Selector")
 defineToggleSwitch("RIO_KY28_FLIPCOVER", 2, 3608, 150, "KY-28", "RIO KY-28 ZEROIZE Cover")
 defineToggleSwitch("RIO_KY28_ZEROIZE", 2, 3427, 361, "KY-28", "RIO KY-28 ZEROIZE")
 
