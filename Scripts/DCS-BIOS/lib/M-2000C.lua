@@ -1,6 +1,6 @@
 -----------------------------------------------------------                                         
 --     LIBRARY     	:    Mirage 2000C RAZBAM
---     VERSION     	:    v1.28
+--     VERSION     	:    v1.28a
 -----------------------------------------------------------
 -- Release log : 
 -- v1.12 by Exo7 
@@ -33,20 +33,12 @@
 -- v1.17 by Exo7
 --		Modifying Memory Allocation Address to match with existants modules
 --
--- v1.18 by Exo7
---		Bug Fixes
---
--- v1.19 by Exo7
---		Bug Fixes empty buffer block export
---
--- v1.20 by Exo7
+-- v1.18-20 by Exo7
 -- 		Bug Fixes : Export displays functions
 --					New Arg Numbers
+--					Empty buffer block export
 --
--- v1.21 by WarLord
---		Bug Fixes
---
--- v1.22 by WarLord
+-- v1.21-22 by WarLord
 --		Bug Fixes
 --
 -- v1.23 by Matchstick
@@ -66,8 +58,8 @@
 --
 -- v1.27b by WarLord add WoW Code
 --
--- v1.28 by MisterKnife
---		fixed landing toggle and HSI knobs
+-- v1.28a by MisterKnife, WarLord
+--		fixed landing toggle and HSI knobs,Fix for inverted Gearlight 
 -----------------------------------------------------------
 
 BIOS.protocol.beginModule("M-2000C", 0x7200)
@@ -81,6 +73,7 @@ local document = BIOS.util.document
 local parse_indication = BIOS.util.parse_indication
 
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
+local defineIndicatorLightInverted = BIOS.util.defineIndicatorLightInverted
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
@@ -858,7 +851,7 @@ defineToggleSwitch("FBW_GAIN_MODE_SW_COV", 3, 3420, 420, "LEFT PANEL", "I - FBW 
 defineToggleSwitch("FBW_GAIN_MODE_SW", 3, 3421, 421, "LEFT PANEL", "I - FBW - Gain Mode Switch")
 defineToggleSwitch("FBW_G-LIM_SW", 3, 3422, 422, "LEFT PANEL", "I - FBW - G-Limiter Switch")
 defineToggleSwitch("FBW_RESET_BTN", 17, 3423, 423, "LEFT PANEL", "I - FBW - Reset Button")
-defineIndicatorLight("LANDING_GEAR_LEVER_LIGHT", 405, "LEFT PANEL", "O - LDG - Landing Gear Lever Light")
+defineIndicatorLightInverted("LANDING_GEAR_LEVER_LIGHT", 405, "LEFT PANEL", "O - LDG - Landing Gear Lever Light")
 definePushButton("EMER_JETT", 6, 3409, 409, "LEFT PANEL", "I - Emergency Jettison Button")
 defineToggleSwitch("GUN_ARM_SW", 6, 3463, 463, "LEFT PANEL", "I - Gun Arm/Safe Switch")
 defineFloat("PSV_EL_G_EXT", 424, {0, 1}, "LEFT PANEL", "O - PSV - Left Ext Elevon Position display")
