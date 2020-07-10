@@ -105,11 +105,11 @@ local function getVhfAmFreqency()
     local freq1 = vhf_lut1[string.format("%.2f",GetDevice(0):get_argument_value(143))]
 	if freq1 == nil then freq1 = "3" end
     local freq2 = string.format("%1.1f", GetDevice(0):get_argument_value(144)):sub(3)
-	if freq2 == nil then freq1 = "0" end
+	if freq2 == nil then freq2 = "0" end
     local freq3 = string.format("%1.1f", GetDevice(0):get_argument_value(145)):sub(3)
-	if freq3 == nil then freq1 = "0" end
+	if freq3 == nil then freq3 = "0" end
     local freq4 = string.format("%1.2f", GetDevice(0):get_argument_value(146)):sub(3)
-	if freq4 == nil then freq1 = "00" end
+	if freq4 == nil then freq4 = "00" end
 
     return freq1 .. freq2 .. "." .. freq3 .. freq4
 end
@@ -118,11 +118,11 @@ local function getVhfFmFreqency()
     local freq1 = vhf_lut1[string.format("%.2f",GetDevice(0):get_argument_value(157))]
 	if freq1 == nil then freq1 = "3" end
     local freq2 = string.format("%1.1f", GetDevice(0):get_argument_value(158)):sub(3)
-	if freq2 == nil then freq1 = "0" end
+	if freq2 == nil then freq2 = "0" end
     local freq3 = string.format("%1.1f", GetDevice(0):get_argument_value(159)):sub(3)
-	if freq3 == nil then freq1 = "0" end
+	if freq3 == nil then freq3 = "0" end
     local freq4 = string.format("%1.2f", GetDevice(0):get_argument_value(160)):sub(3)
-	if freq4 == nil then freq1 = "00" end
+	if freq4 == nil then freq4 = "00" end
 
     return freq1 .. freq2 .. "." .. freq3 .. freq4
 end
