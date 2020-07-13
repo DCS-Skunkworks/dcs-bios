@@ -420,8 +420,8 @@ void loop() {
 
 <1> Before including `DcsBios.h`, you have to define a preprocessor macro that tells the DCS-BIOS Arduino Library what mode it should operate in. If you are using an Arduino board that has either an ATMega328 or an ATMega2560 chip, such as the Uno, Pro Mini, Nano or Mega 2650 boards, use `DCSBIOS_IRQ_SERIAL`. If your board has a different microcontroller, you can use `DCSBIOS_DEFAULT_SERIAL` instead, which should work with any Arduino-compatible board but can cause problems if your sketch spends a long time updating outputs, either because you are outputting to something "slow" like displays or you are using a lot of outputs (such as trying to run a Caution Lights Panel with 48 instances of `DcsBios::LED`).
 <2> This line adds the DCS-BIOS Arduino Library to your sketch.
-<3> This line tells the DCS-BIOS Arduino Library that there is a switch connected to pin 10 that should be mapped to the master caution reset button.
-<4> This line tells the DCS-BIOS Arduino Library to use the built-in LED on your Arduino board, which is connected to pin 13, as a master caution light.
+<3> This line tells the DCS-BIOS Arduino Library to use the built-in LED on your Arduino board, which is connected to pin 13, as a master caution light. (For some Arduinos the built-in LED may be 13, 15 or 17 - check your Arduino model documentation for the correct pin)
+<4> This line tells the DCS-BIOS Arduino Library that there is a switch connected to pin 10 that should be mapped to the master caution reset button.
 Refer to the control reference documentation for more examples.
 <5> In your `setup()` function, you have to call `DcsBios::setup()` to initialize the DCS-BIOS Arduino Library.
 <6> In your `loop()` function, you have to call `DcsBios::loop()`. This causes the DCS-BIOS Arduino library to notify DCS if any inputs (push buttons, switches, etc.) have changed, and to update any outputs (LEDs, servo motors, displays, etc.) with the latest data from DCS.
