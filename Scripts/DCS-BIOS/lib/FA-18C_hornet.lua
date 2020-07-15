@@ -653,7 +653,7 @@ define3PosTumb("HUD_ATT_SW", 34, 3009, 148, "HUD Control Panel", "Attitude Selec
 
 -- 19. Standby Magnetic Compass
 defineFloat("SBY_COMPASS_HDG", 149, {-1, 1}, "Standby Compass", "Standby Compass Heading")
-defineFloat("SBY_COMPASS_PITCH", 150 {-1, 1}, "Standby Compass", "Standby Compass Pitch")
+defineFloat("SBY_COMPASS_PITCH", 150, {-1, 1}, "Standby Compass", "Standby Compass Pitch")
 defineFloat("SBY_COMPASS_BANK", 151, {-1, 1}, "Standby Compass", "Standby Compass Bank")
 
 -- 20. Station Jettison Select
