@@ -561,4 +561,8 @@ defineToggleSwitch("LDG_LIGHT_SW2", 7, 3034, 209, "Collective", "Copilot Landing
 defineTumb("SEARCH_LIGHT_SW2", 7, 3035, 208, 1, {-1, 1}, nil, false, "Collective", "Copilot Search Light STOW / OFF / ON")
 defineTumb("LDG_LT_CTRL2", 7, 3036, 212, 1, {-1, 1}, nil, false, "Collective", "Copilot Landing Lights Control Switch")
 
+defineFloat("SBY_COMPASS_HDG", 272, {-1, 1}, "Front Dash", "Standby Compass Heading")
+defineFloat("SBY_COMPASS_PITCH", 274, {-1, 1}, "Front Dash", "Standby Compass Pitch")
+defineFloat("SBY_COMPASS_BANK", 273, {-1, 1}, "Front Dash", "Standby Compass Bank")
+
 BIOS.protocol.endModule()

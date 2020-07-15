@@ -1,4 +1,4 @@
--- F/A-18 Module created by AndrewW, modified by WarLord&DeadMeat v1.3a
+-- F/A-18 Module created by AndrewW, modified by WarLord&DeadMeat v1.4
 -- Many thanks to Capt Zeen for the pointers on analog and Radio outputs and UFC/IFEI export
 -- And of course huge thanks to [FSF]Ian for writing DCS-BIOS in the first place
 
@@ -652,6 +652,9 @@ defineToggleSwitch("HUD_ALT_SW", 34, 3008, 147, "HUD Control Panel", "Altitude S
 define3PosTumb("HUD_ATT_SW", 34, 3009, 148, "HUD Control Panel", "Attitude Selector Switch, INS/AUTO/STBY")
 
 -- 19. Standby Magnetic Compass
+defineFloat("SBY_COMPASS_HDG", 149, {-1, 1}, "Standby Compass", "Standby Compass Heading")
+defineFloat("SBY_COMPASS_PITCH", 150 {-1, 1}, "Standby Compass", "Standby Compass Pitch")
+defineFloat("SBY_COMPASS_BANK", 151, {-1, 1}, "Standby Compass", "Standby Compass Bank")
 
 -- 20. Station Jettison Select
 defineToggleSwitch("SJ_CTR", 23, 3005, 153, "Station Jettison Select", "Station Jettison Select Button, CENTER")

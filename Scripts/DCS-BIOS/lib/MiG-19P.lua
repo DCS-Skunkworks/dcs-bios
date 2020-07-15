@@ -43,6 +43,7 @@ defineRotary("GIK1_CRS_SEL", 9, 3359, 359, "Flight Instruments Panel", "GIK-1 Co
 definePotentiometer("AGI1_TRIM", 9, 3360, 360, {-1, 1}, "Flight Instruments Panel", "AGI-1 Artificial Horizon Pitch Trim Knob")
 defineToggleSwitch("AGI1_CAGE", 9, 3361, 361, "Landing Gear Panel", "AGI-1 Artificial Horizon Cage Button - Push to cage")
 defineRotary("BALT_PRESS_SEL", 9, 3362, 362, "Flight Instruments Panel", "Barometric Altimeter Setting (bars)")
+defineToggleSwitch("INST_L_DAY_NIGHT", 6, 3363, 363, "Flight Instruments Panel", "Instruments Lamps Day/Night Mode Switch")
 defineRotary("CLOCK_R_KNOB_TURN", 9, 3364, 364, "Flight Instruments Panel", "AChS-1 Chronograph Right Knob (Turn)")
 definePushButton("CLOCK_R_KNOB_PRESS", 4, 3508, 508, "Flight Instruments Panel", "AChS-1 Chronograph Right Knob (Press)")
 defineRotary("CLOCK_L_KNOB_TURN", 9, 3365, 365, "Flight Instruments Panel", "AChS-1 Chronograph Left Knob (Turn)")

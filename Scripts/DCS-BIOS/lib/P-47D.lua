@@ -297,6 +297,9 @@ defineFloat("CYL_TEMP", 111, {0, 1}, "Gauges", "Cylinder Heads Temperature Gauge
 defineFloat("ACCELEROMETER_MAIN", 175, {0.0, 1.0}, "Gauges", "Accelerometer Main")
 defineFloat("ACCELEROMETER_MIN", 177, {0.0, 1.0}, "Gauges", "Accelerometer Min")
 defineFloat("ACCELEROMETER_MAX", 178, {0.0, 1.0}, "Gauges", "Accelerometer Max")
+defineFloat("COMPASS_HDG", 106, {-1, 1}, "Gauges", "Compass Heading")
+defineFloat("COMPASS_PITCH", 105, {-1, 1}, "Gauges", "Compass Pitch")
+defineFloat("COMPASS_BANK", 107, {-1, 1}, "Gauges", "Compass Bank")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()

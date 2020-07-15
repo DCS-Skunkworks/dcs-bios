@@ -426,7 +426,7 @@ defineFloat("RALT_ND", 103, {0, 1}, "Flight Status/Navigation Panel", "Radio Alt
 defineIndicatorLight("LOW_ALT_LIGHT", 500, "Flight Status/Navigation Panel", "Low Altitude Warn Light")
 
 --UUA/AOA
-defineFloat("AOA_ND", 105, {-0.2857, 1}, "Accelerometer, AoA Gauge Panel", "AOA Gauge")
+defineFloat("AOA_ND", 105, {-0.30, 1}, "Accelerometer, AoA Gauge Panel", "AOA Gauge")
 defineIndicatorLight("AOA_WARN_LGHT", 537, "Canopy Frame", "AOA Warning Lights")
 
 --DA-200 Subgroup
@@ -438,7 +438,7 @@ defineFloat("KPP_BANK", 108, {-1, 1}, "Flight Status/Navigation Panel", "KPP Ban
 defineFloat("KPP_PITCH", 109, {-1, 1}, "Flight Status/Navigation Panel", "KPP Pitch")
 
 --Accelerometer
-defineFloat("ACCEL_ND", 110, {-0.41, 1}, "Accelerometer, AoA Gauge Panel", "Accelerometer Needle")
+defineFloat("ACCEL_ND", 110, {-0.394, 1}, "Accelerometer, AoA Gauge Panel", "Accelerometer Needle")
 defineFloat("ACCEL_MAX", 113, {0, 1}, "Accelerometer, AoA Gauge Panel", "Accelerometer Max G Marker")
 defineFloat("ACCEL_MIN", 114, {0, 1}, "Accelerometer, AoA Gauge Panel", "Accelerometer Min G Marker")
 

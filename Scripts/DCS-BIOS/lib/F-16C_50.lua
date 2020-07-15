@@ -1,4 +1,4 @@
--- V1.5d by Warlord (aka BlackLibrary)
+-- V1.6 by Warlord (aka BlackLibrary)
 -- Added DED TIME, NAV and MAN pages and DED fixes by Matchstick
 --
 -- Tested and fixes by BuzzKillington
@@ -595,7 +595,7 @@ defineFloat("ALT_PRESSURE_DRUM_0_CNT", 59, {0, 1}, "Altimeter", "Altimeter Press
 defineFloat("ALT_PRESSURE_DRUM_1_CNT", 58, {0, 1}, "Altimeter", "Altimeter Pressure Setting Drum 1")
 defineFloat("ALT_PRESSURE_DRUM_2_CNT", 57, {0, 1}, "Altimeter", "Altimeter Pressure Setting Drum 2")
 defineFloat("ALT_PRESSURE_DRUM_3_CNT", 56, {0, 1}, "Altimeter", "Altimeter Pressure Setting Drum 3")
-defineFloat("ALT_PNEU_FLAG", 9, {0, 1}, "Altimeter", "Altimeter PNEU Flag")
+defineFloat("ALT_PNEU_FLAG", 61, {0, 1}, "Altimeter", "Altimeter PNEU Flag")
 
 --AirSpeed/Mach Indicator
 defineFloat("AIRSPEED", 48, {0.0, 1.0}, "Airspeed Indicator", "Airspeed Indicator")

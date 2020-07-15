@@ -960,6 +960,12 @@ defineFloat("R863_FREQ2_TUBE", 158, {0, 1}, "Indicator", "R-863, 1MHz Tube")
 defineFloat("R863_FREQ3_TUBE", 159, {0, 1}, "Indicator", "R-863, 100KHz Tube")
 defineFloat("R863_FREQ4_TUBE", 116, {0, 1}, "Indicator", "R-863, 1KHz Tube")
 
+defineFloat("SBY_COMPASS_HDG", 272, {-1, 1}, "Windscreen", "Standby Compass Heading")
+defineFloat("SBY_COMPASS_PITCH", 274, {-1, 1}, "Windscreen", "Standby Compass Pitch")
+defineFloat("SBY_COMPASS_BANK", 273, {-1, 1}, "Windscreen", "Standby Compass Bank")
+
+defineFloat("COLLECTIVE_STOPPER", 201, {-1, 1}, "Misc", "Collective_Stopper")
+
 --################################################Externals################################################
 defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
