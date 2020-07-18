@@ -12478,64 +12478,80 @@ docdata["Mi-8MT"] =
                                                          }
                                     },
                             "Misc": {
-                                        "MISC_LAND_SEA": {
-                                                                        "category": "Misc",
-                                                                    "control_type": "selector",
-                                                                     "description": "Land/Sea Switch",
-                                                                      "identifier": "MISC_LAND_SEA",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 9792,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 32768,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 15,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                        "MISC_TST_WORK": {
-                                                                        "category": "Misc",
-                                                                    "control_type": "selector",
-                                                                     "description": "Test/Work Switch",
-                                                                      "identifier": "MISC_TST_WORK",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 9792,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 16384,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 14,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         }
+                                        "COLLECTIVE_STOPPER": {
+                                                                      "category": "Misc",
+                                                                  "control_type": "analog_gauge",
+                                                                   "description": "Collective_Stopper",
+                                                                    "identifier": "COLLECTIVE_STOPPER",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 10292,
+                                                                                      "description": "gauge position",
+                                                                                             "mask": 65535,
+                                                                                        "max_value": 65535,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              },
+                                             "MISC_LAND_SEA": {
+                                                                             "category": "Misc",
+                                                                         "control_type": "selector",
+                                                                          "description": "Land/Sea Switch",
+                                                                           "identifier": "MISC_LAND_SEA",
+                                                                               "inputs": [ {
+                                                                                             "description": "switch to previous or next state",
+                                                                                               "interface": "fixed_step"
+                                                                                         }, {
+                                                                                             "description": "set position",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 1
+                                                                                         }, {
+                                                                                                "argument": "TOGGLE",
+                                                                                             "description": "Toggle switch state",
+                                                                                               "interface": "action"
+                                                                                         } ],
+                                                                  "momentary_positions": "none",
+                                                                              "outputs": [ {
+                                                                                                 "address": 9792,
+                                                                                             "description": "selector position",
+                                                                                                    "mask": 32768,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 15,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ],
+                                                                     "physical_variant": "limited_rotary"
+                                                              },
+                                             "MISC_TST_WORK": {
+                                                                             "category": "Misc",
+                                                                         "control_type": "selector",
+                                                                          "description": "Test/Work Switch",
+                                                                           "identifier": "MISC_TST_WORK",
+                                                                               "inputs": [ {
+                                                                                             "description": "switch to previous or next state",
+                                                                                               "interface": "fixed_step"
+                                                                                         }, {
+                                                                                             "description": "set position",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 1
+                                                                                         }, {
+                                                                                                "argument": "TOGGLE",
+                                                                                             "description": "Toggle switch state",
+                                                                                               "interface": "action"
+                                                                                         } ],
+                                                                  "momentary_positions": "none",
+                                                                              "outputs": [ {
+                                                                                                 "address": 9792,
+                                                                                             "description": "selector position",
+                                                                                                    "mask": 16384,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 14,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ],
+                                                                     "physical_variant": "limited_rotary"
+                                                              }
                                     },
                       "Navigation": {
                                            "DOP_NAV_MODE": {
@@ -16301,288 +16317,336 @@ docdata["Mi-8MT"] =
                                                                   }
                                     },
                       "Windscreen": {
-                                          "WIPER_L_OFF": {
-                                                                        "category": "Windscreen",
-                                                                    "control_type": "selector",
-                                                                     "description": "Left Windscreen Wiper Control Switch, OFF",
-                                                                      "identifier": "WIPER_L_OFF",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 0
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 9728,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 0,
-                                                                                          "max_value": 0,
-                                                                                           "shift_by": 16,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                           "WIPER_L_ON": {
-                                                                        "category": "Windscreen",
-                                                                    "control_type": "selector",
-                                                                     "description": "Left Windscreen Wiper Control Switch, ON",
-                                                                      "identifier": "WIPER_L_ON",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 9886,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 8192,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 13,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                          "WIPER_L_RST": {
-                                                                        "category": "Windscreen",
-                                                                    "control_type": "selector",
-                                                                     "description": "Left Windscreen Wiper Control Switch, RESET",
-                                                                      "identifier": "WIPER_L_RST",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 9886,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 16384,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 14,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                        "WIPER_L_SPD_1": {
-                                                                        "category": "Windscreen",
-                                                                    "control_type": "selector",
-                                                                     "description": "Left Windscreen Wiper Control Switch, SPEED 1",
-                                                                      "identifier": "WIPER_L_SPD_1",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 9886,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 32768,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 15,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                        "WIPER_L_SPD_2": {
-                                                                        "category": "Windscreen",
-                                                                    "control_type": "selector",
-                                                                     "description": "Left Windscreen Wiper Control Switch, SPEED 2",
-                                                                      "identifier": "WIPER_L_SPD_2",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 9888,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 1,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                          "WIPER_R_OFF": {
-                                                                        "category": "Windscreen",
-                                                                    "control_type": "selector",
-                                                                     "description": "Right Windscreen Wiper Control Switch, OFF",
-                                                                      "identifier": "WIPER_R_OFF",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 0
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 9728,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 0,
-                                                                                          "max_value": 0,
-                                                                                           "shift_by": 16,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                           "WIPER_R_ON": {
-                                                                        "category": "Windscreen",
-                                                                    "control_type": "selector",
-                                                                     "description": "Right Windscreen Wiper Control Switch, ON",
-                                                                      "identifier": "WIPER_R_ON",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 9888,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 2,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 1,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                          "WIPER_R_RST": {
-                                                                        "category": "Windscreen",
-                                                                    "control_type": "selector",
-                                                                     "description": "Right Windscreen Wiper Control Switch, RESET",
-                                                                      "identifier": "WIPER_R_RST",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 9888,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 4,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 2,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                        "WIPER_R_SPD_1": {
-                                                                        "category": "Windscreen",
-                                                                    "control_type": "selector",
-                                                                     "description": "Right Windscreen Wiper Control Switch, SPEED 1",
-                                                                      "identifier": "WIPER_R_SPD_1",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 9888,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 8,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 3,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                        "WIPER_R_SPD_2": {
-                                                                        "category": "Windscreen",
-                                                                    "control_type": "selector",
-                                                                     "description": "Right Windscreen Wiper Control Switch, SPEED 2",
-                                                                      "identifier": "WIPER_R_SPD_2",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 9888,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 16,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 4,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         }
+                                         "SBY_COMPASS_BANK": {
+                                                                     "category": "Windscreen",
+                                                                 "control_type": "analog_gauge",
+                                                                  "description": "Standby Compass Bank",
+                                                                   "identifier": "SBY_COMPASS_BANK",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 10290,
+                                                                                     "description": "gauge position",
+                                                                                            "mask": 65535,
+                                                                                       "max_value": 65535,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             },
+                                          "SBY_COMPASS_HDG": {
+                                                                     "category": "Windscreen",
+                                                                 "control_type": "analog_gauge",
+                                                                  "description": "Standby Compass Heading",
+                                                                   "identifier": "SBY_COMPASS_HDG",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 10286,
+                                                                                     "description": "gauge position",
+                                                                                            "mask": 65535,
+                                                                                       "max_value": 65535,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             },
+                                        "SBY_COMPASS_PITCH": {
+                                                                     "category": "Windscreen",
+                                                                 "control_type": "analog_gauge",
+                                                                  "description": "Standby Compass Pitch",
+                                                                   "identifier": "SBY_COMPASS_PITCH",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 10288,
+                                                                                     "description": "gauge position",
+                                                                                            "mask": 65535,
+                                                                                       "max_value": 65535,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             },
+                                              "WIPER_L_OFF": {
+                                                                            "category": "Windscreen",
+                                                                        "control_type": "selector",
+                                                                         "description": "Left Windscreen Wiper Control Switch, OFF",
+                                                                          "identifier": "WIPER_L_OFF",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 0
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                "address": 9728,
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 0,
+                                                                                              "max_value": 0,
+                                                                                               "shift_by": 16,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "limited_rotary"
+                                                             },
+                                               "WIPER_L_ON": {
+                                                                            "category": "Windscreen",
+                                                                        "control_type": "selector",
+                                                                         "description": "Left Windscreen Wiper Control Switch, ON",
+                                                                          "identifier": "WIPER_L_ON",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                "address": 9886,
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 8192,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 13,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "limited_rotary"
+                                                             },
+                                              "WIPER_L_RST": {
+                                                                            "category": "Windscreen",
+                                                                        "control_type": "selector",
+                                                                         "description": "Left Windscreen Wiper Control Switch, RESET",
+                                                                          "identifier": "WIPER_L_RST",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                "address": 9886,
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 16384,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 14,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "limited_rotary"
+                                                             },
+                                            "WIPER_L_SPD_1": {
+                                                                            "category": "Windscreen",
+                                                                        "control_type": "selector",
+                                                                         "description": "Left Windscreen Wiper Control Switch, SPEED 1",
+                                                                          "identifier": "WIPER_L_SPD_1",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                "address": 9886,
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 32768,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 15,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "limited_rotary"
+                                                             },
+                                            "WIPER_L_SPD_2": {
+                                                                            "category": "Windscreen",
+                                                                        "control_type": "selector",
+                                                                         "description": "Left Windscreen Wiper Control Switch, SPEED 2",
+                                                                          "identifier": "WIPER_L_SPD_2",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                "address": 9888,
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 1,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "limited_rotary"
+                                                             },
+                                              "WIPER_R_OFF": {
+                                                                            "category": "Windscreen",
+                                                                        "control_type": "selector",
+                                                                         "description": "Right Windscreen Wiper Control Switch, OFF",
+                                                                          "identifier": "WIPER_R_OFF",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 0
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                "address": 9728,
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 0,
+                                                                                              "max_value": 0,
+                                                                                               "shift_by": 16,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "limited_rotary"
+                                                             },
+                                               "WIPER_R_ON": {
+                                                                            "category": "Windscreen",
+                                                                        "control_type": "selector",
+                                                                         "description": "Right Windscreen Wiper Control Switch, ON",
+                                                                          "identifier": "WIPER_R_ON",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                "address": 9888,
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 2,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 1,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "limited_rotary"
+                                                             },
+                                              "WIPER_R_RST": {
+                                                                            "category": "Windscreen",
+                                                                        "control_type": "selector",
+                                                                         "description": "Right Windscreen Wiper Control Switch, RESET",
+                                                                          "identifier": "WIPER_R_RST",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                "address": 9888,
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 4,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 2,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "limited_rotary"
+                                                             },
+                                            "WIPER_R_SPD_1": {
+                                                                            "category": "Windscreen",
+                                                                        "control_type": "selector",
+                                                                         "description": "Right Windscreen Wiper Control Switch, SPEED 1",
+                                                                          "identifier": "WIPER_R_SPD_1",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                "address": 9888,
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 8,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 3,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "limited_rotary"
+                                                             },
+                                            "WIPER_R_SPD_2": {
+                                                                            "category": "Windscreen",
+                                                                        "control_type": "selector",
+                                                                         "description": "Right Windscreen Wiper Control Switch, SPEED 2",
+                                                                          "identifier": "WIPER_R_SPD_2",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                "address": 9888,
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 16,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 4,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "limited_rotary"
+                                                             }
                                     },
                         "YaDRO-1A": {
                                            "JAD1A_CTRL": {

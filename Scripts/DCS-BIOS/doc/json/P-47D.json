@@ -1442,7 +1442,7 @@
                                                                                   "identifier": "EXT_WOW_LEFT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 21146,
+                                                                                                        "address": 21152,
                                                                                                     "description": "Weight ON Wheels Left Gear",
                                                                                                            "mask": 1,
                                                                                                       "max_value": 1,
@@ -1829,6 +1829,54 @@
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
                                                                                                    "address": 21072,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                       "COMPASS_BANK": {
+                                                                               "category": "Gauges",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Compass Bank",
+                                                                             "identifier": "COMPASS_BANK",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 21150,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                        "COMPASS_HDG": {
+                                                                               "category": "Gauges",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Compass Heading",
+                                                                             "identifier": "COMPASS_HDG",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 21146,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                      "COMPASS_PITCH": {
+                                                                               "category": "Gauges",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Compass Pitch",
+                                                                             "identifier": "COMPASS_PITCH",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 21148,
                                                                                                "description": "gauge position",
                                                                                                       "mask": 65535,
                                                                                                  "max_value": 65535,
