@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("JF-17", 0x4800)
 BIOS.protocol.setExportModuleAircrafts({"JF-17"})
 
 -- by WarLord (aka BlackLibrary)
--- v 1.2
+-- v 1.3
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -375,12 +375,16 @@ definePushButton("AP_DISENGAGE", 6, 3473, 971, "Right Console", "A/P Disengage")
 -- Eject Seat
 defineToggleSwitch("SEAT_SAFE_HANDLE", 38, 3474, 972, "Right Console", "Eject Seat Safe/Arm Handle")
 defineToggleSwitch("SEAT_SAFE_PIN", 38, 3475, 973, "Right Console", "Eject Seat Firing Handle Safety Pin")
+define3PosTumb("SEAT_POS_ADJUST", 38, 3482, 980, "Right Console", "Eject Seat Position Adjust")
+
 
 -- Oxygen
 defineToggleSwitch("OXY_CONNECTOR", 31, 3477, 975, "Right Console", "Oxygen Tube Connector")
 defineRotary("OXY_SUPPLY_VALVE", 31, 3478, 976, "Right Console", "Oxygen Supply Valve")
 defineToggleSwitch("OXY_O2_100", 31, 3479, 977, "Right Console", "Oxygen 100% O2")
 defineToggleSwitch("SEAT_EMERG_O2", 31, 3480, 978, "Right Console", "Eject Seat Emergency O2")
+defineToggleSwitch("GSUIT_TUBE", 31, 3481, 979, "Right Console", "G-Suit Connector")
+
 
 -- Mirrors
 -- definePotentiometer("MIRROR_R", 4, 3462, 960, {0, 1}, "Canopy", "Right Mirror")
