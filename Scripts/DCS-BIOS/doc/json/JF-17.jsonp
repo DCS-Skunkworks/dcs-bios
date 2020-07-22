@@ -7045,6 +7045,50 @@ docdata["JF-17"] =
                                                                                                   } ],
                                                                               "physical_variant": "push_button"
                                                                        },
+                                                     "RADIO_GO_LIGHT": {
+                                                                               "category": "Radio",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Radio Go Indicator Light",
+                                                                             "identifier": "RADIO_GO_LIGHT",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 18596,
+                                                                                               "description": "Radio Go Indicator Light",
+                                                                                                      "mask": 4,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 2,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                       "RADIO_LINE_1": {
+                                                                               "category": "Radio",
+                                                                           "control_type": "display",
+                                                                            "description": "Radio Display Line 1",
+                                                                             "identifier": "RADIO_LINE_1",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 18598,
+                                                                                               "description": "Radio Display Line 1",
+                                                                                                "max_length": 8,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                                           } ]
+                                                                       },
+                                                       "RADIO_LINE_2": {
+                                                                               "category": "Radio",
+                                                                           "control_type": "display",
+                                                                            "description": "Radio Display Line 2",
+                                                                             "identifier": "RADIO_LINE_2",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 18606,
+                                                                                               "description": "Radio Display Line 2",
+                                                                                                "max_length": 8,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                                           } ]
+                                                                       },
                                                      "RADIO_MODE_SEL": {
                                                                                       "category": "Radio",
                                                                                   "control_type": "selector",
@@ -7069,6 +7113,22 @@ docdata["JF-17"] =
                                                                                                              "type": "integer"
                                                                                                   } ],
                                                                               "physical_variant": "toggle_switch"
+                                                                       },
+                                                    "RADIO_SQL_LIGHT": {
+                                                                               "category": "Radio",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Radio Squelch Indicator Light",
+                                                                             "identifier": "RADIO_SQL_LIGHT",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 18596,
+                                                                                               "description": "Radio Squelch Indicator Light",
+                                                                                                      "mask": 1,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
                                                                        },
                                                       "RADIO_SQUELCH": {
                                                                                       "category": "Radio",
@@ -7098,6 +7158,22 @@ docdata["JF-17"] =
                                                                                                              "type": "integer"
                                                                                                   } ],
                                                                               "physical_variant": "toggle_switch"
+                                                                       },
+                                                     "RADIO_TO_LIGHT": {
+                                                                               "category": "Radio",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Radio Take-Over Indicator Light",
+                                                                             "identifier": "RADIO_TO_LIGHT",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 18596,
+                                                                                               "description": "Radio Take-Over Indicator Light",
+                                                                                                      "mask": 2,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 1,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
                                                                        },
                                                           "RADIO_VOL": {
                                                                                "category": "Radio",
@@ -8799,6 +8875,62 @@ docdata["JF-17"] =
                                                                                                                "type": "integer"
                                                                                                     } ],
                                                                                 "physical_variant": "push_button"
+                                                                         },
+                                                          "UFCP_LINE_1": {
+                                                                                 "category": "UFCP",
+                                                                             "control_type": "display",
+                                                                              "description": "UFCP Display Line 1",
+                                                                               "identifier": "UFCP_LINE_1",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 18564,
+                                                                                                 "description": "UFCP Display Line 1",
+                                                                                                  "max_length": 8,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "string"
+                                                                                             } ]
+                                                                         },
+                                                          "UFCP_LINE_2": {
+                                                                                 "category": "UFCP",
+                                                                             "control_type": "display",
+                                                                              "description": "UFCP Display Line 2",
+                                                                               "identifier": "UFCP_LINE_2",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 18572,
+                                                                                                 "description": "UFCP Display Line 2",
+                                                                                                  "max_length": 8,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "string"
+                                                                                             } ]
+                                                                         },
+                                                          "UFCP_LINE_3": {
+                                                                                 "category": "UFCP",
+                                                                             "control_type": "display",
+                                                                              "description": "UFCP Display Line 3",
+                                                                               "identifier": "UFCP_LINE_3",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 18580,
+                                                                                                 "description": "UFCP Display Line 3",
+                                                                                                  "max_length": 8,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "string"
+                                                                                             } ]
+                                                                         },
+                                                          "UFCP_LINE_4": {
+                                                                                 "category": "UFCP",
+                                                                             "control_type": "display",
+                                                                              "description": "UFCP Display Line 4",
+                                                                               "identifier": "UFCP_LINE_4",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 18588,
+                                                                                                 "description": "UFCP Display Line 4",
+                                                                                                  "max_length": 8,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "string"
+                                                                                             } ]
                                                                          },
                                                    "UFCP_PLUS_MINUS_SW": {
                                                                                         "category": "UFCP",

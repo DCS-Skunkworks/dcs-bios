@@ -1267,7 +1267,7 @@ docdata["Yak-52"] =
                                                                        "identifier": "EXT_WOW_LEFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 8372,
+                                                                                             "address": 8384,
                                                                                          "description": "Weight ON Wheels Left Gear",
                                                                                                 "mask": 128,
                                                                                            "max_value": 1,
@@ -1283,7 +1283,7 @@ docdata["Yak-52"] =
                                                                        "identifier": "EXT_WOW_NOSE",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 8372,
+                                                                                             "address": 8384,
                                                                                          "description": "Weight ON Wheels Nose Gear",
                                                                                                 "mask": 32,
                                                                                            "max_value": 1,
@@ -1299,7 +1299,7 @@ docdata["Yak-52"] =
                                                                        "identifier": "EXT_WOW_RIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 8372,
+                                                                                             "address": 8384,
                                                                                          "description": "Weight ON Wheels Right Gear",
                                                                                                 "mask": 64,
                                                                                            "max_value": 1,
@@ -2180,6 +2180,54 @@ docdata["Yak-52"] =
                                                                                                         "type": "integer"
                                                                                              } ]
                                                                          },
+                                                   "FRONT_COMPASS_BANK": {
+                                                                                 "category": "Gauges",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Fore Compass Bank",
+                                                                               "identifier": "FRONT_COMPASS_BANK",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 8368,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                    "FRONT_COMPASS_HDG": {
+                                                                                 "category": "Gauges",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Fore Compass Heading",
+                                                                               "identifier": "FRONT_COMPASS_HDG",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 8370,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                  "FRONT_COMPASS_PITCH": {
+                                                                                 "category": "Gauges",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Fore Compass Pitch",
+                                                                               "identifier": "FRONT_COMPASS_PITCH",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 8366,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
                                                        "FRONT_CYL_TEMP": {
                                                                                  "category": "Gauges",
                                                                              "control_type": "analog_gauge",
@@ -2572,6 +2620,54 @@ docdata["Yak-52"] =
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
                                                                                                      "address": 8294,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                    "REAR_COMPASS_BANK": {
+                                                                                 "category": "Gauges",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Rear Compass Bank",
+                                                                               "identifier": "REAR_COMPASS_BANK",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 8374,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                     "REAR_COMPASS_HDG": {
+                                                                                 "category": "Gauges",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Rear Compass Heading",
+                                                                               "identifier": "REAR_COMPASS_HDG",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 8376,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                   "REAR_COMPASS_PITCH": {
+                                                                                 "category": "Gauges",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Rear Compass Pitch",
+                                                                               "identifier": "REAR_COMPASS_PITCH",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 8372,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,
@@ -3997,7 +4093,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_ARC15_LIGHT",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8372,
+                                                                                                  "address": 8384,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 8,
                                                                                                 "max_value": 1,
@@ -4013,7 +4109,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_FLAPS_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 256,
                                                                                                 "max_value": 1,
@@ -4029,7 +4125,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_FLAPS_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 128,
                                                                                                 "max_value": 1,
@@ -4045,7 +4141,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_GEN_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 16384,
                                                                                                 "max_value": 1,
@@ -4061,7 +4157,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_GYRO_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 1,
                                                                                                 "max_value": 1,
@@ -4109,7 +4205,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_MAXG_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 32768,
                                                                                                 "max_value": 1,
@@ -4125,7 +4221,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_METAL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 8192,
                                                                                                 "max_value": 1,
@@ -4173,7 +4269,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_PITOT_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 4,
                                                                                                 "max_value": 1,
@@ -4189,7 +4285,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_R_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 1,
                                                                                                 "max_value": 1,
@@ -4221,7 +4317,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_SPEED_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 4096,
                                                                                                 "max_value": 1,
@@ -4237,7 +4333,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_STALL_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 2,
                                                                                                 "max_value": 1,
@@ -4253,7 +4349,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "F_STALL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 2048,
                                                                                                 "max_value": 1,
@@ -4269,7 +4365,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_12_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 512,
                                                                                                 "max_value": 1,
@@ -4285,7 +4381,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_15_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 1024,
                                                                                                 "max_value": 1,
@@ -4301,7 +4397,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_20_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 2048,
                                                                                                 "max_value": 1,
@@ -4317,7 +4413,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_25_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 4096,
                                                                                                 "max_value": 1,
@@ -4333,7 +4429,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_30_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 8192,
                                                                                                 "max_value": 1,
@@ -4349,7 +4445,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_35_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 16384,
                                                                                                 "max_value": 1,
@@ -4365,7 +4461,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_40_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 32768,
                                                                                                 "max_value": 1,
@@ -4381,7 +4477,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_45_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8372,
+                                                                                                  "address": 8384,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 1,
                                                                                                 "max_value": 1,
@@ -4397,7 +4493,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_50_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8372,
+                                                                                                  "address": 8384,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 2,
                                                                                                 "max_value": 1,
@@ -4413,7 +4509,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "L_FUEL_60_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8372,
+                                                                                                  "address": 8384,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 4,
                                                                                                 "max_value": 1,
@@ -4429,7 +4525,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_ARC15_LIGHT",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8372,
+                                                                                                  "address": 8384,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 16,
                                                                                                 "max_value": 1,
@@ -4445,7 +4541,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_BATT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 512,
                                                                                                 "max_value": 1,
@@ -4461,7 +4557,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_EMPTY_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 16384,
                                                                                                 "max_value": 1,
@@ -4477,7 +4573,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FLAPS_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 1024,
                                                                                                 "max_value": 1,
@@ -4493,7 +4589,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FLAPS_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 512,
                                                                                                 "max_value": 1,
@@ -4509,7 +4605,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_12_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 32768,
                                                                                                 "max_value": 1,
@@ -4525,7 +4621,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_15_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 1,
                                                                                                 "max_value": 1,
@@ -4541,7 +4637,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_20_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 2,
                                                                                                 "max_value": 1,
@@ -4557,7 +4653,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_25_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 4,
                                                                                                 "max_value": 1,
@@ -4573,7 +4669,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_30_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 8,
                                                                                                 "max_value": 1,
@@ -4589,7 +4685,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_35_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 16,
                                                                                                 "max_value": 1,
@@ -4605,7 +4701,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_40_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 32,
                                                                                                 "max_value": 1,
@@ -4621,7 +4717,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_45_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 64,
                                                                                                 "max_value": 1,
@@ -4637,7 +4733,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_50_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 128,
                                                                                                 "max_value": 1,
@@ -4653,7 +4749,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_60_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8370,
+                                                                                                  "address": 8382,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 256,
                                                                                                 "max_value": 1,
@@ -4669,7 +4765,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_L_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 128,
                                                                                                 "max_value": 1,
@@ -4685,7 +4781,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_FUEL_R_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 256,
                                                                                                 "max_value": 1,
@@ -4701,7 +4797,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_GEN_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 64,
                                                                                                 "max_value": 1,
@@ -4717,7 +4813,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_GYRO_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 1024,
                                                                                                 "max_value": 1,
@@ -4733,7 +4829,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_L_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 16,
                                                                                                 "max_value": 1,
@@ -4749,7 +4845,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_L_GEAR_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 2,
                                                                                                 "max_value": 1,
@@ -4765,7 +4861,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_MAXG_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 8,
                                                                                                 "max_value": 1,
@@ -4781,7 +4877,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_METAL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 2048,
                                                                                                 "max_value": 1,
@@ -4797,7 +4893,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_N_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 32,
                                                                                                 "max_value": 1,
@@ -4813,7 +4909,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_N_GEAR_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 4,
                                                                                                 "max_value": 1,
@@ -4829,7 +4925,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_PITOT_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 4096,
                                                                                                 "max_value": 1,
@@ -4845,7 +4941,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_R_GEAR_DOWN",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 64,
                                                                                                 "max_value": 1,
@@ -4861,7 +4957,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_R_GEAR_UP",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8366,
+                                                                                                  "address": 8378,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 8,
                                                                                                 "max_value": 1,
@@ -4877,7 +4973,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_SPEED_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 32,
                                                                                                 "max_value": 1,
@@ -4893,7 +4989,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_STALL_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 8192,
                                                                                                 "max_value": 1,
@@ -4909,7 +5005,7 @@ docdata["Yak-52"] =
                                                                             "identifier": "R_STALL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 8368,
+                                                                                                  "address": 8380,
                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                      "mask": 16,
                                                                                                 "max_value": 1,

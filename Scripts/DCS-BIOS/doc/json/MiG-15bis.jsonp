@@ -1607,7 +1607,7 @@ docdata["MiG-15bis"] =
                                                                                   "identifier": "EXT_POSITION_LIGHT_LEFT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 9402,
+                                                                                                        "address": 9408,
                                                                                                     "description": "Left Position Light (red)",
                                                                                                            "mask": 16,
                                                                                                       "max_value": 1,
@@ -1623,7 +1623,7 @@ docdata["MiG-15bis"] =
                                                                                   "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 9402,
+                                                                                                        "address": 9408,
                                                                                                     "description": "Right Position Light (green)",
                                                                                                            "mask": 32,
                                                                                                       "max_value": 1,
@@ -1639,7 +1639,7 @@ docdata["MiG-15bis"] =
                                                                                   "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 9406,
+                                                                                                        "address": 9412,
                                                                                                     "description": "Left Speed Brake",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -1655,7 +1655,7 @@ docdata["MiG-15bis"] =
                                                                                   "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 9404,
+                                                                                                        "address": 9410,
                                                                                                     "description": "Right Speed Brake",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -1671,7 +1671,7 @@ docdata["MiG-15bis"] =
                                                                                   "identifier": "EXT_WOW_LEFT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 9402,
+                                                                                                        "address": 9408,
                                                                                                     "description": "Weight ON Wheels Left Gear",
                                                                                                            "mask": 256,
                                                                                                       "max_value": 1,
@@ -1687,7 +1687,7 @@ docdata["MiG-15bis"] =
                                                                                   "identifier": "EXT_WOW_NOSE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 9402,
+                                                                                                        "address": 9408,
                                                                                                     "description": "Weight ON Wheels Nose Gear",
                                                                                                            "mask": 64,
                                                                                                       "max_value": 1,
@@ -1703,7 +1703,7 @@ docdata["MiG-15bis"] =
                                                                                   "identifier": "EXT_WOW_RIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 9402,
+                                                                                                        "address": 9408,
                                                                                                     "description": "Weight ON Wheels Right Gear",
                                                                                                            "mask": 128,
                                                                                                       "max_value": 1,
@@ -1852,262 +1852,310 @@ docdata["MiG-15bis"] =
                                                                     }
                                             },
                                   "Gauges": {
-                                                          "ALT_KM": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Altimeter km",
-                                                                          "identifier": "ALT_KM",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9372,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                           "ALT_M": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Altimeter km",
-                                                                          "identifier": "ALT_M",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9374,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                       "ALT_PRESS": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Altimeter Pressure",
-                                                                          "identifier": "ALT_PRESS",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9376,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                "CANOPY_AIR_VALVE": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Canopy Air Valve Indication",
-                                                                          "identifier": "CANOPY_AIR_VALVE",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9384,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                     "COCKPIT_ALT": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Cockpit Altitude",
-                                                                          "identifier": "COCKPIT_ALT",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9386,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                  "ENG_FUEL_PRESS": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Engine Fuel Pressure",
-                                                                          "identifier": "ENG_FUEL_PRESS",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9398,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                       "ENG_TACHO": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Engine Tachometer",
-                                                                          "identifier": "ENG_TACHO",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9390,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                        "ENG_TEMP": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Engine Temperature",
-                                                                          "identifier": "ENG_TEMP",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9392,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                      "FUEL_PRESS": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Fuel Pressure",
-                                                                          "identifier": "FUEL_PRESS",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9400,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                             "IAS": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "IAS",
-                                                                          "identifier": "IAS",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9378,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                            "MACH": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Mach",
-                                                                          "identifier": "MACH",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9382,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                       "OIL_PRESS": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Oil Pressure",
-                                                                          "identifier": "OIL_PRESS",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9396,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                        "OIL_TEMP": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Oil Temperature",
-                                                                          "identifier": "OIL_TEMP",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9394,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                      "PRESS_DIFF": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Pressure Difference",
-                                                                          "identifier": "PRESS_DIFF",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9388,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                             "TAS": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "TAS",
-                                                                          "identifier": "TAS",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9380,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                      "VARIOMETER": {
-                                                                            "category": "Gauges",
-                                                                        "control_type": "analog_gauge",
-                                                                         "description": "Variometer",
-                                                                          "identifier": "VARIOMETER",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                "address": 9370,
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    }
+                                                           "ALT_KM": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Altimeter km",
+                                                                           "identifier": "ALT_KM",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9372,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                            "ALT_M": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Altimeter km",
+                                                                           "identifier": "ALT_M",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9374,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                        "ALT_PRESS": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Altimeter Pressure",
+                                                                           "identifier": "ALT_PRESS",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9376,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                 "CANOPY_AIR_VALVE": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Canopy Air Valve Indication",
+                                                                           "identifier": "CANOPY_AIR_VALVE",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9384,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                      "COCKPIT_ALT": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Cockpit Altitude",
+                                                                           "identifier": "COCKPIT_ALT",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9386,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                   "ENG_FUEL_PRESS": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Engine Fuel Pressure",
+                                                                           "identifier": "ENG_FUEL_PRESS",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9398,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                        "ENG_TACHO": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Engine Tachometer",
+                                                                           "identifier": "ENG_TACHO",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9390,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                         "ENG_TEMP": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Engine Temperature",
+                                                                           "identifier": "ENG_TEMP",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9392,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                       "FUEL_PRESS": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Fuel Pressure",
+                                                                           "identifier": "FUEL_PRESS",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9400,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                              "IAS": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "IAS",
+                                                                           "identifier": "IAS",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9378,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                             "MACH": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Mach",
+                                                                           "identifier": "MACH",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9382,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                        "OIL_PRESS": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Oil Pressure",
+                                                                           "identifier": "OIL_PRESS",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9396,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                         "OIL_TEMP": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Oil Temperature",
+                                                                           "identifier": "OIL_TEMP",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9394,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                       "PRESS_DIFF": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Pressure Difference",
+                                                                           "identifier": "PRESS_DIFF",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9388,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                 "SBY_COMPASS_BANK": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Standby Compass Bank",
+                                                                           "identifier": "SBY_COMPASS_BANK",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9406,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                  "SBY_COMPASS_HDG": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Standby Compass Heading",
+                                                                           "identifier": "SBY_COMPASS_HDG",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9402,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                "SBY_COMPASS_PITCH": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Standby Compass Pitch",
+                                                                           "identifier": "SBY_COMPASS_PITCH",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9404,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                              "TAS": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "TAS",
+                                                                           "identifier": "TAS",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9380,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                       "VARIOMETER": {
+                                                                             "category": "Gauges",
+                                                                         "control_type": "analog_gauge",
+                                                                          "description": "Variometer",
+                                                                           "identifier": "VARIOMETER",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 9370,
+                                                                                             "description": "gauge position",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     }
                                             },
                              "Gear System": {
                                                      "BRAKE_PRESS_L": {
@@ -4214,7 +4262,7 @@ docdata["MiG-15bis"] =
                                                                                "identifier": "L_GEAR_DOWN",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 9402,
+                                                                                                     "address": 9408,
                                                                                                  "description": "0 if light is off, 1 if light is on",
                                                                                                         "mask": 2,
                                                                                                    "max_value": 1,
@@ -4246,7 +4294,7 @@ docdata["MiG-15bis"] =
                                                                                "identifier": "N_GEAR_DOWN",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 9402,
+                                                                                                     "address": 9408,
                                                                                                  "description": "0 if light is off, 1 if light is on",
                                                                                                         "mask": 4,
                                                                                                    "max_value": 1,
@@ -4278,7 +4326,7 @@ docdata["MiG-15bis"] =
                                                                                "identifier": "R_GEAR_DOWN",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 9402,
+                                                                                                     "address": 9408,
                                                                                                  "description": "0 if light is off, 1 if light is on",
                                                                                                         "mask": 8,
                                                                                                    "max_value": 1,
@@ -4294,7 +4342,7 @@ docdata["MiG-15bis"] =
                                                                                "identifier": "R_GEAR_UP",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 9402,
+                                                                                                     "address": 9408,
                                                                                                  "description": "0 if light is off, 1 if light is on",
                                                                                                         "mask": 1,
                                                                                                    "max_value": 1,

@@ -1480,6 +1480,54 @@ docdata["SpitfireLFMkIX"] =
                                                                                                            "type": "integer"
                                                                                                 } ]
                                                                             },
+                                                            "COMPASS_BANK": {
+                                                                                    "category": "Indicator",
+                                                                                "control_type": "analog_gauge",
+                                                                                 "description": "Compass Bank",
+                                                                                  "identifier": "COMPASS_BANK",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 21606,
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                             "COMPASS_HDG": {
+                                                                                    "category": "Indicator",
+                                                                                "control_type": "analog_gauge",
+                                                                                 "description": "Compass Heading",
+                                                                                  "identifier": "COMPASS_HDG",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 21608,
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                           "COMPASS_PITCH": {
+                                                                                    "category": "Indicator",
+                                                                                "control_type": "analog_gauge",
+                                                                                 "description": "Compass Pitch",
+                                                                                  "identifier": "COMPASS_PITCH",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 21604,
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
                                                                  "DIGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",

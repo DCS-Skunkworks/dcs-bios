@@ -11767,6 +11767,35 @@
                                                                                                      } ],
                                                                                  "physical_variant": "toggle_switch"
                                                                           },
+                                                         "MIRROR_TOGGLE": {
+                                                                                         "category": "Misc",
+                                                                                     "control_type": "selector",
+                                                                                      "description": "Toggle Mirrors",
+                                                                                       "identifier": "MIRROR_TOGGLE",
+                                                                                           "inputs": [ {
+                                                                                                         "description": "switch to previous or next state",
+                                                                                                           "interface": "fixed_step"
+                                                                                                     }, {
+                                                                                                         "description": "set position",
+                                                                                                           "interface": "set_state",
+                                                                                                           "max_value": 1
+                                                                                                     }, {
+                                                                                                            "argument": "TOGGLE",
+                                                                                                         "description": "Toggle switch state",
+                                                                                                           "interface": "action"
+                                                                                                     } ],
+                                                                              "momentary_positions": "none",
+                                                                                          "outputs": [ {
+                                                                                                             "address": 4818,
+                                                                                                         "description": "selector position",
+                                                                                                                "mask": 64,
+                                                                                                           "max_value": 1,
+                                                                                                            "shift_by": 6,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                                     } ],
+                                                                                 "physical_variant": "toggle_switch"
+                                                                          },
                                                            "SEAT_ADJUST": {
                                                                                          "category": "Misc",
                                                                                      "control_type": "selector",
