@@ -251,6 +251,9 @@ defineFloat("OIL_TEMP", 45, {0.0, 1.0}, "Gauges", "Oil Temperature")
 defineFloat("OIL_PRESS", 44, {0.0, 1.0}, "Gauges", "Oil Pressure")
 defineFloat("ENG_FUEL_PRESS", 43, {0.0, 1.0}, "Gauges", "Engine Fuel Pressure")
 defineFloat("FUEL_PRESS", 46, {0.0, 1.0}, "Gauges", "Fuel Pressure")
+defineFloat("SBY_COMPASS_HDG", 3, {-1, 1}, "Gauges", "Standby Compass Heading")
+defineFloat("SBY_COMPASS_PITCH", 2, {-1, 1}, "Gauges", "Standby Compass Pitch")
+defineFloat("SBY_COMPASS_BANK", 1, {-1, 1}, "Gauges", "Standby Compass Bank")
 
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("FIRE_TEST_LIGHT", 135, "Warning, Caution and IndicatorLights","Fire Alarm Test Light (red)")

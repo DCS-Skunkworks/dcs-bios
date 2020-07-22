@@ -250,5 +250,8 @@ defineFloat("CANOPY_POS", 138, {0, 1}, "Indicator", "Canopy Position")
 defineFloat("PANEL_SHAKE_Z", 142, {-0.8, 0.8}, "Indicator", "Common Panel Shaker (Z Axis)")
 defineFloat("PANEL_SHAKE_Y", 143, {-0.8, 0.8}, "Indicator", "Common Panel Shaker (Y Axis)")
 defineFloat("PANEL_SHAKE_X", 144, {-0.8, 0.8}, "Indicator", "Common Panel Shaker (X Axis)")
+defineFloat("COMPASS_PITCH", 71, {-1, 1}, "Indicator", "Compass Pitch")
+defineFloat("COMPASS_BANK", 72, {-1, 1}, "Indicator", "Compass Bank")
+defineFloat("COMPASS_HDG", 73, {-1, 1}, "Indicator", "Compass Heading")
 
 BIOS.protocol.endModule()

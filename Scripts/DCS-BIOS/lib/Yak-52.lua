@@ -204,6 +204,12 @@ defineFloat("FRONT_PNEU_MAIN_PRESS", 37, {0.0, 1.0}, "Gauges", "Fore Pneumatic M
 defineFloat("FRONT_PNEU_STBY_PRESS", 38, {0.0, 1.0}, "Gauges", "Fore Pneumatic Standby Pressure Gauge")
 defineFloat("REAR_PNEU_MAIN_PRESS", 39, {0.0, 1.0}, "Gauges", "Rear Pneumatic Main Pressure Gauge")
 defineFloat("REAR_PNEU_STBY_PRESS", 40, {0.0, 1.0}, "Gauges", "Rear Pneumatic Standby Pressure Gauge")
+defineFloat("FRONT_COMPASS_PITCH", 51, {-1, 1}, "Gauges", "Fore Compass Pitch")
+defineFloat("FRONT_COMPASS_BANK", 50, {-1, 1}, "Gauges", "Fore Compass Bank")
+defineFloat("FRONT_COMPASS_HDG", 52, {-1, 1}, "Gauges", "Fore Compass Heading")
+defineFloat("REAR_COMPASS_PITCH", 54, {-1, 1}, "Gauges", "Rear Compass Pitch")
+defineFloat("REAR_COMPASS_BANK", 53, {-1, 1}, "Gauges", "Rear Compass Bank")
+defineFloat("REAR_COMPASS_HDG", 55, {-1, 1}, "Gauges", "Rear Compass Heading")
 
 --- Warning, Caution and IndicatorLights
 defineIndicatorLight("F_L_GEAR_UP", 17, "Warning, Caution and IndicatorLights","Front Left Gear UP Lamp (red)")

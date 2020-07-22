@@ -463,4 +463,8 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
+defineFloat("SBY_COMPASS_HDG", 610, {-1, 1}, "Gauges", "Standby Compass Heading")
+defineFloat("SBY_COMPASS_PITCH", 611, {-1, 1}, "Gauges", "Standby Compass Pitch")
+defineFloat("SBY_COMPASS_BANK", 612, {-1, 1}, "Gauges", "Standby Compass Bank")
+
 BIOS.protocol.endModule()

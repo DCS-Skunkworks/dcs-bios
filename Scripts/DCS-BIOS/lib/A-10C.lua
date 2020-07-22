@@ -1371,4 +1371,6 @@ defineFloat("INT_AUX_INST_L_BRIGHT", 803, {0, 1}, "Light System Control Panel", 
 defineFloat("INT_FLOOD_L_BRIGHT", 806, {0, 1}, "Light System Control Panel", "Flood Light Brightness")
 defineFloat("INT_CAUTION_L_BRIGHT", 905, {0, 1}, "Light System Control Panel", "Flood Light Brightness")
 
+defineToggleSwitch("MIRROR_TOGGLE", 0, 3001, 719, "Misc", "Toggle Mirrors")
+
 BIOS.protocol.endModule()
