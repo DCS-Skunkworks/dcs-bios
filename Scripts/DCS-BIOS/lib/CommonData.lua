@@ -57,7 +57,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 end
 
 local function getVersion()
-	return "0.7.36"
+	return "0.7.37"
 end
 defineString("DCS_BIOS", getVersion, 6,  "Metadata" , "DCS Bios Version")
 
