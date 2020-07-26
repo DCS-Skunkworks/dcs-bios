@@ -798,6 +798,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	if ifei.RPMTexture == nil then RPMTexture = "0" else RPMTexture = "1" end
 	if ifei.TempTexture == nil then TempTexture = "0" else TempTexture = "1" end
 	if ifei.FFTexture == nil then FFTexture = "0" else FFTexture = "1" end
+	if ifei.NOZTexture == nil then NOZTexture = "0" else NOZTexture = "1" end
 	if ifei.OILTexture == nil then OILTexture = "0" else OILTexture = "1" end
 	if ifei.BINGOTexture == nil then BINGOTexture = "0" else BINGOTexture = "1" end
 	if ifei.LScaleTexture == nil then LScaleTexture = "0" else LScaleTexture = "1" end
@@ -828,8 +829,8 @@ defineString("IFEI_FF_L", function() return txt_FF_L end, 3, "Integrated Fuel/En
 defineString("IFEI_FF_R", function() return txt_FF_R end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "FF_R")
 defineString("IFEI_FUEL_DOWN", function() return txt_FUEL_DOWN end, 6, "Integrated Fuel/Engine Indicator (IFEI)", "FUEL_DOWN")
 defineString("IFEI_FUEL_UP", function() return txt_FUEL_UP end, 6, "Integrated Fuel/Engine Indicator (IFEI)", "FUEL_UP")
-defineString("IFEI_OIL_PRESS_L", function() return txt_OilPress_L end, 2, "Integrated Fuel/Engine Indicator (IFEI)", "OilPress_L")
-defineString("IFEI_OIL_PRESS_R", function() return txt_OilPress_R end, 2, "Integrated Fuel/Engine Indicator (IFEI)", "OilPress_R")
+defineString("IFEI_OIL_PRESS_L", function() return txt_OilPress_L end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "OilPress_L")
+defineString("IFEI_OIL_PRESS_R", function() return txt_OilPress_R end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "OilPress_R")
 defineString("IFEI_RPM_L", function() return txt_RPM_L end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "RPM_L")
 defineString("IFEI_RPM_R", function() return txt_RPM_R end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "RPM_R")
 defineString("IFEI_TEMP_L", function() return txt_TEMP_L end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "TEMP_L")
@@ -840,6 +841,7 @@ defineString("IFEI_TIME_SET_MODE", function() return txt_TimeSetMode end, 6, "In
 defineString("IFEI_RPM_TEXTURE", function() return RPMTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "RPM Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_TEMP_TEXTURE", function() return TempTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Temp Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_FF_TEXTURE", function() return FFTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "FF Texture Visible: 1 = yes, 0 = no")
+defineString("IFEI_NOZ_TEXTURE", function() return NOZTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "NOZZLE Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_OIL_TEXTURE", function() return OILTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "OIL Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_BINGO_TEXTURE", function() return BINGOTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "BINGO Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_LSCALE_TEXTURE", function() return LScaleTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Left Scale Texture Visible: 1 = yes, 0 = no")
@@ -1262,6 +1264,5 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
-
 
 BIOS.protocol.endModule()
