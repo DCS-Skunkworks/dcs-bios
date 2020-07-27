@@ -4618,6 +4618,20 @@ docdata["F-14B"] =
                                                                                                    } ],
                                                                                "physical_variant": "push_button"
                                                                         },
+                                                 "PLT_AIR_SOURCE_MODE": {
+                                                                                "category": "Display",
+                                                                            "control_type": "display",
+                                                                             "description": "PILOT Air Source Mode (string)",
+                                                                              "identifier": "PLT_AIR_SOURCE_MODE",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 5264,
+                                                                                                "description": "PILOT Air Source Mode (string)",
+                                                                                                 "max_length": 1,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "string"
+                                                                                            } ]
+                                                                        },
                                                     "PLT_HSD_DIS_MODE": {
                                                                                        "category": "Display",
                                                                                    "control_type": "selector",
@@ -6176,7 +6190,7 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_FORMATION_LIGHTS",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5270,
+                                                                                                         "address": 5272,
                                                                                                      "description": "Formation Lights",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6256,7 +6270,7 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5266,
+                                                                                                         "address": 5268,
                                                                                                      "description": "Bottom Left Speed Brake",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6272,7 +6286,7 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5264,
+                                                                                                         "address": 5266,
                                                                                                      "description": "Bottom Right Speed Brake",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6288,7 +6302,7 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_SPEED_BRAKE_TOP",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5268,
+                                                                                                         "address": 5270,
                                                                                                      "description": "Top Speed Brake",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
