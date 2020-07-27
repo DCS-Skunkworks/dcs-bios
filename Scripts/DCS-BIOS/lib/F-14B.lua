@@ -277,6 +277,24 @@ local function getSTEER_Mode()
     end
     return steer_m
 end
+
+local function getAIRSOURCE_Mode()
+    local airsource_m = "5"
+    if GetDevice(0):get_argument_value(929) == 1 then  --RAM
+        airsource_m = "1"
+    elseif GetDevice(0):get_argument_value(930) == 1 then  --LEFT
+        airsource_m = "2"
+    elseif GetDevice(0):get_argument_value(931) == 1 then  --RIGHT
+        airsource_m = "3"
+    elseif GetDevice(0):get_argument_value(932) == 1 then  --BOTH
+        airsource_m = "4"
+    elseif GetDevice(0):get_argument_value(933) == 1 then  --OFF  
+        airsource_m = "5"    
+	else
+	    airsource_m = "5"		
+    end
+    return airsource_m
+end
 ----------------------------------------- BIOS-Profile  
 
 -- Hydraulics
@@ -1575,6 +1593,7 @@ defineString("RIO_UHF_REMOTE_DISP", function() return RIO_UHF_REMOTE_DISP end, 7
 defineString("PLT_VUHF_REMOTE_DISP", function() return PLT_VUHF_REMOTE_DISP end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")
 defineString("PLT_HUD_MODE", getHUD_Mode, 1, "Display", "PILOT HUD Mode (string)")  
 defineString("PLT_STEER_MODE", getSTEER_Mode, 1, "Display", "PILOT STEER Mode (string)")
+defineString("PLT_AIR_SOURCE_MODE", getAIRSOURCE_Mode, 1, "Display", "PILOT Air Source Mode (string)")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
