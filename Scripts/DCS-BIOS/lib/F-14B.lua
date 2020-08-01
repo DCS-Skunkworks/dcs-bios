@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 --by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
---v 1.8h
+--v 1.9
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -26,14 +26,14 @@ local defineString = BIOS.util.defineString
 
 -- remove Arg# Stick 33
 
--- Extra Functions
+----------------------------------------- Extra Functions
 local function defineIndicatorLightMulti1(msg, arg_number, category, description)
 	local value = moduleBeingDefined.memoryMap:allocateInt {
 		maxValue = 1
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.4 or dev0:get_argument_value(arg_number) > 0.6 then
+		if dev0:get_argument_value(arg_number) >= 0.4 or dev0:get_argument_value(arg_number) < 0.6 then
 			value:setValue(0)
 		else
 		    value:setValue(1)
@@ -64,7 +64,7 @@ local function defineIndicatorLightMulti2(msg, arg_number, category, description
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.8 or dev0:get_argument_value(arg_number) > 0.99 then
+		if dev0:get_argument_value(arg_number) >= 0.8 or dev0:get_argument_value(arg_number) < 0.99 then
 			value:setValue(0)
 		else
 		    value:setValue(1)
@@ -95,7 +95,7 @@ local function defineIndicatorLightLANTTop(msg, arg_number, category, descriptio
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.24 or dev0:get_argument_value(arg_number) > 0.49 then
+		if dev0:get_argument_value(arg_number) >= 0.24 or dev0:get_argument_value(arg_number) < 0.49 then
 			value:setValue(0)
 		else
 		    value:setValue(1)
@@ -126,7 +126,7 @@ local function defineIndicatorLightLANT(msg, arg_number, category, description)
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.49 or dev0:get_argument_value(arg_number) > 0.54 then
+		if dev0:get_argument_value(arg_number) >= 0.49 or dev0:get_argument_value(arg_number) < 0.55 then
 			value:setValue(0)
 		else
 		    value:setValue(1)
@@ -145,7 +145,7 @@ local function defineIndicatorLightLANT(msg, arg_number, category, description)
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "Light is on between 0.49 and 0.53"
+			  description = "Light is on between 0.49 and 0.54"
 			}
 		}
 	}
@@ -157,7 +157,7 @@ local function defineIndicatorLightLANTBottom(msg, arg_number, category, descrip
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.55 or dev0:get_argument_value(arg_number) > 0.99 then
+		if dev0:get_argument_value(arg_number) >= 0.55 or dev0:get_argument_value(arg_number) < 0.99 then
 			value:setValue(0)
 		else
 		    value:setValue(1)
@@ -181,66 +181,6 @@ local function defineIndicatorLightLANTBottom(msg, arg_number, category, descrip
 		}
 	}
 end
-
---------------------------------- Matchstick --------------------------------- 
-function parse_indication_number_index(indicator_id)  -- Thanks to [FSF]Ian code
--- Custom version of parse_indication function that uses numbers for the index of the output table
--- for use in situations where the names of values in the indication are unusable (eg random GUID)
--- also adds the number of rows to the table at index 0
-	local t = {}
-	local li = list_indication(indicator_id)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	local counter = 0
-	while true do
-		local name, value = m()
-		counter = counter + 1
-		if not name then break end
-				t[counter]=value
-	end
-	t[0] = counter
-	if t == nil then return end
-	return t
-end
-
-local function get_radio_remote_display(indicatorId,testButtonId)-- Get data from specified device (9 for Pilot UHF, 10 for RIO UHF, 13 for Pilot VHF/UHF)
-	local data = parse_indication_number_index(indicatorId);
--- Get status of relevant test button (ID 15004 for Pilot UHF, 405 for RIO UHF, 15003 for Pilot VHF/UHF)
-	local testPressed = GetDevice(0):get_argument_value(testButtonId)
-	local retVal
-
-	if data and data[0] then
--- data[0] holds the length of the data table. 7 Indicates it is in manual frequency mode otherwise it is in preset mode.
--- testPressed indicates the current value of the specified radio display test button - if pressed we need to return the test value not the current manual or preset frequency.
--- depending on the type of data and the test button status assemble the result including separator if necessary.
-		if data[0]==7 and testPressed == 0 then
-			retVal  = data[5]:sub(1,3) .. data[6] .. data[5]:sub(4)
-		elseif data[0]==7 then
-			retVal  = data[3]:sub(1,3) .. data[4] .. data[3]:sub(4)
-		elseif testPressed == 0 then
-			retVal = data[5]
-		else
-			retVal = data[3]:sub(1,3)  .. data[4] .. data[3]:sub(4)
-		end
-	end
-	if retVal == nil then return end
-	return retVal
-end
-
-local PLT_UHF_REMOTE_DISP = ""
-local RIO_UHF_REMOTE_DISP = ""
-local PLT_VUHF_REMOTE_DISP = ""
-
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	if PLT_UHF_REMOTE_DISP == nil then PLT_UHF_REMOTE_DISP = "0000000"
-	else PLT_UHF_REMOTE_DISP = get_radio_remote_display(9,15004) end
-	
-	if RIO_UHF_REMOTE_DISP == nil then RIO_UHF_REMOTE_DISP = "0000000"
-	else RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,405) end
-	
-	if PLT_VUHF_REMOTE_DISP == nil then PLT_VUHF_REMOTE_DISP = "0000000"
-	else PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003) end
-end
---------------------------------- Matchstick End ---------------------------------  
 
 local function getHUD_Mode()
     local hud_m = "1"
@@ -295,6 +235,79 @@ local function getAIRSOURCE_Mode()
     end
     return airsource_m
 end
+
+--------------------------------- Matchstick --------------------------------- 
+function parse_indication_number_index(indicator_id)  -- Thanks to [FSF]Ian code
+-- Custom version of parse_indication function that uses numbers for the index of the output table
+-- for use in situations where the names of values in the indication are unusable (eg random GUID)
+-- also adds the number of rows to the table at index 0
+	local t = {}
+	local li = list_indication(indicator_id)
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	local counter = 0
+	while true do
+		local name, value = m()
+		counter = counter + 1
+		if not name then break end
+				t[counter]=value
+	end
+	t[0] = counter
+	if t == nil then return end
+	return t
+end
+
+local function get_radio_remote_display(indicatorId,testButtonId)-- Get data from specified device (9 for Pilot UHF, 10 for RIO UHF, 13 for Pilot VHF/UHF)
+	local data = parse_indication_number_index(indicatorId);
+-- Get status of relevant test button (ID 15004 for Pilot UHF, 405 for RIO UHF, 15003 for Pilot VHF/UHF)
+	local testPressed = GetDevice(0):get_argument_value(testButtonId)
+	local retVal
+
+	if data and data[0] then
+-- data[0] holds the length of the data table. 7 Indicates it is in manual frequency mode otherwise it is in preset mode.
+-- testPressed indicates the current value of the specified radio display test button - if pressed we need to return the test value not the current manual or preset frequency.
+-- depending on the type of data and the test button status assemble the result including separator if necessary.
+		if data[0]==7 and testPressed == 0 then
+			retVal  = data[5]:sub(1,3) .. data[6] .. data[5]:sub(4)
+		elseif data[0]==7 then
+			retVal  = data[3]:sub(1,3) .. data[4] .. data[3]:sub(4)
+		elseif testPressed == 0 then
+			retVal = data[5]
+		else
+			retVal = data[3]:sub(1,3)  .. data[4] .. data[3]:sub(4)
+		end
+	end
+	if retVal == nil then return end
+	return retVal
+end
+
+local PLT_UHF_REMOTE_DISP = ""
+local RIO_UHF_REMOTE_DISP = ""
+local PLT_VUHF_REMOTE_DISP = ""
+local HSD_TACAN_RANGE = ""
+local HSD_TACAN_CRS = ""
+local HSD_MAN_CRS = ""
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	HSDInd = parse_indication_number_index(1);
+	if HSDInd == nil then HSDInd = "00000" end
+        if getSTEER_Mode()=="1" then
+            HSD_TACAN_RANGE = HSDInd[19]
+            HSD_TACAN_CRS = HSDInd[20]
+        elseif getSTEER_Mode()=="5" then
+            HSD_MAN_CRS = HSDInd[16]
+        end
+	
+	if PLT_UHF_REMOTE_DISP == nil then PLT_UHF_REMOTE_DISP = "0000000"
+	else PLT_UHF_REMOTE_DISP = get_radio_remote_display(9,15004) end
+	
+	if RIO_UHF_REMOTE_DISP == nil then RIO_UHF_REMOTE_DISP = "0000000"
+	else RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,405) end
+	
+	if PLT_VUHF_REMOTE_DISP == nil then PLT_VUHF_REMOTE_DISP = "0000000"
+	else PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003) end
+end
+--------------------------------- Matchstick End ---------------------------------  
+
 ----------------------------------------- BIOS-Profile  
 
 -- Hydraulics
@@ -1580,7 +1593,7 @@ defineFloat("RIO_COMP_ROLLER2", 706, {0, 1}, "Gauges", "RIO Compass Roller 2")
 defineFloat("RIO_COMP_ROLLER3", 707, {0, 1}, "Gauges", "RIO Compass Roller 3")
 defineFloat("RIO_DDD_RANGE_ROLLER", 6100, {0, 1}, "Gauges", "RIO DDD Range Roller")
 defineFloat("RIO_TID_SRC_ROLLER", 6101, {0, 1}, "Gauges", "RIO TID Readout SRC Roller")
-defineFloat("RIO_DDD_RADAR_MODE", 6102, {0, 1}, "Gauges", "RIO DDD Raadar Mode Gauge")
+defineFloat("RIO_DDD_RADAR_MODE", 6102, {0, 1}, "Gauges", "RIO DDD Radar Mode Gauge")
 defineFloat("RIO_TID_STEER_ROLLER", 6103, {0, 1}, "Gauges", "RIO TID Steering Roller")
 defineFloat("RIO_RECORD_MIN_HI", 11600, {0, 1}, "Gauges", "RIO Record Minutes HI")
 defineFloat("RIO_RECORD_MIN_MED", 11601, {0, 1}, "Gauges", "RIO Record Minutes MED")
@@ -1594,6 +1607,9 @@ defineString("PLT_VUHF_REMOTE_DISP", function() return PLT_VUHF_REMOTE_DISP end,
 defineString("PLT_HUD_MODE", getHUD_Mode, 1, "Display", "PILOT HUD Mode (string)")  
 defineString("PLT_STEER_MODE", getSTEER_Mode, 1, "Display", "PILOT STEER Mode (string)")
 defineString("PLT_AIR_SOURCE_MODE", getAIRSOURCE_Mode, 1, "Display", "PILOT Air Source Mode (string)")
+defineString("HSD_TACAN_RANGE", function() return HSD_TACAN_RANGE end, 5, "HSD", "HSD TACAN Range Display")
+defineString("HSD_TACAN_CRS", function() return HSD_TACAN_CRS  end, 3, "HSD", "HSD TACAN Course Display")
+defineString("HSD_MAN_CRS", function() return HSD_MAN_CRS  end, 3, "HSD", "HSD MAN Course Display")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
@@ -1608,25 +1624,33 @@ defineIntegerFromGetter("EXT_SPEED_BRAKE_TOP", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(400)*65535)
 end, 65535, "External Aircraft Model", "Top Speed Brake")
 
+defineIntegerFromGetter("EXT_REFUEL_PROBE", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(22)*65535)
+end, 65535, "External Aircraft Model", "Fuel Probe")
+
 defineIntegerFromGetter("EXT_REFUEL_PROBE_LIGHT", function()
 	if LoGetAircraftDrawArgumentValue(610) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Refuel Probe Light")
+end, 1, "External Aircraft Model", "Refuel Probe Light (red)")
 
 defineIntegerFromGetter("EXT_POSITION_LIGHTS_WINGS", function()
 	if LoGetAircraftDrawArgumentValue(611) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Position Lights Wings")
+end, 1, "External Aircraft Model", "Position Lights Wings (red/green)")
 
 defineIntegerFromGetter("EXT_POSITION_LIGHTS_BODY", function()
 	if LoGetAircraftDrawArgumentValue(612) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Position Lights Body")
+end, 1, "External Aircraft Model", "Position Lights Body (red/green)")
 
 defineIntegerFromGetter("EXT_POSITION_LIGHT_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(613) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Tail Position Light")
+end, 1, "External Aircraft Model", "Tail Position Light (white)")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHT_CHIN", function()
+	if LoGetAircraftDrawArgumentValue(614) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Chinpod Position Light (red)")
 
 defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
-end, 65535, "External Aircraft Model", "Formation Lights")
+end, 65535, "External Aircraft Model", "Formation Lights (yellow green)")
 
 defineIntegerFromGetter("EXT_ANTI_COL", function()
 	if LoGetAircraftDrawArgumentValue(620) > 0 then return 1 else return 0 end
