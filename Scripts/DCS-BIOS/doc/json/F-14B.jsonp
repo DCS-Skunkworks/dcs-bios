@@ -6176,9 +6176,9 @@ docdata["F-14B"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Anticollision Lights",
-                                                                                                            "mask": 1024,
+                                                                                                            "mask": 2048,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 10,
+                                                                                                        "shift_by": 11,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6186,12 +6186,12 @@ docdata["F-14B"] =
                                                      "EXT_FORMATION_LIGHTS": {
                                                                                      "category": "External Aircraft Model",
                                                                                  "control_type": "metadata",
-                                                                                  "description": "Formation Lights",
+                                                                                  "description": "Formation Lights (yellow green)",
                                                                                    "identifier": "EXT_FORMATION_LIGHTS",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5272,
-                                                                                                     "description": "Formation Lights",
+                                                                                                         "address": 5290,
+                                                                                                     "description": "Formation Lights (yellow green)",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
                                                                                                         "shift_by": 0,
@@ -6202,12 +6202,12 @@ docdata["F-14B"] =
                                                  "EXT_POSITION_LIGHTS_BODY": {
                                                                                      "category": "External Aircraft Model",
                                                                                  "control_type": "metadata",
-                                                                                  "description": "Position Lights Body",
+                                                                                  "description": "Position Lights Body (red/green)",
                                                                                    "identifier": "EXT_POSITION_LIGHTS_BODY",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
                                                                                                          "address": 4990,
-                                                                                                     "description": "Position Lights Body",
+                                                                                                     "description": "Position Lights Body (red/green)",
                                                                                                             "mask": 16384,
                                                                                                        "max_value": 1,
                                                                                                         "shift_by": 14,
@@ -6218,15 +6218,31 @@ docdata["F-14B"] =
                                                 "EXT_POSITION_LIGHTS_WINGS": {
                                                                                      "category": "External Aircraft Model",
                                                                                  "control_type": "metadata",
-                                                                                  "description": "Position Lights Wings",
+                                                                                  "description": "Position Lights Wings (red/green)",
                                                                                    "identifier": "EXT_POSITION_LIGHTS_WINGS",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
                                                                                                          "address": 4980,
-                                                                                                     "description": "Position Lights Wings",
+                                                                                                     "description": "Position Lights Wings (red/green)",
                                                                                                             "mask": 32768,
                                                                                                        "max_value": 1,
                                                                                                         "shift_by": 15,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ]
+                                                                             },
+                                                  "EXT_POSITION_LIGHT_CHIN": {
+                                                                                     "category": "External Aircraft Model",
+                                                                                 "control_type": "metadata",
+                                                                                  "description": "Chinpod Position Light (red)",
+                                                                                   "identifier": "EXT_POSITION_LIGHT_CHIN",
+                                                                                       "inputs": [  ],
+                                                                                      "outputs": [ {
+                                                                                                         "address": 5114,
+                                                                                                     "description": "Chinpod Position Light (red)",
+                                                                                                            "mask": 1024,
+                                                                                                       "max_value": 1,
+                                                                                                        "shift_by": 10,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6234,12 +6250,12 @@ docdata["F-14B"] =
                                                   "EXT_POSITION_LIGHT_TAIL": {
                                                                                      "category": "External Aircraft Model",
                                                                                  "control_type": "metadata",
-                                                                                  "description": "Tail Position Light",
+                                                                                  "description": "Tail Position Light (white)",
                                                                                    "identifier": "EXT_POSITION_LIGHT_TAIL",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
                                                                                                          "address": 4990,
-                                                                                                     "description": "Tail Position Light",
+                                                                                                     "description": "Tail Position Light (white)",
                                                                                                             "mask": 32768,
                                                                                                        "max_value": 1,
                                                                                                         "shift_by": 15,
@@ -6247,15 +6263,31 @@ docdata["F-14B"] =
                                                                                                             "type": "integer"
                                                                                                  } ]
                                                                              },
+                                                         "EXT_REFUEL_PROBE": {
+                                                                                     "category": "External Aircraft Model",
+                                                                                 "control_type": "metadata",
+                                                                                  "description": "Fuel Probe",
+                                                                                   "identifier": "EXT_REFUEL_PROBE",
+                                                                                       "inputs": [  ],
+                                                                                      "outputs": [ {
+                                                                                                         "address": 5288,
+                                                                                                     "description": "Fuel Probe",
+                                                                                                            "mask": 65535,
+                                                                                                       "max_value": 65535,
+                                                                                                        "shift_by": 0,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ]
+                                                                             },
                                                    "EXT_REFUEL_PROBE_LIGHT": {
                                                                                      "category": "External Aircraft Model",
                                                                                  "control_type": "metadata",
-                                                                                  "description": "Refuel Probe Light",
+                                                                                  "description": "Refuel Probe Light (red)",
                                                                                    "identifier": "EXT_REFUEL_PROBE_LIGHT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
                                                                                                          "address": 4980,
-                                                                                                     "description": "Refuel Probe Light",
+                                                                                                     "description": "Refuel Probe Light (red)",
                                                                                                             "mask": 16384,
                                                                                                        "max_value": 1,
                                                                                                         "shift_by": 14,
@@ -6270,7 +6302,7 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5268,
+                                                                                                         "address": 5284,
                                                                                                      "description": "Bottom Left Speed Brake",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6286,7 +6318,7 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5266,
+                                                                                                         "address": 5282,
                                                                                                      "description": "Bottom Right Speed Brake",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6302,7 +6334,7 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_SPEED_BRAKE_TOP",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5270,
+                                                                                                         "address": 5286,
                                                                                                      "description": "Top Speed Brake",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6320,9 +6352,9 @@ docdata["F-14B"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Weight ON Wheels Left Gear",
-                                                                                                            "mask": 8192,
+                                                                                                            "mask": 16384,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 13,
+                                                                                                        "shift_by": 14,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6336,9 +6368,9 @@ docdata["F-14B"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Weight ON Wheels Nose Gear",
-                                                                                                            "mask": 2048,
+                                                                                                            "mask": 4096,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 11,
+                                                                                                        "shift_by": 12,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6352,9 +6384,9 @@ docdata["F-14B"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Weight ON Wheels Right Gear",
-                                                                                                            "mask": 4096,
+                                                                                                            "mask": 8192,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 12,
+                                                                                                        "shift_by": 13,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -9322,7 +9354,7 @@ docdata["F-14B"] =
                                                          "RIO_DDD_RADAR_MODE": {
                                                                                        "category": "Gauges",
                                                                                    "control_type": "analog_gauge",
-                                                                                    "description": "RIO DDD Raadar Mode Gauge",
+                                                                                    "description": "RIO DDD Radar Mode Gauge",
                                                                                      "identifier": "RIO_DDD_RADAR_MODE",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -10519,105 +10551,179 @@ docdata["F-14B"] =
                                                                       }
                                             },
                                      "HSD": {
-                                                  "PLT_HSD_BRIGHT": {
-                                                                            "category": "HSD",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "PILOT HSD Brightness",
-                                                                          "identifier": "PLT_HSD_BRIGHT",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4648,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                "PLT_HSD_KNOB_CRS": {
-                                                                         "api_variant": "multiturn",
-                                                                            "category": "HSD",
-                                                                        "control_type": "analog_dial",
-                                                                         "description": "PILOT HSD Selected Course",
-                                                                          "identifier": "PLT_HSD_KNOB_CRS",
-                                                                              "inputs": [ {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4646,
-                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "_KNOB_POS",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                "PLT_HSD_KNOB_HDG": {
-                                                                         "api_variant": "multiturn",
-                                                                            "category": "HSD",
-                                                                        "control_type": "analog_dial",
-                                                                         "description": "PILOT HSD Selected Heading",
-                                                                          "identifier": "PLT_HSD_KNOB_HDG",
-                                                                              "inputs": [ {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4644,
-                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "_KNOB_POS",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                    "PLT_HSD_TEST": {
-                                                                                "api_variant": "momentary_last_position",
-                                                                                   "category": "HSD",
-                                                                               "control_type": "selector",
-                                                                                "description": "PILOT HSD Test",
-                                                                                 "identifier": "PLT_HSD_TEST",
-                                                                                     "inputs": [ {
-                                                                                                   "description": "switch to previous or next state",
-                                                                                                     "interface": "fixed_step"
-                                                                                               }, {
-                                                                                                   "description": "set position",
-                                                                                                     "interface": "set_state",
-                                                                                                     "max_value": 1
-                                                                                               }, {
-                                                                                                      "argument": "TOGGLE",
-                                                                                                   "description": "Toggle switch state",
-                                                                                                     "interface": "action"
-                                                                                               } ],
-                                                                        "momentary_positions": "none",
-                                                                                    "outputs": [ {
-                                                                                                       "address": 4642,
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 1024,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 10,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ],
-                                                                           "physical_variant": "push_button"
-                                                                    }
+                                                      "HSD_MAN_CRS": {
+                                                                             "category": "HSD",
+                                                                         "control_type": "metadata",
+                                                                          "description": "HSD MAN Course Display",
+                                                                           "identifier": "HSD_MAN_CRS",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 5280,
+                                                                                             "description": "HSD MAN Course Display",
+                                                                                                    "mask": 511,
+                                                                                               "max_value": 360,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                    "HSD_MAN_CRS_S": {
+                                                                             "category": "HSD",
+                                                                         "control_type": "display",
+                                                                          "description": "HSD MAN Course Display (string)",
+                                                                           "identifier": "HSD_MAN_CRS_S",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 5276,
+                                                                                             "description": "HSD MAN Course Display (string)",
+                                                                                              "max_length": 3,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "string"
+                                                                                         } ]
+                                                                     },
+                                                    "HSD_TACAN_CRS": {
+                                                                             "category": "HSD",
+                                                                         "control_type": "metadata",
+                                                                          "description": "HSD TACAN Course Display",
+                                                                           "identifier": "HSD_TACAN_CRS",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 5154,
+                                                                                             "description": "HSD TACAN Course Display",
+                                                                                                    "mask": 65408,
+                                                                                               "max_value": 360,
+                                                                                                "shift_by": 7,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                  "HSD_TACAN_CRS_S": {
+                                                                             "category": "HSD",
+                                                                         "control_type": "display",
+                                                                          "description": "HSD TACAN Course Display (string)",
+                                                                           "identifier": "HSD_TACAN_CRS_S",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 5272,
+                                                                                             "description": "HSD TACAN Course Display (string)",
+                                                                                              "max_length": 3,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "string"
+                                                                                         } ]
+                                                                     },
+                                                "HSD_TACAN_RANGE_S": {
+                                                                             "category": "HSD",
+                                                                         "control_type": "display",
+                                                                          "description": "HSD TACAN Range Display (string)",
+                                                                           "identifier": "HSD_TACAN_RANGE_S",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 5266,
+                                                                                             "description": "HSD TACAN Range Display (string)",
+                                                                                              "max_length": 5,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "string"
+                                                                                         } ]
+                                                                     },
+                                                   "PLT_HSD_BRIGHT": {
+                                                                             "category": "HSD",
+                                                                         "control_type": "limited_dial",
+                                                                          "description": "PILOT HSD Brightness",
+                                                                           "identifier": "PLT_HSD_BRIGHT",
+                                                                               "inputs": [ {
+                                                                                             "description": "set the position of the dial",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 65535
+                                                                                         }, {
+                                                                                                "description": "turn the dial left or right",
+                                                                                                  "interface": "variable_step",
+                                                                                                  "max_value": 65535,
+                                                                                             "suggested_step": 3200
+                                                                                         } ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 4648,
+                                                                                             "description": "position of the potentiometer",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                 "PLT_HSD_KNOB_CRS": {
+                                                                          "api_variant": "multiturn",
+                                                                             "category": "HSD",
+                                                                         "control_type": "analog_dial",
+                                                                          "description": "PILOT HSD Selected Course",
+                                                                           "identifier": "PLT_HSD_KNOB_CRS",
+                                                                               "inputs": [ {
+                                                                                                "description": "turn the dial left or right",
+                                                                                                  "interface": "variable_step",
+                                                                                                  "max_value": 65535,
+                                                                                             "suggested_step": 3200
+                                                                                         } ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 4646,
+                                                                                             "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "_KNOB_POS",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                 "PLT_HSD_KNOB_HDG": {
+                                                                          "api_variant": "multiturn",
+                                                                             "category": "HSD",
+                                                                         "control_type": "analog_dial",
+                                                                          "description": "PILOT HSD Selected Heading",
+                                                                           "identifier": "PLT_HSD_KNOB_HDG",
+                                                                               "inputs": [ {
+                                                                                                "description": "turn the dial left or right",
+                                                                                                  "interface": "variable_step",
+                                                                                                  "max_value": 65535,
+                                                                                             "suggested_step": 3200
+                                                                                         } ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 4644,
+                                                                                             "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                    "mask": 65535,
+                                                                                               "max_value": 65535,
+                                                                                                "shift_by": 0,
+                                                                                                  "suffix": "_KNOB_POS",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                     "PLT_HSD_TEST": {
+                                                                                 "api_variant": "momentary_last_position",
+                                                                                    "category": "HSD",
+                                                                                "control_type": "selector",
+                                                                                 "description": "PILOT HSD Test",
+                                                                                  "identifier": "PLT_HSD_TEST",
+                                                                                      "inputs": [ {
+                                                                                                    "description": "switch to previous or next state",
+                                                                                                      "interface": "fixed_step"
+                                                                                                }, {
+                                                                                                    "description": "set position",
+                                                                                                      "interface": "set_state",
+                                                                                                      "max_value": 1
+                                                                                                }, {
+                                                                                                       "argument": "TOGGLE",
+                                                                                                    "description": "Toggle switch state",
+                                                                                                      "interface": "action"
+                                                                                                } ],
+                                                                         "momentary_positions": "none",
+                                                                                     "outputs": [ {
+                                                                                                        "address": 4642,
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 1024,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 10,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ],
+                                                                            "physical_variant": "push_button"
+                                                                     }
                                             },
                                      "HUD": {
                                                   "PLT_HUD_BRIGHT": {
@@ -11907,7 +12013,7 @@ docdata["F-14B"] =
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
                                                                                                         "address": 4818,
-                                                                                                    "description": "Light is on between 0.49 and 0.53",
+                                                                                                    "description": "Light is on between 0.49 and 0.54",
                                                                                                            "mask": 128,
                                                                                                       "max_value": 1,
                                                                                                        "shift_by": 7,
@@ -11923,7 +12029,7 @@ docdata["F-14B"] =
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
                                                                                                         "address": 4816,
-                                                                                                    "description": "Light is on between 0.49 and 0.53",
+                                                                                                    "description": "Light is on between 0.49 and 0.54",
                                                                                                            "mask": 2048,
                                                                                                       "max_value": 1,
                                                                                                        "shift_by": 11,
@@ -11939,7 +12045,7 @@ docdata["F-14B"] =
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
                                                                                                         "address": 4818,
-                                                                                                    "description": "Light is on between 0.49 and 0.53",
+                                                                                                    "description": "Light is on between 0.49 and 0.54",
                                                                                                            "mask": 16,
                                                                                                       "max_value": 1,
                                                                                                        "shift_by": 4,
@@ -11955,7 +12061,7 @@ docdata["F-14B"] =
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
                                                                                                         "address": 4816,
-                                                                                                    "description": "Light is on between 0.49 and 0.53",
+                                                                                                    "description": "Light is on between 0.49 and 0.54",
                                                                                                            "mask": 16384,
                                                                                                       "max_value": 1,
                                                                                                        "shift_by": 14,
@@ -11971,7 +12077,7 @@ docdata["F-14B"] =
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
                                                                                                         "address": 4818,
-                                                                                                    "description": "Light is on between 0.49 and 0.53",
+                                                                                                    "description": "Light is on between 0.49 and 0.54",
                                                                                                            "mask": 2,
                                                                                                       "max_value": 1,
                                                                                                        "shift_by": 1,
@@ -11987,7 +12093,7 @@ docdata["F-14B"] =
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
                                                                                                         "address": 4816,
-                                                                                                    "description": "Light is on between 0.49 and 0.53",
+                                                                                                    "description": "Light is on between 0.49 and 0.54",
                                                                                                            "mask": 256,
                                                                                                       "max_value": 1,
                                                                                                        "shift_by": 8,

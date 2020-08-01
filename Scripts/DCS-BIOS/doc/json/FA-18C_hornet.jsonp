@@ -2781,12 +2781,44 @@ docdata["FA-18C_hornet"] =
                                                              "EXT_FORMATION_LIGHTS": {
                                                                                              "category": "External Aircraft Model",
                                                                                          "control_type": "metadata",
-                                                                                          "description": "Formation Lights",
+                                                                                          "description": "Formation Lights (light green)",
                                                                                            "identifier": "EXT_FORMATION_LIGHTS",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30044,
-                                                                                                             "description": "Formation Lights",
+                                                                                                                 "address": 30050,
+                                                                                                             "description": "Formation Lights (light green)",
+                                                                                                                    "mask": 65535,
+                                                                                                               "max_value": 65535,
+                                                                                                                "shift_by": 0,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ]
+                                                                                     },
+                                                                 "EXT_NOZZLE_POS_L": {
+                                                                                             "category": "External Aircraft Model",
+                                                                                         "control_type": "metadata",
+                                                                                          "description": "Left Nozzle Position",
+                                                                                           "identifier": "EXT_NOZZLE_POS_L",
+                                                                                               "inputs": [  ],
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 30054,
+                                                                                                             "description": "Left Nozzle Position",
+                                                                                                                    "mask": 65535,
+                                                                                                               "max_value": 65535,
+                                                                                                                "shift_by": 0,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ]
+                                                                                     },
+                                                                 "EXT_NOZZLE_POS_R": {
+                                                                                             "category": "External Aircraft Model",
+                                                                                         "control_type": "metadata",
+                                                                                          "description": "Right Nozzle Position",
+                                                                                           "identifier": "EXT_NOZZLE_POS_R",
+                                                                                               "inputs": [  ],
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 30052,
+                                                                                                             "description": "Right Nozzle Position",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
                                                                                                                 "shift_by": 0,
@@ -2797,15 +2829,15 @@ docdata["FA-18C_hornet"] =
                                                           "EXT_POSITION_LIGHT_LEFT": {
                                                                                              "category": "External Aircraft Model",
                                                                                          "control_type": "metadata",
-                                                                                          "description": "Left Position Light",
+                                                                                          "description": "Left Position Light (red)",
                                                                                            "identifier": "EXT_POSITION_LIGHT_LEFT",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
                                                                                                                  "address": 29908,
-                                                                                                             "description": "Left Position Light",
-                                                                                                                    "mask": 16384,
+                                                                                                             "description": "Left Position Light (red)",
+                                                                                                                    "mask": 32768,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 14,
+                                                                                                                "shift_by": 15,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2813,15 +2845,47 @@ docdata["FA-18C_hornet"] =
                                                          "EXT_POSITION_LIGHT_RIGHT": {
                                                                                              "category": "External Aircraft Model",
                                                                                          "control_type": "metadata",
-                                                                                          "description": "Right Position Light",
+                                                                                          "description": "Right Position Light (green)",
                                                                                            "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 29908,
-                                                                                                             "description": "Right Position Light",
-                                                                                                                    "mask": 32768,
+                                                                                                                 "address": 29910,
+                                                                                                             "description": "Right Position Light (green)",
+                                                                                                                    "mask": 256,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 15,
+                                                                                                                "shift_by": 8,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ]
+                                                                                     },
+                                                                 "EXT_REFUEL_PROBE": {
+                                                                                             "category": "External Aircraft Model",
+                                                                                         "control_type": "metadata",
+                                                                                          "description": "Refuel Probe",
+                                                                                           "identifier": "EXT_REFUEL_PROBE",
+                                                                                               "inputs": [  ],
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 30048,
+                                                                                                             "description": "Refuel Probe",
+                                                                                                                    "mask": 65535,
+                                                                                                               "max_value": 65535,
+                                                                                                                "shift_by": 0,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ]
+                                                                                     },
+                                                           "EXT_REFUEL_PROBE_LIGHT": {
+                                                                                             "category": "External Aircraft Model",
+                                                                                         "control_type": "metadata",
+                                                                                          "description": "Refuel Probe Light (white)",
+                                                                                           "identifier": "EXT_REFUEL_PROBE_LIGHT",
+                                                                                               "inputs": [  ],
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 29908,
+                                                                                                             "description": "Refuel Probe Light (white)",
+                                                                                                                    "mask": 16384,
+                                                                                                               "max_value": 1,
+                                                                                                                "shift_by": 14,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2842,18 +2906,66 @@ docdata["FA-18C_hornet"] =
                                                                                                                     "type": "integer"
                                                                                                          } ]
                                                                                      },
+                                                                        "EXT_STAIR": {
+                                                                                             "category": "External Aircraft Model",
+                                                                                         "control_type": "metadata",
+                                                                                          "description": "Stair",
+                                                                                           "identifier": "EXT_STAIR",
+                                                                                               "inputs": [  ],
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 30046,
+                                                                                                             "description": "Stair",
+                                                                                                                    "mask": 65535,
+                                                                                                               "max_value": 65535,
+                                                                                                                "shift_by": 0,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ]
+                                                                                     },
                                                                 "EXT_STROBE_LIGHTS": {
                                                                                              "category": "External Aircraft Model",
                                                                                          "control_type": "metadata",
-                                                                                          "description": "Strobe Lights",
+                                                                                          "description": "Strobe Lights (red)",
                                                                                            "identifier": "EXT_STROBE_LIGHTS",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
                                                                                                                  "address": 29910,
-                                                                                                             "description": "Strobe Lights",
-                                                                                                                    "mask": 256,
+                                                                                                             "description": "Strobe Lights (red)",
+                                                                                                                    "mask": 1024,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 8,
+                                                                                                                "shift_by": 10,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ]
+                                                                                     },
+                                                                   "EXT_TAIL_LIGHT": {
+                                                                                             "category": "External Aircraft Model",
+                                                                                         "control_type": "metadata",
+                                                                                          "description": "Tail Light (white)",
+                                                                                           "identifier": "EXT_TAIL_LIGHT",
+                                                                                               "inputs": [  ],
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 29910,
+                                                                                                             "description": "Tail Light (white)",
+                                                                                                                    "mask": 512,
+                                                                                                               "max_value": 1,
+                                                                                                                "shift_by": 9,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ]
+                                                                                     },
+                                                                 "EXT_WING_FOLDING": {
+                                                                                             "category": "External Aircraft Model",
+                                                                                         "control_type": "metadata",
+                                                                                          "description": "Wing Folding",
+                                                                                           "identifier": "EXT_WING_FOLDING",
+                                                                                               "inputs": [  ],
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 30044,
+                                                                                                             "description": "Wing Folding",
+                                                                                                                    "mask": 65535,
+                                                                                                               "max_value": 65535,
+                                                                                                                "shift_by": 0,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2867,9 +2979,9 @@ docdata["FA-18C_hornet"] =
                                                                                               "outputs": [ {
                                                                                                                  "address": 29910,
                                                                                                              "description": "Weight ON Wheels Left Gear",
-                                                                                                                    "mask": 2048,
+                                                                                                                    "mask": 8192,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 11,
+                                                                                                                "shift_by": 13,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2883,9 +2995,9 @@ docdata["FA-18C_hornet"] =
                                                                                               "outputs": [ {
                                                                                                                  "address": 29910,
                                                                                                              "description": "Weight ON Wheels Nose Gear",
-                                                                                                                    "mask": 512,
+                                                                                                                    "mask": 2048,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 9,
+                                                                                                                "shift_by": 11,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2899,9 +3011,9 @@ docdata["FA-18C_hornet"] =
                                                                                               "outputs": [ {
                                                                                                                  "address": 29910,
                                                                                                              "description": "Weight ON Wheels Right Gear",
-                                                                                                                    "mask": 1024,
+                                                                                                                    "mask": 4096,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 10,
+                                                                                                                "shift_by": 12,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
