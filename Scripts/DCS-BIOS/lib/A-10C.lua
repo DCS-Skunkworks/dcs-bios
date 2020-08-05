@@ -1369,7 +1369,7 @@ defineFloat("INT_ENG_INST_L_BRIGHT", 801, {0, 1}, "Light System Control Panel", 
 defineFloat("INT_FLT_INST_L_BRIGHT", 802, {0, 1}, "Light System Control Panel", "Flight Instruments Light Brightness")
 defineFloat("INT_AUX_INST_L_BRIGHT", 803, {0, 1}, "Light System Control Panel", "Auxiliary Instruments Light Brightness")
 defineFloat("INT_FLOOD_L_BRIGHT", 806, {0, 1}, "Light System Control Panel", "Flood Light Brightness")
-defineFloat("INT_CAUTION_L_BRIGHT", 905, {0, 1}, "Light System Control Panel", "Flood Light Brightness")
+defineFloat("INT_CAUTION_L_BRIGHT", 905, {0, 1}, "Light System Control Panel", "Caution Lights Brightness")
 
 defineToggleSwitch("MIRROR_TOGGLE", 0, 3001, 719, "Misc", "Toggle Mirrors")
 
