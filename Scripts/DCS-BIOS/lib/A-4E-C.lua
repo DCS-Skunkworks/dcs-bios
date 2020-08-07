@@ -305,15 +305,16 @@ defineToggleSwitch("OXY_SW", 21, 3139, 125, "Avionics", "Oxygen Switch")
 --Avionics
 definePushButton("accel_reset", 21, 3112, 139, "Avionics", "Reset Accelerometer")
 definePushButton("clock_stopwatch", 5, 3106, 146, "Clock", "Stopwatch start/stop")
-definePushButton("radar_alt_switch", 16, 3039, 603, "Avionics", "Radar altitude warning button")
-defineRotary("radar_alt_indexer", 16, 3038, 602, "Avionics", "Radar altitude warning knob")
-definePushButton("stby_att_index_button", 21, 3043, 663, "Avionics", "Standby attitude horizon button")
-defineRotary("stby_att_index_knob", 21, 3044, 662, "Avionics", "Standby attitude horizon knob")
+definePushButton("radar_alt_switch", 16, 3039, 603, "Avionics", "Radar altitude warning Button")
+defineRotary("radar_alt_indexer", 16, 3038, 602, "Avionics", "Radar altitude warning Knob")
+definePushButton("stby_att_index_button", 21, 3043, 663, "Avionics", "Standby attitude horizon Button")
+defineRotary("stby_att_index_knob", 21, 3044, 662, "Avionics", "Standby attitude horizon Knob")
 definePushButton("FuelGaugeExtButton", 21, 3019, 720, "Avionics", "Show EXT Fuel")
 definePushButton("master_test", 21, 3040, 723, "Avionics", "Master test")
 defineRotary("AltPressureKnob", 21, 3020, 827, "Avionics", "Altimeter Setting")
-definePushButton("ias_index_button", 21, 3041, 885, "Avionics", "IAS Index button")
-definePotentiometer("ias_index_knob", 21, 3042, 884, {0,1}, "Avionics", "IAS Index knob")
+definePushButton("ias_index_button", 21, 3041, 885, "Avionics", "IAS Index Button")
+definePotentiometer("ias_index_knob", 21, 3042, 884, {0,1}, "Avionics", "IAS Index Knob")
+definePotentiometer("aoa_index_dim", 21, 3165, 853, {-1,1}, "Avionics", "AOA Indexer Dimming Wheel")
 
 --Gunsight
 defineRotary("GunsightBrightness", 19, 3031, 895, "Gunsight", "Gunsight Light Control")
@@ -377,8 +378,8 @@ defineToggleSwitch("emer_gen_bypass", 3, 3023, 1061, "T Handles", "Emergency gen
 defineToggleSwitch("man_flight_control", 4, 3137, 1242, "T Handles", "Manual Flight Control")
 
 --COMPASS CONTROLLER
---defineRotary("COMP_LAT_KNB", XX, 3143, 509, "Compass", "Compass latitude knob")
---defineTumb("COMP_SET_HDG", XX, 3140, 511, 1, {-1,1}, nil, false, "Compass", "Compass heading set knob")
+--defineRotary("COMP_LAT_KNB", XX, 3143, 509, "Compass", "Compass latitude Knob")
+--defineTumb("COMP_SET_HDG", XX, 3140, 511, 1, {-1,1}, nil, false, "Compass", "Compass heading set Knob")
 --defineToggleSwitch("COMP_FREE_SLAVE_SW", XX, 3142, 512, "Compass", "Compass Free/Slaved Mode Switch")
 --definePushButton("COMP_SYNC", XX, 3141, 513, "Compass", "Compass Push to Sync")
 
@@ -388,9 +389,9 @@ defineToggleSwitch("ecm_apr25_pw", 33, 3114, 504, "ECM Panel", "APR/25 on/off")
 defineToggleSwitch("ecm_apr27_pw", 33, 3116, 501, "ECM Panel", "APR/27 on/off")
 definePushButton("ecm_apr27_test", 33, 3117, 507, "ECM Panel", "APR/27 test")
 definePushButton("ecm_apr27_light", 33, 3118, 510, "ECM Panel", "APR/27 light")
-definePotentiometer("ecm_prf_volume", 33, 3119, 506, {-0.8,0.8}, "ECM Panel", "PRF volume (inner knob)")
-definePotentiometer("ecm_msl_volume", 33, 3120, 505, {-0.8,0.8}, "ECM Panel", "MSL volume (outer knob)")
-defineMultipositionSwitch("ecm_selector", 33, 3121, 502, 4, 0.33, "ECM Panel", "ECM selector knob")
+definePotentiometer("ecm_prf_volume", 33, 3119, 506, {-0.8,0.8}, "ECM Panel", "PRF volume (inner Knob)")
+definePotentiometer("ecm_msl_volume", 33, 3120, 505, {-0.8,0.8}, "ECM Panel", "MSL volume (outer Knob)")
+defineMultipositionSwitch("ecm_selector", 33, 3121, 502, 4, 0.33, "ECM Panel", "ECM selector Knob")
 
 --AIR CONDITIONING PANEL
 defineToggleSwitch("cabin_pressure", 3, 3134, 224, "Air Condition", "Cabin Pressure Switch")
