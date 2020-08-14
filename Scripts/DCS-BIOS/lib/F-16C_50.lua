@@ -397,9 +397,9 @@ defineRotary("ADI_PITCH_TRIM", 50, 3001, 22, "ADI", "ADI Pitch Trim Knob")
 
 --EHSI
 definePushButton("EHSI_CRS_SET", 28, 3005, 43,"EHSI" , "EHSI CRS Set")
-defineRotary("EHSI_CRS_SET_KNB", 28, 3004, 44, "EHSI", "EHSI CRS Set Knob")
+defineTumb("EHSI_CRS_SET_KNB", 28, 3004, 43, 0.032, {-0.032, 0.032}, nil, false, "EHSI", "EHSI CRS Set Knob")
 definePushButton("EHSI_HDG_SET_BTN", 28, 3003, 42,"EHSI" , "EHSI HDG Set Button")
-defineRotary("EHSI_HDG_SET_KNB", 28, 3002, 45, "EHSI", "EHSI HDG Set Knob")
+defineTumb("EHSI_HDG_SET_KNB", 28, 3002, 44, 0.032, {-0.032, 0.032}, nil, false, "EHSI", "EHSI HDG Set Knob")
 definePushButton("EHSI_MODE", 28, 3001, 46,"EHSI" , "EHSI Mode (M) Button")
 
 --Clock
