@@ -1,7 +1,7 @@
--- V1.6 by Warlord (aka BlackLibrary)
+-- V1.6a by Warlord (aka BlackLibrary)
 -- Added DED TIME, NAV and MAN pages and DED fixes by Matchstick
 --
--- Tested and fixes by BuzzKillington
+-- Tested and fixes by BuzzKillington & afewyards
 -- DED Display,MAGV,INS,UHF,CMDS by Matchstick
 
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
