@@ -337,8 +337,8 @@ definePotentiometer("FLOOD_LIGHT_KNB", 4, 3448, 946, {0, 1}, "Lights", "Flood Li
 
 -- EXT Lights
 define3PosTumb("EXT_LIGHT_MASTER_SW", 4, 3449, 947, "Lights", "Exterior Light Master Switch")
-defineMultipositionSwitch("FORMATION_LIGHT_SEL", 4, 3450, 948, 6, 0.2, "Lights", "Formation Light Knob Selector")
-defineMultipositionSwitch("ANTICOLL_LIGHT_SEL", 4, 3451, 949, 6, 0.2, "Lights", "Anti-Collision Light Knob Selector")
+defineMultipositionSwitch("FORMATION_LIGHT_SEL", 4, 3450, 948, 5, 0.25, "Lights", "Formation Light Knob Selector")
+defineMultipositionSwitch("ANTICOLL_LIGHT_SEL", 4, 3451, 949, 5, 0.25, "Lights", "Anti-Collision Light Knob Selector")
 define3PosTumb("NAV_LIGHT_BRIGHT_SW", 4, 3452, 950, "Lights", "Navigation Light Switch - Bright/Off/Dim")
 defineTumb("NAV_LIGHT_FLASH_SW", 4, 3453, 951, 2, {-1,1}, nil, false, "Lights", "Navigation Light Switch - Flash/Steady")
 define3PosTumb("ANTI_COL_LIGHT_SW", 4, 3454, 952, "Lights", "Light Switch - Tow/Off/Anti-Collision")

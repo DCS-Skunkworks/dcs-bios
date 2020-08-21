@@ -657,11 +657,11 @@ defineFloat("SBY_COMPASS_PITCH", 150, {-1, 1}, "Standby Compass", "Standby Compa
 defineFloat("SBY_COMPASS_BANK", 151, {-1, 1}, "Standby Compass", "Standby Compass Bank")
 
 -- 20. Station Jettison Select
-defineToggleSwitch("SJ_CTR", 23, 3005, 153, "Station Jettison Select", "Station Jettison Select Button, CENTER")
-defineToggleSwitch("SJ_LI", 23, 3006, 155, "Station Jettison Select", "Station Jettison Select Button, LEFT IN")
-defineToggleSwitch("SJ_LO", 23, 3007, 157, "Station Jettison Select", "Station Jettison Select Button, LEFT OUT")
-defineToggleSwitch("SJ_RI", 23, 3008, 159, "Station Jettison Select", "Station Jettison Select Button, RIGHT IN")
-defineToggleSwitch("SJ_RO", 23, 3009, 161, "Station Jettison Select", "Station Jettison Select Button, RIGHT OUT")
+definePushButton("SJ_CTR", 23, 3005, 153, "Station Jettison Select", "Station Jettison Select Button, CENTER")
+definePushButton("SJ_LI", 23, 3006, 155, "Station Jettison Select", "Station Jettison Select Button, LEFT IN")
+definePushButton("SJ_LO", 23, 3007, 157, "Station Jettison Select", "Station Jettison Select Button, LEFT OUT")
+definePushButton("SJ_RI", 23, 3008, 159, "Station Jettison Select", "Station Jettison Select Button, RIGHT IN")
+definePushButton("SJ_RO", 23, 3009, 161, "Station Jettison Select", "Station Jettison Select Button, RIGHT OUT")
 defineIndicatorLight("SJ_CTR_LT", 152, "Station Jettison Select", "CTR Light")
 defineIndicatorLight("SJ_LI_LT", 154, "Station Jettison Select", "LI Light")
 defineIndicatorLight("SJ_LO_LT", 156, "Station Jettison Select", "LO Light")
@@ -1213,6 +1213,21 @@ definePushButton("LEFT_VIDEO_BIT", 0, 3127, 315, "TODO", "Left Video Sensor BIT 
 definePushButton("RIGHT_VIDEO_BIT", 0, 3128, 318, "TODO", "Right Video Sensor BIT Initiate Pushbutton - Push to initiate BIT")
 definePotentiometer("RWR_AUDIO_CTRL", 0, 3130, 262, {0, 1}, "RWR Control Indicator", "ALR-67 AUDIO Control Knob")
 defineToggleSwitch("NUC_WPN_SW", 0, 3100, 507, "TODO", "NUC WPN Switch, ENABLE/DISABLE (no function)")
+
+-- HOTAS STICK
+definePushButton("STICK_WEAP_REL_BTN", 13, 3003, 475, "Stick", "Stick Weapon Release Button")
+definePushButton("STICK_RECCE_SW", 13, 3004, 477, "Stick", "Stick RECCE Event Mark Switch")
+definePushButton("STICK_GUN_TRIGGER2", 13, 3002, 479, "Stick", "Stick Gun Trigger, SECOND DETENT (Press to shoot)")
+definePushButton("STICK_PADDLE_SW", 13, 3018, 480, "Stick", "Stick Autopilot/Nosewheel Steering Disengage (Paddle) Switch")
+definePushButton("STICK_N_WHEEL_SW", 13, 3013, 482, "Stick", "Stick Undesignate/Nose Wheel Steer Switch")
+
+-- HOTAS THROTTLE
+definePushButton("THROTTLE_CAGE_BTN", 13, 3031, 487, "Throttle Quadrant", "Throttle Cage/Uncage Button")
+defineRockerSwitch("THROTTLE_DISP_SW", 13, 3032, 3032, 3033, 3033, 488, "Throttle Quadrant", "Throttle Dispense Switch, Aft(FLARE)/Center(OFF)/Forward(CHAFF)")
+define3PosTumb("THROTTLE_SPEED_BRK", 13, 3035, 489, "Throttle Quadrant", "Throttle Speed Brake Switch, EXTEND/OFF/RETRACT")
+definePushButton("THROTTLE_ATC_SW", 13, 3037, 491, "Throttle Quadrant", "Throttle ATC Engage/Disengage Switch")
+definePushButton("THROTTLE_FOV_SEL_SW", 13, 3034, 492, "Throttle Quadrant", "Throttle RAID/FLIR FOV Select Button")
+definePotentiometer("THROTTLE_RADAR_ELEV", 13, 3026, 493, {-1, 1}, "Throttle Quadrant", "Throttle Radar Elevation Control")
 defineTumb("THROTTLE_EXT_L_SW", 13, 3041, 494, 2, {-1, 1}, nil, false, "Throttle Quadrant", "Throttle Exterior Lights Switch, ON/OFF")
 
 defineIndicatorLight("CONSOLE_INT_LT", 460, "Internal Lights", "Console Lightning (light green)")

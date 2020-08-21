@@ -128,7 +128,7 @@ definePotentiometer("J8_ATT_PTC_TRIM",24,3002, 200, {0.0, 1.0},"Attitude Indicat
 defineRotary("ARN_6_TUNE",27, 3003, 801, "Radio", "AN/ARN-6 Tuning Crank")
 defineRotary("ARN_6_E_W_VAR",27, 3008, 826, "Radio", "AN/ARN-6 East/West Variation Knob")
 defineRotary("ALT_MET_REF_PRESS",7, 3001, 218, "Cockpit", "Altimeter reference pressure adjusting knob")
-defineRotary("COMP_DIRECTION",20, 3001, nil, "Gyro Compass", "Compass Correction")
+defineRotary("COMP_DIRECTION",20, 3001, 199, "Gyro Compass", "Compass Correction")
 
 defineTumb("CANOPY",25, 3001, 718, 1, {-1,1}, nil, false, "Cockpit", "Canopy Switch, OPEN/OFF/CLOSE")
 defineTumb("EMG_JETT_HANDLE",25, 3008, 818, 1, {0,1}, nil, false, "Cockpit", "Emergency Jettison Handle, RELEASE ALL/RELEASE OUTBD ONLY")
