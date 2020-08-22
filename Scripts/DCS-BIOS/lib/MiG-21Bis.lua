@@ -79,19 +79,19 @@ defineTumb("LND_LIGHT", 46, 3033, 323, 0.5, {0.0, 1}, nil, false, "Landing Gear 
 
 --Warning Lights
 definePushButton("FUEL_WARN_LIGHT_TEST", 47, 3034, 369, "Main Warning Lights", "Fuel Warn Lights Test")
-defineToggleSwitch("FUEL_WARN_LIGHTS_BRT", 47, 3074, 195, "Main Warning Lights", "Fuel Warn Lights Brightness")
+definePotentiometer("FUEL_WARN_LIGHTS_BRT", 47, 3074, 195, {0, 1}, "Main Warning Lights", "Fuel Warn Lights Brightness")
 definePushButton("MAIN_WARN_LIGHT_TEST", 47, 3035, 370, "Main Warning Lights", "Main Warn Lights Test")
-defineToggleSwitch("MAIN_WARN_LIGHTS_BRT", 47, 3075, 196, "Main Warning Lights", "Main Warn Lights Brightness")
+definePotentiometer("MAIN_WARN_LIGHTS_BRT", 47, 3075, 196, {0, 1}, "Main Warning Lights", "Main Warn Lights Brightness")
 definePushButton("CTR_WARN_LIGHT_TEST", 47, 3036, 371, "Engine Status Panel", "Center Warn Lights Test")
-defineToggleSwitch("CTR_WARN_LIGHTS_BRT", 47, 3076, 273, "Engine Status Panel", "Center Warn Lights Brightness")
+definePotentiometer("CTR_WARN_LIGHTS_BRT", 47, 3076, 273, {0, 1}, "Engine Status Panel", "Center Warn Lights Brightness")
 definePushButton("PYL_EMPTY_WARN_LIGHT_TEST", 47, 3037, 372, "Center Pedestal Panel", "Pylon Empty Warn Lights Test")
-defineToggleSwitch("PYL_EMPTY_WARN_LIGHTS_BRT", 47, 3077, 282, "Center Pedestal Panel", "Pylon Empty Warn Lights Brightness")
+definePotentiometer("PYL_EMPTY_WARN_LIGHTS_BRT", 47, 3077, 282, {0, 1}, "Center Pedestal Panel", "Pylon Empty Warn Lights Brightness")
 definePushButton("PYL_LD_WARN_LIGHT_TEST", 47, 3038, 373, "Center Pedestal Panel", "Pylon Loaded Warn Lights Test")
-defineToggleSwitch("PYL_LD_WARN_LIGHTS_BRT", 47, 3078, 283, "Center Pedestal Panel", "Pylon Loaded Warn Lights Brightness")
+definePotentiometer("PYL_LD_WARN_LIGHTS_BRT", 47, 3078, 283, {0, 1}, "Center Pedestal Panel", "Pylon Loaded Warn Lights Brightness")
 definePushButton("GEAR_WARN_LIGHT_TEST", 47, 3039, 374, "Landing Gear Control", "Gear Warn Lights Test")
-defineToggleSwitch("GEAR_WARN_LIGHTS_BRT", 47, 3079, 322, "Landing Gear Control", "Gear Warn Lights Brightness")
+definePotentiometer("GEAR_WARN_LIGHTS_BRT", 47, 3079, 322, {0, 1}, "Landing Gear Control", "Gear Warn Lights Brightness")
 definePushButton("MASTER_WARN_LIGHT_TEST", 47, 3040, 255, "Flight Status/Navigation Panel", "Master Warn Light Test/Acknowledge")
-defineToggleSwitch("MASTER_WARN_LIGHT_BRT", 47, 3277, 657, "Flight Status/Navigation Panel", "Master Warn Light Brightness")
+definePotentiometer("MASTER_WARN_LIGHT_BRT", 47, 3277, 657, {0, 1}, "Flight Status/Navigation Panel", "Master Warn Light Brightness")
 
 
 --RADIO
@@ -306,7 +306,7 @@ defineToggleSwitch("WPN_REL_CVR", 42, 3192, 383, "Stick", "Weapons Release Cover
 --Helmet Visor
 defineToggleSwitch("HELM_HEAT_MODE", 45, 3205, 306, "Left Vertical Mid Panel", "Helmet Heat Auto/Manual")
 definePushButton("HELM_QUICK_HEAT", 45, 3206, 310, "Left Vertical Mid Panel", "Helmet Quick Heat")
-defineToggleSwitch("HELM_VSR", 45, 3207, 369, "Left Vertical Mid Panel", "Helmet Visor On/Off")
+defineToggleSwitch("HELM_VSR", 45, 3207, 595, "Left Vertical Mid Panel", "Helmet Visor On/Off")
 
 --Air Conditioning
 defineTumb("CPT_AIR_CND", 50, 3208, 292, 0.33, {0, 0.99}, nil, true, "Left Vertical Mid Panel", "Air Conditioning Select")
