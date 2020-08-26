@@ -341,8 +341,8 @@ defineRotary("ALT_ADJ_PLT", 18, 3001, 181, "Front Dash", "Pilot Altimeter Pressu
 
 definePushButton("VHFCOMM_TEST_SW", 20, 3002, 6, "VHF COMM Radio", "Communication Test Button")
 
-defineTumb("VHFCOMM_PWR", 20, 3001, 7, 0.15, {0.85, 1.0}, nil, false, "VHF COMM Radio", "Power")
-definePotentiometer("VHFCOMM_VOL", 20, 3003, 8, {0, 0.65}, "VHF COMM Radio", "Volume Control (step size less than 8192 may not work)")
+defineTumb("VHFCOMM_PWR", 20, 3001, 5, 0.15, {0.85, 1.0}, nil, false, "VHF COMM Radio", "Power")
+definePotentiometer("VHFCOMM_VOL", 20, 3003, 9, {0, 0.65}, "VHF COMM Radio", "Volume Control (step size less than 8192 may not work)")
 documentation["VHF COMM Radio"]["VHFCOMM_VOL"].inputs[2].suggested_step = 8192
 
 local function getVhfCommFreq()
@@ -350,8 +350,8 @@ local function getVhfCommFreq()
 	return string.format("1%.0f%.0f", a(1)*10, a(2)*10) .. "." .. string.format("%.0f%02.0f", a(3)*10, a(4)*100)
 end
 defineString("VHFCOMM_FREQ", getVhfCommFreq, 7, "VHF COMM Radio", "VHF Frequency")
-defineFixedStepTumb("VHFCOMM_MHZ", 20, 3004, 5, 0.1, {0, 1}, {-0.1, 0.1}, nil, "VHF COMM Radio", "VHF MHz Selector")
-defineFixedStepTumb("VHFCOMM_KHZ", 20, 3005, 9, 0.1, {0, 1}, {-0.1, 0.1}, nil, "VHF COMM Radio", "VHF KHz Selector")
+defineFixedStepTumb("VHFCOMM_MHZ", 20, 3004, 7, 0.1, {0, 1}, {-0.1, 0.1}, nil, "VHF COMM Radio", "VHF MHz Selector")
+defineFixedStepTumb("VHFCOMM_KHZ", 20, 3005, 8, 0.1, {0, 1}, {-0.1, 0.1}, nil, "VHF COMM Radio", "VHF KHz Selector")
 
 definePotentiometer("INT_VOL", 21, 3007, 29, {0.3, 1.0}, "Intercom Panel", "Intercom Volume")
 defineToggleSwitch("INT_RCVR1_SW", 21, 3001, 23, "Intercom Panel", "Receiver 1 Switch (VHF AM)")
