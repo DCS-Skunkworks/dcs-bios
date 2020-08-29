@@ -747,30 +747,35 @@ function BIOS.util.defineVariableStepTumb(msg, device_id, command, arg_number, m
 end
 
 function BIOS.util.defineString(msg, getter, maxLength, category, description)
-	--moduleBeingDefined.lowFrequencyMap[msg] = getter
-	local alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = maxLength }
-	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		alloc:setValue(getter(dev0))
-	end
+    --moduleBeingDefined.lowFrequencyMap[msg] = getter
+    local alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = maxLength }
+    moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+--------------ammo
+        local value = getter(dev0)
+        if value == nil then 
+            error(msg)
+        end
+--------------	
+        alloc:setValue(value)
+    end
 
-	document {
-		identifier = msg,
-		category = category,
-		description = description,
-		control_type = "display",
-		inputs = {},
-		outputs = {
-			{ ["type"] = "string",
-			  suffix = "",
-			  address = alloc.address,
-			  mask = alloc.mask,
-			  shift_by = alloc.shiftBy,
-			  max_length = alloc.maxLength,
-			  description = description
-			}
-		}
-	}
-	
+    document {
+        identifier = msg,
+        category = category,
+        description = description,
+        control_type = "display",
+        inputs = {},
+        outputs = {
+            { ["type"] = "string",
+              suffix = "",
+              address = alloc.address,
+              mask = alloc.mask,
+              shift_by = alloc.shiftBy,
+              max_length = alloc.maxLength,
+              description = description
+            }
+        }
+    }
 end
 
 function BIOS.util.defineElectricallyHeldSwitch(msg, device_id, pos_command, neg_command, arg_number, category, description)
