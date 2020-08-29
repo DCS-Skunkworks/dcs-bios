@@ -753,7 +753,7 @@ function BIOS.util.defineString(msg, getter, maxLength, category, description)
 --------------ammo
         local value = getter(dev0)
         if value == nil then 
-            error(msg)
+            error("function " .. msg .. " is sending a nil value from its getter")
         end
 --------------	
         alloc:setValue(value)

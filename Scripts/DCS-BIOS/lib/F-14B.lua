@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 --by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
---v 1.9
+--v 2.0
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -280,9 +280,6 @@ local function get_radio_remote_display(indicatorId,testButtonId)-- Get data fro
 	return retVal
 end
 
-local PLT_UHF_REMOTE_DISP = ""
-local RIO_UHF_REMOTE_DISP = ""
-local PLT_VUHF_REMOTE_DISP = ""
 local HSD_TACAN_RANGE = ""
 local HSD_TACAN_CRS = ""
 local HSD_MAN_CRS = ""
@@ -293,18 +290,11 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
         if getSTEER_Mode()=="1" then
             HSD_TACAN_RANGE = HSDInd[19]
             HSD_TACAN_CRS = HSDInd[20]
+			HSD_TACAN_CRSint = tonumber(HSD_TACAN_CRS)
         elseif getSTEER_Mode()=="5" then
             HSD_MAN_CRS = HSDInd[16]
+			HSD_MAN_CRSint = tonumber(HSD_MAN_CRS)
         end
-	
-	if PLT_UHF_REMOTE_DISP == nil then PLT_UHF_REMOTE_DISP = "0000000"
-	else PLT_UHF_REMOTE_DISP = get_radio_remote_display(9,15004) end
-	
-	if RIO_UHF_REMOTE_DISP == nil then RIO_UHF_REMOTE_DISP = "0000000"
-	else RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,405) end
-	
-	if PLT_VUHF_REMOTE_DISP == nil then PLT_VUHF_REMOTE_DISP = "0000000"
-	else PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003) end
 end
 --------------------------------- Matchstick End ---------------------------------  
 
@@ -1601,15 +1591,17 @@ defineFloat("RIO_RECORD_MIN_LOW", 11602, {0, 1}, "Gauges", "RIO Record Minutes L
 
 defineFloat("CANOPY_POS", 403, {0, 1}, "Gauges", "Canopy Position")
 
-defineString("PLT_UHF_REMOTE_DISP", function() return PLT_UHF_REMOTE_DISP end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")  
-defineString("RIO_UHF_REMOTE_DISP", function() return RIO_UHF_REMOTE_DISP end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")  
-defineString("PLT_VUHF_REMOTE_DISP", function() return PLT_VUHF_REMOTE_DISP end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")
+defineString("PLT_UHF_REMOTE_DISP", function() return get_radio_remote_display(9, 15004) or "0000000" end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")  
+defineString("RIO_UHF_REMOTE_DISP", function() return get_radio_remote_display(10,405) or "0000000" end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")  
+defineString("PLT_VUHF_REMOTE_DISP", function() return get_radio_remote_display(13,15003) or "0000000" end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")	
 defineString("PLT_HUD_MODE", getHUD_Mode, 1, "Display", "PILOT HUD Mode (string)")  
 defineString("PLT_STEER_MODE", getSTEER_Mode, 1, "Display", "PILOT STEER Mode (string)")
 defineString("PLT_AIR_SOURCE_MODE", getAIRSOURCE_Mode, 1, "Display", "PILOT Air Source Mode (string)")
-defineString("HSD_TACAN_RANGE", function() return HSD_TACAN_RANGE end, 5, "HSD", "HSD TACAN Range Display")
-defineString("HSD_TACAN_CRS", function() return HSD_TACAN_CRS  end, 3, "HSD", "HSD TACAN Course Display")
-defineString("HSD_MAN_CRS", function() return HSD_MAN_CRS  end, 3, "HSD", "HSD MAN Course Display")
+defineString("HSD_TACAN_RANGE_S", function() return HSD_TACAN_RANGE end, 5, "HSD", "HSD TACAN Range Display (string)")
+defineString("HSD_TACAN_CRS_S", function() return HSD_TACAN_CRS  end, 3, "HSD", "HSD TACAN Course Display (string)")
+defineString("HSD_MAN_CRS_S", function() return HSD_MAN_CRS  end, 3, "HSD", "HSD MAN Course Display (string)")
+defineIntegerFromGetter("HSD_TACAN_CRS", function() return HSD_TACAN_CRSint  end, 360, "HSD", "HSD TACAN Course Display")
+defineIntegerFromGetter("HSD_MAN_CRS", function() return HSD_MAN_CRSint  end, 360, "HSD", "HSD MAN Course Display")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
