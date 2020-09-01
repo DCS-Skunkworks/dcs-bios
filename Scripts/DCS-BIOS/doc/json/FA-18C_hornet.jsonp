@@ -1991,11 +1991,11 @@ docdata["FA-18C_hornet"] =
                                                                                    "identifier": "CMSD_JET_SEL_L",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 29908,
+                                                                                                         "address": 29910,
                                                                                                      "description": "0 if light is off, 1 if light is on",
-                                                                                                            "mask": 2048,
+                                                                                                            "mask": 32768,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 11,
+                                                                                                        "shift_by": 15,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -2785,7 +2785,7 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_FORMATION_LIGHTS",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30050,
+                                                                                                                 "address": 30052,
                                                                                                              "description": "Formation Lights (light green)",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -2801,7 +2801,7 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_NOZZLE_POS_L",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30054,
+                                                                                                                 "address": 30056,
                                                                                                              "description": "Left Nozzle Position",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -2817,7 +2817,7 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_NOZZLE_POS_R",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30052,
+                                                                                                                 "address": 30054,
                                                                                                              "description": "Right Nozzle Position",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -2833,11 +2833,11 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_POSITION_LIGHT_LEFT",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 29908,
+                                                                                                                 "address": 29912,
                                                                                                              "description": "Left Position Light (red)",
-                                                                                                                    "mask": 32768,
+                                                                                                                    "mask": 2048,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 15,
+                                                                                                                "shift_by": 11,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2849,11 +2849,11 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 29910,
+                                                                                                                 "address": 29912,
                                                                                                              "description": "Right Position Light (green)",
-                                                                                                                    "mask": 256,
+                                                                                                                    "mask": 4096,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 8,
+                                                                                                                "shift_by": 12,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2865,7 +2865,7 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_REFUEL_PROBE",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30048,
+                                                                                                                 "address": 30050,
                                                                                                              "description": "Refuel Probe",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -2881,11 +2881,11 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_REFUEL_PROBE_LIGHT",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 29908,
+                                                                                                                 "address": 29912,
                                                                                                              "description": "Refuel Probe Light (white)",
-                                                                                                                    "mask": 16384,
+                                                                                                                    "mask": 1024,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 14,
+                                                                                                                "shift_by": 10,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2897,7 +2897,7 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_SPEED_BRAKE",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30042,
+                                                                                                                 "address": 30044,
                                                                                                              "description": "Speed Brake",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -2913,7 +2913,7 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_STAIR",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30046,
+                                                                                                                 "address": 30048,
                                                                                                              "description": "Stair",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -2929,11 +2929,11 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_STROBE_LIGHTS",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 29910,
+                                                                                                                 "address": 29912,
                                                                                                              "description": "Strobe Lights (red)",
-                                                                                                                    "mask": 1024,
+                                                                                                                    "mask": 16384,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 10,
+                                                                                                                "shift_by": 14,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2945,11 +2945,11 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_TAIL_LIGHT",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 29910,
+                                                                                                                 "address": 29912,
                                                                                                              "description": "Tail Light (white)",
-                                                                                                                    "mask": 512,
+                                                                                                                    "mask": 8192,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 9,
+                                                                                                                "shift_by": 13,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2961,7 +2961,7 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_WING_FOLDING",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 30044,
+                                                                                                                 "address": 30046,
                                                                                                              "description": "Wing Folding",
                                                                                                                     "mask": 65535,
                                                                                                                "max_value": 65535,
@@ -2977,11 +2977,11 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_WOW_LEFT",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 29910,
+                                                                                                                 "address": 29914,
                                                                                                              "description": "Weight ON Wheels Left Gear",
-                                                                                                                    "mask": 8192,
+                                                                                                                    "mask": 512,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 13,
+                                                                                                                "shift_by": 9,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -2993,11 +2993,11 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_WOW_NOSE",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 29910,
+                                                                                                                 "address": 29912,
                                                                                                              "description": "Weight ON Wheels Nose Gear",
-                                                                                                                    "mask": 2048,
+                                                                                                                    "mask": 32768,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 11,
+                                                                                                                "shift_by": 15,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -3009,11 +3009,11 @@ docdata["FA-18C_hornet"] =
                                                                                            "identifier": "EXT_WOW_RIGHT",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
-                                                                                                                 "address": 29910,
+                                                                                                                 "address": 29914,
                                                                                                              "description": "Weight ON Wheels Right Gear",
-                                                                                                                    "mask": 4096,
+                                                                                                                    "mask": 256,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 12,
+                                                                                                                "shift_by": 8,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                                          } ]
@@ -5036,11 +5036,11 @@ docdata["FA-18C_hornet"] =
                                                                                       "identifier": "CHART_INT_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 29906,
+                                                                                                            "address": 29910,
                                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                               "mask": 4096,
+                                                                                                               "mask": 256,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 12,
+                                                                                                           "shift_by": 8,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ]
@@ -5052,11 +5052,11 @@ docdata["FA-18C_hornet"] =
                                                                                       "identifier": "CONSOLE_INT_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 29906,
+                                                                                                            "address": 29908,
                                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                               "mask": 512,
+                                                                                                               "mask": 8192,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 9,
+                                                                                                           "shift_by": 13,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ]
@@ -5068,11 +5068,11 @@ docdata["FA-18C_hornet"] =
                                                                                       "identifier": "EMERG_INSTR_INT_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 29906,
+                                                                                                            "address": 29910,
                                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                               "mask": 8192,
+                                                                                                               "mask": 512,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 13,
+                                                                                                           "shift_by": 9,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ]
@@ -5084,11 +5084,11 @@ docdata["FA-18C_hornet"] =
                                                                                       "identifier": "ENG_INSTR_INT_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 29906,
+                                                                                                            "address": 29910,
                                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                               "mask": 16384,
+                                                                                                               "mask": 1024,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 14,
+                                                                                                           "shift_by": 10,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ]
@@ -5100,11 +5100,11 @@ docdata["FA-18C_hornet"] =
                                                                                       "identifier": "FLOOD_INT_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 29906,
+                                                                                                            "address": 29908,
                                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                               "mask": 1024,
+                                                                                                               "mask": 16384,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 10,
+                                                                                                           "shift_by": 14,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ]
@@ -5116,11 +5116,11 @@ docdata["FA-18C_hornet"] =
                                                                                       "identifier": "IFEI_BTN_INT_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 29908,
+                                                                                                            "address": 29910,
                                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                               "mask": 1024,
+                                                                                                               "mask": 16384,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 10,
+                                                                                                           "shift_by": 14,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ]
@@ -5132,11 +5132,11 @@ docdata["FA-18C_hornet"] =
                                                                                       "identifier": "IFEI_DISP_INT_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 29908,
+                                                                                                            "address": 29910,
                                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                               "mask": 512,
+                                                                                                               "mask": 8192,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 9,
+                                                                                                           "shift_by": 13,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ]
@@ -5148,11 +5148,11 @@ docdata["FA-18C_hornet"] =
                                                                                       "identifier": "INSTR_INT_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 29906,
+                                                                                                            "address": 29910,
                                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                               "mask": 32768,
+                                                                                                               "mask": 2048,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 15,
+                                                                                                           "shift_by": 11,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ]
@@ -5164,11 +5164,11 @@ docdata["FA-18C_hornet"] =
                                                                                       "identifier": "NVG_FLOOD_INT_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 29906,
+                                                                                                            "address": 29908,
                                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                               "mask": 2048,
+                                                                                                               "mask": 32768,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 11,
+                                                                                                           "shift_by": 15,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ]
@@ -5180,11 +5180,11 @@ docdata["FA-18C_hornet"] =
                                                                                       "identifier": "STBY_COMPASS_INT_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 29908,
+                                                                                                            "address": 29910,
                                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                               "mask": 256,
+                                                                                                               "mask": 4096,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 8,
+                                                                                                           "shift_by": 12,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ]
@@ -7384,11 +7384,11 @@ docdata["FA-18C_hornet"] =
                                                                                     "identifier": "RWR_LT_BRIGHT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
-                                                                                                          "address": 29908,
+                                                                                                          "address": 29912,
                                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                                             "mask": 4096,
+                                                                                                             "mask": 256,
                                                                                                         "max_value": 1,
-                                                                                                         "shift_by": 12,
+                                                                                                         "shift_by": 8,
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ]
@@ -9073,11 +9073,11 @@ docdata["FA-18C_hornet"] =
                                                                                        "identifier": "SAI_ATT_WARN_FLAG_L",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                             "address": 29908,
+                                                                                                             "address": 29912,
                                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                                "mask": 8192,
+                                                                                                                "mask": 512,
                                                                                                            "max_value": 1,
-                                                                                                            "shift_by": 13,
+                                                                                                            "shift_by": 9,
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
                                                                                                      } ]
@@ -9167,7 +9167,7 @@ docdata["FA-18C_hornet"] =
                                                                                        "identifier": "SAI_POINTER_HOR",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                             "address": 30040,
+                                                                                                             "address": 30042,
                                                                                                          "description": "gauge position",
                                                                                                                 "mask": 65535,
                                                                                                            "max_value": 65535,
@@ -9183,7 +9183,7 @@ docdata["FA-18C_hornet"] =
                                                                                        "identifier": "SAI_POINTER_VER",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                             "address": 30038,
+                                                                                                             "address": 30040,
                                                                                                          "description": "gauge position",
                                                                                                                 "mask": 65535,
                                                                                                            "max_value": 65535,
@@ -9347,6 +9347,7 @@ docdata["FA-18C_hornet"] =
                                                      },
                           "Station Jettison Select": {
                                                             "SJ_CTR": {
+                                                                                  "api_variant": "momentary_last_position",
                                                                                      "category": "Station Jettison Select",
                                                                                  "control_type": "selector",
                                                                                   "description": "Station Jettison Select Button, CENTER",
@@ -9373,7 +9374,7 @@ docdata["FA-18C_hornet"] =
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "toggle_switch"
+                                                                             "physical_variant": "push_button"
                                                                       },
                                                          "SJ_CTR_LT": {
                                                                               "category": "Station Jettison Select",
@@ -9392,6 +9393,7 @@ docdata["FA-18C_hornet"] =
                                                                                           } ]
                                                                       },
                                                              "SJ_LI": {
+                                                                                  "api_variant": "momentary_last_position",
                                                                                      "category": "Station Jettison Select",
                                                                                  "control_type": "selector",
                                                                                   "description": "Station Jettison Select Button, LEFT IN",
@@ -9418,7 +9420,7 @@ docdata["FA-18C_hornet"] =
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "toggle_switch"
+                                                                             "physical_variant": "push_button"
                                                                       },
                                                           "SJ_LI_LT": {
                                                                               "category": "Station Jettison Select",
@@ -9437,6 +9439,7 @@ docdata["FA-18C_hornet"] =
                                                                                           } ]
                                                                       },
                                                              "SJ_LO": {
+                                                                                  "api_variant": "momentary_last_position",
                                                                                      "category": "Station Jettison Select",
                                                                                  "control_type": "selector",
                                                                                   "description": "Station Jettison Select Button, LEFT OUT",
@@ -9463,7 +9466,7 @@ docdata["FA-18C_hornet"] =
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "toggle_switch"
+                                                                             "physical_variant": "push_button"
                                                                       },
                                                           "SJ_LO_LT": {
                                                                               "category": "Station Jettison Select",
@@ -9482,6 +9485,7 @@ docdata["FA-18C_hornet"] =
                                                                                           } ]
                                                                       },
                                                              "SJ_RI": {
+                                                                                  "api_variant": "momentary_last_position",
                                                                                      "category": "Station Jettison Select",
                                                                                  "control_type": "selector",
                                                                                   "description": "Station Jettison Select Button, RIGHT IN",
@@ -9508,7 +9512,7 @@ docdata["FA-18C_hornet"] =
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "toggle_switch"
+                                                                             "physical_variant": "push_button"
                                                                       },
                                                           "SJ_RI_LT": {
                                                                               "category": "Station Jettison Select",
@@ -9527,6 +9531,7 @@ docdata["FA-18C_hornet"] =
                                                                                           } ]
                                                                       },
                                                              "SJ_RO": {
+                                                                                  "api_variant": "momentary_last_position",
                                                                                      "category": "Station Jettison Select",
                                                                                  "control_type": "selector",
                                                                                   "description": "Station Jettison Select Button, RIGHT OUT",
@@ -9553,7 +9558,7 @@ docdata["FA-18C_hornet"] =
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
-                                                                             "physical_variant": "toggle_switch"
+                                                                             "physical_variant": "push_button"
                                                                       },
                                                           "SJ_RO_LT": {
                                                                               "category": "Station Jettison Select",
@@ -9571,6 +9576,158 @@ docdata["FA-18C_hornet"] =
                                                                                                      "type": "integer"
                                                                                           } ]
                                                                       }
+                                                     },
+                                            "Stick": {
+                                                         "STICK_GUN_TRIGGER2": {
+                                                                                           "api_variant": "momentary_last_position",
+                                                                                              "category": "Stick",
+                                                                                          "control_type": "selector",
+                                                                                           "description": "Stick Gun Trigger, SECOND DETENT (Press to shoot)",
+                                                                                            "identifier": "STICK_GUN_TRIGGER2",
+                                                                                                "inputs": [ {
+                                                                                                              "description": "switch to previous or next state",
+                                                                                                                "interface": "fixed_step"
+                                                                                                          }, {
+                                                                                                              "description": "set position",
+                                                                                                                "interface": "set_state",
+                                                                                                                "max_value": 1
+                                                                                                          }, {
+                                                                                                                 "argument": "TOGGLE",
+                                                                                                              "description": "Toggle switch state",
+                                                                                                                "interface": "action"
+                                                                                                          } ],
+                                                                                   "momentary_positions": "none",
+                                                                                               "outputs": [ {
+                                                                                                                  "address": 29906,
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 1024,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 10,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                                          } ],
+                                                                                      "physical_variant": "push_button"
+                                                                               },
+                                                           "STICK_N_WHEEL_SW": {
+                                                                                           "api_variant": "momentary_last_position",
+                                                                                              "category": "Stick",
+                                                                                          "control_type": "selector",
+                                                                                           "description": "Stick Undesignate/Nose Wheel Steer Switch",
+                                                                                            "identifier": "STICK_N_WHEEL_SW",
+                                                                                                "inputs": [ {
+                                                                                                              "description": "switch to previous or next state",
+                                                                                                                "interface": "fixed_step"
+                                                                                                          }, {
+                                                                                                              "description": "set position",
+                                                                                                                "interface": "set_state",
+                                                                                                                "max_value": 1
+                                                                                                          }, {
+                                                                                                                 "argument": "TOGGLE",
+                                                                                                              "description": "Toggle switch state",
+                                                                                                                "interface": "action"
+                                                                                                          } ],
+                                                                                   "momentary_positions": "none",
+                                                                                               "outputs": [ {
+                                                                                                                  "address": 29906,
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 4096,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 12,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                                          } ],
+                                                                                      "physical_variant": "push_button"
+                                                                               },
+                                                            "STICK_PADDLE_SW": {
+                                                                                           "api_variant": "momentary_last_position",
+                                                                                              "category": "Stick",
+                                                                                          "control_type": "selector",
+                                                                                           "description": "Stick Autopilot/Nosewheel Steering Disengage (Paddle) Switch",
+                                                                                            "identifier": "STICK_PADDLE_SW",
+                                                                                                "inputs": [ {
+                                                                                                              "description": "switch to previous or next state",
+                                                                                                                "interface": "fixed_step"
+                                                                                                          }, {
+                                                                                                              "description": "set position",
+                                                                                                                "interface": "set_state",
+                                                                                                                "max_value": 1
+                                                                                                          }, {
+                                                                                                                 "argument": "TOGGLE",
+                                                                                                              "description": "Toggle switch state",
+                                                                                                                "interface": "action"
+                                                                                                          } ],
+                                                                                   "momentary_positions": "none",
+                                                                                               "outputs": [ {
+                                                                                                                  "address": 29906,
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 2048,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 11,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                                          } ],
+                                                                                      "physical_variant": "push_button"
+                                                                               },
+                                                             "STICK_RECCE_SW": {
+                                                                                           "api_variant": "momentary_last_position",
+                                                                                              "category": "Stick",
+                                                                                          "control_type": "selector",
+                                                                                           "description": "Stick RECCE Event Mark Switch",
+                                                                                            "identifier": "STICK_RECCE_SW",
+                                                                                                "inputs": [ {
+                                                                                                              "description": "switch to previous or next state",
+                                                                                                                "interface": "fixed_step"
+                                                                                                          }, {
+                                                                                                              "description": "set position",
+                                                                                                                "interface": "set_state",
+                                                                                                                "max_value": 1
+                                                                                                          }, {
+                                                                                                                 "argument": "TOGGLE",
+                                                                                                              "description": "Toggle switch state",
+                                                                                                                "interface": "action"
+                                                                                                          } ],
+                                                                                   "momentary_positions": "none",
+                                                                                               "outputs": [ {
+                                                                                                                  "address": 29906,
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 512,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 9,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                                          } ],
+                                                                                      "physical_variant": "push_button"
+                                                                               },
+                                                         "STICK_WEAP_REL_BTN": {
+                                                                                           "api_variant": "momentary_last_position",
+                                                                                              "category": "Stick",
+                                                                                          "control_type": "selector",
+                                                                                           "description": "Stick Weapon Release Button",
+                                                                                            "identifier": "STICK_WEAP_REL_BTN",
+                                                                                                "inputs": [ {
+                                                                                                              "description": "switch to previous or next state",
+                                                                                                                "interface": "fixed_step"
+                                                                                                          }, {
+                                                                                                              "description": "set position",
+                                                                                                                "interface": "set_state",
+                                                                                                                "max_value": 1
+                                                                                                          }, {
+                                                                                                                 "argument": "TOGGLE",
+                                                                                                              "description": "Toggle switch state",
+                                                                                                                "interface": "action"
+                                                                                                          } ],
+                                                                                   "momentary_positions": "none",
+                                                                                               "outputs": [ {
+                                                                                                                  "address": 29906,
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 256,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 8,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                                          } ],
+                                                                                      "physical_variant": "push_button"
+                                                                               }
                                                      },
                                              "TODO": {
                                                           "LEFT_VIDEO_BIT": {
@@ -9664,60 +9821,222 @@ docdata["FA-18C_hornet"] =
                                                                             }
                                                      },
                                 "Throttle Quadrant": {
-                                                         "THROTTLE_EXT_L_SW": {
-                                                                                             "category": "Throttle Quadrant",
-                                                                                         "control_type": "selector",
-                                                                                          "description": "Throttle Exterior Lights Switch, ON/OFF",
-                                                                                           "identifier": "THROTTLE_EXT_L_SW",
-                                                                                               "inputs": [ {
-                                                                                                             "description": "switch to previous or next state",
-                                                                                                               "interface": "fixed_step"
-                                                                                                         }, {
-                                                                                                             "description": "set position",
-                                                                                                               "interface": "set_state",
-                                                                                                               "max_value": 1
-                                                                                                         }, {
-                                                                                                                "argument": "TOGGLE",
-                                                                                                             "description": "Toggle switch state",
-                                                                                                               "interface": "action"
-                                                                                                         } ],
-                                                                                  "momentary_positions": "none",
-                                                                                              "outputs": [ {
-                                                                                                                 "address": 29906,
-                                                                                                             "description": "selector position",
-                                                                                                                    "mask": 256,
-                                                                                                               "max_value": 1,
-                                                                                                                "shift_by": 8,
-                                                                                                                  "suffix": "",
-                                                                                                                    "type": "integer"
-                                                                                                         } ],
-                                                                                     "physical_variant": "limited_rotary"
-                                                                              },
-                                                         "THROTTLE_FRICTION": {
-                                                                                      "category": "Throttle Quadrant",
-                                                                                  "control_type": "limited_dial",
-                                                                                   "description": "Throttles Friction Adjusting Lever",
-                                                                                    "identifier": "THROTTLE_FRICTION",
-                                                                                        "inputs": [ {
-                                                                                                      "description": "set the position of the dial",
-                                                                                                        "interface": "set_state",
-                                                                                                        "max_value": 65535
-                                                                                                  }, {
-                                                                                                         "description": "turn the dial left or right",
-                                                                                                           "interface": "variable_step",
-                                                                                                           "max_value": 65535,
-                                                                                                      "suggested_step": 3200
-                                                                                                  } ],
-                                                                                       "outputs": [ {
-                                                                                                          "address": 29986,
-                                                                                                      "description": "position of the potentiometer",
-                                                                                                             "mask": 65535,
-                                                                                                        "max_value": 65535,
-                                                                                                         "shift_by": 0,
-                                                                                                           "suffix": "",
-                                                                                                             "type": "integer"
-                                                                                                  } ]
-                                                                              }
+                                                             "THROTTLE_ATC_SW": {
+                                                                                            "api_variant": "momentary_last_position",
+                                                                                               "category": "Throttle Quadrant",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Throttle ATC Engage/Disengage Switch",
+                                                                                             "identifier": "THROTTLE_ATC_SW",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                    "momentary_positions": "none",
+                                                                                                "outputs": [ {
+                                                                                                                   "address": 29908,
+                                                                                                               "description": "selector position",
+                                                                                                                      "mask": 1024,
+                                                                                                                 "max_value": 1,
+                                                                                                                  "shift_by": 10,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "integer"
+                                                                                                           } ],
+                                                                                       "physical_variant": "push_button"
+                                                                                },
+                                                           "THROTTLE_CAGE_BTN": {
+                                                                                            "api_variant": "momentary_last_position",
+                                                                                               "category": "Throttle Quadrant",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Throttle Cage/Uncage Button",
+                                                                                             "identifier": "THROTTLE_CAGE_BTN",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                    "momentary_positions": "none",
+                                                                                                "outputs": [ {
+                                                                                                                   "address": 29906,
+                                                                                                               "description": "selector position",
+                                                                                                                      "mask": 8192,
+                                                                                                                 "max_value": 1,
+                                                                                                                  "shift_by": 13,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "integer"
+                                                                                                           } ],
+                                                                                       "physical_variant": "push_button"
+                                                                                },
+                                                            "THROTTLE_DISP_SW": {
+                                                                                               "category": "Throttle Quadrant",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Throttle Dispense Switch, Aft(FLARE)/Center(OFF)/Forward(CHAFF)",
+                                                                                             "identifier": "THROTTLE_DISP_SW",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 2
+                                                                                                           } ],
+                                                                                    "momentary_positions": "first_and_last",
+                                                                                                "outputs": [ {
+                                                                                                                   "address": 29906,
+                                                                                                               "description": "selector position",
+                                                                                                                      "mask": 49152,
+                                                                                                                 "max_value": 2,
+                                                                                                                  "shift_by": 14,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "integer"
+                                                                                                           } ],
+                                                                                       "physical_variant": "rocker_switch"
+                                                                                },
+                                                           "THROTTLE_EXT_L_SW": {
+                                                                                               "category": "Throttle Quadrant",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Throttle Exterior Lights Switch, ON/OFF",
+                                                                                             "identifier": "THROTTLE_EXT_L_SW",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                    "momentary_positions": "none",
+                                                                                                "outputs": [ {
+                                                                                                                   "address": 29908,
+                                                                                                               "description": "selector position",
+                                                                                                                      "mask": 4096,
+                                                                                                                 "max_value": 1,
+                                                                                                                  "shift_by": 12,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "integer"
+                                                                                                           } ],
+                                                                                       "physical_variant": "limited_rotary"
+                                                                                },
+                                                         "THROTTLE_FOV_SEL_SW": {
+                                                                                            "api_variant": "momentary_last_position",
+                                                                                               "category": "Throttle Quadrant",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Throttle RAID/FLIR FOV Select Button",
+                                                                                             "identifier": "THROTTLE_FOV_SEL_SW",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                    "momentary_positions": "none",
+                                                                                                "outputs": [ {
+                                                                                                                   "address": 29908,
+                                                                                                               "description": "selector position",
+                                                                                                                      "mask": 2048,
+                                                                                                                 "max_value": 1,
+                                                                                                                  "shift_by": 11,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "integer"
+                                                                                                           } ],
+                                                                                       "physical_variant": "push_button"
+                                                                                },
+                                                           "THROTTLE_FRICTION": {
+                                                                                        "category": "Throttle Quadrant",
+                                                                                    "control_type": "limited_dial",
+                                                                                     "description": "Throttles Friction Adjusting Lever",
+                                                                                      "identifier": "THROTTLE_FRICTION",
+                                                                                          "inputs": [ {
+                                                                                                        "description": "set the position of the dial",
+                                                                                                          "interface": "set_state",
+                                                                                                          "max_value": 65535
+                                                                                                    }, {
+                                                                                                           "description": "turn the dial left or right",
+                                                                                                             "interface": "variable_step",
+                                                                                                             "max_value": 65535,
+                                                                                                        "suggested_step": 3200
+                                                                                                    } ],
+                                                                                         "outputs": [ {
+                                                                                                            "address": 29986,
+                                                                                                        "description": "position of the potentiometer",
+                                                                                                               "mask": 65535,
+                                                                                                          "max_value": 65535,
+                                                                                                           "shift_by": 0,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ]
+                                                                                },
+                                                         "THROTTLE_RADAR_ELEV": {
+                                                                                        "category": "Throttle Quadrant",
+                                                                                    "control_type": "limited_dial",
+                                                                                     "description": "Throttle Radar Elevation Control",
+                                                                                      "identifier": "THROTTLE_RADAR_ELEV",
+                                                                                          "inputs": [ {
+                                                                                                        "description": "set the position of the dial",
+                                                                                                          "interface": "set_state",
+                                                                                                          "max_value": 65535
+                                                                                                    }, {
+                                                                                                           "description": "turn the dial left or right",
+                                                                                                             "interface": "variable_step",
+                                                                                                             "max_value": 65535,
+                                                                                                        "suggested_step": 3200
+                                                                                                    } ],
+                                                                                         "outputs": [ {
+                                                                                                            "address": 30038,
+                                                                                                        "description": "position of the potentiometer",
+                                                                                                               "mask": 65535,
+                                                                                                          "max_value": 65535,
+                                                                                                           "shift_by": 0,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ]
+                                                                                },
+                                                          "THROTTLE_SPEED_BRK": {
+                                                                                               "category": "Throttle Quadrant",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Throttle Speed Brake Switch, EXTEND/OFF/RETRACT",
+                                                                                             "identifier": "THROTTLE_SPEED_BRK",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 2
+                                                                                                           } ],
+                                                                                    "momentary_positions": "none",
+                                                                                                "outputs": [ {
+                                                                                                                   "address": 29908,
+                                                                                                               "description": "selector position",
+                                                                                                                      "mask": 768,
+                                                                                                                 "max_value": 2,
+                                                                                                                  "shift_by": 8,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "integer"
+                                                                                                           } ],
+                                                                                       "physical_variant": "3_position_switch"
+                                                                                }
                                                      },
                         "Up Front Controller (UFC)": {
                                                                                    "UFC_0": {

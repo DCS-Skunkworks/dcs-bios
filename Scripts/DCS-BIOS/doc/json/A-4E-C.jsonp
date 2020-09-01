@@ -369,7 +369,7 @@ docdata["A-4E-C"] =
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 34114,
+                                                                                              "address": 34116,
                                                                                           "description": "selector position",
                                                                                                  "mask": 1,
                                                                                             "max_value": 1,
@@ -395,7 +395,7 @@ docdata["A-4E-C"] =
                                                                                    "suggested_step": 3200
                                                                                } ],
                                                                     "outputs": [ {
-                                                                                       "address": 34116,
+                                                                                       "address": 34118,
                                                                                    "description": "position of the potentiometer",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65535,
@@ -419,7 +419,7 @@ docdata["A-4E-C"] =
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 34114,
+                                                                                              "address": 34116,
                                                                                           "description": "selector position",
                                                                                                  "mask": 6,
                                                                                             "max_value": 2,
@@ -1060,11 +1060,36 @@ docdata["A-4E-C"] =
                                                                                              } ],
                                                                          "physical_variant": "push_button"
                                                                   },
+                                                 "aoa_index_dim": {
+                                                                          "category": "Avionics",
+                                                                      "control_type": "limited_dial",
+                                                                       "description": "AOA Indexer Dimming Wheel",
+                                                                        "identifier": "aoa_index_dim",
+                                                                            "inputs": [ {
+                                                                                          "description": "set the position of the dial",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 65535
+                                                                                      }, {
+                                                                                             "description": "turn the dial left or right",
+                                                                                               "interface": "variable_step",
+                                                                                               "max_value": 65535,
+                                                                                          "suggested_step": 3200
+                                                                                      } ],
+                                                                           "outputs": [ {
+                                                                                              "address": 34074,
+                                                                                          "description": "position of the potentiometer",
+                                                                                                 "mask": 65535,
+                                                                                            "max_value": 65535,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
                                               "ias_index_button": {
                                                                               "api_variant": "momentary_last_position",
                                                                                  "category": "Avionics",
                                                                              "control_type": "selector",
-                                                                              "description": "IAS Index button",
+                                                                              "description": "IAS Index Button",
                                                                                "identifier": "ias_index_button",
                                                                                    "inputs": [ {
                                                                                                  "description": "switch to previous or next state",
@@ -1093,7 +1118,7 @@ docdata["A-4E-C"] =
                                                 "ias_index_knob": {
                                                                           "category": "Avionics",
                                                                       "control_type": "limited_dial",
-                                                                       "description": "IAS Index knob",
+                                                                       "description": "IAS Index Knob",
                                                                         "identifier": "ias_index_knob",
                                                                             "inputs": [ {
                                                                                           "description": "set the position of the dial",
@@ -1149,7 +1174,7 @@ docdata["A-4E-C"] =
                                                                        "api_variant": "multiturn",
                                                                           "category": "Avionics",
                                                                       "control_type": "analog_dial",
-                                                                       "description": "Radar altitude warning knob",
+                                                                       "description": "Radar altitude warning Knob",
                                                                         "identifier": "radar_alt_indexer",
                                                                             "inputs": [ {
                                                                                              "description": "turn the dial left or right",
@@ -1171,7 +1196,7 @@ docdata["A-4E-C"] =
                                                                               "api_variant": "momentary_last_position",
                                                                                  "category": "Avionics",
                                                                              "control_type": "selector",
-                                                                              "description": "Radar altitude warning button",
+                                                                              "description": "Radar altitude warning Button",
                                                                                "identifier": "radar_alt_switch",
                                                                                    "inputs": [ {
                                                                                                  "description": "switch to previous or next state",
@@ -1201,7 +1226,7 @@ docdata["A-4E-C"] =
                                                                               "api_variant": "momentary_last_position",
                                                                                  "category": "Avionics",
                                                                              "control_type": "selector",
-                                                                              "description": "Standby attitude horizon button",
+                                                                              "description": "Standby attitude horizon Button",
                                                                                "identifier": "stby_att_index_button",
                                                                                    "inputs": [ {
                                                                                                  "description": "switch to previous or next state",
@@ -1231,7 +1256,7 @@ docdata["A-4E-C"] =
                                                                        "api_variant": "multiturn",
                                                                           "category": "Avionics",
                                                                       "control_type": "analog_dial",
-                                                                       "description": "Standby attitude horizon knob",
+                                                                       "description": "Standby attitude horizon Knob",
                                                                         "identifier": "stby_att_index_knob",
                                                                             "inputs": [ {
                                                                                              "description": "turn the dial left or right",
@@ -2022,7 +2047,7 @@ docdata["A-4E-C"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34080,
+                                                                                                   "address": 34082,
                                                                                                "description": "selector position",
                                                                                                       "mask": 1024,
                                                                                                  "max_value": 1,
@@ -2045,7 +2070,7 @@ docdata["A-4E-C"] =
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 34090,
+                                                                                            "address": 34092,
                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -2074,7 +2099,7 @@ docdata["A-4E-C"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34080,
+                                                                                                   "address": 34082,
                                                                                                "description": "selector position",
                                                                                                       "mask": 4096,
                                                                                                  "max_value": 1,
@@ -2097,7 +2122,7 @@ docdata["A-4E-C"] =
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 34094,
+                                                                                            "address": 34096,
                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -2126,7 +2151,7 @@ docdata["A-4E-C"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34080,
+                                                                                                   "address": 34082,
                                                                                                "description": "selector position",
                                                                                                       "mask": 2048,
                                                                                                  "max_value": 1,
@@ -2149,7 +2174,7 @@ docdata["A-4E-C"] =
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 34092,
+                                                                                            "address": 34094,
                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -2203,7 +2228,7 @@ docdata["A-4E-C"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34080,
+                                                                                                   "address": 34082,
                                                                                                "description": "selector position",
                                                                                                       "mask": 7,
                                                                                                  "max_value": 4,
@@ -2228,7 +2253,7 @@ docdata["A-4E-C"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34080,
+                                                                                                   "address": 34082,
                                                                                                "description": "selector position",
                                                                                                       "mask": 56,
                                                                                                  "max_value": 4,
@@ -2436,7 +2461,7 @@ docdata["A-4E-C"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34080,
+                                                                                                   "address": 34082,
                                                                                                "description": "selector position",
                                                                                                       "mask": 256,
                                                                                                  "max_value": 1,
@@ -2459,7 +2484,7 @@ docdata["A-4E-C"] =
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 34086,
+                                                                                            "address": 34088,
                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -2488,7 +2513,7 @@ docdata["A-4E-C"] =
                                                                                            } ],
                                                                     "momentary_positions": "none",
                                                                                 "outputs": [ {
-                                                                                                   "address": 34080,
+                                                                                                   "address": 34082,
                                                                                                "description": "selector position",
                                                                                                       "mask": 512,
                                                                                                  "max_value": 1,
@@ -2511,7 +2536,7 @@ docdata["A-4E-C"] =
                                                                                         "suggested_step": 3200
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                            "address": 34088,
+                                                                                            "address": 34090,
                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -2718,7 +2743,7 @@ docdata["A-4E-C"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 34080,
+                                                                                                     "address": 34082,
                                                                                                  "description": "selector position",
                                                                                                         "mask": 64,
                                                                                                    "max_value": 1,
@@ -2741,7 +2766,7 @@ docdata["A-4E-C"] =
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 34082,
+                                                                                              "address": 34084,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -2770,7 +2795,7 @@ docdata["A-4E-C"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 34080,
+                                                                                                     "address": 34082,
                                                                                                  "description": "selector position",
                                                                                                         "mask": 128,
                                                                                                    "max_value": 1,
@@ -2793,7 +2818,7 @@ docdata["A-4E-C"] =
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 34084,
+                                                                                              "address": 34086,
                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -2951,7 +2976,7 @@ docdata["A-4E-C"] =
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34108,
+                                                                                               "address": 34110,
                                                                                            "description": "selector position",
                                                                                                   "mask": 1024,
                                                                                              "max_value": 1,
@@ -2981,7 +3006,7 @@ docdata["A-4E-C"] =
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34108,
+                                                                                               "address": 34110,
                                                                                            "description": "selector position",
                                                                                                   "mask": 8192,
                                                                                              "max_value": 1,
@@ -3010,7 +3035,7 @@ docdata["A-4E-C"] =
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34108,
+                                                                                               "address": 34110,
                                                                                            "description": "selector position",
                                                                                                   "mask": 2048,
                                                                                              "max_value": 1,
@@ -3040,7 +3065,7 @@ docdata["A-4E-C"] =
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34108,
+                                                                                               "address": 34110,
                                                                                            "description": "selector position",
                                                                                                   "mask": 4096,
                                                                                              "max_value": 1,
@@ -3069,7 +3094,7 @@ docdata["A-4E-C"] =
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34108,
+                                                                                               "address": 34110,
                                                                                            "description": "selector position",
                                                                                                   "mask": 512,
                                                                                              "max_value": 1,
@@ -3082,8 +3107,33 @@ docdata["A-4E-C"] =
                                           "ecm_msl_volume": {
                                                                     "category": "ECM Panel",
                                                                 "control_type": "limited_dial",
-                                                                 "description": "MSL volume (outer knob)",
+                                                                 "description": "MSL volume (outer Knob)",
                                                                   "identifier": "ecm_msl_volume",
+                                                                      "inputs": [ {
+                                                                                    "description": "set the position of the dial",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 65535
+                                                                                }, {
+                                                                                       "description": "turn the dial left or right",
+                                                                                         "interface": "variable_step",
+                                                                                         "max_value": 65535,
+                                                                                    "suggested_step": 3200
+                                                                                } ],
+                                                                     "outputs": [ {
+                                                                                        "address": 34114,
+                                                                                    "description": "position of the potentiometer",
+                                                                                           "mask": 65535,
+                                                                                      "max_value": 65535,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ]
+                                                            },
+                                          "ecm_prf_volume": {
+                                                                    "category": "ECM Panel",
+                                                                "control_type": "limited_dial",
+                                                                 "description": "PRF volume (inner Knob)",
+                                                                  "identifier": "ecm_prf_volume",
                                                                       "inputs": [ {
                                                                                     "description": "set the position of the dial",
                                                                                       "interface": "set_state",
@@ -3104,35 +3154,10 @@ docdata["A-4E-C"] =
                                                                                            "type": "integer"
                                                                                 } ]
                                                             },
-                                          "ecm_prf_volume": {
-                                                                    "category": "ECM Panel",
-                                                                "control_type": "limited_dial",
-                                                                 "description": "PRF volume (inner knob)",
-                                                                  "identifier": "ecm_prf_volume",
-                                                                      "inputs": [ {
-                                                                                    "description": "set the position of the dial",
-                                                                                      "interface": "set_state",
-                                                                                      "max_value": 65535
-                                                                                }, {
-                                                                                       "description": "turn the dial left or right",
-                                                                                         "interface": "variable_step",
-                                                                                         "max_value": 65535,
-                                                                                    "suggested_step": 3200
-                                                                                } ],
-                                                                     "outputs": [ {
-                                                                                        "address": 34110,
-                                                                                    "description": "position of the potentiometer",
-                                                                                           "mask": 65535,
-                                                                                      "max_value": 65535,
-                                                                                       "shift_by": 0,
-                                                                                         "suffix": "",
-                                                                                           "type": "integer"
-                                                                                } ]
-                                                            },
                                             "ecm_selector": {
                                                                            "category": "ECM Panel",
                                                                        "control_type": "selector",
-                                                                        "description": "ECM selector knob",
+                                                                        "description": "ECM selector Knob",
                                                                          "identifier": "ecm_selector",
                                                                              "inputs": [ {
                                                                                            "description": "switch to previous or next state",
@@ -3144,7 +3169,7 @@ docdata["A-4E-C"] =
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                               "address": 34108,
+                                                                                               "address": 34110,
                                                                                            "description": "selector position",
                                                                                                   "mask": 49152,
                                                                                              "max_value": 3,
@@ -3175,7 +3200,7 @@ docdata["A-4E-C"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34114,
+                                                                                                  "address": 34116,
                                                                                               "description": "selector position",
                                                                                                      "mask": 8,
                                                                                                 "max_value": 1,
@@ -3204,7 +3229,7 @@ docdata["A-4E-C"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34114,
+                                                                                                  "address": 34116,
                                                                                               "description": "selector position",
                                                                                                      "mask": 16,
                                                                                                 "max_value": 1,
@@ -3337,7 +3362,7 @@ docdata["A-4E-C"] =
                                                                            "identifier": "EXT_POSITION_LIGHT_LEFT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34114,
+                                                                                                 "address": 34116,
                                                                                              "description": "Left Position Light (red)",
                                                                                                     "mask": 32,
                                                                                                "max_value": 1,
@@ -3353,7 +3378,7 @@ docdata["A-4E-C"] =
                                                                            "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34114,
+                                                                                                 "address": 34116,
                                                                                              "description": "Right Position Light (green)",
                                                                                                     "mask": 64,
                                                                                                "max_value": 1,
@@ -3369,7 +3394,7 @@ docdata["A-4E-C"] =
                                                                            "identifier": "EXT_SPEED_BRAKES",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34118,
+                                                                                                 "address": 34120,
                                                                                              "description": "Speed Brakes",
                                                                                                     "mask": 65535,
                                                                                                "max_value": 65535,
@@ -3385,7 +3410,7 @@ docdata["A-4E-C"] =
                                                                            "identifier": "EXT_STROBE_BOTTOM",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34114,
+                                                                                                 "address": 34116,
                                                                                              "description": "Bottom Strobe Light (red)",
                                                                                                     "mask": 512,
                                                                                                "max_value": 1,
@@ -3401,7 +3426,7 @@ docdata["A-4E-C"] =
                                                                            "identifier": "EXT_STROBE_TOP",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34114,
+                                                                                                 "address": 34116,
                                                                                              "description": "Top Strobe Light (red)",
                                                                                                     "mask": 256,
                                                                                                "max_value": 1,
@@ -3417,7 +3442,7 @@ docdata["A-4E-C"] =
                                                                            "identifier": "EXT_TAIL_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34114,
+                                                                                                 "address": 34116,
                                                                                              "description": "Tail Light (white)",
                                                                                                     "mask": 128,
                                                                                                "max_value": 1,
@@ -3433,7 +3458,7 @@ docdata["A-4E-C"] =
                                                                            "identifier": "EXT_TAXI_LIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34114,
+                                                                                                 "address": 34116,
                                                                                              "description": "Taxi Light (white)",
                                                                                                     "mask": 1024,
                                                                                                "max_value": 1,
@@ -3449,7 +3474,7 @@ docdata["A-4E-C"] =
                                                                            "identifier": "EXT_WOW_LEFT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34114,
+                                                                                                 "address": 34116,
                                                                                              "description": "Weight ON Wheels Left Gear",
                                                                                                     "mask": 8192,
                                                                                                "max_value": 1,
@@ -3465,7 +3490,7 @@ docdata["A-4E-C"] =
                                                                            "identifier": "EXT_WOW_NOSE",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34114,
+                                                                                                 "address": 34116,
                                                                                              "description": "Weight ON Wheels Nose Gear",
                                                                                                     "mask": 2048,
                                                                                                "max_value": 1,
@@ -3481,7 +3506,7 @@ docdata["A-4E-C"] =
                                                                            "identifier": "EXT_WOW_RIGHT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 34114,
+                                                                                                 "address": 34116,
                                                                                              "description": "Weight ON Wheels Right Gear",
                                                                                                     "mask": 4096,
                                                                                                "max_value": 1,
@@ -3805,7 +3830,7 @@ docdata["A-4E-C"] =
                                                                                          "suggested_step": 3200
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                             "address": 34074,
+                                                                                             "address": 34076,
                                                                                          "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3859,7 +3884,7 @@ docdata["A-4E-C"] =
                                                                                          "suggested_step": 3200
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                             "address": 34076,
+                                                                                             "address": 34078,
                                                                                          "description": "position of the potentiometer",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3969,7 +3994,7 @@ docdata["A-4E-C"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34096,
+                                                                                                    "address": 34098,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 4,
                                                                                                   "max_value": 1,
@@ -3998,7 +4023,7 @@ docdata["A-4E-C"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34096,
+                                                                                                    "address": 34098,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 32,
                                                                                                   "max_value": 1,
@@ -4023,7 +4048,7 @@ docdata["A-4E-C"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34096,
+                                                                                                    "address": 34098,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 24,
                                                                                                   "max_value": 2,
@@ -4048,7 +4073,7 @@ docdata["A-4E-C"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34080,
+                                                                                                    "address": 34082,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 24576,
                                                                                                   "max_value": 2,
@@ -4073,7 +4098,7 @@ docdata["A-4E-C"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34096,
+                                                                                                    "address": 34098,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 192,
                                                                                                   "max_value": 2,
@@ -4098,7 +4123,7 @@ docdata["A-4E-C"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34096,
+                                                                                                    "address": 34098,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 3,
                                                                                                   "max_value": 2,
@@ -4123,7 +4148,7 @@ docdata["A-4E-C"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34096,
+                                                                                                    "address": 34098,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 768,
                                                                                                   "max_value": 2,
@@ -4152,7 +4177,7 @@ docdata["A-4E-C"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34080,
+                                                                                                    "address": 34082,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 32768,
                                                                                                   "max_value": 1,
@@ -4177,7 +4202,7 @@ docdata["A-4E-C"] =
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                    "address": 34096,
+                                                                                                    "address": 34098,
                                                                                                 "description": "selector position",
                                                                                                        "mask": 3072,
                                                                                                   "max_value": 2,
@@ -4203,7 +4228,7 @@ docdata["A-4E-C"] =
                                                                                          "suggested_step": 3200
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                             "address": 34100,
+                                                                                             "address": 34102,
                                                                                          "description": "position of the potentiometer",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -4228,7 +4253,7 @@ docdata["A-4E-C"] =
                                                                                          "suggested_step": 3200
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                             "address": 34098,
+                                                                                             "address": 34100,
                                                                                          "description": "position of the potentiometer",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -4253,7 +4278,7 @@ docdata["A-4E-C"] =
                                                                                          "suggested_step": 3200
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                             "address": 34102,
+                                                                                             "address": 34104,
                                                                                          "description": "position of the potentiometer",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -5569,7 +5594,7 @@ docdata["A-4E-C"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34108,
+                                                                                                  "address": 34110,
                                                                                               "description": "selector position",
                                                                                                      "mask": 32,
                                                                                                 "max_value": 1,
@@ -5598,7 +5623,7 @@ docdata["A-4E-C"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34096,
+                                                                                                  "address": 34098,
                                                                                               "description": "selector position",
                                                                                                      "mask": 32768,
                                                                                                 "max_value": 1,
@@ -5627,7 +5652,7 @@ docdata["A-4E-C"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34108,
+                                                                                                  "address": 34110,
                                                                                               "description": "selector position",
                                                                                                      "mask": 128,
                                                                                                 "max_value": 1,
@@ -5656,7 +5681,7 @@ docdata["A-4E-C"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34108,
+                                                                                                  "address": 34110,
                                                                                               "description": "selector position",
                                                                                                      "mask": 64,
                                                                                                 "max_value": 1,
@@ -5685,7 +5710,7 @@ docdata["A-4E-C"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 34108,
+                                                                                                  "address": 34110,
                                                                                               "description": "selector position",
                                                                                                      "mask": 256,
                                                                                                 "max_value": 1,
@@ -5788,7 +5813,7 @@ docdata["A-4E-C"] =
                                                                                    "suggested_step": 3200
                                                                                } ],
                                                                     "outputs": [ {
-                                                                                       "address": 34078,
+                                                                                       "address": 34080,
                                                                                    "description": "position of the potentiometer",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65535,
@@ -5878,7 +5903,7 @@ docdata["A-4E-C"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34104,
+                                                                                                 "address": 34106,
                                                                                              "description": "selector position",
                                                                                                     "mask": 992,
                                                                                                "max_value": 17,
@@ -5903,7 +5928,7 @@ docdata["A-4E-C"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34104,
+                                                                                                 "address": 34106,
                                                                                              "description": "selector position",
                                                                                                     "mask": 31,
                                                                                                "max_value": 19,
@@ -5928,7 +5953,7 @@ docdata["A-4E-C"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34104,
+                                                                                                 "address": 34106,
                                                                                              "description": "selector position",
                                                                                                     "mask": 15360,
                                                                                                "max_value": 9,
@@ -5953,7 +5978,7 @@ docdata["A-4E-C"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34108,
+                                                                                                 "address": 34110,
                                                                                              "description": "selector position",
                                                                                                     "mask": 31,
                                                                                                "max_value": 19,
@@ -5978,7 +6003,7 @@ docdata["A-4E-C"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34104,
+                                                                                                 "address": 34106,
                                                                                              "description": "selector position",
                                                                                                     "mask": 49152,
                                                                                                "max_value": 3,
@@ -6007,7 +6032,7 @@ docdata["A-4E-C"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34096,
+                                                                                                 "address": 34098,
                                                                                              "description": "selector position",
                                                                                                     "mask": 16384,
                                                                                                "max_value": 1,
@@ -6033,7 +6058,7 @@ docdata["A-4E-C"] =
                                                                                       "suggested_step": 3200
                                                                                   } ],
                                                                        "outputs": [ {
-                                                                                          "address": 34106,
+                                                                                          "address": 34108,
                                                                                       "description": "position of the potentiometer",
                                                                                              "mask": 65535,
                                                                                         "max_value": 65535,
@@ -6057,7 +6082,7 @@ docdata["A-4E-C"] =
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                 "address": 34096,
+                                                                                                 "address": 34098,
                                                                                              "description": "selector position",
                                                                                                     "mask": 12288,
                                                                                                "max_value": 2,

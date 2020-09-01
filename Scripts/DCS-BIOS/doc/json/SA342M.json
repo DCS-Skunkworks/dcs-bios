@@ -1435,9 +1435,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 22804,
                                                                                        "description": "Left Position Light (red)",
-                                                                                              "mask": 1,
+                                                                                              "mask": 2048,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 0,
+                                                                                          "shift_by": 11,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1451,9 +1451,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 22804,
                                                                                        "description": "Right Position Light (green)",
-                                                                                              "mask": 2,
+                                                                                              "mask": 4096,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 1,
+                                                                                          "shift_by": 12,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1467,9 +1467,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 22804,
                                                                                        "description": "Strobe Light",
-                                                                                              "mask": 4,
+                                                                                              "mask": 8192,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 2,
+                                                                                          "shift_by": 13,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -2586,7 +2586,7 @@
                                                  "AM_RADIO_LAMP": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "AM Radio Lamp",
+                                                                       "description": "AM Radio Lamp (green)",
                                                                         "identifier": "AM_RADIO_LAMP",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -2650,7 +2650,7 @@
                                                  "FD_LAMP_D_OPE": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "FD Lamp D OPE",
+                                                                       "description": "FD Lamp D OPE (green)",
                                                                         "identifier": "FD_LAMP_D_OPE",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -2666,7 +2666,7 @@
                                                "FD_LAMP_D_VIDE1": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "FD Lamp D Vide1",
+                                                                       "description": "FD Lamp D Vide1 (yellow)",
                                                                         "identifier": "FD_LAMP_D_VIDE1",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -2682,7 +2682,7 @@
                                                "FD_LAMP_D_VIDE2": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "FD Lamp D Vide2",
+                                                                       "description": "FD Lamp D Vide2 (yellow)",
                                                                         "identifier": "FD_LAMP_D_VIDE2",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -2698,7 +2698,7 @@
                                                 "FD_LAMP_G_OPE)": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "FD Lamp G OPE",
+                                                                       "description": "FD Lamp G OPE (green)",
                                                                         "identifier": "FD_LAMP_G_OPE)",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -2714,7 +2714,7 @@
                                                "FD_LAMP_G_VIDE1": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "FD Lamp G Vide1",
+                                                                       "description": "FD Lamp G Vide1 (yellow)",
                                                                         "identifier": "FD_LAMP_G_VIDE1",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -2730,7 +2730,7 @@
                                                "FD_LAMP_G_VIDE2": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "FD Lamp G Vide2",
+                                                                       "description": "FD Lamp G Vide2 (yellow)",
                                                                         "identifier": "FD_LAMP_G_VIDE2",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -2746,7 +2746,7 @@
                                                    "FD_LAMP_LEU": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "FD Lamp LEU",
+                                                                       "description": "FD Lamp LEU (green)",
                                                                         "identifier": "FD_LAMP_LEU",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -2762,7 +2762,7 @@
                                                     "FD_LAMP_VE": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "FD Lamp VE",
+                                                                       "description": "FD Lamp VE (yellow)",
                                                                         "identifier": "FD_LAMP_VE",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -2794,7 +2794,7 @@
                                                 "GYRO_TEST_LAMP": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Gyro Test Lamp",
+                                                                       "description": "Gyro Test Lamp (green)",
                                                                         "identifier": "GYRO_TEST_LAMP",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -2810,7 +2810,7 @@
                                         "GYRO_TRIM_WARNING_LAMP": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Gyro Trim Warning Lamp",
+                                                                       "description": "Gyro Trim Warning Lamp (yellow)",
                                                                         "identifier": "GYRO_TRIM_WARNING_LAMP",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -2823,10 +2823,186 @@
                                                                                                  "type": "integer"
                                                                                       } ]
                                                                   },
+                                                "HOT3_ALIM_LAMP": {
+                                                                          "category": "Indicator Lights",
+                                                                      "control_type": "led",
+                                                                       "description": "HOT3 Panel ALIM Lamp (green)",
+                                                                        "identifier": "HOT3_ALIM_LAMP",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 22804,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 4,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 2,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                               "HOT3_AUTOR_LAMP": {
+                                                                          "category": "Indicator Lights",
+                                                                      "control_type": "led",
+                                                                       "description": "HOT3 Panel AUTOR Lamp (green)",
+                                                                        "identifier": "HOT3_AUTOR_LAMP",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 22804,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 16,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 4,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                 "HOT3_BON_LAMP": {
+                                                                          "category": "Indicator Lights",
+                                                                      "control_type": "led",
+                                                                       "description": "HOT3 Panel BON Lamp (green)",
+                                                                        "identifier": "HOT3_BON_LAMP",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 22804,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 1,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                              "HOT3_DEFAUT_LAMP": {
+                                                                          "category": "Indicator Lights",
+                                                                      "control_type": "led",
+                                                                       "description": "HOT3 Panel DEFAUT Lamp (red)",
+                                                                        "identifier": "HOT3_DEFAUT_LAMP",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 22804,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 32,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 5,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                "HOT3_JOUR_LAMP": {
+                                                                          "category": "Indicator Lights",
+                                                                      "control_type": "led",
+                                                                       "description": "HOT3 Panel JOUR Lamp (green)",
+                                                                        "identifier": "HOT3_JOUR_LAMP",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 22804,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 128,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 7,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                 "HOT3_LUM_LAMP": {
+                                                                          "category": "Indicator Lights",
+                                                                      "control_type": "led",
+                                                                       "description": "HOT3 Panel LUM Lamp (yellow)",
+                                                                        "identifier": "HOT3_LUM_LAMP",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 22804,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 256,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 8,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                             "HOT3_MAUVAIS_LAMP": {
+                                                                          "category": "Indicator Lights",
+                                                                      "control_type": "led",
+                                                                       "description": "HOT3 Panel MAUVAIS Lamp (red)",
+                                                                        "identifier": "HOT3_MAUVAIS_LAMP",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 22804,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 2,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 1,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                "HOT3_NUIT_LAMP": {
+                                                                          "category": "Indicator Lights",
+                                                                      "control_type": "led",
+                                                                       "description": "HOT3 Panel NUIT Lamp (green)",
+                                                                        "identifier": "HOT3_NUIT_LAMP",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 22804,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 1024,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 10,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                "HOT3_PRET_LAMP": {
+                                                                          "category": "Indicator Lights",
+                                                                      "control_type": "led",
+                                                                       "description": "HOT3 Panel PRET Lamp (blue)",
+                                                                        "identifier": "HOT3_PRET_LAMP",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 22804,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 8,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 3,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                               "HOT3_TEST1_LAMP": {
+                                                                          "category": "Indicator Lights",
+                                                                      "control_type": "led",
+                                                                       "description": "HOT3 Panel TEST 1 Lamp (blue)",
+                                                                        "identifier": "HOT3_TEST1_LAMP",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 22804,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 64,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 6,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                               "HOT3_TEST2_LAMP": {
+                                                                          "category": "Indicator Lights",
+                                                                      "control_type": "led",
+                                                                       "description": "HOT3 Panel TEST 2 Lamp (blue)",
+                                                                        "identifier": "HOT3_TEST2_LAMP",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 22804,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 512,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 9,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
                                           "RADAR_ALT_ALARM_LAMP": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Radar Altimeter Alarm Lamp",
+                                                                       "description": "Radar Altimeter Alarm Lamp (red)",
                                                                         "identifier": "RADAR_ALT_ALARM_LAMP",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -2858,7 +3034,7 @@
                                                      "RWR_LIGHT": {
                                                                           "category": "Indicator Lights",
                                                                       "control_type": "led",
-                                                                       "description": "RWR Light",
+                                                                       "description": "RWR Backlight  (green)",
                                                                         "identifier": "RWR_LIGHT",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6844,7 +7020,7 @@
                                         "AC_115V_BUS_NAV": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "AC 115 V Bus/NAV Warning",
+                                                                "description": "AC 115 V Bus/NAV Warning (red)",
                                                                  "identifier": "AC_115V_BUS_NAV",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -6860,7 +7036,7 @@
                                      "ALTERNATOR_WARNING": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "Alternator Warning",
+                                                                "description": "Alternator Warning (red)",
                                                                  "identifier": "ALTERNATOR_WARNING",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -6876,7 +7052,7 @@
                                               "AUTOPILOT": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "Autopilot Warning",
+                                                                "description": "Autopilot Warning (red)",
                                                                  "identifier": "AUTOPILOT",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -6892,7 +7068,7 @@
                                         "BATTERY_WARNING": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "Battery Warning",
+                                                                "description": "Battery Warning (red)",
                                                                  "identifier": "BATTERY_WARNING",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -6908,7 +7084,7 @@
                                            "CHIPS_IN_OIL": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "Chips In Oil Warning",
+                                                                "description": "Chips In Oil Warning (red)",
                                                                  "identifier": "CHIPS_IN_OIL",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -6924,7 +7100,7 @@
                                       "GENERATOR_WARNING": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "Generator Warning",
+                                                                "description": "Generator Warning (red)",
                                                                  "identifier": "GENERATOR_WARNING",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -6940,7 +7116,7 @@
                                                "LOW_FUEL": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "Low Fuel Warning",
+                                                                "description": "Low Fuel Warning (red)",
                                                                  "identifier": "LOW_FUEL",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -6956,7 +7132,7 @@
                                           "LOW_ROTOR_RPM": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "Low Rotor RPM Warning",
+                                                                "description": "Low Rotor RPM Warning (red)",
                                                                  "identifier": "LOW_ROTOR_RPM",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -6972,7 +7148,7 @@
                                         "LOW_TURBINE_RPM": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "Low Turbine RPM Warning",
+                                                                "description": "Low Turbine RPM Warning (red)",
                                                                  "identifier": "LOW_TURBINE_RPM",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -6988,7 +7164,7 @@
                                      "PITOT_TUBE_WARNING": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "Pitot Tube Warning",
+                                                                "description": "Pitot Tube Warning (red)",
                                                                  "identifier": "PITOT_TUBE_WARNING",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -7004,7 +7180,7 @@
                                      "ROTOR_OIL_PRESSURE": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "Main Rotor Oil Pressure Warning",
+                                                                "description": "Main Rotor Oil Pressure Warning (red)",
                                                                  "identifier": "ROTOR_OIL_PRESSURE",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -7020,7 +7196,7 @@
                                     "SAND_FILTER_WARNING": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "Sand Filter Warning",
+                                                                "description": "Sand Filter Warning (red)",
                                                                  "identifier": "SAND_FILTER_WARNING",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -7036,7 +7212,7 @@
                                    "TURBINE_OIL_PRESSURE": {
                                                                    "category": "Warning Panel",
                                                                "control_type": "led",
-                                                                "description": "Turbine Oil Pressure Warning",
+                                                                "description": "Turbine Oil Pressure Warning (red)",
                                                                  "identifier": "TURBINE_OIL_PRESSURE",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
