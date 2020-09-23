@@ -2940,6 +2940,35 @@ docdata["F-14B"] =
                                                                                                   } ],
                                                                               "physical_variant": "toggle_switch"
                                                                        },
+                                                         "PLT_HUDCAM": {
+                                                                                      "category": "Cockpit Mechanics",
+                                                                                  "control_type": "selector",
+                                                                                   "description": "PILOT Hide Guncam",
+                                                                                    "identifier": "PLT_HUDCAM",
+                                                                                        "inputs": [ {
+                                                                                                      "description": "switch to previous or next state",
+                                                                                                        "interface": "fixed_step"
+                                                                                                  }, {
+                                                                                                      "description": "set position",
+                                                                                                        "interface": "set_state",
+                                                                                                        "max_value": 1
+                                                                                                  }, {
+                                                                                                         "argument": "TOGGLE",
+                                                                                                      "description": "Toggle switch state",
+                                                                                                        "interface": "action"
+                                                                                                  } ],
+                                                                           "momentary_positions": "none",
+                                                                                       "outputs": [ {
+                                                                                                          "address": 4980,
+                                                                                                      "description": "selector position",
+                                                                                                             "mask": 16384,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 14,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ],
+                                                                              "physical_variant": "toggle_switch"
+                                                                       },
                                                     "RIO_CANOPY_JETT": {
                                                                                       "category": "Cockpit Mechanics",
                                                                                   "control_type": "selector",
@@ -6176,9 +6205,9 @@ docdata["F-14B"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Anticollision Lights",
-                                                                                                            "mask": 2048,
+                                                                                                            "mask": 4096,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 11,
+                                                                                                        "shift_by": 12,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6190,7 +6219,7 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_FORMATION_LIGHTS",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5290,
+                                                                                                         "address": 5294,
                                                                                                      "description": "Formation Lights (yellow green)",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6208,9 +6237,9 @@ docdata["F-14B"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 4990,
                                                                                                      "description": "Position Lights Body (red/green)",
-                                                                                                            "mask": 16384,
+                                                                                                            "mask": 32768,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 14,
+                                                                                                        "shift_by": 15,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6222,11 +6251,11 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_POSITION_LIGHTS_WINGS",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 4980,
+                                                                                                         "address": 4990,
                                                                                                      "description": "Position Lights Wings (red/green)",
-                                                                                                            "mask": 32768,
+                                                                                                            "mask": 16384,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 15,
+                                                                                                        "shift_by": 14,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6240,9 +6269,9 @@ docdata["F-14B"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Chinpod Position Light (red)",
-                                                                                                            "mask": 1024,
+                                                                                                            "mask": 2048,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 10,
+                                                                                                        "shift_by": 11,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6254,11 +6283,11 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_POSITION_LIGHT_TAIL",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 4990,
+                                                                                                         "address": 5114,
                                                                                                      "description": "Tail Position Light (white)",
-                                                                                                            "mask": 32768,
+                                                                                                            "mask": 1024,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 15,
+                                                                                                        "shift_by": 10,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6270,7 +6299,7 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_REFUEL_PROBE",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5288,
+                                                                                                         "address": 5292,
                                                                                                      "description": "Fuel Probe",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6288,9 +6317,9 @@ docdata["F-14B"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 4980,
                                                                                                      "description": "Refuel Probe Light (red)",
-                                                                                                            "mask": 16384,
+                                                                                                            "mask": 32768,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 14,
+                                                                                                        "shift_by": 15,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6302,7 +6331,7 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5284,
+                                                                                                         "address": 5288,
                                                                                                      "description": "Bottom Left Speed Brake",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6318,7 +6347,7 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5282,
+                                                                                                         "address": 5286,
                                                                                                      "description": "Bottom Right Speed Brake",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6334,7 +6363,7 @@ docdata["F-14B"] =
                                                                                    "identifier": "EXT_SPEED_BRAKE_TOP",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5286,
+                                                                                                         "address": 5290,
                                                                                                      "description": "Top Speed Brake",
                                                                                                             "mask": 65535,
                                                                                                        "max_value": 65535,
@@ -6352,9 +6381,9 @@ docdata["F-14B"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Weight ON Wheels Left Gear",
-                                                                                                            "mask": 16384,
+                                                                                                            "mask": 32768,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 14,
+                                                                                                        "shift_by": 15,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6368,9 +6397,9 @@ docdata["F-14B"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Weight ON Wheels Nose Gear",
-                                                                                                            "mask": 4096,
+                                                                                                            "mask": 8192,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 12,
+                                                                                                        "shift_by": 13,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6384,9 +6413,9 @@ docdata["F-14B"] =
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Weight ON Wheels Right Gear",
-                                                                                                            "mask": 8192,
+                                                                                                            "mask": 16384,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 13,
+                                                                                                        "shift_by": 14,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -13859,135 +13888,185 @@ docdata["F-14B"] =
                                                                              }
                                             },
                                      "TCS": {
-                                                "RIO_RECORD_MODE": {
-                                                                                  "category": "TCS",
-                                                                              "control_type": "selector",
-                                                                               "description": "RIO Record Mode",
-                                                                                "identifier": "RIO_RECORD_MODE",
-                                                                                    "inputs": [ {
-                                                                                                  "description": "switch to previous or next state",
-                                                                                                    "interface": "fixed_step"
-                                                                                              }, {
-                                                                                                  "description": "set position",
-                                                                                                    "interface": "set_state",
-                                                                                                    "max_value": 4
-                                                                                              } ],
-                                                                       "momentary_positions": "none",
-                                                                                   "outputs": [ {
-                                                                                                      "address": 4792,
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 7168,
-                                                                                                    "max_value": 4,
-                                                                                                     "shift_by": 10,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                                              } ],
-                                                                          "physical_variant": "toggle_switch"
-                                                                   },
-                                                  "RIO_RECORD_PW": {
-                                                                                  "category": "TCS",
-                                                                              "control_type": "selector",
-                                                                               "description": "RIO Record Power",
-                                                                                "identifier": "RIO_RECORD_PW",
-                                                                                    "inputs": [ {
-                                                                                                  "description": "switch to previous or next state",
-                                                                                                    "interface": "fixed_step"
-                                                                                              }, {
-                                                                                                  "description": "set position",
-                                                                                                    "interface": "set_state",
-                                                                                                    "max_value": 2
-                                                                                              } ],
-                                                                       "momentary_positions": "none",
-                                                                                   "outputs": [ {
-                                                                                                      "address": 4792,
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 768,
-                                                                                                    "max_value": 2,
-                                                                                                     "shift_by": 8,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                                              } ],
-                                                                          "physical_variant": "3_position_switch"
-                                                                   },
-                                                    "RIO_TCS_ACQ": {
-                                                                                  "category": "TCS",
-                                                                              "control_type": "selector",
-                                                                               "description": "RIO TCS Acquisition",
-                                                                                "identifier": "RIO_TCS_ACQ",
-                                                                                    "inputs": [ {
-                                                                                                  "description": "switch to previous or next state",
-                                                                                                    "interface": "fixed_step"
-                                                                                              }, {
-                                                                                                  "description": "set position",
-                                                                                                    "interface": "set_state",
-                                                                                                    "max_value": 2
-                                                                                              } ],
-                                                                       "momentary_positions": "none",
-                                                                                   "outputs": [ {
-                                                                                                      "address": 4792,
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 24,
-                                                                                                    "max_value": 2,
-                                                                                                     "shift_by": 3,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                                              } ],
-                                                                          "physical_variant": "3_position_switch"
-                                                                   },
-                                                    "RIO_TCS_FOV": {
-                                                                                  "category": "TCS",
-                                                                              "control_type": "selector",
-                                                                               "description": "RIO TCS FOV",
-                                                                                "identifier": "RIO_TCS_FOV",
-                                                                                    "inputs": [ {
-                                                                                                  "description": "switch to previous or next state",
-                                                                                                    "interface": "fixed_step"
-                                                                                              }, {
-                                                                                                  "description": "set position",
-                                                                                                    "interface": "set_state",
-                                                                                                    "max_value": 1
-                                                                                              }, {
-                                                                                                     "argument": "TOGGLE",
-                                                                                                  "description": "Toggle switch state",
-                                                                                                    "interface": "action"
-                                                                                              } ],
-                                                                       "momentary_positions": "none",
-                                                                                   "outputs": [ {
-                                                                                                      "address": 4792,
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 32,
-                                                                                                    "max_value": 1,
-                                                                                                     "shift_by": 5,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                                              } ],
-                                                                          "physical_variant": "toggle_switch"
-                                                                   },
-                                                  "RIO_TCS_SLAVE": {
-                                                                                  "category": "TCS",
-                                                                              "control_type": "selector",
-                                                                               "description": "RIO TCS Slave",
-                                                                                "identifier": "RIO_TCS_SLAVE",
-                                                                                    "inputs": [ {
-                                                                                                  "description": "switch to previous or next state",
-                                                                                                    "interface": "fixed_step"
-                                                                                              }, {
-                                                                                                  "description": "set position",
-                                                                                                    "interface": "set_state",
-                                                                                                    "max_value": 2
-                                                                                              } ],
-                                                                       "momentary_positions": "none",
-                                                                                   "outputs": [ {
-                                                                                                      "address": 4792,
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 192,
-                                                                                                    "max_value": 2,
-                                                                                                     "shift_by": 6,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                                              } ],
-                                                                          "physical_variant": "3_position_switch"
-                                                                   }
+                                                 "RIO_RECORD_MODE": {
+                                                                                   "category": "TCS",
+                                                                               "control_type": "selector",
+                                                                                "description": "RIO Record Mode",
+                                                                                 "identifier": "RIO_RECORD_MODE",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 4
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4792,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 7168,
+                                                                                                     "max_value": 4,
+                                                                                                      "shift_by": 10,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "toggle_switch"
+                                                                    },
+                                                   "RIO_RECORD_PW": {
+                                                                                   "category": "TCS",
+                                                                               "control_type": "selector",
+                                                                                "description": "RIO Record Power",
+                                                                                 "identifier": "RIO_RECORD_PW",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 2
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4792,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 768,
+                                                                                                     "max_value": 2,
+                                                                                                      "shift_by": 8,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "3_position_switch"
+                                                                    },
+                                                     "RIO_TCS_ACQ": {
+                                                                                   "category": "TCS",
+                                                                               "control_type": "selector",
+                                                                                "description": "RIO TCS Acquisition",
+                                                                                 "identifier": "RIO_TCS_ACQ",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 2
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4792,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 24,
+                                                                                                     "max_value": 2,
+                                                                                                      "shift_by": 3,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "3_position_switch"
+                                                                    },
+                                                     "RIO_TCS_FOV": {
+                                                                                   "category": "TCS",
+                                                                               "control_type": "selector",
+                                                                                "description": "RIO TCS FOV",
+                                                                                 "identifier": "RIO_TCS_FOV",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4792,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 32,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 5,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "toggle_switch"
+                                                                    },
+                                                   "RIO_TCS_SLAVE": {
+                                                                                   "category": "TCS",
+                                                                               "control_type": "selector",
+                                                                                "description": "RIO TCS Slave",
+                                                                                 "identifier": "RIO_TCS_SLAVE",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 2
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4792,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 192,
+                                                                                                     "max_value": 2,
+                                                                                                      "shift_by": 6,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "3_position_switch"
+                                                                    },
+                                                "RIO_TCS_TRIM_AZI": {
+                                                                            "category": "TCS",
+                                                                        "control_type": "limited_dial",
+                                                                         "description": "RIO TCS Trim Azimuth",
+                                                                          "identifier": "RIO_TCS_TRIM_AZI",
+                                                                              "inputs": [ {
+                                                                                            "description": "set the position of the dial",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 65535
+                                                                                        }, {
+                                                                                               "description": "turn the dial left or right",
+                                                                                                 "interface": "variable_step",
+                                                                                                 "max_value": 65535,
+                                                                                            "suggested_step": 3200
+                                                                                        } ],
+                                                                             "outputs": [ {
+                                                                                                "address": 5282,
+                                                                                            "description": "position of the potentiometer",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                "RIO_TCS_TRIM_ELE": {
+                                                                            "category": "TCS",
+                                                                        "control_type": "limited_dial",
+                                                                         "description": "RIO TCS Trim Elevation",
+                                                                          "identifier": "RIO_TCS_TRIM_ELE",
+                                                                              "inputs": [ {
+                                                                                            "description": "set the position of the dial",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 65535
+                                                                                        }, {
+                                                                                               "description": "turn the dial left or right",
+                                                                                                 "interface": "variable_step",
+                                                                                                 "max_value": 65535,
+                                                                                            "suggested_step": 3200
+                                                                                        } ],
+                                                                             "outputs": [ {
+                                                                                                "address": 5284,
+                                                                                            "description": "position of the potentiometer",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    }
                                             },
                                      "TID": {
                                                     "RIO_TID_ALT_NUM": {
