@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 --by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
---v 2.0
+--v 2.1
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -1602,6 +1602,10 @@ defineString("HSD_TACAN_CRS_S", function() return HSD_TACAN_CRS  end, 3, "HSD", 
 defineString("HSD_MAN_CRS_S", function() return HSD_MAN_CRS  end, 3, "HSD", "HSD MAN Course Display (string)")
 defineIntegerFromGetter("HSD_TACAN_CRS", function() return HSD_TACAN_CRSint  end, 360, "HSD", "HSD TACAN Course Display")
 defineIntegerFromGetter("HSD_MAN_CRS", function() return HSD_MAN_CRSint  end, 360, "HSD", "HSD MAN Course Display")
+
+defineToggleSwitch("PLT_HUDCAM", 11, 3756, 3490, "Cockpit Mechanics", "PILOT Hide Guncam")
+definePotentiometer("RIO_TCS_TRIM_AZI", 37, 3750, 85, {0, 1}, "TCS", "RIO TCS Trim Azimuth")
+definePotentiometer("RIO_TCS_TRIM_ELE", 37, 3751, 86, {0, 1}, "TCS", "RIO TCS Trim Elevation")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()

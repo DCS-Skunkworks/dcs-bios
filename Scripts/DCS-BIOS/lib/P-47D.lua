@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("P-47D", 0x5200)
-BIOS.protocol.setExportModuleAircrafts({"P-47D-30"})
+BIOS.protocol.setExportModuleAircrafts({"P-47D-30", "P-47D-30bl1", "P-47D-40"})
 --by WarLord (aka BlackLibrary)
 
 local documentation = moduleBeingDefined.documentation
