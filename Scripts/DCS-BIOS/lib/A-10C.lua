@@ -958,10 +958,10 @@ define3PosTumb1("FIRE_EXT_DISCH", 50, 3004, 105, "Glare Shield", "Fire Extinguis
 defineVariableStepTumb("HSI_CRS_KNOB", 45, 3002, 44, 1.0, "HSI", "Course Select Knob")
 defineVariableStepTumb("HSI_HDG_KNOB", 45, 3001, 45, 1.0, "HSI", "Heading Select Knob")
 
-definePotentiometer("ADI_PITCH_TRIM", 47, 3001, 22, {-.5, .5}, "ADI", "ADI Pitch Trim")
+definePotentiometer("ADI_PITCH_TRIM", 47, 3001, 22, {-0.5, 0.5}, "ADI", "ADI Pitch Trim")
 
 definePushButton("SAI_CAGE", 48, 3002, 67, "Standby Attitude Indicator", "Cage SAI")
-defineRotary("SAI_PITCH_TRIM", 48, 3003, 66, "Standby Attitude Indicator", "SAI Pitch Trim")
+definePotentiometer("SAI_PITCH_TRIM", 48, 3003, 66, {-1, 1}, "Standby Attitude Indicator", "SAI Pitch Trim")
 
 defineString("TACAN_CHANNEL", getTacanChannel, 4, "TACAN Panel", "TACAN Channel")
 definePushButton("TACAN_TEST_BTN", 74, 3004, 259, "TACAN Panel", "TACAN Test Button")
@@ -1087,7 +1087,7 @@ defineTumb("INT_TCN_UNMUTE", 58, 3015, 236, 1, {0, 1}, nil, false, "Intercom Pan
 
 defineToggleSwitch("INT_HM", 58, 3017, 237, "Intercom Panel", "HM Switch")
 definePotentiometer("INT_VOL", 58, 3018, 238, {0, 1}, "Intercom Panel", "Intercom Volume")
-defineTumb("INT_MODE", 58, 3019, 239, 0.1, {0.0, 0.4}, nil, false, "Intercom Panel", "Intercom Selector Switch: INT / FM / VHF / HF / Blank")
+defineTumb("INT_MODE", 58, 3019, 239, 0.1, {0.0, 0.4}, nil, false, "Intercom Panel", "Intercom Selector Switch INT/FM/VHF/HF/Blank")
 definePushButton("INT_CALL", 58, 3020, 240, "Intercom Panel", "Call Button")
 
 definePushButton("HARS_FAST_ERECT", 44, 3001, 711, "HARS", "HARS Fast Erect Button")
@@ -1373,9 +1373,9 @@ defineFloat("INT_FLOOD_L_BRIGHT", 806, {0, 1}, "Light System Control Panel", "Fl
 defineFloat("INT_CAUTION_L_BRIGHT", 905, {0, 1}, "Light System Control Panel", "Caution Lights Brightness")
 
 defineToggleSwitch("MIRROR_TOGGLE", 0, 3001, 719, "Misc", "Toggle Mirrors")
-defineFloat("OXY_FLOW_G", 600, "Oxygen Regulator Panel", "Flow Indicator (on/off) (as Gauge)")
+defineFloat("OXY_FLOW_G", 600, {0, 1}, "Oxygen Regulator Panel", "Flow Indicator (on/off) (as Gauge)")
 
 -- Scorpion HMCS
-define3PosTumb("A102_HMCS_PW", 75, 3001, 550, "HMCS Panel", "Scorpion HMCS Power (A-10C II only)")
+define3PosTumb("A102_HMCS_PW", 75, 3001, 550, "HMCS Panel", "Scorpion HMCS Power BAT/OFF/ON (A-10C II only)")
 
 BIOS.protocol.endModule()
