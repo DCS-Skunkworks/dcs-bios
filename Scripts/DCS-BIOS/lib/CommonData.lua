@@ -41,11 +41,13 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	lat1 = (lat - latDeg) * 60 -- convert to seconds
 	latSec = math.floor(lat1)
 	latFractionalSec = lat1 - latSec
+		if latFractionalSec == nil then return end
 
 	lonDeg = math.floor(lon)
 	lon1 = (lon - lonDeg) * 60 -- convert to seconds
 	lonSec = math.floor(lon1)
 	lonFractionalSec = lon1 - lonSec
+		if lonFractionalSec == nil then return end
 	
 	if selfData.Heading ~= nil then
 		local hdgDegValue = selfData.Heading / (2 * math.pi) * 360
