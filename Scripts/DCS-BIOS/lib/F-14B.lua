@@ -286,7 +286,6 @@ local HSD_MAN_CRS = ""
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	HSDInd = parse_indication_number_index(1);
-	if HSDInd == nil then HSDInd = "00000" end
         if getSTEER_Mode()=="1" then
             HSD_TACAN_RANGE = HSDInd[19]
             HSD_TACAN_CRS = HSDInd[20]
@@ -1597,9 +1596,9 @@ defineString("PLT_VUHF_REMOTE_DISP", function() return get_radio_remote_display(
 defineString("PLT_HUD_MODE", getHUD_Mode, 1, "Display", "PILOT HUD Mode (string)")  
 defineString("PLT_STEER_MODE", getSTEER_Mode, 1, "Display", "PILOT STEER Mode (string)")
 defineString("PLT_AIR_SOURCE_MODE", getAIRSOURCE_Mode, 1, "Display", "PILOT Air Source Mode (string)")
-defineString("HSD_TACAN_RANGE_S", function() return HSD_TACAN_RANGE end, 5, "HSD", "HSD TACAN Range Display (string)")
-defineString("HSD_TACAN_CRS_S", function() return HSD_TACAN_CRS  end, 3, "HSD", "HSD TACAN Course Display (string)")
-defineString("HSD_MAN_CRS_S", function() return HSD_MAN_CRS  end, 3, "HSD", "HSD MAN Course Display (string)")
+defineString("HSD_TACAN_RANGE_S", function() return HSD_TACAN_RANGE or "00000" end, 5, "HSD", "HSD TACAN Range Display (string)")
+defineString("HSD_TACAN_CRS_S", function() return HSD_TACAN_CRS  or "000" end, 3, "HSD", "HSD TACAN Course Display (string)")
+defineString("HSD_MAN_CRS_S", function() return HSD_MAN_CRS  or "000" end, 3, "HSD", "HSD MAN Course Display (string)")
 defineIntegerFromGetter("HSD_TACAN_CRS", function() return HSD_TACAN_CRSint  end, 360, "HSD", "HSD TACAN Course Display")
 defineIntegerFromGetter("HSD_MAN_CRS", function() return HSD_MAN_CRSint  end, 360, "HSD", "HSD MAN Course Display")
 
