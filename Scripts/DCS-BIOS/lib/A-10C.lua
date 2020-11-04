@@ -422,8 +422,6 @@ defineIndicatorLight("R_ELEVATOR_EMER_DISENGAGE", 182, "Emergency Flight Control
 
 defineIndicatorLight("TACAN_TEST", 260, "TACAN Panel", "TACAN Test Indicator Light (green)")
 
-
-
 definePushButton("LMFD_01", 2, 3001, 300, "Left MFCD", "OSB 1")
 definePushButton("LMFD_02", 2, 3002, 301, "Left MFCD", "OSB 2")
 definePushButton("LMFD_03", 2, 3003, 302, "Left MFCD", "OSB 3")
@@ -1377,5 +1375,7 @@ defineFloat("OXY_FLOW_G", 600, {0, 1}, "Oxygen Regulator Panel", "Flow Indicator
 
 -- Scorpion HMCS
 define3PosTumb("A102_HMCS_PW", 75, 3001, 550, "HMCS Panel", "Scorpion HMCS Power BAT/OFF/ON (A-10C II only)")
+
+defineToggleSwitch("STICK_VIS", 39, 3016, 999, "Misc", "Hide Stick toggle")
 
 BIOS.protocol.endModule()

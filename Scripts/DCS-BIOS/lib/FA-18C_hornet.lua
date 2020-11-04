@@ -1218,8 +1218,8 @@ defineToggleSwitch("NUC_WPN_SW", 0, 3100, 507, "TODO", "NUC WPN Switch, ENABLE/D
 definePushButton("STICK_WEAP_REL_BTN", 13, 3003, 475, "Stick", "Stick Weapon Release Button")
 definePushButton("STICK_RECCE_SW", 13, 3004, 477, "Stick", "Stick RECCE Event Mark Switch")
 definePushButton("STICK_GUN_TRIGGER2", 13, 3002, 479, "Stick", "Stick Gun Trigger, SECOND DETENT (Press to shoot)")
-definePushButton("STICK_PADDLE_SW", 13, 3018, 480, "Stick", "Stick Autopilot/Nosewheel Steering Disengage (Paddle) Switch")
-definePushButton("STICK_N_WHEEL_SW", 13, 3013, 482, "Stick", "Stick Undesignate/Nose Wheel Steer Switch")
+definePushButton("STICK_PADDLE_SW", 13, 3018, 482, "Stick", "Stick Autopilot/Nosewheel Steering Disengage (Paddle) Switch")
+definePushButton("STICK_N_WHEEL_SW", 13, 3013, 480, "Stick", "Stick Undesignate/Nose Wheel Steer Switch")
 
 -- HOTAS THROTTLE
 definePushButton("THROTTLE_CAGE_BTN", 13, 3031, 487, "Throttle Quadrant", "Throttle Cage/Uncage Button")
