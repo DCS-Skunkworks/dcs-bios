@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B"})
 
 --by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
---v 2.1
+--v 2.2
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -27,16 +27,16 @@ local defineString = BIOS.util.defineString
 -- remove Arg# Stick 33
 
 ----------------------------------------- Extra Functions
-local function defineIndicatorLightMulti1(msg, arg_number, category, description)
+local function defineIndicatorLightMulti1(msg, arg_number, category, description) --red
 	local value = moduleBeingDefined.memoryMap:allocateInt {
 		maxValue = 1
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) >= 0.4 or dev0:get_argument_value(arg_number) < 0.6 then
-			value:setValue(0)
+		if dev0:get_argument_value(arg_number) >= 0.4 and dev0:get_argument_value(arg_number) < 0.6 then
+			value:setValue(1)
 		else
-		    value:setValue(1)
+		    value:setValue(0)
 		end
 	end
 	document {
@@ -58,16 +58,16 @@ local function defineIndicatorLightMulti1(msg, arg_number, category, description
 	}
 end
 
-local function defineIndicatorLightMulti2(msg, arg_number, category, description)
+local function defineIndicatorLightMulti2(msg, arg_number, category, description) --green
 	local value = moduleBeingDefined.memoryMap:allocateInt {
 		maxValue = 1
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) >= 0.8 or dev0:get_argument_value(arg_number) < 0.99 then
-			value:setValue(0)
+		if dev0:get_argument_value(arg_number) >= 0.8 and dev0:get_argument_value(arg_number) < 0.99 then
+			value:setValue(1)
 		else
-		    value:setValue(1)
+		    value:setValue(0)
 		end
 	end
 	document {
@@ -95,10 +95,10 @@ local function defineIndicatorLightLANTTop(msg, arg_number, category, descriptio
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) >= 0.24 or dev0:get_argument_value(arg_number) < 0.49 then
-			value:setValue(0)
+		if dev0:get_argument_value(arg_number) >= 0.24 and dev0:get_argument_value(arg_number) < 0.49 then
+			value:setValue(1)
 		else
-		    value:setValue(1)
+		    value:setValue(0)
 		end
 	end
 	document {
@@ -126,10 +126,10 @@ local function defineIndicatorLightLANT(msg, arg_number, category, description)
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) >= 0.49 or dev0:get_argument_value(arg_number) < 0.55 then
-			value:setValue(0)
+		if dev0:get_argument_value(arg_number) >= 0.49 and dev0:get_argument_value(arg_number) < 0.55 then
+			value:setValue(1)
 		else
-		    value:setValue(1)
+		    value:setValue(0)
 		end
 	end
 	document {
@@ -157,10 +157,10 @@ local function defineIndicatorLightLANTBottom(msg, arg_number, category, descrip
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) >= 0.55 or dev0:get_argument_value(arg_number) < 0.99 then
-			value:setValue(0)
+		if dev0:get_argument_value(arg_number) >= 0.55 and dev0:get_argument_value(arg_number) < 0.99 then
+			value:setValue(1)
 		else
-		    value:setValue(1)
+		    value:setValue(0)
 		end
 	end
 	document {
