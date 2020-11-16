@@ -20,8 +20,6 @@ local _radarAltitude = 0
 local _barFuel = 0
 local _barGLoad = 0
 local _barVVI = 8
-local fuel = 0
-local gload = 0
 
 local _adiBank = 0.0
 local _adiPitch = 0.0
@@ -102,15 +100,15 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local self = LoGetSelfData()
 	local plane = LoGetSelfPlane()
 
-	local altS = LoGetAltitudeAboveSeaLevel()
-	local altG = LoGetAltitudeAboveGroundLevel()
-	local alt = altS
-	local vvi = LoGetVerticalVelocity()
-	local ias = LoGetIndicatedAirSpeed()
-	local tas = LoGetTrueAirSpeed()
-	local mach = LoGetMachNumber()
+	local altS = LoGetAltitudeAboveSeaLevel() or 0
+	local altG = LoGetAltitudeAboveGroundLevel() or 0
+	local alt = altS or 0
+	local vvi = LoGetVerticalVelocity() or 0
+	local ias = LoGetIndicatedAirSpeed() or 0
+	local tas = LoGetTrueAirSpeed() or 0
+	local mach = LoGetMachNumber() or 0
 	local fuel = LoGetFuelAll() or 0
-	local aoa = LoGetAngleOfAttack()
+	local aoa = LoGetAngleOfAttack() or 0
 	local gload = LoGetGLoad() or 0
 	_glidedev = LoGetGlideDeviation()
 	_sidedev = LoGetSideDeviation()
@@ -119,6 +117,14 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	_barFuel = BarFuel(fuel, plane)
 	_barGLoad = BarGLoad(gload)
 	_barVVI = BarVVI(vvi, plane)
+	
+	_RPMLeft = LoGetEngineInfo().RPM.left
+	_RPMRight = LoGetEngineInfo().RPM.right
+	_TEMPLeft = LoGetEngineInfo().Temperature.left
+	_TEMPRight = LoGetEngineInfo().Temperature.right	
+	_GearStatus = LoGetMechInfo().gear.value	
+	_chaff = LoGetSnares().chaff
+	_flare = LoGetSnares().flare
 
 	--[[ US PLANES ]]--
 	if plane == "A-10A" or plane == "F-15C" or plane == "MiG-29G" then
@@ -211,16 +217,6 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	else _verticalVelocity = string.format("%4.1f", vvi) end
 
 	_adiPitch, _adiBank, _adiYaw = LoGetADIPitchBankYaw()
-	
-	_RPMLeft = LoGetEngineInfo().RPM.left
-	_RPMRight = LoGetEngineInfo().RPM.right
-	_TEMPLeft = LoGetEngineInfo().Temperature.left
-	_TEMPRight = LoGetEngineInfo().Temperature.right
-	
-	_GearStatus = LoGetMechInfo().gear.value
-	
-	_chaff = LoGetSnares().chaff
-	_flare = LoGetSnares().flare
 end
 
 --Altitude
@@ -237,22 +233,22 @@ defineString("FC3_VERTICAL_VELOCITY", function() return _verticalVelocity .. str
 defineIntegerFromGetter("FC3_RADAR_ALTITUDE", function() return _radarAltitude end, 1, "Altitude", "Radar Altitude")
 
 --Engine
-defineString("FC3_RPM_L", function() return _RPMLeft .. string.char(0) or "00000" end, 5, "Engine", "RPM Left Engine")
-defineString("FC3_RPM_R", function() return _RPMRight .. string.char(0) or "00000" end, 5, "Engine", "RPM Left Engine")
-defineString("FC3_TEMP_L", function() return _TEMPLeft .. string.char(0) or "000" end, 3, "Engine", "Temperature Left Engine")
-defineString("FC3_TEMP_R", function() return _TEMPRight .. string.char(0) or "000" end, 3, "Engine", "Temperature Left Engine")
+defineString("FC3_RPM_L", function() return _RPMLeft or "00000" end, 5, "Engine", "RPM Left Engine")
+defineString("FC3_RPM_R", function() return _RPMRight or "00000" end, 5, "Engine", "RPM Left Engine")
+defineString("FC3_TEMP_L", function() return _TEMPLeft or "000" end, 3, "Engine", "Temperature Left Engine")
+defineString("FC3_TEMP_R", function() return _TEMPRight or "000" end, 3, "Engine", "Temperature Left Engine")
 
 --Mechanical
-defineString("FC3_GEAR", function() return _GearStatus .. string.char(0) or "0" end, 1, "Mechanical", "Gear Status")
+defineString("FC3_GEAR", function() return _GearStatus or "0" end, 1, "Mechanical", "Gear Status")
 
 --Countermeasures
-defineString("FC3_CHAFF", function() return _chaff .. string.char(0) or "000" end, 3, "Countermeasures", "Chaff Counter")
-defineString("FC3_FLARE", function() return _flare .. string.char(0) or "000" end, 3, "Countermeasures", "Flare Counter")
+defineString("FC3_CHAFF", function() return _chaff or "000" end, 3, "Countermeasures", "Chaff Counter")
+defineString("FC3_FLARE", function() return _flare or "000" end, 3, "Countermeasures", "Flare Counter")
 
 --Bar
-defineIntegerFromGetter("FC3_FUEL_BAR", function() return _barFuel or "0000000000000000" end, 16, "Bar", "Fuel Bar")
-defineIntegerFromGetter("FC3_G_LOAD_BAR", function() return _barGLoad or "0000000000000000" end, 16, "Bar", "G Load Bar")
-defineIntegerFromGetter("FC3_VVI_BAR", function() return _barVVI or "0000000000000000" end, 16, "Bar", "Vertical Velocity Bar")
+defineIntegerFromGetter("FC3_FUEL_BAR", function() return _barFuel end, 16, "Bar", "Fuel Bar")
+defineIntegerFromGetter("FC3_G_LOAD_BAR", function() return _barGLoad end, 16, "Bar", "G Load Bar")
+defineIntegerFromGetter("FC3_VVI_BAR", function() return _barVVI end, 16, "Bar", "Vertical Velocity Bar")
 
 --Float
 define8BitFloatFromGetter("FC3_ADI_BANK", function() return _adiBank end, {-1, 1}, "Float", "ADI Bank")
