@@ -1,4 +1,4 @@
--- V1.6b by Warlord (aka BlackLibrary)
+-- V1.6c by Warlord (aka BlackLibrary)
 -- Added DED TIME, NAV and MAN pages and DED fixes by Matchstick
 --
 -- Tested and fixes by BuzzKillington & afewyards
