@@ -4,11 +4,13 @@ BIOS.protocol.setExportModuleAircrafts(BIOS.ALL_PLAYABLE_AIRCRAFT)
 local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
-local latDeg, latSec, latFractionalSec
-local lonDeg, lonSec, lonFractionalSec
-local altFt
+local latDeg, latSec 
+local latFractionalSec = 0
+local lonDeg, lonSec 
+local lonFractionalSec = 0
+local altFt = 0
 local hdgDeg
-local hdgDegFrac
+local hdgDegFrac = 0
 local iasDisp
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	-- skip  this data if ownship export is disabled
@@ -41,12 +43,12 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	latDeg = math.floor(lat)
 	lat1 = (lat - latDeg) * 60 -- convert to seconds
 	latSec = math.floor(lat1)
-	--latFractionalSec = lat1 - latSec
+	latFractionalSec = lat1 - latSec
 
 	lonDeg = math.floor(lon)
 	lon1 = (lon - lonDeg) * 60 -- convert to seconds
 	lonSec = math.floor(lon1)
-	--lonFractionalSec = lon1 - lonSec
+	lonFractionalSec = lon1 - lonSec
 	
 	if selfData.Heading ~= nil then
 		local hdgDegValue = selfData.Heading / (2 * math.pi) * 360
@@ -65,10 +67,10 @@ defineString("PILOTNAME", function() return playerName end, 24, "Metadata", "Pil
 defineString("LAT_Z_DIR", function() return latDir or "N" end, 1, "Position", "Latitude Direction")
 defineIntegerFromGetter("LAT_DEG", function() return latDeg end, 90, "Position", "Latitude Degrees")
 defineIntegerFromGetter("LAT_SEC", function() return latSec end, 59, "Position", "Latitude Seconds")
---defineIntegerFromGetter("LAT_SEC_FRAC", function()
---	if not LoIsOwnshipExportAllowed() then return nil end
---	return math.floor(latFractionalSec*65535)
---end, 65535, "Position", "Latitude Fractional Seconds (divide by 65535)")
+defineIntegerFromGetter("LAT_SEC_FRAC", function()
+	if not LoIsOwnshipExportAllowed() then return nil end
+	return math.floor(latFractionalSec*65535)
+end, 65535, "Position", "Latitude Fractional Seconds (divide by 65535)")
 
 defineString("IAS_EU", function() return iasEU end, 4, "Speed", "Indicated Airspeed KM H")
 defineString("IAS_US", function() return iasUS end, 4, "Speed", "Indicated Airspeed KNT")
@@ -84,10 +86,10 @@ end, 65535, "Speed", "Indicated Airspeed KNT (Int)")
 defineString("LON_Z_DIR", function() return lonDir or "E" end, 1, "Position", "Longitude Direction")
 defineIntegerFromGetter("LON_DEG", function() return lonDeg end, 180, "Position", "Longitude Degrees")
 defineIntegerFromGetter("LON_SEC", function() return lonSec end, 59, "Position", "Longitude Seconds")
---defineIntegerFromGetter("LON_SEC_FRAC", function()
---	if not LoIsOwnshipExportAllowed() then return nil end
---	return math.floor(lonFractionalSec*65535)
---end, 65535, "Position", "Longitude Fractional Seconds (divide by 65535)")
+defineIntegerFromGetter("LON_SEC_FRAC", function()
+	if not LoIsOwnshipExportAllowed() then return nil end
+	return math.floor(lonFractionalSec*65535)
+end, 65535, "Position", "Longitude Fractional Seconds (divide by 65535)")
 
 defineIntegerFromGetter("ALT_MSL_FT", function()
 	if not LoIsOwnshipExportAllowed() then return nil end
