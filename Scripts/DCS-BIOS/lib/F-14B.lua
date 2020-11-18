@@ -1,8 +1,8 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
-BIOS.protocol.setExportModuleAircrafts({"F-14B"})
+BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
 
 --by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
---v 2.2
+--v 3.0
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -378,10 +378,6 @@ defineToggleSwitch("PLT_ENGINE_MODE_L", 19, 3052, 16007, "Engine", "PILOT Left E
 defineToggleSwitch("PLT_ENGINE_MODE_R", 19, 3053, 16008, "Engine", "PILOT Right Engine Mode")
 defineToggleSwitch("PLT_ASY_THRUST_LIMIT_COVER", 19, 3055, 16005, "Engine", "PILOT Asymmetric Thrust Limiter Cover")
 defineToggleSwitch("PLT_ASY_THRUST_LIMIT", 19, 3054, 16006, "Engine", "PILOT Asymmetric Thrust Limiter")
-
--- Fire System
---definePushButton("PLT_FIRE_EX_BOTTLE_L", devices.FIRE, 3059, 15083, "Gear", "PILOT Fire Ext Bottle - Left") missing device
---definePushButton("PLT_FIRE_EX_BOTTLE_R", devices.FIRE, 3060, 15082, "Gear", "PILOT Fire Ext Bottle - Right")
 
 -- Fuel System
 defineToggleSwitch("PLT_FUEL_SHUTOFF_R", 20, 3061, 1044, "Fuel System", "PILOT Fuel Shutoff - Right")
@@ -1606,6 +1602,14 @@ defineToggleSwitch("PLT_HUDCAM", 11, 3756, 3490, "Cockpit Mechanics", "PILOT Hid
 definePotentiometer("RIO_TCS_TRIM_AZI", 37, 3750, 85, {0, 1}, "TCS", "RIO TCS Trim Azimuth")
 definePotentiometer("RIO_TCS_TRIM_ELE", 37, 3751, 86, {0, 1}, "TCS", "RIO TCS Trim Elevation")
 
+-- Fire System
+definePushButton("PLT_FIRE_EX_BOTTLE_L", 67, 3059, 15083, "Fire System", "PILOT Fire Ext Bottle - Left")
+definePushButton("PLT_FIRE_EX_BOTTLE_R", 67, 3060, 15082, "Fire System", "PILOT Fire Ext Bottle - Right")
+
+defineIndicatorLight("RIO_MCB_R_LIGHT", 13130, "Warning, Caution and IndicatorLights","RIO MCB Panel Right Test Light (red)(F-14A)")
+defineIndicatorLight("RIO_MCB_L_LIGHT", 13131, "Warning, Caution and IndicatorLights","RIO MCB Panel Left Test Light (red)(F-14A)")
+defineToggleSwitch("RIO_MCOMP_BYPASS", 19, 3760, 13132, "Engine", "RIO Mid Compression Bypass Test (F-14A)")
+
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(402)*65535)
@@ -1660,5 +1664,12 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+
+defineIntegerFromGetter("EXT_YAW_STRING_LR", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(2500)*65535)
+end, 65535, "External Aircraft Model", "YAW String Left/Right")
+defineIntegerFromGetter("EXT_YAW_STRING_UD", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(2501)*65535)
+end, 65535, "External Aircraft Model", "YAW String Up/Down")
 
 BIOS.protocol.endModule()
