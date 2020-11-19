@@ -118,13 +118,13 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	_barGLoad = BarGLoad(gload)
 	_barVVI = BarVVI(vvi, plane)
 	
-	_RPMLeft = LoGetEngineInfo().RPM.left
-	_RPMRight = LoGetEngineInfo().RPM.right
-	_TEMPLeft = LoGetEngineInfo().Temperature.left
-	_TEMPRight = LoGetEngineInfo().Temperature.right	
-	_GearStatus = LoGetMechInfo().gear.value	
-	_chaff = LoGetSnares().chaff
-	_flare = LoGetSnares().flare
+	-- _RPMLeft = LoGetEngineInfo().RPM.left 
+	-- _RPMRight = LoGetEngineInfo().RPM.right 
+	-- _TEMPLeft = LoGetEngineInfo().Temperature.left 
+	-- _TEMPRight = LoGetEngineInfo().Temperature.right 
+	-- _GearStatus = LoGetMechInfo().gear.value 	
+	-- _chaff = LoGetSnares().chaff 
+	-- _flare = LoGetSnares().flare 
 
 	--[[ US PLANES ]]--
 	if plane == "A-10A" or plane == "F-15C" or plane == "MiG-29G" then
@@ -233,17 +233,17 @@ defineString("FC3_VERTICAL_VELOCITY", function() return _verticalVelocity .. str
 defineIntegerFromGetter("FC3_RADAR_ALTITUDE", function() return _radarAltitude end, 1, "Altitude", "Radar Altitude")
 
 --Engine
-defineString("FC3_RPM_L", function() return _RPMLeft or "00000" end, 5, "Engine", "RPM Left Engine")
-defineString("FC3_RPM_R", function() return _RPMRight or "00000" end, 5, "Engine", "RPM Left Engine")
-defineString("FC3_TEMP_L", function() return _TEMPLeft or "000" end, 3, "Engine", "Temperature Left Engine")
-defineString("FC3_TEMP_R", function() return _TEMPRight or "000" end, 3, "Engine", "Temperature Left Engine")
+-- defineString("FC3_RPM_L", function() return _RPMLeft .. string.char(0) or "00000" end, 5, "Engine", "RPM Left Engine")
+-- defineString("FC3_RPM_R", function() return _RPMRight .. string.char(0) or "00000" end, 5, "Engine", "RPM Left Engine")
+-- defineString("FC3_TEMP_L", function() return _TEMPLeft .. string.char(0) or "000" end, 3, "Engine", "Temperature Left Engine")
+-- defineString("FC3_TEMP_R", function() return _TEMPRight .. string.char(0) or "000" end, 3, "Engine", "Temperature Left Engine")
 
 --Mechanical
-defineString("FC3_GEAR", function() return _GearStatus or "0" end, 1, "Mechanical", "Gear Status")
+-- defineString("FC3_GEAR", function() return _GearStatus .. string.char(0) or "0" end, 1, "Mechanical", "Gear Status")
 
 --Countermeasures
-defineString("FC3_CHAFF", function() return _chaff or "000" end, 3, "Countermeasures", "Chaff Counter")
-defineString("FC3_FLARE", function() return _flare or "000" end, 3, "Countermeasures", "Flare Counter")
+-- defineString("FC3_CHAFF", function() return _chaff .. string.char(0) or "000" end, 3, "Countermeasures", "Chaff Counter")
+-- defineString("FC3_FLARE", function() return _flare .. string.char(0) or "000" end, 3, "Countermeasures", "Flare Counter")
 
 --Bar
 defineIntegerFromGetter("FC3_FUEL_BAR", function() return _barFuel end, 16, "Bar", "Fuel Bar")
@@ -251,12 +251,12 @@ defineIntegerFromGetter("FC3_G_LOAD_BAR", function() return _barGLoad end, 16, "
 defineIntegerFromGetter("FC3_VVI_BAR", function() return _barVVI end, 16, "Bar", "Vertical Velocity Bar")
 
 --Float
-define8BitFloatFromGetter("FC3_ADI_BANK", function() return _adiBank end, {-1, 1}, "Float", "ADI Bank")
-define8BitFloatFromGetter("FC3_ADI_PITCH", function() return _adiPitch end, {-1, 1}, "Float", "ADI Pitch")
-define8BitFloatFromGetter("FC3_ADI_YAW", function() return _adiYaw end, {-1, 1}, "Float", "ADI Yaw")
-define8BitFloatFromGetter("FC3_GLIDE_DEVIATION", function() return _glidedev end, {-1, 1}, "Float", "Glide Deviation")
-define8BitFloatFromGetter("FC3_SIDE_DEVIATION", function() return _sidedev end, {-1, 1}, "Float", "Side Deviation")
-define8BitFloatFromGetter("FC3_SLIP_BALL_POSITION", function() return _slipball end, {-1, 1}, "Float", "Slip Ball Position")
+define8BitFloatFromGetter("FC3_ADI_BANK", function() return _adiBank or 0 end, {-1, 1}, "Float", "ADI Bank")
+define8BitFloatFromGetter("FC3_ADI_PITCH", function() return _adiPitch or 0 end, {-1, 1}, "Float", "ADI Pitch")
+define8BitFloatFromGetter("FC3_ADI_YAW", function() return _adiYaw or 0 end, {-1, 1}, "Float", "ADI Yaw")
+define8BitFloatFromGetter("FC3_GLIDE_DEVIATION", function() return _glidedev or 0 end, {-1, 1}, "Float", "Glide Deviation")
+define8BitFloatFromGetter("FC3_SIDE_DEVIATION", function() return _sidedev or 0 end, {-1, 1}, "Float", "Side Deviation")
+define8BitFloatFromGetter("FC3_SLIP_BALL_POSITION", function() return _slipball or 0 end, {-1, 1}, "Float", "Slip Ball Position")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
