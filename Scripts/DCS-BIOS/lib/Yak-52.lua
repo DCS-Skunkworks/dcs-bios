@@ -50,10 +50,10 @@ definePotentiometer("FRONT_RADIO_VOL", 28, 3004, 81, {0, 1}, "SPU9", "Fore Radio
 defineToggleSwitch("FRONT_ICOM_STBY_DISTR_SW", 28, 3007, 82,"SPU9" , "Fore Intercom STBY Distributive Switch")
 defineToggleSwitch("FRONT_ICOM_RDF_SW", 28, 3009, 83,"SPU9" , "Fore Intercom RDF Switch")
 ----- BAKLAN-5
-definePotentiometer("FRONT_RADIO_VOL", 27, 3002,  90, {0, 1}, "BAKLAN-5", "Fore Radio Volume Knob")
-defineRotary("FRONT_RADIO_MHZ", 27, 3011, 88, "BAKLAN-5", "Fore Radio Tune mhz")
-defineRotary("FRONT_RADIO_KHZ", 27, 3008, 89, "BAKLAN-5", "Fore Radio Tune khz")
-defineToggleSwitch("FRONT_RADIO_SQ", 27, 3020, 91,"BAKLAN-5" , "Fore Radio Squelch")
+definePotentiometer("FRONT_VHF_RADIO_VOL", 27, 3002, 90, {0, 1}, "BAKLAN-5", "Fore VHF Radio Volume Knob")
+defineRotary("FRONT_VHF_RADIO_MHZ", 27, 3011, 88, "BAKLAN-5", "Fore VHF Radio Tune mhz")
+defineRotary("FRONT_VHF_RADIO_KHZ", 27, 3008, 89, "BAKLAN-5", "Fore VHF Radio Tune khz")
+defineToggleSwitch("FRONT_VHF_RADIO_SQ", 27, 3020, 91, "BAKLAN-5" , "Fore VHF Radio Squelch")
 ----- Starboard Circuit Breakers Panel
 defineToggleSwitch("FRONT_CB_BATTERY", 4, 3001, 96,"Circuit Breakers" , "Fore Battery Selector")
 defineToggleSwitch("FRONT_CB_GENERATOR", 4, 3004, 97,"Circuit Breakers" , "Fore Generator CB")
