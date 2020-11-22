@@ -1113,7 +1113,7 @@ defineTumb("SEAT_ARM", 39, 3010, 733, 1, {0, 1}, nil, false, "Misc", "Seat Arm H
 defineToggleSwitch("LADDER_EXTEND_COVER", 39, 3011, 787, "Misc", "Extend Boarding Ladder Button Cover")
 definePushButton("LADDER_EXTEND", 39, 3012, 788, "Misc", "Extend Boarding Ladder Button")
 
-definePushButton("ACCEL_PTS", 72, 3001, 904, "Accelerometer", "Push to Set")
+definePushButton("ACCEL_PTS", 72, 3001, 904, "Accelerometer", "Accelerometer Button")
 
 defineMultipositionSwitch("DVADR_FUNCTION", 73, 3001, 789, 3, 0.1, "DVADR", "Function Control Toggle Switch")
 defineMultipositionSwitch("DVADR_VIDEO", 73, 3002, 790, 3, 0.1, "DVADR", "Video Selector Toggle Switch")
