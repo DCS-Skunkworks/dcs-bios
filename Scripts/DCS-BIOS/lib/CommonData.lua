@@ -18,7 +18,13 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	
 	playerName = LoGetPilotName()
 		if playerName == nil then playerName = "XXX" end
-	
+    
+	misstime = string.format(LoGetMissionStartTime())
+		if misstime == nil then misstime = "0" end
+		
+	modtime = string.format("%5.0f", LoGetModelTime())
+		if modtime == nil then modtime = "0" end
+			
 	iasDisp = LoGetIndicatedAirSpeed()
 		if iasDisp == nil then iasDisp = "0000" end
 	iasEU = string.format("%4d", math.floor(0.5 + iasDisp * 3.6))           -- km/h
@@ -56,6 +62,26 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		hdgDegFrac = hdgDegValue - hdgDeg
 	end
 end
+
+local function misstime()
+misstimesec = LoGetMissionStartTime()
+  local seconds = tonumber(misstimesec)
+
+  if seconds <= 0 then
+    return "00:00";
+  else
+    hours = string.format("%02.f", math.floor(seconds/3600));
+    mins = string.format("%02.f", math.floor(seconds/60 - (hours*60)));
+  end
+     return hours .. ":" .. mins
+end
+
+-- local function misstime()
+	-- misstimesec = LoGetMissionStartTime()
+	-- local mihours = string.format("%2d", (misstimesec / 3600))
+	-- local miminutes = "00" --string.format("%2d", ((misstimesec / 60) * 60))	
+    -- return mihours .. ":" .. miminutes
+-- end
 
 local function getVersion()
 	return "0.7.38"
@@ -101,5 +127,8 @@ defineIntegerFromGetter("HDG_DEG_FRAC", function()
 	if not LoIsOwnshipExportAllowed() then return nil end
 	return hdgDegFrac * 127
 end, 127, "Heading", "Heading (Fractional Degrees, divide by 127)")
+
+defineString("MISS_TIME",  misstime, 5, "Metadata", "Mission Start Time")
+defineString("MOD_TIME", function() return modtime or "00000" end, 5, "Metadata", "Model Time in sec")
 
 BIOS.protocol.endModule()
