@@ -26,9 +26,9 @@ local _adiPitch = 0.0
 local _adiYaw = 0.0
 
 local function LoGetSelfPlane()
-	local self = LoGetSelfData()
-	if self == nil then self = "XXX" end
-	return self.Name
+	local selfdata = LoGetSelfData()
+	if selfdata == nil then selfdata = "XXX" end
+	return selfdata.Name
 end
 
 local function LoGetFuelAll()
@@ -97,7 +97,7 @@ local function allowTAS(plane)
 end
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	local self = LoGetSelfData()
+	local selfdata = LoGetSelfData()
 	local plane = LoGetSelfPlane()
 
 	local altS = LoGetAltitudeAboveSeaLevel() or 0
@@ -118,13 +118,42 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	_barGLoad = BarGLoad(gload)
 	_barVVI = BarVVI(vvi, plane)
 	
-	-- _RPMLeft = LoGetEngineInfo().RPM.left 
-	-- _RPMRight = LoGetEngineInfo().RPM.right 
-	-- _TEMPLeft = LoGetEngineInfo().Temperature.left 
-	-- _TEMPRight = LoGetEngineInfo().Temperature.right 
-	-- _GearStatus = LoGetMechInfo().gear.value 	
-	-- _chaff = LoGetSnares().chaff 
-	-- _flare = LoGetSnares().flare 
+	local eng2 = LoGetEngineInfo()
+    if eng2 ~= nil then 
+        _RPMLeft = string.format("%3.0f", eng2.RPM.left) 
+        _RPMRight = string.format("%3.0f", eng2.RPM.right) 
+        _TEMPLeft = string.format("%4.0f", eng2.Temperature.left) 
+        _TEMPRight = string.format("%4.0f", eng2.Temperature.right)
+		_HYDPressLeft = string.format(eng2.HydraulicPressure.left)
+		_HYDPressRight = string.format(eng2.HydraulicPressure.right)
+		_FuelConLeft = string.format("%4.1f", (eng2.FuelConsumption.left * 100))
+		_FuelConRight = string.format("%4.1f", (eng2.FuelConsumption.right * 100)) 
+    else
+        _RPMLeft = 0 
+        _RPMRight = 0 
+        _TEMPLeft = 0 
+        _TEMPRight = 0
+		_HYDPressLeft = 0
+		_HYDPressRight = 0
+		_FuelConLeft = 0
+		_FuelConRight = 0
+    end
+	
+	local mech = LoGetMechInfo()
+    if mech ~= nil then 
+        _GearStatus = mech.gear.value 
+    else
+        _GearStatus = 0 
+    end
+	
+	-- local chfl = LoGetSnares() or 0
+    -- if counter ~= nil then 
+		-- _chaff = chfl.chaff
+		-- _flare = chfl.flare
+    -- else
+        -- _chaff = 0
+		-- _flare = 0 
+    -- end
 
 	--[[ US PLANES ]]--
 	if plane == "A-10A" or plane == "F-15C" or plane == "MiG-29G" then
@@ -220,30 +249,34 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 end
 
 --Altitude
-defineString("FC3_ALTITUDE", function() return _altitude .. string.char(0) or "000000" end, 6, "Altitude", "Altitude")
-defineString("FC3_ALTITUDE_GROUND", function() return _altitudeG .. string.char(0) or "000000" end, 6, "Altitude", "Altitude above Ground")
-defineString("FC3_ALTITUDE_SEA", function() return _altitudeS .. string.char(0) or "000000"  end, 6, "Altitude", "Altitude above Sea Level")
-defineString("FC3_ANGLE_OF_ATTACK", function() return _AoA .. string.char(0) or "0000" end, 4, "String", "Angle of Attack")
-defineString("FC3_FUEL_ALL", function() return _fuel .. string.char(0) or "00000" end, 5, "String", "Fuel Remaining")
-defineString("FC3_G_LOAD", function() return _gLoad .. string.char(0) or "0000" end, 4, "String", "G Load")
-defineString("FC3_INDICATED_AIRSPEED", function() return _indicatedAirspeed .. string.char(0) or "0000" end, 4, "Speed", "Indicated Airspeed")
-defineString("FC3_MACH_NUMBER", function() return _machNumber .. string.char(0) or "0000" end, 4, "Speed", "Mach Number")
-defineString("FC3_TRUE_AIRSPEED", function() return _trueAirspeed .. string.char(0) or "0000" end, 4, "Speed", "True Airspeed")
-defineString("FC3_VERTICAL_VELOCITY", function() return _verticalVelocity .. string.char(0) or "0000" end, 4, "Speed", "Vertical Velocity")
-defineIntegerFromGetter("FC3_RADAR_ALTITUDE", function() return _radarAltitude end, 1, "Altitude", "Radar Altitude")
+defineString("FC3_ALTITUDE", function() return _altitude or "000000" end, 6, "Altitude", "Altitude")
+defineString("FC3_ALTITUDE_GROUND", function() return _altitudeG or "000000" end, 6, "Altitude", "Altitude above Ground")
+defineString("FC3_ALTITUDE_SEA", function() return _altitudeS or "000000"  end, 6, "Altitude", "Altitude above Sea Level")
+defineString("FC3_ANGLE_OF_ATTACK", function() return _AoA or "0000" end, 4, "String", "Angle of Attack")
+defineString("FC3_FUEL_ALL", function() return _fuel or "00000" end, 5, "String", "Fuel Remaining")
+defineString("FC3_G_LOAD", function() return _gLoad or "0000" end, 4, "String", "G Load")
+defineString("FC3_INDICATED_AIRSPEED", function() return _indicatedAirspeed or "0000" end, 4, "Speed", "Indicated Airspeed")
+defineString("FC3_MACH_NUMBER", function() return _machNumber or "0000" end, 4, "Speed", "Mach Number")
+defineString("FC3_TRUE_AIRSPEED", function() return _trueAirspeed or "0000" end, 4, "Speed", "True Airspeed")
+defineString("FC3_VERTICAL_VELOCITY", function() return _verticalVelocity or "0000" end, 4, "Speed", "Vertical Velocity")
+defineIntegerFromGetter("FC3_RADAR_ALTITUDE", function() return _radarAltitude end, 3, "Altitude", "Radar Altitude")
 
 --Engine
--- defineString("FC3_RPM_L", function() return _RPMLeft .. string.char(0) or "00000" end, 5, "Engine", "RPM Left Engine")
--- defineString("FC3_RPM_R", function() return _RPMRight .. string.char(0) or "00000" end, 5, "Engine", "RPM Left Engine")
--- defineString("FC3_TEMP_L", function() return _TEMPLeft .. string.char(0) or "000" end, 3, "Engine", "Temperature Left Engine")
--- defineString("FC3_TEMP_R", function() return _TEMPRight .. string.char(0) or "000" end, 3, "Engine", "Temperature Left Engine")
+defineString("FC3_RPM_L", function() return _RPMLeft or "000" end, 3, "Engine", "RPM Left Engine")
+defineString("FC3_RPM_R", function() return _RPMRight or "000" end, 3, "Engine", "RPM Right Engine")
+defineString("FC3_TEMP_L", function() return _TEMPLeft or "0000" end, 4, "Engine", "Temperature Left Engine")
+defineString("FC3_TEMP_R", function() return _TEMPRight or "0000" end, 4, "Engine", "Temperature Right Engine")
+defineString("FC3_HYDPRESS_L", function() return _HYDPressLeft or "0000" end, 4, "Engine", "Hydraulic Pressure Left Engine")
+defineString("FC3_HYDPRESS_R", function() return _HYDPressRight or "0000" end, 4, "Engine", "Hydraulic Pressure Right Engine")
+defineString("FC3_FUEL_CON_L", function() return _FuelConLeft or "00000" end, 5, "Engine", "Fuel Consumption Left Engine")
+defineString("FC3_FUEL_CON_R", function() return _FuelConRight or "00000" end, 5, "Engine", "Fuel Consumption Right Engine")
 
 --Mechanical
--- defineString("FC3_GEAR", function() return _GearStatus .. string.char(0) or "0" end, 1, "Mechanical", "Gear Status")
+defineIntegerFromGetter("FC3_GEAR", function() return _GearStatus or 0 end, 1, "Mechanical", "Gear Status")
 
 --Countermeasures
--- defineString("FC3_CHAFF", function() return _chaff .. string.char(0) or "000" end, 3, "Countermeasures", "Chaff Counter")
--- defineString("FC3_FLARE", function() return _flare .. string.char(0) or "000" end, 3, "Countermeasures", "Flare Counter")
+-- defineString("FC3_CHAFF", function() return _chaff or "000" end, 3, "Countermeasures", "Chaff Counter")
+-- defineString("FC3_FLARE", function() return _flare or "000" end, 3, "Countermeasures", "Flare Counter")
 
 --Bar
 defineIntegerFromGetter("FC3_FUEL_BAR", function() return _barFuel end, 16, "Bar", "Fuel Bar")
