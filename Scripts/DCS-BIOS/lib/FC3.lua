@@ -120,23 +120,23 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	
 	local eng2 = LoGetEngineInfo()
     if eng2 ~= nil then 
-        _RPMLeft = string.format("%3.0f", eng2.RPM.left) 
-        _RPMRight = string.format("%3.0f", eng2.RPM.right) 
-        _TEMPLeft = string.format("%4.0f", eng2.Temperature.left) 
-        _TEMPRight = string.format("%4.0f", eng2.Temperature.right)
+	    _RPMLeft = string.format("%3.0d", eng2.RPM.left) 
+        _RPMRight = string.format("%3.0d", eng2.RPM.right) 
+        _TEMPLeft = string.format("%4.0d", eng2.Temperature.left) 
+        _TEMPRight = string.format("%4.0d", eng2.Temperature.right)
 		_HYDPressLeft = string.format(eng2.HydraulicPressure.left)
 		_HYDPressRight = string.format(eng2.HydraulicPressure.right)
-		_FuelConLeft = string.format("%4.1f", (eng2.FuelConsumption.left * 100))
-		_FuelConRight = string.format("%4.1f", (eng2.FuelConsumption.right * 100)) 
+		_FuelConLeft = string.format("%4.1d", (eng2.FuelConsumption.left * 100))
+		_FuelConRight = string.format("%4.1d", (eng2.FuelConsumption.right * 100)) 
     else
-        _RPMLeft = 0 
-        _RPMRight = 0 
-        _TEMPLeft = 0 
-        _TEMPRight = 0
-		_HYDPressLeft = 0
-		_HYDPressRight = 0
-		_FuelConLeft = 0
-		_FuelConRight = 0
+        _RPMLeft = "---"
+        _RPMRight = "---" 
+        _TEMPLeft = "----" 
+        _TEMPRight = "----"
+		_HYDPressLeft = "---"
+		_HYDPressRight = "---"
+		_FuelConLeft = "----"
+		_FuelConRight = "----"
     end
 	
 	local mech = LoGetMechInfo()
@@ -146,14 +146,16 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
         _GearStatus = 0 
     end
 	
-	-- local chfl = LoGetSnares() or 0
-    -- if counter ~= nil then 
-		-- _chaff = chfl.chaff
-		-- _flare = chfl.flare
-    -- else
-        -- _chaff = 0
-		-- _flare = 0 
-    -- end
+	local chfl = LoGetSnares()
+    if (chfl ~= nil and type(chfl) == "table") then
+		_chaff = string.format("%3.0d", chfl.chaff)
+		_flare = string.format("%3.0d", chfl.flare)
+    else
+        _chaff = "---"
+		_flare = "---"
+    end
+	
+
 
 	--[[ US PLANES ]]--
 	if plane == "A-10A" or plane == "F-15C" or plane == "MiG-29G" then
@@ -253,8 +255,8 @@ defineString("FC3_ALTITUDE", function() return _altitude or "000000" end, 6, "Al
 defineString("FC3_ALTITUDE_GROUND", function() return _altitudeG or "000000" end, 6, "Altitude", "Altitude above Ground")
 defineString("FC3_ALTITUDE_SEA", function() return _altitudeS or "000000"  end, 6, "Altitude", "Altitude above Sea Level")
 defineString("FC3_ANGLE_OF_ATTACK", function() return _AoA or "0000" end, 4, "String", "Angle of Attack")
-defineString("FC3_FUEL_ALL", function() return _fuel or "00000" end, 5, "String", "Fuel Remaining")
-defineString("FC3_G_LOAD", function() return _gLoad or "0000" end, 4, "String", "G Load")
+defineString("FC3_FUEL_ALL", function() return _fuel or "00000" end, 5, "Engine", "Fuel Remaining")
+defineString("FC3_G_LOAD", function() return _gLoad or "0000" end, 4, "Speed", "G Load")
 defineString("FC3_INDICATED_AIRSPEED", function() return _indicatedAirspeed or "0000" end, 4, "Speed", "Indicated Airspeed")
 defineString("FC3_MACH_NUMBER", function() return _machNumber or "0000" end, 4, "Speed", "Mach Number")
 defineString("FC3_TRUE_AIRSPEED", function() return _trueAirspeed or "0000" end, 4, "Speed", "True Airspeed")
@@ -262,21 +264,21 @@ defineString("FC3_VERTICAL_VELOCITY", function() return _verticalVelocity or "00
 defineIntegerFromGetter("FC3_RADAR_ALTITUDE", function() return _radarAltitude end, 3, "Altitude", "Radar Altitude")
 
 --Engine
-defineString("FC3_RPM_L", function() return _RPMLeft or "000" end, 3, "Engine", "RPM Left Engine")
-defineString("FC3_RPM_R", function() return _RPMRight or "000" end, 3, "Engine", "RPM Right Engine")
-defineString("FC3_TEMP_L", function() return _TEMPLeft or "0000" end, 4, "Engine", "Temperature Left Engine")
-defineString("FC3_TEMP_R", function() return _TEMPRight or "0000" end, 4, "Engine", "Temperature Right Engine")
-defineString("FC3_HYDPRESS_L", function() return _HYDPressLeft or "0000" end, 4, "Engine", "Hydraulic Pressure Left Engine")
-defineString("FC3_HYDPRESS_R", function() return _HYDPressRight or "0000" end, 4, "Engine", "Hydraulic Pressure Right Engine")
-defineString("FC3_FUEL_CON_L", function() return _FuelConLeft or "00000" end, 5, "Engine", "Fuel Consumption Left Engine")
-defineString("FC3_FUEL_CON_R", function() return _FuelConRight or "00000" end, 5, "Engine", "Fuel Consumption Right Engine")
+defineString("FC3_RPM_L", function() return _RPMLeft end, 3, "Engine", "RPM Left Engine")
+defineString("FC3_RPM_R", function() return _RPMRight end, 3, "Engine", "RPM Right Engine")
+defineString("FC3_TEMP_L", function() return _TEMPLeft end, 4, "Engine", "Temperature Left Engine")
+defineString("FC3_TEMP_R", function() return _TEMPRight end, 4, "Engine", "Temperature Right Engine")
+defineString("FC3_HYDPRESS_L", function() return _HYDPressLeft end, 3, "Engine", "Hydraulic Pressure Left Engine")
+defineString("FC3_HYDPRESS_R", function() return _HYDPressRight end, 3, "Engine", "Hydraulic Pressure Right Engine")
+defineString("FC3_FUEL_CON_L", function() return _FuelConLeft end, 5, "Engine", "Fuel Consumption Left Engine")
+defineString("FC3_FUEL_CON_R", function() return _FuelConRight end, 5, "Engine", "Fuel Consumption Right Engine")
 
 --Mechanical
-defineIntegerFromGetter("FC3_GEAR", function() return _GearStatus or 0 end, 1, "Mechanical", "Gear Status")
+defineIntegerFromGetter("FC3_GEAR", function() return _GearStatus end, 1, "Mechanical", "Gear Status")
 
 --Countermeasures
--- defineString("FC3_CHAFF", function() return _chaff or "000" end, 3, "Countermeasures", "Chaff Counter")
--- defineString("FC3_FLARE", function() return _flare or "000" end, 3, "Countermeasures", "Flare Counter")
+defineString("FC3_CHAFF", function() return _chaff end, 3, "Countermeasures", "Chaff Counter")
+defineString("FC3_FLARE", function() return _flare end, 3, "Countermeasures", "Flare Counter")
 
 --Bar
 defineIntegerFromGetter("FC3_FUEL_BAR", function() return _barFuel end, 16, "Bar", "Fuel Bar")
