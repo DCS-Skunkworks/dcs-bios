@@ -18,13 +18,13 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 --Electric System
-define3PosTumb("PW_SEL_SW", 11, 3003, 17, "Electric System", "Power Selector Switch, BATT/OFF/EXT")
-defineToggleSwitch("GEN_SWITCH", 11, 3004, 16, "Electric System", "Generator Switch, ON/OFF")
-defineToggleSwitch("INV_SWITCH", 11, 3005, 15, "Electric System", "Inverter Switch, ON/OFF")
+define3PosTumb("PW_SEL_SW", 11, 3013, 17, "Electric System", "Power Selector Switch, BATT/OFF/EXT")
+defineToggleSwitch("GEN_SWITCH", 11, 3014, 16, "Electric System", "Generator Switch, ON/OFF")
+defineToggleSwitch("INV_SWITCH", 11, 3015, 15, "Electric System", "Inverter Switch, ON/OFF")
 
 --Fuel System
 --Engines
-defineToggleSwitch("THROTTLE_CUTOFF", 11, 3001, 5, "Engines", "Throttle Cutoff")
+defineToggleSwitch("THROTTLE_CUTOFF", 11, 3011, 5, "Engines", "Throttle Cutoff")
 
 --Weapons Panel
 defineToggleSwitch("MASTER_ARM_SW", 2, 3204, 43, "Weapons Panel", "Master Arm Switch, ARM/SAFE")
