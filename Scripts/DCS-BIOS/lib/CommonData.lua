@@ -12,6 +12,7 @@ local altFt = 0
 local hdgDeg
 local hdgDegFrac = 0
 local iasDisp
+
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	-- skip  this data if ownship export is disabled
 	if not LoIsOwnshipExportAllowed() then return end
@@ -75,13 +76,6 @@ misstimesec = LoGetMissionStartTime()
   end
      return hours .. ":" .. mins
 end
-
--- local function misstime()
-	-- misstimesec = LoGetMissionStartTime()
-	-- local mihours = string.format("%2d", (misstimesec / 3600))
-	-- local miminutes = "00" --string.format("%2d", ((misstimesec / 60) * 60))	
-    -- return mihours .. ":" .. miminutes
--- end
 
 local function getVersion()
 	return "0.7.38"
