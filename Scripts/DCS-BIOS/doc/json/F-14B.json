@@ -5845,6 +5845,35 @@
                                                                                                                     "type": "integer"
                                                                                                          } ],
                                                                                      "physical_variant": "3_position_switch"
+                                                                              },
+                                                          "RIO_MCOMP_BYPASS": {
+                                                                                             "category": "Engine",
+                                                                                         "control_type": "selector",
+                                                                                          "description": "RIO Mid Compression Bypass Test (F-14A)",
+                                                                                           "identifier": "RIO_MCOMP_BYPASS",
+                                                                                               "inputs": [ {
+                                                                                                             "description": "switch to previous or next state",
+                                                                                                               "interface": "fixed_step"
+                                                                                                         }, {
+                                                                                                             "description": "set position",
+                                                                                                               "interface": "set_state",
+                                                                                                               "max_value": 1
+                                                                                                         }, {
+                                                                                                                "argument": "TOGGLE",
+                                                                                                             "description": "Toggle switch state",
+                                                                                                               "interface": "action"
+                                                                                                         } ],
+                                                                                  "momentary_positions": "none",
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 5114,
+                                                                                                             "description": "selector position",
+                                                                                                                    "mask": 2048,
+                                                                                                               "max_value": 1,
+                                                                                                                "shift_by": 11,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ],
+                                                                                     "physical_variant": "toggle_switch"
                                                                               }
                                             },
                      "Enivornment Control": {
@@ -6202,11 +6231,11 @@
                                                                                    "identifier": "EXT_ANTI_COL",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5114,
+                                                                                                         "address": 5144,
                                                                                                      "description": "Anticollision Lights",
-                                                                                                            "mask": 4096,
+                                                                                                            "mask": 32768,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 12,
+                                                                                                        "shift_by": 15,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6234,11 +6263,11 @@
                                                                                    "identifier": "EXT_POSITION_LIGHTS_BODY",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 4990,
+                                                                                                         "address": 5114,
                                                                                                      "description": "Position Lights Body (red/green)",
-                                                                                                            "mask": 32768,
+                                                                                                            "mask": 16384,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 15,
+                                                                                                        "shift_by": 14,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6250,11 +6279,11 @@
                                                                                    "identifier": "EXT_POSITION_LIGHTS_WINGS",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 4990,
+                                                                                                         "address": 5114,
                                                                                                      "description": "Position Lights Wings (red/green)",
-                                                                                                            "mask": 16384,
+                                                                                                            "mask": 8192,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 14,
+                                                                                                        "shift_by": 13,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6266,11 +6295,11 @@
                                                                                    "identifier": "EXT_POSITION_LIGHT_CHIN",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5114,
+                                                                                                         "address": 5144,
                                                                                                      "description": "Chinpod Position Light (red)",
-                                                                                                            "mask": 2048,
+                                                                                                            "mask": 16384,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 11,
+                                                                                                        "shift_by": 14,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6284,9 +6313,9 @@
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Tail Position Light (white)",
-                                                                                                            "mask": 1024,
+                                                                                                            "mask": 32768,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 10,
+                                                                                                        "shift_by": 15,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6314,11 +6343,11 @@
                                                                                    "identifier": "EXT_REFUEL_PROBE_LIGHT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 4980,
+                                                                                                         "address": 5114,
                                                                                                      "description": "Refuel Probe Light (red)",
-                                                                                                            "mask": 32768,
+                                                                                                            "mask": 4096,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 15,
+                                                                                                        "shift_by": 12,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6378,11 +6407,11 @@
                                                                                    "identifier": "EXT_WOW_LEFT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5114,
+                                                                                                         "address": 5242,
                                                                                                      "description": "Weight ON Wheels Left Gear",
-                                                                                                            "mask": 32768,
+                                                                                                            "mask": 1024,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 15,
+                                                                                                        "shift_by": 10,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6394,11 +6423,11 @@
                                                                                    "identifier": "EXT_WOW_NOSE",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5114,
+                                                                                                         "address": 5242,
                                                                                                      "description": "Weight ON Wheels Nose Gear",
-                                                                                                            "mask": 8192,
+                                                                                                            "mask": 256,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 13,
+                                                                                                        "shift_by": 8,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6410,15 +6439,109 @@
                                                                                    "identifier": "EXT_WOW_RIGHT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5114,
+                                                                                                         "address": 5242,
                                                                                                      "description": "Weight ON Wheels Right Gear",
-                                                                                                            "mask": 16384,
+                                                                                                            "mask": 512,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 14,
+                                                                                                        "shift_by": 9,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ]
+                                                                             },
+                                                        "EXT_YAW_STRING_LR": {
+                                                                                     "category": "External Aircraft Model",
+                                                                                 "control_type": "metadata",
+                                                                                  "description": "YAW String Left/Right",
+                                                                                   "identifier": "EXT_YAW_STRING_LR",
+                                                                                       "inputs": [  ],
+                                                                                      "outputs": [ {
+                                                                                                         "address": 5296,
+                                                                                                     "description": "YAW String Left/Right",
+                                                                                                            "mask": 65535,
+                                                                                                       "max_value": 65535,
+                                                                                                        "shift_by": 0,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ]
+                                                                             },
+                                                        "EXT_YAW_STRING_UD": {
+                                                                                     "category": "External Aircraft Model",
+                                                                                 "control_type": "metadata",
+                                                                                  "description": "YAW String Up/Down",
+                                                                                   "identifier": "EXT_YAW_STRING_UD",
+                                                                                       "inputs": [  ],
+                                                                                      "outputs": [ {
+                                                                                                         "address": 5298,
+                                                                                                     "description": "YAW String Up/Down",
+                                                                                                            "mask": 65535,
+                                                                                                       "max_value": 65535,
+                                                                                                        "shift_by": 0,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
                                                                              }
+                                            },
+                             "Fire System": {
+                                                "PLT_FIRE_EX_BOTTLE_L": {
+                                                                                    "api_variant": "momentary_last_position",
+                                                                                       "category": "Fire System",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "PILOT Fire Ext Bottle - Left",
+                                                                                     "identifier": "PLT_FIRE_EX_BOTTLE_L",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                           "address": 4980,
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 32768,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 15,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "push_button"
+                                                                        },
+                                                "PLT_FIRE_EX_BOTTLE_R": {
+                                                                                    "api_variant": "momentary_last_position",
+                                                                                       "category": "Fire System",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "PILOT Fire Ext Bottle - Right",
+                                                                                     "identifier": "PLT_FIRE_EX_BOTTLE_R",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                           "address": 4990,
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 16384,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 14,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "push_button"
+                                                                        }
                                             },
                                    "Flaps": {
                                                 "PLT_BINGO_FUEL_KNOB": {
@@ -19594,6 +19717,38 @@
                                                                                                               "mask": 2048,
                                                                                                          "max_value": 1,
                                                                                                           "shift_by": 11,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                            "RIO_MCB_L_LIGHT": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "RIO MCB Panel Left Test Light (red)(F-14A)",
+                                                                                     "identifier": "RIO_MCB_L_LIGHT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5114,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 1024,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 10,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                            "RIO_MCB_R_LIGHT": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "RIO MCB Panel Right Test Light (red)(F-14A)",
+                                                                                     "identifier": "RIO_MCB_R_LIGHT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 4990,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 32768,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 15,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]

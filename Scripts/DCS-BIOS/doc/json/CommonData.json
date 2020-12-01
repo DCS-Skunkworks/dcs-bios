@@ -66,6 +66,34 @@
                                                                 "type": "string"
                                                      } ]
                                  },
+                    "MISS_TIME": {
+                                         "category": "Metadata",
+                                     "control_type": "display",
+                                      "description": "Mission Start Time",
+                                       "identifier": "MISS_TIME",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1080,
+                                                         "description": "Mission Start Time",
+                                                          "max_length": 5,
+                                                              "suffix": "",
+                                                                "type": "string"
+                                                     } ]
+                                 },
+                     "MOD_TIME": {
+                                         "category": "Metadata",
+                                     "control_type": "display",
+                                      "description": "Model Time in sec",
+                                       "identifier": "MOD_TIME",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1086,
+                                                         "description": "Model Time in sec",
+                                                          "max_length": 5,
+                                                              "suffix": "",
+                                                                "type": "string"
+                                                     } ]
+                                 },
                     "PILOTNAME": {
                                          "category": "Metadata",
                                      "control_type": "display",

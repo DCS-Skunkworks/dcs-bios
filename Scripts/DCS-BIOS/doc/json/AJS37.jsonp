@@ -156,6 +156,36 @@ docdata["AJS37"] =
                                                                                   "physical_variant": "limited_rotary"
                                                                            }
                                },
+                "Destination": {
+                                   "AJS37_DEST_INDICATOR_DATA_1": {
+                                                                          "category": "Destination",
+                                                                      "control_type": "display",
+                                                                       "description": "Destination Data Digit 1",
+                                                                        "identifier": "AJS37_DEST_INDICATOR_DATA_1",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 18094,
+                                                                                          "description": "Destination Data Digit 1",
+                                                                                           "max_length": 1,
+                                                                                               "suffix": "",
+                                                                                                 "type": "string"
+                                                                                      } ]
+                                                                  },
+                                   "AJS37_DEST_INDICATOR_DATA_2": {
+                                                                          "category": "Destination",
+                                                                      "control_type": "display",
+                                                                       "description": "Destination Data Digit 2",
+                                                                        "identifier": "AJS37_DEST_INDICATOR_DATA_2",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 18096,
+                                                                                          "description": "Destination Data Digit 2",
+                                                                                           "max_length": 1,
+                                                                                               "suffix": "",
+                                                                                                 "type": "string"
+                                                                                      } ]
+                                                                  }
+                               },
                     "Doppler": {
                                    "DOPPLER_LAND_SEA_MODE": {
                                                                            "category": "Doppler",

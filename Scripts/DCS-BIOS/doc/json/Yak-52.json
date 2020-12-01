@@ -396,104 +396,101 @@
                                                                      }
                                             },
                                 "BAKLAN-5": {
-                                                "FRONT_RADIO_KHZ": {
-                                                                        "api_variant": "multiturn",
-                                                                           "category": "BAKLAN-5",
-                                                                       "control_type": "analog_dial",
-                                                                        "description": "Fore Radio Tune khz",
-                                                                         "identifier": "FRONT_RADIO_KHZ",
-                                                                             "inputs": [ {
-                                                                                              "description": "turn the dial left or right",
-                                                                                                "interface": "variable_step",
-                                                                                                "max_value": 65535,
-                                                                                           "suggested_step": 3200
-                                                                                       } ],
-                                                                            "outputs": [ {
-                                                                                               "address": 8214,
-                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                                  "mask": 65535,
-                                                                                             "max_value": 65535,
-                                                                                              "shift_by": 0,
-                                                                                                "suffix": "_KNOB_POS",
-                                                                                                  "type": "integer"
-                                                                                       } ]
-                                                                   },
-                                                "FRONT_RADIO_MHZ": {
-                                                                        "api_variant": "multiturn",
-                                                                           "category": "BAKLAN-5",
-                                                                       "control_type": "analog_dial",
-                                                                        "description": "Fore Radio Tune mhz",
-                                                                         "identifier": "FRONT_RADIO_MHZ",
-                                                                             "inputs": [ {
-                                                                                              "description": "turn the dial left or right",
-                                                                                                "interface": "variable_step",
-                                                                                                "max_value": 65535,
-                                                                                           "suggested_step": 3200
-                                                                                       } ],
-                                                                            "outputs": [ {
-                                                                                               "address": 8212,
-                                                                                           "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                                  "mask": 65535,
-                                                                                             "max_value": 65535,
-                                                                                              "shift_by": 0,
-                                                                                                "suffix": "_KNOB_POS",
-                                                                                                  "type": "integer"
-                                                                                       } ]
-                                                                   },
-                                                 "FRONT_RADIO_SQ": {
-                                                                                  "category": "BAKLAN-5",
-                                                                              "control_type": "selector",
-                                                                               "description": "Fore Radio Squelch",
-                                                                                "identifier": "FRONT_RADIO_SQ",
-                                                                                    "inputs": [ {
-                                                                                                  "description": "switch to previous or next state",
-                                                                                                    "interface": "fixed_step"
-                                                                                              }, {
-                                                                                                  "description": "set position",
-                                                                                                    "interface": "set_state",
-                                                                                                    "max_value": 1
-                                                                                              }, {
-                                                                                                     "argument": "TOGGLE",
-                                                                                                  "description": "Toggle switch state",
-                                                                                                    "interface": "action"
-                                                                                              } ],
-                                                                       "momentary_positions": "none",
-                                                                                   "outputs": [ {
-                                                                                                      "address": 8200,
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 16,
-                                                                                                    "max_value": 1,
-                                                                                                     "shift_by": 4,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                                              } ],
-                                                                          "physical_variant": "toggle_switch"
-                                                                   },
-                                                "FRONT_RADIO_VOL": {
-                                                                           "category": "BAKLAN-5",
-                                                                       "control_type": "limited_dial",
-                                                                        "description": "Fore Radio Volume Knob",
-                                                                         "identifier": "FRONT_RADIO_VOL",
-                                                                             "inputs": [ {
-                                                                                           "description": "set the position of the dial",
-                                                                                             "interface": "set_state",
-                                                                                             "max_value": 65535
-                                                                                       }, {
-                                                                                              "description": "turn the dial left or right",
-                                                                                                "interface": "variable_step",
-                                                                                                "max_value": 65535,
-                                                                                           "suggested_step": 3200
-                                                                                       } ],
-                                                                            "outputs": [ {
-                                                                                               "address": 8210,
-                                                                                           "description": "position of the potentiometer",
-                                                                                                  "mask": 65535,
-                                                                                             "max_value": 65535,
-                                                                                              "shift_by": 0,
-                                                                                                "suffix": "",
-                                                                                                  "type": "integer"
-                                                                                       } ]
-                                                                   }
+                                                "FRONT_VHF_RADIO_KHZ": {
+                                                                            "api_variant": "multiturn",
+                                                                               "category": "BAKLAN-5",
+                                                                           "control_type": "analog_dial",
+                                                                            "description": "Fore VHF Radio Tune khz",
+                                                                             "identifier": "FRONT_VHF_RADIO_KHZ",
+                                                                                 "inputs": [ {
+                                                                                                  "description": "turn the dial left or right",
+                                                                                                    "interface": "variable_step",
+                                                                                                    "max_value": 65535,
+                                                                                               "suggested_step": 3200
+                                                                                           } ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8214,
+                                                                                               "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "_KNOB_POS",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                "FRONT_VHF_RADIO_MHZ": {
+                                                                            "api_variant": "multiturn",
+                                                                               "category": "BAKLAN-5",
+                                                                           "control_type": "analog_dial",
+                                                                            "description": "Fore VHF Radio Tune mhz",
+                                                                             "identifier": "FRONT_VHF_RADIO_MHZ",
+                                                                                 "inputs": [ {
+                                                                                                  "description": "turn the dial left or right",
+                                                                                                    "interface": "variable_step",
+                                                                                                    "max_value": 65535,
+                                                                                               "suggested_step": 3200
+                                                                                           } ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8212,
+                                                                                               "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "_KNOB_POS",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                 "FRONT_VHF_RADIO_SQ": {
+                                                                                      "category": "BAKLAN-5",
+                                                                                  "control_type": "selector",
+                                                                                   "description": "Fore VHF Radio Squelch",
+                                                                                    "identifier": "FRONT_VHF_RADIO_SQ",
+                                                                                        "inputs": [ {
+                                                                                                      "description": "switch to previous or next state",
+                                                                                                        "interface": "fixed_step"
+                                                                                                  }, {
+                                                                                                      "description": "set position",
+                                                                                                        "interface": "set_state",
+                                                                                                        "max_value": 1
+                                                                                                  }, {
+                                                                                                         "argument": "TOGGLE",
+                                                                                                      "description": "Toggle switch state",
+                                                                                                        "interface": "action"
+                                                                                                  } ],
+                                                                           "momentary_positions": "none",
+                                                                                       "outputs": [ {
+                                                                                                          "address": 8200,
+                                                                                                      "description": "selector position",
+                                                                                                             "mask": 16,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 4,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ],
+                                                                              "physical_variant": "toggle_switch"
+                                                                       },
+                                                "FRONT_VHF_RADIO_VOL": {
+                                                                            "api_variant": "multiturn",
+                                                                               "category": "BAKLAN-5",
+                                                                           "control_type": "analog_dial",
+                                                                            "description": "Fore VHF Radio Volume Knob",
+                                                                             "identifier": "FRONT_VHF_RADIO_VOL",
+                                                                                 "inputs": [ {
+                                                                                                  "description": "turn the dial left or right",
+                                                                                                    "interface": "variable_step",
+                                                                                                    "max_value": 65535,
+                                                                                               "suggested_step": 3200
+                                                                                           } ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8210,
+                                                                                               "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "_KNOB_POS",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       }
                                             },
                                   "Canopy": {
                                                 "FRONT_HATCH_JET": {
