@@ -57,6 +57,7 @@ dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\P-51D.lua]])
 dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\SA342M.lua]])
 dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\SpitfireLFMkIX.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH-1H.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\VNAO_Room.lua]])
 dofile(lfs.writedir()..[[scripts\DCS-BIOS\lib\Yak-52.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 
