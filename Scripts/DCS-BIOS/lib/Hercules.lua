@@ -27,7 +27,7 @@ definePotentiometer("P_ICS_UN_KNB", 1, 13041, 1434, {-0.5, 0.5}, "ICS Panel", "P
 definePotentiometer("CP_ICS_UN_KNB", 1, 13042, 1435, {-0.5, 0.5}, "ICS Panel", "COPILOT ICS Undefined Knob")
 
 -- ELECTRICAL_PANEL
-defineToggleSwitch("BATTERY_SW", 1, 13046, 1000, "Electric Panel", "Battery Switch")
+defineToggleSwitch("BATTERY_SW", 4, 13046, 1000, "Electric Panel", "Battery Switch")
 define3PosTumb("EXT_PW_SW", 1, 13047, 1001, "Electric Panel", "External Power/OFF/APU Switch")
 defineToggleSwitch("GEN1_SW", 1, 13048, 1003, "Electric Panel", "Generator 1 Switch")
 defineToggleSwitch("GEN2_SW", 1, 13049, 1004, "Electric Panel", "Generator 2 Switch")

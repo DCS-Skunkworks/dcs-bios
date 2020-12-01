@@ -7,9 +7,9 @@ BIOS.protocol.beginModule("MetadataStart", 0x0000)
 
 local defineString = BIOS.util.defineString
 
--- "data" will be set by the Protocol module
+-- "mdata" will be set by the Protocol module
 moduleBeingDefined.data = {}
-local data = moduleBeingDefined.data
+local mdata = moduleBeingDefined.data
 
 defineString("_ACFT_NAME", function() return data.acftName .. string.char(0) end, 24, "Metadata", "Aircraft Name (or NONE), null-terminated")
 
