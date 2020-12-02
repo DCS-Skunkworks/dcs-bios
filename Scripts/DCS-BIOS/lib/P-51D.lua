@@ -18,23 +18,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
-
-local function defineRadioWheel(msg, device_id, command1, command2, command_args, arg_number, step, limits, output_map, category, description)
-	defineTumb(msg, device_id, command1, arg_number, step, limits, output_map, "skiplast", category, description)
-	local docentry = moduleBeingDefined.documentation[category][msg]
-	assert(docentry.inputs[2].interface == "set_state")
-	docentry.inputs[2] = nil
-	moduleBeingDefined.documentation[category][msg].control_type = "discrete_dial"
-	inputProcessors[msg] = function(state)
-		if state == "INC" then
-			GetDevice(device_id):performClickableAction(command2, command_args[2])
-		end
-		if state == "DEC" then
-			GetDevice(device_id):performClickableAction(command1, command_args[1])
-		end
-	end
-end
-
+local defineRadioWheel = BIOS.util.defineRadioWheel
 
 defineToggleSwitch("GEN", 14, 3003, 102, "Right Switch Panel", "Generator")
 defineToggleSwitch("BAT", 14, 3001, 103, "Right Switch Panel", "Battery")

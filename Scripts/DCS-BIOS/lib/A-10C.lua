@@ -9,7 +9,6 @@ local document = BIOS.util.document
 
 local parse_indication = BIOS.util.parse_indication
 
-
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
@@ -18,7 +17,6 @@ local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
 local defineTumb = BIOS.util.defineTumb
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local defineToggleSwitchToggleOnly = BIOS.util.defineToggleSwitchToggleOnly
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 local defineString = BIOS.util.defineString
@@ -28,28 +26,11 @@ local defineElectricallyHeldSwitch = BIOS.util.defineElectricallyHeldSwitch
 local defineFloat = BIOS.util.defineFloat
 local define8BitFloat = BIOS.util.define8BitFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
-
-
-local function defineRadioWheel(msg, device_id, command1, command2, command_args, arg_number, step, limits, output_map, category, description)
-	defineTumb(msg, device_id, command1, arg_number, step, limits, output_map, "skiplast", category, description)
-	local docentry = moduleBeingDefined.documentation[category][msg]
-	assert(docentry.inputs[2].interface == "set_state")
-	docentry.inputs[2] = nil
-	moduleBeingDefined.documentation[category][msg].control_type = "discrete_dial"
-	inputProcessors[msg] = function(state)
-		if state == "INC" then
-			GetDevice(device_id):performClickableAction(command2, command_args[2])
-		end
-		if state == "DEC" then
-			GetDevice(device_id):performClickableAction(command1, command_args[1])
-		end
-	end
-end
+local defineRadioWheel = BIOS.util.defineRadioWheel
 
 local function define3PosTumb1(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 0.1, {0.0, 0.2}, nil, false, category, description)
 end
-
 
 local function getCMSPDisplayLines(dev0)
 	local cmsp = BIOS.util.parse_indication(7)

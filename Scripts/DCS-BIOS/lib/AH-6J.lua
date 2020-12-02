@@ -2,6 +2,7 @@ BIOS.protocol.beginModule("AH-6J", 0x6200)
 BIOS.protocol.setExportModuleAircrafts({"AH-6"})
 --by WarLord (aka BlackLibrary)
 
+local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -12,7 +13,6 @@ local defineFloat = BIOS.util.defineFloat
 local define3PosTumb = BIOS.util.define3PosTumb
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
-local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
