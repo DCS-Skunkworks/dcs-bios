@@ -3,7 +3,6 @@ BIOS.protocol.setExportModuleAircrafts({"MB-339PAN"})
 --by WarLord (aka BlackLibrary)
 --for MB-339_v2.0.1
 
-local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

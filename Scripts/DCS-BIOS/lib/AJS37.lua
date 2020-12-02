@@ -1,7 +1,6 @@
 BIOS.protocol.beginModule("AJS37", 0x4600)
 BIOS.protocol.setExportModuleAircrafts({"AJS37"})
 
-local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  

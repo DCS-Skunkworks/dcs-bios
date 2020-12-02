@@ -3,7 +3,6 @@ BIOS.protocol.setExportModuleAircrafts({"Alphajet"})
 --by WarLord (aka BlackLibrary)
 --for Alphajet 2.5.5
 
-local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

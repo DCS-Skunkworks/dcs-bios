@@ -1,7 +1,6 @@
 BIOS.protocol.beginModule("P-51D", 0x5000)
 BIOS.protocol.setExportModuleAircrafts({"P-51D", "TF-51D", "P-51D-30-NA"})
 
-local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  

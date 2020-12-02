@@ -1,10 +1,8 @@
 BIOS.protocol.beginModule("JF-17", 0x4800)
 BIOS.protocol.setExportModuleAircrafts({"JF-17"})
-
 -- by WarLord (aka BlackLibrary), Matchstick
 -- v 1.4
 
-local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -24,11 +22,7 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineString = BIOS.util.defineString
 
 -- Remove Arg: Stick #970 ; 
-
--- Extra Functions
-
 ----------------------------------------- BIOS-Profile
-
 --------------------------Left Console
 defineMultipositionSwitch("SAIU_SEL_BAK", 11, 3002, 500, 4, 0.333, "Left Console", "Backup SAIU Knob Selector")
 definePushButton("GEAR_LIGH_TEST_BTN", 32, 3003, 501, "Left Console", "Landing Gear Indicator Light Test Button")

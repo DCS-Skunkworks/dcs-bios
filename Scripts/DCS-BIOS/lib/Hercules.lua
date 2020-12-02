@@ -2,7 +2,6 @@ BIOS.protocol.beginModule("Hercules", 0x6600)
 BIOS.protocol.setExportModuleAircrafts({"Hercules"})
 --by WarLord (aka BlackLibrary)
 
-local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

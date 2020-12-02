@@ -1,71 +1,10 @@
 -----------------------------------------------------------                                         
---     LIBRARY     	:    Mirage 2000C RAZBAM
---     VERSION     	:    v1.28a
+--     LIBRARY     	:    Mirage 2000C RAZBAM orginal by Exo7
+--     VERSION     	:    v1.28a by MisterKnife, WarLord
 -----------------------------------------------------------
--- Release log : 
--- v1.12 by Exo7 
---      Original stuff
--- 
--- v1.12 by Ergo
---      Adding INS Parameter Selector 
---      Adding INS VAL Button 
---
--- v1.12 by Ergo
---      Adding all PCN text in PCN_DISP
---
--- v1.13 by Exo7
---		Adding / Matching New variables
---		Adding new categories
---
--- v1.14 by Exo7
---		Adding ECM BOX displays
---		Adding PPA displays
---		Optimising "getDisplay" functions.
---
--- v1.15 by Exo7
---		Adding PCA displays
---
--- v1.16 by Exo7
---		Adding "FEU PC", "LIM" & "IFF" Indicator Light
---		Adding Oxy Flow Indicator
---		Adding ADI "Bille"
---
--- v1.17 by Exo7
---		Modifying Memory Allocation Address to match with existants modules
---
--- v1.18-20 by Exo7
--- 		Bug Fixes : Export displays functions
---					New Arg Numbers
---					Empty buffer block export
---
--- v1.21-22 by WarLord
---		Bug Fixes
---
--- v1.23 by Matchstick
---		Added Indikators
---
--- v1.24 by WarLord
---		Beta Patch adjusts 13.11.2019
---
--- v1.25 by WarLord
---		Comparing to Helios
---
--- v1.26 by WarLord
---		fixing the BCD Wheels
---
--- v1.27a by WarLord, Matchstick
---		fixing readouts;UHF Preset fixed;cleanup
---
--- v1.27b by WarLord add WoW Code
---
--- v1.28a by MisterKnife, WarLord
---		fixed landing toggle and HSI knobs,Fix for inverted Gearlight 
------------------------------------------------------------
-
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
 
-local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
