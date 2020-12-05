@@ -16,7 +16,6 @@ local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- Draw pilot = 540
