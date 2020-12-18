@@ -15,6 +15,7 @@ local definePotentiometer = BIOS.util.definePotentiometer
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
+local defineTumb = BIOS.util.defineTumb
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
@@ -315,7 +316,7 @@ definePotentiometer("NOZZLE_FRICTION", 28, 3486, 486, {0, 1}, "Throttle", "Nozzl
 defineToggleSwitch("THROTT_CUTOFF_LV", 9, 3490, 490, "Throttle", "Throttle Cutoff Lever")
 defineToggleSwitch("PARK_BRAKE_LV", 28, 3489, 489, "Throttle", "Parking Brake Lever")
 definePotentiometer("NOZZLE_LEVER", 13, 3487, 487, {0, 1}, "Throttle", "Nozzle Control Lever")
-definePotentiometer("STO_LEVER", 13, 3488, 488, {0, 1}, "Throttle", "STO Stop Lever")
+defineTumb("STO_LEVER", 13, 3488, 488, 0.05, {0.35, 1}, nil, false, "Throttle", "STO Stop Lever")
 
 -- Fuel Panel
 defineToggleSwitch("FUEL_PROP", 9, 3504, 504, "Fuel Panel", "Fuel Proportioner")
@@ -414,10 +415,10 @@ definePotentiometer("FLOOD_L_CAN_T", 34, 3159, 159, {-1, 1}, "Flood Lamps", "Flo
 -------------------------------------------------------------------
 -- CANOPY CONTROLS:
 -------------------------------------------------------------------
-defineToggleSwitch("CANOPY_HAND_L", 28, 3801, 801, "CANOPY", "Canopy Handle Left")
-defineToggleSwitch("CANOPY_HAND_R", 28, 3802, 802, "CANOPY", "Canopy Handle Right")
-defineToggleSwitch("CANOPY_LOCK", 28, 3803, 803, "CANOPY", "Canopy Locking Lever")
-defineFloat("CANOPY_VALUE", 38, {0.0, 1.0}, "CANOPY", "Canopy Position")
+defineToggleSwitch("CANOPY_HAND_L", 28, 3801, 801, "Canopy", "Canopy Handle Left")
+defineToggleSwitch("CANOPY_HAND_R", 28, 3802, 802, "Canopy", "Canopy Handle Right")
+defineToggleSwitch("CANOPY_LOCK", 28, 3803, 803, "Canopy", "Canopy Locking Lever")
+defineFloat("CANOPY_VALUE", 38, {0.0, 1.0}, "Canopy", "Canopy Position")
 
 -------------------------------------------------------------------
 -- Indicator Lights & Gauges
@@ -629,6 +630,12 @@ defineFloat("COMPASS_LIGHTS", 184, {0, 1}, "Gauges", "Compass Lightning Intensit
 defineFloat("BRAKE_ACCU", 559, {0, 0.4}, "Gauges", "Brake Accummulator")
 defineFloat("TURN_INDI", 652, {-1, 1}, "Gauges", "Turn Indicator")
 defineFloat("SLIP_TURN_FLAG", 654, {0, 1}, "Gauges", "Slip/Turn Flag")
+
+defineToggleSwitch("MIRROR_TOGGLE_L", 19, 4124, 1124, "Canopy", "Mirror Rendering Toggle Left")
+defineToggleSwitch("MIRROR_TOGGLE_C", 19, 4125, 1125, "Canopy", "Mirror Rendering Toggle Center")
+defineToggleSwitch("MIRROR_TOGGLE_R", 19, 4126, 1126, "Canopy", "Mirror Rendering Toggle Right")
+defineToggleSwitch("HIDE_STICK", 28, 4999, 999, "Cockpit", "Show/Hide Controls")
+
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)

@@ -317,6 +317,8 @@ defineFloat("COMPASS_PITCH", 105, {-1, 1}, "Gauges", "Compass Pitch")
 defineFloat("COMPASS_BANK", 107, {-1, 1}, "Gauges", "Compass Bank")
 defineFloat("MK8_BALL", 183, {-1, 1}, "Gauges", "Mk.8 Slipball")
 
+defineToggleSwitch("STICK_HIDE", 2, 3059, 232, "Cockpit", "Hide Stick Toggle")
+
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end

@@ -160,6 +160,7 @@ defineToggleSwitch("FRONT_CB_O_WING_PUMPS", 1, 3076, 464, "CB Panel", "FRONT Cir
 defineToggleSwitch("FRONT_CB_FUSELAGE_PUMP", 1, 3074, 467, "CB Panel", "FRONT Circuit Breaker Fuselage Tank Pump")
 defineToggleSwitch("FRONT_CB_FIRE_DETECTOR", 1, 3091, 468, "CB Panel", "FRONT Circuit Breaker Fire Detector")
 defineToggleSwitch("FRONT_CB_FORM_LIGHTS", 1, 3098, 456, "CB Panel", "FRONT Circuit Breaker Formation Lights")
+defineToggleSwitch("FRONT_CB_GPS", 1, 3511, 1376, "CB Panel", "FRONT Circuit Breaker GPS")
 defineToggleSwitch("BACK_CB_VOR_DC", 1, 3499, 949, "CB Panel", "BACK Circuit Breaker VOR DC")
 defineToggleSwitch("BACK_CB_ENG_START", 1, 3504, 950, "CB Panel", "BACK Circuit Breaker Enginer Starter")
 defineToggleSwitch("BACK_CB_OIL_TMP", 1, 3500, 951, "CB Panel", "BACK Circuit Breaker Oil Temperature Indicator")
@@ -173,6 +174,7 @@ defineToggleSwitch("BACK_CB_BAK_ADI", 1, 3494, 959, "CB Panel", "BACK Circuit Br
 defineToggleSwitch("BACK_CB_CPT_LIGHTS_RED", 1, 3501, 960, "CB Panel", "BACK Circuit Breaker Red Cockpit Lights")
 defineToggleSwitch("BACK_CB_INTERPHONE", 1, 3505, 961, "CB Panel", "BACK Circuit Breaker Interphone")
 defineToggleSwitch("BACK_CB_CONSOLE_LIGHTS", 1, 3503, 958, "CB Panel", "BACK Circuit Breaker Console Lights")
+defineToggleSwitch("BACK_CB_GPS", 1, 3517, 1378, "CB Panel", "BACK Circuit Breaker GPS")
 
 -- ENGINE START PANEL
 definePushButton("FRONT_GPU", 1, 3038, 134, "Engine Start Panel", "FRONT GPU Button")
