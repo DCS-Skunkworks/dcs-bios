@@ -411,7 +411,7 @@ defineTumb("ADF_LOOP_LR", 27, 3005, 42, 0.1, {0.0, 0.4}, nil, false, "ADF", "ADF
 
 defineToggleSwitch("ADF_BFO_SW", 27, 3006, 41, "ADF", "BFO Switch")
 
-defineMultipositionSwitch("ADF_MODE", 27, 3001, 43, 3, 0.1, "ADF", "ADF Mode OFF / ADF / ANT / LOOP")
+defineMultipositionSwitch("ADF_MODE", 27, 3001, 43, 4, 0.1, "ADF", "ADF Mode OFF / ADF / ANT / LOOP")
 definePotentiometer("ADF_GAIN", 27, 3004, 44, {0, 1}, "ADF", "ADF Gain")
 
 defineTumb("ADF_BAND", 27, 3002, 38, 1, {-1, 1}, nil, false, "ADF", "ADF Band")
@@ -448,7 +448,7 @@ defineTumb("GUN_SEL", 9, 3009, 253, 1, {-1, 1}, nil, false, "Armament Panel", "G
 defineTumb("ROCKET_SEL", 9, 3010, 256, 1, {-1, 1}, nil, false, "Armament Panel", "7.62 / 2.75 / 40")
 defineMultipositionSwitch("ROCKET_PAIR", 9, 3011, 257, 8, 0.1, "Armament Panel", "Rocket Pair")
 definePushButton("ROCKET_RESET", 9, 3012, 258, "Armament Panel", "Rocket Reset")
-defineTumb("JTSN_COVER", 9, 3013, 259, 1, {-1, 1}, nil, false, "Armament Panel", "Jettison Switch Cover")
+defineToggleSwitch("JTSN_COVER", 9, 3013, 259, "Armament Panel", "Jettison Switch Cover")
 definePushButton("JTSN_BTN", 9, 3014, 260, "Armament Panel", "Jettison Switch")
 
 definePotentiometer("SIGHT_INTEN_CPLT", 32, 3001, 281, {0, 1}, "Flex Sight", "Copilot Sighting System Intensity Knob")
