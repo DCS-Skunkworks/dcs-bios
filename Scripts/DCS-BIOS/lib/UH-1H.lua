@@ -24,19 +24,16 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- MAIN_PANEL/electric_system_gauges.lua:
-defineFloat("DC_VOLTAGE", 526, {0, 1}, "WTF", "DC Voltage")
-defineFloat("AC_VOLTAGE", 532, {0, 1}, "WTF", "AC Voltage")
-
-defineFloat("DC_BAT1_CURRENT", 527, {0, 1}, "WTF", "DC Battery 1 Current")
-defineFloat("DC_BAT2_CURRENT", 528, {0, 1}, "WTF", "DC Battery 2 Current")
-defineFloat("DC_VU1_CURRENT", 529, {0, 1}, "WTF", "DC VU 1 Current")
-defineFloat("DC_VU2_CURRENT", 530, {0, 1}, "WTF", "DC VU 2 Current")
-defineFloat("DC_VU3_CURRENT", 531, {0, 1}, "WTF", "DC VU 3 Current")
-
-defineFloat("AC_GEN1_CURRENT", 533, {0, 1}, "WTF", "AC GEN 1 Current")
-defineFloat("AC_GEN2_CURRENT", 534, {0, 1}, "WTF", "AC GEN 2 Current")
-
-defineFloat("ANTI_ICE_AMP", 371, {0, 1}, "WTF", "Anti-Ice Amperemeter")
+defineFloat("DC_VOLTAGE", 526, {0, 1}, "Gauges", "DC Voltage")
+defineFloat("AC_VOLTAGE", 532, {0, 1}, "Gauges", "AC Voltage")
+defineFloat("DC_BAT1_CURRENT", 527, {0, 1}, "Gauges", "DC Battery 1 Current")
+defineFloat("DC_BAT2_CURRENT", 528, {0, 1}, "Gauges", "DC Battery 2 Current")
+defineFloat("DC_VU1_CURRENT", 529, {0, 1}, "Gauges", "DC VU 1 Current")
+defineFloat("DC_VU2_CURRENT", 530, {0, 1}, "Gauges", "DC VU 2 Current")
+defineFloat("DC_VU3_CURRENT", 531, {0, 1}, "Gauges", "DC VU 3 Current")
+defineFloat("AC_GEN1_CURRENT", 533, {0, 1}, "Gauges", "AC GEN 1 Current")
+defineFloat("AC_GEN2_CURRENT", 534, {0, 1}, "Gauges", "AC GEN 2 Current")
+defineFloat("ANTI_ICE_AMP", 371, {0, 1}, "Gauges", "Anti-Ice Amperemeter")
 
 --  MAIN_PANEL/lamps.lua
 defineIndicatorLight("CL_A0", 91, "Caution Lights Panel", "ENGINE OIL PRESS (yellow)")
@@ -49,7 +46,6 @@ defineIndicatorLight("CL_G0", 97, "Caution Lights Panel", "ENG FUEL PUMP (yellow
 defineIndicatorLight("CL_H0", 98, "Caution Lights Panel", "20 MIN FUEL (yellow)")
 defineIndicatorLight("CL_I0", 99, "Caution Lights Panel", "FUEL FILTER (yellow)")
 defineIndicatorLight("CL_J0", 100, "Caution Lights Panel", "GOV EMER (yellow)")
-
 defineIndicatorLight("CL_A1", 101, "Caution Lights Panel", "AUX FUEL LOW (yellow)")
 defineIndicatorLight("CL_B1", 102, "Caution Lights Panel", "XMSN OIL PRESS (yellow)")
 defineIndicatorLight("CL_C1", 103, "Caution Lights Panel", "XMSN OIL HOT (yellow)")
@@ -60,13 +56,11 @@ defineIndicatorLight("CL_G1", 107, "Caution Lights Panel", "DC GENERATOR (yellow
 defineIndicatorLight("CL_H1", 108, "Caution Lights Panel", "EXTERNAL POWER (yellow)")
 defineIndicatorLight("CL_I1", 109, "Caution Lights Panel", "CHIP DETECTOR (yellow)")
 defineIndicatorLight("CL_J1", 110, "Caution Lights Panel", "IFF (yellow)")
-
 defineIndicatorLight("ARMED_IND", 254, "Armament Panel", "ARMED Indicator (red)")
 defineIndicatorLight("SAFE_IND", 255, "Armament Panel", "SAFE Indicator (green)")
 defineIndicatorLight("FIRE_IND", 275, "Front Dash", "FIRE Warning Light (yellow)")
 defineIndicatorLight("LOW_RPM_IND", 276, "Front Dash", "Low RPM Warning Light (yellow)")
 defineIndicatorLight("MASTER_CAUTION_IND", 277, "Front Dash", "MASTER CAUTION Light (yellow)")
-
 defineIndicatorLight("IFF_REPLY_IND", 76, "IFF", "IFF Reply Indicator Lamp (green)")
 defineIndicatorLight("IFF_TEST_IND", 77, "IFF", "IFF Test Indicator Lamp (green)")
 
@@ -116,47 +110,38 @@ defineFloat("ENG_OIL_TEMP", 114, {0, 1}, "Front Dash", "Engine Oil Temperature")
 defineFloat("TRANS_OIL_PRESS", 115, {0, 1}, "Front Dash", "Transmission Oil Pressure")
 defineFloat("TRANS_OIL_TEMP", 116, {0, 1}, "Front Dash", "Transmission Oil Temperature")
 
-defineFloat("IAS_NOSE", 117, {0, 1}, "WTF", "IAS Front")
-defineFloat("IAS_ROOF", 118, {0, 1}, "WTF", "IAS Roof")
+defineFloat("IAS_NOSE", 117, {0, 1}, "Gauges", "IAS Front")
+defineFloat("IAS_ROOF", 118, {0, 1}, "Gauges", "IAS Roof")
 
 defineFloat("EXHAUST_TEMP", 121, {0, 1}, "Front Dash", "Exhaust Temperature")
-
 defineFloat("ENG_RPM", 122, {0, 1}, "Front Dash", "Engine RPM")
 defineFloat("ROTOR_RPM", 123, {0, 1}, "Front Dash", "Rotor RPM")
 defineFloat("GAS_RPM_T", 119, {0, 1}, "Front Dash", "Gas Producer RPM Tenths")
 defineFloat("GAS_RPM", 120, {0, 1}, "Front Dash", "Gas Producer RPM")
-
 defineFloat("TORQUE_PRESS", 124, {0, 1}, "Front Dash", "Torque Pressure")
-
 defineFloat("DC_V", 149, {0, 1}, "Front Dash", "DC Voltage")
 defineFloat("AC_V", 150, {0, 1}, "Front Dash", "AC Voltage")
-
 defineFloat("MAIN_GEN_LOAD", 436, {0, 1}, "Front Dash", "Main Generator Load")
 defineFloat("STBY_GEN_LOAD", 125, {0, 1}, "Front Dash", "STBY Generator Load")
-
 defineFloat("FUEL_PRESS", 126, {0, 1}, "Front Dash", "Fuel Pressure")
 defineFloat("FUEL_QTY", 239, {0, 1}, "Front Dash", "Fuel Quantity")
-
 defineFloat("CLOCK_H", 127, {0, 1}, "Front Dash", "Clock Hours")
 defineFloat("CLOCK_M", 128, {0, 1}, "Front Dash", "Clock Seconds")
 defineFloat("CLOCK_S", 129, {0, 1}, "Front Dash", "Clock Seconds")
-
 defineFloat("TURN_PTR", 132, {-1, 1}, "Front Dash", "Turn Indicator")
 defineFloat("SIDESLIP", 133, {-1, 1}, "Front Dash", "Side Slip")
 defineFloat("VVI_P", 134, {-1, 1}, "Front Dash", "Vertical Velocity Indicator (Pilot)")
 defineFloat("VVI_O", 251, {-1, 1}, "Front Dash", "Vertical Velocity Indicator (Operator)")
-
 defineFloat("PADI_ROLL", 142, {-1, 1}, "Front Dash - ADI (Pilot)", "Roll")
 defineFloat("PADI_PITCH", 143, {-1, 1}, "Front Dash - ADI (Pilot)", "Pitch")
 defineFloat("PADI_OFF", 148, {0, 1}, "Front Dash - ADI (Pilot)", "Off Warning Flag")
-
 defineFloat("OADI_ROLL", 135, {-1, 1}, "Front Dash - ADI (Operator)", "Roll")
 defineFloat("OADI_PITCH", 136, {-1, 1}, "Front Dash - ADI (Operator)", "Pitch")
 defineFloat("OADI_OFF", 141, {0, 1}, "Front Dash - ADI (Operator)", "Off Warning Flag")
 
-defineFloat("ADI_PITCH_SHIFT", 138, {-1, 1}, "WTF", "Attitude_PitchShift")
+defineFloat("ADI_PITCH_SHIFT", 138, {-1, 1}, "Gauges", "Attitude Pitch Shift")
 
-defineFloat("MARKER_BEACON", 56, {0, 0.9}, "WTF", "Marker Beacon")
+defineFloat("MARKER_BEACON", 56, {0, 0.9}, "Gauges", "Marker Beacon")
 
 defineFloat("WIPER_P", 284, {0, 1}, "Windshield Wipers", "Windshield Wiper (Pilot)")
 defineFloat("WIPER_O", 283, {0, 1}, "Windshield Wipers", "Windshield Wiper (Operator)")
@@ -165,7 +150,7 @@ defineFloat("CONSOLE_LIGHT", 279, {0, 1}, "Lights", "Console Light")
 defineFloat("DOME_LIGHT", 410, {0, 1}, "Lights", "Dome Light")
 defineFloat("DOME_LIGHT_GREEN", 411, {0, 1}, "Lights", "Dome Light Green")
 
-defineFloat("RAM_TEMP", 437, {0, 1}, "WTF", "RamTemp")
+defineFloat("RAM_TEMP", 437, {0, 1}, "Gauges", "RamTemp")
 
 defineFloat("RALT_NEEDLE", 443, {0, 1}, "Radar Altimeter", "Needle")
 defineFloat("RALT_OFF", 467, {0, 1}, "Radar Altimeter", "Off Warning Flag")
@@ -349,6 +334,7 @@ local function getVhfCommFreq()
 	return string.format("1%.0f%.0f", a(1)*10, a(2)*10) .. "." .. string.format("%.0f%02.0f", a(3)*10, a(4)*100)
 end
 defineString("VHFCOMM_FREQ", getVhfCommFreq, 7, "VHF COMM Radio", "VHF Frequency")
+
 defineFixedStepTumb("VHFCOMM_MHZ", 20, 3004, 7, 0.1, {0, 1}, {-0.1, 0.1}, nil, "VHF COMM Radio", "VHF MHz Selector")
 defineFixedStepTumb("VHFCOMM_KHZ", 20, 3005, 8, 0.1, {0, 1}, {-0.1, 0.1}, nil, "VHF COMM Radio", "VHF KHz Selector")
 
@@ -371,6 +357,7 @@ local function getUhfFreq()
 	return string.format("%.0f%.0f%.0f.%.0f%.0f", 2+a(10), a(11)*10, a(12)*10, a(13)*10, a(14)*10) .. "." .. string.format("%.0f", a(12)*10)
 end
 defineString("UHF_FREQ", getUhfFreq, 6, "UHF Radio", "UHF Frequency")
+
 defineFixedStepInput("UHF_10MHZ", 22, 3002, {0.1, -0.1}, "UHF Radio", "UHF 10 MHz Selector")
 defineFixedStepInput("UHF_1MHZ", 22, 3003, {0.1, -0.1}, "UHF Radio", "UHF 1 MHz Selector")
 defineFixedStepInput("UHF_50KHZ", 22, 3004, {0.1, -0.1}, "UHF Radio", "UHF 50 KHz Selector")
@@ -390,17 +377,18 @@ defineTumb("VHFFM_SQUELCH", 23, 3005, 36, 0.1, {0.0, 0.2}, nil, false, "VHF FM R
 definePotentiometer("VHFFM_VOL", 23, 3006, 37, {0.3, 1}, "VHF FM Radio", "Volume Control")
 
 
+defineTumb("VHFNAV_PWR", 25, 3003, 51, 0.1, {0.8, 1.0}, nil, false, "VHF NAV Radio", "VHF NAV Off / On / Test")
 
-defineTumb("VHFNAV_PWR", 25, 3003, 52, 0.1, {0.8, 1.0}, nil, false, "VHF NAV Radio", "VHF NAV Off / On / Test")
 local function getVhfNavFreq()
 	local function a(n) return GetDevice(0):get_argument_value(n) end
 	return string.format("%.0f%.0f%.0f", a(46)*10, a(47)*10, a(48)*10) .. "." .. string.format("%.0f%.0f", a(49)*10, a(50)*10)
 end
 defineString("VHFNAV_FREQ", getVhfNavFreq, 6, "VHF NAV Radio", "VHF NAV Frequency")
-defineFixedStepInput("VHFNAV_MHZ", 25, 3001, {0.1, -0.1}, "VHF NAV Radio", "VHF NAV MHz Selector")
-defineFixedStepInput("VHFNAV_KHZ", 25, 3002, {0.1, -0.1}, "VHF NAV Radio", "VHF NAV KHz Selector")
 
-definePotentiometer("VHFNAV_VOL", 25, 3004, 53, {0, 0.7}, "VHF NAV Radio", "Volume Control (step size less than 8192 may not work)")
+defineFixedStepTumb("VHFNAV_MHZ", 25, 3001, 52, 0.1, {0, 1}, {0.1, -0.1}, nil, "VHF NAV Radio", "VHF NAV MHz Selector")
+defineFixedStepTumb("VHFNAV_KHZ", 25, 3002, 53, 0.1, {0, 1}, {0.1, -0.1}, nil, "VHF NAV Radio", "VHF NAV KHz Selector")
+
+definePotentiometer("VHFNAV_VOL", 25, 3004, 54, {0, 0.65}, "VHF NAV Radio", "Volume Control (step size less than 8192 may not work)")
 documentation["VHF NAV Radio"]["VHFNAV_VOL"].inputs[2].suggested_step = 8192
 
 definePotentiometer("BEACON_VOL", 26, 3001, 57, {0, 1}, "Front Dash", "Marker Beacon Volume")
@@ -408,12 +396,9 @@ defineToggleSwitch("BEACON_SENSING_SW", 26, 3002, 55, "Front Dash", "Marker Beac
 
 
 defineTumb("ADF_LOOP_LR", 27, 3005, 42, 0.1, {0.0, 0.4}, nil, false, "ADF", "ADF LOOP Left Low Speed / Left High Speed /Center / Right Low Speed / Right High Speed")
-
 defineToggleSwitch("ADF_BFO_SW", 27, 3006, 41, "ADF", "BFO Switch")
-
 defineMultipositionSwitch("ADF_MODE", 27, 3001, 43, 4, 0.1, "ADF", "ADF Mode OFF / ADF / ANT / LOOP")
 definePotentiometer("ADF_GAIN", 27, 3004, 44, {0, 1}, "ADF", "ADF Gain")
-
 defineTumb("ADF_BAND", 27, 3002, 38, 1, {-1, 1}, nil, false, "ADF", "ADF Band")
 defineRotary("ADF_TUNE", 27, 3003, 39, "ADF", "ADF Tune")
 
@@ -425,7 +410,6 @@ defineToggleSwitch("ANTICOLL_LTS_SW", 7, 3004, 225, "Overhead Panel", "Anticolli
 defineToggleSwitch("LDG_LIGHT_SW", 7, 3005, 202, "Collective", "Landing Lights Switch")
 defineTumb("SEARCH_LIGHT_SW", 7, 3006, 201, 1, {-1, 1}, nil, false, "Collective", "Search Light STOW / OFF / ON")
 defineTumb("LDG_LT_CTRL", 7, 3007, 205, 1, {-1, 1}, nil, false, "Collective", "Landing Lights Control Switch")
-
 definePotentiometer("BRT_CONSOLE", 7, 3015, 230, {0, 1}, "Overhead Panel", "Overhead Console Panel Lights Brightness")
 definePotentiometer("BRT_PED", 7, 3016, 231, {0, 1}, "Overhead Panel", "Pedestal Lights Brightness")
 definePotentiometer("BRT_SEC", 7, 3017, 232, {0, 1}, "Overhead Panel", "Secondary Instrument Lights Brightness")
@@ -433,14 +417,12 @@ definePotentiometer("BRT_ENGINE", 7, 3018, 233, {0, 1}, "Overhead Panel", "Engin
 definePotentiometer("BRT_COPILOT", 7, 3019, 234, {0, 1}, "Overhead Panel", "Copilot Instrument Lights Brightness")
 definePotentiometer("BRT_PILOT", 7, 3020, 235, {0, 1}, "Overhead Panel", "Pilot Instrument Lights Brightness")
 defineTumb("DOME_LIGHT_SW", 7, 3021, 226, 1, {-1, 1}, nil, false, "Overhead Panel", "Dome Light Switch WHITE / OFF / GREEN")
-
 defineMultipositionSwitch("BLEED_AIR_SW", 47, 3001, 236, 5, 0.1, "Overhead Panel", "Bleed Air Dial")
 
 defineRotary("HDG_SET", 10, 3003, 163, "Front Dash", "HDG SET Knob")
 defineRotary("HDG_SYNC", 10, 3005, 161, "Front Dash", "Compass Synchronizing")
 defineToggleSwitch("ADF_VOR_SW", 10, 3004, 164, "Front Dash", "ADF / VOR Switch: VOR / ADF")
 defineToggleSwitch("GYRO_MODE_SW", 10, 3002, 241, "Front Dash", "DG / Slave Gyro Mode: MAG / DG")
-
 defineRotary("CRS_KNOB", 29, 3001, 155, "Front Dash", "CDI CRS Selector Knob")
 
 defineTumb("MASTER_ARM_SW", 9, 3008, 252, 1, {-1, 1}, nil, false, "Armament Panel", "Master Arm OFF - SAFE - ARMED")
@@ -453,16 +435,13 @@ definePushButton("JTSN_BTN", 9, 3014, 260, "Armament Panel", "Jettison Switch")
 
 definePotentiometer("SIGHT_INTEN_CPLT", 32, 3001, 281, {0, 1}, "Flex Sight", "Copilot Sighting System Intensity Knob")
 defineTumb("SIGHT_LAMP_SW", 32, 3003, 408, 1, {-1, 1}, nil, false, "Flex Sight", "Sighting Station Lamp Switch BACKUP / OFF / MAIN")
-
 defineToggleSwitch("SIGHT_ARM_PLT", 49, 3005, 0, "Flex Sight", "Pilot Sight Armed / Safe")
 defineToggleSwitch("SIGHT_PWR_PLT", 49, 3006, 439, "Flex Sight", "Pilot Sight Off / On")
 definePotentiometer("SIGHT_INTEN_PLT", 49, 3001, 440, {0, 1}, "Flex Sight", "Pilot Sight Intensity Knob")
 definePotentiometer("SIGHT_ELEV_PLT", 49, 3003, 441, {-1, 1}, "Flex Sight", "Pilot Sight Elevation")
 
-
 defineTumb("WIPER_SEL", 12, 3002, 227, 1, {-1, 1}, nil, false, "Overhead Panel", "Wiper PILOT / BOTH / OPERATOR")
 defineFixedStepTumb("WIPER_SPD", 12, 3001, 229, 0.1, {0.0, 0.4}, {1, -1}, nil, "Overhead Panel", "Wiper Speed PARK - STOP - SLOW - MED - HIGH")
-
 
 definePushButton("TRIM_PLT", 41, 3001, 189, "Cyclic", "Force Trim (Pilot Side)")
 definePushButton("TRIM_CPLT", 41, 3002, 193, "Cyclic", "Force Trim (Copilot Side)")
@@ -480,7 +459,6 @@ definePushButton("CM_FLARE_BTN", 50, 3006, 464, "Countermeasures", "Flare Button
 definePushButton("CM_ARMED_TEST", 50, 3010, 457, "Countermeasures", "Armed Lamp Test")
 defineString("CM_FLARECNT_DISPLAY_STR", getFlareCount, 2, "Countermeasures", "Flare Counter (String)")
 definePushButton("CM_FLARECNT_RESET", 50, 3003, 453, "Countermeasures", "Flare Counter Reset Button")
-
 defineFixedStepInput("CM_FLARECNT", 50, 3004, {-1, 1}, "Countermeasures", "Flare Counter Decrease/Increase")
 
 definePushButton("CM_CHAFFCNT_RESET", 50, 3007, 455, "Countermeasures", "Chaff Counter Reset Button")
@@ -498,7 +476,7 @@ definePushButton("RADAR_ALT_TEST", 13, 3001, 446, "Front Dash", "Radar Altimeter
 
 defineIndicatorLight("X130_ARMED", 458, "Armament Panel", "X130 Armed Lamp (blue)")
 
-defineFloat("SIGHTS_FOR_CIVIL", 473, {0, 1}, "WTF", "SIGHTS_FOR_CIVIL / controllers.Civil_Heli")
+defineFloat("SIGHTS_FOR_CIVIL", 473, {0, 1}, "Gauges", "SIGHTS_FOR_CIVIL / controllers.Civil_Heli")
 
 --Doors
 definePushButton("DOOR_L-PTR", 12, 3005, 419, "Doors", "Door Left")
