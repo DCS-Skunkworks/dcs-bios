@@ -4425,81 +4425,6 @@ docdata["Mi-8MT"] =
                                                     }
                                     },
                "Electrical system": {
-                                           "115V_INV_SWITCH": {
-                                                                             "category": "Electrical system",
-                                                                         "control_type": "selector",
-                                                                          "description": "115V Inverter Switch, MANUAL/OFF/AUTO",
-                                                                           "identifier": "115V_INV_SWITCH",
-                                                                               "inputs": [ {
-                                                                                             "description": "switch to previous or next state",
-                                                                                               "interface": "fixed_step"
-                                                                                         }, {
-                                                                                             "description": "set position",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 2
-                                                                                         } ],
-                                                                  "momentary_positions": "none",
-                                                                              "outputs": [ {
-                                                                                                 "address": 9728,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 24,
-                                                                                               "max_value": 2,
-                                                                                                "shift_by": 3,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "limited_rotary"
-                                                              },
-                                            "36V_INV_SWITCH": {
-                                                                             "category": "Electrical system",
-                                                                         "control_type": "selector",
-                                                                          "description": "36V Inverter Switch, MANUAL/OFF/AUTO",
-                                                                           "identifier": "36V_INV_SWITCH",
-                                                                               "inputs": [ {
-                                                                                             "description": "switch to previous or next state",
-                                                                                               "interface": "fixed_step"
-                                                                                         }, {
-                                                                                             "description": "set position",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 2
-                                                                                         } ],
-                                                                  "momentary_positions": "none",
-                                                                              "outputs": [ {
-                                                                                                 "address": 9728,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 96,
-                                                                                               "max_value": 2,
-                                                                                                "shift_by": 5,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "limited_rotary"
-                                                              },
-                                          "36V_TRANS_SWITCH": {
-                                                                             "category": "Electrical system",
-                                                                         "control_type": "selector",
-                                                                          "description": "36V Transformer Switch, MAIN/OFF/AUXILIARY",
-                                                                           "identifier": "36V_TRANS_SWITCH",
-                                                                               "inputs": [ {
-                                                                                             "description": "switch to previous or next state",
-                                                                                               "interface": "fixed_step"
-                                                                                         }, {
-                                                                                             "description": "set position",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 2
-                                                                                         } ],
-                                                                  "momentary_positions": "none",
-                                                                              "outputs": [ {
-                                                                                                 "address": 9730,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 768,
-                                                                                               "max_value": 2,
-                                                                                                "shift_by": 8,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "limited_rotary"
-                                                              },
                                         "AC_GRND_PWR_SWITCH": {
                                                                              "category": "Electrical system",
                                                                          "control_type": "selector",
@@ -4832,6 +4757,56 @@ docdata["Mi-8MT"] =
                                                                                          } ],
                                                                      "physical_variant": "limited_rotary"
                                                               },
+                                           "INV_115V_SWITCH": {
+                                                                             "category": "Electrical system",
+                                                                         "control_type": "selector",
+                                                                          "description": "Inverter Switch 115V MANUAL/OFF/AUTO",
+                                                                           "identifier": "INV_115V_SWITCH",
+                                                                               "inputs": [ {
+                                                                                             "description": "switch to previous or next state",
+                                                                                               "interface": "fixed_step"
+                                                                                         }, {
+                                                                                             "description": "set position",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 2
+                                                                                         } ],
+                                                                  "momentary_positions": "none",
+                                                                              "outputs": [ {
+                                                                                                 "address": 9728,
+                                                                                             "description": "selector position",
+                                                                                                    "mask": 24,
+                                                                                               "max_value": 2,
+                                                                                                "shift_by": 3,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ],
+                                                                     "physical_variant": "limited_rotary"
+                                                              },
+                                            "INV_36V_SWITCH": {
+                                                                             "category": "Electrical system",
+                                                                         "control_type": "selector",
+                                                                          "description": "Inverter Switch 36V MANUAL/OFF/AUTO",
+                                                                           "identifier": "INV_36V_SWITCH",
+                                                                               "inputs": [ {
+                                                                                             "description": "switch to previous or next state",
+                                                                                               "interface": "fixed_step"
+                                                                                         }, {
+                                                                                             "description": "set position",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 2
+                                                                                         } ],
+                                                                  "momentary_positions": "none",
+                                                                              "outputs": [ {
+                                                                                                 "address": 9728,
+                                                                                             "description": "selector position",
+                                                                                                    "mask": 96,
+                                                                                               "max_value": 2,
+                                                                                                "shift_by": 5,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ],
+                                                                     "physical_variant": "limited_rotary"
+                                                              },
                                             "NET_RECT_COVER": {
                                                                              "category": "Electrical system",
                                                                          "control_type": "selector",
@@ -5030,6 +5005,31 @@ docdata["Mi-8MT"] =
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ]
+                                                              },
+                                          "TRANS_36V_SWITCH": {
+                                                                             "category": "Electrical system",
+                                                                         "control_type": "selector",
+                                                                          "description": "Transformer Switch 36V, MAIN/OFF/AUXILIARY",
+                                                                           "identifier": "TRANS_36V_SWITCH",
+                                                                               "inputs": [ {
+                                                                                             "description": "switch to previous or next state",
+                                                                                               "interface": "fixed_step"
+                                                                                         }, {
+                                                                                             "description": "set position",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 2
+                                                                                         } ],
+                                                                  "momentary_positions": "none",
+                                                                              "outputs": [ {
+                                                                                                 "address": 9730,
+                                                                                             "description": "selector position",
+                                                                                                    "mask": 768,
+                                                                                               "max_value": 2,
+                                                                                                "shift_by": 8,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ],
+                                                                     "physical_variant": "limited_rotary"
                                                               }
                                     },
                   "Engine Control": {
@@ -11948,31 +11948,6 @@ docdata["Mi-8MT"] =
                                                                      }
                                     },
                           "Lights": {
-                                             "55V_LGHT": {
-                                                                 "category": "Lights",
-                                                             "control_type": "limited_dial",
-                                                              "description": "5.5V Lights Brightness Rheostat",
-                                                               "identifier": "55V_LGHT",
-                                                                   "inputs": [ {
-                                                                                 "description": "set the position of the dial",
-                                                                                   "interface": "set_state",
-                                                                                   "max_value": 65535
-                                                                             }, {
-                                                                                    "description": "turn the dial left or right",
-                                                                                      "interface": "variable_step",
-                                                                                      "max_value": 65535,
-                                                                                 "suggested_step": 3200
-                                                                             } ],
-                                                                  "outputs": [ {
-                                                                                     "address": 9836,
-                                                                                 "description": "position of the potentiometer",
-                                                                                        "mask": 65535,
-                                                                                   "max_value": 65535,
-                                                                                    "shift_by": 0,
-                                                                                      "suffix": "",
-                                                                                        "type": "integer"
-                                                                             } ]
-                                                         },
                                          "C_RED_LGHT_1": {
                                                                  "category": "Lights",
                                                              "control_type": "limited_dial",
@@ -12015,6 +11990,31 @@ docdata["Mi-8MT"] =
                                                                              } ],
                                                                   "outputs": [ {
                                                                                      "address": 9834,
+                                                                                 "description": "position of the potentiometer",
+                                                                                        "mask": 65535,
+                                                                                   "max_value": 65535,
+                                                                                    "shift_by": 0,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                             "LGHT_55V": {
+                                                                 "category": "Lights",
+                                                             "control_type": "limited_dial",
+                                                              "description": "Lights Brightness 5.5V Rheostat",
+                                                               "identifier": "LGHT_55V",
+                                                                   "inputs": [ {
+                                                                                 "description": "set the position of the dial",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 65535
+                                                                             }, {
+                                                                                    "description": "turn the dial left or right",
+                                                                                      "interface": "variable_step",
+                                                                                      "max_value": 65535,
+                                                                                 "suggested_step": 3200
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                     "address": 9836,
                                                                                  "description": "position of the potentiometer",
                                                                                         "mask": 65535,
                                                                                    "max_value": 65535,

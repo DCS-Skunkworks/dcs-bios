@@ -16,11 +16,11 @@ docdata["UH-1H"] =
                                                                                  } ],
                                                           "momentary_positions": "none",
                                                                       "outputs": [ {
-                                                                                         "address": 5372,
+                                                                                         "address": 5370,
                                                                                      "description": "selector position",
-                                                                                            "mask": 3,
+                                                                                            "mask": 384,
                                                                                        "max_value": 2,
-                                                                                        "shift_by": 0,
+                                                                                        "shift_by": 7,
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
@@ -45,11 +45,11 @@ docdata["UH-1H"] =
                                                                                  } ],
                                                           "momentary_positions": "none",
                                                                       "outputs": [ {
-                                                                                         "address": 5356,
+                                                                                         "address": 5370,
                                                                                      "description": "selector position",
-                                                                                            "mask": 4096,
+                                                                                            "mask": 16,
                                                                                        "max_value": 1,
-                                                                                        "shift_by": 12,
+                                                                                        "shift_by": 4,
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
@@ -87,7 +87,7 @@ docdata["UH-1H"] =
                                                                               "suggested_step": 3200
                                                                           } ],
                                                                "outputs": [ {
-                                                                                  "address": 5370,
+                                                                                  "address": 5372,
                                                                               "description": "position of the potentiometer",
                                                                                      "mask": 65535,
                                                                                 "max_value": 65535,
@@ -111,11 +111,11 @@ docdata["UH-1H"] =
                                                                                  } ],
                                                           "momentary_positions": "none",
                                                                       "outputs": [ {
-                                                                                         "address": 5356,
+                                                                                         "address": 5370,
                                                                                      "description": "selector position",
-                                                                                            "mask": 3584,
+                                                                                            "mask": 14,
                                                                                        "max_value": 4,
-                                                                                        "shift_by": 9,
+                                                                                        "shift_by": 1,
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
@@ -132,15 +132,15 @@ docdata["UH-1H"] =
                                                                                  }, {
                                                                                      "description": "set position",
                                                                                        "interface": "set_state",
-                                                                                       "max_value": 2
+                                                                                       "max_value": 3
                                                                                  } ],
                                                           "momentary_positions": "none",
                                                                       "outputs": [ {
-                                                                                         "address": 5356,
+                                                                                         "address": 5370,
                                                                                      "description": "selector position",
-                                                                                            "mask": 24576,
-                                                                                       "max_value": 2,
-                                                                                        "shift_by": 13,
+                                                                                            "mask": 96,
+                                                                                       "max_value": 3,
+                                                                                        "shift_by": 5,
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
@@ -413,11 +413,11 @@ docdata["UH-1H"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 5388,
+                                                                                           "address": 5376,
                                                                                        "description": "selector position",
-                                                                                              "mask": 192,
+                                                                                              "mask": 49152,
                                                                                          "max_value": 2,
-                                                                                          "shift_by": 6,
+                                                                                          "shift_by": 14,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -445,9 +445,9 @@ docdata["UH-1H"] =
                                                                         "outputs": [ {
                                                                                            "address": 5396,
                                                                                        "description": "selector position",
-                                                                                              "mask": 1,
+                                                                                              "mask": 128,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 0,
+                                                                                          "shift_by": 7,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -464,19 +464,23 @@ docdata["UH-1H"] =
                                                                                    }, {
                                                                                        "description": "set position",
                                                                                          "interface": "set_state",
-                                                                                         "max_value": 2
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 5388,
+                                                                                           "address": 5396,
                                                                                        "description": "selector position",
-                                                                                              "mask": 49152,
-                                                                                         "max_value": 2,
-                                                                                          "shift_by": 14,
+                                                                                              "mask": 64,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 6,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                        "MASTER_ARM_SW": {
                                                                        "category": "Armament Panel",
@@ -493,11 +497,11 @@ docdata["UH-1H"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 5388,
+                                                                                           "address": 5376,
                                                                                        "description": "selector position",
-                                                                                              "mask": 48,
+                                                                                              "mask": 12288,
                                                                                          "max_value": 2,
-                                                                                          "shift_by": 4,
+                                                                                          "shift_by": 12,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -518,11 +522,11 @@ docdata["UH-1H"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 5388,
+                                                                                           "address": 5396,
                                                                                        "description": "selector position",
-                                                                                              "mask": 7168,
+                                                                                              "mask": 28,
                                                                                          "max_value": 7,
-                                                                                          "shift_by": 10,
+                                                                                          "shift_by": 2,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -548,11 +552,11 @@ docdata["UH-1H"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 5388,
+                                                                                           "address": 5396,
                                                                                        "description": "selector position",
-                                                                                              "mask": 8192,
+                                                                                              "mask": 32,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 13,
+                                                                                          "shift_by": 5,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -573,11 +577,11 @@ docdata["UH-1H"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 5388,
+                                                                                           "address": 5396,
                                                                                        "description": "selector position",
-                                                                                              "mask": 768,
+                                                                                              "mask": 3,
                                                                                          "max_value": 2,
-                                                                                          "shift_by": 8,
+                                                                                          "shift_by": 0,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -608,9 +612,9 @@ docdata["UH-1H"] =
                                                                  "outputs": [ {
                                                                                     "address": 5404,
                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                       "mask": 64,
+                                                                                       "mask": 8192,
                                                                                   "max_value": 1,
-                                                                                   "shift_by": 6,
+                                                                                   "shift_by": 13,
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ]
@@ -3293,11 +3297,11 @@ docdata["UH-1H"] =
                                                                                       } ],
                                                                "momentary_positions": "first_and_last",
                                                                            "outputs": [ {
-                                                                                              "address": 5404,
+                                                                                              "address": 5430,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 49152,
+                                                                                                 "mask": 6,
                                                                                             "max_value": 2,
-                                                                                             "shift_by": 14,
+                                                                                             "shift_by": 1,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -3322,11 +3326,11 @@ docdata["UH-1H"] =
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 5372,
+                                                                                              "address": 5376,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 256,
+                                                                                                 "mask": 1,
                                                                                             "max_value": 1,
-                                                                                             "shift_by": 8,
+                                                                                             "shift_by": 0,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -3351,11 +3355,11 @@ docdata["UH-1H"] =
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 5426,
+                                                                                              "address": 5430,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 4096,
+                                                                                                 "mask": 8,
                                                                                             "max_value": 1,
-                                                                                             "shift_by": 12,
+                                                                                             "shift_by": 3,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -3376,11 +3380,11 @@ docdata["UH-1H"] =
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 5372,
+                                                                                              "address": 5376,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 6144,
+                                                                                                 "mask": 24,
                                                                                             "max_value": 2,
-                                                                                             "shift_by": 11,
+                                                                                             "shift_by": 3,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -3403,9 +3407,9 @@ docdata["UH-1H"] =
                                                                            "outputs": [ {
                                                                                               "address": 5430,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 3,
+                                                                                                 "mask": 192,
                                                                                             "max_value": 2,
-                                                                                             "shift_by": 0,
+                                                                                             "shift_by": 6,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -3426,11 +3430,11 @@ docdata["UH-1H"] =
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 5372,
+                                                                                              "address": 5376,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 1536,
+                                                                                                 "mask": 6,
                                                                                             "max_value": 2,
-                                                                                             "shift_by": 9,
+                                                                                             "shift_by": 1,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -3451,11 +3455,11 @@ docdata["UH-1H"] =
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 5426,
+                                                                                              "address": 5430,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 24576,
+                                                                                                 "mask": 48,
                                                                                             "max_value": 2,
-                                                                                             "shift_by": 13,
+                                                                                             "shift_by": 4,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -3559,11 +3563,11 @@ docdata["UH-1H"] =
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 5404,
+                                                                                              "address": 5430,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 8192,
+                                                                                                 "mask": 1,
                                                                                             "max_value": 1,
-                                                                                             "shift_by": 13,
+                                                                                             "shift_by": 0,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -3643,9 +3647,9 @@ docdata["UH-1H"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 5404,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 2,
+                                                                                                        "mask": 256,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 1,
+                                                                                                    "shift_by": 8,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -3670,11 +3674,11 @@ docdata["UH-1H"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 5396,
+                                                                                                     "address": 5404,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 16384,
+                                                                                                        "mask": 32,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 14,
+                                                                                                    "shift_by": 5,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -3698,11 +3702,11 @@ docdata["UH-1H"] =
                                                                         "identifier": "CM_CHAFFCNT_DISPLAY",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 5426,
+                                                                                              "address": 5416,
                                                                                           "description": "Chaff Counter Display (Number)",
-                                                                                                 "mask": 4032,
+                                                                                                 "mask": 64512,
                                                                                             "max_value": 60,
-                                                                                             "shift_by": 6,
+                                                                                             "shift_by": 10,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ]
@@ -3743,9 +3747,9 @@ docdata["UH-1H"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 5404,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 8,
+                                                                                                        "mask": 1024,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 3,
+                                                                                                    "shift_by": 10,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -3769,11 +3773,11 @@ docdata["UH-1H"] =
                                                                         "identifier": "CM_FLARECNT_DISPLAY",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 5426,
+                                                                                              "address": 5416,
                                                                                           "description": "Flare Counter Display (Number)",
-                                                                                                 "mask": 63,
+                                                                                                 "mask": 1008,
                                                                                             "max_value": 60,
-                                                                                             "shift_by": 0,
+                                                                                             "shift_by": 4,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ]
@@ -3814,9 +3818,9 @@ docdata["UH-1H"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 5404,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 4,
+                                                                                                        "mask": 512,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 2,
+                                                                                                    "shift_by": 9,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -3844,9 +3848,9 @@ docdata["UH-1H"] =
                                                                                   "outputs": [ {
                                                                                                      "address": 5404,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 1,
+                                                                                                        "mask": 128,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 0,
+                                                                                                    "shift_by": 7,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -3871,11 +3875,11 @@ docdata["UH-1H"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 5396,
+                                                                                                     "address": 5404,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 32768,
+                                                                                                        "mask": 64,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 15,
+                                                                                                    "shift_by": 6,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -3900,11 +3904,11 @@ docdata["UH-1H"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 5396,
+                                                                                                     "address": 5404,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 4096,
+                                                                                                        "mask": 8,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 12,
+                                                                                                    "shift_by": 3,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -3929,11 +3933,11 @@ docdata["UH-1H"] =
                                                                                              } ],
                                                                       "momentary_positions": "none",
                                                                                   "outputs": [ {
-                                                                                                     "address": 5396,
+                                                                                                     "address": 5404,
                                                                                                  "description": "selector position",
-                                                                                                        "mask": 8192,
+                                                                                                        "mask": 16,
                                                                                                    "max_value": 1,
-                                                                                                    "shift_by": 13,
+                                                                                                    "shift_by": 4,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ],
@@ -4106,9 +4110,9 @@ docdata["UH-1H"] =
                                                                        "outputs": [ {
                                                                                           "address": 5396,
                                                                                       "description": "selector position",
-                                                                                             "mask": 2048,
+                                                                                             "mask": 32768,
                                                                                         "max_value": 1,
-                                                                                         "shift_by": 11,
+                                                                                         "shift_by": 15,
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
@@ -4136,9 +4140,9 @@ docdata["UH-1H"] =
                                                                        "outputs": [ {
                                                                                           "address": 5396,
                                                                                       "description": "selector position",
-                                                                                             "mask": 1024,
+                                                                                             "mask": 16384,
                                                                                         "max_value": 1,
-                                                                                         "shift_by": 10,
+                                                                                         "shift_by": 14,
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
@@ -4168,9 +4172,9 @@ docdata["UH-1H"] =
                                                                      "outputs": [ {
                                                                                         "address": 5404,
                                                                                     "description": "selector position",
-                                                                                           "mask": 128,
+                                                                                           "mask": 16384,
                                                                                       "max_value": 1,
-                                                                                       "shift_by": 7,
+                                                                                       "shift_by": 14,
                                                                                          "suffix": "",
                                                                                            "type": "integer"
                                                                                 } ],
@@ -4198,9 +4202,9 @@ docdata["UH-1H"] =
                                                                      "outputs": [ {
                                                                                         "address": 5404,
                                                                                     "description": "selector position",
-                                                                                           "mask": 256,
+                                                                                           "mask": 32768,
                                                                                       "max_value": 1,
-                                                                                       "shift_by": 8,
+                                                                                       "shift_by": 15,
                                                                                          "suffix": "",
                                                                                            "type": "integer"
                                                                                 } ],
@@ -4468,11 +4472,11 @@ docdata["UH-1H"] =
                                                                          "identifier": "EXT_POSITION_LIGHT_LEFT",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 5404,
+                                                                                               "address": 5416,
                                                                                            "description": "Left Position Light (red)",
-                                                                                                  "mask": 512,
+                                                                                                  "mask": 1,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 9,
+                                                                                              "shift_by": 0,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -4484,11 +4488,11 @@ docdata["UH-1H"] =
                                                                          "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 5404,
+                                                                                               "address": 5416,
                                                                                            "description": "Right Position Light (green)",
-                                                                                                  "mask": 1024,
+                                                                                                  "mask": 2,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 10,
+                                                                                              "shift_by": 1,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -4500,11 +4504,11 @@ docdata["UH-1H"] =
                                                                          "identifier": "EXT_STROBE",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 5404,
+                                                                                               "address": 5416,
                                                                                            "description": "Strobe Light",
-                                                                                                  "mask": 2048,
+                                                                                                  "mask": 4,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 11,
+                                                                                              "shift_by": 2,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -4516,11 +4520,11 @@ docdata["UH-1H"] =
                                                                          "identifier": "EXT_WOW_SKID",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 5404,
+                                                                                               "address": 5416,
                                                                                            "description": "Weight ON Skids",
-                                                                                                  "mask": 4096,
+                                                                                                  "mask": 8,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 12,
+                                                                                              "shift_by": 3,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -4548,9 +4552,9 @@ docdata["UH-1H"] =
                                                                            "outputs": [ {
                                                                                               "address": 5396,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 8,
+                                                                                                 "mask": 1024,
                                                                                             "max_value": 1,
-                                                                                             "shift_by": 3,
+                                                                                             "shift_by": 10,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -4648,9 +4652,9 @@ docdata["UH-1H"] =
                                                                            "outputs": [ {
                                                                                               "address": 5396,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 6,
+                                                                                                 "mask": 768,
                                                                                             "max_value": 2,
-                                                                                             "shift_by": 1,
+                                                                                             "shift_by": 8,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -4677,9 +4681,9 @@ docdata["UH-1H"] =
                                                                            "outputs": [ {
                                                                                               "address": 5396,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 16,
+                                                                                                 "mask": 2048,
                                                                                             "max_value": 1,
-                                                                                             "shift_by": 4,
+                                                                                             "shift_by": 11,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
@@ -4722,11 +4726,11 @@ docdata["UH-1H"] =
                                                                                         } ],
                                                                  "momentary_positions": "none",
                                                                              "outputs": [ {
-                                                                                                "address": 5372,
+                                                                                                "address": 5376,
                                                                                             "description": "selector position",
-                                                                                                   "mask": 32768,
+                                                                                                   "mask": 1024,
                                                                                               "max_value": 1,
-                                                                                               "shift_by": 15,
+                                                                                               "shift_by": 10,
                                                                                                  "suffix": "",
                                                                                                    "type": "integer"
                                                                                         } ],
@@ -4837,11 +4841,11 @@ docdata["UH-1H"] =
                                                                                         } ],
                                                                  "momentary_positions": "none",
                                                                              "outputs": [ {
-                                                                                                "address": 5356,
+                                                                                                "address": 5370,
                                                                                             "description": "selector position",
-                                                                                                   "mask": 256,
+                                                                                                   "mask": 1,
                                                                                               "max_value": 1,
-                                                                                               "shift_by": 8,
+                                                                                               "shift_by": 0,
                                                                                                  "suffix": "",
                                                                                                    "type": "integer"
                                                                                         } ],
@@ -5181,11 +5185,11 @@ docdata["UH-1H"] =
                                                                                         } ],
                                                                  "momentary_positions": "none",
                                                                              "outputs": [ {
-                                                                                                "address": 5388,
+                                                                                                "address": 5376,
                                                                                             "description": "selector position",
-                                                                                                   "mask": 8,
+                                                                                                   "mask": 2048,
                                                                                               "max_value": 1,
-                                                                                               "shift_by": 3,
+                                                                                               "shift_by": 11,
                                                                                                  "suffix": "",
                                                                                                    "type": "integer"
                                                                                         } ],
@@ -5349,9 +5353,9 @@ docdata["UH-1H"] =
                                                                              "outputs": [ {
                                                                                                 "address": 5404,
                                                                                             "description": "selector position",
-                                                                                                   "mask": 32,
+                                                                                                   "mask": 4096,
                                                                                               "max_value": 1,
-                                                                                               "shift_by": 5,
+                                                                                               "shift_by": 12,
                                                                                                  "suffix": "",
                                                                                                    "type": "integer"
                                                                                         } ],
@@ -5810,6 +5814,264 @@ docdata["UH-1H"] =
                                                                                      "type": "integer"
                                                                           } ]
                                                       }
+                                   },
+                         "Gauges": {
+                                        "AC_GEN1_CURRENT": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "AC GEN 1 Current",
+                                                                 "identifier": "AC_GEN1_CURRENT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5134,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                        "AC_GEN2_CURRENT": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "AC GEN 2 Current",
+                                                                 "identifier": "AC_GEN2_CURRENT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5136,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                             "AC_VOLTAGE": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "AC Voltage",
+                                                                 "identifier": "AC_VOLTAGE",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5122,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                        "ADI_PITCH_SHIFT": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "Attitude Pitch Shift",
+                                                                 "identifier": "ADI_PITCH_SHIFT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5266,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                           "ANTI_ICE_AMP": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "Anti-Ice Amperemeter",
+                                                                 "identifier": "ANTI_ICE_AMP",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5138,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                        "DC_BAT1_CURRENT": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "DC Battery 1 Current",
+                                                                 "identifier": "DC_BAT1_CURRENT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5124,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                        "DC_BAT2_CURRENT": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "DC Battery 2 Current",
+                                                                 "identifier": "DC_BAT2_CURRENT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5126,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                             "DC_VOLTAGE": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "DC Voltage",
+                                                                 "identifier": "DC_VOLTAGE",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5120,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                         "DC_VU1_CURRENT": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "DC VU 1 Current",
+                                                                 "identifier": "DC_VU1_CURRENT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5128,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                         "DC_VU2_CURRENT": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "DC VU 2 Current",
+                                                                 "identifier": "DC_VU2_CURRENT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5130,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                         "DC_VU3_CURRENT": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "DC VU 3 Current",
+                                                                 "identifier": "DC_VU3_CURRENT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5132,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                               "IAS_NOSE": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "IAS Front",
+                                                                 "identifier": "IAS_NOSE",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5212,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                               "IAS_ROOF": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "IAS Roof",
+                                                                 "identifier": "IAS_ROOF",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5214,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                          "MARKER_BEACON": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "Marker Beacon",
+                                                                 "identifier": "MARKER_BEACON",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5268,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                               "RAM_TEMP": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "RamTemp",
+                                                                 "identifier": "RAM_TEMP",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5280,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                       "SIGHTS_FOR_CIVIL": {
+                                                                   "category": "Gauges",
+                                                               "control_type": "analog_gauge",
+                                                                "description": "SIGHTS_FOR_CIVIL / controllers.Civil_Heli",
+                                                                 "identifier": "SIGHTS_FOR_CIVIL",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 5414,
+                                                                                   "description": "gauge position",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           }
                                    },
                             "IFF": {
                                                   "IFF_CODE": {
@@ -6651,11 +6913,11 @@ docdata["UH-1H"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 5372,
+                                                                                             "address": 5370,
                                                                                          "description": "selector position",
-                                                                                                "mask": 128,
+                                                                                                "mask": 32768,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 7,
+                                                                                            "shift_by": 15,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -6676,11 +6938,11 @@ docdata["UH-1H"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 5388,
+                                                                                             "address": 5376,
                                                                                          "description": "selector position",
-                                                                                                "mask": 7,
+                                                                                                "mask": 896,
                                                                                            "max_value": 4,
-                                                                                            "shift_by": 0,
+                                                                                            "shift_by": 7,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -6702,7 +6964,7 @@ docdata["UH-1H"] =
                                                                                   "suggested_step": 3200
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                      "address": 5376,
+                                                                                      "address": 5378,
                                                                                   "description": "position of the potentiometer",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -6727,7 +6989,7 @@ docdata["UH-1H"] =
                                                                                   "suggested_step": 3200
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                      "address": 5384,
+                                                                                      "address": 5386,
                                                                                   "description": "position of the potentiometer",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -6752,7 +7014,7 @@ docdata["UH-1H"] =
                                                                                   "suggested_step": 3200
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                      "address": 5382,
+                                                                                      "address": 5384,
                                                                                   "description": "position of the potentiometer",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -6777,7 +7039,7 @@ docdata["UH-1H"] =
                                                                                   "suggested_step": 3200
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                      "address": 5378,
+                                                                                      "address": 5380,
                                                                                   "description": "position of the potentiometer",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -6802,7 +7064,7 @@ docdata["UH-1H"] =
                                                                                   "suggested_step": 3200
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                      "address": 5386,
+                                                                                      "address": 5388,
                                                                                   "description": "position of the potentiometer",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -6827,7 +7089,7 @@ docdata["UH-1H"] =
                                                                                   "suggested_step": 3200
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                      "address": 5380,
+                                                                                      "address": 5382,
                                                                                   "description": "position of the potentiometer",
                                                                                          "mask": 65535,
                                                                                     "max_value": 65535,
@@ -6851,11 +7113,11 @@ docdata["UH-1H"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 5372,
+                                                                                             "address": 5376,
                                                                                          "description": "selector position",
-                                                                                                "mask": 24576,
+                                                                                                "mask": 96,
                                                                                            "max_value": 2,
-                                                                                            "shift_by": 13,
+                                                                                            "shift_by": 5,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -6930,11 +7192,11 @@ docdata["UH-1H"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 5372,
+                                                                                             "address": 5370,
                                                                                          "description": "selector position",
-                                                                                                "mask": 96,
+                                                                                                "mask": 12288,
                                                                                            "max_value": 2,
-                                                                                            "shift_by": 5,
+                                                                                            "shift_by": 12,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -6955,11 +7217,11 @@ docdata["UH-1H"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 5372,
+                                                                                             "address": 5370,
                                                                                          "description": "selector position",
-                                                                                                "mask": 28,
+                                                                                                "mask": 3584,
                                                                                            "max_value": 5,
-                                                                                            "shift_by": 2,
+                                                                                            "shift_by": 9,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -7013,11 +7275,11 @@ docdata["UH-1H"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 5356,
+                                                                                             "address": 5370,
                                                                                          "description": "selector position",
-                                                                                                "mask": 32768,
+                                                                                                "mask": 16384,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 15,
+                                                                                            "shift_by": 14,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -7044,9 +7306,9 @@ docdata["UH-1H"] =
                                                                           "outputs": [ {
                                                                                              "address": 5404,
                                                                                          "description": "selector position",
-                                                                                                "mask": 16,
+                                                                                                "mask": 2048,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 4,
+                                                                                            "shift_by": 11,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -7069,9 +7331,9 @@ docdata["UH-1H"] =
                                                                           "outputs": [ {
                                                                                              "address": 5396,
                                                                                          "description": "selector position",
-                                                                                                "mask": 96,
+                                                                                                "mask": 12288,
                                                                                            "max_value": 2,
-                                                                                            "shift_by": 5,
+                                                                                            "shift_by": 12,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -7088,11 +7350,11 @@ docdata["UH-1H"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 5396,
+                                                                                             "address": 5404,
                                                                                          "description": "selector position",
-                                                                                                "mask": 896,
+                                                                                                "mask": 7,
                                                                                            "max_value": 4,
-                                                                                            "shift_by": 7,
+                                                                                            "shift_by": 0,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -7107,7 +7369,7 @@ docdata["UH-1H"] =
                                                                  "identifier": "RALT_DIGIT_1",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
-                                                                                       "address": 5418,
+                                                                                       "address": 5420,
                                                                                    "description": "gauge position",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65535,
@@ -7123,7 +7385,7 @@ docdata["UH-1H"] =
                                                                  "identifier": "RALT_DIGIT_2",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
-                                                                                       "address": 5420,
+                                                                                       "address": 5422,
                                                                                    "description": "gauge position",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65535,
@@ -7139,7 +7401,7 @@ docdata["UH-1H"] =
                                                                  "identifier": "RALT_DIGIT_3",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
-                                                                                       "address": 5422,
+                                                                                       "address": 5424,
                                                                                    "description": "gauge position",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65535,
@@ -7155,7 +7417,7 @@ docdata["UH-1H"] =
                                                                  "identifier": "RALT_DIGIT_4",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
-                                                                                       "address": 5424,
+                                                                                       "address": 5426,
                                                                                    "description": "gauge position",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65535,
@@ -7171,7 +7433,7 @@ docdata["UH-1H"] =
                                                                  "identifier": "RALT_DISPLAY",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
-                                                                                       "address": 5416,
+                                                                                       "address": 5418,
                                                                                    "description": "Radar Altitude Display (Number)",
                                                                                           "mask": 65535,
                                                                                      "max_value": 65000,
@@ -7826,26 +8088,46 @@ docdata["UH-1H"] =
                                                                           } ]
                                                       },
                                         "VHFNAV_KHZ": {
-                                                              "category": "VHF NAV Radio",
-                                                          "control_type": "fixed_step_dial",
-                                                           "description": "VHF NAV KHz Selector",
-                                                            "identifier": "VHFNAV_KHZ",
-                                                                "inputs": [ {
-                                                                              "description": "turn left or right",
-                                                                                "interface": "fixed_step"
-                                                                          } ],
-                                                               "outputs": [  ]
+                                                                     "category": "VHF NAV Radio",
+                                                                 "control_type": "discrete_dial",
+                                                                  "description": "VHF NAV KHz Selector",
+                                                                   "identifier": "VHFNAV_KHZ",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 5356,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 61440,
+                                                                                       "max_value": 10,
+                                                                                        "shift_by": 12,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "infinite_rotary"
                                                       },
                                         "VHFNAV_MHZ": {
-                                                              "category": "VHF NAV Radio",
-                                                          "control_type": "fixed_step_dial",
-                                                           "description": "VHF NAV MHz Selector",
-                                                            "identifier": "VHFNAV_MHZ",
-                                                                "inputs": [ {
-                                                                              "description": "turn left or right",
-                                                                                "interface": "fixed_step"
-                                                                          } ],
-                                                               "outputs": [  ]
+                                                                     "category": "VHF NAV Radio",
+                                                                 "control_type": "discrete_dial",
+                                                                  "description": "VHF NAV MHz Selector",
+                                                                   "identifier": "VHFNAV_MHZ",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 5356,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 3840,
+                                                                                       "max_value": 10,
+                                                                                        "shift_by": 8,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "infinite_rotary"
                                                       },
                                         "VHFNAV_PWR": {
                                                                      "category": "VHF NAV Radio",
@@ -7897,264 +8179,6 @@ docdata["UH-1H"] =
                                                                                      "type": "integer"
                                                                           } ]
                                                       }
-                                   },
-                            "WTF": {
-                                        "AC_GEN1_CURRENT": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "AC GEN 1 Current",
-                                                                 "identifier": "AC_GEN1_CURRENT",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5134,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                        "AC_GEN2_CURRENT": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "AC GEN 2 Current",
-                                                                 "identifier": "AC_GEN2_CURRENT",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5136,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                             "AC_VOLTAGE": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "AC Voltage",
-                                                                 "identifier": "AC_VOLTAGE",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5122,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                        "ADI_PITCH_SHIFT": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "Attitude_PitchShift",
-                                                                 "identifier": "ADI_PITCH_SHIFT",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5266,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                           "ANTI_ICE_AMP": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "Anti-Ice Amperemeter",
-                                                                 "identifier": "ANTI_ICE_AMP",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5138,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                        "DC_BAT1_CURRENT": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "DC Battery 1 Current",
-                                                                 "identifier": "DC_BAT1_CURRENT",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5124,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                        "DC_BAT2_CURRENT": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "DC Battery 2 Current",
-                                                                 "identifier": "DC_BAT2_CURRENT",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5126,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                             "DC_VOLTAGE": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "DC Voltage",
-                                                                 "identifier": "DC_VOLTAGE",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5120,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                         "DC_VU1_CURRENT": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "DC VU 1 Current",
-                                                                 "identifier": "DC_VU1_CURRENT",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5128,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                         "DC_VU2_CURRENT": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "DC VU 2 Current",
-                                                                 "identifier": "DC_VU2_CURRENT",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5130,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                         "DC_VU3_CURRENT": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "DC VU 3 Current",
-                                                                 "identifier": "DC_VU3_CURRENT",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5132,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                               "IAS_NOSE": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "IAS Front",
-                                                                 "identifier": "IAS_NOSE",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5212,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                               "IAS_ROOF": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "IAS Roof",
-                                                                 "identifier": "IAS_ROOF",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5214,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                          "MARKER_BEACON": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "Marker Beacon",
-                                                                 "identifier": "MARKER_BEACON",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5268,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                               "RAM_TEMP": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "RamTemp",
-                                                                 "identifier": "RAM_TEMP",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5280,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                       "SIGHTS_FOR_CIVIL": {
-                                                                   "category": "WTF",
-                                                               "control_type": "analog_gauge",
-                                                                "description": "SIGHTS_FOR_CIVIL / controllers.Civil_Heli",
-                                                                 "identifier": "SIGHTS_FOR_CIVIL",
-                                                                     "inputs": [  ],
-                                                                    "outputs": [ {
-                                                                                       "address": 5414,
-                                                                                   "description": "gauge position",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           }
                                    },
               "Windshield Wipers": {
                                        "WIPER_O": {

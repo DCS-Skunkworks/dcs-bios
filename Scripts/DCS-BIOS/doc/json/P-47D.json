@@ -1133,6 +1133,35 @@
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
+                                                                 },
+                                                   "STICK_HIDE": {
+                                                                                "category": "Cockpit",
+                                                                            "control_type": "selector",
+                                                                             "description": "Hide Stick Toggle",
+                                                                              "identifier": "STICK_HIDE",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 21060,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 16,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 4,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
                                                                  }
                                             },
                                     "Deck": {
@@ -1508,9 +1537,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 21060,
                                                                                                     "description": "Landing Light (white)",
-                                                                                                           "mask": 1024,
+                                                                                                           "mask": 2048,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 10,
+                                                                                                       "shift_by": 11,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -1524,9 +1553,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 21060,
                                                                                                     "description": "Left Position Light (red)",
-                                                                                                           "mask": 16,
+                                                                                                           "mask": 32,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 4,
+                                                                                                       "shift_by": 5,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -1540,9 +1569,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 21060,
                                                                                                     "description": "Right Position Light (green)",
-                                                                                                           "mask": 32,
+                                                                                                           "mask": 64,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 5,
+                                                                                                       "shift_by": 6,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -1556,9 +1585,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 21060,
                                                                                                     "description": "Tail Position Light (white)",
-                                                                                                           "mask": 64,
+                                                                                                           "mask": 128,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 6,
+                                                                                                       "shift_by": 7,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -1572,9 +1601,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 21060,
                                                                                                     "description": "Green Recognition Light (green)",
-                                                                                                           "mask": 256,
+                                                                                                           "mask": 512,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 8,
+                                                                                                       "shift_by": 9,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -1588,9 +1617,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 21060,
                                                                                                     "description": "Red Recognition Light (red)",
-                                                                                                           "mask": 128,
+                                                                                                           "mask": 256,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 7,
+                                                                                                       "shift_by": 8,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -1604,9 +1633,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 21060,
                                                                                                     "description": "Amber Recognition Light (yellow)",
-                                                                                                           "mask": 512,
+                                                                                                           "mask": 1024,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 9,
+                                                                                                       "shift_by": 10,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -1620,9 +1649,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 21060,
                                                                                                     "description": "Weight ON Wheels Left Gear",
-                                                                                                           "mask": 8192,
+                                                                                                           "mask": 16384,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 13,
+                                                                                                       "shift_by": 14,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -1636,9 +1665,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 21060,
                                                                                                     "description": "Weight ON Wheels Right Gear",
-                                                                                                           "mask": 4096,
+                                                                                                           "mask": 8192,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 12,
+                                                                                                       "shift_by": 13,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -1652,9 +1681,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 21060,
                                                                                                     "description": "Weight ON Wheels Tail Gear",
-                                                                                                           "mask": 2048,
+                                                                                                           "mask": 4096,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 11,
+                                                                                                       "shift_by": 12,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
