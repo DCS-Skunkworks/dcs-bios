@@ -78,7 +78,7 @@ misstimesec = LoGetMissionStartTime()
 end
 
 local function getVersion()
-	return "0.7.38"
+	return "0.7.39"
 end
 defineString("DCS_BIOS", getVersion, 6,  "Metadata" , "DCS Bios Version")
 
