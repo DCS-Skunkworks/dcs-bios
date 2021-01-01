@@ -530,7 +530,7 @@ defineToggleSwitch("FRONT_HEATING_SS", 3, 3004, 257,"Weapon System", "FRONT CB M
 defineToggleSwitch("FRONT_GLOWING_SS", 3, 3005, 258,"Weapon System", "FRONT CB Missile Seeker Glowing Circuit Power Switch, ON/OFF")
 definePotentiometer("FRONT_MISSILE_VOL", 3, 3006, 259, {0, 1}, "Weapon System", "FRONT Missile Seeker Tone Volume Knob")
 defineToggleSwitch("FRONT_BOMB_EMERG_JETT", 3, 3009, 268,"Weapon System", "FRONT Arm/Safe Bombs Emergency Jettison Switch, LIVE/BLANK")
-defineMultipositionSwitch("FRONT_ROCKET_MODE", 3, 3012, 271, 3, 0.1,"Weapon System", "FRONT Rockets Firing Mode Selector Switch, AUT./2RS/4RS")
+defineTumb("FRONT_ROCKET_MODE", 3, 3012, 271, 0.1, {0.1, 0.3}, nil, true, "Weapon System", "FRONT Rockets Firing Mode Selector Switch, AUT./2RS/4RS")--
 defineToggleSwitch("BACK_BOMB_EMERG_JETT_COVER", 3, 3018, 508,"Weapon System", "BACK Arm/Safe Bombs Emergency Jettison Switch Cover, OPEN/CLOSE")
 define3PosTumb("BACK_BOMB_EMERG_JETT", 3, 3019, 509, "Weapon System", "BACK Arm/Safe Bombs Emergency Jettison Switch, LIVE/BOMBS/BLANK")
 defineToggleSwitch("BACK_EMERG_JETT_COVER", 3, 3020, 506,"Weapon System", "BACK Emergency Jettison Switch Cover, OPEN/CLOSE")
@@ -540,7 +540,7 @@ defineToggleSwitch("FRONT_FLARE_YE", 3, 3017, 274,"Weapon System", "FRONT EKSR-4
 defineToggleSwitch("FRONT_FLARE_GN", 3, 3014, 275,"Weapon System", "FRONT EKSR-46 Green Signal Flare Launch Button")
 defineToggleSwitch("FRONT_FLARE_RD", 3, 3015, 276,"Weapon System", "FRONT EKSR-46 Red Signal Flare Launch Button")
 defineToggleSwitch("FRONT_FLARE_WH", 3, 3016, 277,"Weapon System", "FRONT EKSR-46 White Signal Flare Launch Button")
-defineToggleSwitch("FRONT_BOMB_REL_SEL", 3, 3007, 260,"Weapon System", "FRONT Missile/Bomb Release Selector Switch, PORT(Left)/STARB-BOTH(Right for Missiles/Both)")
+defineTumb("FRONT_BOMB_REL_SEL", 3, 3007, 260, 2, {-1, 1}, nil, false, "Weapon System", "FRONT Missile/Bomb Release Selector Switch, PORT(Left)/STARB-BOTH(Right for Missiles/Both)")
 defineToggleSwitch("L39ZA_FRONT_GUN_SW_COVER", 3, 3041, 582,"Weapon System", "L-39ZA FRONT Gun+PK3 Switch Cover, OPEN/CLOSE")
 defineToggleSwitch("L39ZA_FRONT_GUN_SW", 3, 3042, 583,"Weapon System", "L-39ZA FRONT Gun+PK3 Switch")
 defineToggleSwitch("L39ZA_FRONT_IN_EMERG_JETT_COVER", 3, 3043, 589,"Weapon System", "L-39ZA FRONT Emergency Jettison Inboard Stations Switch Cover, OPEN/CLOSE")
