@@ -19,7 +19,6 @@ local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
 local defineString = BIOS.util.defineString
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
-
 -- remove Pilot Arg# 540 / Hide Stick Arg# 1005
 
 local function defineLedPushButton(msg, device_id, device_command, arg_number, category, description)
@@ -523,8 +522,7 @@ defineLedPushButton("WEAPONS_FORWARD_HEMI_TARGET_BTN", 12, 3012, 439, "Targeting
 definePushButtonLed("WEAPONS_FORWARD_HEMI_TARGET_LED", 439, "Targeting Mode Control Panel", "Head-on airborne target LED")
 defineLedPushButton("WEAPONS_GROUND_TARGET_BTN", 12, 3013, 440, "Targeting Mode Control Panel", "Ground moving target button")
 definePushButtonLed("WEAPONS_GROUND_TARGET_LED", 440, "Targeting Mode Control Panel", "Ground moving target LED")
-defineLedPushButton("WEAPONS_TARGET_RESET_BTN", 12, 3016, 441, "Targeting Mode Control Panel", "Targeting mode reset button")
--- not working properly: WEAPONS_TARGET_RESET_LED
+defineTumb("WEAPONS_TARGET_RESET_BTN", 12, 3016, 441, 0.6, {0, 0.6}, nil, false, "Targeting Mode Control Panel", "Targeting mode reset button")
 definePushButtonLed("WEAPONS_TARGET_RESET_LED", 441, "Targeting Mode Control Panel", "Targeting mode reset LED")
 defineToggleSwitch("WEAPONS_TRAINING_MODE", 12, 3009, 432, "Targeting Mode Control Panel", "Training mode switch")
 defineToggleSwitch("K041_POWER", 59, 3002, 433, "Targeting Mode Control Panel", "K-041 power switch")
@@ -553,7 +551,6 @@ defineToggleSwitch("ENG_R_CUTOFF_VLV_HANDLE", 4, 3010, 555, "Engines Cut-Off Val
 define8BitFloat("ENG_L_CUTOFF_VLV_HANDLE_POS", 554, {0, 1}, "Engines Cut-Off Valves", "Left engine cut-off valve handle pos")
 define8BitFloat("ENG_R_CUTOFF_VLV_HANDLE_POS", 555, {0, 1}, "Engines Cut-Off Valves", "Right engine cut-off valve handle pos")
 defineToggleSwitch("ENG_ROTOR_BREAK", 4, 3011, 556, "Engines Cut-Off Valves", "Rotor break")
-
 
 ---------------------------------------------------------------------
 -- Right Panel
