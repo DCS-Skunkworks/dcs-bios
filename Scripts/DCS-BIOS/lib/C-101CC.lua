@@ -19,6 +19,8 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local define3Pos2CommandSwitchWW2 = BIOS.util.define3Pos2CommandSwitchWW2
+local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
+local defineRadioWheel = BIOS.util.defineRadioWheel
 
 -- remove Arg# Pilot 1000 / Instructor 1002 / Hide Stick Front 309 Back 312
 
@@ -444,10 +446,10 @@ definePotentiometer("CC_BACK_FD_BRIGHT", 1, 3661, 916, {0, 1}, "Flight Director"
 
 -- V/UHF RADIO
 defineMultipositionSwitch("CC_FRONT_UHF_SEL100", 11, 3002, 226, 3, 0.1,"UHF Radio" ,"C-101CC FRONT UHF Radio 100 MHz Selector")
-defineMultipositionSwitch("CC_FRONT_UHF_SEL10", 11,3003,227,11,0.1,"UHF Radio" ,"C-101CC FRONT UHF Radio 10 MHz Selector")
-defineMultipositionSwitch("CC_FRONT_UHF_SEL1", 11,3004,228,11,0.1,"UHF Radio" ,"C-101CC FRONT UHF Radio 1 MHz Selector")
-defineMultipositionSwitch("CC_FRONT_UHF_SEL01", 11,3005,229,11,0.1,"UHF Radio" ,"C-101CC FRONT UHF Radio 0.1 MHz Selector")
-defineMultipositionSwitch("CC_FRONT_UHF_SEL0025", 11,3006,230,5,0.25,"UHF Radio" ,"C-101CC FRONT UHF Radio 0.025 MHz Selector")
+defineFixedStepTumb("CC_FRONT_UHF_SEL10", 11,3003,227, 0.1, {0, 1}, {-1, 1}, nil, "UHF Radio" ,"C-101CC FRONT UHF Radio 10 MHz Selector")
+defineFixedStepTumb("CC_FRONT_UHF_SEL1", 11,3004,228, 0.1, {0, 1}, {-1, 1}, nil, "UHF Radio" ,"C-101CC FRONT UHF Radio 1 MHz Selector")
+defineFixedStepTumb("CC_FRONT_UHF_SEL01", 11,3005,229, 0.1, {0, 1}, {-1, 1}, nil, "UHF Radio" ,"C-101CC FRONT UHF Radio 0.1 MHz Selector")
+defineFixedStepTumb("CC_FRONT_UHF_SEL0025", 11,3006,230, 0.25, {0, 1}, {-1, 1}, {"00", "25", "50", "75", "00"}, "UHF Radio" ,"C-101CC FRONT UHF Radio 0.025 MHz Selector")
 defineMultipositionSwitch("CC_FRONT_UHF_PRESET", 11,3011,231,21,0.05,"UHF Radio" ,"C-101CC FRONT UHF Radio Preset Channel Selector")
 defineMultipositionSwitch("CC_FRONT_UHF_FUNCT", 11,3007,232,4,0.1,"UHF Radio" ,"C-101CC FRONT UHF Radio Function Dial")
 defineMultipositionSwitch("CC_FRONT_UHF_FREQU", 11,3008,233,3,0.5,"UHF Radio" ,"C-101CC FRONT UHF Radio Frequency Mode Dial")
@@ -455,10 +457,10 @@ defineToggleSwitch("CC_FRONT_UHF_TEST", 11, 3001, 234, "UHF Radio", "C-101CC FRO
 defineToggleSwitch("CC_FRONT_UHF_SQL", 11, 3009, 236, "UHF Radio", "C-101CC FRONT UHF Radio Squelch Switch")
 defineToggleSwitch("CC_FRONT_UHF_POWER", 11, 3010, 235, "UHF Radio", "C-101CC FRONT UHF Radio Power Transmit Selector Switch")
 defineMultipositionSwitch("CC_BACK_UHF_SEL100", 11,3022,862,3,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio 100 MHz Selector")
-defineMultipositionSwitch("CC_BACK_UHF_SEL10", 11,3023,863,11,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio 10 MHz Selector")
-defineMultipositionSwitch("CC_BACK_UHF_SEL1", 11,3024,864,11,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio 1 MHz Selector")
-defineMultipositionSwitch("CC_BACK_UHF_SEL01", 11,3025,865,11,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio 0.1 MHz Selector")
-defineMultipositionSwitch("CC_BACK_UHF_SEL0025", 11,3026,866,5,0.25,"UHF Radio" ,"C-101CC BACK UHF Radio 0.025 MHz Selector")
+defineFixedStepTumb("CC_BACK_UHF_SEL10", 11,3003,227, 0.1, {0, 1}, {-1, 1}, nil, "UHF Radio" ,"C-101CC BACK UHF Radio 10 MHz Selector")
+defineFixedStepTumb("CC_BACK_UHF_SEL1", 11,3004,228, 0.1, {0, 1}, {-1, 1}, nil, "UHF Radio" ,"C-101CC BACK UHF Radio 1 MHz Selector")
+defineFixedStepTumb("CC_BACK_UHF_SEL01", 11,3005,229, 0.1, {0, 1}, {-1, 1}, nil, "UHF Radio" ,"C-101CC BACK UHF Radio 0.1 MHz Selector")
+defineFixedStepTumb("CC_BACK_UHF_SEL0025", 11,3006,230, 0.25, {0, 1}, {-1, 1}, {"00", "25", "50", "75", "00"}, "UHF Radio" ,"C-101CC BACK UHF Radio 0.025 MHz Selector")
 defineMultipositionSwitch("CC_BACK_UHF_PRESET", 11,3031,867,21,0.05,"UHF Radio" ,"C-101CC BACK UHF Radio Preset Channel Selector")
 defineMultipositionSwitch("CC_BACK_UHF_FUNCT", 11,3027,868,4,0.1,"UHF Radio" ,"C-101CC BACK UHF Radio Function Dial")
 defineMultipositionSwitch("CC_BACK_UHF_FREQU", 11,3028,869,3,0.5,"UHF Radio" ,"C-101CC BACK UHF Radio Frequency Mode Dial")
@@ -466,25 +468,31 @@ defineToggleSwitch("CC_BACK_UHF_TEST", 11, 3021, 875, "UHF Radio", "C-101CC BACK
 defineToggleSwitch("CC_BACK_UHF_SQL", 11, 3029,872, "UHF Radio", "C-101CC BACK UHF Radio Squelch Switch")
 defineToggleSwitch("CC_BACK_UHF_POWER", 11, 3030,876, "UHF Radio", "C-101CC BACK UHF Radio Power Transmit Selector Switch")	
 
--- VHF COMM/NAV
+-- VHF COMM/NAV 
 defineMultipositionSwitch("CC_FRONT_VHF_COMM_PW", 10, 3004,653,3,0.5,"VHF" ,"C-101CC FRONT VHF COMM Switch OFF/PWR/TEST")
-defineMultipositionSwitch("CC_FRONT_VHF_COMM_FREQ_100", 10, 3001,640,35,0.01,"VHF" ,"C-101CC FRONT VHF COMM Frequency Control 100 MHz")
+
+--defineMultipositionSwitch("CC_FRONT_VHF_COMM_FREQ_100", 10, 3001,640,35,0.01,"VHF" ,"C-101CC FRONT VHF COMM Frequency Control 100 MHz")--issue
+defineRadioWheel("CC_FRONT_VHF_COMM_FREQ_100", 10, 3001, 3001, {-0.1, 0.1}, 640, 0.1, {0, 0.35}, nil, "VHF" ,"C-101CC FRONT VHF COMM Frequency Control 100 MHz")
+
 definePotentiometer("CC_FRONT_VHF_COMM_VOL", 10, 3003, 655, {0, 1}, "VHF", "C-101CC FRONT VHF COMM Volume Control")	
-defineMultipositionSwitch("CC_FRONT_VHF_COMM_FREQ_10", 10, 3002,641,40,0.025,"VHF" ,"C-101CC FRONT VHF COMM Frequency Control 10 kHz")
+defineRadioWheel("CC_FRONT_VHF_COMM_FREQ_10", 10, 3002, 3002, {-0.025, 0.025}, 641, 0.025, {0, 1.0}, nil, "VHF" ,"C-101CC FRONT VHF COMM Frequency Control 10 kHz")
 define3PosTumb("CC_FRONT_VHF_NAV_TEST", 1, 3355,650, "VHF", "C-101CC FRONT VHF NAV Test Switch")
 defineMultipositionSwitch("CC_FRONT_VHF_NAV_CONTROL", 12,3004,657,5,0.25,"VHF" ,"C-101CC FRONT VHF NAV Control Switch")
-defineMultipositionSwitch("CC_FRONT_VHF_NAV_FREQ_1", 12,3001,645,35,0.01,"VHF" ,"C-101CC FRONT VHF NAV Frequency Control 1 MHz")
+
+--defineMultipositionSwitch("CC_FRONT_VHF_NAV_FREQ_1", 12,3001,645,35,0.01,"VHF" ,"C-101CC FRONT VHF NAV Frequency Control 1 MHz")--issue
+defineRadioWheel("CC_FRONT_VHF_NAV_FREQ_1", 12, 3001, 3001, {-0.1, 0.1}, 645, 0.1, {0, 0.35}, nil, "VHF" ,"C-101CC FRONT VHF NAV Frequency Control 1 MHz")
+
 definePotentiometer("CC_FRONT_VHF_NAV_VOL", 12, 3003, 659, {0, 1}, "VHF", "C-101CC FRONT VHF NAV Volume Control")	
-defineMultipositionSwitch("CC_FRONT_VHF_NAV_FREQ_50", 12,3002,646,40,0.025,"VHF" ,"C-101CC FRONT VHF NAV Frequency Control 50 kHz")
+defineRadioWheel("CC_FRONT_VHF_NAV_FREQ_50", 12, 3002, 3002, {-0.025, 0.025}, 646, 0.025, {0, 1.0}, nil, "VHF" ,"C-101CC FRONT VHF NAV Frequency Control 50 kHz")
 defineMultipositionSwitch("CC_BACK_VHF_COMM_PW", 10,3014,917,3,0.5,"VHF" ,"C-101CC BACK VHF COMM Switch OFF/PWR/TEST")
 defineMultipositionSwitch("CC_BACK_VHF_COMM_FREQ_1", 10,3001,904,35,0.01,"VHF" ,"C-101CC BACK VHF COMM Frequency Control 1 MHz")
 definePotentiometer("CC_BACK_VHF_COMM_VOL", 10, 3003, 919, {0, 1}, "VHF", "C-101CC BACK VHF COMM Volume Control")	
-defineMultipositionSwitch("CC_BACK_VHF_COMM_FREQ_10", 10,3002,905,40,0.025,"VHF" ,"C-101CC BACK VHF COMM Frequency Control 0.025 MHz")
+defineRadioWheel("CC_BACK_VHF_COMM_FREQ_10", 10, 3002, 3002, {-0.025, 0.025}, 905, 0.025, {0, 1.0}, nil, "VHF" ,"C-101CC BACK VHF COMM Frequency Control 0.025 MHz")
 defineToggleSwitch("CC_BACK_VHF_NAV_TEST", 1, 3628,915, "VHF", "C-101CC BACK VHF NAV Test Switch")
 defineMultipositionSwitch("CC_BACK_VHF_NAV_CONTROL", 12,3014,921,5,0.25,"VHF" ,"C-101CC BACK VHF NAV Control Switch")
 defineMultipositionSwitch("CC_BACK_VHF_NAV_FREQ_1", 12,3011,906,35,0.01,"VHF" ,"C-101CC BACK VHF NAV Frequency Control 1 MHz")
 definePotentiometer("CC_BACK_VHF_NAV_VOL", 12, 3013, 923, {0, 1}, "VHF", "C-101CC BACK VHF NAV Volume Control")	
-defineMultipositionSwitch("CC_BACK_VHF_NAV_FREQ_50", 12,3012,907,40,0.025,"VHF" ,"C-101CC BACK VHF NAV Frequency Control 50 kHz")
+defineRadioWheel("CC_BACK_VHF_NAV_FREQ_50", 12, 3012, 3012, {-0.025, 0.025}, 907, 0.025, {0, 1.0}, nil, "VHF" ,"C-101CC BACK VHF NAV Frequency Control 50 kHz")
 
 -- INTERCOM PANEL
 definePushButton("CC_FRONT_INTER_ADF_BTN", 6, 3014, 849, "Intercom", "C-101CC FRONT Intercom ADF Switch (push)")
@@ -534,12 +542,12 @@ definePushButton("CC_FRONT_BACK_EMERG_JETT", 1,3639,597, "SCAR", "C-101CC BACK S
 definePushButton("CC_FRONT_BACK_LIGHT_TEST", 1,3640,598, "SCAR", "C-101CC BACK SCAR Light Test")
 
 -- COLIMADOR
-definePotentiometer("CC_FRONT_HUD_SIGHT_BRIGHT", 1,3310,722, {0, 1}, "Colimador", "C-101CC FRONT Sight Brightness")
-defineMultipositionSwitch("CC_FRONT_HUD_VIDEO", 1,3312,720,3,0.5,"Colimador" ,"C-101CC FRONT Video ON/STB/OFF")
-defineMultipositionSwitch("CC_FRONT_HUD_DEPRESS_0XX", 1,3314,587,10,0.1,"Colimador" ,"C-101CC FRONT HUD Depression 0XX")
-defineMultipositionSwitch("CC_FRONT_HUD_DEPRESS_X0X", 1,3315,588,10,0.1,"Colimador" ,"C-101CC FRONT HUD Depression X0X")
-defineMultipositionSwitch("CC_FRONT_HUD_DEPRESS_XX0", 1,3316,589,10,0.1,"Colimador" ,"C-101CC FRONT HUD Depression XX0")
-defineMultipositionSwitch("CC_FRONT_HUD_DEPRESS_MODE", 1,3317,590,3,0.5,"Colimador" ,"C-101CC FRONT HUD Depression AUTO/MAN/TEST")
+definePotentiometer("CC_FRONT_HUD_SIGHT_BRIGHT", 1, 3310, 722, {0, 1}, "Colimador", "C-101CC FRONT Sight Brightness")
+defineMultipositionSwitch("CC_FRONT_HUD_VIDEO", 1, 3312, 720, 3, 0.5, "Colimador" ,"C-101CC FRONT Video ON/STB/OFF")
+defineTumb("CC_FRONT_HUD_DEPRESS_0XX", 1, 3314, 587, 0.1, {0, 0.2}, nil, false, "Colimador" ,"C-101CC FRONT HUD Depression 0XX")
+defineFixedStepTumb("CC_FRONT_HUD_DEPRESS_X0X", 1, 3315, 588, 0.1, {0, 1}, {-1, 1}, nil, "Colimador" ,"C-101CC FRONT HUD Depression X0X")
+defineFixedStepTumb("CC_FRONT_HUD_DEPRESS_XX0", 1, 3316, 589, 0.1, {0, 1}, {-1, 1}, nil, "Colimador" ,"C-101CC FRONT HUD Depression XX0")
+defineMultipositionSwitch("CC_FRONT_HUD_DEPRESS_MODE", 1, 3317, 590, 3, 0.5, "Colimador" ,"C-101CC FRONT HUD Depression AUTO/MAN/TEST")
 defineToggleSwitch("CC_FRONT_HUD_SIGHT", 1,3318,591, "Colimador", "C-101CC FRONT Optical Sight ON/OFF")
 definePotentiometer("CC_BACK_HUD_SIGHT_BRIGHT", 1,3654,713, {0, 1}, "Colimador", "C-101CC BACK Sight Brightness")
 
@@ -572,23 +580,24 @@ defineMultipositionSwitch("CC_FRONT_SCAR_BOMB_ARM", 1,3257,693,4,0.33,"SCAR" ,"C
 defineMultipositionSwitch("CC_FRONT_SCAR_MODE_SEL", 1,3258,694,8,0.142,"SCAR" ,"C-101CC FRONT SCAR Mode Selector")
 defineMultipositionSwitch("CC_FRONT_SCAR_RIPPLE", 1,3259,695,5,0.25,"SCAR" ,"C-101CC FRONT SCAR Ripple Time")
 defineMultipositionSwitch("CC_FRONT_SCAR_SEL_JETT_SEL", 1,3260,696,4,0.33,"SCAR" ,"C-101CC FRONT SCAR Selective Jettison Selector")
-definePushButton("CC_FRONT_SCAR_SEL_JETT", 1,3261,697, "SCAR", "C-101CC FRONT SCAR Selective Jettison")
-definePushButton("CC_FRONT_SCAR_PYLON_1", 1,3262,542, "SCAR", "C-101CC FRONT SCAR Select Pylon #1")
-definePushButton("CC_FRONT_SCAR_PYLON_2", 1,3263,543, "SCAR", "C-101CC FRONT SCAR Select Pylon #2")
-definePushButton("CC_FRONT_SCAR_PYLON_3", 1,3264,544, "SCAR", "C-101CC FRONT SCAR Select Pylon #3")
-definePushButton("CC_FRONT_SCAR_PYLON_4", 1,3265,545, "SCAR", "C-101CC FRONT SCAR Select Pylon #4")
-definePushButton("CC_FRONT_SCAR_PYLON_5", 1,3266,546, "SCAR", "C-101CC FRONT SCAR Select Pylon #5")
-definePushButton("CC_FRONT_SCAR_PYLON_6", 1,3267,547, "SCAR", "C-101CC FRONT SCAR Select Pylon #6")
+definePushButton("CC_FRONT_SCAR_SEL_JETT", 1, 3261, 697, "SCAR", "C-101CC FRONT SCAR Selective Jettison")
+definePushButton("CC_FRONT_SCAR_PYLON_1", 1, 3262, 542, "SCAR", "C-101CC FRONT SCAR Select Pylon #1")
+definePushButton("CC_FRONT_SCAR_PYLON_2", 1, 3263, 543, "SCAR", "C-101CC FRONT SCAR Select Pylon #2")
+definePushButton("CC_FRONT_SCAR_PYLON_3", 1, 3264, 544, "SCAR", "C-101CC FRONT SCAR Select Pylon #3")
+definePushButton("CC_FRONT_SCAR_PYLON_4", 1, 3265, 545, "SCAR", "C-101CC FRONT SCAR Select Pylon #4")
+definePushButton("CC_FRONT_SCAR_PYLON_5", 1, 3266, 546, "SCAR", "C-101CC FRONT SCAR Select Pylon #5")
+definePushButton("CC_FRONT_SCAR_PYLON_6", 1, 3267, 547, "SCAR", "C-101CC FRONT SCAR Select Pylon #6")
 
 -- ADF
-definePotentiometer("CC_FRONT_ADF_FREQ_L_100", 13,3001,661, {0, 1}, "Misc", "C-101CC FRONT ADF Left Frequency Selector 100 kHz")
-definePotentiometer("CC_FRONT_ADF_FREQ_L_10", 13,3002,662, {0, 1}, "Misc", "C-101CC FRONT ADF Left Frequency Selector 10 kHz")
-definePotentiometer("CC_FRONT_ADF_FREQ_L_05", 13,3003,663, {0, 1}, "Misc", "C-101CC FRONT ADF Left Frequency Selector 0.5 kHz")
-definePotentiometer("CC_FRONT_ADF_FREQ_R_100", 13,3004,666, {0, 1}, "Misc", "C-101CC FRONT ADF Right Frequency Selector 100 kHz")
-definePotentiometer("CC_FRONT_ADF_FREQ_R_10", 13,3005,668, {0, 1}, "Misc", "C-101CC FRONT ADF Right Frequency Selector 10 kHz")
-definePotentiometer("CC_FRONT_ADF_FREQ_R_05", 13,3006,669, {0, 1}, "Misc", "C-101CC FRONT ADF Right Frequency Selector 0.5 kHz")
-defineMultipositionSwitch("CC_FRONT_ADF_FUNC", 13,3007,677,4,0.1,"Misc" ,"C-101CC FRONT ADF Function Selector Switch")
-definePotentiometer("CC_FRONT_ADF_GAIN", 13,3009,678, {0, 1}, "Misc", "C-101CC FRONT ADF Gain Control")
+defineRotary("CC_FRONT_ADF_FREQ_L_100", 13, 3002, 661, "ADF", "C-101CC FRONT ADF Left Frequency Selector 100 kHz")--issue
+defineRotary("CC_FRONT_ADF_FREQ_L_10", 13, 3003, 662, "ADF", "C-101CC FRONT ADF Left Frequency Selector 10 kHz")
+defineRotary("CC_FRONT_ADF_FREQ_L_05", 13, 3004, 663, "ADF", "C-101CC FRONT ADF Left Frequency Selector 0.5 kHz")--issue
+defineRotary("CC_FRONT_ADF_FREQ_R_100", 13, 3005, 666, "ADF", "C-101CC FRONT ADF Right Frequency Selector 100 kHz")--issue
+defineRotary("CC_FRONT_ADF_FREQ_R_10", 13, 3006, 668, "ADF", "C-101CC FRONT ADF Right Frequency Selector 10 kHz")
+defineRotary("CC_FRONT_ADF_FREQ_R_05", 13, 3004, 669, "ADF", "C-101CC FRONT ADF Right Frequency Selector 0.5 kHz")--issue
+
+defineMultipositionSwitch("CC_FRONT_ADF_FUNC", 13,3007,677,4,0.1,"ADF" ,"C-101CC FRONT ADF Function Selector Switch")
+definePotentiometer("CC_FRONT_ADF_GAIN", 13,3009,678, {0, 1}, "ADF", "C-101CC FRONT ADF Gain Control")
 defineToggleSwitch("CC_FRONT_ADF_TONE_SW", 13, 3010, 679, "ADF", "C-101CC FRONT ADF Tone Switch")
 defineToggleSwitch("CC_FRONT_ADF_TRANS_SW", 13, 3011, 680, "ADF", "C-101CC FRONT ADF Transfer Switch")
 
@@ -695,11 +704,11 @@ defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_XXX0XX", 10,3013,929,10,0.1,"VHF
 defineMultipositionSwitch("EB_BACK_VHF_NAV_FREQ_XXXX00", 10,3014,930,4,0.25,"VHF" ,"C-101EB BACK VHF COMM Frequency Selector (XXX.X00)")
 
 -- UHF RADIO
-defineMultipositionSwitch("EB_FRONT_UHF_SEL100", 11, 3002, 226, 2, 0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 100 MHz Selector")
-defineMultipositionSwitch("EB_FRONT_UHF_SEL10", 11,3003,227,10,0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 10 MHz Selector")
-defineMultipositionSwitch("EB_FRONT_UHF_SEL1", 11,3004,228,10,0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 1 MHz Selector")
-defineMultipositionSwitch("EB_FRONT_UHF_SEL01", 11,3005,229,10,0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 0.1 MHz Selector")
-defineMultipositionSwitch("EB_FRONT_UHF_SEL0025", 11,3006,230,4,0.25,"UHF Radio" ,"C-101EB FRONT UHF Radio 0.025 MHz Selector")
+defineMultipositionSwitch("EB_FRONT_UHF_SEL100", 11, 3002, 226, 3, 0.1,"UHF Radio" ,"C-101EB FRONT UHF Radio 100 MHz Selector")
+defineFixedStepTumb("EB_FRONT_UHF_SEL10", 11,3003,227, 0.1, {0, 1}, {-1, 1}, nil, "UHF Radio" ,"C-101EB FRONT UHF Radio 10 MHz Selector")
+defineFixedStepTumb("EB_FRONT_UHF_SEL1", 11,3004,228, 0.1, {0, 1}, {-1, 1}, nil, "UHF Radio" ,"C-101EB FRONT UHF Radio 1 MHz Selector")
+defineFixedStepTumb("EB_FRONT_UHF_SEL01", 11,3005,229, 0.1, {0, 1}, {-1, 1}, nil, "UHF Radio" ,"C-101EB FRONT UHF Radio 0.1 MHz Selector")
+defineFixedStepTumb("EB_FRONT_UHF_SEL0025", 11,3006,230, 0.25, {0, 1}, {-1, 1}, {"00", "25", "50", "75", "00"}, "UHF Radio" ,"C-101EB FRONT UHF Radio 0.025 MHz Selector")
 defineMultipositionSwitch("EB_FRONT_UHF_PRESET", 11,3001,231,20,0.05,"UHF Radio" ,"C-101EB FRONT UHF Radio Preset Channel Selector")
 defineMultipositionSwitch("EB_FRONT_UHF_FUNCT", 11,3008,232,4,0.25,"UHF Radio" ,"C-101EB FRONT UHF Radio Function Dial")
 defineMultipositionSwitch("EB_FRONT_UHF_FREQU", 11,3007,233,3,0.5,"UHF Radio" ,"C-101EB FRONT UHF Radio Frequency Mode Dial")
@@ -709,10 +718,10 @@ defineToggleSwitch("EB_FRONT_UHF_SQL", 11, 3010,236, "UHF Radio", "C-101EB FRONT
 definePotentiometer("EB_FRONT_UHF_COVER", 11,3015,854, {0, 1}, "UHF Radio", "C-101EB FRONT UHF Cover")
 definePushButton("EB_FRONT_UHF_PRESET", 11,3016,855, "UHF Radio", "C-101EB FRONT UHV Preset Button")
 defineMultipositionSwitch("EB_BACK_UHF_SEL100", 11,3027,862,3,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio 100 MHz Selector")
-defineMultipositionSwitch("EB_BACK_UHF_SEL10", 11,3028,863,11,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio 10 MHz Selector")
-defineMultipositionSwitch("EB_BACK_UHF_SEL1", 11,3029,864,11,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio 1 MHz Selector")
-defineMultipositionSwitch("EB_BACK_UHF_SEL01", 11,3030,865,11,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio 0.1 MHz Selector")
-defineMultipositionSwitch("EB_BACK_UHF_SEL0025", 11,3031,866,5,0.25,"UHF Radio" ,"C-101EB BACK UHF Radio 0.025 MHz Selector")
+defineFixedStepTumb("EB_BACK_UHF_SEL10", 11,3003,227, 0.1, {0, 1}, {-1, 1}, nil, "UHF Radio" ,"C-101EB BACK UHF Radio 10 MHz Selector")
+defineFixedStepTumb("EB_BACK_UHF_SEL1", 11,3004,228, 0.1, {0, 1}, {-1, 1}, nil, "UHF Radio" ,"C-101EB BACK UHF Radio 1 MHz Selector")
+defineFixedStepTumb("EB_BACK_UHF_SEL01", 11,3005,229, 0.1, {0, 1}, {-1, 1}, nil, "UHF Radio" ,"C-101EB BACK UHF Radio 0.1 MHz Selector")
+defineFixedStepTumb("EB_BACK_UHF_SEL0025", 11,3006,230, 0.25, {0, 1}, {-1, 1}, {"00", "25", "50", "75", "00"}, "UHF Radio" ,"C-101EB BACK UHF Radio 0.025 MHz Selector")
 defineMultipositionSwitch("EB_BACK_UHF_PRESET", 11,3026,867,21,0.05,"UHF Radio" ,"C-101EB BACK UHF Radio Preset Channel Selector")
 defineMultipositionSwitch("EB_BACK_UHF_FUNCT", 11,3033,868,4,0.1,"UHF Radio" ,"C-101EB BACK UHF Radio Function Dial")
 defineMultipositionSwitch("EB_BACK_UHF_FREQU", 11,3032,869,3,0.5,"UHF Radio" ,"C-101EB BACK UHF Radio Frequency Mode Dial")
