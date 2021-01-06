@@ -27,6 +27,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Protocol.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataEnd.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataStart.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CommonData.lua]])
+----------------------------------------------------------------------------Modules Start----------------------------------------------------------------------------
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AH-6J.lua]]) -- ID = 7, ProperName = AH-6J Littlebird
@@ -64,6 +65,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SpitfireLFMkIX.lua]]) -- ID = 37, 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH-1H.lua]]) -- ID = 38, ProperName = UH-1H Huey
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\VNAO_Room.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Yak-52.lua]]) -- ID = 39, ProperName = Yak-52
+----------------------------------------------------------------------------Modules End------------------------------------------------------------------------------
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 
 -- Prev Export functions.
