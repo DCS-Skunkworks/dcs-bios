@@ -10054,6 +10054,9 @@
                                                                        "description": "EAC On/Off",
                                                                         "identifier": "LASTE_EAC",
                                                                             "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
                                                                                           "description": "set the switch position -- 0 = off, 1 = try to turn it on",
                                                                                             "interface": "set_state",
                                                                                             "max_value": 1
@@ -10105,6 +10108,9 @@
                                                                            "description": "Anti-Skid Switch",
                                                                             "identifier": "ANTI_SKID_SWITCH",
                                                                                 "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
                                                                                               "description": "set the switch position -- 0 = off, 1 = try to turn it on",
                                                                                                 "interface": "set_state",
                                                                                                 "max_value": 1
@@ -11213,6 +11219,9 @@
                                                                              "description": "Anticollision Lights",
                                                                               "identifier": "LCP_ANTICOLLISION",
                                                                                   "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
                                                                                                 "description": "set the switch position -- 0 = off, 1 = try to turn it on",
                                                                                                   "interface": "set_state",
                                                                                                   "max_value": 1
@@ -13248,6 +13257,9 @@
                                                                          "description": "Pitch SAS Left OFF - ENGAGE",
                                                                           "identifier": "SASP_PITCH_SAS_L",
                                                                               "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
                                                                                             "description": "set the switch position -- 0 = off, 1 = try to turn it on",
                                                                                               "interface": "set_state",
                                                                                               "max_value": 1
@@ -13268,6 +13280,9 @@
                                                                          "description": "Pitch SAS Right OFF - ENGAGE",
                                                                           "identifier": "SASP_PITCH_SAS_R",
                                                                               "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
                                                                                             "description": "set the switch position -- 0 = off, 1 = try to turn it on",
                                                                                               "interface": "set_state",
                                                                                               "max_value": 1
@@ -13318,6 +13333,9 @@
                                                                          "description": "Yaw SAS Left OFF - ENGAGE",
                                                                           "identifier": "SASP_YAW_SAS_L",
                                                                               "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
                                                                                             "description": "set the switch position -- 0 = off, 1 = try to turn it on",
                                                                                               "interface": "set_state",
                                                                                               "max_value": 1
@@ -13338,6 +13356,9 @@
                                                                          "description": "Yaw SAS Right OFF - ENGAGE",
                                                                           "identifier": "SASP_YAW_SAS_R",
                                                                               "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
                                                                                             "description": "set the switch position -- 0 = off, 1 = try to turn it on",
                                                                                               "interface": "set_state",
                                                                                               "max_value": 1
