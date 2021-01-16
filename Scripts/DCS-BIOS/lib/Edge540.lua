@@ -18,16 +18,42 @@ local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 defineRotary("ALT_SET", 2, 3001, 6, "Main Panel" , "Altimeter Setting") 
-defineToggleSwitch("MASTER_SW", 4, 3001, 18, "Main Panel", "Master Switch")
-defineToggleSwitch("BOOST_SW", 4, 3002, 19, "Main Panel", "Electric Fuel Pump")
+defineToggleSwitch("MASTER_SW", 4, 3001, 18, "Main Panel", "Master Switch")--3051
+defineToggleSwitch("BOOST_SW", 4, 3002, 19, "Main Panel", "Electric Fuel Pump")--3052
+defineToggleSwitch("CANOPY", 6, 71, 0, "Main Panel", "Canopy")
+definePushButton("UAV_BTN",	2, 3007, 0, "Main Panel", "UAV Mode")
+definePushButton("LED_BTN", 2, 3008, 0, "Main Panel", "Racing LED Indicator Speed/G Toggle")
+definePushButton("CUSTOM_5_BTN", 2, 3006, 0, "Main Panel", "Hide Aersti Chart")
+definePushButton("STOPWATCH_BTN", 7, 3005, 0, "Main Panel", "Stopwatch Start/Stop/Reset")
 
-definePotentiometer("MIXTURE_LVR", 3, 3003, 17, {0, 1}, "Engine" , "Mixture Lever")
---defineTumb("FUEL_SEL", 4, XXXX, 21, 0.5, {0.0, 1.0}, nil, false, "Engine", "Fuel Selector")
+definePotentiometer("PROP_MIX", 3, 3003, 17, {0, 1}, "Engine" , "Mixture Lever")
+defineTumb("FUEL_SEL", 4, 3053, 21, 0.5, {0.0, 1.0}, nil, false, "Engine", "Fuel Selector")--?
+defineTumb("MAG", 4, 3050, 14, 0.25, {0.0, 1.0}, nil, false, "Engine", "Magnetos")
+
+defineTumb("PILOT_SEL", 8, 3013, 0, 0.1, {0.0, 0.6}, nil, false, "Custom", "Select Pilot")
+defineTumb("FLOOD_L_COL", 8, 3023, 0, 0.1, {0.0, 0.5}, nil, false, "Custom", "Flood Light Color")
 
 definePushButton("PAGE_1BTN_NAV", 8, 3015, 34, "Main Display", "Display Button 1 NAV Page")
 definePushButton("PAGE_2BTN_SYS", 8, 3017, 32, "Main Display", "Display Button 2 System Page")
 definePushButton("PAGE_3BTN_MP3", 8, 3018, 31, "Main Display", "Display Button 3 Mp3 Page")
-definePushButton("PAGE_4BTN_CONF", 8, 3020, 30, "Main Display", "Display Button 4 Configuration Page")
+definePushButton("PAGE_4BTN_CONF", 8, 3001, 30, "Main Display", "Display Button 4 Configuration Page")
+
+--System Page Buttons
+definePushButton("NAV_BTN", 4, 3001, 0, "Main Display", "System Page Navigation Lights")
+definePushButton("FLOOD_BTN", 4, 3012, 0, "Main Display", "System Page Flood Lights")
+definePushButton("GAUGE_BTN", 4, 3013, 42, "Main Display", "System Page Gauge Lights")
+definePushButton("WALL_BTN", 8, 3019, 0, "Main Display", "System Page Wallpaper")
+
+--MP3 Player
+definePushButton("MP3_PLAY", 9, 3030, 0, "Main Display", "Mp3 Play")
+definePushButton("MP3_NEXT", 9, 3031, 0, "Main Display", "Mp3 Next Track")
+definePushButton("MP3_PREV", 9, 3032, 0, "Main Display", "Mp3 Previous Track")
+
+defineToggleSwitch("CUSTOM_1_BTN", 8, 3010, 0, "Custom", "Attach/Remove Winglets")
+defineToggleSwitch("CUSTOM_2_BTN", 8, 3011, 0, "Custom", "Attach/Remove Spades")
+defineToggleSwitch("CUSTOM_3_BTN", 8, 3012, 0, "Custom", "Attach/Remove Lights")
+
+defineToggleSwitch("SMK_ARM", 1, 3025, 27, "Smoke", "Smoke Arm")
 
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("DISPLAY_L", 20, "Warning, Caution and IndicatorLights","Display Background Light (white)")
@@ -47,58 +73,5 @@ end, 1, "External Aircraft Model", "External Lights (red,green,white)")
 defineIntegerFromGetter("EXT_PAINTGLOW", function()
 	if LoGetAircraftDrawArgumentValue(424) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Paintjob Glow")
-
--- Arg#3 Metal winkel über mixture
--- Arg#7 float alt klein
--- Arg#8 float zeiger alt groß
--- Arg#9 float zeiger alt klein
--- Arg#10 Led trim
--- Arg#11 mittelkonsole
--- Arg#12 mixture
--- Arg#27 Switch side left (top Mixture)
--- Arg#25
--- Arg#24
--- Arg#39
--- Arg#40
--- Arg#42
--- Arg#43
--- Arg#60
-
--- 1SMOKE_SYSTEM
--- 2AVIONICS
--- 3ENGINE
--- 4ELECTRIC
--- 5OXYGEN
--- 6CANOPY
--- 7STOPWATCH
--- 8CUSTOM
--- 9MPT
--- 10EFIS
--- 11INTERCOM
--- 12NETFILTER
--- 13UHF_RADIO
--- 14MACROS
-
-   -- FUEL_SELECTOR_PNT Fuel Selector   Keys FuelSelector      5
-   -- KEY_PNT 	   Magnetos MagSelect   Arg#14 4way
-   -- COLOR_PNT   Flood Light Color 3023    
-   -- UAV_PNT 	   UAV Mode 	   3007       
-   -- LED_PNT $   Racing LED Indicator Speed/G Toggle 	   3008    
-   -- STOPWATCH_STARTSTOP_PNT    Stopwatch Start/Stop/Reset STOPWATCH 	   3005 	   
-   -- MSTR_PNT  Master 	   ELECTRIC      2@ Arg#18
-   -- FUEL_PMP_PNT   Electric Boost Pump    ElectricFuelPump      3  Arg#19
-   -- CANOPY_PNT Canopy    CANOPY 
-   -- CUSTOM_1_PNT		Attach/Remove Winglets	CUSTOM	3010 
-   -- CUSTOM_2_PNT 	Attach/Remove Spades	CUSTOM	3011 
-   -- CUSTOM_3_PNT 	Attach/Remove Lights	CUSTOM	3012
-   -- CUSTOM_4_PNT 	Select Pilot			CUSTOM	3013
-   -- CUSTOM_5_PNT   	Hide Aersti Chart 	   	CUSTOM	3006       
-   -- NAV_PNT   Navigation Lights 
-   -- FLOOD_PNT Flood Lights Arg#41
-   -- GAUGE_PNT Gauge Lights      	   
-   -- WALL_PNT Wallpaper 3019 
-   -- MP3_PLAY_PNT 	   Mp3 Play    MPT 3030 
-   -- MP3_NEXT_PNT Mp3 Next Track 3031 
-   -- MP3_PREV_PNT Mp3 Previous Track 3032 
 
 BIOS.protocol.endModule()
