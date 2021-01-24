@@ -435,7 +435,7 @@ definePushButton("JTSN_BTN", 9, 3014, 260, "Armament Panel", "Jettison Switch")
 
 definePotentiometer("SIGHT_INTEN_CPLT", 32, 3001, 281, {0, 1}, "Flex Sight", "Copilot Sighting System Intensity Knob")
 defineTumb("SIGHT_LAMP_SW", 32, 3003, 408, 1, {-1, 1}, nil, false, "Flex Sight", "Sighting Station Lamp Switch BACKUP / OFF / MAIN")
-defineToggleSwitch("SIGHT_ARM_PLT", 49, 3005, 0, "Flex Sight", "Pilot Sight Armed / Safe")
+defineTumb("SIGHT_ARM_PLT", 49, 3005, 438, 1, {0, 1}, nil, false, "Flex Sight", "Pilot Sight Armed / Safe")
 defineToggleSwitch("SIGHT_PWR_PLT", 49, 3006, 439, "Flex Sight", "Pilot Sight Off / On")
 definePotentiometer("SIGHT_INTEN_PLT", 49, 3001, 440, {0, 1}, "Flex Sight", "Pilot Sight Intensity Knob")
 definePotentiometer("SIGHT_ELEV_PLT", 49, 3003, 441, {-1, 1}, "Flex Sight", "Pilot Sight Elevation")
