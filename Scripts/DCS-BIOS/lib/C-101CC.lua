@@ -470,27 +470,21 @@ defineToggleSwitch("CC_BACK_UHF_POWER", 11, 3030,876, "UHF Radio", "C-101CC BACK
 
 -- VHF COMM/NAV 
 defineMultipositionSwitch("CC_FRONT_VHF_COMM_PW", 10, 3004,653,3,0.5,"VHF" ,"C-101CC FRONT VHF COMM Switch OFF/PWR/TEST")
-
---defineMultipositionSwitch("CC_FRONT_VHF_COMM_FREQ_100", 10, 3001,640,35,0.01,"VHF" ,"C-101CC FRONT VHF COMM Frequency Control 100 MHz")--issue
-defineRadioWheel("CC_FRONT_VHF_COMM_FREQ_100", 10, 3001, 3001, {-0.1, 0.1}, 640, 0.1, {0, 0.35}, nil, "VHF" ,"C-101CC FRONT VHF COMM Frequency Control 100 MHz")
-
+defineRotary("CC_FRONT_VHF_COMM_FREQ_100", 10, 3001,640, "VHF" ,"C-101CC FRONT VHF COMM Frequency Control 100 MHz")
 definePotentiometer("CC_FRONT_VHF_COMM_VOL", 10, 3003, 655, {0, 1}, "VHF", "C-101CC FRONT VHF COMM Volume Control")	
 defineRadioWheel("CC_FRONT_VHF_COMM_FREQ_10", 10, 3002, 3002, {-0.025, 0.025}, 641, 0.025, {0, 1.0}, nil, "VHF" ,"C-101CC FRONT VHF COMM Frequency Control 10 kHz")
 define3PosTumb("CC_FRONT_VHF_NAV_TEST", 1, 3355,650, "VHF", "C-101CC FRONT VHF NAV Test Switch")
 defineMultipositionSwitch("CC_FRONT_VHF_NAV_CONTROL", 12,3004,657,5,0.25,"VHF" ,"C-101CC FRONT VHF NAV Control Switch")
-
---defineMultipositionSwitch("CC_FRONT_VHF_NAV_FREQ_1", 12,3001,645,35,0.01,"VHF" ,"C-101CC FRONT VHF NAV Frequency Control 1 MHz")--issue
-defineRadioWheel("CC_FRONT_VHF_NAV_FREQ_1", 12, 3001, 3001, {-0.1, 0.1}, 645, 0.1, {0, 0.35}, nil, "VHF" ,"C-101CC FRONT VHF NAV Frequency Control 1 MHz")
-
+defineRotary("CC_FRONT_VHF_NAV_FREQ_1", 12,3001,645, "VHF1" ,"C-101CC FRONT VHF NAV Frequency Control 1 MHz")
 definePotentiometer("CC_FRONT_VHF_NAV_VOL", 12, 3003, 659, {0, 1}, "VHF", "C-101CC FRONT VHF NAV Volume Control")	
 defineRadioWheel("CC_FRONT_VHF_NAV_FREQ_50", 12, 3002, 3002, {-0.025, 0.025}, 646, 0.025, {0, 1.0}, nil, "VHF" ,"C-101CC FRONT VHF NAV Frequency Control 50 kHz")
 defineMultipositionSwitch("CC_BACK_VHF_COMM_PW", 10,3014,917,3,0.5,"VHF" ,"C-101CC BACK VHF COMM Switch OFF/PWR/TEST")
-defineMultipositionSwitch("CC_BACK_VHF_COMM_FREQ_1", 10,3001,904,35,0.01,"VHF" ,"C-101CC BACK VHF COMM Frequency Control 1 MHz")
+defineRotary("CC_BACK_VHF_COMM_FREQ_1", 10, 3001, 904, "VHF" ,"C-101CC BACK VHF COMM Frequency Control 1 MHz")
 definePotentiometer("CC_BACK_VHF_COMM_VOL", 10, 3003, 919, {0, 1}, "VHF", "C-101CC BACK VHF COMM Volume Control")	
 defineRadioWheel("CC_BACK_VHF_COMM_FREQ_10", 10, 3002, 3002, {-0.025, 0.025}, 905, 0.025, {0, 1.0}, nil, "VHF" ,"C-101CC BACK VHF COMM Frequency Control 0.025 MHz")
 defineToggleSwitch("CC_BACK_VHF_NAV_TEST", 1, 3628,915, "VHF", "C-101CC BACK VHF NAV Test Switch")
 defineMultipositionSwitch("CC_BACK_VHF_NAV_CONTROL", 12,3014,921,5,0.25,"VHF" ,"C-101CC BACK VHF NAV Control Switch")
-defineMultipositionSwitch("CC_BACK_VHF_NAV_FREQ_1", 12,3011,906,35,0.01,"VHF" ,"C-101CC BACK VHF NAV Frequency Control 1 MHz")
+defineRotary("CC_BACK_VHF_NAV_FREQ_1", 12, 3011, 906, "VHF", "C-101CC BACK VHF NAV Frequency Control 1 MHz")
 definePotentiometer("CC_BACK_VHF_NAV_VOL", 12, 3013, 923, {0, 1}, "VHF", "C-101CC BACK VHF NAV Volume Control")	
 defineRadioWheel("CC_BACK_VHF_NAV_FREQ_50", 12, 3012, 3012, {-0.025, 0.025}, 907, 0.025, {0, 1.0}, nil, "VHF" ,"C-101CC BACK VHF NAV Frequency Control 50 kHz")
 
@@ -591,8 +585,9 @@ definePushButton("CC_FRONT_SCAR_PYLON_6", 1, 3267, 547, "SCAR", "C-101CC FRONT S
 -- ADF
 defineRotary("CC_FRONT_ADF_FREQ_L_100", 13, 3002, 661, "ADF", "C-101CC FRONT ADF Left Frequency Selector 100 kHz")--issue
 defineRotary("CC_FRONT_ADF_FREQ_L_10", 13, 3003, 662, "ADF", "C-101CC FRONT ADF Left Frequency Selector 10 kHz")
-defineRotary("CC_FRONT_ADF_FREQ_L_05", 13, 3004, 663, "ADF", "C-101CC FRONT ADF Left Frequency Selector 0.5 kHz")--issue
-defineRotary("CC_FRONT_ADF_FREQ_R_100", 13, 3005, 666, "ADF", "C-101CC FRONT ADF Right Frequency Selector 100 kHz")--issue
+defineRotary("CC_FRONT_ADF_FREQ_L_05", 13, 3002, 663, "ADF", "C-101CC FRONT ADF Left Frequency Selector 0.5 kHz")--issue
+
+defineRotary("CC_FRONT_ADF_FREQ_R_100", 13, 3004, 666, "ADF", "C-101CC FRONT ADF Right Frequency Selector 100 kHz")--issue
 defineRotary("CC_FRONT_ADF_FREQ_R_10", 13, 3006, 668, "ADF", "C-101CC FRONT ADF Right Frequency Selector 10 kHz")
 defineRotary("CC_FRONT_ADF_FREQ_R_05", 13, 3004, 669, "ADF", "C-101CC FRONT ADF Right Frequency Selector 0.5 kHz")--issue
 
