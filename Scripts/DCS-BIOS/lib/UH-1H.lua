@@ -435,7 +435,7 @@ definePushButton("JTSN_BTN", 9, 3014, 260, "Armament Panel", "Jettison Switch")
 
 definePotentiometer("SIGHT_INTEN_CPLT", 32, 3001, 281, {0, 1}, "Flex Sight", "Copilot Sighting System Intensity Knob")
 defineTumb("SIGHT_LAMP_SW", 32, 3003, 408, 1, {-1, 1}, nil, false, "Flex Sight", "Sighting Station Lamp Switch BACKUP / OFF / MAIN")
-defineTumb("SIGHT_ARM_PLT", 49, 3005, 438, 1, {0, 1}, nil, false, "Flex Sight", "Pilot Sight Armed / Safe")
+defineToggleSwitch("SIGHT_ARM_PLT", 49, 3005, 438, "Flex Sight", "Pilot Sight Armed / Safe")
 defineToggleSwitch("SIGHT_PWR_PLT", 49, 3006, 439, "Flex Sight", "Pilot Sight Off / On")
 definePotentiometer("SIGHT_INTEN_PLT", 49, 3001, 440, {0, 1}, "Flex Sight", "Pilot Sight Intensity Knob")
 definePotentiometer("SIGHT_ELEV_PLT", 49, 3003, 441, {-1, 1}, "Flex Sight", "Pilot Sight Elevation")
@@ -471,7 +471,7 @@ defineFixedStepInput("CM_CHAFFCNT", 50, 3008, {-1, 1}, "Countermeasures", "Chaff
 
 defineToggleSwitch("RADAR_ALT_PWR", 13, 3007, 449, "Overhead Panel", "Radar Altimeter Power")
 defineRotary("RADAR_ALT_LO", 13, 3002, 445, "Front Dash", "Radar Altimeter Low Setting")
-defineRotary("RADAR_ALT_HI", 13, 3003, 464, "Front Dash", "Radar Altimeter High Setting")
+defineRotary("RADAR_ALT_HI", 13, 3003, 448, "Front Dash", "Radar Altimeter High Setting")
 definePushButton("RADAR_ALT_TEST", 13, 3001, 446, "Front Dash", "Radar Altimeter Test")
 
 defineIndicatorLight("X130_ARMED", 458, "Armament Panel", "X130 Armed Lamp (blue)")
