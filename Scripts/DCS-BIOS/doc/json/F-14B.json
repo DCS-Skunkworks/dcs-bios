@@ -6231,11 +6231,11 @@
                                                                                    "identifier": "EXT_ANTI_COL",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5144,
+                                                                                                         "address": 5242,
                                                                                                      "description": "Anticollision Lights",
-                                                                                                            "mask": 32768,
+                                                                                                            "mask": 256,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 15,
+                                                                                                        "shift_by": 8,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6265,9 +6265,9 @@
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Position Lights Body (red/green)",
-                                                                                                            "mask": 16384,
+                                                                                                            "mask": 32768,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 14,
+                                                                                                        "shift_by": 15,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6281,9 +6281,9 @@
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Position Lights Wings (red/green)",
-                                                                                                            "mask": 8192,
+                                                                                                            "mask": 16384,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 13,
+                                                                                                        "shift_by": 14,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6297,9 +6297,9 @@
                                                                                       "outputs": [ {
                                                                                                          "address": 5144,
                                                                                                      "description": "Chinpod Position Light (red)",
-                                                                                                            "mask": 16384,
+                                                                                                            "mask": 32768,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 14,
+                                                                                                        "shift_by": 15,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6311,11 +6311,11 @@
                                                                                    "identifier": "EXT_POSITION_LIGHT_TAIL",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 5114,
+                                                                                                         "address": 5144,
                                                                                                      "description": "Tail Position Light (white)",
-                                                                                                            "mask": 32768,
+                                                                                                            "mask": 16384,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 15,
+                                                                                                        "shift_by": 14,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6345,9 +6345,9 @@
                                                                                       "outputs": [ {
                                                                                                          "address": 5114,
                                                                                                      "description": "Refuel Probe Light (red)",
-                                                                                                            "mask": 4096,
+                                                                                                            "mask": 8192,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 12,
+                                                                                                        "shift_by": 13,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6409,9 +6409,9 @@
                                                                                       "outputs": [ {
                                                                                                          "address": 5242,
                                                                                                      "description": "Weight ON Wheels Left Gear",
-                                                                                                            "mask": 1024,
+                                                                                                            "mask": 2048,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 10,
+                                                                                                        "shift_by": 11,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6425,9 +6425,9 @@
                                                                                       "outputs": [ {
                                                                                                          "address": 5242,
                                                                                                      "description": "Weight ON Wheels Nose Gear",
-                                                                                                            "mask": 256,
+                                                                                                            "mask": 512,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 8,
+                                                                                                        "shift_by": 9,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -6441,9 +6441,9 @@
                                                                                       "outputs": [ {
                                                                                                          "address": 5242,
                                                                                                      "description": "Weight ON Wheels Right Gear",
-                                                                                                            "mask": 512,
+                                                                                                            "mask": 1024,
                                                                                                        "max_value": 1,
-                                                                                                        "shift_by": 9,
+                                                                                                        "shift_by": 10,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -10226,6 +10226,35 @@
                                                                                }
                                             },
                                     "Gear": {
+                                                      "PLT_GEAR_DN_LK_OVER": {
+                                                                                            "category": "Gear",
+                                                                                        "control_type": "selector",
+                                                                                         "description": "PILOT Gear Down Lock Override",
+                                                                                          "identifier": "PLT_GEAR_DN_LK_OVER",
+                                                                                              "inputs": [ {
+                                                                                                            "description": "switch to previous or next state",
+                                                                                                              "interface": "fixed_step"
+                                                                                                        }, {
+                                                                                                            "description": "set position",
+                                                                                                              "interface": "set_state",
+                                                                                                              "max_value": 1
+                                                                                                        }, {
+                                                                                                               "argument": "TOGGLE",
+                                                                                                            "description": "Toggle switch state",
+                                                                                                              "interface": "action"
+                                                                                                        } ],
+                                                                                 "momentary_positions": "none",
+                                                                                             "outputs": [ {
+                                                                                                                "address": 5114,
+                                                                                                            "description": "selector position",
+                                                                                                                   "mask": 4096,
+                                                                                                              "max_value": 1,
+                                                                                                               "shift_by": 12,
+                                                                                                                 "suffix": "",
+                                                                                                                   "type": "integer"
+                                                                                                        } ],
+                                                                                    "physical_variant": "toggle_switch"
+                                                                             },
                                                            "PLT_GEAR_LEVER": {
                                                                                             "category": "Gear",
                                                                                         "control_type": "selector",

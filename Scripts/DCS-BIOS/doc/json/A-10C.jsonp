@@ -15576,6 +15576,131 @@ docdata["A-10C"] =
                                                                      }
                                            },
                               "UHF Radio": {
+                                                            "UHF4": {
+                                                                            "category": "UHF Radio",
+                                                                        "control_type": "limited_dial",
+                                                                         "description": "UHF-4",
+                                                                          "identifier": "UHF4",
+                                                                              "inputs": [ {
+                                                                                            "description": "set the position of the dial",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 65535
+                                                                                        }, {
+                                                                                               "description": "turn the dial left or right",
+                                                                                                 "interface": "variable_step",
+                                                                                                 "max_value": 65535,
+                                                                                            "suggested_step": 3200
+                                                                                        } ],
+                                                                             "outputs": [ {
+                                                                                                "address": 4860,
+                                                                                            "description": "position of the potentiometer",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                            "UHF5": {
+                                                                            "category": "UHF Radio",
+                                                                        "control_type": "limited_dial",
+                                                                         "description": "UHF-5",
+                                                                          "identifier": "UHF5",
+                                                                              "inputs": [ {
+                                                                                            "description": "set the position of the dial",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 65535
+                                                                                        }, {
+                                                                                               "description": "turn the dial left or right",
+                                                                                                 "interface": "variable_step",
+                                                                                                 "max_value": 65535,
+                                                                                            "suggested_step": 3200
+                                                                                        } ],
+                                                                             "outputs": [ {
+                                                                                                "address": 4862,
+                                                                                            "description": "position of the potentiometer",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                            "UHF6": {
+                                                                            "category": "UHF Radio",
+                                                                        "control_type": "limited_dial",
+                                                                         "description": "UHF-6",
+                                                                          "identifier": "UHF6",
+                                                                              "inputs": [ {
+                                                                                            "description": "set the position of the dial",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 65535
+                                                                                        }, {
+                                                                                               "description": "turn the dial left or right",
+                                                                                                 "interface": "variable_step",
+                                                                                                 "max_value": 65535,
+                                                                                            "suggested_step": 3200
+                                                                                        } ],
+                                                                             "outputs": [ {
+                                                                                                "address": 4864,
+                                                                                            "description": "position of the potentiometer",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                            "UHF7": {
+                                                                            "category": "UHF Radio",
+                                                                        "control_type": "limited_dial",
+                                                                         "description": "UHF-7",
+                                                                          "identifier": "UHF7",
+                                                                              "inputs": [ {
+                                                                                            "description": "set the position of the dial",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 65535
+                                                                                        }, {
+                                                                                               "description": "turn the dial left or right",
+                                                                                                 "interface": "variable_step",
+                                                                                                 "max_value": 65535,
+                                                                                            "suggested_step": 3200
+                                                                                        } ],
+                                                                             "outputs": [ {
+                                                                                                "address": 4866,
+                                                                                            "description": "position of the potentiometer",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                                            "UHF8": {
+                                                                            "category": "UHF Radio",
+                                                                        "control_type": "limited_dial",
+                                                                         "description": "UHF-8",
+                                                                          "identifier": "UHF8",
+                                                                              "inputs": [ {
+                                                                                            "description": "set the position of the dial",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 65535
+                                                                                        }, {
+                                                                                               "description": "turn the dial left or right",
+                                                                                                 "interface": "variable_step",
+                                                                                                 "max_value": 65535,
+                                                                                            "suggested_step": 3200
+                                                                                        } ],
+                                                                             "outputs": [ {
+                                                                                                "address": 4868,
+                                                                                            "description": "position of the potentiometer",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                                        } ]
+                                                                    },
                                                   "UHF_100MHZ_SEL": {
                                                                                    "category": "UHF Radio",
                                                                                "control_type": "selector",
@@ -16264,12 +16389,16 @@ docdata["A-10C"] =
                                                                      },
                                                      "VHFAM_PRESET": {
                                                                                     "category": "VHF AM Radio",
-                                                                                "control_type": "discrete_dial",
+                                                                                "control_type": "selector",
                                                                                  "description": "Preset Channel Selector",
                                                                                   "identifier": "VHFAM_PRESET",
                                                                                       "inputs": [ {
                                                                                                     "description": "switch to previous or next state",
                                                                                                       "interface": "fixed_step"
+                                                                                                }, {
+                                                                                                    "description": "set position",
+                                                                                                      "interface": "set_state",
+                                                                                                      "max_value": 19
                                                                                                 } ],
                                                                          "momentary_positions": "none",
                                                                                      "outputs": [ {
@@ -16287,7 +16416,7 @@ docdata["A-10C"] =
                                                                                                          "suffix": "_STR",
                                                                                                            "type": "string"
                                                                                                 } ],
-                                                                            "physical_variant": "infinite_rotary"
+                                                                            "physical_variant": "limited_rotary"
                                                                      },
                                                     "VHFAM_SQUELCH": {
                                                                                     "category": "VHF AM Radio",
@@ -16597,12 +16726,16 @@ docdata["A-10C"] =
                                                                      },
                                                      "VHFFM_PRESET": {
                                                                                     "category": "VHF FM Radio",
-                                                                                "control_type": "discrete_dial",
+                                                                                "control_type": "selector",
                                                                                  "description": "Preset Channel Selector",
                                                                                   "identifier": "VHFFM_PRESET",
                                                                                       "inputs": [ {
                                                                                                     "description": "switch to previous or next state",
                                                                                                       "interface": "fixed_step"
+                                                                                                }, {
+                                                                                                    "description": "set position",
+                                                                                                      "interface": "set_state",
+                                                                                                      "max_value": 19
                                                                                                 } ],
                                                                          "momentary_positions": "none",
                                                                                      "outputs": [ {
@@ -16620,7 +16753,7 @@ docdata["A-10C"] =
                                                                                                          "suffix": "_STR",
                                                                                                            "type": "string"
                                                                                                 } ],
-                                                                            "physical_variant": "infinite_rotary"
+                                                                            "physical_variant": "limited_rotary"
                                                                      },
                                                     "VHFFM_SQUELCH": {
                                                                                     "category": "VHF FM Radio",
