@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v3.0 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v3.1 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -1607,6 +1607,8 @@ definePushButton("PLT_FIRE_EX_BOTTLE_R", 67, 3060, 15082, "Fire System", "PILOT 
 defineIndicatorLight("RIO_MCB_R_LIGHT", 13130, "Warning, Caution and IndicatorLights","RIO MCB Panel Right Test Light (red)(F-14A)")
 defineIndicatorLight("RIO_MCB_L_LIGHT", 13131, "Warning, Caution and IndicatorLights","RIO MCB Panel Left Test Light (red)(F-14A)")
 defineToggleSwitch("RIO_MCOMP_BYPASS", 19, 3760, 13132, "Engine", "RIO Mid Compression Bypass Test (F-14A)")
+
+defineToggleSwitch("PLT_GEAR_DN_LK_OVER", 17, 3017, 633, "Gear", "PILOT Gear Down Lock Override")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()

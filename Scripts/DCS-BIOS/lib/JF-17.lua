@@ -1,7 +1,7 @@
 BIOS.protocol.beginModule("JF-17", 0x4800)
 BIOS.protocol.setExportModuleAircrafts({"JF-17"})
 -- by WarLord (aka BlackLibrary), Matchstick
--- v 1.4
+-- v 1.5
 
 local documentation = moduleBeingDefined.documentation
 
@@ -111,7 +111,7 @@ definePushButton("RADIO_BTN_ENT", 24, 3062, 560, "Radio", "Radio Button ->/ENT")
 definePotentiometer("THROTTLE_FRIC", 34, 3072, 570, {0, 1}, "Throttle", "Throttle Friction Handle")
 definePushButton("THROTTLE_UNCAGE", 34, 3073, 571, "Throttle", "Throttle Uncage: Stop To Idle")
 definePushButton("THROTTLE_CAGE", 34, 3074, 572, "Throttle", "Throttle Cage: Idle To Stop")
-definePushButton("THROTTLE_EMERG_BTN", 34, 3075, 573, "Throttle", "Throttle Emergency Button")
+defineToggleSwitch("THROTTLE_EMERG_BTN", 34, 3075, 573, "Throttle", "Throttle Emergency Button")
 
 --------------------------Center Front
 -- UFCP
@@ -381,9 +381,9 @@ defineToggleSwitch("GSUIT_TUBE", 31, 3481, 979, "Right Console", "G-Suit Connect
 
 
 -- Mirrors
--- definePotentiometer("MIRROR_R", 4, 3462, 960, {0, 1}, "Canopy", "Right Mirror")
--- definePotentiometer("MIRROR_T", 4, 3463, 961, {0, 1}, "Canopy", "Top Mirror")
--- definePotentiometer("MIRROR_L", 4, 3464, 962, {0, 1}, "Canopy", "Left Mirror")
+defineToggleSwitch("MIRROR_R", 0, 1625, 960, "Canopy", "Right Mirror")
+defineToggleSwitch("MIRROR_T", 0, 1625, 961, "Canopy", "Top Mirror")
+defineToggleSwitch("MIRROR_L", 0, 1625, 962, "Canopy", "Left Mirror")
 
 -------------------------------------------------------------------------------------------------------------------------------
 -- Warning, Caution and IndicatorLights
