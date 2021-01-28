@@ -1004,7 +1004,7 @@ moduleBeingDefined.inputProcessors["SET_UHF"] = function(freq)
 	GetDevice(54):set_frequency(freq*1000)
 end
 
-defineRadioWheel("VHFAM_PRESET", 55, 3001, 3001, {-0.01, 0.01}, 137, 0.01, {0, 0.2}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, "VHF AM Radio", "Preset Channel Selector")
+defineTumb("VHFAM_PRESET", 55, 3001, 137, 0.01, {0, 0.19}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, false, "VHF AM Radio", "Preset Channel Selector")
 defineMultipositionSwitch("VHFAM_MODE", 55, 3003, 138, 3, 0.1, "VHF AM Radio", "Mode OFF/TR/DF")
 defineMultipositionSwitch("VHFAM_FREQEMER", 55, 3004, 135, 4, 0.1, "VHF AM Radio", "Frequency Selection Dial FM/AM/MAN/PRE")
 definePotentiometer("VHFAM_VOL", 55, 3005, 133, {0, 1}, "VHF AM Radio", "VHF AM Volume Control")
@@ -1023,7 +1023,7 @@ moduleBeingDefined.inputProcessors["SET_VHF_AM"] = function(freq)
 	GetDevice(55):set_frequency(freq*1000)
 end
 
-defineRadioWheel("VHFFM_PRESET", 56, 3001, 3001, {-0.01, 0.01}, 151, 0.01, {0, 0.2}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, "VHF FM Radio", "Preset Channel Selector")
+defineTumb("VHFFM_PRESET", 56, 3001, 151, 0.01, {0, 0.19}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, false, "VHF FM Radio", "Preset Channel Selector")
 defineMultipositionSwitch("VHFFM_MODE", 56, 3003, 152, 3, 0.1, "VHF FM Radio", "Mode OFF/TR/DF")
 defineMultipositionSwitch("VHFFM_FREQEMER", 56, 3004, 149, 4, 0.1, "VHF FM Radio", "Frequency Selection Dial FM/AM/MAN/PRE")
 definePotentiometer("VHFFM_VOL", 56, 3005, 147, {0, 1}, "VHF FM Radio", "VHF FM Volume Control")
@@ -1107,14 +1107,11 @@ defineToggleSwitch("CANOPY_DISENGAGE", 39, 3013, 777, "Misc", "Canopy actuator d
 defineToggleSwitch("CANOPY_JTSN", 39, 3014, 785, "Misc", "Canopy Jettison")
 defineToggleSwitch("CANOPY_JTSN_UNLOCK", 39, 3015, 786, "Misc", "Canopy Jettison Unlock")
 
-
 defineMultipositionSwitch("ANT_IFF", 43, 3019, 706, 3, 0.5, "Antenna Panel", "IFF Antenna Switch")
 defineMultipositionSwitch("ANT_UHF", 54, 3016, 707, 3, 0.5, "Antenna Panel", "UHF Antenna Switch")
 defineToggleSwitch("ANT_EGIHQTOD", 54, 3017, 708, "Antenna Panel", "EGI HQ TOD Switch")
 
-
 definePotentiometer("RWR_BRT", 29, 3001, 16, {0.15, 0.85}, "RWR", "Display Brightness")
-
 
 local JSON = loadfile([[Scripts\JSON.lua]])()
 local cdu_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CDU.json]], "r")
@@ -1358,5 +1355,11 @@ defineFloat("OXY_FLOW_G", 600, {0, 1}, "Oxygen Regulator Panel", "Flow Indicator
 define3PosTumb("A102_HMCS_PW", 75, 3001, 550, "HMCS Panel", "Scorpion HMCS Power BAT/OFF/ON (A-10C II only)")
 
 defineToggleSwitch("STICK_VIS", 39, 3016, 999, "Misc", "Hide Stick toggle")
+
+definePotentiometer("UHF4", 54, 3020, 554, {0, 1}, "UHF Radio", "UHF-4")
+definePotentiometer("UHF5", 54, 3016, 555, {0, 1}, "UHF Radio", "UHF-5")
+definePotentiometer("UHF6", 54, 3017, 556, {0, 1}, "UHF Radio", "UHF-6")
+definePotentiometer("UHF7", 54, 3018, 557, {0, 1}, "UHF Radio", "UHF-7")
+definePotentiometer("UHF8", 54, 3019, 558, {0, 1}, "UHF Radio", "UHF-8")
 
 BIOS.protocol.endModule()
