@@ -1,6 +1,6 @@
 -----------------------------------------------------------                                         
 --     LIBRARY     	:    Mirage 2000C RAZBAM orginal by Exo7
---     VERSION     	:    v1.28a by MisterKnife, WarLord
+--     VERSION     	:    v1.29 by MisterKnife, WarLord
 -----------------------------------------------------------
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
@@ -978,7 +978,7 @@ defineToggleSwitch("PITOT_HEAT_COV", 22, 3659, 659, "RIGHT CONSOLE", "I - Pitot 
 defineToggleSwitch("PITOT_HEAT_SW", 22, 3660, 660, "RIGHT CONSOLE", "I - Pitot Heat Switch")
 defineToggleSwitch("PKG_BRAKE_LEV", 22, 3666, 666, "RIGHT CONSOLE", "I - Parking Brake Lever")
 defineToggleSwitch("EMER_COMPASS", 9, 3905, 905, "RIGHT CONSOLE", "I - Emergency Compass")
-defineMultipositionSwitch("INS_AUX_HD_HOR", 9, 3665, 665, 3, 0.5, "RIGHT CONSOLE", "I - INS Auxiliary Heading/Horizon")
+defineMultipositionSwitch("INS_AUX_HD_HOR", 9, 3665, 665, 3, 0.5, "RIGHT CONSOLE", "I - Backup Gyro Switch")
 
 -- RIGHT PANEL
 defineToggleSwitch("QRA_SW", 8, 3654, 654, "RIGHT PANEL", "I - Alert Network (QRA)")
@@ -1001,7 +1001,7 @@ defineFloat("SPEED_MACH", 304, {0, 1}, "SPEED", "O - SPEED - Mach")
 
 -- TACAN
 defineTumb("TAC_CH_10_SEL", 23, 3623, 623, 0.076923, {0, 0.923077}, nil, true, "TACAN", "I - TACAN Channel 10 Selector")
-defineTumb("TAC_MODE_SEL", 23, 3626, 626, 0.33, {0, 1}, nil, false, "TACAN", "I - TACAN Mode Select")
+defineTumb("TAC_MODE_SEL", 23, 3626, 626, 1.0/3.0, {0, 1}, nil, false, "TACAN", "I - TACAN Mode Select")
 defineToggleSwitch("TAC_X_Y_SEL", 23, 3624, 624, "TACAN", "I - TACAN X/Y Select")
 defineTumb("TAC_CH_1_SEL", 23, 3625, 625, 0.1, {0, 0.9}, nil, true, "TACAN", "I - TACAN Channel 1 Selector")
 
@@ -1017,7 +1017,6 @@ defineIndicatorLight("TEST_VERT", 513, "TEST PANEL", "O - TEST - Green Indicator
 
 -- VHF RADIO
 defineMultipositionSwitch("VHF_MODE", 19, 3950, 950,  7, 0.10, "VHF RADIO", "I - VHF - MODE Switch")
---defineMultipositionSwitch("VHF_CH_SEL", 19, 3951, 951, 20, 0.05, "VHF RADIO", "I - VHF - Channel Selector")
 defineTumb("VHF_CH_SEL", 19, 3951, 951, 0.05, {0, 0.95}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "VHF RADIO", "I - VHF - Channel Selector")
 definePushButton("VHF_MEM_CLR", 19, 3952, 952, "VHF RADIO", "I - VHF - MEM/CLR Button")
 definePushButton("VHF_VLD_XFR", 19, 3953, 953, "VHF RADIO", "I - VHF -  VLD/XFR Button")
@@ -1035,18 +1034,18 @@ definePushButton("VHF_CONF", 19, 3964, 964, "VHF RADIO", "I - VHF - CONF Button"
 defineString("VHF_FREQUENCY", getVHFFrequency, 5, "VHF RADIO", "O - VHF - Frequency Report Display")
 
 -- UHF RADIO
-defineTumb("UHF_MODE_SW", 20, 3433, 433, 0.25, {0, 1}, nil, false, "UHF RADIO", "I - UHF - Mode Selector")
+defineTumb("UHF_MODE_SW", 20, 3433, 433, 0.1, {0, 1}, nil, false, "UHF RADIO", "I - UHF - Mode Selector")
 defineToggleSwitch("UHF_PWR_5W_25W_SW", 20, 3429, 429, "UHF RADIO", "I - UHF - Power 5W/25W Switch")
 defineToggleSwitch("UHF_SIL_SW", 20, 3430, 430, "UHF RADIO", "I - UHF - SIL Switch")
 defineToggleSwitch("UHF_CDE_SW", 20, 3432, 432, "UHF RADIO", "I - UHF - CDE Switch")
 definePushButton("UHF_TEST_SW", 20, 3434, 434, "UHF RADIO", "I - UHF - TEST Switch")
-defineSetCommandTumb("UHF_PRESET_KNOB", 20, 3435, 435, 0.05, {0, 1}, {" 1", " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "UHF RADIO", "Preset Knob UHF")
+defineSetCommandTumb("UHF_PRESET_KNOB", 20, 3435, 435, 0.05, {0, 1}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "UHF RADIO", "Preset Knob UHF")
 defineTumb("UHF_E+A2_SW", 20, 3431, 431, 1, {-1, 1}, nil, false, "UHF RADIO", "I - UHF - E+A2 Switch")
 defineFloat("UHF_PRESET", 436, {0, 1}, "UHF RADIO", "O - UHF - PRESET Display")
 defineString("UHF_FREQUENCY", getUHFFrequency, 5, "UHF RADIO", "O - UHF - Frequency Report Display")
 
 -- VOR / ILS
-defineMultipositionSwitch("VORILS_FREQ_WHOLE", 24, 3616, 616, 12, 1.0/11.0, "VOR / ILS", "I - VOR/ILS Frequency Change Whole")
+defineMultipositionSwitch("VORILS_FREQ_WHOLE", 24, 3616, 616, 10, 0.1, "VOR / ILS", "I - VOR/ILS Frequency Change Whole")
 defineToggleSwitch("VORILS_PWR_DIAL", 24, 3617, 617, "VOR / ILS", "I - VOR/ILS Power Dial")
 defineTumb("VORILS_FREQ_DECIMAL", 24, 3618, 618, 0.05, {0, 0.95}, nil, true, "VOR / ILS", "I - VOR/ILS Frequency Change Decimal")
 defineToggleSwitch("VORILS_TEST_DIAL", 24, 3619, 619, "VOR / ILS", "I - VOR/ILS Test Dial")
