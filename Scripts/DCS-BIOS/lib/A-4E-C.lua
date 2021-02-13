@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-4E-C", 0x8400)
 BIOS.protocol.setExportModuleAircrafts({"A-4E-C"})
---v 1.04 by WarLord (aka BlackLibrary) (v1.0 by Dehuman)
+--v 2.01 by WarLord (aka BlackLibrary) (v1.0 by Dehuman)
 
 local documentation = moduleBeingDefined.documentation
 
