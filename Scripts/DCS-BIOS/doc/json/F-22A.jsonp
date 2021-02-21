@@ -1,0 +1,121 @@
+docdata["F-22A"] =
+{
+    "Engine System": {
+                           "APU_SW": {
+                                                    "category": "Engine System",
+                                                "control_type": "selector",
+                                                 "description": "APU Switch",
+                                                  "identifier": "APU_SW",
+                                                      "inputs": [ {
+                                                                    "description": "switch to previous or next state",
+                                                                      "interface": "fixed_step"
+                                                                }, {
+                                                                    "description": "set position",
+                                                                      "interface": "set_state",
+                                                                      "max_value": 1
+                                                                }, {
+                                                                       "argument": "TOGGLE",
+                                                                    "description": "Toggle switch state",
+                                                                      "interface": "action"
+                                                                } ],
+                                         "momentary_positions": "none",
+                                                     "outputs": [ {
+                                                                        "address": 26112,
+                                                                    "description": "selector position",
+                                                                           "mask": 2,
+                                                                      "max_value": 1,
+                                                                       "shift_by": 1,
+                                                                         "suffix": "",
+                                                                           "type": "integer"
+                                                                } ],
+                                            "physical_variant": "toggle_switch"
+                                     },
+                          "BATT_SW": {
+                                                    "category": "Engine System",
+                                                "control_type": "selector",
+                                                 "description": "Battery Switch",
+                                                  "identifier": "BATT_SW",
+                                                      "inputs": [ {
+                                                                    "description": "switch to previous or next state",
+                                                                      "interface": "fixed_step"
+                                                                }, {
+                                                                    "description": "set position",
+                                                                      "interface": "set_state",
+                                                                      "max_value": 1
+                                                                }, {
+                                                                       "argument": "TOGGLE",
+                                                                    "description": "Toggle switch state",
+                                                                      "interface": "action"
+                                                                } ],
+                                         "momentary_positions": "none",
+                                                     "outputs": [ {
+                                                                        "address": 26112,
+                                                                    "description": "selector position",
+                                                                           "mask": 1,
+                                                                      "max_value": 1,
+                                                                       "shift_by": 0,
+                                                                         "suffix": "",
+                                                                           "type": "integer"
+                                                                } ],
+                                            "physical_variant": "toggle_switch"
+                                     },
+                         "GEN_L_SW": {
+                                                    "category": "Engine System",
+                                                "control_type": "selector",
+                                                 "description": "Left Generator Switch",
+                                                  "identifier": "GEN_L_SW",
+                                                      "inputs": [ {
+                                                                    "description": "switch to previous or next state",
+                                                                      "interface": "fixed_step"
+                                                                }, {
+                                                                    "description": "set position",
+                                                                      "interface": "set_state",
+                                                                      "max_value": 1
+                                                                }, {
+                                                                       "argument": "TOGGLE",
+                                                                    "description": "Toggle switch state",
+                                                                      "interface": "action"
+                                                                } ],
+                                         "momentary_positions": "none",
+                                                     "outputs": [ {
+                                                                        "address": 26112,
+                                                                    "description": "selector position",
+                                                                           "mask": 4,
+                                                                      "max_value": 1,
+                                                                       "shift_by": 2,
+                                                                         "suffix": "",
+                                                                           "type": "integer"
+                                                                } ],
+                                            "physical_variant": "toggle_switch"
+                                     },
+                         "GEN_R_SW": {
+                                                    "category": "Engine System",
+                                                "control_type": "selector",
+                                                 "description": "Right Generator Switch",
+                                                  "identifier": "GEN_R_SW",
+                                                      "inputs": [ {
+                                                                    "description": "switch to previous or next state",
+                                                                      "interface": "fixed_step"
+                                                                }, {
+                                                                    "description": "set position",
+                                                                      "interface": "set_state",
+                                                                      "max_value": 1
+                                                                }, {
+                                                                       "argument": "TOGGLE",
+                                                                    "description": "Toggle switch state",
+                                                                      "interface": "action"
+                                                                } ],
+                                         "momentary_positions": "none",
+                                                     "outputs": [ {
+                                                                        "address": 26112,
+                                                                    "description": "selector position",
+                                                                           "mask": 8,
+                                                                      "max_value": 1,
+                                                                       "shift_by": 3,
+                                                                         "suffix": "",
+                                                                           "type": "integer"
+                                                                } ],
+                                            "physical_variant": "toggle_switch"
+                                     }
+                     }
+};
