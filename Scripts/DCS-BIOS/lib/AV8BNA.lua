@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("AV8BNA", 0x7800)
 BIOS.protocol.setExportModuleAircrafts({"AV8BNA"})
---by WarLord (aka BlackLibrary)
+--by WarLord (aka BlackLibrary) v.2.0
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -20,6 +20,7 @@ local define3PosTumb = BIOS.util.define3PosTumb
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineString = BIOS.util.defineString
+local defineRotary = BIOS.util.defineRotary
 
 
 local function defineAV8BCommSelector(msg, device_id, command, arg_delta, arg_number, category, description)
@@ -113,11 +114,10 @@ definePushButton("UFC_SAVE", 23, 3309, 309, "UFC", "UFC Save Data Button")
 definePotentiometer("UFC_BRIGHT", 23, 3295, 295, {0, 1}, "UHF Radio", "UFC Display Brightness Control")
 definePotentiometer("UFC_COM1_VOL", 23, 3298, 298, {0, 1}, "UHF Radio", "UFC Comm 1 Volume Control")
 definePotentiometer("UFC_COM2_VOL", 23, 3299, 299, {0, 1}, "UHF Radio", "UFC Comm 2 Volume Control")
-definePushButton("UFC_COM1_PULL", 23, 3178, 178, "UFC", "UFC Comm 1 Channel Selector Pull")
-definePushButton("UFC_COM2_PULL", 23, 3179, 179, "UFC", "UFC Comm 2 Channel Selector Pull")
-defineAV8BCommSelector("UFC_COM1_SEL", 23, 3300, 0.015, 300, "UHF Radio", "UFC Comm 1 Channel Selector")
-defineAV8BCommSelector("UFC_COM2_SEL", 23, 3301, 0.015, 301, "UHF Radio", "UFC Comm 2 Channel Selector")
-
+definePushButton("UFC_COM1_PULL", 23, 3178, 178, "UHF Radio", "UFC Comm 1 Channel Selector Pull")
+definePushButton("UFC_COM2_PULL", 23, 3179, 179, "UHF Radio", "UFC Comm 2 Channel Selector Pull")
+defineRotary("UFC_COM1_SEL", 23, 3300, 300, "UHF Radio", "UFC Comm 1 Channel Selector Turn")
+defineRotary("UFC_COM2_SEL", 23, 3301, 301, "UHF Radio", "UFC Comm 2 Channel Selector Turn")
 
 local function getARC210_COMM1_String_Frequency()
 	local arc_210_comm1 = GetDevice(2)
