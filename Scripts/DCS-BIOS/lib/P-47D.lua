@@ -144,8 +144,8 @@ define3PosTumb("RKT_COUNT_CONTR", 22, 3006, 226, "Rockets Control Panel", "Rocke
 defineToggleSwitch("RKT_SALVO_SIZE_SEL", 22, 3007, 227, "Rockets Control Panel", "Rockets Salvo Size Selector")
 
 --Port Wall
-defineToggleSwitch("RECOV_FLAP_SW_C", 14, 3036, 143, "Port Wall", "Recovery Flaps Switch Cover")
-defineToggleSwitch("RECOV_FLAP_SW", 14, 3039, 144, "Port Wall", "Recovery Flaps Switch")
+defineToggleSwitch("RECOV_FLAP_SW_C", 2, 3036, 75, "Port Wall", "Recovery Flaps Switch Cover")
+defineToggleSwitch("RECOV_FLAP_SW", 2, 3039, 76, "Port Wall", "Recovery Flaps Switch")
 define3PosTumb("INTCOOL_FLP_SW", 3, 3041, 87, "Port Wall", "Intercooler Flap Switch")
 define3PosTumb("OILCOOL_FLP_SW", 3, 3044, 88, "Port Wall", "Oil Cooler Flap Switch")
 defineToggleSwitch("GUNS_SW_C", 14, 3003, 67, "Port Wall", "Guns Switch Cover")
@@ -194,7 +194,7 @@ definePushButton("MSB_CB_CRFLAPS", 8, 3089, 159, "Circuit Brakers", "Recovery Fl
 
 definePotentiometer("MSB_GUNSIGHT", 8, 3001, 194, {0,1}, "Main Switch Box", "Gun Sight Rheostat")
 definePotentiometer("MSB_COMPASS", 8, 3004, 195, {0,1}, "Main Switch Box", "Compass Light Rheostat")
-definePotentiometer("MSB_UV", 18, 3001, 196, {0,1}, "Main Switch Box", "UV Instruments Light Rheostat")
+defineRotary("MSB_UV", 18, 3001, 196, {0,1}, "Main Switch Box", "UV Instruments Light Rheostat")
 definePotentiometer("MSB_BOOSTERPUMP", 8, 3010, 61, {0,1}, "Main Switch Box", "Booster Pumps Control Rheostat")
 define3PosTumb("MSB_NAV1", 8, 3013, 197, "Main Switch Box", "Wing Tips Nav. Lights Switch")
 define3PosTumb("MSB_NAV2", 8, 3016, 198, "Main Switch Box", "Tail Nav. Lights Switch")
