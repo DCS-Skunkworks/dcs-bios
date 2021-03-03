@@ -194,7 +194,7 @@ definePushButton("MSB_CB_CRFLAPS", 8, 3089, 159, "Circuit Brakers", "Recovery Fl
 
 definePotentiometer("MSB_GUNSIGHT", 8, 3001, 194, {0,1}, "Main Switch Box", "Gun Sight Rheostat")
 definePotentiometer("MSB_COMPASS", 8, 3004, 195, {0,1}, "Main Switch Box", "Compass Light Rheostat")
-defineRotary("MSB_UV", 18, 3001, 196, {0,1}, "Main Switch Box", "UV Instruments Light Rheostat")
+definePotentiometer("MSB_UV", 18, 3001, 196, {0,1}, "Main Switch Box", "UV Instruments Light Rheostat")
 definePotentiometer("MSB_BOOSTERPUMP", 8, 3010, 61, {0,1}, "Main Switch Box", "Booster Pumps Control Rheostat")
 define3PosTumb("MSB_NAV1", 8, 3013, 197, "Main Switch Box", "Wing Tips Nav. Lights Switch")
 define3PosTumb("MSB_NAV2", 8, 3016, 198, "Main Switch Box", "Tail Nav. Lights Switch")
