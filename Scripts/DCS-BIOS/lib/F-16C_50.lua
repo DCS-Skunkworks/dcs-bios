@@ -1,4 +1,4 @@
--- V1.6c by Warlord (aka BlackLibrary)
+-- V1.6d by Warlord (aka BlackLibrary)
 -- Added DED TIME, NAV and MAN pages and DED fixes by Matchstick
 --
 -- Tested and fixes by BuzzKillington & afewyards
@@ -1456,7 +1456,7 @@ defineString("CMDS_FL_Amount", function() return CMDS_FL_Amount end, 4, "CMDS", 
 
 ------------------------------------------------------------------UHF Display---------------------------------------------------------------------------------------
 local function get_UHF_CHAN()
-    local UHF = parse_indication(11)
+    local UHF = parse_indication(10)
 	if UHF and UHF.txtPresetChannel then
 		return coerce_nil_to_string(UHF.txtPresetChannel)
 	else
@@ -1467,7 +1467,7 @@ end
 defineString("UHF_CHAN_DISP", get_UHF_CHAN, 2, "UHF", "UHF CHAN Display")
 
 local function get_UHF_FREQUENCY()
-    local UHF = parse_indication(12)
+    local UHF = parse_indication(11)
     if UHF and UHF.txtFreqStatus then
         local UHF_Freq = UHF.txtFreqStatus
         local UHF_dot =  UHF.txtDot
