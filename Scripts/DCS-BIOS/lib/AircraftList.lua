@@ -69,6 +69,7 @@ a("NONE", false)
 a(nil, false)
 --MODs
 a("A-4E-C", true)
+a("A-29B", true)
 a("AC_130", false)
 a("AH-6", true)
 a("Alphajet", true)
