@@ -18,41 +18,30 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineRotary = BIOS.util.defineRotary
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
+defineFloat("CANOPY_VALUE", 26, {0.0, 1.0}, "Gauges", "Canopy Position")
 
 --Externals
-defineIntegerFromGetter("EXT_SPEED_BRAKES", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(500)*65535)
-end, 65535, "External Aircraft Model", "Speed Brakes")
+defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
+	if LoGetAircraftDrawArgumentValue(49) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Position Lights (red,green, White)")
 
-defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
-	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Left Position Light (red)")
-defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
-	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Right Position Light (green)")
-defineIntegerFromGetter("EXT_TAIL_LIGHT", function()
-	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Tail Light (white)")
+defineIntegerFromGetter("EXT_LANDING_LIGHTS", function()
+	if LoGetAircraftDrawArgumentValue(51) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Landing Lights (yellow)")
 
 defineIntegerFromGetter("EXT_STROBE_TOP", function()
-	if LoGetAircraftDrawArgumentValue(198) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Top Strobe Light (red)")
-defineIntegerFromGetter("EXT_STROBE_BOTTOM", function()
-	if LoGetAircraftDrawArgumentValue(199) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Bottom Strobe Light (red)")
+	if LoGetAircraftDrawArgumentValue(83) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Top Strobe Light (white)")
 
-defineIntegerFromGetter("EXT_TAXI_LIGHT", function()
-	if LoGetAircraftDrawArgumentValue(208) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Taxi Light (white)")
+defineIntegerFromGetter("EXT_TOP_LIGHT", function()
+	if LoGetAircraftDrawArgumentValue(802) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Top Light (white)")
 
 defineIntegerFromGetter("EXT_WOW_NOSE", function()
 	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
-defineIntegerFromGetter("EXT_WOW_RIGHT", function()
+defineIntegerFromGetter("EXT_WOW_REAR", function()
 	if LoGetAircraftDrawArgumentValue(4) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
-defineIntegerFromGetter("EXT_WOW_LEFT", function()
-	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+end, 1, "External Aircraft Model", "Weight ON Wheels Rear Gear")
 
 BIOS.protocol.endModule()
