@@ -104,13 +104,12 @@ local function defineEmergencyParkingBrake(msg, device_id, emergency_command, pa
 		dev:performClickableAction(emergency_command, 0)
 		dev:performClickableAction(park_command, 0)
 		 if toState == "0" then --Emerg
-			dev:performClickableAction(emergency_command, -1) 			 
-	     elseif toState == "1" then --Park 		 
-			dev:performClickableAction(park_command, 1)			
-		 elseif toState == "2" then --release Park
+			dev:performClickableAction(emergency_command, -1)
+		 elseif toState == "1" then --release Park
 		 	dev:performClickableAction(park_command, 1)
-            dev:performClickableAction(park_command, 0)
-            dev:performClickableAction(park_command, 1)			
+            dev:performClickableAction(park_command, 0)		
+	     elseif toState == "2" then --Park 		 
+			dev:performClickableAction(park_command, 1)				
 		end
 	end
 end					

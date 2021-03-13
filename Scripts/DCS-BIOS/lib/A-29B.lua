@@ -9,6 +9,7 @@ local document = BIOS.util.document
 local parse_indication = BIOS.util.parse_indication
 
 local defineFloat = BIOS.util.defineFloat
+local define3PosTumb = BIOS.util.define3PosTumb
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
@@ -17,6 +18,17 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineRotary = BIOS.util.defineRotary
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+
+defineToggleSwitch("CANOPY_LVR", 15, 71, 129, "Cockpit Mechanics", "Canopy Lever")
+definePotentiometer("RIO_TCS_TRIM_AZI", 16, 3015, 132, {0, 1}, "Cockpit Mechanics", "Flaps Control Handle")
+
+--ELECTRICAL
+define3PosTumb("BATTERY_SW", 1, 3178, 961, "Electric System", "Battery (Reset/On/Off)")
+defineToggleSwitch("GENERATOR_SW", 1, 3179, 962, "Electric System", "Generator (On/Off-Reset)")
+defineToggleSwitch("EXT_PW_SW", 1, 3181, 963, "Electric System", "External Power (ON/Off)")
+defineToggleSwitch("BACKUP_SW", 1, 3182, 964, "Electric System", "Backup (Auto/Off)")
+define3PosTumb("EMERG_OVER_SW", 1, 3183, 965, "Electric System", "Emergency Override (Emergency/Auto/Auto)")
+define3PosTumb("AIR_INTERCON_SW", 1, 3184, 966, "Electric System", "Aircraft Interconnect (On/Off/Off)")
 
 defineFloat("CANOPY_VALUE", 26, {0.0, 1.0}, "Gauges", "Canopy Position")
 
