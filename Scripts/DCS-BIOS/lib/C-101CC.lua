@@ -13,6 +13,7 @@ local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
+local defineRotaryPlus = BIOS.util.defineRotaryPlus
 local defineTumb = BIOS.util.defineTumb
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
@@ -358,7 +359,7 @@ end, 1, "External Aircraft Model", "Right Position Light (green)")
 
 defineIntegerFromGetter("EXT_STROBE_TOP", function()
 	if LoGetAircraftDrawArgumentValue(88) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Top Strobe Light")
+end, 1, "External Aircraft Model", "Top Strobe Light (white)")
 
 defineIntegerFromGetter("EXT_WOW_NOSE", function()
 	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
@@ -583,13 +584,13 @@ definePushButton("CC_FRONT_SCAR_PYLON_5", 1, 3266, 546, "SCAR", "C-101CC FRONT S
 definePushButton("CC_FRONT_SCAR_PYLON_6", 1, 3267, 547, "SCAR", "C-101CC FRONT SCAR Select Pylon #6")
 
 -- ADF
-defineRotary("CC_FRONT_ADF_FREQ_L_100", 13, 3002, 661, "ADF", "C-101CC FRONT ADF Left Frequency Selector 100 kHz")--issue
+defineRotaryPlus("CC_FRONT_ADF_FREQ_L_100", 13, 3003, 3001, 661, "ADF", "C-101CC FRONT ADF Left Frequency Selector 100 kHz")--issue
 defineRotary("CC_FRONT_ADF_FREQ_L_10", 13, 3003, 662, "ADF", "C-101CC FRONT ADF Left Frequency Selector 10 kHz")
-defineRotary("CC_FRONT_ADF_FREQ_L_05", 13, 3002, 663, "ADF", "C-101CC FRONT ADF Left Frequency Selector 0.5 kHz")--issue
+defineRotaryPlus("CC_FRONT_ADF_FREQ_L_05", 13, 3003, 3002, 663, "ADF", "C-101CC FRONT ADF Left Frequency Selector 0.5 kHz")--issue
 
-defineRotary("CC_FRONT_ADF_FREQ_R_100", 13, 3004, 666, "ADF", "C-101CC FRONT ADF Right Frequency Selector 100 kHz")--issue
+defineRotaryPlus("CC_FRONT_ADF_FREQ_R_100", 13, 3006, 3004, 666, "ADF", "C-101CC FRONT ADF Right Frequency Selector 100 kHz")--issue
 defineRotary("CC_FRONT_ADF_FREQ_R_10", 13, 3006, 668, "ADF", "C-101CC FRONT ADF Right Frequency Selector 10 kHz")
-defineRotary("CC_FRONT_ADF_FREQ_R_05", 13, 3004, 669, "ADF", "C-101CC FRONT ADF Right Frequency Selector 0.5 kHz")--issue
+defineRotaryPlus("CC_FRONT_ADF_FREQ_R_05", 13, 3006, 3005, 669, "ADF", "C-101CC FRONT ADF Right Frequency Selector 0.5 kHz")--issue
 
 defineMultipositionSwitch("CC_FRONT_ADF_FUNC", 13,3007,677,4,0.1,"ADF" ,"C-101CC FRONT ADF Function Selector Switch")
 definePotentiometer("CC_FRONT_ADF_GAIN", 13,3009,678, {0, 1}, "ADF", "C-101CC FRONT ADF Gain Control")

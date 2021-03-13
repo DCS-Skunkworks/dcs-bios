@@ -119,6 +119,11 @@ BIOS.util.StringAllocation = {
 }
 function BIOS.util.StringAllocation:setValue(value)
 	local i = 1
+	--------------ammo
+        if value == nil then 
+            error("item " .. msg .. " is sending a nil value")
+        end
+--------------
 	while i <= value:len() and i <= #self.characterAllocations do
 		self.characterAllocations[i]:setValue(value:byte(i))
 		i = i + 1
@@ -401,6 +406,42 @@ function BIOS.util.defineRotary(msg, device_id, command, arg_number, category, d
 	--moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return string.format("%.4f", dev0:get_argument_value(arg_number)) end
 	moduleBeingDefined.inputProcessors[msg] = function(value)
 		GetDevice(device_id):performClickableAction(command, tonumber(value)/65535)
+	end
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 65535
+	}
+
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "analog_dial",
+		api_variant = "multiturn",
+		inputs = {
+			{ interface = "variable_step", max_value = 65535, suggested_step = 3200, description = "turn the dial left or right" },
+		},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "_KNOB_POS",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 65535,
+			  description = "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)"
+			}
+		}
+	}
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		value:setValue(dev0:get_argument_value(arg_number) * 65535)
+	end
+end
+
+function BIOS.util.defineRotaryPlus(msg, device_id, command2, command1, arg_number, category, description)
+	--moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return string.format("%.4f", dev0:get_argument_value(arg_number)) end
+	moduleBeingDefined.inputProcessors[msg] = function(value)
+	    GetDevice(device_id):performClickableAction(command1,1)
+		GetDevice(device_id):performClickableAction(command2,tonumber(value)/65535)
+		GetDevice(device_id):performClickableAction(command1,0)
 	end
 	local value = moduleBeingDefined.memoryMap:allocateInt {
 		maxValue = 65535
@@ -790,7 +831,8 @@ function BIOS.util.defineElectricallyHeldSwitch(msg, device_id, pos_command, neg
 		description = description,
 		control_type = "electrically_held_switch",
 		inputs = {
-			{ interface = "set_state", max_value = 1, description = "set the switch position -- 0 = off, 1 = try to turn it on" }
+			{ interface = "fixed_step", description = "switch to previous or next state" },
+			{ interface = "set_state", max_value = 1, description = "set the switch position -- 0 = off, 1 = try to turn it on" },
 		},
 		outputs = {
 			{ ["type"] = "integer",
