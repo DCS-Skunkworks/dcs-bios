@@ -437,7 +437,6 @@ function BIOS.util.defineRotary(msg, device_id, command, arg_number, category, d
 end
 
 function BIOS.util.defineRotaryPlus(msg, device_id, command2, command1, arg_number, category, description)
-	--moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return string.format("%.4f", dev0:get_argument_value(arg_number)) end
 	moduleBeingDefined.inputProcessors[msg] = function(value)
 	    GetDevice(device_id):performClickableAction(command1,1)
 		GetDevice(device_id):performClickableAction(command2,tonumber(value)/65535)
