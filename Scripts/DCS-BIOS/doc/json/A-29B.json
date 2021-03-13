@@ -1,0 +1,338 @@
+{
+          "Cockpit Mechanics": {
+                                         "CANOPY_LVR": {
+                                                                      "category": "Cockpit Mechanics",
+                                                                  "control_type": "selector",
+                                                                   "description": "Canopy Lever",
+                                                                    "identifier": "CANOPY_LVR",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                           "momentary_positions": "none",
+                                                                       "outputs": [ {
+                                                                                          "address": 34816,
+                                                                                      "description": "selector position",
+                                                                                             "mask": 1,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ],
+                                                              "physical_variant": "toggle_switch"
+                                                       },
+                                   "RIO_TCS_TRIM_AZI": {
+                                                               "category": "Cockpit Mechanics",
+                                                           "control_type": "limited_dial",
+                                                            "description": "Flaps Control Handle",
+                                                             "identifier": "RIO_TCS_TRIM_AZI",
+                                                                 "inputs": [ {
+                                                                               "description": "set the position of the dial",
+                                                                                 "interface": "set_state",
+                                                                                 "max_value": 65535
+                                                                           }, {
+                                                                                  "description": "turn the dial left or right",
+                                                                                    "interface": "variable_step",
+                                                                                    "max_value": 65535,
+                                                                               "suggested_step": 3200
+                                                                           } ],
+                                                                "outputs": [ {
+                                                                                   "address": 34818,
+                                                                               "description": "position of the potentiometer",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       }
+                               },
+            "Electric System": {
+                                   "AIR_INTERCON_SW": {
+                                                                     "category": "Electric System",
+                                                                 "control_type": "selector",
+                                                                  "description": "Aircraft Interconnect (On/Off/Off)",
+                                                                   "identifier": "AIR_INTERCON_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 2
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 34816,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 768,
+                                                                                       "max_value": 2,
+                                                                                        "shift_by": 8,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "3_position_switch"
+                                                      },
+                                         "BACKUP_SW": {
+                                                                     "category": "Electric System",
+                                                                 "control_type": "selector",
+                                                                  "description": "Backup (Auto/Off)",
+                                                                   "identifier": "BACKUP_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 34816,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 32,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 5,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      },
+                                        "BATTERY_SW": {
+                                                                     "category": "Electric System",
+                                                                 "control_type": "selector",
+                                                                  "description": "Battery (Reset/On/Off)",
+                                                                   "identifier": "BATTERY_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 2
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 34816,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 6,
+                                                                                       "max_value": 2,
+                                                                                        "shift_by": 1,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "3_position_switch"
+                                                      },
+                                     "EMERG_OVER_SW": {
+                                                                     "category": "Electric System",
+                                                                 "control_type": "selector",
+                                                                  "description": "Emergency Override (Emergency/Auto/Auto)",
+                                                                   "identifier": "EMERG_OVER_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 2
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 34816,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 192,
+                                                                                       "max_value": 2,
+                                                                                        "shift_by": 6,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "3_position_switch"
+                                                      },
+                                         "EXT_PW_SW": {
+                                                                     "category": "Electric System",
+                                                                 "control_type": "selector",
+                                                                  "description": "External Power (ON/Off)",
+                                                                   "identifier": "EXT_PW_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 34816,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 16,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 4,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      },
+                                      "GENERATOR_SW": {
+                                                                     "category": "Electric System",
+                                                                 "control_type": "selector",
+                                                                  "description": "Generator (On/Off-Reset)",
+                                                                   "identifier": "GENERATOR_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 34816,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 8,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 3,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      }
+                               },
+    "External Aircraft Model": {
+                                    "EXT_LANDING_LIGHTS": {
+                                                                  "category": "External Aircraft Model",
+                                                              "control_type": "metadata",
+                                                               "description": "Landing Lights (yellow)",
+                                                                "identifier": "EXT_LANDING_LIGHTS",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 34816,
+                                                                                  "description": "Landing Lights (yellow)",
+                                                                                         "mask": 2048,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 11,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                   "EXT_POSITION_LIGHTS": {
+                                                                  "category": "External Aircraft Model",
+                                                              "control_type": "metadata",
+                                                               "description": "Position Lights (red,green, White)",
+                                                                "identifier": "EXT_POSITION_LIGHTS",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 34816,
+                                                                                  "description": "Position Lights (red,green, White)",
+                                                                                         "mask": 1024,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 10,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                        "EXT_STROBE_TOP": {
+                                                                  "category": "External Aircraft Model",
+                                                              "control_type": "metadata",
+                                                               "description": "Top Strobe Light (white)",
+                                                                "identifier": "EXT_STROBE_TOP",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 34816,
+                                                                                  "description": "Top Strobe Light (white)",
+                                                                                         "mask": 4096,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 12,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                         "EXT_TOP_LIGHT": {
+                                                                  "category": "External Aircraft Model",
+                                                              "control_type": "metadata",
+                                                               "description": "Top Light (white)",
+                                                                "identifier": "EXT_TOP_LIGHT",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 34816,
+                                                                                  "description": "Top Light (white)",
+                                                                                         "mask": 8192,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 13,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                          "EXT_WOW_NOSE": {
+                                                                  "category": "External Aircraft Model",
+                                                              "control_type": "metadata",
+                                                               "description": "Weight ON Wheels Nose Gear",
+                                                                "identifier": "EXT_WOW_NOSE",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 34816,
+                                                                                  "description": "Weight ON Wheels Nose Gear",
+                                                                                         "mask": 16384,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 14,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                          "EXT_WOW_REAR": {
+                                                                  "category": "External Aircraft Model",
+                                                              "control_type": "metadata",
+                                                               "description": "Weight ON Wheels Rear Gear",
+                                                                "identifier": "EXT_WOW_REAR",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 34816,
+                                                                                  "description": "Weight ON Wheels Rear Gear",
+                                                                                         "mask": 32768,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 15,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          }
+                               },
+                     "Gauges": {
+                                   "CANOPY_VALUE": {
+                                                           "category": "Gauges",
+                                                       "control_type": "analog_gauge",
+                                                        "description": "Canopy Position",
+                                                         "identifier": "CANOPY_VALUE",
+                                                             "inputs": [  ],
+                                                            "outputs": [ {
+                                                                               "address": 34820,
+                                                                           "description": "gauge position",
+                                                                                  "mask": 65535,
+                                                                             "max_value": 65535,
+                                                                              "shift_by": 0,
+                                                                                "suffix": "",
+                                                                                  "type": "integer"
+                                                                       } ]
+                                                   }
+                               }
+}
