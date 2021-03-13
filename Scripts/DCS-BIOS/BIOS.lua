@@ -28,8 +28,9 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataEnd.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataStart.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CommonData.lua]])
 ----------------------------------------------------------------------------Modules Start----------------------------------------------------------------------------
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-29B.lua]]) -- ID = 41, ProperName = A-29B Super Tucano
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AH-6J.lua]]) -- ID = 7, ProperName = AH-6J Littlebird
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AJS37.lua]]) -- ID = 8, ProperName = AJS-37 Viggen
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Alphajet.lua]]) -- ID = 9, ProperName = Alphajet
