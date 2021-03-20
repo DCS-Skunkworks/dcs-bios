@@ -65,7 +65,6 @@ define3PosTumb("SHUTOFF", 2, 3214, 871, "Engine", "Fuel/Hydraulic/Bleed Shutoff 
 
 -- COCKPIT MECHANICS
 defineToggleSwitch("CANOPY_LVR", 15, 71, 129, "Cockpit Mechanics", "Canopy Lever")
-definePotentiometer("FLAP_CONTROL", 16, 3015, 132, {0, 1}, "Cockpit Mechanics", "Flaps Control Handle")
 
 -- CMFD1
 definePushButton("CMFD_1_OSS1", 10, 3231, 501, "CMFD1", "CMFD #1 OSS 1")
@@ -165,6 +164,19 @@ definePushButton("UFCP_AIRSPD", 20, 3321, 472, "UFCP", "UFCP Airspeed")
 definePushButton("UFCP_WARN", 20, 3322, 473, "UFCP", "UFCP Warning Reset")
 definePushButton("UFCP_UP", 20, 3316, 474, "UFCP", "UFCP Up")
 definePushButton("UFCP_DN", 20, 3317, 475, "UFCP", "UFCP Down")
+define3PosTumb("UFCP_DAY_NIGHT", 20, 3323, 476, "UFCP", "UFCP Day/Night/Auto")
+defineToggleSwitch("UFCP_RAD_ALT", 20, 3324, 478, "UFCP", "UFCP Radar Altimeter Transmit/Off")
+define3PosTumb("UFCP_DVR_REC", 20, 3325, 478, "UFCP", "UFCP DVR Rec/Standby/Off")
+defineTumb("UFCP_EGI", 20, 3326, 479, 0.25, {0.0, 1.0}, nil, false, "UFCP", "UFCP EGI Nav/Align/Storage Heading/Off/Test")
+definePotentiometer("UFCP_UFC_BRT", 20, 3327, 480, {0, 1}, "UFCP", "UFCP UFC BRT/OFF")
+defineToggleSwitch("UFCP_HUD_TEST", 20, 3328, 481, "UFCP", "UFCP HUD Test")
+defineToggleSwitch("UFCP_SBS", 20, 3329, 482, "UFCP", "UFCP SBS On")
+definePotentiometer("UFCP_HUD_BRT", 11, 3330, 483, {0, 1}, "UFCP", "UFCP HUD Britghness")
+definePotentiometer("UFCP_SBS_ADJUST", 20, 3331, 484, {0, 1}, "UFCP", "UFCP UFC BRT/OFF")
+definePushButton("UFCP_JOY_R", 20, 3332, 485, "UFCP", "UFCP Joystick Right")
+definePushButton("UFCP_JOY_L", 20, 3333, 486, "UFCP", "UFCP Joystick Left")
+definePushButton("UFCP_JOY_U", 20, 3334, 487, "UFCP", "UFCP Joystick Up")
+definePushButton("UFCP_JOY_D", 20, 3335, 488, "UFCP", "UFCP Joystick Down")
 
 -- GAUGES
 defineFloat("CANOPY_VALUE", 26, {0.0, 1.0}, "Gauges", "Canopy Position")
