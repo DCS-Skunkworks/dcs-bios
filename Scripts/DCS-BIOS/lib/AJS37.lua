@@ -1,3 +1,44 @@
+-- devices["TEST2"]					= counter()--1
+-- devices["WEAPON_SYSTEM"]			= counter()--2
+-- devices["ELECTRIC_SYSTEM"]			= counter()--3
+-- devices["CLOCK"]					= counter()--4
+-- devices["RADAR"]					= counter()--5
+-- devices["LANDINGGEAR"]				= counter()--6
+-- devices["REVERSAL"]					= counter()--7
+-- devices["CANARDFLAPS"]				= counter()--8
+-- devices["SPAK"]						= counter()--10
+-- devices["WEAPON_SYS"]				= counter() -- 11
+-- devices["AIRBRAKE"]					= counter()--12
+-- devices["NAVIGATION"]				= counter()--14
+-- devices["ENGINE_MGMT"]				= counter()--15
+-- devices["DEBUG"]					= counter()--16
+-- devices["TEST"]						= counter()--17
+-- devices["EP13"]						= counter()--18
+-- devices["LIGHTS"]					= counter()--20
+-- devices["ENGINEPANEL"]				= counter()--21
+-- devices["ELECTRICSYSTEM"]			= counter()--22
+-- devices["RADARALT"]					= counter()--23
+-- devices["DOPPLER"]					= counter()--24
+-- devices["FLIGHTDATAUNIT"]			= counter()--25
+-- devices["NAVIGATIONPANEL"]			= counter()--26
+-- devices["RWR"]						= counter()--27
+-- devices["HIGHALPHAWARNING"]			= counter()--28
+-- devices["ERRORPANEL"]				= counter()--29
+-- devices["MISSILECONTROLLER"] 		= counter()--30
+-- devices["COUNTERMEASURE"] 			= counter()--31
+-- devices["TESTINTERCOM"] 					= counter()--35 -- TEST
+-- devices["FR24"] 				= counter()--35 -- Radio 1
+-- devices["FR22"] 				= counter()--35 -- Radio 2
+-- devices["IFF"]						= counter()--34?
+-- devices["CONTROLS"]					= counter()--34?
+-- devices["KNEEBOARD"]				= 100--counter()
+-- devices["JOKER"]					= counter()--counter()
+-- devices["WALKMAN"]					= counter()--counter()
+-- devices["REPORTER"]					= counter()--counter()
+-- devices["MISSIONGENERATOR"]			= counter()
+-- devices["MACROS"]          			= counter()	-- whatever
+-- devices["HELMET_DEVICE"]		= counter()--33
+
 BIOS.protocol.beginModule("AJS37", 0x4600)
 BIOS.protocol.setExportModuleAircrafts({"AJS37"})
 
@@ -28,7 +69,7 @@ definePushButton("WEAPON_RELEASE", 2, 3303, 261, "Weapon System", "Weapon Emerge
 defineToggleSwitch("TANK_RELEASE_COVER", 2, 3402, 262, "Weapon System", "External Tank Release Cover")
 definePushButton("TANK_RELEASE", 2, 3320, 263, "Weapon System", "External Tank Release Button")
 defineTumb("WEAPON_SELECT", 2, 3304, 264, 0.1, {0.0, 0.5}, nil, false, "Weapon System", "Weapon Selector Knob")
-defineTumb("WEAPON_INTERVAL", 2, 3305, 265, 0.1, {0.0, 1.0}, nil, false, "Weapon System", "Weapon Interval Selector Mode Knob")
+defineTumb("WEAPON_INTERVAL", 2, 3305, 265, 0.1, {0, 1}, nil, false, "Weapon System", "Weapon Interval Selector Mode Knob")
 defineToggleSwitch("WEAPON_REL_MODE", 2, 3306, 266, "Weapon System", "Weapon Release Mode Switch")
 defineToggleSwitch("RB_BK_REL_MODE",2, 3307, 267, "Weapon System", "RB-04/RB-15/BK Release Mode Switch")
 
@@ -97,7 +138,7 @@ defineToggleSwitch("IFF_CHANNEL", 18, 3921, 1204, "Engine Panel", "IFF Channel S
 defineToggleSwitch("DME_SELECTOR", 18, 3919, 1206, "Engine Panel", "DME Selector")
 defineToggleSwitch("IGNITION_SYSTEM", 18, 3003, 205, "Engine Panel", "Ignition System")
 defineToggleSwitch("MAN_AFTERBURN_FUEL_REG", 18, 3006, 313, "Engine Panel", "Manual Afterburner Fuel Regulator")
-defineTumb("FLIGHT_RECORDER", 18, 3924, 384, 0.5, {0.0, 1.0}, nil, false, "Engine Panel", "Flight Recorder")
+defineTumb("FLIGHT_RECORDER", 18, 3924, 384, 0.5, {0, 1}, nil, false, "Engine Panel", "Flight Recorder")
 definePushButton("RESTART", 18, 3401, 208, "Engine Panel", "Restart")
 defineTumb("AFK_LEVER", 18, 3304, 13, 1.138, {0, 1.138}, nil, false, "Engine Panel", "AFK Lever")
 defineToggleSwitch("DATA_CARTRIDGE", 18, 3925, 4200, "Engine Panel", "Insert/Remove Data Cartridge")
@@ -119,7 +160,7 @@ defineToggleSwitch("GEAR_HANDLE", 22, 3719, 12, "Flight Data Unit", "Gear Handle
 definePushButton("SPAK", 22, 3301, 401,  "Flight Data Unit",  "SPAK")
 definePushButton("ATTITUDE_HOLD", 22, 3302, 402, "Flight Data Unit", "Attitude Hold")
 definePushButton("ALTITUDE_HOLD", 22, 3303, 403, "Flight Data Unit", "Altitude Hold")
-defineTumb("TILS_CHANNEL_SELECT", 22, 3512, 282, 0.1, {0.0, 1.0}, nil, false, "Flight Data Unit", "TILS Channel Selection")
+defineTumb("TILS_CHANNEL_SELECT", 22, 3512, 282, 0.1, {0, 1}, nil, false, "Flight Data Unit", "TILS Channel Selection")
 defineToggleSwitch("TILS_CHANNEL_LAYER", 22, 3511, 285, "Flight Data Unit", "TILS Channel Layer Selection")
 defineToggleSwitch("EJECTION_SEAT_ARM", 22, 3405, 21, "Flight Data Unit", "Ejection Seat Arm")
 defineToggleSwitch("SLAV_SI", 22, 3201, 323, "Flight Data Unit", "Slav SI")
@@ -134,7 +175,7 @@ defineToggleSwitch("EMERGENCY_ROLL_TRIM", 22, 3716, 390, "Flight Data Unit", "Em
 defineToggleSwitch("EMERGENCY_PITCH_TRIM", 22, 3717, 389, "Flight Data Unit", "Emergency Pitch Trim")
 defineToggleSwitch("EMERGENCY_YAW_TRIM", 22, 3918, 388, "Flight Data Unit", "Emergency Yaw Trim")
 defineToggleSwitch("MAG_DEC_COVER", 22, 3742, 666, "Flight Data Unit", "Magnetic Declination Cover")
-defineToggleSwitch("YAW_TRIM_COVER", 22, 3741, 493, "Flight Data Unit", "Autopilot Yaw Trim Cover")
+defineToggleSwitch("AUTO_YAW_TRIM_COVER", 22, 3741, 493, "Flight Data Unit", "Autopilot Yaw Trim Cover")
 defineToggleSwitchToggleOnly("PARKING_BRAKE", 22, 3408, 22, "Flight Data Unit", "Parking Brake")
 defineToggleSwitchToggleOnly("HUD_GLASS_POSITION", 22, 3401, 11, "Flight Data Unit", "HUD Reflector Glass Position")
 defineToggleSwitchToggleOnly("AFK_MODE_3", 22, 3402, 464, "Flight Data Unit", "AFK Mode 3")
@@ -344,12 +385,12 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
  ---- added by Warlord
 definePushButton("MAX_G_RESET", 22, 3722, 175, "Flight Data Unit", "Max G Reset")
-definePushButton("BACK_ADI_CAGE", 25, 3720, 123, "Flight Data Unit", "Backup ADI Cage")
-definePushButton("ROLL_CENTER", 22, 3305, 212, "Flight Data Unit", "Roll Centering")
+definePushButton("BACK_ADI_CAGE", 22, 3720, 3402, "Flight Data Unit", "Backup ADI Cage")
+definePushButton("ROLL_CENTER", 22, 3305, 2003, "Flight Data Unit", "Roll Centering")
 defineRotary("ALT_SET", 22, 3306, 2005, "Flight Data Unit", "Altimeter Setting")
 defineRotary("HUD_BRIGHT", 22, 3409, 9999, "Flight Data Unit", "HUD Brightness Knob")
 defineRotary("MAG_CORRECTION", 22, 3724, 1201, "Flight Data Unit", "Magnetic Declination Correction")
-definePotentiometer("AUTO_YAW_TRIM", 22, 3732, 211, {0, 1}, "Flight Data Unit", "Autopilot Yaw Trim")
+definePotentiometer("AUTO_YAW_TRIM", 22, 3732, 211, {-1, 1}, "Flight Data Unit", "Autopilot Yaw Trim")
 defineRotary("CLOCK_SET", 22, 3801, 135, "Flight Data Unit", "Clock Setting")
 
 definePushButton("FR22_FLIGHT_0", 31, 3210,372, "FR22 Radio", "Flight 0")
@@ -373,16 +414,16 @@ definePushButton("FR22_CHANNEL_CF", 31, 3207,369, "FR22 Radio", "Channel C/F")
 definePushButton("FR22_CHANNEL_C2", 31, 3208,370, "FR22 Radio", "Channel C2")
 definePushButton("FR22_CHANNEL_DE", 31, 3209,371, "FR22 Radio", "Channel D/E")
 definePushButton("FR22_GROUND_COM", 31, 3011,382, "FR22 Radio", "Ground Intercom")
-defineTumb("FR22_MODE", 31, 3110, 386, 0.1, {0.0, 0.5}, nil, false, "FR22 Radio", "FR22 Mode Selector")
-defineTumb("FR22_BASE", 31, 3230, 2002, 0.1, {0.0, 1.0}, nil, false, "FR22 Radio", "FR22 Base Selector")
-defineTumb("FR22_GROUP", 31, 3307, 360, 0.1, {0.0, 1.0}, nil, false, "FR22 Radio", "FR22 Group Selector")
+defineTumb("FR24_MODE", 31, 3110, 386, 0.1, {0.0, 0.5}, nil, false, "FR22 Radio", "FR24 Mode Selector")
+defineTumb("FR22_BASE", 31, 3230, 492, 0.05, {0, 1}, nil, false, "FR22 Radio", "FR22 Base Selector")
+defineTumb("FR22_GROUP", 31, 3307, 360, 0.1, {0, 1}, nil, false, "FR22 Radio", "FR22 Group Selector")
 defineRotary("FR22_VOL", 21, 3112, 385, "FR22 Radio" , "Radio Volume")
 
-defineToggleSwitch("IFF_POWER", 18, 3000, 308, "Radar", "IFF Power")
-defineTumb("IFF_CODE", 18, 3000, 309, 0.1, {0.0, 1.0}, nil, false, "Radar", "IFF Code")
-definePotentiometer("DE-ICE", 21, 3912, 286, {0, 1},"Engine Panel" , "Windscreen De-Ice")
-definePotentiometer("TEST_MODE", 21, 3913, 675, {0, 1},"Engine Panel" , "Maintenance Testing Mode")
-definePotentiometer("DRYSUIT", 18, 3917, 396, {0, 1},"Engine Panel" , "Drysuit Ventilation Adjustment")
+defineToggleSwitch("IFF_POWER", 18, 3001, 1203, "Radar", "IFF Power")
+defineTumb("IFF_CODE", 18, 3000, 309, 0.1, {0, 1}, nil, false, "Radar", "IFF Code")
+definePotentiometer("DE-ICE", 18, 3912, 286, {0, 1},"Engine Panel" , "Windscreen De-Ice")
+defineRotary("TEST_MODE", 18, 3913, 675, "Engine Panel" , "Maintenance Testing Mode")
+defineRotary("DRYSUIT", 18, 3917, 396,"Engine Panel" , "Drysuit Ventilation Adjustment")
 defineToggleSwitch("CABIN_AIR_VALVE", 18, 3000, 398, "Engine Panel", "Cabin Air Valve")
 
 definePotentiometer("MASTER_VOL", 24, 3006, 399, {0, 1},"RWR" , "Master Volume / Sidewinder Tone")
