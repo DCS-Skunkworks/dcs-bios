@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("AV8BNA", 0x7800)
 BIOS.protocol.setExportModuleAircrafts({"AV8BNA"})
---by WarLord (aka BlackLibrary) v.2.0
+--by WarLord (aka BlackLibrary) v.2.1
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -220,7 +220,7 @@ define3PosTumb("MULTI_RELEASE_CONTROL", 29, 3400, 400, "ACP", "Multiple Release 
 define3PosTumb("RELEASE_INT_100", 29, 3401, 401, "ACP", "Release Interval Control (Hundreds)")
 define3PosTumb("RELEASE_INT_010", 29, 3402, 402, "ACP", "Release Interval Control (Tens)")
 define3PosTumb("RELEASE_INT_001", 29, 3403, 403, "ACP", "Release Interval Control (Units)")
-defineMultipositionSwitch("JETT_MODE", 29, 3404, 404, 5, 0.5, "ACP" , "Jettison Mode Selector STA/STOR/SAFE/CMBT/Fuel")
+defineTumb("JETT_MODE", 29, 3404, 404, 0.5, {-1, 1}, nil, false, "ACP", "Jettison Mode Selector STA/STOR/SAFE/CMBT/Fuel")
 definePushButton("JETT_STORES", 29, 3405, 405, "ACP", "Jettison Stores")
 definePushButton("JETT_STATION_1", 29, 3407, 407, "ACP", "Select Station 1 Toggle")
 definePushButton("JETT_STATION_2", 29, 3409, 409, "ACP", "Select Station 2 Toggle")
