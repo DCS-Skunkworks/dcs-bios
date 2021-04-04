@@ -15,7 +15,6 @@ local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineRotary = BIOS.util.defineRotary
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
@@ -31,13 +30,15 @@ define3PosTumb("AIR_INTERCON_SW", 1, 3184, 966, "Electric System", "Aircraft Int
 definePushButton("ALT_BRIGHTNESS", 17, 3228, 951, "Flight Instruments", "Altimeter BRIGHT Button")
 definePushButton("ALT_STD_BTN", 17, 3020, 952, "Flight Instruments", "Altimeter STD Button")
 defineRotary("ALT_PRESS_KNB", 17, 3019, 953, "Flight Instruments", "Altimeter Pressure Knob")
+definePushButton("ASI_CAGE", 17, 3229, 756, "Flight Instruments", "ASI Cage")
+defineRotary("ASI_KNB", 17, 3230, 755, "Flight Instruments", "ASI Adjust (Up/Down)")
 
 -- ICE PROTECTION
 defineToggleSwitch("ICE_PROT_PROP", 6, 3185, 991, "Ice Protection", "Anti Ice Propeller (On/Off)")
 define3PosTumb("ICE_PROT_WIND", 6, 3186, 992, "Ice Protection", "Anti Ice Windshield (Start/Set/Off")
 defineToggleSwitch("PITOT_PRI", 6, 3187, 993, "Ice Protection", "Pitot / Stat - Pri/Tat (On/Off)")
 defineToggleSwitch("PITOT_SEC", 6, 3188, 994, "Ice Protection", "Pitot / Stat - Sec (On/Off)")
----------
+
 -- INTERNAL LIGHTS
 definePotentiometer("PANEL_BRIGHT", 5, 3189, 941, {0, 1}, "Internal Lights", "Panel Lights (Off/Brightness)")
 defineToggleSwitch("STORM_LIGHTS", 5, 3190, 942, "Internal Lights", "Storm Lights (On/Off)")
@@ -65,6 +66,57 @@ define3PosTumb("SHUTOFF", 2, 3214, 871, "Engine", "Fuel/Hydraulic/Bleed Shutoff 
 
 -- COCKPIT MECHANICS
 defineToggleSwitch("CANOPY_LVR", 15, 71, 129, "Cockpit Mechanics", "Canopy Lever")
+definePotentiometer("THROTTLE", 17, 3014, 911, {0, 1}, "Cockpit Mechanics", "Throttle")
+defineToggleSwitch("FLAPS_SW", 16, 3015, 912, "Cockpit Mechanics", "Flaps (Up/Down)")
+definePotentiometer("THROTTLE_FRIC", 17, 3220, 913, {0, 1}, "Cockpit Mechanics", "Throttle Friction")
+define3PosTumb("SEAT_UP_DN", 17, 3212, 891, "Cockpit Mechanics", "Seat (Up/Stop/Down)")
+define3PosTumb("EMERG_SPD_BRK", 17, 3213, 881, "Cockpit Mechanics", "Emergency Speed Break (Close/Off/Normal)")
+definePushButton("SUIT_TEST", 17, 3215, 861, "Cockpit Mechanics", "Anti-G Suit Test")
+define3PosTumb("EMERG_PARK_BRK", 9, 3221, 791, "Cockpit Mechanics", "Emergency Parking Brakes")
+
+-- AUDIO
+defineToggleSwitch("AUDIO_SEL", 18, 3227, 761, "Audio", "Audio Selector (Normal/Backup)")
+definePotentiometer("COM1_VOL", 18, 3363, 762, {0, 1}, "Audio", "COM 1 Audio Volume")
+definePotentiometer("COM2_VOL", 18, 3364, 763, {0, 1}, "Audio", "COM 2 Audio Volume")
+definePotentiometer("COM3_VOL", 18, 3365, 764, {0, 1}, "Audio", "COM 3 Audio Volume")
+definePotentiometer("COM4_VOL", 18, 3366, 765, {0, 1}, "Audio", "COM 4 Audio Volume")
+
+-- LANDING GEAR
+defineTumb("GEAR", 8, 3205, 821, 2, {-1, 1}, nil, false, "Gear", "Landing Gear (Up/Down)")
+definePushButton("GEAR_BEEP", 8, 3206, 822, "Gear", "Gear Beep Supress")
+definePushButton("GEAR_OVERR", 8, 3207, 823, "Gear", "Gear Down Lock Override")
+defineToggleSwitch("EMERG_GEAR", 8, 3208, 851, "Gear", "Gear Emergency Down (Emergency Down/Normal)")
+
+-- AVIONICS
+defineToggleSwitch("MDP_1_PW", 1, 3195, 841, "Avionics", "MDP 1 (On/Off)")
+defineToggleSwitch("MDP_2_PW", 1, 3196, 842, "Avionics", "MDP 2 (On/Off)")
+defineToggleSwitch("AVI_MASTER_PW", 1, 3197, 843, "Avionics", "Avionics Master (On/Off)")
+defineToggleSwitch("SMS_PW", 1, 3198, 844, "Avionics", "SMS (On/Off)")
+defineToggleSwitch("VUHF_MODE", 1, 3199, 845, "Avionics", "V/UHF (Guard/Normal)")
+define3PosTumb("EMERG_AILERON", 12, 3216, 901, "Avionics", "Aileron Emergency (Left/Stop/Right)")
+define3PosTumb("EMERG_ELEVATOR", 12, 3217, 902, "Avionics", "Elevator Emergency (Down/Stop/Up)")
+define3PosTumb("AUTO_RUDDER", 12, 3218, 903, "Avionics", "Auto Rudder (Engage/Power/Off)")
+definePushButton("WARNING_BTN", 22, 3346, 441, "Avionics", "Warning Button")
+definePushButton("CAUTION_BTN", 22, 3347, 442, "Avionics", "Caution Button")
+define3PosTumb("ELT_PW", 17, 3222, 771, "Avionics", "ELT (On/Arm-Reset)")
+define3PosTumb("PNAV_MAN", 17, 3223, 772, "Avionics", "PIC NAV Manual Sync (CW/CCW)")
+define3PosTumb("PNAV_SLAVE", 17, 3224, 773, "Avionics", "PIC NAV Slave (Free/Slave/Fast Slave)")
+
+-- FUEL
+defineToggleSwitch("FUEL_PUMP_MAIN", 3, 3209, 801, "Fuel", "Fuel Main Pump (Auto/Off)")
+defineTumb("FUEL_PUMP_AUX", 3, 3210, 802, 0.25, {0, 1}, nil, false, "Fuel", "Fuel Aux Pump (LH/Auto/RH/Both)")
+define3PosTumb("FUEL_TRANS", 20, 3211, 803, "Fuel", "Fuel Transfer (U-Wing/Ventral-Auto/Off)")
+
+-- WEAPONS
+define3PosTumb("WPN_MASS", 18, 3225, 781, "Weapon System", "Mass (Sim/Save/Live)")
+define3PosTumb("WPN_L_ARM", 18, 3226, 782, "Weapon System", "Late Arm (On/Safe)")
+definePushButton("WPN_SALVO", 18, 3204, 811, "Weapon System", "Salvo Mode")
+
+-- ENVIRONMENTAL CONTROL SYSTEM
+definePotentiometer("TEMP_SET", 7, 3200, 831, {0, 1}, "Environmental Control System", "Temperature (Cold/Hot)")
+defineToggleSwitch("AC_PW", 7, 3201, 832, "Environmental Control System", "Air Conditioner (On/Off)")
+defineToggleSwitch("ECS_MODE", 7, 3202, 833, "Environmental Control System", "ECS (Auto/Manual)")
+defineToggleSwitch("REC_FAN_PW", 7, 3203, 834, "Environmental Control System", "Recirculating Fan (On/Off)")
 
 -- CMFD1
 definePushButton("CMFD_1_OSS1", 10, 3231, 501, "CMFD1", "CMFD #1 OSS 1")
@@ -178,6 +230,16 @@ definePushButton("UFCP_JOY_L", 20, 3333, 486, "UFCP", "UFCP Joystick Left")
 definePushButton("UFCP_JOY_U", 20, 3334, 487, "UFCP", "UFCP Joystick Up")
 definePushButton("UFCP_JOY_D", 20, 3335, 488, "UFCP", "UFCP Joystick Down")
 
+-- AUTOPILOT
+definePushButton("AP_ROLL_PITCH", 25, 3374, 431, "Autopilot", "AP Roll/Pitch")
+definePushButton("AP_HDG", 25, 3375, 432, "Autopilot", "AP Heading")
+definePushButton("AP_ALT", 25, 3376, 433, "Autopilot", "AP Altitude")
+definePushButton("AP_TEST", 25, 3377, 434, "Autopilot", "AP Test")
+definePushButton("AP_NAV", 25, 3378, 435, "Autopilot", "AP NAV")
+definePushButton("AP_APR", 25, 3379, 436, "Autopilot", "AP Approach")
+definePushButton("AP_GS", 25, 3380, 437, "Autopilot", "AP GS")
+definePushButton("AP_ON", 25, 3381, 438, "Autopilot", "AP ON")
+
 -- GAUGES
 defineFloat("CANOPY_VALUE", 26, {0.0, 1.0}, "Gauges", "Canopy Position")
 defineFloat("VERT_VELO_G", 662, {-1, 1}, "Gauges", "Vertical Velocity")
@@ -198,6 +260,20 @@ defineIndicatorLight("GEAR_NOSE_L", 209, "Warning, Caution and IndicatorLights",
 defineIndicatorLight("GEAR_LEFT_L", 210, "Warning, Caution and IndicatorLights", "Left Gear Light (green)")
 defineIndicatorLight("GEAR_RIGHT_L", 211, "Warning, Caution and IndicatorLights", "Right Gear Light (green)")
 defineIndicatorLight("GEAR_HANDLE_L", 207, "Warning, Caution and IndicatorLights", "Gear Handle Light (red)")
+defineIndicatorLight("UFCP_BACK_L", 489, "Warning, Caution and IndicatorLights", "UFCP Backlighting (green)")
+defineIndicatorLight("AP_RP_L", 213, "Warning, Caution and IndicatorLights", "AP Roll/Pitch Light (green)")
+defineIndicatorLight("AP_HDG_L", 214, "Warning, Caution and IndicatorLights", "AP Heading Light (green)")
+defineIndicatorLight("AP_ALT_L", 215, "Warning, Caution and IndicatorLights", "AP Altitude Light (green)")
+defineIndicatorLight("AP_TEST_L", 216, "Warning, Caution and IndicatorLights", "AP Test Light (green)")
+defineIndicatorLight("AP_TEST_F_L", 217, "Warning, Caution and IndicatorLights", "AP Test Fail Light (red)")
+defineIndicatorLight("AP_NAV_L", 218, "Warning, Caution and IndicatorLights", "AP NAV Light (green)")
+defineIndicatorLight("AP_NAV_F_L", 219, "Warning, Caution and IndicatorLights", "AP NAV Fail Light (red)")
+defineIndicatorLight("AP_APR_L", 220, "Warning, Caution and IndicatorLights", "AP Approach Light (green)")
+defineIndicatorLight("AP_APR_F_L", 221, "Warning, Caution and IndicatorLights", "AP Approach Fail Light (red)")
+defineIndicatorLight("AP_GS_L", 222, "Warning, Caution and IndicatorLights", "AP GS Light (green)")
+defineIndicatorLight("AP_GS_F_L", 223, "Warning, Caution and IndicatorLights", "AP GS Fail Light (red)")
+defineIndicatorLight("AP_ON_L", 224, "Warning, Caution and IndicatorLights", "AP ON Light (green)")
+defineIndicatorLight("AP_ON_F_L", 225, "Warning, Caution and IndicatorLights", "AP ON Fail Light (red)")
 
 -- Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()

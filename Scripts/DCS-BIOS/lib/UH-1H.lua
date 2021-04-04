@@ -65,7 +65,6 @@ defineIndicatorLight("IFF_REPLY_IND", 76, "IFF", "IFF Reply Indicator Lamp (gree
 defineIndicatorLight("IFF_TEST_IND", 77, "IFF", "IFF Test Indicator Lamp (green)")
 
 -- mainpanel_init.lua:
-
 defineFloat("CI_VBAR", 151, {-.7, .7}, "Course Indicator", "Vertical Bar")
 defineFloat("CI_HBAR", 152, {-.7, .7}, "Course Indicator", "Horizontal Bar")
 defineFloat("CI_TO", 153, {0, 1}, "Course Indicator", "To Marker")
@@ -172,9 +171,8 @@ local function getRadarAlt()
     return digit1 .. digit2 .. digit3 .. digit4
 end
 defineString("RALT_DISPLAY_STR", getRadarAlt, 4, "Radar Altimeter", "Display (String)")
+
 -- clickabledata.lua:
-
-
 defineToggleSwitch("BAT_SW", 1, 3001, 219, "Electrical System", "Battery Switch")
 defineToggleSwitch("STARTER_GEN_SW", 1, 3003, 220, "Electrical System", "Starter/Stdby GEN")
 defineMultipositionSwitch("DC_VM_SRC", 1, 3004, 218, 5, 0.1, "Electrical System", "DC Voltmeter Source")
@@ -182,89 +180,80 @@ defineToggleSwitch("NON_ESS_BUS_SW", 1, 3005, 221, "Electrical System", "NON ESS
 defineMultipositionSwitch("AC_VM_SRC", 1, 3007, 214, 3, 0.1, "Electrical System", "AC Voltmeter Source")
 defineTumb("INVERTER_SW", 1, 3008, 215, 1, {-1, 1}, nil, false, "Electrical System", "Inverter Switch")
 
-local cb_start_cmd = 3021
-defineToggleSwitch("CB_IFF_APX1", 1, cb_start_cmd, 285, "Circuit Breakers", "IFF APX 1 (No Function)")
-defineToggleSwitch("CB_IFF_APX2", 1, cb_start_cmd + 1, 287, "Circuit Breakers", "IFF APX 2 (No Function)")
-defineToggleSwitch("CB_PORX_WARN", 1, cb_start_cmd + 2, 289, "Circuit Breakers", "Prox. warn. (No Function)")
-defineToggleSwitch("CB_MARKER_BEACON", 1, cb_start_cmd + 3, 291, "Circuit Breakers", "Marker Beacon")
-defineToggleSwitch("CB_VHF_NAV", 1, cb_start_cmd + 4, 293, "Circuit Breakers", "VHF Nav. (ARN-82)")
-defineToggleSwitch("CB_LF_NAV", 1, cb_start_cmd + 5, 295, "Circuit Breakers", "LF Nav. (ARN-83)")
-defineToggleSwitch("CB_INT_CPLT", 1, cb_start_cmd + 6, 297, "Circuit Breakers", "Intercom Copilot (No Function)")
-defineToggleSwitch("CB_INT_PLT", 1, cb_start_cmd + 7, 299, "Circuit Breakers", "Intercom Pilot")
-defineToggleSwitch("CB_ARC_102", 1, cb_start_cmd + 8, 349, "Circuit Breakers", "ARC-102 HF Static Inverter (No Function)")
-defineToggleSwitch("CB_HF_ANT", 1, cb_start_cmd + 9, 351, "Circuit Breakers", "HF ANT COUPLR (No Function)")
-defineToggleSwitch("CB_HF_ARC_102", 1, cb_start_cmd + 10, 353, "Circuit Breakers", "HF ARC-102 (No Function)")
-defineToggleSwitch("CB_FM_RADIO", 1, cb_start_cmd + 11, 355, "Circuit Breakers", "FM Radio")
-defineToggleSwitch("CB_UHF_RADIO", 1, cb_start_cmd + 12, 357, "Circuit Breakers", "UHF Radio")
-defineToggleSwitch("CB_FM2_RADIO", 1, cb_start_cmd + 13, 359, "Circuit Breakers", "FM 2 Radio (No Function)")
-defineToggleSwitch("CB_AM_RADIO", 1, cb_start_cmd + 14, 361, "Circuit Breakers", "VHF AM Radio")
-
-defineToggleSwitch("CB_PITOT_TUBE", 1, cb_start_cmd + 16, 321, "Circuit Breakers", "Pitot tube (No Function)")
-
-defineToggleSwitch("CB_RESCUE_CONT", 1, cb_start_cmd + 18, 345, "Circuit Breakers", "Rescue hoist CTL (No Function)")
-defineToggleSwitch("CB_CABLE", 1, cb_start_cmd + 19, 347, "Circuit Breakers", "Rescoue hoist cable cutter (No Function)")
-
-defineToggleSwitch("CB_WIPER_CPLT", 1, cb_start_cmd + 20, 301, "Circuit Breakers", "Wind wiper CPLT")
-defineToggleSwitch("CB_WIPER_PLT", 1, cb_start_cmd + 21, 303, "Circuit Breakers", "Wind wiper PLT")
-defineToggleSwitch("CB_KY20", 1, cb_start_cmd + 22, 305, "Circuit Breakers", "KY-28 Secure Radio (No Function)")
-defineToggleSwitch("CB_STARTER", 1, cb_start_cmd + 23, 403, "Circuit Breakers", "Starter Relay (No Function)")
-defineToggleSwitch("CB_SL_PWR", 1, cb_start_cmd + 24, 307, "Circuit Breakers", "Search Light power (No Function)")
-defineToggleSwitch("CB_LDGLTS", 1, cb_start_cmd + 25, 309, "Circuit Breakers", "Landing Lights power (No Function)")
-defineToggleSwitch("CB_SL_CTL", 1, cb_start_cmd + 26, 311, "Circuit Breakers", "Landing and Search Lights Control (No Function)")
-defineToggleSwitch("CB_ANTICOLL", 1, cb_start_cmd + 27, 313, "Circuit Breakers", "Anticollision light (No Function)")
-defineToggleSwitch("CB_FUS_LTS", 1, cb_start_cmd + 28, 363, "Circuit Breakers", "Fuselage lights (No Function)")
-defineToggleSwitch("CB_NAV_LTS", 1, cb_start_cmd + 29, 365, "Circuit Breakers", "Navigation lights (No Function)")
-defineToggleSwitch("CB_DOME_LTS", 1, cb_start_cmd + 30, 367, "Circuit Breakers", "Dome lights (No Function)")
-defineToggleSwitch("CB_COCKPIT_LTS", 1, cb_start_cmd + 31, 369, "Circuit Breakers", "Cockpit lights (No Function)")
-defineToggleSwitch("CB_CAUTION_LTS", 1, cb_start_cmd + 32, 371, "Circuit Breakers", "Caution lights (No Function)")
-defineToggleSwitch("CB_CONSOLE_LTS", 1, cb_start_cmd + 33, 373, "Circuit Breakers", "Console lights (No Function)")
-defineToggleSwitch("CB_INST_LTS", 1, cb_start_cmd + 34, 375, "Circuit Breakers", "INST Panel lights (No Function)")
-defineToggleSwitch("CB_INST_SEC_LTS", 1, cb_start_cmd + 35, 377, "Circuit Breakers", "INST SEC lights (No Function)")
-defineToggleSwitch("CB_OUTLET_VALVE", 1, cb_start_cmd + 36, 323, "Circuit Breakers", "Cabin Heater Outlet Valve (No Function)")
-defineToggleSwitch("CB_AIR_VALVE", 1, cb_start_cmd + 37, 325, "Circuit Breakers", "Cabin Heater Air Valve (No Function)")
-defineToggleSwitch("CB_RESCUE_PWR", 1, cb_start_cmd + 38, 343, "Circuit Breakers", "Rescue Hoist Power (No Function)")
-defineToggleSwitch("CB_RPM_WARN", 1, cb_start_cmd + 39, 327, "Circuit Breakers", "RPM Warning System (No Function)")
-defineToggleSwitch("CB_ANTI_ICE", 1, cb_start_cmd + 40, 329, "Circuit Breakers", "Engine anti-ice (No Function)")
-defineToggleSwitch("CB_FIRE", 1, cb_start_cmd + 41, 331, "Circuit Breakers", "Fire detector (No Function)")
-defineToggleSwitch("CB_LH_FUEL", 1, cb_start_cmd + 42, 333, "Circuit Breakers", "LH fuel boost pump (No Function)")
-defineToggleSwitch("CB_TURN_SLIP", 1, cb_start_cmd + 43, 335, "Circuit Breakers", "Turn & Slip Indicator")
-defineToggleSwitch("CB_TEMP", 1, cb_start_cmd + 44, 337, "Circuit Breakers", "TEMP indicator (No Function)")
-defineToggleSwitch("CB_HYDCTL", 1, cb_start_cmd + 45, 339, "Circuit Breakers", "HYD Control (No Function)")
-defineToggleSwitch("CB_TRIM", 1, cb_start_cmd + 47, 341, "Circuit Breakers", "Force Trim (No Function)")
-defineToggleSwitch("CB_HOOK", 1, cb_start_cmd + 48, 379, "Circuit Breakers", "Cargo hook release (No Function)")
-defineToggleSwitch("CB_JTSN", 1, cb_start_cmd + 49, 381, "Circuit Breakers", "EXT Stores jettison (No Function)")
-defineToggleSwitch("CB_SPARE_INVTR", 1, cb_start_cmd + 50, 383, "Circuit Breakers", "Spare Inverter (No Function)")
-defineToggleSwitch("CB_INVTR", 1, cb_start_cmd + 51, 385, "Circuit Breakers", "Inverter CTRL (No Function)")
-defineToggleSwitch("CB_MAIN_INVTR", 1, cb_start_cmd + 52, 387, "Circuit Breakers", "Main Inverter PWR (No Function)")
-defineToggleSwitch("CB_GEN_BUS", 1, cb_start_cmd + 53, 389, "Circuit Breakers", "Generator & Bus Reset (No Function)")
-defineToggleSwitch("CB_STBY_GEN", 1, cb_start_cmd + 54, 391, "Circuit Breakers", "STBY Generator Field (No Function)")
-defineToggleSwitch("CB_GOV", 1, cb_start_cmd + 55, 393, "Circuit Breakers", "Governor Control (No Function)")
-defineToggleSwitch("CB_IDLE_STOP", 1, cb_start_cmd + 56, 395, "Circuit Breakers", "IDLE Stop release (No Function)")
-defineToggleSwitch("CB_RH_FUEL", 1, cb_start_cmd + 57, 397, "Circuit Breakers", "RH fuel boost pumps (No Function)")
-defineToggleSwitch("CB_FUEL_TRANS", 1, cb_start_cmd + 58, 399, "Circuit Breakers", "Fuel TRANS (No Function)")
-defineToggleSwitch("CB_FUEL_VALVES", 1, cb_start_cmd + 59, 401, "Circuit Breakers", "Fuel valves (No Function)")
-
-defineToggleSwitch("CB_HEATED_BLANKET1", 1, cb_start_cmd + 60, 315, "Circuit Breakers", "Heated blanket 1 (No Function)")
-defineToggleSwitch("CB_HEATED_BLANKET2", 1, cb_start_cmd + 61, 317, "Circuit Breakers", "Heated blanket 2 (No Function)")
-defineToggleSwitch("CB_VM", 1, cb_start_cmd + 62, 319, "Circuit Breakers", "Voltmeter Non Ess Bus (No Function)")
-
-defineToggleSwitch("CB_IGN", 1, cb_start_cmd + 64, 405, "Circuit Breakers", "Ignition system (No Function)")
-
-defineToggleSwitch("CB_PLT_ATTD1", 1, cb_start_cmd + 65, 423, "Circuit Breakers", "Pilot ATTD1 (No Function)")
-defineToggleSwitch("CB_PLT_ATTD2", 1, cb_start_cmd + 66, 424, "Circuit Breakers", "Pilot ATTD2 (No Function)")
-defineToggleSwitch("CB_CPLT_ATTD1", 1, cb_start_cmd + 67, 425, "Circuit Breakers", "Copilot ATTD1 (No Function)")
-defineToggleSwitch("CB_CPLT_ATTD2", 1, cb_start_cmd + 68, 426, "Circuit Breakers", "Coilot ATTD2 (No Function)")
-defineToggleSwitch("CB_PLT_ATTD1", 1, cb_start_cmd + 65, 423, "Circuit Breakers", "Pilot ATTD1 (No Function)")
-defineToggleSwitch("CB_GYRO", 1, cb_start_cmd + 69, 427, "Circuit Breakers", "Gyro Compass (No Function)")
-defineToggleSwitch("CB_FUEL_QTY", 1, cb_start_cmd + 70, 428, "Circuit Breakers", "Fuel Quantity (No Function)")
-defineToggleSwitch("CB_28V", 1, cb_start_cmd + 71, 429, "Circuit Breakers", "28V Trans (No Function)")
-defineToggleSwitch("CB_FAIL_RELAY", 1, cb_start_cmd + 72, 430, "Circuit Breakers", "Fail Relay (No Function)")
-defineToggleSwitch("CB_FUEL", 1, cb_start_cmd + 73, 431, "Circuit Breakers", "Pressure Fuel (No Function)")
-defineToggleSwitch("CB_TORQ", 1, cb_start_cmd + 74, 432, "Circuit Breakers", "Pressure Torque (No Function)")
-defineToggleSwitch("CB_XMSN", 1, cb_start_cmd + 75, 433, "Circuit Breakers", "Pressure XMSN (No Function)")
-defineToggleSwitch("CB_ENG", 1, cb_start_cmd + 76, 434, "Circuit Breakers", "Pressure Eng (No Function)")
-defineToggleSwitch("CB_CRSIND", 1, cb_start_cmd + 77, 435, "Circuit Breakers", "Course Ind (No Function)")
-
+defineToggleSwitch("CB_IFF_APX1", 1, 3021, 285, "Circuit Breakers", "IFF APX 1 (No Function)")
+defineToggleSwitch("CB_IFF_APX2", 1, 3022, 287, "Circuit Breakers", "IFF APX 2 (No Function)")
+defineToggleSwitch("CB_PORX_WARN", 1, 3023, 289, "Circuit Breakers", "Prox. warn. (No Function)")
+defineToggleSwitch("CB_MARKER_BEACON", 1, 3024, 291, "Circuit Breakers", "Marker Beacon")
+defineToggleSwitch("CB_VHF_NAV", 1, 3025, 293, "Circuit Breakers", "VHF Nav. (ARN-82)")
+defineToggleSwitch("CB_LF_NAV", 1, 3026, 295, "Circuit Breakers", "LF Nav. (ARN-83)")
+defineToggleSwitch("CB_INT_CPLT", 1, 3027, 297, "Circuit Breakers", "Intercom Copilot (No Function)")
+defineToggleSwitch("CB_INT_PLT", 1, 3028, 299, "Circuit Breakers", "Intercom Pilot")
+defineToggleSwitch("CB_ARC_102", 1, 3029, 349, "Circuit Breakers", "ARC-102 HF Static Inverter (No Function)")
+defineToggleSwitch("CB_HF_ANT", 1, 3030, 351, "Circuit Breakers", "HF ANT COUPLR (No Function)")
+defineToggleSwitch("CB_HF_ARC_102", 1, 3031, 353, "Circuit Breakers", "HF ARC-102 (No Function)")
+defineToggleSwitch("CB_FM_RADIO", 1, 3032, 355, "Circuit Breakers", "FM Radio")
+defineToggleSwitch("CB_UHF_RADIO", 1, 3033, 357, "Circuit Breakers", "UHF Radio")
+defineToggleSwitch("CB_FM2_RADIO", 1, 3034, 359, "Circuit Breakers", "FM 2 Radio (No Function)")
+defineToggleSwitch("CB_AM_RADIO", 1, 3035, 361, "Circuit Breakers", "VHF AM Radio")
+defineToggleSwitch("CB_PITOT_TUBE", 1, 3037, 321, "Circuit Breakers", "Pitot tube (No Function)")
+defineToggleSwitch("CB_RESCUE_CONT", 1, 3039, 345, "Circuit Breakers", "Rescue hoist CTL (No Function)")
+defineToggleSwitch("CB_CABLE", 1, 3040, 347, "Circuit Breakers", "Rescoue hoist cable cutter (No Function)")
+defineToggleSwitch("CB_WIPER_CPLT", 1, 3041, 301, "Circuit Breakers", "Wind wiper CPLT")
+defineToggleSwitch("CB_WIPER_PLT", 1, 3042, 303, "Circuit Breakers", "Wind wiper PLT")
+defineToggleSwitch("CB_KY20", 1, 3043, 305, "Circuit Breakers", "KY-28 Secure Radio (No Function)")
+defineToggleSwitch("CB_STARTER", 1, 3044, 403, "Circuit Breakers", "Starter Relay (No Function)")
+defineToggleSwitch("CB_SL_PWR", 1, 3045, 307, "Circuit Breakers", "Search Light power (No Function)")
+defineToggleSwitch("CB_LDGLTS", 1, 3046, 309, "Circuit Breakers", "Landing Lights power (No Function)")
+defineToggleSwitch("CB_SL_CTL", 1, 3047, 311, "Circuit Breakers", "Landing and Search Lights Control (No Function)")
+defineToggleSwitch("CB_ANTICOLL", 1, 3048, 313, "Circuit Breakers", "Anticollision light (No Function)")
+defineToggleSwitch("CB_FUS_LTS", 1, 3049, 363, "Circuit Breakers", "Fuselage lights (No Function)")
+defineToggleSwitch("CB_NAV_LTS", 1, 3050, 365, "Circuit Breakers", "Navigation lights (No Function)")
+defineToggleSwitch("CB_DOME_LTS", 1, 3051, 367, "Circuit Breakers", "Dome lights (No Function)")
+defineToggleSwitch("CB_COCKPIT_LTS", 1, 3052, 369, "Circuit Breakers", "Cockpit lights (No Function)")
+defineToggleSwitch("CB_CAUTION_LTS", 1, 3053, 371, "Circuit Breakers", "Caution lights (No Function)")
+defineToggleSwitch("CB_CONSOLE_LTS", 1, 3054, 373, "Circuit Breakers", "Console lights (No Function)")
+defineToggleSwitch("CB_INST_LTS", 1, 3055, 375, "Circuit Breakers", "INST Panel lights (No Function)")
+defineToggleSwitch("CB_INST_SEC_LTS", 1, 3056, 377, "Circuit Breakers", "INST SEC lights (No Function)")
+defineToggleSwitch("CB_OUTLET_VALVE", 1, 3057, 323, "Circuit Breakers", "Cabin Heater Outlet Valve (No Function)")
+defineToggleSwitch("CB_AIR_VALVE", 1, 3058, 325, "Circuit Breakers", "Cabin Heater Air Valve (No Function)")
+defineToggleSwitch("CB_RESCUE_PWR", 1, 3059, 343, "Circuit Breakers", "Rescue Hoist Power (No Function)")
+defineToggleSwitch("CB_RPM_WARN", 1, 3060, 327, "Circuit Breakers", "RPM Warning System (No Function)")
+defineToggleSwitch("CB_ANTI_ICE", 1, 3061, 329, "Circuit Breakers", "Engine anti-ice (No Function)")
+defineToggleSwitch("CB_FIRE", 1, 3062, 331, "Circuit Breakers", "Fire detector (No Function)")
+defineToggleSwitch("CB_LH_FUEL", 1, 3063, 333, "Circuit Breakers", "LH fuel boost pump (No Function)")
+defineToggleSwitch("CB_TURN_SLIP", 1, 3064, 335, "Circuit Breakers", "Turn & Slip Indicator")
+defineToggleSwitch("CB_TEMP", 1, 3065, 337, "Circuit Breakers", "TEMP indicator (No Function)")
+defineToggleSwitch("CB_HYDCTL", 1, 3066, 339, "Circuit Breakers", "HYD Control (No Function)")
+defineToggleSwitch("CB_TRIM", 1, 3068, 341, "Circuit Breakers", "Force Trim (No Function)")
+defineToggleSwitch("CB_HOOK", 1, 3069, 379, "Circuit Breakers", "Cargo hook release (No Function)")
+defineToggleSwitch("CB_JTSN", 1, 3070, 381, "Circuit Breakers", "EXT Stores jettison (No Function)")
+defineToggleSwitch("CB_SPARE_INVTR", 1, 3071, 383, "Circuit Breakers", "Spare Inverter (No Function)")
+defineToggleSwitch("CB_INVTR", 1, 3072, 385, "Circuit Breakers", "Inverter CTRL (No Function)")
+defineToggleSwitch("CB_MAIN_INVTR", 1, 3073, 387, "Circuit Breakers", "Main Inverter PWR (No Function)")
+defineToggleSwitch("CB_GEN_BUS", 1, 3074, 389, "Circuit Breakers", "Generator & Bus Reset (No Function)")
+defineToggleSwitch("CB_STBY_GEN", 1, 3075, 391, "Circuit Breakers", "STBY Generator Field (No Function)")
+defineToggleSwitch("CB_GOV", 1, 3076, 393, "Circuit Breakers", "Governor Control (No Function)")
+defineToggleSwitch("CB_IDLE_STOP", 1, 3077, 395, "Circuit Breakers", "IDLE Stop release (No Function)")
+defineToggleSwitch("CB_RH_FUEL", 1, 3078, 397, "Circuit Breakers", "RH fuel boost pumps (No Function)")
+defineToggleSwitch("CB_FUEL_TRANS", 1, 3079, 399, "Circuit Breakers", "Fuel TRANS (No Function)")
+defineToggleSwitch("CB_FUEL_VALVES", 1, 3080, 401, "Circuit Breakers", "Fuel valves (No Function)")
+defineToggleSwitch("CB_HEATED_BLANKET1", 1, 3081, 315, "Circuit Breakers", "Heated blanket 1 (No Function)")
+defineToggleSwitch("CB_HEATED_BLANKET2", 1, 3082, 317, "Circuit Breakers", "Heated blanket 2 (No Function)")
+defineToggleSwitch("CB_VM", 1, 3083, 319, "Circuit Breakers", "Voltmeter Non Ess Bus (No Function)")
+defineToggleSwitch("CB_IGN", 1, 3085, 405, "Circuit Breakers", "Ignition system (No Function)")
+defineToggleSwitch("CB_PLT_ATTD1", 1, 3086 + 65, 423, "Circuit Breakers", "Pilot ATTD1 (No Function)")
+defineToggleSwitch("CB_PLT_ATTD2", 1, 3087 + 66, 424, "Circuit Breakers", "Pilot ATTD2 (No Function)")
+defineToggleSwitch("CB_CPLT_ATTD1", 1, 3088 + 67, 425, "Circuit Breakers", "Copilot ATTD1 (No Function)")
+defineToggleSwitch("CB_CPLT_ATTD2", 1, 3089 + 68, 426, "Circuit Breakers", "Coilot ATTD2 (No Function)")
+defineToggleSwitch("CB_GYRO", 1, 3090, 427, "Circuit Breakers", "Gyro Compass (No Function)")
+defineToggleSwitch("CB_FUEL_QTY", 1, 3091, 428, "Circuit Breakers", "Fuel Quantity (No Function)")
+defineToggleSwitch("CB_28V", 1, 3092, 429, "Circuit Breakers", "28V Trans (No Function)")
+defineToggleSwitch("CB_FAIL_RELAY", 1, 3093, 430, "Circuit Breakers", "Fail Relay (No Function)")
+defineToggleSwitch("CB_FUEL", 1, 3094, 431, "Circuit Breakers", "Pressure Fuel (No Function)")
+defineToggleSwitch("CB_TORQ", 1, 30295, 432, "Circuit Breakers", "Pressure Torque (No Function)")
+defineToggleSwitch("CB_XMSN", 1, 3096, 433, "Circuit Breakers", "Pressure XMSN (No Function)")
+defineToggleSwitch("CB_ENG", 1, 3097, 434, "Circuit Breakers", "Pressure Eng (No Function)")
+defineToggleSwitch("CB_CRSIND", 1, 3098, 435, "Circuit Breakers", "Course Ind (No Function)")
 
 defineToggleSwitch("PITOT_HEAT", 1, 3016, 238, "Overhead Panel", "Pitot Heater")
 defineTumb("MAIN_GEN_SW", 1, 3002, 216, 1, {-1, 1}, nil, false, "Overhead Panel", "Main Generator RESET/OFF/ON")
@@ -314,13 +303,13 @@ defineRockerSwitch("GOV_RPM_SW", 3, 3015, 3015, 3015, 3015, 203, "Collective", "
 
 definePushButton("FIRE_TEST_BTN", 3, 3023, 278, "Front Dash", "Fire Test Button")
 
-definePushButton("CPLT_ADI_CAGE", 6, 3001, 140, "Front Dash", "Cage Copilot ADI")
+definePushButton("CPLT_ADI_CAGE", 6, 3001, 140, "Front Dash", "Copilot ADI Cage")
+definePotentiometer("ADI_PITCH_TRIM_CPLT", 6, 3002, 146, {0, 1}, "Front Dash", "Copilot ADI Pitch Trim Knob")
 
-defineVariableStepTumb("ADI_ROLL_TRIM", 5, 3001, 145, 1.0, "Front Dash", "ADI Roll Trim Knob")
-defineVariableStepTumb("ADI_PITCH_TRIM", 5, 3002, 144, 1.0, "Front Dash", "ADI Pitch Trim Knob")
+definePotentiometer("ADI_ROLL_TRIM", 5, 3001, 145, {-1, 1}, "Front Dash", "ADI Roll Trim Knob")
+definePotentiometer("ADI_PITCH_TRIM", 5, 3002, 144, {-1, 1}, "Front Dash", "ADI Pitch Trim Knob")
 
 defineRotary("ALT_ADJ_CPLT", 19, 3001, 172, "Front Dash", "Copilot Altimeter Pressure Adjustment")
-
 defineRotary("ALT_ADJ_PLT", 18, 3001, 181, "Front Dash", "Pilot Altimeter Pressure Adjustment")
 
 definePushButton("VHFCOMM_TEST_SW", 20, 3002, 6, "VHF COMM Radio", "Communication Test Button")
@@ -349,7 +338,6 @@ defineMultipositionSwitch("INT_MODE", 21, 3008, 30, 6, 0.1, "Intercom Panel", "I
 
 defineToggleSwitch("RADIO_ICS_SW", 21, 3009, 194, "Cyclic", "Radio/ICS Switch")
 
-
 defineTumb("UHF_PRESET", 22, 3001, 16, 0.05, {0.0, 0.95}, {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, false, "UHF Radio", "Preset Channel Selector")
 
 local function getUhfFreq()
@@ -358,15 +346,13 @@ local function getUhfFreq()
 end
 defineString("UHF_FREQ", getUhfFreq, 6, "UHF Radio", "UHF Frequency")
 
-defineFixedStepInput("UHF_10MHZ", 22, 3002, {0.1, -0.1}, "UHF Radio", "UHF 10 MHz Selector")
-defineFixedStepInput("UHF_1MHZ", 22, 3003, {0.1, -0.1}, "UHF Radio", "UHF 1 MHz Selector")
-defineFixedStepInput("UHF_50KHZ", 22, 3004, {0.1, -0.1}, "UHF Radio", "UHF 50 KHz Selector")
-
+defineFixedStepInput("UHF_10MHZ", 22, 3002, {0.1, -0.1}, "UHF Radio", "UHF 10 MHz Selector")--18
+defineFixedStepInput("UHF_1MHZ", 22, 3003, {0.1, -0.1}, "UHF Radio", "UHF 1 MHz Selector")--19
+defineFixedStepInput("UHF_50KHZ", 22, 3004, {0.1, -0.1}, "UHF Radio", "UHF 50 KHz Selector")--20
 defineMultipositionSwitch("UHF_MODE", 22, 3005, 15, 3, 0.1, "UHF Radio", "Frequency Mode Select")
 defineMultipositionSwitch("UHF_FUNCTION", 22, 3006, 17, 4, 0.1, "UHF Radio", "Function Dial")
 defineToggleSwitch("UHF_SQUELCH_SW", 22, 3007, 22, "UHF Radio", "Squelch Switch")
 definePotentiometer("UHF_VOL", 22, 3008, 21, {0, 1}, "UHF Radio", "Volume Control")
-
 
 defineTumb("VHFFM_FREQ1", 23, 3001, 31, 0.1, {0.3, 0.7}, {"3", "4", "5", "6", "7"}, false, "VHF FM Radio", "Frequency Tens of MHz")
 defineTumb("VHFFM_FREQ2", 23, 3002, 32, 0.1, {0.0, 0.9}, nil, false, "VHF FM Radio", "Frequency 1 MHz")
@@ -394,14 +380,12 @@ documentation["VHF NAV Radio"]["VHFNAV_VOL"].inputs[2].suggested_step = 8192
 definePotentiometer("BEACON_VOL", 26, 3001, 57, {0, 1}, "Front Dash", "Marker Beacon Volume")
 defineToggleSwitch("BEACON_SENSING_SW", 26, 3002, 55, "Front Dash", "Marker Beacon Sensing LOW / HIGH")
 
-
 defineTumb("ADF_LOOP_LR", 27, 3005, 42, 0.1, {0.0, 0.4}, nil, false, "ADF", "ADF LOOP Left Low Speed / Left High Speed /Center / Right Low Speed / Right High Speed")
 defineToggleSwitch("ADF_BFO_SW", 27, 3006, 41, "ADF", "BFO Switch")
 defineMultipositionSwitch("ADF_MODE", 27, 3001, 43, 4, 0.1, "ADF", "ADF Mode OFF / ADF / ANT / LOOP")
 definePotentiometer("ADF_GAIN", 27, 3004, 44, {0, 1}, "ADF", "ADF Gain")
 defineTumb("ADF_BAND", 27, 3002, 38, 1, {-1, 1}, nil, false, "ADF", "ADF Band")
 defineRotary("ADF_TUNE", 27, 3003, 39, "ADF", "ADF Tune")
-
 
 defineMultipositionSwitch("NVG_POS_LTS", 7, 3001, 222, 6, 0.1, "Overhead Panel", "NVG Position Lights")
 defineTumb("NAV_LTS_SW", 7, 3002, 223, 1, {-1, 1}, nil, false, "Overhead Panel", "Navigation Lights STEADY - OFF - FLASH")
@@ -441,7 +425,7 @@ definePotentiometer("SIGHT_INTEN_PLT", 49, 3001, 440, {0, 1}, "Flex Sight", "Pil
 definePotentiometer("SIGHT_ELEV_PLT", 49, 3003, 441, {-1, 1}, "Flex Sight", "Pilot Sight Elevation")
 
 defineTumb("WIPER_SEL", 12, 3002, 227, 1, {-1, 1}, nil, false, "Overhead Panel", "Wiper PILOT / BOTH / OPERATOR")
-defineFixedStepTumb("WIPER_SPD", 12, 3001, 229, 0.1, {0.0, 0.4}, {1, -1}, nil, "Overhead Panel", "Wiper Speed PARK - STOP - SLOW - MED - HIGH")
+defineFixedStepTumb("WIPER_SPD", 12, 3001, 229, 0.1, {0.0, 0.4}, {-1, 1}, nil, "Overhead Panel", "Wiper Speed PARK - STOP - SLOW - MED - HIGH")--TEST
 
 definePushButton("TRIM_PLT", 41, 3001, 189, "Cyclic", "Force Trim (Pilot Side)")
 definePushButton("TRIM_CPLT", 41, 3002, 193, "Cyclic", "Force Trim (Copilot Side)")
@@ -541,5 +525,9 @@ defineTumb("LDG_LT_CTRL2", 7, 3036, 212, 1, {-1, 1}, nil, false, "Collective", "
 defineFloat("SBY_COMPASS_HDG", 272, {-1, 1}, "Front Dash", "Standby Compass Heading")
 defineFloat("SBY_COMPASS_PITCH", 274, {-1, 1}, "Front Dash", "Standby Compass Pitch")
 defineFloat("SBY_COMPASS_BANK", 273, {-1, 1}, "Front Dash", "Standby Compass Bank")
+
+definePushButton("CARGO_REL_P", 52, 3001, 195, "Cyclic", "Cargo Release Pilot")
+definePushButton("CARGO_REL_CP", 52, 3002, 198, "Cyclic", "Cargo Release CoPilot")
+defineToggleSwitch("CARGO_REL_SAVE", 52, 3003, 228, "Overhead Panel", "Cargo Safety OFF / ARM")
 
 BIOS.protocol.endModule()
