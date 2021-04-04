@@ -528,6 +528,6 @@ defineFloat("SBY_COMPASS_BANK", 273, {-1, 1}, "Front Dash", "Standby Compass Ban
 
 definePushButton("CARGO_REL_P", 52, 3001, 195, "Cyclic", "Cargo Release Pilot")
 definePushButton("CARGO_REL_CP", 52, 3002, 198, "Cyclic", "Cargo Release CoPilot")
-defineToggleSwitch("CARGO_REL_SAVE", 52, 3003, 228, "Overhead Panel", "Cargo Safety OFF / ARM")
+defineToggleSwitch("CARGO_REL_SAFE", 52, 3003, 228, "Overhead Panel", "Cargo Safety OFF / ARM")
 
 BIOS.protocol.endModule()
