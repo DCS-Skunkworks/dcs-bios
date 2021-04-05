@@ -1,8 +1,8 @@
--- V1.6d by Warlord (aka BlackLibrary)
--- Added DED TIME, NAV and MAN pages and DED fixes by Matchstick
+-- V1.7 by Warlord (aka BlackLibrary)
+-- Added HARM,VIP,VRP pages by Matchstick
 --
 -- Tested and fixes by BuzzKillington & afewyards
--- DED Display,MAGV,INS,UHF,CMDS by Matchstick
+-- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick
 
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
@@ -801,6 +801,19 @@ DEDLayout_l1["LASR LABEL"] = {11,4}
 DEDLayout_l1["INTG INTG label"] = {13,4}
 DEDLayout_l1["INTG INTG Mode"] = {8,4}
 DEDLayout_l1["INTG TIM Event"] = {20,3}
+--HARM
+DEDLayout_l1["HARM"] = {1,4}
+DEDLayout_l1["TblNum"] = {6,4}
+DEDLayout_l1["Angles"] = {10,1}
+DEDLayout_l1["T1"] = {14,2}
+DEDLayout_l1["T1_code"] = {18,3,0,"_inv","I"}
+DEDLayout_l1["Asterisks_T1_both"] = {17,1,21,"","I"}
+-- VIP
+DEDLayout_l1["Visual initial point to TGT Label"] = {4,10}
+DEDLayout_l1["VIP to TGT Label Asteriscs_both"] = {3,1,14,"","I"}
+-- VRP
+DEDLayout_l1["Target to VRP Label"] = {4,10}
+DEDLayout_l1["Target to VRP Label Asteriscs_both"] = {3,1,14,"","I"}
 --DEDLayout_l1[""] = {,}
 
 --TODO
@@ -895,6 +908,20 @@ DEDLayout_l2["Misc Item R Name"]={19,4}
 DEDLayout_l2["TGP CODE LABEL"] = {1,8}
 DEDLayout_l2["TGP CODE VALUE"] = {13,4,0,"_inv","I"}
 DEDLayout_l2["TGP CODE Asteriscs_both"] = {12,1,17,"","I"}
+--HARM
+DEDLayout_l2["T2"] = {14,2}
+DEDLayout_l2["T2_code"] = {18,3,0,"_inv","I"}
+DEDLayout_l2["Asterisks_T2_both"] = {17,1,21,"","I"}
+-- VIP
+DEDLayout_l2["Visual initial point number"] = {4,3}
+DEDLayout_l2["VIP number value"] = {9,3,0,"_inv","I"}
+DEDLayout_l2["VIP number up down arrows"] = {13,1}
+DEDLayout_l2["VIP number Asteriscs_both"] = {8,1,12,"","I"}
+-- VRP
+DEDLayout_l2["Target number"] = {4,3}
+DEDLayout_l2["Target number value"] = {9,3,0,"_inv","I"}
+DEDLayout_l2["Target number up down arrows"] = {13,1}
+DEDLayout_l2["Target number Asteriscs_both"] = {8,1,12,"","I"}
 
 --DEDLayout_l2[""] = {,}
 
@@ -1043,6 +1070,19 @@ DEDLayout_l3["INTG M4 Mode"] = {16,2,0,"_inv","I"}
 DEDLayout_l3["INTG M4 Decoupled Status"] = {19,1}
 DEDLayout_l3["INTG M4 Code"] = {20,1,0,"_inv","I"}
 DEDLayout_l3["INTG M4 Key"] = {21,3}
+--HARM
+DEDLayout_l3["T3"] = {14,2}
+DEDLayout_l3["T3_code"] = {18,3,0,"_inv","I"}
+DEDLayout_l3["Asterisks_T3_both"] = {17,1,21,"","I"}
+-- VIP
+DEDLayout_l3["VIP bearing"] = {3,4}
+DEDLayout_l3["VIP bearing value"] = {9,6,0,"_inv","I"}
+DEDLayout_l3["VIP bearing Asteriscs_both"] = {8,1,15,"","I"}
+-- VRP
+DEDLayout_l3["Target bearing"] = {3,4}
+DEDLayout_l3["Target bearing value"] = {9,6,0,"_inv","I"}
+DEDLayout_l3["Target bearing Asteriscs_both"] = {8,1,15,"","I"}
+
 --DEDLayout_l3[""] = {,}
 
 --TODO
@@ -1183,6 +1223,16 @@ DEDLayout_l4["INTG M2 Decoupled Status"] = {3,1}
 DEDLayout_l4["INTG M2 Code"] = {4,4}
 DEDLayout_l4["INTG IJAM Mode"] = {15,4}
 DEDLayout_l4["INTG IJAM Key"] = {20,3}
+--HARM
+DEDLayout_l4["T4"] = {14,2}
+DEDLayout_l4["T4_code"] = {18,3,0,"_inv","I"}
+DEDLayout_l4["Asterisks_T4_both"] = {17,1,21,"","I"}
+-- VIP & VRP
+DEDLayout_l4["Range"] = {4,3}
+DEDLayout_l4["Range value"] = {11,4,0,"_inv","I"}
+DEDLayout_l4["Range Asteriscs_both"] = {10,1,15,"","I"}
+DEDLayout_l4["Range NM"] = {16,2}
+
 --DEDLayout_l4[""] = {,}
 
 --CNI
@@ -1294,6 +1344,15 @@ DEDLayout_l5["INTG Asterisks_both"] = {9,1,16,"","I"}
 DEDLayout_l5["INTG Scratchpad"] = {10,5,0,"_inv","I"}
 DEDLayout_l5["INTG COUPLE Mode"] = {16,4,0,"_inv","I"}
 DEDLayout_l5["INTG COUPLE Key"] = {20,3}
+--HARM
+DEDLayout_l5["T5"] = {14,2}
+DEDLayout_l5["T5_code"] = {18,3,0,"_inv","I"}
+DEDLayout_l5["Asterisks_T5_both"] = {17,1,21,"","I"}
+-- VIP & VRP
+DEDLayout_l5["Elevation"] = {3,4}
+DEDLayout_l5["Elevation value"] = {9,6,0,"_inv","I"}
+DEDLayout_l5["Elevation Asteriscs_both"] = {8,1,17,"","I"}
+
 --DEDLayout_l5[""] = {,}
 
 DEDLayout = {DEDLayout_l1, DEDLayout_l2, DEDLayout_l3, DEDLayout_l4, DEDLayout_l5}
