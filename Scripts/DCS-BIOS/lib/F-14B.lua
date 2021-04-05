@@ -182,7 +182,9 @@ end
 
 local function getHUD_Mode()
     local hud_m = "1"
-    if GetDevice(0):get_argument_value(1015) == 1 then  --Take Off
+	if GetDevice(0) == nil then  --nil
+        hud_m = "1"
+    elseif GetDevice(0):get_argument_value(1015) == 1 then  --Take Off
         hud_m = "1"
     elseif GetDevice(0):get_argument_value(1014) == 1 then  --Cruise  
         hud_m = "2"
@@ -200,7 +202,9 @@ end
 
 local function getSTEER_Mode()
     local steer_m = "2"
-    if GetDevice(0):get_argument_value(1002) == 1 then  --TACAN
+    if GetDevice(0) == nil then  --nil
+        steer_m = "2"
+	elseif GetDevice(0):get_argument_value(1002) == 1 then  --TACAN
         steer_m = "1"
     elseif GetDevice(0):get_argument_value(1003) == 1 then  --DEST 
         steer_m = "2"
@@ -218,7 +222,9 @@ end
 
 local function getAIRSOURCE_Mode()
     local airsource_m = "5"
-    if GetDevice(0):get_argument_value(929) == 1 then  --RAM
+	if GetDevice(0) == nil then  --nil
+        airsource_m = "5"
+    elseif GetDevice(0):get_argument_value(929) == 1 then  --RAM
         airsource_m = "1"
     elseif GetDevice(0):get_argument_value(930) == 1 then  --LEFT
         airsource_m = "2"
