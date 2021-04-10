@@ -1,6 +1,8 @@
 BIOS = {}
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AircraftList.lua]])
 
+BIOSdevMode = 1 -- 1 DevMode / 0 UserMode
+
 BIOS.dbg = {}
 BIOS.logfile = io.open(lfs.writedir()..[[Logs\DCS-BIOS.log]], "w")
 function BIOS.log(str) 
@@ -9,25 +11,24 @@ function BIOS.log(str)
 		BIOS.logfile:flush()
 	end
 end
---in the Plane lua's to log any variables value to the BIOS.log  - BIOS.log(VARIABLE_NAME) ex: BIOS.log(freq)
+--in the Plane lua's to log any variables value to the BIOS.log  - BIOS.log(VARIABLE_NAME) Example: BIOS.log(freq)
 
 package.path  = package.path..";.\\LuaSocket\\?.lua"
 package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
   
 socket = require("socket")
 
-
--- Following text : Example (case sensitive!) : -- ID = x, ProperName = <pretty name>
--- is used by DCSFlightpanels GUI to pick up DCS-BIOS modules
--- ID range 1-3 is used internally in DCSFlightpanels.
--- If you add a new module remember that is must have an uniques ID.
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Util.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\ProtocolIO.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Protocol.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataEnd.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataStart.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CommonData.lua]])
-----------------------------------------------------------------------------Modules Start----------------------------------------------------------------------------
+----------------------------------------------------------------------------Modules Start------------------------------------
+-- Following text : Example (case sensitive!) : -- ID = x, ProperName = <pretty name>
+-- is used by DCSFlightpanels GUI to pick up DCS-BIOS modules
+-- ID range 1-3 is used internally in DCSFlightpanels.
+-- If you add a new module remember that is must have an uniques ID.
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-29B.lua]]) -- ID = 41, ProperName = A-29B Super Tucano
@@ -67,7 +68,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SpitfireLFMkIX.lua]]) -- ID = 37, 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH-1H.lua]]) -- ID = 38, ProperName = UH-1H Huey
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\VNAO_Room.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Yak-52.lua]]) -- ID = 39, ProperName = Yak-52
-----------------------------------------------------------------------------Modules End------------------------------------------------------------------------------
+----------------------------------------------------------------------------Modules End--------------------------------------
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 
 -- Prev Export functions.
