@@ -57,6 +57,7 @@ function BIOS.protocol.beginModule(name, baseAddress)
 	exportModules[name] = moduleBeingDefined
 end
 function BIOS.protocol.endModule()
+  if BIOSdevMode == 1 then
 	local function saveDoc()
 		local JSON = loadfile([[Scripts\JSON.lua]])()
 		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".json", "w")
@@ -75,6 +76,7 @@ function BIOS.protocol.endModule()
 	end
 	pcall(saveDoc)
 	moduleBeingDefined = nil
+  end
 end
 
 
