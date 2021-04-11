@@ -274,8 +274,8 @@ defineToggleSwitch("SEAT_SAFE_LEVER", 12, 3800, 800, "Seat", "Seat Ground Safety
 -- CENTER CONSOLE:
 -------------------------------------------------------------------
 -- Flights Instruments Panel
-defineAV8BCommSelector("NAV_CRS", 11, 3364, 0.015, 364, "Flight Instruments", "NAV Course Setting")
-definePotentiometer("BARO_PRESSURE", 10, 3653, 653, {0, 1}, "Flight Instruments", "Barometric Pressure Calibration")
+define3PosTumb("NAV_CRS", 11, 3364, 364, "Flight Instruments", "NAV Course Setting")
+defineRotary("BARO_PRESSURE", 10, 3653, 653, "Flight Instruments", "Barometric Pressure Calibration")
 definePotentiometer("BAK_ADI_CAGE_KNOB", 19, 3351, 351, {0, 1}, "Flight Instruments", "Backup ADI Cage/Pitch Adjust Knob")
 definePushButton("BAK_ADI_CAGE_PULL", 19, 3350, 350, "Flight Instruments", "Backup ADI Cage/Pitch Adjust Pull")
 
@@ -358,7 +358,7 @@ defineMultipositionSwitch("BATT_SW", 1, 3613, 613, 3, 0.5, "Electric Panel", "Ba
 
 -- V/UHF Radio Panel
 definePotentiometer("UHF_VOL", 7, 3614, 614, {0, 1}, "UHF Radio", "V/UHF RSC Volume Knob")
-definePotentiometer("UHF_FREQ", 7, 3615, 615, {0, 1}, "UHF Radio", "V/UHF RSC Chan/Freq Knob")
+defineRotary("UHF_FREQ", 7, 3615, 615, "UHF Radio", "V/UHF RSC Chan/Freq Knob")
 defineMultipositionSwitch("UHF_MODE", 7, 3616, 616, 7, 0.2, "UHF Radio" , "V/UHF RSC Operational Mode Switch ZRO/OFF/TEST/TR+G/TR/ADF/CHNG PRST")
 definePushButton("UHF_ANC_POINT", 7, 3617, 617, "UHF Radio", "V/UHF RSC Ancillary Mode Pointer")
 definePushButton("UHF_ANC_SW", 7, 3618, 618, "UHF Radio", "V/UHF RSC Ancillary Mode Switch")
