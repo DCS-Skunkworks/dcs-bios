@@ -347,11 +347,11 @@
                                                                                         } ],
                                                                  "momentary_positions": "none",
                                                                              "outputs": [ {
-                                                                                                "address": 18066,
+                                                                                                "address": 18070,
                                                                                             "description": "selector position",
-                                                                                                   "mask": 32768,
+                                                                                                   "mask": 16,
                                                                                               "max_value": 1,
-                                                                                               "shift_by": 15,
+                                                                                               "shift_by": 4,
                                                                                                  "suffix": "",
                                                                                                    "type": "integer"
                                                                                         } ],
@@ -615,15 +615,12 @@
                                                                     "physical_variant": "toggle_switch"
                                                              },
                                                   "DRYSUIT": {
+                                                                  "api_variant": "multiturn",
                                                                      "category": "Engine Panel",
-                                                                 "control_type": "limited_dial",
+                                                                 "control_type": "analog_dial",
                                                                   "description": "Drysuit Ventilation Adjustment",
                                                                    "identifier": "DRYSUIT",
                                                                        "inputs": [ {
-                                                                                     "description": "set the position of the dial",
-                                                                                       "interface": "set_state",
-                                                                                       "max_value": 65535
-                                                                                 }, {
                                                                                         "description": "turn the dial left or right",
                                                                                           "interface": "variable_step",
                                                                                           "max_value": 65535,
@@ -631,11 +628,11 @@
                                                                                  } ],
                                                                       "outputs": [ {
                                                                                          "address": 18076,
-                                                                                     "description": "position of the potentiometer",
+                                                                                     "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65535,
                                                                                         "shift_by": 0,
-                                                                                          "suffix": "",
+                                                                                          "suffix": "_KNOB_POS",
                                                                                             "type": "integer"
                                                                                  } ]
                                                              },
@@ -986,15 +983,12 @@
                                                                     "physical_variant": "toggle_switch"
                                                              },
                                                 "TEST_MODE": {
+                                                                  "api_variant": "multiturn",
                                                                      "category": "Engine Panel",
-                                                                 "control_type": "limited_dial",
+                                                                 "control_type": "analog_dial",
                                                                   "description": "Maintenance Testing Mode",
                                                                    "identifier": "TEST_MODE",
                                                                        "inputs": [ {
-                                                                                     "description": "set the position of the dial",
-                                                                                       "interface": "set_state",
-                                                                                       "max_value": 65535
-                                                                                 }, {
                                                                                         "description": "turn the dial left or right",
                                                                                           "interface": "variable_step",
                                                                                           "max_value": 65535,
@@ -1002,11 +996,11 @@
                                                                                  } ],
                                                                       "outputs": [ {
                                                                                          "address": 18074,
-                                                                                     "description": "position of the potentiometer",
+                                                                                     "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65535,
                                                                                         "shift_by": 0,
-                                                                                          "suffix": "",
+                                                                                          "suffix": "_KNOB_POS",
                                                                                             "type": "integer"
                                                                                  } ]
                                                              }
@@ -1229,9 +1223,9 @@
                                                               "outputs": [ {
                                                                                  "address": 18070,
                                                                              "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 16,
+                                                                                    "mask": 128,
                                                                                "max_value": 1,
-                                                                                "shift_by": 4,
+                                                                                "shift_by": 7,
                                                                                   "suffix": "",
                                                                                     "type": "integer"
                                                                          } ]
@@ -1245,9 +1239,9 @@
                                                               "outputs": [ {
                                                                                  "address": 18070,
                                                                              "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 32,
+                                                                                    "mask": 256,
                                                                                "max_value": 1,
-                                                                                "shift_by": 5,
+                                                                                "shift_by": 8,
                                                                                   "suffix": "",
                                                                                     "type": "integer"
                                                                          } ]
@@ -1827,14 +1821,14 @@
                                                                                        }, {
                                                                                            "description": "set position",
                                                                                              "interface": "set_state",
-                                                                                             "max_value": 10
+                                                                                             "max_value": 20
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
                                                                                                "address": 18066,
                                                                                            "description": "selector position",
-                                                                                                  "mask": 960,
-                                                                                             "max_value": 10,
+                                                                                                  "mask": 1984,
+                                                                                             "max_value": 20,
                                                                                               "shift_by": 6,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
@@ -2368,9 +2362,9 @@
                                                                             "outputs": [ {
                                                                                                "address": 18066,
                                                                                            "description": "selector position",
-                                                                                                  "mask": 15360,
+                                                                                                  "mask": 30720,
                                                                                              "max_value": 10,
-                                                                                              "shift_by": 10,
+                                                                                              "shift_by": 11,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ],
@@ -2449,31 +2443,6 @@
                                                                                                   "type": "integer"
                                                                                        } ],
                                                                    "physical_variant": "push_button"
-                                                            },
-                                               "FR22_MODE": {
-                                                                           "category": "FR22 Radio",
-                                                                       "control_type": "selector",
-                                                                        "description": "FR22 Mode Selector",
-                                                                         "identifier": "FR22_MODE",
-                                                                             "inputs": [ {
-                                                                                           "description": "switch to previous or next state",
-                                                                                             "interface": "fixed_step"
-                                                                                       }, {
-                                                                                           "description": "set position",
-                                                                                             "interface": "set_state",
-                                                                                             "max_value": 5
-                                                                                       } ],
-                                                                "momentary_positions": "none",
-                                                                            "outputs": [ {
-                                                                                               "address": 18066,
-                                                                                           "description": "selector position",
-                                                                                                  "mask": 56,
-                                                                                             "max_value": 5,
-                                                                                              "shift_by": 3,
-                                                                                                "suffix": "",
-                                                                                                  "type": "integer"
-                                                                                       } ],
-                                                                   "physical_variant": "limited_rotary"
                                                             },
                                     "FR22_OUTER_LEFT_KNOB": {
                                                                  "api_variant": "multiturn",
@@ -2652,6 +2621,31 @@
                                                                                          "suffix": "_KNOB_POS",
                                                                                            "type": "integer"
                                                                                 } ]
+                                                            },
+                                               "FR24_MODE": {
+                                                                           "category": "FR22 Radio",
+                                                                       "control_type": "selector",
+                                                                        "description": "FR24 Mode Selector",
+                                                                         "identifier": "FR24_MODE",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 5
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 18066,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 56,
+                                                                                             "max_value": 5,
+                                                                                              "shift_by": 3,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "limited_rotary"
                                                             }
                                },
            "Flight Data Unit": {
@@ -2730,15 +2724,12 @@
                                                                          "physical_variant": "push_button"
                                                                   },
                                                        "ALT_SET": {
+                                                                       "api_variant": "multiturn",
                                                                           "category": "Flight Data Unit",
-                                                                      "control_type": "limited_dial",
+                                                                      "control_type": "analog_dial",
                                                                        "description": "Altimeter Setting",
                                                                         "identifier": "ALT_SET",
                                                                             "inputs": [ {
-                                                                                          "description": "set the position of the dial",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 65535
-                                                                                      }, {
                                                                                              "description": "turn the dial left or right",
                                                                                                "interface": "variable_step",
                                                                                                "max_value": 65535,
@@ -2746,11 +2737,11 @@
                                                                                       } ],
                                                                            "outputs": [ {
                                                                                               "address": 18054,
-                                                                                          "description": "position of the potentiometer",
+                                                                                          "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
                                                                                              "shift_by": 0,
-                                                                                               "suffix": "",
+                                                                                               "suffix": "_KNOB_POS",
                                                                                                  "type": "integer"
                                                                                       } ]
                                                                   },
@@ -2808,6 +2799,35 @@
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ]
+                                                                  },
+                                           "AUTO_YAW_TRIM_COVER": {
+                                                                                 "category": "Flight Data Unit",
+                                                                             "control_type": "selector",
+                                                                              "description": "Autopilot Yaw Trim Cover",
+                                                                               "identifier": "AUTO_YAW_TRIM_COVER",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 17940,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 256,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 8,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "toggle_switch"
                                                                   },
                                             "BACKUP_ALT_SETTING": {
                                                                           "category": "Flight Data Unit",
@@ -2920,15 +2940,12 @@
                                                                          "physical_variant": "limited_rotary"
                                                                   },
                                                      "CLOCK_SET": {
+                                                                       "api_variant": "multiturn",
                                                                           "category": "Flight Data Unit",
-                                                                      "control_type": "limited_dial",
+                                                                      "control_type": "analog_dial",
                                                                        "description": "Clock Setting",
                                                                         "identifier": "CLOCK_SET",
                                                                             "inputs": [ {
-                                                                                          "description": "set the position of the dial",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 65535
-                                                                                      }, {
                                                                                              "description": "turn the dial left or right",
                                                                                                "interface": "variable_step",
                                                                                                "max_value": 65535,
@@ -2936,11 +2953,11 @@
                                                                                       } ],
                                                                            "outputs": [ {
                                                                                               "address": 18062,
-                                                                                          "description": "position of the potentiometer",
+                                                                                          "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
                                                                                              "shift_by": 0,
-                                                                                               "suffix": "",
+                                                                                               "suffix": "_KNOB_POS",
                                                                                                  "type": "integer"
                                                                                       } ]
                                                                   },
@@ -3149,15 +3166,12 @@
                                                                          "physical_variant": "toggle_switch"
                                                                   },
                                                     "HUD_BRIGHT": {
+                                                                       "api_variant": "multiturn",
                                                                           "category": "Flight Data Unit",
-                                                                      "control_type": "limited_dial",
+                                                                      "control_type": "analog_dial",
                                                                        "description": "HUD Brightness Knob",
                                                                         "identifier": "HUD_BRIGHT",
                                                                             "inputs": [ {
-                                                                                          "description": "set the position of the dial",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 65535
-                                                                                      }, {
                                                                                              "description": "turn the dial left or right",
                                                                                                "interface": "variable_step",
                                                                                                "max_value": 65535,
@@ -3165,11 +3179,11 @@
                                                                                       } ],
                                                                            "outputs": [ {
                                                                                               "address": 18056,
-                                                                                          "description": "position of the potentiometer",
+                                                                                          "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
                                                                                              "shift_by": 0,
-                                                                                               "suffix": "",
+                                                                                               "suffix": "_KNOB_POS",
                                                                                                  "type": "integer"
                                                                                       } ]
                                                                   },
@@ -3196,15 +3210,12 @@
                                                                          "physical_variant": "limited_rotary"
                                                                   },
                                                 "MAG_CORRECTION": {
+                                                                       "api_variant": "multiturn",
                                                                           "category": "Flight Data Unit",
-                                                                      "control_type": "limited_dial",
+                                                                      "control_type": "analog_dial",
                                                                        "description": "Magnetic Declination Correction",
                                                                         "identifier": "MAG_CORRECTION",
                                                                             "inputs": [ {
-                                                                                          "description": "set the position of the dial",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 65535
-                                                                                      }, {
                                                                                              "description": "turn the dial left or right",
                                                                                                "interface": "variable_step",
                                                                                                "max_value": 65535,
@@ -3212,11 +3223,11 @@
                                                                                       } ],
                                                                            "outputs": [ {
                                                                                               "address": 18058,
-                                                                                          "description": "position of the potentiometer",
+                                                                                          "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
                                                                                              "shift_by": 0,
-                                                                                               "suffix": "",
+                                                                                               "suffix": "_KNOB_POS",
                                                                                                  "type": "integer"
                                                                                       } ]
                                                                   },
@@ -3473,6 +3484,36 @@
                                                                                              } ],
                                                                          "physical_variant": "push_button"
                                                                   },
+                                          "STOPWATCH_START_STOP": {
+                                                                              "api_variant": "momentary_last_position",
+                                                                                 "category": "Flight Data Unit",
+                                                                             "control_type": "selector",
+                                                                              "description": "Stopwatch Start/Stop/Reset",
+                                                                               "identifier": "STOPWATCH_START_STOP",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 18070,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 32,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 5,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "push_button"
+                                                                  },
                                             "TILS_CHANNEL_LAYER": {
                                                                                  "category": "Flight Data Unit",
                                                                              "control_type": "selector",
@@ -3526,35 +3567,6 @@
                                                                                                         "type": "integer"
                                                                                              } ],
                                                                          "physical_variant": "limited_rotary"
-                                                                  },
-                                                "YAW_TRIM_COVER": {
-                                                                                 "category": "Flight Data Unit",
-                                                                             "control_type": "selector",
-                                                                              "description": "Autopilot Yaw Trim Cover",
-                                                                               "identifier": "YAW_TRIM_COVER",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 1
-                                                                                             }, {
-                                                                                                    "argument": "TOGGLE",
-                                                                                                 "description": "Toggle switch state",
-                                                                                                   "interface": "action"
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 17940,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 256,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 8,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "toggle_switch"
                                                                   }
                                },
                "Gauge Values": {
@@ -4994,9 +5006,9 @@
                                                                                "outputs": [ {
                                                                                                   "address": 18066,
                                                                                               "description": "selector position",
-                                                                                                     "mask": 16384,
+                                                                                                     "mask": 32768,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 14,
+                                                                                                 "shift_by": 15,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ],
@@ -5827,6 +5839,38 @@
                                                                                                "type": "integer"
                                                                                     } ]
                                                                 }
+                               },
+                       "Test": {
+                                   "MISL_SEL_BTN": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Test",
+                                                              "control_type": "selector",
+                                                               "description": "Missile Select Button (IR-RB FRAMSTEGN)",
+                                                                "identifier": "MISL_SEL_BTN",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 18070,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 64,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 6,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "push_button"
+                                                   }
                                },
             "Thrust Reverser": {
                                    "REVERSAL": {
