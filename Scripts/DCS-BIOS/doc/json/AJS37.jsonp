@@ -164,7 +164,7 @@ docdata["AJS37"] =
                                                                         "identifier": "AJS37_DEST_INDICATOR_DATA_1",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 18094,
+                                                                                              "address": 18100,
                                                                                           "description": "Destination Data Digit 1",
                                                                                            "max_length": 1,
                                                                                                "suffix": "",
@@ -178,7 +178,7 @@ docdata["AJS37"] =
                                                                         "identifier": "AJS37_DEST_INDICATOR_DATA_2",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 18096,
+                                                                                              "address": 18102,
                                                                                           "description": "Destination Data Digit 2",
                                                                                            "max_length": 1,
                                                                                                "suffix": "",
@@ -3400,7 +3400,7 @@ docdata["AJS37"] =
                                                                               "api_variant": "momentary_last_position",
                                                                                  "category": "Flight Data Unit",
                                                                              "control_type": "selector",
-                                                                              "description": "Roll Centering",
+                                                                              "description": "Roll Trim Reset / Centre",
                                                                                "identifier": "ROLL_CENTER",
                                                                                    "inputs": [ {
                                                                                                  "description": "switch to previous or next state",
@@ -4692,7 +4692,7 @@ docdata["AJS37"] =
                                                                        "identifier": "AJS37_NAV_INDICATOR_DATA_1",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 18082,
+                                                                                             "address": 18088,
                                                                                          "description": "Navigataion Panel Data Digit 1",
                                                                                           "max_length": 1,
                                                                                               "suffix": "",
@@ -4706,7 +4706,7 @@ docdata["AJS37"] =
                                                                        "identifier": "AJS37_NAV_INDICATOR_DATA_2",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 18084,
+                                                                                             "address": 18090,
                                                                                          "description": "Navigataion Panel Data Digit 2",
                                                                                           "max_length": 1,
                                                                                               "suffix": "",
@@ -4720,7 +4720,7 @@ docdata["AJS37"] =
                                                                        "identifier": "AJS37_NAV_INDICATOR_DATA_3",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 18086,
+                                                                                             "address": 18092,
                                                                                          "description": "Navigataion Panel Data Digit 3",
                                                                                           "max_length": 1,
                                                                                               "suffix": "",
@@ -4734,7 +4734,7 @@ docdata["AJS37"] =
                                                                        "identifier": "AJS37_NAV_INDICATOR_DATA_4",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 18088,
+                                                                                             "address": 18094,
                                                                                          "description": "Navigataion Panel Data Digit 4",
                                                                                           "max_length": 1,
                                                                                               "suffix": "",
@@ -4748,7 +4748,7 @@ docdata["AJS37"] =
                                                                        "identifier": "AJS37_NAV_INDICATOR_DATA_5",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 18090,
+                                                                                             "address": 18096,
                                                                                          "description": "Navigataion Panel Data Digit 5",
                                                                                           "max_length": 1,
                                                                                               "suffix": "",
@@ -4762,7 +4762,7 @@ docdata["AJS37"] =
                                                                        "identifier": "AJS37_NAV_INDICATOR_DATA_6",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 18092,
+                                                                                             "address": 18098,
                                                                                          "description": "Navigataion Panel Data Digit 6",
                                                                                           "max_length": 1,
                                                                                               "suffix": "",
@@ -4960,6 +4960,31 @@ docdata["AJS37"] =
                                                                                                      "type": "integer"
                                                                                           } ],
                                                                       "physical_variant": "limited_rotary"
+                                                               },
+                                                  "CI_FILTER": {
+                                                                       "category": "Radar",
+                                                                   "control_type": "limited_dial",
+                                                                    "description": "CI filter",
+                                                                     "identifier": "CI_FILTER",
+                                                                         "inputs": [ {
+                                                                                       "description": "set the position of the dial",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 65535
+                                                                                   }, {
+                                                                                          "description": "turn the dial left or right",
+                                                                                            "interface": "variable_step",
+                                                                                            "max_value": 65535,
+                                                                                       "suggested_step": 3200
+                                                                                   } ],
+                                                                        "outputs": [ {
+                                                                                           "address": 18086,
+                                                                                       "description": "position of the potentiometer",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
                                                                },
                                                    "IFF_CODE": {
                                                                               "category": "Radar",
@@ -5996,6 +6021,56 @@ docdata["AJS37"] =
                                                             }
                                },
               "Weapon System": {
+                                              "EP13_BRIGHT": {
+                                                                     "category": "Weapon System",
+                                                                 "control_type": "limited_dial",
+                                                                  "description": "EP-13 Brightness",
+                                                                   "identifier": "EP13_BRIGHT",
+                                                                       "inputs": [ {
+                                                                                     "description": "set the position of the dial",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 65535
+                                                                                 }, {
+                                                                                        "description": "turn the dial left or right",
+                                                                                          "interface": "variable_step",
+                                                                                          "max_value": 65535,
+                                                                                     "suggested_step": 3200
+                                                                                 } ],
+                                                                      "outputs": [ {
+                                                                                         "address": 18082,
+                                                                                     "description": "position of the potentiometer",
+                                                                                            "mask": 65535,
+                                                                                       "max_value": 65535,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             },
+                                               "EP13_CONTR": {
+                                                                     "category": "Weapon System",
+                                                                 "control_type": "limited_dial",
+                                                                  "description": "EP-13 Contrast",
+                                                                   "identifier": "EP13_CONTR",
+                                                                       "inputs": [ {
+                                                                                     "description": "set the position of the dial",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 65535
+                                                                                 }, {
+                                                                                        "description": "turn the dial left or right",
+                                                                                          "interface": "variable_step",
+                                                                                          "max_value": 65535,
+                                                                                     "suggested_step": 3200
+                                                                                 } ],
+                                                                      "outputs": [ {
+                                                                                         "address": 18084,
+                                                                                     "description": "position of the potentiometer",
+                                                                                            "mask": 65535,
+                                                                                       "max_value": 65535,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             },
                                            "RB_BK_REL_MODE": {
                                                                             "category": "Weapon System",
                                                                         "control_type": "selector",

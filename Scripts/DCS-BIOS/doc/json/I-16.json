@@ -574,9 +574,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 16412,
                                                                                                     "description": "Left Position Light (red)",
-                                                                                                           "mask": 4096,
+                                                                                                           "mask": 16384,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 12,
+                                                                                                       "shift_by": 14,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -590,9 +590,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 16412,
                                                                                                     "description": "Right Position Light (green)",
-                                                                                                           "mask": 8192,
+                                                                                                           "mask": 32768,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 13,
+                                                                                                       "shift_by": 15,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -606,9 +606,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 16488,
                                                                                                     "description": "Weight ON Wheels Left Gear",
-                                                                                                           "mask": 1,
+                                                                                                           "mask": 4,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 0,
+                                                                                                       "shift_by": 2,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -620,11 +620,11 @@
                                                                                   "identifier": "EXT_WOW_RIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 16412,
+                                                                                                        "address": 16488,
                                                                                                     "description": "Weight ON Wheels Right Gear",
-                                                                                                           "mask": 32768,
+                                                                                                           "mask": 2,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 15,
+                                                                                                       "shift_by": 1,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -636,11 +636,11 @@
                                                                                   "identifier": "EXT_WOW_TAIL",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 16412,
+                                                                                                        "address": 16488,
                                                                                                     "description": "Weight ON Wheels Tail Gear",
-                                                                                                           "mask": 16384,
+                                                                                                           "mask": 1,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 14,
+                                                                                                       "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -1318,6 +1318,35 @@
                                                                                                   "type": "integer"
                                                                                        } ]
                                                                    },
+                                                 "EXT_FUEL_VALVE": {
+                                                                                  "category": "Motor",
+                                                                              "control_type": "selector",
+                                                                               "description": "External Fuel Tank Valve",
+                                                                                "identifier": "EXT_FUEL_VALVE",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 16412,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 4096,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 12,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "toggle_switch"
+                                                                   },
                                                      "FUEL_VALVE": {
                                                                                   "category": "Motor",
                                                                               "control_type": "selector",
@@ -1916,6 +1945,36 @@
                                                                                                             "mask": 1024,
                                                                                                        "max_value": 1,
                                                                                                         "shift_by": 10,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ],
+                                                                             "physical_variant": "push_button"
+                                                                      },
+                                                    "JETT_FUEL_TANK": {
+                                                                                  "api_variant": "momentary_last_position",
+                                                                                     "category": "Weapons",
+                                                                                 "control_type": "selector",
+                                                                                  "description": "Jettison Fuel Tank",
+                                                                                   "identifier": "JETT_FUEL_TANK",
+                                                                                       "inputs": [ {
+                                                                                                     "description": "switch to previous or next state",
+                                                                                                       "interface": "fixed_step"
+                                                                                                 }, {
+                                                                                                     "description": "set position",
+                                                                                                       "interface": "set_state",
+                                                                                                       "max_value": 1
+                                                                                                 }, {
+                                                                                                        "argument": "TOGGLE",
+                                                                                                     "description": "Toggle switch state",
+                                                                                                       "interface": "action"
+                                                                                                 } ],
+                                                                          "momentary_positions": "none",
+                                                                                      "outputs": [ {
+                                                                                                         "address": 16412,
+                                                                                                     "description": "selector position",
+                                                                                                            "mask": 8192,
+                                                                                                       "max_value": 1,
+                                                                                                        "shift_by": 13,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ],
