@@ -1,6 +1,6 @@
 -----------------------------------------------------------                                         
 --     LIBRARY     	:    Mirage 2000C RAZBAM orginal by Exo7
---     VERSION     	:    v1.29 by Ergo, Matchstick, MisterKnife, WarLord
+--     VERSION     	:    v1.30 by Ergo, Matchstick, MisterKnife, WarLord
 -----------------------------------------------------------
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
@@ -683,7 +683,7 @@ defineTumb("LDG_LGT_SW", 16, 3450, 450, 0.5, {0, 1}, nil, false, "EXT LIGHTS", "
 
 -- FUEL SYSTEM
 defineMultipositionSwitch("AAR_SW", 7, 3193, 193, 3, 0.5, "FUEL SYSTEM", "I - Air Refuel Transfer Switch")
-defineToggleSwitch("FUEL_DETOT_SW", 0, 3355, 355, "FUEL SYSTEM", "I - DETOT Switch")
+defineToggleSwitch("FUEL_DETOT_SW", 4, 3355, 355, "FUEL SYSTEM", "I - DETOT Switch")
 defineToggleSwitch("FUEL_CROF_SW", 4, 3357, 357, "FUEL SYSTEM", "I - Fuel Crossfeeed Switch")
 defineMultipositionSwitch("BINGO_FUEL_1K_KG_SEL", 4, 3360, 360, 10, 0.1, "FUEL SYSTEM", "I - Bingo Fuel 1000 kg Selector")
 defineMultipositionSwitch("BINGO_FUEL_100_KG_SEL", 4, 3361, 361, 10, 0.1, "FUEL SYSTEM", "I - Bingo Fuel 100 kg Selector")
@@ -1103,6 +1103,8 @@ defineFloat("VORILS_001_DRUM", 615, {0, 1}, "VOR / ILS", "VOR/ILS Drum 0.01")
 defineFloat("VTAC_X_Y_DRUM", 620, {0, 1}, "TACAN", "TACAN X/Y Drum")
 defineFloat("VTAC_10_DRUM", 621, {0, 1}, "TACAN", "TACAN 10 Drum")
 defineFloat("VTAC_1_DRUM", 621, {0, 1}, "TACAN", "TACAN 1 Drum")
+
+definePushButton("G_RESET", 1, 3348, 348, "MISCELANEOUS", "G-Meter Reset")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()

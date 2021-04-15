@@ -345,7 +345,7 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
  ---- added by Warlord
 definePushButton("MAX_G_RESET", 22, 3722, 175, "Flight Data Unit", "Max G Reset")
 definePushButton("BACK_ADI_CAGE", 22, 3720, 3402, "Flight Data Unit", "Backup ADI Cage")
-definePushButton("ROLL_CENTER", 22, 3305, 2003, "Flight Data Unit", "Roll Centering")
+definePushButton("ROLL_CENTER", 22, 3305, 2003, "Flight Data Unit", "Roll Trim Reset / Centre")
 defineRotary("ALT_SET", 22, 3306, 2005, "Flight Data Unit", "Altimeter Setting")
 defineRotary("HUD_BRIGHT", 22, 3409, 9999, "Flight Data Unit", "HUD Brightness Knob")
 defineRotary("MAG_CORRECTION", 22, 3724, 1201, "Flight Data Unit", "Magnetic Declination Correction")
@@ -388,6 +388,10 @@ defineToggleSwitch("CABIN_AIR_VALVE", 18, 3000, 398, "Engine Panel", "Cabin Air 
 definePotentiometer("MASTER_VOL", 24, 3006, 399, {0, 1},"RWR" , "Master Volume / Sidewinder Tone")
 definePotentiometer("RADAR_BRIGHT", 5, 3923, 391, {0, 1},"Radar" , "Radar Brightness")
 definePushButton("STOPWATCH_START_STOP", 25, 3802, 134, "Flight Data Unit", "Stopwatch Start/Stop/Reset")
+
+definePotentiometer("EP13_BRIGHT", 2, 3318, 6901, {0, 1},"Weapon System", "EP-13 Brightness")
+definePotentiometer("EP13_CONTR", 2, 3319, 6902, {0, 1},"Weapon System", "EP-13 Contrast")
+definePotentiometer("CI_FILTER", 5, 3801, 6905, {0, 1},"Radar" , "CI filter")
 
 --found no argument
 definePushButton("MISL_SEL_BTN", 2, 3800, 400, "Test", "Missile Select Button (IR-RB FRAMSTEGN)")

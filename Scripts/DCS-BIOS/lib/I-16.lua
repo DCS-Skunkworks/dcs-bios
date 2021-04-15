@@ -18,12 +18,12 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- ELECTRIC
-defineToggleSwitch("CLOCK_HEAT", 5,3023, 23, "Electric", "Clock Heat")
-defineToggleSwitch("PITOT_HEAT", 5,3024, 24, "Electric", "Pitot Heat")
-defineToggleSwitch("NAV_LIGHT", 5,3025, 25, "Electric", "Nav Light") 
-defineToggleSwitch("ACCU", 5,3026, 26, "Electric", "Accumulator")
-defineToggleSwitch("SHUNT", 5,3027, 27, "Electric", "Shunt")
-defineToggleSwitch("RADIO", 5,3028, 28, "Electric", "Radio")
+defineToggleSwitch("CLOCK_HEAT", 5, 3023, 23, "Electric", "Clock Heat")
+defineToggleSwitch("PITOT_HEAT", 5, 3024, 24, "Electric", "Pitot Heat")
+defineToggleSwitch("NAV_LIGHT", 5, 3025, 25, "Electric", "Nav Light") 
+defineToggleSwitch("ACCU", 5, 3026, 26, "Electric", "Accumulator")
+defineToggleSwitch("SHUNT", 5, 3027, 27, "Electric", "Shunt")
+defineToggleSwitch("RADIO", 5, 3028, 28, "Electric", "Radio")
 definePushButton("FIRE_TORCH_L", 5, 3030, 30, "Electric" , "Fire Left Torch")
 definePushButton("TORCH_JETT", 5, 3089, 89, "Electric" , "Torches Jettison")
 definePushButton("FIRE_TORCH_R", 5, 3031, 31, "Electric" , "Fire Right Torch")
@@ -57,7 +57,7 @@ defineMultipositionSwitch("SUPERCHARGER", 2, 3046, 46, 3, 0.5, "Motor", "Superch
 defineRotary("ENG_COWL_FLAPS", 2, 3047, 47, "Motor", "Motor Cowl Flaps")
 defineRotary("OIL_RAD", 2, 3048, 48, "Motor", "Oil Radiator")
 defineToggleSwitch("FUEL_VALVE", 2, 3062, 62, "Motor", "Fuel Valve")
-definePushButton("MAN_RATCHET",2, 3064, 64, "Motor" , "Manual Ratchet Relay")
+definePushButton("MAN_RATCHET", 2, 3064, 64, "Motor" , "Manual Ratchet Relay")
 
 -- WEAPON 
 definePushButton("GUN_L_RECHARG_WING", 7, 3060, 60, "Weapons" , "Gun Wing Left Recharge")
@@ -118,6 +118,9 @@ defineFloat("DOOR_POS_R", 249, {0, 1}, "Gauges", "Right Door Position")
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("PANEL_GLOW", 82, "Warning, Caution and IndicatorLights", "Panel Glow (yellow)")
 defineIndicatorLight("NEEDLE_GLOW", 195, "Warning, Caution and IndicatorLights", "Panel Needle Glow (yellow)")
+
+defineToggleSwitch("EXT_FUEL_VALVE", 2, 3102, 102, "Motor", "External Fuel Tank Valve")
+definePushButton("JETT_FUEL_TANK", 7, 3103, 103, "Weapons" , "Jettison Fuel Tank")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()

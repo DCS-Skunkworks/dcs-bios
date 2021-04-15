@@ -124,7 +124,7 @@ definePushButton("VHF_RADIO_CHAN_A", 24, 3002, 118, "VHF Radio", "VHF Radio Chan
 definePushButton("VHF_RADIO_CHAN_B", 24, 3003, 119, "VHF Radio", "VHF Radio Channel B")
 definePushButton("VHF_RADIO_CHAN_C", 24, 3004, 120, "VHF Radio", "VHF Radio Channel C")
 definePushButton("VHF_RADIO_CHAN_D", 24, 3005, 121, "VHF Radio", "VHF Radio Channel D")
-definePotentiometer("RADIO_LIGHTS_DIMMER", 24, 3006, 127, {0, 1}, "VHF Radio", "Radio Lights Dimmer")
+defineToggleSwitch("RADIO_LIGHTS_DIMMER", 24, 3006, 127, "VHF Radio", "Radio Lights Dimmer")
 definePotentiometer("RADIO_VOLUME", 24, 3015, 116, {0, 1}, "VHF Radio", "Radio Audio Volume ")
 defineToggleSwitch("VHF_LOCKING_LEVER", 24, 3017, 129, "VHF Radio", "Switch Locking Lever")
 defineFixedStepTumb("RADIO_MODE2", 24, 3021, 128, 1, {-1,1}, {-1, 1}, nil, "VHF Radio", "Radio Mode2")
