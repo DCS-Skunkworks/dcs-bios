@@ -1,4 +1,4 @@
--- V1.7 by Warlord (aka BlackLibrary)
+-- V1.7a by Warlord (aka BlackLibrary)
 -- Added HARM,VIP,VRP pages by Matchstick
 --
 -- Tested and fixes by BuzzKillington & afewyards
@@ -264,7 +264,7 @@ define3PosTumb("UHF_ANT_SEL_SW", 39, 3014, 712, "Audio Panel", "UHF ANT SEL Swit
 
 --UHF Backup Control Panel
 defineMultipositionSwitch("UHF_CHAN_KNB", 37, 3001, 410, 20, 0.05,"UHF" ,"UHF CHAN Knob")
-defineMultipositionSwitch("UHF_FREQ_100_KNB", 37, 3002, 411, 3, 0.1,"UHF" ,"UHF Manual Frequency Knob 100 MHz")
+defineTumb("UHF_FREQ_100_KNB", 37, 3002, 411, 0.1, {0.1,0.3}, nil, false,"UHF" ,"UHF Manual Frequency Knob 100 MHz")
 defineMultipositionSwitch("UHF_FREQ_10_KNB", 37, 3003, 412, 10, 0.1,"UHF" ,"UHF Manual Frequency Knob 10 MHz")
 defineMultipositionSwitch("UHF_FREQ_1_KNB", 37, 3004, 413, 10, 0.1,"UHF" ,"UHF Manual Frequency Knob 1 MHz")
 defineMultipositionSwitch("UHF_FREQ_01_KNB", 37, 3005, 414, 10, 0.1,"UHF" ,"UHF Manual Frequency Knob 0.1 MHz")
