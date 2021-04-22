@@ -402,7 +402,7 @@ defineToggleSwitch("PLT_EMERG_GEN_SW", 14, 3012, 926, "Electrics", "PILOT Emerge
 
 -- Cockpit Mechanics
 defineToggleSwitch("PLT_CANOPY_JETT", 11, 3184, 224, "Cockpit Mechanics", "PILOT Canopy Jettison")
-defineToggleSwitch("RIO_CANOPY_JETT", 11, 3184, 2051, "Cockpit Mechanics", "RIO Canopy Jettison")
+defineToggleSwitch("RIO_CANOPY_JETT", 11, 3760, 2051, "Cockpit Mechanics", "RIO Canopy Jettison")
 defineToggleSwitch("RIO_EJECT_CMD", 11, 3185, 2049, "Cockpit Mechanics", "RIO Ejection CMD Lever")
 defineToggleSwitch("PLT_EJECT_SEAT_SAFE", 11, 3186, 404, "Cockpit Mechanics", "PILOT Ejection Seat Safety")
 defineToggleSwitch("RIO_EJECT_SEAT_SAFE", 11, 3187, 498, "Cockpit Mechanics", "RIO Ejection Seat Safety")
@@ -1612,7 +1612,7 @@ definePushButton("PLT_FIRE_EX_BOTTLE_R", 67, 3060, 15082, "Fire System", "PILOT 
 
 defineIndicatorLight("RIO_MCB_R_LIGHT", 13130, "Warning, Caution and IndicatorLights","RIO MCB Panel Right Test Light (red)(F-14A)")
 defineIndicatorLight("RIO_MCB_L_LIGHT", 13131, "Warning, Caution and IndicatorLights","RIO MCB Panel Left Test Light (red)(F-14A)")
-defineToggleSwitch("RIO_MCOMP_BYPASS", 19, 3760, 13132, "Engine", "RIO Mid Compression Bypass Test (F-14A)")
+defineToggleSwitch("RIO_MCOMP_BYPASS", 19, 3761, 13132, "Engine", "RIO Mid Compression Bypass Test (F-14A)")
 
 defineToggleSwitch("PLT_GEAR_DN_LK_OVER", 17, 3017, 633, "Gear", "PILOT Gear Down Lock Override")
 
