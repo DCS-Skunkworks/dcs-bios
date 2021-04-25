@@ -1,4 +1,4 @@
--- V1.7a by Warlord (aka BlackLibrary)
+-- V1.7b by Warlord (aka BlackLibrary)
 -- Added HARM,VIP,VRP pages by Matchstick
 --
 -- Tested and fixes by BuzzKillington & afewyards
@@ -1251,6 +1251,7 @@ DEDLayout_l5["Asterisks on Band_both"]={17,1,20,"","I"}
 DEDLayout_l5["Preset Channel Number"]={20,2}
 DEDLayout_l5["Guard or Backup Frequency"]={10,6}
 --IFF
+DEDLayout_l5["STAT M3 Mode"] = {0,2,0,"_inv","I"}
 DEDLayout_l5["STAT M3 Lockout Status"] = {3,1}
 DEDLayout_l5["STAT M3 Code"] = {4,4}
 DEDLayout_l5["STAT M4 Monitoring"] = {9,3}
