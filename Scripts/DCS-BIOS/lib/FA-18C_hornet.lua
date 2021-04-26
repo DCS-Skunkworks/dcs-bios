@@ -1,6 +1,5 @@
--- F/A-18 Module created by AndrewW, modified by WarLord&DeadMeat v1.5a
+-- F/A-18 Module created by AndrewW, modified by WarLord&DeadMeat v1.5b
 -- Many thanks to Capt Zeen for the pointers on analog and Radio outputs and UFC/IFEI export
--- And of course huge thanks to [FSF]Ian for writing DCS-BIOS in the first place
 
 BIOS.protocol.beginModule("FA-18C_hornet", 0x7400)
 BIOS.protocol.setExportModuleAircrafts({"FA-18C_hornet", "EA-18G", "FA-18E", "FA-18F"}) -- FA-18C + Mods
@@ -846,7 +845,7 @@ defineString("IFEI_BINGO_TEXTURE", function() return BINGOTexture end, 1, "Integ
 defineString("IFEI_LSCALE_TEXTURE", function() return LScaleTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Left Scale Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_RSCALE_TEXTURE", function() return RScaleTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right Scale Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_L0_TEXTURE", function() return L0Texture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Left 0 Texture Visible: 1 = yes, 0 = no")
-defineString("IFEI_L0_TEXTURE", function() return R0Texture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right 0 Texture Visible: 1 = yes, 0 = no")
+defineString("IFEI_R0_TEXTURE", function() return R0Texture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right 0 Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_L50_TEXTURE", function() return L50Texture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Left 50 Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_R50_TEXTURE", function() return R50Texture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right 50 Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_L100_TEXTURE", function() return L100Texture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Left 100 Texture Visible: 1 = yes, 0 = no")
