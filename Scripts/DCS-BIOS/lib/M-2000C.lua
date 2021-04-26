@@ -1,6 +1,6 @@
 -----------------------------------------------------------                                         
 --     LIBRARY     	:    Mirage 2000C RAZBAM orginal by Exo7
---     VERSION     	:    v1.30 by Ergo, Matchstick, MisterKnife, WarLord
+--     VERSION     	:    v1.31 by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
 -----------------------------------------------------------
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
@@ -24,9 +24,7 @@ local defineString = BIOS.util.defineString
 local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
------------------------ Custom Functions
-
--- Get Displays Functions
+----------------------- Get Displays Functions
 
 local function getUHFFrequency()
 	local li = list_indication(7)
@@ -43,8 +41,6 @@ local function getUHFFrequency()
 return "         "
 end
  
- 
-
  local function getVHFFrequency()
 	local li = list_indication(7)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
@@ -74,38 +70,6 @@ return "         "
     end
 return "         "
 end
-
--- 04 Apr 2020 - ECM BOX modified in recent versions of M2000C module cockpit so display functions have been removed
---local function getEMDisp()
---	local li = list_indication(3)
---	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
---	while true do
---        local name, value = m()
---        if not name then break end
---		if name == "text_ECM_CHF"
---        then
---        value = "   "..value
---        return value:sub(-3)
---      end
---    end
---return "         "
---end
-
-
---local function getIRDisp()
---	local li = list_indication(4)
---	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
---	while true do
---        local name, value = m()
---        if not name then break end
---		if name == "text_ECM_FLR"
---        then
---        value = "   "..value
---        return value:sub(-3)
---      end
---    end
---return "         "
---end
 
 local function getPCAUR1Disp()
 	local li = list_indication(4)
@@ -288,13 +252,14 @@ local function getPPAIntDisp()
 return "         "	
 end
 
-local function getPCNDispL() -- by Ergo
+----------------------- by Ergo fixed by Espresso29470
+local function getPCNDispL() 
    local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    while true do
         local name, value = m()
         if not name then break end
-      if name:sub(0,10) == "text_PCN_L"
+      if name:sub(0,13) == "PCN_UL_DIGITS"        
         then
         value = "        "..value
         return value:sub(-8)
@@ -303,13 +268,13 @@ local function getPCNDispL() -- by Ergo
 return "         "
 end
 
-local function getPCNDispR() -- by Ergo
+local function getPCNDispR() 
    local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    while true do
         local name, value = m()
         if not name then break end
-      if name:sub(0,10) == "text_PCN_R"
+      if name:sub(0,13) == "PCN_UR_DIGITS"		
         then
         value = "        "..value
         return value:sub(-9)
@@ -318,7 +283,7 @@ local function getPCNDispR() -- by Ergo
 return "         "
 end
 
-local function getPCNDigitR()  -- by Ergo
+local function getPCNDigitR()
    local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    local count = 0
@@ -326,22 +291,22 @@ local function getPCNDigitR()  -- by Ergo
    while true do
         local name, value = m()
         if not name then break end
-      if name == "text_PCN_EST"
+      if name == "PCN_UR_E"								
         then
         count = count + 1
         ret="E"
       end
-      if name == "text_PCN_OUEST"
+      if name == "PCN_UR_W"								
         then
         count = count + 1
         ret="W"
       end
-      if name == "text_PCN_PLUS_R"
+      if name == "PCN_UR_P"								
         then
         count = count + 1
         ret="+"
       end
-      if name == "text_PCN_MOINS_R"
+      if name == "PCN_UR_M"								
         then
         count = count + 1
         ret="-"
@@ -351,7 +316,7 @@ local function getPCNDigitR()  -- by Ergo
 return ret
 end
 
-local function getPCNDigitL()  -- by Ergo
+local function getPCNDigitL()
    local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    local count = 0
@@ -359,22 +324,22 @@ local function getPCNDigitL()  -- by Ergo
    while true do
         local name, value = m()
         if not name then break end
-      if name == "text_PCN_NORD"
+      if name == "PCN_UL_N"
         then
         count = count + 1
         ret="N"
       end
-      if name == "text_PCN_SUD"
+      if name == "PCN_UL_S"
         then
         count = count + 1
         ret="S"
       end
-      if name == "text_PCN_PLUS_L"
+      if name == "PCN_UL_P"
         then
         count = count + 1
         ret="+"
       end
-      if name == "text_PCN_MOINS_L"
+      if name == "PCN_UL_M"
         then
         count = count + 1
         ret="-"
@@ -384,7 +349,7 @@ local function getPCNDigitL()  -- by Ergo
 return ret
 end
 
-local function getPCN2DigitR()  -- by Ergo
+local function getPCN2DigitR()
    local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    local east = ""
@@ -394,19 +359,19 @@ local function getPCN2DigitR()  -- by Ergo
    while true do
         local name, value = m()
         if not name then break end
-      if name == "text_PCN_EST"
+      if name == "PCN_UR_E"
         then
         east="E"
       end
-      if name == "text_PCN_OUEST"
+      if name == "PCN_UR_O"
         then
         west="W"
       end
-      if name == "text_PCN_PLUS_R"
+      if name == "PCN_UR_P"
         then
         plus="+"
       end
-      if name == "text_PCN_MOINS_R"
+      if name == "PCN_UR_M"
         then
         minus="-"
       end
@@ -414,7 +379,7 @@ local function getPCN2DigitR()  -- by Ergo
 	return string.format("%-2s", string.sub(east..west..plus..minus,1,2))
 end
 
-local function getPCN2DigitL()  -- by Ergo
+local function getPCN2DigitL()
    local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    local north = ""
@@ -424,19 +389,19 @@ local function getPCN2DigitL()  -- by Ergo
    while true do
         local name, value = m()
         if not name then break end
-      if name == "text_PCN_NORD"
+      if name == "PCN_UL_N"
         then
         north="N"
       end
-      if name == "text_PCN_SUD"
+      if name == "PCN_UL_S"
         then
         south="S"
       end
-      if name == "text_PCN_PLUS_L"
+      if name == "PCN_UL_P"
         then
         plus="+"
       end
-      if name == "text_PCN_MOINS_L"
+      if name == "PCN_UL_M"
         then
         minus="-"
       end
@@ -444,19 +409,13 @@ local function getPCN2DigitL()  -- by Ergo
 	return string.format("%-2s", string.sub(north..south..plus..minus,1,2))
 end
 
-local function getPCNDispDest()  -- by Ergo
+local function getPCNDispDest()
    local li = list_indication(10)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    while true do
         local name, value = m()
         if not name then break end
-      if name == "text_PCN_BR2"
-        then
-        value = "  "..value
-        return value:sub(-2)
-      end
-
-      if name == "text_PCN_eBR2"
+      if name == "PCN_BR_DIGITS"
         then
         value = "  "..value
         return value:sub(-2)
@@ -465,19 +424,13 @@ local function getPCNDispDest()  -- by Ergo
 return "         "
 end
 
-local function getPCNDispPrep() -- by Ergo
+local function getPCNDispPrep()
    local li = list_indication(10)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
    while true do
         local name, value = m()
         if not name then break end
-      if name == "text_PCN_BR1"
-        then
-        value = "  "..value
-        return value:sub(-2)
-      end
-
-      if name == "text_PCN_eBR1"
+      if name == "PCN_BL_DIGITS"
         then
         value = "  "..value
         return value:sub(-2)
@@ -485,6 +438,7 @@ local function getPCNDispPrep() -- by Ergo
     end
 return "         "
 end
+----------------------- by Ergo fixed by Espresso29470 -- END
 
 -- ADI
 defineToggleSwitch("ADI_CAGE_LEV", 1, 3314, 314, "ADI", "I - ADI - Cage Lever")
