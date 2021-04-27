@@ -722,6 +722,8 @@ local L100Texture = ""
 local R100Texture = ""
 local LPointerTexture = ""
 local RPointerTexture = ""
+local LTexture = ""
+local Rexture = ""
 local ZTexture = ""
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local ifei = parse_indication(5)
@@ -765,6 +767,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	R100Texture = "0"
 	LPointerTexture = "0"
 	RPointerTexture = "0"
+	LTexture = "0"
+	RTexture = "0"
 	ZTexture = "0"
 	if not ifei then
 		return
@@ -809,6 +813,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	if ifei.R100Texture == nil then R100Texture = "0" else R100Texture = "1" end
 	if ifei.LPointerTexture == nil then LPointerTexture = "0" else LPointerTexture = "1" end
 	if ifei.RPointerTexture == nil then RPointerTexture = "0" else RPointerTexture = "1" end
+	if ifei.LTexture == nil then LTexture = "0" else LTexture = "1" end
+	if ifei.RTexture == nil then RTexture = "0" else RTexture = "1" end
 	if ifei.ZTexture == nil then ZTexture = "0" else ZTexture = "1" end
 end
 
@@ -852,6 +858,8 @@ defineString("IFEI_L100_TEXTURE", function() return L100Texture end, 1, "Integra
 defineString("IFEI_R100_TEXTURE", function() return R100Texture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right 100 Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_LPOINTER_TEXTURE", function() return LPointerTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Left Pointer Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_RPOINTER_TEXTURE", function() return RPointerTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right Pointer Texture Visible: 1 = yes, 0 = no")
+defineString("IFEI_L_TEXTURE", function() return LTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Left Texture Visible: 1 = yes, 0 = no")
+defineString("IFEI_R_TEXTURE", function() return RTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_Z_TEXTURE", function() return ZTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Zulu Texture Visible: 1 = yes, 0 = no")
 
 -- 23. HUD Video Record Panel
