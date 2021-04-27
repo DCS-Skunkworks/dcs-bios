@@ -1,4 +1,4 @@
--- F/A-18 Module created by AndrewW, modified by WarLord&DeadMeat v1.5b
+-- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.5c
 -- Many thanks to Capt Zeen for the pointers on analog and Radio outputs and UFC/IFEI export
 
 BIOS.protocol.beginModule("FA-18C_hornet", 0x7400)
@@ -378,14 +378,11 @@ defineFrequency("COMM2_FREQ", 39, "Comms frequency", "COMM2 FREQ")
 defineFloatFromUFCChannel("COMM1_CHANNEL_NUMERIC", 1, "Comms frequency", "Comm 1 Channel as number")   
 defineFloatFromUFCChannel("COMM2_CHANNEL_NUMERIC", 2, "Comms frequency", "Comm 2 Channel as number")   
 
--- INSTRUMENT PANEL
-
+---- INSTRUMENT PANEL
 -- 1. Lock/Shoot Lights
 defineIndicatorLight("LS_LOCK", 1, "Lock Shoot Lights", "LOCK")
 defineIndicatorLight("LS_SHOOT", 2, "Lock Shoot Lights", "SHOOT")
 defineIndicatorLight("LS_SHOOT_STROBE", 3, "Lock Shoot Lights", "SHOOT STROBE")
-
--- 2. Head Up Display
 
 -- 3. Angle of Attack Indexer Lights
 defineIndicatorLight("AOA_INDEXER_HIGH", 4, "Angle of Attack Indexer Lights", "AOA Indexer High")
@@ -706,6 +703,7 @@ local txt_TEMP_R = ""
 local txt_Codes = ""
 local txt_SP = ""
 local txt_TimeSetMode = ""
+local txt_T = ""
 local RPMTexture = ""
 local TempTexture = ""
 local FFTexture = ""
@@ -751,6 +749,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	txt_Codes	 	= "   "
 	txt_SP	 		= "   "
 	txt_TimeSetMode = "      "
+	txt_T 			= "      "
 	RPMTexture = "0"
 	TempTexture = "0"
 	FFTexture = "0"
@@ -797,6 +796,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	txt_Codes		= coerce_nil_to_string(ifei.txt_Codes)
 	txt_SP			= coerce_nil_to_string(ifei.txt_SP)
 	txt_TimeSetMode	= coerce_nil_to_string(ifei.txt_TimeSetMode)
+	txt_T			= coerce_nil_to_string(ifei.txt_T)
 	if ifei.RPMTexture == nil then RPMTexture = "0" else RPMTexture = "1" end
 	if ifei.TempTexture == nil then TempTexture = "0" else TempTexture = "1" end
 	if ifei.FFTexture == nil then FFTexture = "0" else FFTexture = "1" end
@@ -858,15 +858,13 @@ defineString("IFEI_L100_TEXTURE", function() return L100Texture end, 1, "Integra
 defineString("IFEI_R100_TEXTURE", function() return R100Texture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right 100 Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_LPOINTER_TEXTURE", function() return LPointerTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Left Pointer Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_RPOINTER_TEXTURE", function() return RPointerTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right Pointer Texture Visible: 1 = yes, 0 = no")
-defineString("IFEI_L_TEXTURE", function() return LTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Left Texture Visible: 1 = yes, 0 = no")
-defineString("IFEI_R_TEXTURE", function() return RTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_Z_TEXTURE", function() return ZTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Zulu Texture Visible: 1 = yes, 0 = no")
 
 -- 23. HUD Video Record Panel
 definePotentiometer("IFEI", 33, 3007, 174, {0, 1}, "HUD Video Record Panel", "Brightness Control Knob")
-define3PosTumb("SELECT_HMD_LDDI_RDDI", 0, 3104, 175, "HUD Video Record Panel", "Selector Switch, HMD/LDDI/RDDI") -- From TODO, will change
-define3PosTumb("SELECT_HUD_LDDI_RDDI", 0, 3105, 176, "HUD Video Record Panel", "Selector Switch, HUD/LDIR/RDDI") -- From TODO, will change
-define3PosTumb("MODE_SELECTOR_SW", 0, 3106, 314, "HUD Video Record Panel", "Mode Selector Switch, MAN/OFF/AUTO") -- From TODO, will change
+define3PosTumb("SELECT_HMD_LDDI_RDDI", 0, 3104, 175, "HUD Video Record Panel", "Selector Switch, HMD/LDDI/RDDI")
+define3PosTumb("SELECT_HUD_LDDI_RDDI", 0, 3105, 176, "HUD Video Record Panel", "Selector Switch, HUD/LDIR/RDDI")
+define3PosTumb("MODE_SELECTOR_SW", 0, 3106, 314, "HUD Video Record Panel", "Mode Selector Switch, MAN/OFF/AUTO")
 
 -- 24. AMPCD
 definePotentiometer("AMPCD_BRT_CTL", 37, 3001, 203, {0, 1}, "AMPCD", "Brightness Control Knob")
@@ -906,8 +904,6 @@ defineFloat("SAI_MAN_PITCH_ADJ", 210, {-1, 1}, "Standby Attitude Reference Indic
 defineFloat("SAI_SLIP_BALL", 207, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Slip Ball")
 defineFloat("SAI_RATE_OF_TURN", 208, {-1, 1}, "Standby Attitude Reference Indicator", "SAI Rate Of Turn")
 
--- 26. Azimuth Indicator
-
 -- 27. Standby Airspeed Indicator
 defineFloat("STBY_ASI_AIRSPEED", 217, {0, 1}, "Standby Airspeed Indicator", "Airspeed")
 
@@ -943,8 +939,6 @@ defineToggleSwitchToggleOnly2("HOOK_BYPASS_SW", 9, 3009, 239, "Select Jettison B
 define3PosTumb("FLAP_SW", 2, 3007, 234, "Select Jettison Button", "FLAP Switch, AUTO/HALF/FULL")
 defineToggleSwitch("LDG_TAXI_SW", 8, 3004, 237, "Select Jettison Button", "LDG/TAXI LIGHT Switch")
 defineFloat("HYD_IND_BRAKE", 242, {0, 1}, "Select Jettison Button", "HYD Indicator Brake")
-
--- 33. Brake Accumulator Pressure Gage
 
 -- 34. Emergency and Parking Brake Handle
 defineToggleSwitch("EMERGENCY_PARKING_BRAKE_PULL", 5, 3005, 240, "Emergency and Parking Brake Handle", "Emergency/Parking Brake Pull")
@@ -987,8 +981,6 @@ defineToggleSwitch("RUDDER_PEDAL_ADJUST", 7, 3012, 260, "Rudder Pedal Adjust Lev
 -- 39. Cockpit Altimeter
 defineFloat("PRESSURE_ALT", 285, {0, 1}, "Cockpit Altimeter", "Pressure Altitude")
 
--- 40. Static Source Select
-
 -- 41. Radar Altimeter
 definePushButton("RADALT_TEST_SW", 30, 3001, 292, "Radar Altimeter", "Push to Test Switch")
 defineRotary("RADALT_HEIGHT", 30, 3002, 291, "Radar Altimeter", "Set low altitude pointer")
@@ -997,8 +989,6 @@ defineFloat("RADALT_MIN_HEIGHT_PTR", 287, {0, 1}, "Radar Altimeter", "Min Height
 defineFloat("RADALT_ALT_PTR", 286, {0, 1}, "Radar Altimeter", "Altitude Pointer")
 defineFloat("RADALT_OFF_FLAG", 288, {0, 1}, "Radar Altimeter", "OFF Flag")
 defineIndicatorLight("RADALT_GREEN_LAMP", 289, "Radar Altimeter", "Green Lamp")
-
--- 42. Aircraft Bureau Number
 
 -- 43. Arresting Hook Handle and Light
 defineToggleSwitch("HOOK_LEVER", 5, 3009, 293, "Arresting Hook Handle and Light", "Hook Lever")
@@ -1033,8 +1023,7 @@ defineFloat("HYD_IND_RIGHT", 311, {0, 1}, "HYD 1 and HYD Pressure Indicator", "H
 defineRockerSwitch("LEFT_DDI_HDG_SW", 35, 3004, 3004, 3005, 3005, 312, "Heading and Course Set Switches", "Heading Set Switch")
 defineRockerSwitch("LEFT_DDI_CRS_SW", 35, 3006, 3006, 3007, 3007, 313, "Heading and Course Set Switches", "Course Set Switch")
 
--- LEFT CONSOLE
-
+---- LEFT CONSOLE
 -- 1. Fire Test Panel
 defineRockerSwitch("FIRE_TEST_SW", 12, 3006, 3006, 3007, 3007, 331, "Fire Test Panel", "Fire and Bleed Air Test Switch, (RMB) TEST A/(LMB) TEST B")
 
@@ -1088,12 +1077,6 @@ defineTumb("COM_ILS_CHANNEL_SW", 40, 3017, 352, 0.05, {0.0, 0.95}, nil, false, "
 defineToggleSwitch("OBOGS_SW", 10, 3001, 365, "LOX Indicator", "OBOGS Control Switch, ON/OFF")
 definePotentiometer("OXY_FLOW", 10, 3002, 366, {0, 1}, "LOX Indicator", "OXY Flow Knob")
 
--- 9. Anti-G Valve
-
--- 10. Pilot Services Panel
-
--- 11. Communication Connect
-
 -- 12. Mission Computer and Hydraulic Isolate Panel
 defineMissionComputerSwitch("MC_SW", 3, 3025, 3026, 368, "Mission Computer and Hydraulic Isolate Panel", "MC Switch, 1 OFF/NORM/2 OFF")
 defineToggleSwitch("HYD_ISOLATE_OVERRIDE_SW", 4, 3001, 369, "Mission Computer and Hydraulic Isolate Panel", "Hydraulic Isolate Override Switch, NORM/ORIDE")
@@ -1114,24 +1097,13 @@ defineToggleSwitch("GEN_TIE_SW", 3, 3006, 378, "Generator Tie Control Switch", "
 -- 16. ECM Dispenser Button
 definePushButton("CMSD_DISPENSE_BTN", 54, 3002, 380, "ECM Dispenser Button", "Dispense Button - Push to dispense flares and chaff")
 
--- 17. Ground Power Decal
-
 -- 18. Left Essential Circuit Breakers
 definePushButton("CB_FCS_CHAN1", 3, 3017, 381, "Left Essential Circuit Breakers", "CB FCS CHAN 1, ON/OFF")
 definePushButton("CB_FCS_CHAN2", 3, 3018, 382, "Left Essential Circuit Breakers", "CB FCS CHAN 2, ON/OFF")
 definePushButton("CB_SPD_BRK", 3, 3019, 383, "Left Essential Circuit Breakers", "CB SPD BRK, ON/OFF")
 definePushButton("CB_LAUNCH_BAR", 3, 3020, 384, "Left Essential Circuit Breakers", "CB LAUNCH BAR, ON/OFF")
 
--- 19. Canopy Manual Handle and Drive
-
--- 20. HVI Stowage/Nuclear Weapon Switch
-
--- 21. Video Sensor Head
-
--- 22. OBOGS Monitor
-
--- RIGHT CONSOLE
-
+---- RIGHT CONSOLE
 -- 1. Electrical Power Panel
 define3PosTumb("BATTERY_SW", 3, 3001, 404, "Electrical Power Panel", "Battery Switch, ON/OFF/ORIDE")
 defineToggleSwitch("L_GEN_SW", 3, 3002, 402, "Electrical Power Panel", "Left Generator Control Switch, NORM/OFF")
@@ -1158,8 +1130,6 @@ definePotentiometer("CHART_DIMMER", 9, 3005, 418, {0, 1}, "Interior Lights Panel
 definePotentiometer("WARN_CAUTION_DIMMER", 9, 3006, 417, {0, 1}, "Interior Lights Panel", "WARN/CAUTION Light Dimmer")
 defineToggleSwitch("LIGHTS_TEST_SW", 9, 3007, 416, "Interior Lights Panel", "Lights Test Switch, TEST/OFF")
 
--- 4. AMAC Control
-
 -- 5. Sensor Panel
 define3PosTumb("FLIR_SW", 62, 3001, 439, "Sensor Panel", "FLIR Switch, ON/STBY/OFF")
 defineToggleSwitch("LTD_R_SW", 62, 3002, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE") 
@@ -1173,14 +1143,6 @@ defineTumb("KY58_MODE_SELECT", 41, 3001, 444, 0.1, {0.0, 0.3}, nil, false, "KY-5
 definePotentiometer("KY58_VOLUME", 41, 3005, 445, {0, 1}, "KY-58 Control", "KY-58 Volume Control Knob")
 defineTumb("KY58_FILL_SELECT", 41, 3002, 446, 0.1, {0.0, 0.7}, nil, false, "KY-58 Control", "KY-58 Fill Select Knob, Z 1-5/1/2/3/4/5/6/Z ALL")
 defineTumb("KY58_POWER_SELECT", 41, 3004, 447, 0.1, {0.0, 0.2}, nil, false, "KY-58 Control", "KY-58 Power Select Knob, OFF/ON/TD")
-
--- 7. NVG Storage
-
--- 8. Fan Test Switch
-
--- 9. Map and Data Case
-
--- 10. Utility Light
 
 -- 11. Defog Panel
 definePotentiometer("DEFOG_HANDLE", 11, 3005, 451, {-1, 1}, "Defog Panel", "Defog Handle")
@@ -1196,17 +1158,10 @@ definePushButton("CB_HOOOK", 3, 3023, 456, "Right Essential Circuit Breakers", "
 definePushButton("CB_LG", 3, 3024, 457, "Right Essential Circuit Breakers", "CB LG, ON/OFF")
 defineToggleSwitch("FCS_BIT_SW", 2, 3004, 470, "Right Essential Circuit Breakers", "FCS BIT Switch")
 
--- 14. Video Sensor Head
-
--- 15. Video Camera
-
-
--- COCKPIT CONTROLS
-
+---- COCKPIT CONTROLS
 defineFloat("CANOPY_POS", 181, {0, 1}, "Internal Canopy Switch", "Canopy Position")
 
 -- 1. Ejection Seat
-
 defineEjectionHandleSwitch("EJECTION_HANDLE_SW", 7, 3008, 510, "Ejection Seat", "Ejection Control Handle")
 defineToggleSwitch("EJECTION_SEAT_ARMED", 7, 3006, 511, "Ejection Seat", "Ejection Seat SAFE/ARMED Handle, SAFE/ARMED")
 defineToggleSwitch("EJECTION_SEAT_MNL_OVRD", 7, 3007, 512, "Ejection Seat", "Ejection Seat Manual Override Handle, PULL/PUSH")
@@ -1313,5 +1268,9 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+
+defineString("IFEI_T", function() return txt_T end, 6, "Integrated Fuel/Engine Indicator (IFEI)", "T")
+defineString("IFEI_L_TEXTURE", function() return LTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Left Texture Visible: 1 = yes, 0 = no")
+defineString("IFEI_R_TEXTURE", function() return RTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right Texture Visible: 1 = yes, 0 = no")
 
 BIOS.protocol.endModule()
