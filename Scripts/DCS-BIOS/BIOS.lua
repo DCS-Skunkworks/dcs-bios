@@ -1,7 +1,7 @@
 BIOS = {}
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AircraftList.lua]])
 
-BIOSdevMode = 0 -- 1 DevMode / 0 UserMode
+BIOSdevMode = 1 -- 1 DevMode / 0 UserMode
 
 BIOS.dbg = {}
 BIOS.logfile = io.open(lfs.writedir()..[[Logs\DCS-BIOS.log]], "w")
