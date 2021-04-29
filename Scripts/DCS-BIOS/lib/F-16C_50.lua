@@ -1,4 +1,4 @@
--- V1.7b by Warlord (aka BlackLibrary)
+-- V1.7c by Warlord (aka BlackLibrary)
 -- Added HARM,VIP,VRP pages by Matchstick
 --
 -- Tested and fixes by BuzzKillington & afewyards
@@ -96,9 +96,9 @@ defineToggleSwitch("BIT_SW", 2, 3003, 574, "Control Interface", "BIT Switch, OFF
 defineToggleSwitch("FLCS_RESET_SW", 2, 3004, 573, "Control Interface", "FLCS RESET Switch, OFF/RESET")
 defineToggleSwitch("LE_FLAPS_SW", 2, 3005, 572, "Control Interface", "LE FLAPS Switch, AUTO/LOCK")
 defineToggleSwitch("TRIM_AP_DISC_SW", 2, 3006, 564, "Control Interface", "TRIM/AP DISC Switch, DISC/NORM")
-defineRotary("ROLL_TRIM", 2, 3007, 560, "Control Interface", "ROLL TRIM Wheel")
-defineRotary("PITCH_TRIM", 2, 3008, 562, "Control Interface", "PITCH TRIM Wheel")
-defineRotary("YAW_TRIM", 2, 3009, 565, "Control Interface", "YAW TRIM Knob")
+definePotentiometer("ROLL_TRIM", 2, 3007, 560, {-1, 1}, "Control Interface", "ROLL TRIM Wheel")
+definePotentiometer("PITCH_TRIM", 2, 3008, 562, {-1, 1}, "Control Interface", "PITCH TRIM Wheel")
+definePotentiometer("YAW_TRIM", 2, 3009, 565, {-1, 1}, "Control Interface", "YAW TRIM Knob")
 defineToggleSwitch("MANUAL_PITCH_SW", 2, 3010, 425, "Control Interface", "MANUAL PITCH Override Switch, OVRD/NORM")
 defineToggleSwitch("STORES_CONFIG_SW", 2, 3011, 358, "Control Interface", "STORES CONFIG Switch, CAT III/CAT I")
 defineSpringloaded_3_pos_tumb("AP_PITCH_SW", 2, 3012, 3013, 109, "Control Interface", "Autopilot PITCH Switch, ATT HOLD/ A/P OFF/ ALT HOLD")
