@@ -2117,12 +2117,15 @@ docdata["F-16C_50"] =
                                                                            "physical_variant": "toggle_switch"
                                                                     },
                                                       "PITCH_TRIM": {
-                                                                         "api_variant": "multiturn",
                                                                             "category": "Control Interface",
-                                                                        "control_type": "analog_dial",
+                                                                        "control_type": "limited_dial",
                                                                          "description": "PITCH TRIM Wheel",
                                                                           "identifier": "PITCH_TRIM",
                                                                               "inputs": [ {
+                                                                                            "description": "set the position of the dial",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 65535
+                                                                                        }, {
                                                                                                "description": "turn the dial left or right",
                                                                                                  "interface": "variable_step",
                                                                                                  "max_value": 65535,
@@ -2130,21 +2133,24 @@ docdata["F-16C_50"] =
                                                                                         } ],
                                                                              "outputs": [ {
                                                                                                 "address": 17412,
-                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                            "description": "position of the potentiometer",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
                                                                                                "shift_by": 0,
-                                                                                                 "suffix": "_KNOB_POS",
+                                                                                                 "suffix": "",
                                                                                                    "type": "integer"
                                                                                         } ]
                                                                     },
                                                        "ROLL_TRIM": {
-                                                                         "api_variant": "multiturn",
                                                                             "category": "Control Interface",
-                                                                        "control_type": "analog_dial",
+                                                                        "control_type": "limited_dial",
                                                                          "description": "ROLL TRIM Wheel",
                                                                           "identifier": "ROLL_TRIM",
                                                                               "inputs": [ {
+                                                                                            "description": "set the position of the dial",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 65535
+                                                                                        }, {
                                                                                                "description": "turn the dial left or right",
                                                                                                  "interface": "variable_step",
                                                                                                  "max_value": 65535,
@@ -2152,11 +2158,11 @@ docdata["F-16C_50"] =
                                                                                         } ],
                                                                              "outputs": [ {
                                                                                                 "address": 17410,
-                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                            "description": "position of the potentiometer",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
                                                                                                "shift_by": 0,
-                                                                                                 "suffix": "_KNOB_POS",
+                                                                                                 "suffix": "",
                                                                                                    "type": "integer"
                                                                                         } ]
                                                                     },
@@ -2219,12 +2225,15 @@ docdata["F-16C_50"] =
                                                                            "physical_variant": "toggle_switch"
                                                                     },
                                                         "YAW_TRIM": {
-                                                                         "api_variant": "multiturn",
                                                                             "category": "Control Interface",
-                                                                        "control_type": "analog_dial",
+                                                                        "control_type": "limited_dial",
                                                                          "description": "YAW TRIM Knob",
                                                                           "identifier": "YAW_TRIM",
                                                                               "inputs": [ {
+                                                                                            "description": "set the position of the dial",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 65535
+                                                                                        }, {
                                                                                                "description": "turn the dial left or right",
                                                                                                  "interface": "variable_step",
                                                                                                  "max_value": 65535,
@@ -2232,11 +2241,11 @@ docdata["F-16C_50"] =
                                                                                         } ],
                                                                              "outputs": [ {
                                                                                                 "address": 17414,
-                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                            "description": "position of the potentiometer",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
                                                                                                "shift_by": 0,
-                                                                                                 "suffix": "_KNOB_POS",
+                                                                                                 "suffix": "",
                                                                                                    "type": "integer"
                                                                                         } ]
                                                                     }
@@ -8271,7 +8280,7 @@ docdata["F-16C_50"] =
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ],
-                                                                            "physical_variant": "toggle_switch"
+                                                                            "physical_variant": "limited_rotary"
                                                                      },
                                                   "UHF_FREQ_10_KNB": {
                                                                                     "category": "UHF",
