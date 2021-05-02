@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-29B", 0x8800)
 BIOS.protocol.setExportModuleAircrafts({"A-29B"})
---v 1.0 by WarLord (aka BlackLibrary)
+--v 1.1 by WarLord (aka BlackLibrary)
 
 local documentation = moduleBeingDefined.documentation
 
@@ -66,13 +66,14 @@ define3PosTumb("SHUTOFF", 2, 3214, 871, "Engine", "Fuel/Hydraulic/Bleed Shutoff 
 
 -- COCKPIT MECHANICS
 defineToggleSwitch("CANOPY_LVR", 15, 71, 129, "Cockpit Mechanics", "Canopy Lever")
-definePotentiometer("THROTTLE", 17, 3014, 911, {0, 1}, "Cockpit Mechanics", "Throttle")
+define3PosTumb("THROTTLE", 2, 3386, 911, "Cockpit Mechanics", "Throttle")
 defineToggleSwitch("FLAPS_SW", 16, 3015, 912, "Cockpit Mechanics", "Flaps (Up/Down)")
 definePotentiometer("THROTTLE_FRIC", 17, 3220, 913, {0, 1}, "Cockpit Mechanics", "Throttle Friction")
 define3PosTumb("SEAT_UP_DN", 17, 3212, 891, "Cockpit Mechanics", "Seat (Up/Stop/Down)")
 define3PosTumb("EMERG_SPD_BRK", 17, 3213, 881, "Cockpit Mechanics", "Emergency Speed Break (Close/Off/Normal)")
 definePushButton("SUIT_TEST", 17, 3215, 861, "Cockpit Mechanics", "Anti-G Suit Test")
 define3PosTumb("EMERG_PARK_BRK", 9, 3221, 791, "Cockpit Mechanics", "Emergency Parking Brakes")
+defineToggleSwitch("MIRRORS", 1, 0, 1625, "Cockpit Mechanics", "Toggle Mirrors")
 
 -- AUDIO
 defineToggleSwitch("AUDIO_SEL", 18, 3227, 761, "Audio", "Audio Selector (Normal/Backup)")
@@ -80,6 +81,12 @@ definePotentiometer("COM1_VOL", 18, 3363, 762, {0, 1}, "Audio", "COM 1 Audio Vol
 definePotentiometer("COM2_VOL", 18, 3364, 763, {0, 1}, "Audio", "COM 2 Audio Volume")
 definePotentiometer("COM3_VOL", 18, 3365, 764, {0, 1}, "Audio", "COM 3 Audio Volume")
 definePotentiometer("COM4_VOL", 18, 3366, 765, {0, 1}, "Audio", "COM 4 Audio Volume")
+definePotentiometer("ADF_VOL", 18, 3367, 766, {0, 1}, "Audio", "ADF Audio Volume")
+definePotentiometer("NAV_VOL", 18, 3368, 767, {0, 1}, "Audio", "NAV Audio Volume")
+definePotentiometer("MSL_VOL", 18, 3369, 768, {0, 1}, "Audio", "MSL Audio Volume")
+definePotentiometer("MKR_VOL", 18, 3370, 769, {0, 1}, "Audio", "MKR Audio Volume")
+definePotentiometer("AUDIO_VOL", 18, 3371, 770, {0, 1}, "Audio", "Audio Volume")
+definePotentiometer("VOX_VOL", 18, 3372, 771, {0, 1}, "Audio", "VOX Audio Volume")
 
 -- LANDING GEAR
 defineTumb("GEAR", 8, 3205, 821, 2, {-1, 1}, nil, false, "Gear", "Landing Gear (Up/Down)")
