@@ -57,6 +57,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\L-39ZA.lua]]) -- ID = 26, ProperNa
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\M-2000C.lua]]) -- ID = 27, ProperName = M-2000C
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MB-339PAN.lua]]) -- ID = 28, ProperName = MB-339PAN
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mi-8MT.lua]]) -- ID = 29, ProperName = Mi-8MT
+-- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mi-24P.lua]]) -- ID = 42, ProperName = Mi-24P HIND
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mig-15bis.lua]]) -- ID = 30, ProperName = MiG-15bis
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mig-19P.lua]]) -- ID = 31, ProperName = MiG-19P Farmer
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mig-21Bis.lua]]) -- ID = 32, ProperName = MiG-21bis
@@ -67,6 +68,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SA342M.lua]]) -- ID = 36, ProperNa
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SpitfireLFMkIX.lua]]) -- ID = 37, ProperName = Spitfire LF Mk. IX
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH-1H.lua]]) -- ID = 38, ProperName = UH-1H Huey
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\VNAO_Room.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\VNAO_T-45.lua]]) -- ID = 43, ProperName = T-45 Goshawk
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Yak-52.lua]]) -- ID = 39, ProperName = Yak-52
 ----------------------------------------------------------------------------Modules End--------------------------------------
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
