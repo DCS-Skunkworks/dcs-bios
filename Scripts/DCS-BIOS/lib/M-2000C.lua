@@ -1,6 +1,6 @@
 -----------------------------------------------------------                                         
 --     LIBRARY     	:    Mirage 2000C RAZBAM orginal by Exo7
---     VERSION     	:    v1.31 by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
+--     VERSION     	:    v1.31a by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
 -----------------------------------------------------------
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
@@ -709,7 +709,7 @@ defineIndicatorLight("IFF_RED", 388, "IFF", "O - IFF_REP - Red Light")
 defineIndicatorLight("IFF_FAULT", 394, "IFF", "O - IFF_REP - Fault Light")
 
 -- INTERIOR LIGHTS
-definePotentiometer("LGT_BRIGHT_CTRL_TEST", 16, 3575, 575, {0, 1}, "INT LIGHTS", "I - Light Brightnes Control/Test")
+definePotentiometer("LGT_BRIGHT_CTRL_TEST", 9, 3575, 575, {0, 1}, "INT LIGHTS", "I - Light Brightnes Control/Test")
 definePotentiometer("DASH_U.V._LGT_KNOB", 16, 3639, 639, {0, 1}, "INT LIGHTS", "I - Dashboard U.V. Lights Knob")
 definePotentiometer("DASH_PANEL_LGT_KNOB", 16, 3640, 640, {0, 1}, "INT LIGHTS", "I - Dashboard Panel Lights Knob")
 definePotentiometer("RED_FLOOD_LGT_KNOB", 16, 3641, 641, {0, 1}, "INT LIGHTS", "I - Red Flood Lights Knob")
