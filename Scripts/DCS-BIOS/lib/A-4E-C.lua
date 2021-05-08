@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-4E-C", 0x8400)
 BIOS.protocol.setExportModuleAircrafts({"A-4E-C"})
---v 2.01 by WarLord (aka BlackLibrary) (v1.0 by Dehuman)
+--v 2.1 by WarLord (aka BlackLibrary) (v1.0 by Dehuman)
 
 local documentation = moduleBeingDefined.documentation
 
@@ -16,6 +16,7 @@ local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineRotary = BIOS.util.defineRotary
+local define3PosTumb = BIOS.util.define3PosTumb
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 --Engine gauges
@@ -237,7 +238,7 @@ defineToggleSwitch("ARM_STATION2", 5, 3004, 704, "ArmamentPanel", "Station 2 sel
 defineToggleSwitch("ARM_STATION3", 5, 3005, 705, "ArmamentPanel", "Station 3 select")
 defineToggleSwitch("ARM_STATION4", 5, 3006, 706, "ArmamentPanel", "Station 4 select")
 defineToggleSwitch("ARM_STATION5", 5, 3007, 707, "ArmamentPanel", "Station 5 select")
-defineMultipositionSwitch("ARM_FUNC_SEL", 5, 3008, 708, 6, 0.1, "ArmamentPanel", "Function Selector")
+defineMultipositionSwitch("ARM_FUNC_SEL", 5, 3008, 708, 7, 0.1, "ArmamentPanel", "Function Selector")
 defineMultipositionSwitch("AWRS_QUANT", 5, 3031, 740, 12, 0.05, "ArmamentPanel", "AWRS Quantity Selector")
 definePotentiometer("AWRS_DROP_INT", 5, 3032, 742, {0,0.9}, "ArmamentPanel", "AWRS Drop Interval")
 defineToggleSwitch("AWRS_MULTI", 5, 3033, 743, "ArmamentPanel", "AWRS Multiplier")
@@ -247,7 +248,7 @@ defineToggleSwitch("RADAR_PROFILE", 9, 3055, 721, "RadarScope", "Radar Plan/Prof
 defineToggleSwitch("RADAR_RANGE", 9, 3056, 722, "RadarScope", "Radar Long/Short Range")
 defineMultipositionSwitch("BDHI_MODE", 22, 3044, 724, 3, 1.0, "BDHI", "BDHI mode")
 defineMultipositionSwitch("SHRIKE_SEL_KNB", 5, 3137, 725, 5, 0.1, "ArmamentPanel", "Shrike Selector Knob")
-definePotentiometer("SIDEWINDER_VOL", 5, 3125, 726, {-1,1}, "ArmamentPanel", "Sidewinder Volume Knob")
+definePotentiometer("MISSILE_VOL", 5, 3125, 726, {-1,1}, "ArmamentPanel", "Missile Volume Knob")
 
 --AFCS Panel
 defineToggleSwitch("AFCS_STBY", 27, 3088, 160, "AFCS", "AFCS Standby")
@@ -386,6 +387,9 @@ definePotentiometer("CABIN_TEMP", 2, 3135, 226, {0,1}, "Air Condition", "Cabin T
 --EJECTION SEAT
 defineToggleSwitch("HARNESS_REEL_CONTR", 1, 3148, 24, "Ejection Seat", "Shoulder Harness Inertia Reel Control")
 defineToggleSwitch("SEC_EJECT_HANDLE", 1, 3149, 25, "Ejection Seat", "Secondary Ejection Handle")
+
+define3PosTumb("ASN41_LAT_SLEW", 22, 3165, 248, "DopplerNav", "ASN-41 Destination - Latitude Slew")
+define3PosTumb("ASN41_LON_SLEW", 22, 3166, 249, "DopplerNav", "ASN-41 Destination - Longitude Slew")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKES", function()
