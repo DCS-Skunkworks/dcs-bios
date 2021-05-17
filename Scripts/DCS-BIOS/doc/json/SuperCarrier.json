@@ -1,0 +1,160 @@
+{
+    "Lights": {
+                     "CVN_ACLS_IND": {
+                                             "category": "Lights",
+                                         "control_type": "led",
+                                          "description": "ACLS WaveOff Light (blue)",
+                                           "identifier": "CVN_ACLS_IND",
+                                               "inputs": [  ],
+                                              "outputs": [ {
+                                                                 "address": 1792,
+                                                             "description": "0 if light is off, 1 if light is on",
+                                                                    "mask": 64,
+                                                               "max_value": 1,
+                                                                "shift_by": 6,
+                                                                  "suffix": "",
+                                                                    "type": "integer"
+                                                         } ]
+                                     },
+                      "CVN_CUT_IND": {
+                                             "category": "Lights",
+                                         "control_type": "led",
+                                          "description": "CUT Light (green)",
+                                           "identifier": "CVN_CUT_IND",
+                                               "inputs": [  ],
+                                              "outputs": [ {
+                                                                 "address": 1792,
+                                                             "description": "0 if light is off, 1 if light is on",
+                                                                    "mask": 16,
+                                                               "max_value": 1,
+                                                                "shift_by": 4,
+                                                                  "suffix": "",
+                                                                    "type": "integer"
+                                                         } ]
+                                     },
+                   "CVN_MASTER_IND": {
+                                             "category": "Lights",
+                                         "control_type": "led",
+                                          "description": "Master Caution Light (yellow)",
+                                           "identifier": "CVN_MASTER_IND",
+                                               "inputs": [  ],
+                                              "outputs": [ {
+                                                                 "address": 1792,
+                                                             "description": "0 if light is off, 1 if light is on",
+                                                                    "mask": 8,
+                                                               "max_value": 1,
+                                                                "shift_by": 3,
+                                                                  "suffix": "",
+                                                                    "type": "integer"
+                                                         } ]
+                                     },
+                  "CVN_WAVEOFF_IND": {
+                                             "category": "Lights",
+                                         "control_type": "led",
+                                          "description": "CUT Light (red)",
+                                           "identifier": "CVN_WAVEOFF_IND",
+                                               "inputs": [  ],
+                                              "outputs": [ {
+                                                                 "address": 1792,
+                                                             "description": "0 if light is off, 1 if light is on",
+                                                                    "mask": 32,
+                                                               "max_value": 1,
+                                                                "shift_by": 5,
+                                                                  "suffix": "",
+                                                                    "type": "integer"
+                                                         } ]
+                                     }
+              },
+     "Panel": {
+                      "CVN_CUT_L": {
+                                               "api_variant": "momentary_last_position",
+                                                  "category": "Panel",
+                                              "control_type": "selector",
+                                               "description": "Cut Lights",
+                                                "identifier": "CVN_CUT_L",
+                                                    "inputs": [ {
+                                                                  "description": "switch to previous or next state",
+                                                                    "interface": "fixed_step"
+                                                              }, {
+                                                                  "description": "set position",
+                                                                    "interface": "set_state",
+                                                                    "max_value": 1
+                                                              }, {
+                                                                     "argument": "TOGGLE",
+                                                                  "description": "Toggle switch state",
+                                                                    "interface": "action"
+                                                              } ],
+                                       "momentary_positions": "none",
+                                                   "outputs": [ {
+                                                                      "address": 1792,
+                                                                  "description": "selector position",
+                                                                         "mask": 1,
+                                                                    "max_value": 1,
+                                                                     "shift_by": 0,
+                                                                       "suffix": "",
+                                                                         "type": "integer"
+                                                              } ],
+                                          "physical_variant": "push_button"
+                                   },
+                     "CVN_DECK_L": {
+                                               "api_variant": "momentary_last_position",
+                                                  "category": "Panel",
+                                              "control_type": "selector",
+                                               "description": "DECK Lights On",
+                                                "identifier": "CVN_DECK_L",
+                                                    "inputs": [ {
+                                                                  "description": "switch to previous or next state",
+                                                                    "interface": "fixed_step"
+                                                              }, {
+                                                                  "description": "set position",
+                                                                    "interface": "set_state",
+                                                                    "max_value": 1
+                                                              }, {
+                                                                     "argument": "TOGGLE",
+                                                                  "description": "Toggle switch state",
+                                                                    "interface": "action"
+                                                              } ],
+                                       "momentary_positions": "none",
+                                                   "outputs": [ {
+                                                                      "address": 1792,
+                                                                  "description": "selector position",
+                                                                         "mask": 4,
+                                                                    "max_value": 1,
+                                                                     "shift_by": 2,
+                                                                       "suffix": "",
+                                                                         "type": "integer"
+                                                              } ],
+                                          "physical_variant": "push_button"
+                                   },
+                  "CVN_WAVEOFF_L": {
+                                               "api_variant": "momentary_last_position",
+                                                  "category": "Panel",
+                                              "control_type": "selector",
+                                               "description": "WaveOff Lights",
+                                                "identifier": "CVN_WAVEOFF_L",
+                                                    "inputs": [ {
+                                                                  "description": "switch to previous or next state",
+                                                                    "interface": "fixed_step"
+                                                              }, {
+                                                                  "description": "set position",
+                                                                    "interface": "set_state",
+                                                                    "max_value": 1
+                                                              }, {
+                                                                     "argument": "TOGGLE",
+                                                                  "description": "Toggle switch state",
+                                                                    "interface": "action"
+                                                              } ],
+                                       "momentary_positions": "none",
+                                                   "outputs": [ {
+                                                                      "address": 1792,
+                                                                  "description": "selector position",
+                                                                         "mask": 2,
+                                                                    "max_value": 1,
+                                                                     "shift_by": 1,
+                                                                       "suffix": "",
+                                                                         "type": "integer"
+                                                              } ],
+                                          "physical_variant": "push_button"
+                                   }
+              }
+}

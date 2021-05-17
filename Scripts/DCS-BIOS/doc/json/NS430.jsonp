@@ -8,11 +8,11 @@ docdata["NS430"] =
                                                      "identifier": "GLOW",
                                                          "inputs": [  ],
                                                         "outputs": [ {
-                                                                           "address": 32768,
+                                                                           "address": 1550,
                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                              "mask": 32768,
+                                                                              "mask": 4,
                                                                          "max_value": 1,
-                                                                          "shift_by": 15,
+                                                                          "shift_by": 2,
                                                                             "suffix": "",
                                                                               "type": "integer"
                                                                    } ]
@@ -30,7 +30,7 @@ docdata["NS430"] =
                                                                        "suggested_step": 3200
                                                                    } ],
                                                         "outputs": [ {
-                                                                           "address": 32774,
+                                                                           "address": 1542,
                                                                        "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                               "mask": 65535,
                                                                          "max_value": 65535,
@@ -52,7 +52,7 @@ docdata["NS430"] =
                                                                        "suggested_step": 3200
                                                                    } ],
                                                         "outputs": [ {
-                                                                           "address": 32778,
+                                                                           "address": 1546,
                                                                        "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                               "mask": 65535,
                                                                          "max_value": 65535,
@@ -76,7 +76,7 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
                                                                                      "mask": 32,
                                                                                 "max_value": 1,
@@ -101,11 +101,11 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
-                                                                                     "mask": 4096,
+                                                                                     "mask": 8192,
                                                                                 "max_value": 1,
-                                                                                 "shift_by": 12,
+                                                                                 "shift_by": 13,
                                                                                    "suffix": "",
                                                                                      "type": "integer"
                                                                           } ],
@@ -126,7 +126,7 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
                                                                                      "mask": 8,
                                                                                 "max_value": 1,
@@ -151,11 +151,11 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
-                                                                                     "mask": 1024,
+                                                                                     "mask": 2048,
                                                                                 "max_value": 1,
-                                                                                 "shift_by": 10,
+                                                                                 "shift_by": 11,
                                                                                    "suffix": "",
                                                                                      "type": "integer"
                                                                           } ],
@@ -176,11 +176,11 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
-                                                                                     "mask": 8192,
+                                                                                     "mask": 16384,
                                                                                 "max_value": 1,
-                                                                                 "shift_by": 13,
+                                                                                 "shift_by": 14,
                                                                                    "suffix": "",
                                                                                      "type": "integer"
                                                                           } ],
@@ -201,11 +201,11 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
-                                                                                     "mask": 256,
+                                                                                     "mask": 512,
                                                                                 "max_value": 1,
-                                                                                 "shift_by": 8,
+                                                                                 "shift_by": 9,
                                                                                    "suffix": "",
                                                                                      "type": "integer"
                                                                           } ],
@@ -226,11 +226,11 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
-                                                                                     "mask": 2048,
+                                                                                     "mask": 4096,
                                                                                 "max_value": 1,
-                                                                                 "shift_by": 11,
+                                                                                 "shift_by": 12,
                                                                                    "suffix": "",
                                                                                      "type": "integer"
                                                                           } ],
@@ -251,11 +251,11 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
-                                                                                     "mask": 128,
+                                                                                     "mask": 256,
                                                                                 "max_value": 1,
-                                                                                 "shift_by": 7,
+                                                                                 "shift_by": 8,
                                                                                    "suffix": "",
                                                                                      "type": "integer"
                                                                           } ],
@@ -276,11 +276,36 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
                                                                                      "mask": 64,
                                                                                 "max_value": 1,
                                                                                  "shift_by": 6,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ],
+                                                      "physical_variant": "push_button"
+                                               },
+                                 "NS430_OBS1": {
+                                                              "category": "NS430",
+                                                          "control_type": "selector",
+                                                           "description": "OBS1",
+                                                            "identifier": "NS430_OBS1",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set position",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          } ],
+                                                   "momentary_positions": "first_and_last",
+                                                               "outputs": [ {
+                                                                                  "address": 1536,
+                                                                              "description": "selector position",
+                                                                                     "mask": 128,
+                                                                                "max_value": 1,
+                                                                                 "shift_by": 7,
                                                                                    "suffix": "",
                                                                                      "type": "integer"
                                                                           } ],
@@ -301,11 +326,11 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
-                                                                                     "mask": 512,
+                                                                                     "mask": 1024,
                                                                                 "max_value": 1,
-                                                                                 "shift_by": 9,
+                                                                                 "shift_by": 10,
                                                                                    "suffix": "",
                                                                                      "type": "integer"
                                                                           } ],
@@ -326,7 +351,7 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
                                                                                      "mask": 1,
                                                                                 "max_value": 1,
@@ -352,7 +377,7 @@ docdata["NS430"] =
                                                                        "suggested_step": 3200
                                                                    } ],
                                                         "outputs": [ {
-                                                                           "address": 32770,
+                                                                           "address": 1538,
                                                                        "description": "position of the potentiometer",
                                                                               "mask": 65535,
                                                                          "max_value": 65535,
@@ -376,7 +401,7 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32782,
+                                                                                  "address": 1550,
                                                                               "description": "button position",
                                                                                      "mask": 3,
                                                                                 "max_value": 2,
@@ -401,7 +426,7 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
                                                                                      "mask": 4,
                                                                                 "max_value": 1,
@@ -424,7 +449,7 @@ docdata["NS430"] =
                                                                        "suggested_step": 3200
                                                                    } ],
                                                         "outputs": [ {
-                                                                           "address": 32776,
+                                                                           "address": 1544,
                                                                        "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                               "mask": 65535,
                                                                          "max_value": 65535,
@@ -448,11 +473,11 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
-                                                                                     "mask": 16384,
+                                                                                     "mask": 32768,
                                                                                 "max_value": 1,
-                                                                                 "shift_by": 14,
+                                                                                 "shift_by": 15,
                                                                                    "suffix": "",
                                                                                      "type": "integer"
                                                                           } ],
@@ -471,7 +496,7 @@ docdata["NS430"] =
                                                                        "suggested_step": 3200
                                                                    } ],
                                                         "outputs": [ {
-                                                                           "address": 32780,
+                                                                           "address": 1548,
                                                                        "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                               "mask": 65535,
                                                                          "max_value": 65535,
@@ -495,7 +520,7 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
                                                                                      "mask": 16,
                                                                                 "max_value": 1,
@@ -520,7 +545,7 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                  "address": 32768,
+                                                                                  "address": 1536,
                                                                               "description": "selector position",
                                                                                      "mask": 2,
                                                                                 "max_value": 1,
@@ -546,7 +571,7 @@ docdata["NS430"] =
                                                                        "suggested_step": 3200
                                                                    } ],
                                                         "outputs": [ {
-                                                                           "address": 32772,
+                                                                           "address": 1540,
                                                                        "description": "position of the potentiometer",
                                                                               "mask": 65535,
                                                                          "max_value": 65535,
