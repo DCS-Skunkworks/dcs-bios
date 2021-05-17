@@ -1,4 +1,4 @@
-BIOS.protocol.beginModule("NS430", 0x8000)
+BIOS.protocol.beginModule("NS430", 0x0600)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2",	"AJS37", "AV8BNA", "Bf-109K-4", "C-101CC", "C-101EB", "Christen Eagle II", "F-14A-135-GR", "F-14B", "F-16C_50", "F-5E-3", "F-86F Sabre", "FA-18C_hornet", "FW-190A8", "FW-190D9", "I-16", "JF-17", "Ka-50", "L-39C", "L-39ZA", "M-2000C", "Mi-8MT",	"MiG-15bis", "MiG-19P",	"MiG-21Bis", "P-47D-30", "P-47D-30bl1", "P-47D-40",	"P-51D", "P-51D-30-NA", "SA342L", "SA342M", "SA342Minigun", "SA342Mistral", "SpitfireLFMkIX", "SpitfireLFMkIXCW", "TF-51D", "UH-1H", "Yak-52"})
 
 local documentation = moduleBeingDefined.documentation
@@ -24,6 +24,7 @@ defineDoubleCommandButton("NS430_COM_FLIP_FLOP", 257, 3012, 3033, 7, "NS430", "C
 defineDoubleCommandButton("NS430_VLOC_FLIP_FLOP", 257, 3013, 3034, 8, "NS430", "VLOC flip-flop")
 defineDoubleCommandButton("NS430_CDI", 257, 3014, 3035, 9, "NS430", "CDI")
 defineDoubleCommandButton("NS430_OBS", 257, 3015, 3036, 10, "NS430", "OBS")
+defineDoubleCommandButton("NS430_OBS1", 1, 3015, 3036, 10, "NS430", "OBS1")
 defineDoubleCommandButton("NS430_MSG", 257, 3016, 3037, 11, "NS430", "MSG")
 defineDoubleCommandButton("NS430_FPL", 257, 3017, 3038, 12, "NS430", "FPL")
 defineDoubleCommandButton("NS430_PROC", 257, 3018, 3039, 13, "NS430", "PROC")
@@ -40,7 +41,7 @@ defineRotary("NS430_SMALL_LEFT_BTN_ROT", 257, 3010, 6, "NS430", "SMALL_LEFT_BTN 
 defineRotary("NS430_BIG_RIGHT_BTN", 257, 3025, 19, "NS430", "BIG_RIGHT_BTN")
 defineRotary("NS430_SMALL_RIGHT_BTN_ROT", 257, 3028, 21, "NS430", "SMALL_RIGHT_BTN rotate")
 
-defineMomentaryRockerSwitch("NS430_RNG_RKR",257,3020,3041,3019,3040,14,"NS430","RNG Rocker")
+defineMomentaryRockerSwitch("NS430_RNG_RKR", 257, 3020, 3041, 3019, 3040, 14, "NS430", "RNG Rocker")
 
 defineIndicatorLight("GLOW", 70, "NS430", "Glow")
 

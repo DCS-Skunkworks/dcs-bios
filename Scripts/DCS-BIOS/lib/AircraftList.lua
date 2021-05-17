@@ -66,7 +66,7 @@ a("Su-27", false)
 a("Su-33", false)
 --Combined Arms (CA)
 a("NONE", false)
-a(nil, false)
+a("", false)
 --MODs
 a("A-4E-C", true)
 a("A-29B", true)
