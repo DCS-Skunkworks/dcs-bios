@@ -1,7 +1,7 @@
 BIOS.protocol.beginModule("JF-17", 0x4800)
 BIOS.protocol.setExportModuleAircrafts({"JF-17"})
 -- by WarLord (aka BlackLibrary), Matchstick
--- v 1.5
+-- v 1.5a
 
 local documentation = moduleBeingDefined.documentation
 
@@ -712,5 +712,6 @@ defineIntegerFromGetter("RADIO_TO_LIGHT", function() return radio_to_light end, 
 defineIntegerFromGetter("RADIO_GO_LIGHT", function() return radio_go_light end, 1, "Radio", "Radio Go Indicator Light")
 defineString("RADIO_LINE_1", function() return coerce_nil_to_string(radio_line_1) end,8,"Radio","Radio Display Line 1")
 defineString("RADIO_LINE_2", function() return coerce_nil_to_string(radio_line_2) end,8,"Radio","Radio Display Line 2")
+defineIndicatorLight("GEAR_LEVER_L", 107, "Warning, Caution and IndicatorLights", "Landing Gear Lever Light (red)") 
 
 BIOS.protocol.endModule()
