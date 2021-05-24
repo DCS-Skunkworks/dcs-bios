@@ -495,8 +495,8 @@ return "X"
 end
  
 defineString("AJS37_NAV_INDICATOR_DATA_6", getAJS37NavIndicator6, 1, "Navigation Panel", "Navigataion Panel Data Digit 6")
-defineIndicatorLight("HUVUDVARNING_L", 444, "Error Panel", "Master Caution Light left (red)")
-defineIndicatorLight("HUVUDVARNING_R", 445, "Error Panel", "Master Caution Light right (red)")
+defineIndicatorLight("HUVUDVARNING_L", 444, "Front Panel Lights", "Master Caution Light left (red)")
+defineIndicatorLight("HUVUDVARNING_R", 445, "Front Panel Lights", "Master Caution Light right (red)")
 
 local function getAJS37DestIndicator1()
 	local li = list_indication(1)
@@ -529,5 +529,8 @@ return "X"
 end
  
 defineString("AJS37_DEST_INDICATOR_DATA_2", getAJS37DestIndicator2, 1, "Destination", "Destination Data Digit 2")
+defineIndicatorLight("ALT_WARNING_LAMP", 450, "Front Panel Lights", "Altitude Warning Lamp (red)")
+defineIndicatorLight("FALLD_LAST_LAMP", 461, "Front Panel Lights", "Falld Last (Stores Released) Lamp (red)")
+defineIndicatorLight("REV_TRANSONIC_LAMP", 462, "Front Panel Lights", "Revadvr Transonic Lamp (red)")
 
 BIOS.protocol.endModule()
