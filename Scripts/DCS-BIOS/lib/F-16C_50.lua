@@ -1,6 +1,5 @@
--- V1.7c by Warlord (aka BlackLibrary)
+-- V1.8 by Warlord (aka BlackLibrary)
 -- Added HARM,VIP,VRP pages by Matchstick
---
 -- Tested and fixes by BuzzKillington & afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick
 
@@ -29,7 +28,7 @@ local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local define3Pos2CommandSwitch = BIOS.util.define3Pos2CommandSwitch
 
---Seems to be F16C specific
+--Functions
 local function defineSpringloaded_3_pos_tumb(msg, device_id, downSwitch, upSwitch, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
@@ -1243,6 +1242,7 @@ DEDLayout_l5["IFF Switching"]={14,1}
 DEDLayout_l5["TACAN Label"]={19,1}
 DEDLayout_l5["TACAN Channel"]={20,3}
 DEDLayout_l5["TACAN Band"]={23,1}
+DEDLayout_l5["TACAN A-A Distance"]={19,5}
 --COM
 DEDLayout_l5["Preset Frequency"]={5,6,0,"_inv","I"}
 DEDLayout_l5["Asterisks on PresetFrequency_both"]={4,11,11,"","I"}
