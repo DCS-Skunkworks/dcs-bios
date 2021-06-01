@@ -185,7 +185,7 @@ definePushButton("FRONT_COMPUTER", 1, 3111, 136, "Engine Start Panel", "FRONT Co
 definePushButton("FRONT_ANTI_ICE", 1, 3112, 135, "Engine Start Panel", "FRONT ANTI-ICE Button")
 defineToggleSwitch("FRONT_START_MODE_SEL", 1, 3113, 137, "Engine Start Panel", "FRONT Starter Mode Selector")
 definePushButton("FRONT_ABORT", 1, 3114, 138, "Engine Start Panel", "FRONT GPU Button")
-defineTumb("FRONT_CONT_ING_START", 1, 3115, 139, 2, {-1, 1}, nil, false, "Engine Start Panel", "FRONT Continuous Ignition/Start")
+defineTumb("FRONT_CONT_ING_START", 1, 3115, 139, 1, {-1, 1}, nil, false, "Engine Start Panel", "FRONT Continuous Ignition/Start")
 definePushButton("FRONT_ENG_START_TEST_BTN", 1, 3116, 525, "Engine Start Panel", "FRONT Engine Start Test Button")
 definePotentiometer("FRONT_ENG_START_TEST_KNB", 1, 3536, 1273, {0, 1}, "Engine Start Panel", "FRONT Engine Start Test Knob")
 definePushButton("BACK_GPU", 1, 3422, 822, "Engine Start Panel", "BACK GPU Button")
@@ -193,7 +193,7 @@ definePushButton("BACK_COMPUTER", 1, 3423, 824, "Engine Start Panel", "BACK Comp
 definePushButton("BACK_ANTI_ICE", 1, 3424, 823, "Engine Start Panel", "BACK ANTI-ICE Button")
 defineToggleSwitch("BACK_START_MODE_SEL", 1, 3425, 825, "Engine Start Panel", "BACK Starter Mode Selector")
 definePushButton("BACK_ABORT", 1, 3426, 826, "Engine Start Panel", "BACK GPU Button")
-defineTumb("BACK_CONT_ING_START", 1, 3427, 827, 2, {-1, 1}, nil, false, "Engine Start Panel", "BACK Continuous Ignition/Start")
+defineTumb("BACK_CONT_ING_START", 1, 3427, 827, 1, {-1, 1}, nil, false, "Engine Start Panel", "BACK Continuous Ignition/Start")
 definePushButton("BACK_ENG_START_TEST_BTN", 1, 3428, 828, "Engine Start Panel", "BACK Engine Start Test Button")
 definePotentiometer("BACK_ENG_START_TEST_KNB", 1, 3537, 1275, {0, 1}, "Engine Start Panel", "BACK Engine Start Test Knob")
 
@@ -230,13 +230,13 @@ defineToggleSwitch("FRONT_EMERG_ELEVATOR_TRIM_COVER", 1, 3156, 149, "Emergency",
 define3PosTumb("FRONT_EMERG_ELEVATOR_TRIM", 1, 3157, 148, "Emergency", "FRONT Emergency Elevator Trim Switch")
 definePushButton("FRONT_PITCH_TRIM_L_TEST_BTN", 1, 3158, 526, "Emergency", "FRONT Pitch Trim Disc Lamp Test Button")
 definePotentiometer("FRONT_PITCH_TRIM_L_TEST_KNOB", 1, 3552, 1274, {0, 1}, "Emergency", "FRONT Pitch Trim Disc Lamp Test Knob")
-defineTumb("FRONT_SEAT_HEIGHT", 1, 3280, 193, 2, {-1, 1}, nil, false, "Emergency", "FRONT Seat Height Adjustment")
+defineTumb("FRONT_SEAT_HEIGHT", 1, 3280, 193, 1, {-1, 1}, nil, false, "Emergency", "FRONT Seat Height Adjustment")
 defineToggleSwitch("FRONT_CB_PITCH_TRIM", 1, 3160, 195, "Emergency", "FRONT Pitch Trim Breaker")
 defineToggleSwitch("BACK_EMERG_ELEVATOR_TRIM_COVER", 1, 3468, 833, "Emergency", "BACK Emergency Elevator Trim Switch Cutout Guard")
 define3PosTumb("BACK_EMERG_ELEVATOR_TRIM", 1, 3469, 832, "Emergency", "BACK Emergency Elevator Trim Switch")
 definePushButton("BACK_PITCH_TRIM_L_TEST_BTN", 1, 3470, 534, "Emergency", "BACK Pitch Trim Disc Lamp Test Button")
 definePotentiometer("BACK_PITCH_TRIM_L_TEST_KNOB", 1, 3553, 1276, {0, 1}, "Emergency", "BACK Pitch Trim Disc Lamp Test Knob")
-defineTumb("BACK_SEAT_HEIGHT", 1, 3471, 841, 2, {-1, 1}, nil, false, "Emergency", "BACK Seat Height Adjustment")
+defineTumb("BACK_SEAT_HEIGHT", 1, 3471, 841, 1, {-1, 1}, nil, false, "Emergency", "BACK Seat Height Adjustment")
 
 -- RED PANEL LIGHT ADJUSTMENTS
 definePotentiometer("FRONT_RED_FLOODLIGHT_L_CONSOLE", 1, 3227, 258, {0, 1}, "Red Panel Lights", "FRONT Red Floodlight Left Console")
