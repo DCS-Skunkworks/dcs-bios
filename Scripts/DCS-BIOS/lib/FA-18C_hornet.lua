@@ -1213,58 +1213,45 @@ defineIndicatorLightInverted("SAI_ATT_WARN_FLAG_L", 209, "Standby Attitude Refer
 defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(21)*65535)
 end, 65535, "External Aircraft Model", "Speed Brake")
-
 defineIntegerFromGetter("EXT_WING_FOLDING", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(8)*65535)
 end, 65535, "External Aircraft Model", "Wing Folding")
-
 defineIntegerFromGetter("EXT_STAIR", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(323)*65535)
 end, 65535, "External Aircraft Model", "Stair")
-
 defineIntegerFromGetter("EXT_REFUEL_PROBE", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(22)*65535)
 end, 65535, "External Aircraft Model", "Refuel Probe")
-
 defineIntegerFromGetter("EXT_REFUEL_PROBE_LIGHT", function()
 	if LoGetAircraftDrawArgumentValue(212) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Refuel Probe Light (white)")
-
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Left Position Light (red)")
 defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Right Position Light (green)")
-
 defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(88)*65535)
 end, 65535, "External Aircraft Model", "Formation Lights (light green)")
-
 defineIntegerFromGetter("EXT_TAIL_LIGHT", function()
 	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Tail Light (white)")
-
 defineIntegerFromGetter("EXT_STROBE_LIGHTS", function()
 	if LoGetAircraftDrawArgumentValue(193) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Strobe Lights (red)")
-
 defineIntegerFromGetter("EXT_NOZZLE_POS_R", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(89)*65535)
 end, 65535, "External Aircraft Model", "Right Nozzle Position")
-
 defineIntegerFromGetter("EXT_NOZZLE_POS_L", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(90)*65535)
 end, 65535, "External Aircraft Model", "Left Nozzle Position")
-
 defineIntegerFromGetter("EXT_WOW_NOSE", function()
 	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
-
 defineIntegerFromGetter("EXT_WOW_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(4) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
-
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
@@ -1272,5 +1259,9 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 defineString("IFEI_T", function() return txt_T end, 6, "Integrated Fuel/Engine Indicator (IFEI)", "T")
 defineString("IFEI_L_TEXTURE", function() return LTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Left Texture Visible: 1 = yes, 0 = no")
 defineString("IFEI_R_TEXTURE", function() return RTexture end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right Texture Visible: 1 = yes, 0 = no")
+
+defineIntegerFromGetter("EXT_HOOK", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(25)*65535)
+end, 65535, "External Aircraft Model", "Hook")
 
 BIOS.protocol.endModule()
