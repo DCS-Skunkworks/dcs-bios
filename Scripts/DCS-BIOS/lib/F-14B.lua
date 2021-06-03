@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v3.1 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v4 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -15,8 +15,8 @@ local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local define3PosTumb = BIOS.util.define3PosTumb
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
+local define3PosTumb = BIOS.util.define3PosTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
@@ -477,11 +477,9 @@ define3PosTumb("RIO_ECM_OVERRIDE", 45, 3248, 156, "ECMD", "RIO ECM Display Overr
 define3PosTumb("RIO_ECM_CORR", 45, 3249, 168, "ECMD", "RIO ECM Display Corr")
 define3PosTumb("RIO_ECM_ADF", 45, 3250, 190, "ECMD", "RIO ECM Display Data/ADF")
 
--- TACAN CMD
+-- TACAN Pilot Panel  (TACAN PANEL)
 defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "TACAN", "PILOT TACAN CMD Button")
 defineToggleSwitch("RIO_TACAN_CMD_BUTTON", 47, 3325, 135, "TACAN", "RIO TACAN CMD Button")
-
--- TACAN Pilot Panel  (TACAN PANEL)
 defineTumb("PLT_TACAN_MODE", 47, 3326, 2041, 0.25, {0, 1}, nil, false, "TACAN", "PILOT TACAN Mode")
 definePotentiometer("PLT_TACAN_VOLUME", 47, 3328, 2036, {0, 1}, "TACAN", "PILOT TACAN Volume")
 defineTumb("PLT_TACAN_MODE_NORMAL_INV", 47, 3335, 2042, 2, {-1, 1}, nil, false, "TACAN", "PILOT TACAN Mode Normal/Inverse")
@@ -710,8 +708,8 @@ defineMultipositionSwitch("RIO_TID_MODE_DEST", 46, 3109, 51, 8, 0.142857, "INS" 
 -- AHRS / Compass  (COMP Panel)
 definePotentiometer("PLT_AHRS_HDG_KNOB", 51, 3433, 904, {-1.0, 1.0}, "AHRS", "PILOT Compass HDG Slave Knob")
 definePushButton("PLT_AHRS_HDG_PUSH", 51, 3432, 16014, "AHRS", "PILOT Compass HDG Slave Push")
-define3PosTumb("PLT_AHRS_MODE", 51, 3434, 905, "AHRS", "PILOT Compass Mode")
-defineToggleSwitch("PLT_AHRS_HEMISPHERE", 51, 3436, 906, "AHRS", "PILOT Compass N-S Hemisphere")
+defineTumb("PLT_AHRS_MODE", 51, 3434, 905, 1, {-1, 1}, nil, false, "AHRS", "PILOT Compass Mode")
+defineFixedStepTumb("PLT_AHRS_HEMISPHERE", 51, 3436, 906, 2, {-1, 1}, {-1, 1}, nil, "AHRS", "PILOT Compass N-S Hemisphere")
 definePotentiometer("PLT_AHRS_LAT", 51, 3438, 909, {0.0, 1.0}, "AHRS", "PILOT Compass LAT Correction")
 
 -- Spoiler Overrides
@@ -976,10 +974,10 @@ defineIndicatorLightMulti1("RIO_LANTIRN_LASERARMED", 680, "LANTIRN","RIO LANTIRN
 defineIndicatorLight("PLT_TACAN_COMAND_PLT", 290, "Warning, Caution and IndicatorLights","PILOT TACAN Command Light PLT (green)")
 defineIndicatorLight("PLT_TACAN_COMAND_NFO", 291, "Warning, Caution and IndicatorLights","PILOT TACAN Command Light NFO (green)")
 defineIndicatorLight("PLT_JETT_LIGHT", 701, "Warning, Caution and IndicatorLights","PILOT Emergency Stores Jettison Light (red)")
-defineIndicatorLight("PLT_FLOOD_LIGHTS", 1800, "Warning, Caution and IndicatorLights","PILOT Flood Lights (red)")
+defineIndicatorLight("PLT_FLOOD_LIGHTS", 1800, "Warning, Caution and IndicatorLights","PILOT Flood Lights Red (red)")
 defineIndicatorLight("PLT_PANEL_LIGHTS", 1801, "Warning, Caution and IndicatorLights","PILOT Panel Lights (red) inverted")
 defineIndicatorLight("PLT_INSTRUMENT_LIGHTS", 1802, "Warning, Caution and IndicatorLights","PILOT Instrument Lights (red) inverted")
-defineIndicatorLight("PLT_FLOOD_LIGHTS_W", 1803, "Warning, Caution and IndicatorLights","PILOT White Flood Lights (white)")
+defineIndicatorLight("PLT_FLOOD_LIGHTS_W", 1803, "Warning, Caution and IndicatorLights","PILOT Flood Lights White (white)")
 defineIndicatorLight("PLT_AOA_SLOW", 3760, "Warning, Caution and IndicatorLights","PILOT AOA Slow (green)")
 defineIndicatorLight("PLT_AOA_OPT", 3761, "Warning, Caution and IndicatorLights","PILOT AOA Optimum (yellow)")
 defineIndicatorLight("PLT_AOA_FAST", 3762, "Warning, Caution and IndicatorLights","PILOT AOA Fast (red)")
@@ -1677,5 +1675,13 @@ end, 65535, "External Aircraft Model", "YAW String Left/Right")
 defineIntegerFromGetter("EXT_YAW_STRING_UD", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(2501)*65535)
 end, 65535, "External Aircraft Model", "YAW String Up/Down")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHTS_BODY_D", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(612)*65535)
+end, 65535, "External Aircraft Model", "Position Lights Body Dimmer (red/green)")
+
+defineIntegerFromGetter("EXT_POSITION_LIGHTS_WINGS_D", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(611)*65535)
+end, 65535, "External Aircraft Model", "Position Lights Wings Dimmer (red/green)")
 
 BIOS.protocol.endModule()
