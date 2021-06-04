@@ -17,10 +17,18 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 
 defineTumb("FLAPS_LVR", 19, 3013, 7, 0.5, {0, 1}, nil, false, "General", "Flaps Lever, UP/ 1/2 /DOWN")
 defineToggleSwitch("EMERG_FLAP_SW", 19, 3027, 184, "General", "EMER FLAPS Switch, NORM/DOWN")
+defineToggleSwitch("PARK_BRAKE", 19, 3038, 117, "General", "Parking Brake Handle, OUT/IN")
+definePushButton("HYD2_RESET_BTN", 19, 3025, 66, "Gear", "HYD 2 Reset Button")
+
+--Warning, Caution and IndicatorLights
+defineIndicatorLight("L_AOA_SLOW", 320, "Warning, Caution and IndicatorLights","AOA Light Slow (green)")
+defineIndicatorLight("L_AOA_OPT", 321, "Warning, Caution and IndicatorLights","AOA Light Optimum (yellow)")
+defineIndicatorLight("L_AOA_FAST", 322, "Warning, Caution and IndicatorLights","AOA Light Fast (red)")
 
 --Gauges
---defineFloat("FAN1", 380, {0, 1}, "Gauges", "Fan 1 Spin")
 defineFloat("CANOPY_VALUE", 1, {0, 1}, "Gauges", "Canopy Position")
+defineFloat("ADI_SLIP", 161, {-0.1, 0.1}, "Gauges", "ADI Slip")
+defineFloat("AOA_GAUGE", 161, {0, 1}, "Gauges", "AoA Gauge")
 
 defineIntegerFromGetter("EXT_HOOK", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(25)*65535)
