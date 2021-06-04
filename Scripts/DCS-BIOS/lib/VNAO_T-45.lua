@@ -14,6 +14,7 @@ local defineFloat = BIOS.util.defineFloat
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
+local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 defineTumb("FLAPS_LVR", 19, 3013, 7, 0.5, {0, 1}, nil, false, "General", "Flaps Lever, UP/ 1/2 /DOWN")
 defineToggleSwitch("EMERG_FLAP_SW", 19, 3027, 184, "General", "EMER FLAPS Switch, NORM/DOWN")
