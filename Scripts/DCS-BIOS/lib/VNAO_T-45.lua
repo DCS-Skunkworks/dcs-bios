@@ -11,6 +11,7 @@ local parse_indication = BIOS.util.parse_indication
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineTumb = BIOS.util.defineTumb
 local defineFloat = BIOS.util.defineFloat
+local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineToggleSwitch = BIOS.util.defineToggleSwitch

@@ -1693,4 +1693,7 @@ defineIntegerFromGetter("EXT_WING_POS_R", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(405)*65535)
 end, 65535, "External Aircraft Model", "Wing Position Right")
 
+defineFloat("INTERNAL_FLOOD_RED_L", 1800, {0, 1}, "zAdditional Parameters", "Flood Lights red")
+defineFloat("INTERNAL_FLOOD_WHT_L", 1803, {0, 1}, "zAdditional Parameters", "Flood Lights white")
+
 BIOS.protocol.endModule()
