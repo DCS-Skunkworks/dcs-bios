@@ -9508,6 +9508,22 @@
                                                                                                      "type": "integer"
                                                                                           } ]
                                                                       },
+                                                      "GEAR_LEVER_L": {
+                                                                              "category": "Warning, Caution and IndicatorLights",
+                                                                          "control_type": "led",
+                                                                           "description": "Landing Gear Lever Light (red)",
+                                                                            "identifier": "GEAR_LEVER_L",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 18564,
+                                                                                              "description": "0 if light is off, 1 if light is on",
+                                                                                                     "mask": 64,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 6,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
                                                          "LG_L_D_CH": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",

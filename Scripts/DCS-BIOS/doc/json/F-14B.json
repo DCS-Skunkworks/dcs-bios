@@ -57,20 +57,12 @@
                                                                        },
                                                 "PLT_AHRS_HEMISPHERE": {
                                                                                       "category": "AHRS",
-                                                                                  "control_type": "selector",
+                                                                                  "control_type": "discrete_dial",
                                                                                    "description": "PILOT Compass N-S Hemisphere",
                                                                                     "identifier": "PLT_AHRS_HEMISPHERE",
                                                                                         "inputs": [ {
                                                                                                       "description": "switch to previous or next state",
                                                                                                         "interface": "fixed_step"
-                                                                                                  }, {
-                                                                                                      "description": "set position",
-                                                                                                        "interface": "set_state",
-                                                                                                        "max_value": 1
-                                                                                                  }, {
-                                                                                                         "argument": "TOGGLE",
-                                                                                                      "description": "Toggle switch state",
-                                                                                                        "interface": "action"
                                                                                                   } ],
                                                                            "momentary_positions": "none",
                                                                                        "outputs": [ {
@@ -82,7 +74,7 @@
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ],
-                                                                              "physical_variant": "toggle_switch"
+                                                                              "physical_variant": "infinite_rotary"
                                                                        },
                                                        "PLT_AHRS_LAT": {
                                                                                "category": "AHRS",
@@ -132,7 +124,7 @@
                                                                                                            "suffix": "",
                                                                                                              "type": "integer"
                                                                                                   } ],
-                                                                              "physical_variant": "3_position_switch"
+                                                                              "physical_variant": "limited_rotary"
                                                                        }
                                             },
                                     "AICS": {
@@ -6224,262 +6216,342 @@
                                                                         }
                                             },
                  "External Aircraft Model": {
-                                                             "EXT_ANTI_COL": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Anticollision Lights",
-                                                                                   "identifier": "EXT_ANTI_COL",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5242,
-                                                                                                     "description": "Anticollision Lights",
-                                                                                                            "mask": 256,
-                                                                                                       "max_value": 1,
-                                                                                                        "shift_by": 8,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                     "EXT_FORMATION_LIGHTS": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Formation Lights (yellow green)",
-                                                                                   "identifier": "EXT_FORMATION_LIGHTS",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5294,
-                                                                                                     "description": "Formation Lights (yellow green)",
-                                                                                                            "mask": 65535,
-                                                                                                       "max_value": 65535,
-                                                                                                        "shift_by": 0,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                 "EXT_POSITION_LIGHTS_BODY": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Position Lights Body (red/green)",
-                                                                                   "identifier": "EXT_POSITION_LIGHTS_BODY",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5114,
-                                                                                                     "description": "Position Lights Body (red/green)",
-                                                                                                            "mask": 32768,
-                                                                                                       "max_value": 1,
-                                                                                                        "shift_by": 15,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                "EXT_POSITION_LIGHTS_WINGS": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Position Lights Wings (red/green)",
-                                                                                   "identifier": "EXT_POSITION_LIGHTS_WINGS",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5114,
-                                                                                                     "description": "Position Lights Wings (red/green)",
-                                                                                                            "mask": 16384,
-                                                                                                       "max_value": 1,
-                                                                                                        "shift_by": 14,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                  "EXT_POSITION_LIGHT_CHIN": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Chinpod Position Light (red)",
-                                                                                   "identifier": "EXT_POSITION_LIGHT_CHIN",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5144,
-                                                                                                     "description": "Chinpod Position Light (red)",
-                                                                                                            "mask": 32768,
-                                                                                                       "max_value": 1,
-                                                                                                        "shift_by": 15,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                  "EXT_POSITION_LIGHT_TAIL": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Tail Position Light (white)",
-                                                                                   "identifier": "EXT_POSITION_LIGHT_TAIL",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5144,
-                                                                                                     "description": "Tail Position Light (white)",
-                                                                                                            "mask": 16384,
-                                                                                                       "max_value": 1,
-                                                                                                        "shift_by": 14,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                         "EXT_REFUEL_PROBE": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Fuel Probe",
-                                                                                   "identifier": "EXT_REFUEL_PROBE",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5292,
-                                                                                                     "description": "Fuel Probe",
-                                                                                                            "mask": 65535,
-                                                                                                       "max_value": 65535,
-                                                                                                        "shift_by": 0,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                   "EXT_REFUEL_PROBE_LIGHT": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Refuel Probe Light (red)",
-                                                                                   "identifier": "EXT_REFUEL_PROBE_LIGHT",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5114,
-                                                                                                     "description": "Refuel Probe Light (red)",
-                                                                                                            "mask": 8192,
-                                                                                                       "max_value": 1,
-                                                                                                        "shift_by": 13,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                     "EXT_SPEED_BRAKE_LEFT": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Bottom Left Speed Brake",
-                                                                                   "identifier": "EXT_SPEED_BRAKE_LEFT",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5288,
-                                                                                                     "description": "Bottom Left Speed Brake",
-                                                                                                            "mask": 65535,
-                                                                                                       "max_value": 65535,
-                                                                                                        "shift_by": 0,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                    "EXT_SPEED_BRAKE_RIGHT": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Bottom Right Speed Brake",
-                                                                                   "identifier": "EXT_SPEED_BRAKE_RIGHT",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5286,
-                                                                                                     "description": "Bottom Right Speed Brake",
-                                                                                                            "mask": 65535,
-                                                                                                       "max_value": 65535,
-                                                                                                        "shift_by": 0,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                      "EXT_SPEED_BRAKE_TOP": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Top Speed Brake",
-                                                                                   "identifier": "EXT_SPEED_BRAKE_TOP",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5290,
-                                                                                                     "description": "Top Speed Brake",
-                                                                                                            "mask": 65535,
-                                                                                                       "max_value": 65535,
-                                                                                                        "shift_by": 0,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                             "EXT_WOW_LEFT": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Weight ON Wheels Left Gear",
-                                                                                   "identifier": "EXT_WOW_LEFT",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5242,
-                                                                                                     "description": "Weight ON Wheels Left Gear",
-                                                                                                            "mask": 2048,
-                                                                                                       "max_value": 1,
-                                                                                                        "shift_by": 11,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                             "EXT_WOW_NOSE": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Weight ON Wheels Nose Gear",
-                                                                                   "identifier": "EXT_WOW_NOSE",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5242,
-                                                                                                     "description": "Weight ON Wheels Nose Gear",
-                                                                                                            "mask": 512,
-                                                                                                       "max_value": 1,
-                                                                                                        "shift_by": 9,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                            "EXT_WOW_RIGHT": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "Weight ON Wheels Right Gear",
-                                                                                   "identifier": "EXT_WOW_RIGHT",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5242,
-                                                                                                     "description": "Weight ON Wheels Right Gear",
-                                                                                                            "mask": 1024,
-                                                                                                       "max_value": 1,
-                                                                                                        "shift_by": 10,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                        "EXT_YAW_STRING_LR": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "YAW String Left/Right",
-                                                                                   "identifier": "EXT_YAW_STRING_LR",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5296,
-                                                                                                     "description": "YAW String Left/Right",
-                                                                                                            "mask": 65535,
-                                                                                                       "max_value": 65535,
-                                                                                                        "shift_by": 0,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             },
-                                                        "EXT_YAW_STRING_UD": {
-                                                                                     "category": "External Aircraft Model",
-                                                                                 "control_type": "metadata",
-                                                                                  "description": "YAW String Up/Down",
-                                                                                   "identifier": "EXT_YAW_STRING_UD",
-                                                                                       "inputs": [  ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 5298,
-                                                                                                     "description": "YAW String Up/Down",
-                                                                                                            "mask": 65535,
-                                                                                                       "max_value": 65535,
-                                                                                                        "shift_by": 0,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             }
+                                                               "EXT_ANTI_COL": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Anticollision Lights",
+                                                                                     "identifier": "EXT_ANTI_COL",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5242,
+                                                                                                       "description": "Anticollision Lights",
+                                                                                                              "mask": 256,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 8,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                       "EXT_FORMATION_LIGHTS": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Formation Lights (yellow green)",
+                                                                                     "identifier": "EXT_FORMATION_LIGHTS",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5294,
+                                                                                                       "description": "Formation Lights (yellow green)",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                                   "EXT_HOOK": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Hook",
+                                                                                     "identifier": "EXT_HOOK",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5304,
+                                                                                                       "description": "Hook",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                   "EXT_POSITION_LIGHTS_BODY": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Position Lights Body (red/green)",
+                                                                                     "identifier": "EXT_POSITION_LIGHTS_BODY",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5114,
+                                                                                                       "description": "Position Lights Body (red/green)",
+                                                                                                              "mask": 32768,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 15,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                 "EXT_POSITION_LIGHTS_BODY_D": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Position Lights Body Dimmer (red/green)",
+                                                                                     "identifier": "EXT_POSITION_LIGHTS_BODY_D",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5300,
+                                                                                                       "description": "Position Lights Body Dimmer (red/green)",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                  "EXT_POSITION_LIGHTS_WINGS": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Position Lights Wings (red/green)",
+                                                                                     "identifier": "EXT_POSITION_LIGHTS_WINGS",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5114,
+                                                                                                       "description": "Position Lights Wings (red/green)",
+                                                                                                              "mask": 16384,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 14,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                "EXT_POSITION_LIGHTS_WINGS_D": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Position Lights Wings Dimmer (red/green)",
+                                                                                     "identifier": "EXT_POSITION_LIGHTS_WINGS_D",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5302,
+                                                                                                       "description": "Position Lights Wings Dimmer (red/green)",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                    "EXT_POSITION_LIGHT_CHIN": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Chinpod Position Light (red)",
+                                                                                     "identifier": "EXT_POSITION_LIGHT_CHIN",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5144,
+                                                                                                       "description": "Chinpod Position Light (red)",
+                                                                                                              "mask": 32768,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 15,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                    "EXT_POSITION_LIGHT_TAIL": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Tail Position Light (white)",
+                                                                                     "identifier": "EXT_POSITION_LIGHT_TAIL",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5144,
+                                                                                                       "description": "Tail Position Light (white)",
+                                                                                                              "mask": 16384,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 14,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                           "EXT_REFUEL_PROBE": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Fuel Probe",
+                                                                                     "identifier": "EXT_REFUEL_PROBE",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5292,
+                                                                                                       "description": "Fuel Probe",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                     "EXT_REFUEL_PROBE_LIGHT": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Refuel Probe Light (red)",
+                                                                                     "identifier": "EXT_REFUEL_PROBE_LIGHT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5114,
+                                                                                                       "description": "Refuel Probe Light (red)",
+                                                                                                              "mask": 8192,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 13,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                       "EXT_SPEED_BRAKE_LEFT": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Bottom Left Speed Brake",
+                                                                                     "identifier": "EXT_SPEED_BRAKE_LEFT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5288,
+                                                                                                       "description": "Bottom Left Speed Brake",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                      "EXT_SPEED_BRAKE_RIGHT": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Bottom Right Speed Brake",
+                                                                                     "identifier": "EXT_SPEED_BRAKE_RIGHT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5286,
+                                                                                                       "description": "Bottom Right Speed Brake",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                        "EXT_SPEED_BRAKE_TOP": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Top Speed Brake",
+                                                                                     "identifier": "EXT_SPEED_BRAKE_TOP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5290,
+                                                                                                       "description": "Top Speed Brake",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                             "EXT_WING_POS_L": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Wing Position Left",
+                                                                                     "identifier": "EXT_WING_POS_L",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5306,
+                                                                                                       "description": "Wing Position Left",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                             "EXT_WING_POS_R": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Wing Position Right",
+                                                                                     "identifier": "EXT_WING_POS_R",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5308,
+                                                                                                       "description": "Wing Position Right",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                               "EXT_WOW_LEFT": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Weight ON Wheels Left Gear",
+                                                                                     "identifier": "EXT_WOW_LEFT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5242,
+                                                                                                       "description": "Weight ON Wheels Left Gear",
+                                                                                                              "mask": 2048,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 11,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                               "EXT_WOW_NOSE": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Weight ON Wheels Nose Gear",
+                                                                                     "identifier": "EXT_WOW_NOSE",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5242,
+                                                                                                       "description": "Weight ON Wheels Nose Gear",
+                                                                                                              "mask": 512,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 9,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                              "EXT_WOW_RIGHT": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "Weight ON Wheels Right Gear",
+                                                                                     "identifier": "EXT_WOW_RIGHT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5242,
+                                                                                                       "description": "Weight ON Wheels Right Gear",
+                                                                                                              "mask": 1024,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 10,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                          "EXT_YAW_STRING_LR": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "YAW String Left/Right",
+                                                                                     "identifier": "EXT_YAW_STRING_LR",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5296,
+                                                                                                       "description": "YAW String Left/Right",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                          "EXT_YAW_STRING_UD": {
+                                                                                       "category": "External Aircraft Model",
+                                                                                   "control_type": "metadata",
+                                                                                    "description": "YAW String Up/Down",
+                                                                                     "identifier": "EXT_YAW_STRING_UD",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5298,
+                                                                                                       "description": "YAW String Up/Down",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               }
                                             },
                              "Fire System": {
                                                 "PLT_FIRE_EX_BOTTLE_L": {
@@ -15721,7 +15793,7 @@
                                                            "PLT_FLOOD_LIGHTS": {
                                                                                        "category": "Warning, Caution and IndicatorLights",
                                                                                    "control_type": "led",
-                                                                                    "description": "PILOT Flood Lights (red)",
+                                                                                    "description": "PILOT Flood Lights Red (red)",
                                                                                      "identifier": "PLT_FLOOD_LIGHTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -15737,7 +15809,7 @@
                                                          "PLT_FLOOD_LIGHTS_W": {
                                                                                        "category": "Warning, Caution and IndicatorLights",
                                                                                    "control_type": "led",
-                                                                                    "description": "PILOT White Flood Lights (white)",
+                                                                                    "description": "PILOT Flood Lights White (white)",
                                                                                      "identifier": "PLT_FLOOD_LIGHTS_W",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -20794,5 +20866,55 @@
                                                                                                            } ],
                                                                                        "physical_variant": "toggle_switch"
                                                                                 }
+                                            },
+                  "zAdditional Parameters": {
+                                                "INTERNAL_FLOOD_RED_L": {
+                                                                                "category": "zAdditional Parameters",
+                                                                            "control_type": "analog_gauge",
+                                                                             "description": "Flood Lights red",
+                                                                              "identifier": "INTERNAL_FLOOD_RED_L",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 5310,
+                                                                                                "description": "gauge position",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                "INTERNAL_FLOOD_WHT_L": {
+                                                                                "category": "zAdditional Parameters",
+                                                                            "control_type": "analog_gauge",
+                                                                             "description": "Flood Lights white",
+                                                                              "identifier": "INTERNAL_FLOOD_WHT_L",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 5312,
+                                                                                                "description": "gauge position",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                "INTERNAL_PLT_PANEL_L": {
+                                                                                "category": "zAdditional Parameters",
+                                                                            "control_type": "analog_gauge",
+                                                                             "description": "Panel Lights (red) inverted",
+                                                                              "identifier": "INTERNAL_PLT_PANEL_L",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 5314,
+                                                                                                "description": "gauge position",
+                                                                                                       "mask": 65535,
+                                                                                                  "max_value": 65535,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        }
                                             }
 }

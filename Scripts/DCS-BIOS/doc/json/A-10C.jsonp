@@ -16837,5 +16837,87 @@ docdata["A-10C"] =
                                                                                      "type": "integer"
                                                                           } ]
                                                       }
+                                           },
+                 "zAdditional Parameters": {
+                                               "INTERNAL_AUX_INST_LIGHTS": {
+                                                                                   "category": "zAdditional Parameters",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Auxiliary Instruments Lights",
+                                                                                 "identifier": "INTERNAL_AUX_INST_LIGHTS",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4876,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                "INTERNAL_CONSOLE_LIGHTS": {
+                                                                                   "category": "zAdditional Parameters",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Console Lights",
+                                                                                 "identifier": "INTERNAL_CONSOLE_LIGHTS",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4870,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                               "INTERNAL_ENG_INST_LIGHTS": {
+                                                                                   "category": "zAdditional Parameters",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Engine Instrument Lights",
+                                                                                 "identifier": "INTERNAL_ENG_INST_LIGHTS",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4872,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                  "INTERNAL_FLOOD_LIGHTS": {
+                                                                                   "category": "zAdditional Parameters",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Flood Lights",
+                                                                                 "identifier": "INTERNAL_FLOOD_LIGHTS",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4878,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                               "INTERNAL_FLT_INST_LIGHTS": {
+                                                                                   "category": "zAdditional Parameters",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Flight Instruments Lights",
+                                                                                 "identifier": "INTERNAL_FLT_INST_LIGHTS",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4874,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           }
                                            }
 };

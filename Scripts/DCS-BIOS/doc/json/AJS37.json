@@ -1006,646 +1006,614 @@
                                                              }
                                },
                 "Error Panel": {
-                                          "AFK_FEL": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Autothrottle (red)",
-                                                           "identifier": "AFK_FEL",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 4096,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 12,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                          "BRAND_1": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Engine Fire 1 (red)",
-                                                           "identifier": "BRAND_1",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 17944,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 8192,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 13,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                          "BRAND_2": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Engine Fire 2 (red)",
-                                                           "identifier": "BRAND_2",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 17944,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 16384,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 14,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                        "BRAND_GTS": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Turbine Starter Fire (red)",
-                                                           "identifier": "BRAND_GTS",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 2048,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 11,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                           "BRA_24": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Low Fuel (yellow)",
-                                                           "identifier": "BRA_24",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 1024,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 10,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                         "BRA_UPPF": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Fuel Distribution Low Pressure (yellow)",
-                                                           "identifier": "BRA_UPPF",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 17944,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 32768,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 15,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                               "CK": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Computer (yellow)",
-                                                           "identifier": "CK",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 8,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 3,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                           "EJ_REV": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Thrust Reverser Inoperable (red)",
-                                                           "identifier": "EJ_REV",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 8192,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 13,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                            "ELFEL": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Electrical System (red)",
-                                                           "identifier": "ELFEL",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 256,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 8,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                         "FACKL_SL": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Flares Empty (yellow)",
-                                                           "identifier": "FACKL_SL",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18032,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 1,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 0,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                        "FORV_FORB": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Thrust Reverser Warning (red)",
-                                                           "identifier": "FORV_FORB",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 8,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 3,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                        "HALL_FUNK": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Autopilot Hold (yellow)",
-                                                           "identifier": "HALL_FUNK",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 1,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 0,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                           "HSTALL": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Right Gear (green)",
-                                                           "identifier": "HSTALL",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 64,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 6,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                   "HUVUDVARNING_L": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Master Caution Light left (red)",
-                                                           "identifier": "HUVUDVARNING_L",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18070,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 128,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 7,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                   "HUVUDVARNING_R": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Master Caution Light right (red)",
-                                                           "identifier": "HUVUDVARNING_R",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18070,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 256,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 8,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                       "HUV_O_STOL": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Ejection Seat/Canopy (yellow)",
-                                                           "identifier": "HUV_O_STOL",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 32,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 5,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                       "HYDRA_TA_1": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Hydraulic System 1 Pressure (red)",
-                                                           "identifier": "HYDRA_TA_1",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 2048,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 11,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                       "HYDRA_TA_2": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Hydraulic System 2 Pressure (red)",
-                                                           "identifier": "HYDRA_TA_2",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 1024,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 10,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                        "KABINHOJD": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Cabin Pressure (yellow)",
-                                                           "identifier": "KABINHOJD",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 16,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 4,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                       "KB_H_KA_SL": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Right Countermeasures Pod Empty/ECM Failure (yellow)",
-                                                           "identifier": "KB_H_KA_SL",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 32768,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 15,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                        "KB_V_SLUT": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Left Countermeasures Pod Empty (yellow)",
-                                                           "identifier": "KB_V_SLUT",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 16384,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 14,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                        "LANDSTALL": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Landing Gear (yellow)",
-                                                           "identifier": "LANDSTALL",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 4,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 2,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                        "LUFTBROMS": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Airbrakes (green)",
-                                                           "identifier": "LUFTBROMS",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18032,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 4,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 2,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                       "MAN_BG_REG": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Manual Fuel Regulator (yellow)",
-                                                           "identifier": "MAN_BG_REG",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 256,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 8,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                          "MOTVERK": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Countermeasures/RWR (yellow)",
-                                                           "identifier": "MOTVERK",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18032,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 2,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 1,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                         "NAV_SYST": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Navigation System (yellow)",
-                                                           "identifier": "NAV_SYST",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 8192,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 13,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                         "NOSSTALL": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Nose Gear (green)",
-                                                           "identifier": "NOSSTALL",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 16,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 4,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                        "OLJETRYCK": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Oil Pressure (red)",
-                                                           "identifier": "OLJETRYCK",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 16384,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 14,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                        "RESERVEFF": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Backup Hydraulic (red)",
-                                                           "identifier": "RESERVEFF",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 512,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 9,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                          "RHM_FEL": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Radar Altimeter (yellow)",
-                                                           "identifier": "RHM_FEL",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 2,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 1,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                       "ROLL_VAXEL": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Roll Gearing (yellow)",
-                                                           "identifier": "ROLL_VAXEL",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 4,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 2,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                       "SPAK_ERROR": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "SPAK Error (yellow)",
-                                                           "identifier": "SPAK_ERROR",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 32768,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 15,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                        "STARTSYST": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Starter System (yellow)",
-                                                           "identifier": "STARTSYST",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 128,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 7,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                           "SYRGAS": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Oxygen (yellow)",
-                                                           "identifier": "SYRGAS",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 512,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 9,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                         "TANDSYST": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Ignition System (yellow)",
-                                                           "identifier": "TANDSYST",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 64,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 6,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                        "TANK_PUMP": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Fuel Pump (yellow)",
-                                                           "identifier": "TANK_PUMP",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 2,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 1,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                             "TILS": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "TILS (green)",
-                                                           "identifier": "TILS",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18030,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 4096,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 12,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                        "TIPPVAXEL": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Pitch Gearing (red)",
-                                                           "identifier": "TIPPVAXEL",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 128,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 7,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                           "VSTALL": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "Left Gear (green)",
-                                                           "identifier": "VSTALL",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 32,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 5,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                       "X_TANK_BRA": {
-                                                             "category": "Error Panel",
-                                                         "control_type": "led",
-                                                          "description": "External Fuel Tank Feed System (yellow)",
-                                                           "identifier": "X_TANK_BRA",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 18028,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 1,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 0,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     }
+                                      "AFK_FEL": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Autothrottle (red)",
+                                                       "identifier": "AFK_FEL",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 4096,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 12,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                      "BRAND_1": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Engine Fire 1 (red)",
+                                                       "identifier": "BRAND_1",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 17944,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 8192,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 13,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                      "BRAND_2": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Engine Fire 2 (red)",
+                                                       "identifier": "BRAND_2",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 17944,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 16384,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 14,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                    "BRAND_GTS": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Turbine Starter Fire (red)",
+                                                       "identifier": "BRAND_GTS",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 2048,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 11,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                       "BRA_24": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Low Fuel (yellow)",
+                                                       "identifier": "BRA_24",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 1024,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 10,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                     "BRA_UPPF": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Fuel Distribution Low Pressure (yellow)",
+                                                       "identifier": "BRA_UPPF",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 17944,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 32768,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 15,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                           "CK": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Computer (yellow)",
+                                                       "identifier": "CK",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 8,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 3,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                       "EJ_REV": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Thrust Reverser Inoperable (red)",
+                                                       "identifier": "EJ_REV",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 8192,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 13,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                        "ELFEL": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Electrical System (red)",
+                                                       "identifier": "ELFEL",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 256,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 8,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                     "FACKL_SL": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Flares Empty (yellow)",
+                                                       "identifier": "FACKL_SL",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18032,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 1,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 0,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                    "FORV_FORB": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Thrust Reverser Warning (red)",
+                                                       "identifier": "FORV_FORB",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 8,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 3,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                    "HALL_FUNK": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Autopilot Hold (yellow)",
+                                                       "identifier": "HALL_FUNK",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 1,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 0,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                       "HSTALL": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Right Gear (green)",
+                                                       "identifier": "HSTALL",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 64,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 6,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                   "HUV_O_STOL": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Ejection Seat/Canopy (yellow)",
+                                                       "identifier": "HUV_O_STOL",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 32,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 5,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                   "HYDRA_TA_1": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Hydraulic System 1 Pressure (red)",
+                                                       "identifier": "HYDRA_TA_1",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 2048,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 11,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                   "HYDRA_TA_2": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Hydraulic System 2 Pressure (red)",
+                                                       "identifier": "HYDRA_TA_2",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 1024,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 10,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                    "KABINHOJD": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Cabin Pressure (yellow)",
+                                                       "identifier": "KABINHOJD",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 16,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 4,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                   "KB_H_KA_SL": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Right Countermeasures Pod Empty/ECM Failure (yellow)",
+                                                       "identifier": "KB_H_KA_SL",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 32768,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 15,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                    "KB_V_SLUT": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Left Countermeasures Pod Empty (yellow)",
+                                                       "identifier": "KB_V_SLUT",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 16384,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 14,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                    "LANDSTALL": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Landing Gear (yellow)",
+                                                       "identifier": "LANDSTALL",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 4,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 2,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                    "LUFTBROMS": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Airbrakes (green)",
+                                                       "identifier": "LUFTBROMS",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18032,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 4,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 2,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                   "MAN_BG_REG": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Manual Fuel Regulator (yellow)",
+                                                       "identifier": "MAN_BG_REG",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 256,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 8,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                      "MOTVERK": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Countermeasures/RWR (yellow)",
+                                                       "identifier": "MOTVERK",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18032,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 2,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 1,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                     "NAV_SYST": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Navigation System (yellow)",
+                                                       "identifier": "NAV_SYST",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 8192,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 13,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                     "NOSSTALL": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Nose Gear (green)",
+                                                       "identifier": "NOSSTALL",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 16,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 4,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                    "OLJETRYCK": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Oil Pressure (red)",
+                                                       "identifier": "OLJETRYCK",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 16384,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 14,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                    "RESERVEFF": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Backup Hydraulic (red)",
+                                                       "identifier": "RESERVEFF",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 512,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 9,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                      "RHM_FEL": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Radar Altimeter (yellow)",
+                                                       "identifier": "RHM_FEL",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 2,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 1,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                   "ROLL_VAXEL": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Roll Gearing (yellow)",
+                                                       "identifier": "ROLL_VAXEL",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 4,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 2,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                   "SPAK_ERROR": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "SPAK Error (yellow)",
+                                                       "identifier": "SPAK_ERROR",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 32768,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 15,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                    "STARTSYST": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Starter System (yellow)",
+                                                       "identifier": "STARTSYST",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 128,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 7,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                       "SYRGAS": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Oxygen (yellow)",
+                                                       "identifier": "SYRGAS",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 512,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 9,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                     "TANDSYST": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Ignition System (yellow)",
+                                                       "identifier": "TANDSYST",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 64,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 6,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                    "TANK_PUMP": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Fuel Pump (yellow)",
+                                                       "identifier": "TANK_PUMP",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 2,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 1,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                         "TILS": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "TILS (green)",
+                                                       "identifier": "TILS",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18030,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 4096,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 12,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                    "TIPPVAXEL": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Pitch Gearing (red)",
+                                                       "identifier": "TIPPVAXEL",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 128,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 7,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                       "VSTALL": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "Left Gear (green)",
+                                                       "identifier": "VSTALL",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 32,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 5,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                   "X_TANK_BRA": {
+                                                         "category": "Error Panel",
+                                                     "control_type": "led",
+                                                      "description": "External Fuel Tank Feed System (yellow)",
+                                                       "identifier": "X_TANK_BRA",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 18028,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 1,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 0,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 }
                                },
     "External Aircraft Model": {
                                     "EXT_FORMATION_LIGHTS": {
@@ -3568,6 +3536,88 @@
                                                                                              } ],
                                                                          "physical_variant": "limited_rotary"
                                                                   }
+                               },
+         "Front Panel Lights": {
+                                     "ALT_WARNING_LAMP": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Altitude Warning Lamp (red)",
+                                                               "identifier": "ALT_WARNING_LAMP",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18070,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 512,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 9,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                      "FALLD_LAST_LAMP": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Falld Last (Stores Released) Lamp (red)",
+                                                               "identifier": "FALLD_LAST_LAMP",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18070,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 1024,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 10,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                       "HUVUDVARNING_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Master Caution Light left (red)",
+                                                               "identifier": "HUVUDVARNING_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18070,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 128,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 7,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                       "HUVUDVARNING_R": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Master Caution Light right (red)",
+                                                               "identifier": "HUVUDVARNING_R",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18070,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 256,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 8,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                   "REV_TRANSONIC_LAMP": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Revadvr Transonic Lamp (red)",
+                                                               "identifier": "REV_TRANSONIC_LAMP",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18070,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 2048,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 11,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         }
                                },
                "Gauge Values": {
                                              "AIRSPEED_VALUE": {

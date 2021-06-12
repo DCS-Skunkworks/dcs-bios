@@ -1,30 +1,414 @@
 docdata["VNAO_T-45"] =
 {
-    "General": {
-                   "FLAPS_LVR": {
-                                               "category": "General",
-                                           "control_type": "selector",
-                                            "description": "Flaps Lever, UP/ 1/2 /DOWN",
-                                             "identifier": "FLAPS_LVR",
-                                                 "inputs": [ {
-                                                               "description": "switch to previous or next state",
-                                                                 "interface": "fixed_step"
-                                                           }, {
-                                                               "description": "set position",
-                                                                 "interface": "set_state",
-                                                                 "max_value": 2
-                                                           } ],
-                                    "momentary_positions": "none",
-                                                "outputs": [ {
-                                                                   "address": 36864,
-                                                               "description": "selector position",
-                                                                      "mask": 3,
-                                                                 "max_value": 2,
-                                                                  "shift_by": 0,
-                                                                    "suffix": "",
-                                                                      "type": "integer"
-                                                           } ],
-                                       "physical_variant": "limited_rotary"
-                                }
-               }
+                 "External Aircraft Model": {
+                                                            "EXT_FAN": {
+                                                                               "category": "External Aircraft Model",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Fan",
+                                                                             "identifier": "EXT_FAN",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 36864,
+                                                                                               "description": "Fan",
+                                                                                                      "mask": 16384,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 14,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                           "EXT_HOOK": {
+                                                                               "category": "External Aircraft Model",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Hook",
+                                                                             "identifier": "EXT_HOOK",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 36872,
+                                                                                               "description": "Hook",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                      "EXT_NAV_LIGHT": {
+                                                                               "category": "External Aircraft Model",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Navigation Lights (yellow)",
+                                                                             "identifier": "EXT_NAV_LIGHT",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 36864,
+                                                                                               "description": "Navigation Lights (yellow)",
+                                                                                                      "mask": 4096,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 12,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                "EXT_POSITION_LIGHTS": {
+                                                                               "category": "External Aircraft Model",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Position Lights (green,red)",
+                                                                             "identifier": "EXT_POSITION_LIGHTS",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 36864,
+                                                                                               "description": "Position Lights (green,red)",
+                                                                                                      "mask": 2048,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 11,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                   "EXT_SPEED_BRAKES": {
+                                                                               "category": "External Aircraft Model",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Speed Brakes",
+                                                                             "identifier": "EXT_SPEED_BRAKES",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 36874,
+                                                                                               "description": "Speed Brakes",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                         "EXT_STROBE": {
+                                                                               "category": "External Aircraft Model",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Strobe Lights (red)",
+                                                                             "identifier": "EXT_STROBE",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 36864,
+                                                                                               "description": "Strobe Lights (red)",
+                                                                                                      "mask": 512,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 9,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                     "EXT_TAIL_LIGHT": {
+                                                                               "category": "External Aircraft Model",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Tail Light (white)",
+                                                                             "identifier": "EXT_TAIL_LIGHT",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 36864,
+                                                                                               "description": "Tail Light (white)",
+                                                                                                      "mask": 1024,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 10,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                     "EXT_TAXI_LIGHT": {
+                                                                               "category": "External Aircraft Model",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Taxi Light (white)",
+                                                                             "identifier": "EXT_TAXI_LIGHT",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 36864,
+                                                                                               "description": "Taxi Light (white)",
+                                                                                                      "mask": 8192,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 13,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                      "EXT_TOP_LIGHT": {
+                                                                               "category": "External Aircraft Model",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Top Light (white)",
+                                                                             "identifier": "EXT_TOP_LIGHT",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 36864,
+                                                                                               "description": "Top Light (white)",
+                                                                                                      "mask": 256,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 8,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                       "EXT_WOW_LEFT": {
+                                                                               "category": "External Aircraft Model",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Weight ON Wheels Left Gear",
+                                                                             "identifier": "EXT_WOW_LEFT",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 36876,
+                                                                                               "description": "Weight ON Wheels Left Gear",
+                                                                                                      "mask": 2,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 1,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                       "EXT_WOW_NOSE": {
+                                                                               "category": "External Aircraft Model",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Weight ON Wheels Nose Gear",
+                                                                             "identifier": "EXT_WOW_NOSE",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 36864,
+                                                                                               "description": "Weight ON Wheels Nose Gear",
+                                                                                                      "mask": 32768,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 15,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                      "EXT_WOW_RIGHT": {
+                                                                               "category": "External Aircraft Model",
+                                                                           "control_type": "metadata",
+                                                                            "description": "Weight ON Wheels Right Gear",
+                                                                             "identifier": "EXT_WOW_RIGHT",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 36876,
+                                                                                               "description": "Weight ON Wheels Right Gear",
+                                                                                                      "mask": 1,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       }
+                                            },
+                                  "Gauges": {
+                                                    "ADI_SLIP": {
+                                                                        "category": "Gauges",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "ADI Slip",
+                                                                      "identifier": "ADI_SLIP",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 36868,
+                                                                                        "description": "gauge position",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
+                                                                },
+                                                   "AOA_GAUGE": {
+                                                                        "category": "Gauges",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "AoA Gauge",
+                                                                      "identifier": "AOA_GAUGE",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 36870,
+                                                                                        "description": "gauge position",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
+                                                                },
+                                                "CANOPY_VALUE": {
+                                                                        "category": "Gauges",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Canopy Position",
+                                                                      "identifier": "CANOPY_VALUE",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 36866,
+                                                                                        "description": "gauge position",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
+                                                                }
+                                            },
+                                    "Gear": {
+                                                "HYD2_RESET_BTN": {
+                                                                              "api_variant": "momentary_last_position",
+                                                                                 "category": "Gear",
+                                                                             "control_type": "selector",
+                                                                              "description": "HYD 2 Reset Button",
+                                                                               "identifier": "HYD2_RESET_BTN",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 36864,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 16,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 4,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "push_button"
+                                                                  }
+                                            },
+                                 "General": {
+                                                "EMERG_FLAP_SW": {
+                                                                                "category": "General",
+                                                                            "control_type": "selector",
+                                                                             "description": "EMER FLAPS Switch, NORM/DOWN",
+                                                                              "identifier": "EMERG_FLAP_SW",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 36864,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 4,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 2,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                    "FLAPS_LVR": {
+                                                                                "category": "General",
+                                                                            "control_type": "selector",
+                                                                             "description": "Flaps Lever, UP/ 1/2 /DOWN",
+                                                                              "identifier": "FLAPS_LVR",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 2
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 36864,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 3,
+                                                                                                  "max_value": 2,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "limited_rotary"
+                                                                 },
+                                                   "PARK_BRAKE": {
+                                                                                "category": "General",
+                                                                            "control_type": "selector",
+                                                                             "description": "Parking Brake Handle, OUT/IN",
+                                                                              "identifier": "PARK_BRAKE",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 36864,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 8,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 3,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 }
+                                            },
+    "Warning, Caution and IndicatorLights": {
+                                                "L_AOA_FAST": {
+                                                                      "category": "Warning, Caution and IndicatorLights",
+                                                                  "control_type": "led",
+                                                                   "description": "AOA Light Fast (red)",
+                                                                    "identifier": "L_AOA_FAST",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 36864,
+                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                             "mask": 128,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 7,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              },
+                                                 "L_AOA_OPT": {
+                                                                      "category": "Warning, Caution and IndicatorLights",
+                                                                  "control_type": "led",
+                                                                   "description": "AOA Light Optimum (yellow)",
+                                                                    "identifier": "L_AOA_OPT",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 36864,
+                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                             "mask": 64,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 6,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              },
+                                                "L_AOA_SLOW": {
+                                                                      "category": "Warning, Caution and IndicatorLights",
+                                                                  "control_type": "led",
+                                                                   "description": "AOA Light Slow (green)",
+                                                                    "identifier": "L_AOA_SLOW",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 36864,
+                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                             "mask": 32,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 5,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              }
+                                            }
 };
