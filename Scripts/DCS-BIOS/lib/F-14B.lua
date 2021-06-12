@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v4.1 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -1695,5 +1695,6 @@ end, 65535, "External Aircraft Model", "Wing Position Right")
 
 defineFloat("INTERNAL_FLOOD_RED_L", 1800, {0, 1}, "zAdditional Parameters", "Flood Lights red")
 defineFloat("INTERNAL_FLOOD_WHT_L", 1803, {0, 1}, "zAdditional Parameters", "Flood Lights white")
+defineFloat("INTERNAL_PLT_PANEL_L", 1801, {1, 0}, "zAdditional Parameters", "Panel Lights (red) inverted")
 
 BIOS.protocol.endModule()
