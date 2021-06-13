@@ -19,6 +19,99 @@ local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
+local function defineIndicatorLight1(msg, arg_number, category, description)
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 1
+	}
+	assert(value.shiftBy ~= nil)
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		if dev0:get_argument_value(arg_number) >= 0.3 and dev0:get_argument_value(arg_number) < 0.58 then
+			value:setValue(1)
+		else
+		    value:setValue(0)
+		end
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "led",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 1,
+			  description = "Afterburner Stage Light 1"
+			}
+		}
+	}
+end
+
+local function defineIndicatorLight2(msg, arg_number, category, description)
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 1
+	}
+	assert(value.shiftBy ~= nil)
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		if dev0:get_argument_value(arg_number) >= 0.6 and dev0:get_argument_value(arg_number) < 0.88 then
+			value:setValue(1)
+		else
+		    value:setValue(0)
+		end
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "led",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 1,
+			  description = "Afterburner Stage Light 2"
+			}
+		}
+	}
+end
+
+local function defineIndicatorLight3(msg, arg_number, category, description)
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 1
+	}
+	assert(value.shiftBy ~= nil)
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		if dev0:get_argument_value(arg_number) >= 0.9 and dev0:get_argument_value(arg_number) <= 1 then
+			value:setValue(1)
+		else
+		    value:setValue(0)
+		end
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "led",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 1,
+			  description = "Afterburner Stage Light 3"
+			}
+		}
+	}
+end
+
 -- remove Arg# Pilot 3333
 
 --[[--Weapon System--]]--
@@ -532,5 +625,17 @@ defineString("AJS37_DEST_INDICATOR_DATA_2", getAJS37DestIndicator2, 1, "Destinat
 defineIndicatorLight("ALT_WARNING_LAMP", 450, "Front Panel Lights", "Altitude Warning Lamp (red)")
 defineIndicatorLight("FALLD_LAST_LAMP", 461, "Front Panel Lights", "Falld Last (Stores Released) Lamp (red)")
 defineIndicatorLight("REV_TRANSONIC_LAMP", 462, "Front Panel Lights", "Revadvr Transonic Lamp (red)")
+defineIndicatorLight("AFK_ENABLED_L", 463, "Front Panel Lights", "AFK Enabeld Lamp (red)")
+defineIndicatorLight("AOA_15_L", 464, "Front Panel Lights", "AOA 15deg Lamp (white)")
+defineIndicatorLight("RDR_UR_L", 451, "Front Panel Lights", "Radar Display upper/right Lamp (white)")
+defineIndicatorLight("RDR_R_L", 452, "Front Panel Lights", "Radar Display right Lamp (white)")
+defineIndicatorLight("RDR_LR_L", 453, "Front Panel Lights", "Radar Display lower/right Lamp (white)")
+defineIndicatorLight("RDR_LL_L", 454, "Front Panel Lights", "Radar Display lower/left Lamp (white)")
+defineIndicatorLight("RDR_L_L", 455, "Front Panel Lights", "Radar Display left Lamp (white)")
+defineIndicatorLight("RDR_UL_L", 456, "Front Panel Lights", "Radar Display upper/left Lamp (white)")
+defineIndicatorLight("REVERSAL_L", 460, "Front Panel Lights", "Thrust Reverser Light (green)")
+defineIndicatorLight1("BURNER_STAGE1_L", 405, "Front Panel Lights", "Afterburner Stage 1 Lamp (white)")
+defineIndicatorLight2("BURNER_STAGE2_L", 405, "Front Panel Lights", "Afterburner Stage 2 Lamp (white)")
+defineIndicatorLight3("BURNER_STAGE3_L", 405, "Front Panel Lights", "Afterburner Stage 3 Lamp (white)")
 
 BIOS.protocol.endModule()
