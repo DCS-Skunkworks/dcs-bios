@@ -41,7 +41,7 @@ local function defineIndicatorLightMulti1(msg, arg_number, category, description
 		identifier = msg,
 		category = category,
 		description = description,
-		control_type = "Multi Led Color 1",
+		control_type = "led",
 		inputs = {},
 		outputs = {
 			{ ["type"] = "integer",
@@ -50,7 +50,7 @@ local function defineIndicatorLightMulti1(msg, arg_number, category, description
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "Light is on between 0.4 and 0.59"
+			  description = "Multi Led Color 1; Light is on between 0.4 and 0.59"
 			}
 		}
 	}
@@ -72,7 +72,7 @@ local function defineIndicatorLightMulti2(msg, arg_number, category, description
 		identifier = msg,
 		category = category,
 		description = description,
-		control_type = "Multi Led Color 2",
+		control_type = "led",
 		inputs = {},
 		outputs = {
 			{ ["type"] = "integer",
@@ -81,7 +81,7 @@ local function defineIndicatorLightMulti2(msg, arg_number, category, description
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "Light is on between 0.8 and 0.98"
+			  description = "Multi Led Color 2; Light is on between 0.8 and 0.98"
 			}
 		}
 	}
@@ -103,7 +103,7 @@ local function defineIndicatorLightLANTTop(msg, arg_number, category, descriptio
 		identifier = msg,
 		category = category,
 		description = description,
-		control_type = "LANTRIN Led Top",
+		control_type = "led",
 		inputs = {},
 		outputs = {
 			{ ["type"] = "integer",
@@ -112,7 +112,7 @@ local function defineIndicatorLightLANTTop(msg, arg_number, category, descriptio
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "Light is on between 0.24 and 0.48"
+			  description = "LANTRIN Led Top; Light is on between 0.24 and 0.48"
 			}
 		}
 	}
@@ -134,7 +134,7 @@ local function defineIndicatorLightLANT(msg, arg_number, category, description)
 		identifier = msg,
 		category = category,
 		description = description,
-		control_type = "LANTRIN Led Booth",
+		control_type = "led",
 		inputs = {},
 		outputs = {
 			{ ["type"] = "integer",
@@ -143,7 +143,7 @@ local function defineIndicatorLightLANT(msg, arg_number, category, description)
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "Light is on between 0.49 and 0.54"
+			  description = "LANTRIN Led Booth; Light is on between 0.49 and 0.54"
 			}
 		}
 	}
@@ -165,7 +165,7 @@ local function defineIndicatorLightLANTBottom(msg, arg_number, category, descrip
 		identifier = msg,
 		category = category,
 		description = description,
-		control_type = "LANTRIN Led Bottom",
+		control_type = "led",
 		inputs = {},
 		outputs = {
 			{ ["type"] = "integer",
@@ -174,7 +174,7 @@ local function defineIndicatorLightLANTBottom(msg, arg_number, category, descrip
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "Light is on between 0.55 and 0.98"
+			  description = "LANTRIN Led Bottom; Light is on between 0.55 and 0.98"
 			}
 		}
 	}
