@@ -25,7 +25,7 @@ local function defineIndicatorLight1(msg, arg_number, category, description)
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) >= 0.3 and dev0:get_argument_value(arg_number) < 0.58 then
+		if dev0:get_argument_value(arg_number) >= 0.3 then
 			value:setValue(1)
 		else
 		    value:setValue(0)
@@ -56,7 +56,7 @@ local function defineIndicatorLight2(msg, arg_number, category, description)
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) >= 0.6 and dev0:get_argument_value(arg_number) < 0.88 then
+		if dev0:get_argument_value(arg_number) >= 0.6 then
 			value:setValue(1)
 		else
 		    value:setValue(0)
@@ -87,7 +87,7 @@ local function defineIndicatorLight3(msg, arg_number, category, description)
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) >= 0.9 and dev0:get_argument_value(arg_number) <= 1 then
+		if dev0:get_argument_value(arg_number) >= 0.9 then
 			value:setValue(1)
 		else
 		    value:setValue(0)
@@ -625,7 +625,7 @@ defineString("AJS37_DEST_INDICATOR_DATA_2", getAJS37DestIndicator2, 1, "Destinat
 defineIndicatorLight("ALT_WARNING_LAMP", 450, "Front Panel Lights", "Altitude Warning Lamp (red)")
 defineIndicatorLight("FALLD_LAST_LAMP", 461, "Front Panel Lights", "Falld Last (Stores Released) Lamp (red)")
 defineIndicatorLight("REV_TRANSONIC_LAMP", 462, "Front Panel Lights", "Revadvr Transonic Lamp (red)")
-defineIndicatorLight("AFK_ENABLED_L", 463, "Front Panel Lights", "AFK Enabeld Lamp (red)")
+defineIndicatorLight("AFK_ENABLED_L", 463, "Front Panel Lights", "AFK Enabled Lamp (red)")
 defineIndicatorLight("AOA_15_L", 464, "Front Panel Lights", "AOA 15deg Lamp (white)")
 defineIndicatorLight("RDR_UR_L", 451, "Front Panel Lights", "Radar Display upper/right Lamp (white)")
 defineIndicatorLight("RDR_R_L", 452, "Front Panel Lights", "Radar Display right Lamp (white)")
