@@ -352,6 +352,8 @@ defineFloat("ASP5N_DIVE_ANGLE", 417, {0, 1}, "Gauges", "ASP-5N Dive Angle Select
 defineFloat("USB1_L_AMMO_COUNT", 418, {0, 1}, "Gauges", "USB-1 Left Cannon Ammo Counter")
 defineFloat("USB1_R_AMMO_COUNT", 419, {0, 1}, "Gauges", "USB-1 Right Cannon Ammo Counter")
 
+defineToggleSwitch("EMERG_GEAR", 4, 3505, 505, "Landing Gear Panel", "Landing Gear Emergency Handle")
+
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(183)*65535)

@@ -719,7 +719,7 @@ definePotentiometer("WH_FLOOD_LGT_KNOB", 16, 3644, 644, {0, 1}, "INT LIGHTS", "I
 
 -- LEFT CONSOLE
 defineToggleSwitch("EMER_THROTTLE_COV", 7, 3464, 464, "LEFT CONSOLE", "I - Emergency Throttle Cover")
-definePotentiometer("EMER_THROTTLE_HAND", 7, 3465, 465, {0, 1}, "LEFT CONSOLE", "I - Emergency Throttle Handle")
+defineToggleSwitch("EMER_THROTTLE_HAND", 7, 3465, 465, "LEFT CONSOLE", "I - Emergency Throttle Handle")
 defineToggleSwitch("ENG_IN-FLGT_START_SW", 7, 3468, 468, "LEFT CONSOLE", "I - Engine In-Flight Start Switch")
 defineToggleSwitch("AB_EMER_CUTOFF_SW_COV", 4, 3471, 471, "LEFT CONSOLE", "I - A/B Emergency Cutoff Switch Cover")
 defineToggleSwitch("AB_EMER_CUTOFF_SW", 4, 3472, 472, "LEFT CONSOLE", "I - A/B Emergency Cutoff Switch")
@@ -910,9 +910,9 @@ definePushButton("RAD_REARM_BTN", 11, 3483, 483, "RADAR", "I - Radar Rearm Butto
 defineToggleSwitch("RAD_DOP_REJ_SW", 11, 3484, 484, "RADAR", "I - Radar Doppler Reject Switch")
 definePotentiometer("RAD_CONTRAST_SW", 11, 3485, 485, {0, 1}, "RADAR", "I - Radar Contrast Switch")
 definePotentiometer("RAD_GAIN_DIAL", 11, 3485, 488, {0, 1}, "RADAR", "I - Radar Gain Dial")
-defineToggleSwitch("AG_RAD_A_MODE_SW", 11, 3491, 491, "RADAR", "I - A/G Radar A Mode Switch")
-defineToggleSwitch("AG_RAD_DEC_MODE_SW", 11, 3493, 493, "RADAR", "I - A/G Radar DEC Mode Switch")
-defineToggleSwitch("AG_RAD_VISU_MODE_SW", 11, 3495, 495, "RADAR", "I - A/G Radar VISU Mode Switch")
+definePushButton("AG_RAD_A_MODE_SW", 11, 3491, 491, "RADAR", "I - A/G Radar A Mode Switch")
+definePushButton("AG_RAD_DEC_MODE_SW", 11, 3493, 493, "RADAR", "I - A/G Radar DEC Mode Switch")
+definePushButton("AG_RAD_VISU_MODE_SW", 11, 3495, 495, "RADAR", "I - A/G Radar VISU Mode Switch")
 defineToggleSwitch("RAD_GRID_SEL_SW", 11, 3499, 499, "RADAR", "I - Radar Grid Selector Switch")
 defineToggleSwitch("TGT_MEM_TIME_SEL_SW", 11, 3500, 500, "RADAR", "I - Target Memory Time Selector Switch")
 definePushButton("AA_RAD_STT_SEL_BTN", 11, 3504, 504, "RADAR", "I - A/A Radar STT Selector Button")
