@@ -57,7 +57,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\L-39ZA.lua]]) -- ID = 26, ProperNa
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\M-2000C.lua]]) -- ID = 27, ProperName = M-2000C
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MB-339PAN.lua]]) -- ID = 28, ProperName = MB-339PAN
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mi-8MT.lua]]) -- ID = 29, ProperName = Mi-8MT
--- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mi-24P.lua]]) -- ID = 42, ProperName = Mi-24P HIND
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mi-24P.lua]]) -- ID = 42, ProperName = Mi-24P HIND
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mig-15bis.lua]]) -- ID = 30, ProperName = MiG-15bis
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mig-19P.lua]]) -- ID = 31, ProperName = MiG-19P Farmer
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mig-21Bis.lua]]) -- ID = 32, ProperName = MiG-21bis
