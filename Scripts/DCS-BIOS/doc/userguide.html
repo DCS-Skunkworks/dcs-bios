@@ -515,6 +515,7 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .delete .delete{color:#800}
 .CodeRay .change .change{color:#66f}
 .CodeRay .head .head{color:#f4f}
+.Stil1 {color: #7a2518}
 </style>
 </head>
 <body class="article toc2 toc-right">
@@ -923,7 +924,31 @@ table.CodeRay td.code>pre{padding:0}
                 </tr>
               </table>
             </div>
+						<div class="admonitionblock note">
+              <table>
+                <tr>
+                  <td class="icon">
+<i class="fa icon-note" title="Note"></i>
+                  </td>
+                  <td class="content">
+                  The Analog pin can also used as Digital Pins <em>(on a NANO except A6 and A7)</em>. Just go further with the Numbers A0 = 14, ..... A5 = 19</td>
+                </tr>
+              </table>
+            </div>
+			            <div class="admonitionblock warning">
+              <table>
+                <tr>
+                  <td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+                  </td>
+                  <td class="content">
+                    Most Arduino boards have a built-in LED connected to pin 13, so that pin should only be used as an output.
+                  </td>
+                </tr>
+              </table>
+            </div>
           </div>
+		  
           <div class="sect3">
             <h4 id="_step_3_set_up_the_arduino_ide">Step 3: Set up the Arduino IDE</h4>
             <div class="paragraph">
@@ -1508,8 +1533,8 @@ DcsBios::LED masterCaution(0x1012, 0x0800, 13);</code></pre>
               <p>The Pointer Calibration Tool can be reached via the DCS-BIOS Control Reference Page.			  </p>
               <p>Some Backgrounds can found in <em>DCS-BIOS\doc\images\PointerCal Backgrounds</em></p>
             </div>
-            </div>
           </div>
+        </div>
           <div class="sect3">
             <h4 id="_finding_the_control_you_are_looking_for">Finding the Control You Are Looking For</h4>
             <div class="paragraph">
@@ -1588,6 +1613,9 @@ DcsBios::LED masterCaution(0x1012, 0x0800, 13);</code></pre>
           </div>
           <div class="sect3">
             <h4 id="_input_interfaces">Input Interfaces</h4>
+			 <div class="dlist">
+              <dl>
+                <dd>
             <div class="admonitionblock note">
               <table>
                 <tr>
@@ -1601,6 +1629,9 @@ DcsBios::LED masterCaution(0x1012, 0x0800, 13);</code></pre>
                 </tr>
               </table>
             </div>
+			              </dl>
+                </dd>
+				</div>
             <div class="paragraph">
               <p>An <em>input interface</em> describes the means by which controls in
                 the cockpit can be manipulated. .Types of input interfaces</p>
@@ -1755,7 +1786,7 @@ DcsBios::LED masterCaution(0x1012, 0x0800, 13);</code></pre>
                 classes, including example circuits.</p>
             </div>
           </div>
-        </div>
+      </div>
       </div>
     </div>
 	<div id="content">
@@ -2095,12 +2126,12 @@ DcsBios::SwitchMultiPos aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);</code></pr
               </dd>
             </dl>
           </div>
+		  <div class="title Stil1">Circuit</div>
+        </div>
           <div class="imageblock">
             <div class="content">
               <img src="images/LED.png" alt="500" width="500">
             </div>
-            <div class="title">Figure 1. Circuit</div>
-          </div>
           <div class="listingblock">
             <div class="title">Reference Documentation Code Example</div>
             <div class="content">
@@ -2121,6 +2152,19 @@ DcsBios::SwitchMultiPos aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);</code></pr
               </tr>
             </table>
           </div>
+             <div class="title Stil1">Constructor Parameters</div>
+            <dl>                
+			<td class="content">
+                      <p>You support the Light with an other Power source (like an USB port with more amps).</p>
+                <p>An PWM Pin of the Arduino drives the transistor and dimms the Lamp.                             </p></td>
+        </dl>
+		    <div class="title Stil1">Circuit</div>
+      </div>
+          <div class="imageblock">
+            <div class="content">
+              <p><img src="images/transistor.jpg" alt="500" width="500"></p>
+              <p>&nbsp;  </p>
+            </div>
         </div>
         <div class="sect2">
           <h3 id="_servooutput">ServoOutput</h3>
@@ -2287,7 +2331,7 @@ DcsBios::StringBuffer&lt;7&gt; uhfFrequencyBuffer(0x1180, onUhfFrequencyChange);
             </div>
           </div>
         </div>
-		   </div>
+      </div>
       </div>
     </div>
     <div class="sect1">
