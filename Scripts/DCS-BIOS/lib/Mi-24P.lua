@@ -44,10 +44,22 @@ defineToggleSwitch("OP_PEDAL_DAMPER_CV", 4, 3001, 666, "Hydro Interface", "OPERA
 defineToggleSwitch("OP_PEDAL_DAMPER", 4, 3009, 667, "Hydro Interface", "OPERATOR Pedal Damper, ON/OFF")
 
 --CockpitMechanics
+defineToggleSwitch("PLT_GEAR_IND_L_SW", 11, 3003, 224, "Cockpit Mechanics", "PILOT Gear Indication Lights, ON/OFF")
+defineToggleSwitch("PLT_GEAR_IND_L_CV", 11, 3004, 223, "Cockpit Mechanics", "PILOT Gear Indication Lights Cover, UP/DOWN")
+defineToggleSwitch("PLT_GEAR_LVR", 11, 3001, 232, "Cockpit Mechanics", "PILOT Gear Lever, UP/DOWN")
+defineToggleSwitch("PLT_GEAR_LVR_LOCK", 11, 3002, 228, "Cockpit Mechanics", "PILOT Gear Lever Lock, UP/DOWN")
+defineToggleSwitch("OP_GEAR_SW", 11, 3005, 677, "Cockpit Mechanics", "OPERATOR Gear Switch, UP/DOWN")
+defineToggleSwitch("OP_GEAR_SW_CV", 11, 3006, 676, "Cockpit Mechanics", "OPERATOR Gear Switch Cover UP/DOWN")
+defineToggleSwitch("PLT_EMERG_GEAR_LVR", 11, 3007, 827, "Cockpit Mechanics", "PILOT Emergency Gear Lever")
+definePushButton("PLT_WIN_SPRAY", 11, 3015, 384, "Cockpit Mechanics", "PILOT Window Sprayer Button")
+definePushButton("OP_WIN_SPRAY", 11, 3016, 680, "Cockpit Mechanics", "OPERATOR Window Sprayer Button")
+definePushButton("PLT_COLLECTIVE_STOP", 11, 3028, 753, "Cockpit Mechanics", "PILOT friction clutch of the collective")
+defineToggleSwitch("OP_CLOCK_HEAT", 11, 3013, 672, "Cockpit Mechanics", "OPERATOR Clock Heating Switch, ON/OFF")
+defineToggleSwitch("OP_DUAS_HEAT", 11, 3012, 763, "Cockpit Mechanics", "OPERATOR Heating DUAS, ON/OFF")
 definePushButton("PLT_FAN_FUN", 11, 3029, 0, "Cockpit Mechanics", "PILOT Cockpit Fan - Touch")
 definePushButton("OP_FAN_FUN", 11, 3030, 0, "Cockpit Mechanics", "OPERATOR Cockpit Fan - Touch")
 
---Weapon Systems
+--WeaponSystems
 ---PUVL
 defineToggleSwitch("PLT_PUVL_SIGHT_DISTANCE", 16, 3003, 515, "PUVL", "PILOT Sight Distance, MANUAL/AUTO")
 define3PosTumb("PLT_PUVL_BURST_LENGTH", 6, 3003, 521, "PUVL", "PILOT Burst Length, SHORT/LONG/MEDIUM")
