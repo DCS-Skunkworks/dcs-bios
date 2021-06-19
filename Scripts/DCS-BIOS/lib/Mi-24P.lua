@@ -59,6 +59,13 @@ defineToggleSwitch("OP_DUAS_HEAT", 11, 3012, 763, "Cockpit Mechanics", "OPERATOR
 definePushButton("PLT_FAN_FUN", 11, 3029, 0, "Cockpit Mechanics", "PILOT Cockpit Fan - Touch")
 definePushButton("OP_FAN_FUN", 11, 3030, 0, "Cockpit Mechanics", "OPERATOR Cockpit Fan - Touch")
 
+--IntLightSystem
+define3PosTumb("OP_CABIN_L_SW", 23, 3001, 682, "Int Light System", "OPERATOR Cabin Lighting Switch, WHITE/OFF/RED")
+define3PosTumb("PLT_CABIN_L_SW", 23, 3002, 356, "Int Light System", "PILOT Cabin Lighting Switch, WHITE/OFF/RED")
+defineToggleSwitch("PLT_CARGO_L_SW", 23, 3003, 354, "Int Light System", "PILOT Cargo Lighting Switch, ON/OFF")
+defineToggleSwitch("PLT_CARGO_L_CV", 23, 3004, 353, "Int Light System", "PILOT Cargo Lighting Switch Cover, UP/DOWN")
+defineToggleSwitch("PLT_CARGO_COLOR_L_SW", 23, 3005, 355, "Int Light System", "PILOT Cargo Lighting Switch, WHITE/OFF/BLUE")
+
 --WeaponSystems
 ---PUVL
 defineToggleSwitch("PLT_PUVL_SIGHT_DISTANCE", 16, 3003, 515, "PUVL", "PILOT Sight Distance, MANUAL/AUTO")
