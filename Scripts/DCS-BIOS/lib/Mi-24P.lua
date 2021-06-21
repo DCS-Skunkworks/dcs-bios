@@ -79,6 +79,19 @@ defineTumb("OP_TRANSFROM_2_L", 23, 3018, 1014, 0.1, {0, 1}, nil, false, "Int Lig
 defineTumb("PLT_TRANSFROM_BUILTIN", 23, 3020, 149, 0.1, {0, 1}, nil, false, "Int Light System", "PILOT Builtin Red Lights Transformer, OFF/0.6V/1.2V/1.8V/2.4V/3V/3.6V/4.2V/4.8V/5.4V/6V")
 
 --ExtLightsSystem
+define3PosTumb("PLT_LND_L_SW", 15, 3008, 208, "Ext Light System", "PILOT LND LT Control-Off-Retract Switch")
+defineToggleSwitch("PLT_TAXI_L_SW", 15, 3001, 34, "Ext Light System", "PILOT Taxi LT Switch, ON/OFF")
+defineToggleSwitch("OP_TAXI_L_SW", 15, 3001, 686, "Ext Light System", "OPERATOR Taxi LT Switch, ON/OFF")
+define3PosTumb("PLT_NAV_L_SW", 15, 3003, 207, "Ext Light System", "PILOT Navigation Lights Switch, BRIGHT/OFF/DIM")
+definePushButton("PLT_NAV_L_CODE", 15, 3004, 35, "Ext Light System", "PILOT Navigation Lights Code Button")
+define3PosTumb("PLT_FORMATION_L_SW", 15, 3005, 414, "Ext Light System", "PILOT Formation Lights Switch, BRIGHT/OFF/DIM")
+defineToggleSwitch("PLT_TIP_L_SW", 15, 3006, 415, "Ext Light System", "PILOT Tip Lights Switch, ON/OFF")
+defineToggleSwitch("PLT_STROBE_L_SW", 15, 3007, 417, "Ext Light System", "PILOT Strobe Light Switch, ON/OFF")
+defineToggleSwitch("OP_LND_L_CV", 15, 3012, 668, "Ext Light System", "OPERATOR LND Light Assumed Switch Cover, OPEN/CLOSE")
+defineToggleSwitch("OP_LND_L_SW", 15, 3011, 669, "Ext Light System", "OPERATOR LND Light Assumed Switch, ON/OFF")
+
+--ECSystem
+defineToggleSwitch("PLT_CABIN_UNSEAL", 29, 3001, 133, "ECS", "PILOT Cabin Unseal Switch, ON/OFF")
 
 --WeaponSystems
 ---PUVL
@@ -163,9 +176,9 @@ end, 1, "External Aircraft Model", "Landing Light (yellow)")
 defineIntegerFromGetter("EXT_BEACON", function()
 	if LoGetAircraftDrawArgumentValue(83) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Beacon Light (red)")
-defineIntegerFromGetter("EXT_BLADE_L", function()
+defineIntegerFromGetter("EXT_TIP_L", function()
 	if LoGetAircraftDrawArgumentValue(47) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Blade Lights (yellow)")
+end, 1, "External Aircraft Model", "Tip Lights (yellow)")
 defineIntegerFromGetter("EXT_WIPER", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(973)*65535)
 end, 65535, "External Aircraft Model", "Wiper")
