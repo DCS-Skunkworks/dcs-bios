@@ -96,7 +96,7 @@ defineToggleSwitch("OP_LND_L_SW", 15, 3011, 669, "Ext Light System", "OPERATOR L
 defineToggleSwitch("PLT_CABIN_UNSEAL", 29, 3001, 133, "ECS", "PILOT Cabin Unseal Switch, ON/OFF")
 
 --SAU (autopilot)
-defineToggleSwitch("PLT_SAU_BUTTON_BRIGHT", 10, 3070, 267, "SAU", "PILOT SAU Button Brightness, BRIGHT/DIM")
+defineToggleSwitch("PLT_SAU_BTN_BRIGHT", 10, 3070, 267, "SAU", "PILOT SAU Button Brightness, BRIGHT/DIM")
 definePushButton("PLT_SAU_H_ON", 10, 3005, 237, "SAU", "PILOT SAU H Channel ON")
 definePushButton("PLT_SAU_H_OFF", 10, 3007, 236, "SAU", "PILOT SAU H Channel OFF")
 definePushButton("PLT_SAU_K_ON", 10, 3001, 243, "SAU", "PILOT SAU K Channel ON")
@@ -127,7 +127,7 @@ end
 defineString("PLT_SAU_ROUTE_AZIMUTH_DISPLAY_STR", getSAURouteAzimuth, 3, "SAU", "PILOT SAU Route Azimuth (String)")
 definePushButton("PLT_SAU_SPEED_STAB_ON", 10, 3042, 268, "SAU", "PILOT SAU Speed Stabilization ON")
 definePushButton("PLT_SAU_SPEED_STAB_OFF", 10, 3044, 269, "SAU", "PILOT SAU Speed Stabilization OFF")
-defineRockerSwitch("PLT_SAU_ALTITUDE_CONTROL", 10, 3019, 3019, 3017, 3017, 253, "SAU", "PILOT SAU Altitude Control")
+defineRockerSwitch("PLT_SAU_ALT_CONTROL", 10, 3019, 3019, 3017, 3017, 253, "SAU", "PILOT SAU Altitude Control")
 
 ---Lights
 defineIndicatorLight("PLT_SAU_L_K_ON", 281, "SAU Lights", "PILOT SAU K ON Light (Green)")
@@ -167,10 +167,10 @@ defineFloat("PLT_SPUU_DELTA", 271, {-1, 1}, "SPUU Gauges", "PILOT SPUU Delta")
 
 --Cyclic
 ---Pilot
-definePushButton("PLT_CYCLIC_AP_TRIMMER", 10, 3027, 742, "Cyclic (Pilot)", "PILOT Cyclic Autopilot Trimmer")
+definePushButton("PLT_CYCLIC_AP_TRIM", 10, 3027, 742, "Cyclic (Pilot)", "PILOT Cyclic Autopilot Trimmer")
 
 ---Operator
-definePushButton("OP_CYCLIC_AP_TRIMMER", 10, 3028, 855, "Cyclic (Operator)", "OPERATOR Cyclic Autopilot Trimmer")
+definePushButton("OP_CYCLIC_AP_TRIM", 10, 3028, 855, "Cyclic (Operator)", "OPERATOR Cyclic Autopilot Trimmer")
 
 --WeaponSystems
 ---PUVL
