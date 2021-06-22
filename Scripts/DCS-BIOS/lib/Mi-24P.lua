@@ -8,10 +8,12 @@ local document = BIOS.util.document
 
 local parse_indication = BIOS.util.parse_indication
 
+local defineFixedStepInput = BIOS.util.defineFixedStepInput
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
+local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
@@ -92,6 +94,83 @@ defineToggleSwitch("OP_LND_L_SW", 15, 3011, 669, "Ext Light System", "OPERATOR L
 
 --ECSystem
 defineToggleSwitch("PLT_CABIN_UNSEAL", 29, 3001, 133, "ECS", "PILOT Cabin Unseal Switch, ON/OFF")
+
+--SAU (autopilot)
+defineToggleSwitch("PLT_SAU_BUTTON_BRIGHT", 10, 3070, 267, "SAU", "PILOT SAU Button Brightness, BRIGHT/DIM")
+definePushButton("PLT_SAU_H_ON", 10, 3005, 237, "SAU", "PILOT SAU H Channel ON")
+definePushButton("PLT_SAU_H_OFF", 10, 3007, 236, "SAU", "PILOT SAU H Channel OFF")
+definePushButton("PLT_SAU_K_ON", 10, 3001, 243, "SAU", "PILOT SAU K Channel ON")
+definePushButton("PLT_SAU_K_OFF", 10, 3003, 242, "SAU", "PILOT SAU K Channel OFF")
+definePushButton("PLT_SAU_T_ON", 10, 3009, 249, "SAU", "PILOT SAU T Channel ON")
+definePushButton("PLT_SAU_T_OFF", 10, 3011, 248, "SAU", "PILOT SAU T Channel OFF")
+definePushButton("PLT_SAU_B_ON", 10, 3013, 255, "SAU", "PILOT SAU B Channel ON")
+definePushButton("PLT_SAU_B_OFF", 10, 3015, 254, "SAU", "PILOT SAU B Channel OFF")
+defineRotary("PLT_SAU_H_CORRECT", 10, 3021, 234, "SAU", "PILOT SAU H Channel Delta Correction")
+defineRotary("PLT_SAU_K_CORRECT", 10, 3023, 240, "SAU", "PILOT SAU K Channel Delta Correction")
+defineRotary("PLT_SAU_T_CORRECT", 10, 3025, 246, "SAU", "PILOT SAU T Channel Delta Correction")
+-- TODO: can we make these three into push-button commands?
+defineFloat("PLT_SAU_H_CORRECT_PRESS", 233, {0, 1}, "SAU", "PILOT SAU Yaw Pressed")
+defineFloat("PLT_SAU_K_CORRECT_PRESS", 239, {0, 1}, "SAU", "PILOT SAU Roll Pressed")
+defineFloat("PLT_SAU_T_CORRECT_PRESS", 245, {0, 1}, "SAU", "PILOT SAU Pitch Pressed")
+definePushButton("PLT_SAU_ALT_MODE_ON", 10, 3032, 258, "SAU", "PILOT SAU Altitude Mode ON")
+definePushButton("PLT_SAU_ALT_MODE_OFF", 10, 3034, 257, "SAU", "PILOT SAU Altitude Mode OFF")
+definePushButton("PLT_SAU_HOVER_MODE_ON", 10, 3036, 259, "SAU", "PILOT SAU Hover Mode ON")
+definePushButton("PLT_SAU_ROUTE_MODE_ON", 10, 3038, 261, "SAU", "PILOT SAU Route Mode ON")
+definePushButton("PLT_SAU_HOVER_ROUTE_MODE_OFF", 10, 3040, 260, "SAU", "PILOT SAU Hover and Route Modes OFF")
+defineRotary("PLT_SAU_ROUTE_AZIMUTH", 10, 3030, 262, "SAU", "PILOT SAU Route Azimuth")
+-- defineFixedStepInput("PLT_SAU_ROUTE_AZIMUTH", 10, 3030, {-1, 1}, "SAU", "PILOT SAU Route Azimuth") --TODO: get fixed step input working
+
+local function getSAURouteAzimuth()
+    local function a(n) return GetDevice(0):get_argument_value(n) end
+    return string.format("%.0f%.0f%.0f", 10-(a(265)*10), 10-(a(264)*10), 10-(a(263)*10))
+end
+defineString("PLT_SAU_ROUTE_AZIMUTH_DISPLAY_STR", getSAURouteAzimuth, 3, "SAU", "PILOT SAU Route Azimuth (String)")
+definePushButton("PLT_SAU_SPEED_STAB_ON", 10, 3042, 268, "SAU", "PILOT SAU Speed Stabilization ON")
+definePushButton("PLT_SAU_SPEED_STAB_OFF", 10, 3044, 269, "SAU", "PILOT SAU Speed Stabilization OFF")
+defineRockerSwitch("PLT_SAU_ALTITUDE_CONTROL", 10, 3019, 3019, 3017, 3017, 253, "SAU", "PILOT SAU Altitude Control")
+
+---Lights
+defineIndicatorLight("PLT_SAU_L_K_ON", 281, "SAU Lights", "PILOT SAU K ON Light (Green)")
+defineIndicatorLight("PLT_SAU_L_K_OFF", 280, "SAU Lights", "PILOT SAU K OFF Light (Red)")
+defineIndicatorLight("PLT_SAU_L_H_ON", 279, "SAU Lights", "PILOT SAU H ON Light (Green)")
+defineIndicatorLight("PLT_SAU_L_H_OFF", 278, "SAU Lights", "PILOT SAU H OFF Light (Red)")
+defineIndicatorLight("PLT_SAU_L_B_ON", 296, "SAU Lights", "PILOT SAU B ON Light (Green)")
+defineIndicatorLight("PLT_SAU_L_B_OFF", 295, "SAU Lights", "PILOT SAU B OFF Light (Red)")
+defineIndicatorLight("PLT_SAU_L_T_ON", 294, "SAU Lights", "PILOT SAU T ON Light (Green)")
+defineIndicatorLight("PLT_SAU_L_T_OFF", 293, "SAU Lights", "PILOT SAU T OFF Light (Red)")
+defineIndicatorLight("PLT_SAU_L_ROUTE_MODE_ON", 299, "SAU Lights", "PILOT SAU Route Mode ON Light (Green)")
+defineIndicatorLight("PLT_SAU_L_HOVER_ROUTE_MODE_OFF", 298, "SAU Lights", "PILOT SAU Hover and Route Modes OFF Light (Red)")
+defineIndicatorLight("PLT_SAU_L_HOVER_MODE_ON", 297, "SAU Lights", "PILOT SAU Hover Mode ON Light (Green)")
+defineIndicatorLight("PLT_SAU_L_ALT_MODE_ON", 304, "SAU Lights", "PILOT SAU Altitude Mode ON Light (Green)")
+defineIndicatorLight("PLT_SAU_L_ALT_MODE_OFF", 303, "SAU Lights", "PILOT SAU Altitude Mode OFF Light (Red)")
+
+---Gauges
+defineFloat("PLT_SAU_H_DELTA", 238, {-1, 1}, "SAU Gauges", "PILOT SAU Yaw Delta")
+defineFloat("PLT_SAU_K_DELTA", 244, {-1, 1}, "SAU Gauges", "PILOT SAU Roll Delta")
+defineFloat("PLT_SAU_T_DELTA", 251, {-1, 1}, "SAU Gauges", "PILOT SAU Pitch Delta")
+defineFloat("PLT_SAU_B_DELTA", 256, {-1, 1}, "SAU Gauges", "PILOT SAU Altitude Delta")
+defineFloat("PLT_SAU_H_NUM", 235, {0, 1}, "SAU Gauges", "PILOT SAU Yaw Number")
+defineFloat("PLT_SAU_K_NUM", 241, {0, 1}, "SAU Gauges", "PILOT SAU Roll Number")
+defineFloat("PLT_SAU_T_NUM", 247, {0, 1}, "SAU Gauges", "PILOT SAU Pitch Number")
+
+--SPUU-52
+defineToggleSwitch("PLT_SPUU_POWER", 19, 3010, 270, "SPUU", "PILOT SPUU Power, ON/OFF")
+defineToggleSwitch("PLT_SPUU_OFF", 19, 3001, 275, "SPUU", "PILOT SPUU OFF")
+defineRockerSwitch("PLT_SPUU_CONTROL", 19, 3007, 3007, 3006, 3006, 277, "SPUU", "PILOT SPUU Control Switch, P/NONE/T")
+definePotentiometer("PLT_SPUU_ROUTE_AZIMUTH", 19, 3003, 276, {0, 1}, "SPUU", "PILOT SPUU Route Azimuth")
+
+---Lights
+defineIndicatorLight("PLT_SPUU_L_SPUU_OFF", 302, "SPUU Lights", "PILOT SAU SPUU OFF Light (Red)")
+
+---Gauges
+defineFloat("PLT_SPUU_DELTA", 271, {-1, 1}, "SPUU Gauges", "PILOT SPUU Delta")
+
+--Cyclic
+---Pilot
+definePushButton("PLT_CYCLIC_AP_TRIMMER", 10, 3027, 742, "Cyclic (Pilot)", "PILOT Cyclic Autopilot Trimmer")
+
+---Operator
+definePushButton("OP_CYCLIC_AP_TRIMMER", 10, 3028, 855, "Cyclic (Operator)", "OPERATOR Cyclic Autopilot Trimmer")
 
 --WeaponSystems
 ---PUVL
