@@ -13,6 +13,7 @@ local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
+local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
@@ -46,20 +47,25 @@ defineToggleSwitch("OP_PEDAL_DAMPER_CV", 4, 3001, 666, "Hydro Interface", "OPERA
 defineToggleSwitch("OP_PEDAL_DAMPER", 4, 3009, 667, "Hydro Interface", "OPERATOR Pedal Damper, ON/OFF")
 
 --CockpitMechanics
-defineToggleSwitch("PLT_GEAR_IND_L_SW", 11, 3003, 224, "Cockpit Mechanics", "PILOT Gear Indication Lights, ON/OFF")
-defineToggleSwitch("PLT_GEAR_IND_L_CV", 11, 3004, 223, "Cockpit Mechanics", "PILOT Gear Indication Lights Cover, UP/DOWN")
-defineToggleSwitch("PLT_GEAR_LVR", 11, 3001, 232, "Cockpit Mechanics", "PILOT Gear Lever, UP/DOWN")
-defineToggleSwitch("PLT_GEAR_LVR_LOCK", 11, 3002, 228, "Cockpit Mechanics", "PILOT Gear Lever Lock, UP/DOWN")
-defineToggleSwitch("OP_GEAR_SW", 11, 3005, 677, "Cockpit Mechanics", "OPERATOR Gear Switch, UP/DOWN")
-defineToggleSwitch("OP_GEAR_SW_CV", 11, 3006, 676, "Cockpit Mechanics", "OPERATOR Gear Switch Cover UP/DOWN")
-defineToggleSwitch("PLT_EMERG_GEAR_LVR", 11, 3007, 827, "Cockpit Mechanics", "PILOT Emergency Gear Lever")
-definePushButton("PLT_WIN_SPRAY", 11, 3015, 384, "Cockpit Mechanics", "PILOT Window Sprayer Button")
-definePushButton("OP_WIN_SPRAY", 11, 3016, 680, "Cockpit Mechanics", "OPERATOR Window Sprayer Button")
-definePushButton("PLT_COLLECTIVE_STOP", 11, 3028, 753, "Cockpit Mechanics", "PILOT friction clutch of the collective")
-defineToggleSwitch("OP_CLOCK_HEAT", 11, 3013, 672, "Cockpit Mechanics", "OPERATOR Clock Heating Switch, ON/OFF")
-defineToggleSwitch("OP_DUAS_HEAT", 11, 3012, 763, "Cockpit Mechanics", "OPERATOR Heating DUAS, ON/OFF")
-definePushButton("PLT_FAN_FUN", 11, 3029, 0, "Cockpit Mechanics", "PILOT Cockpit Fan - Touch")
-definePushButton("OP_FAN_FUN", 11, 3030, 0, "Cockpit Mechanics", "OPERATOR Cockpit Fan - Touch")
+defineToggleSwitch("PLT_GEAR_IND_L_SW", 11, 3003, 224, "Cockpit Mechanics PLT", "PILOT Gear Indication Lights, ON/OFF")
+defineToggleSwitch("PLT_GEAR_IND_L_CV", 11, 3004, 223, "Cockpit Mechanics PLT", "PILOT Gear Indication Lights Cover, UP/DOWN")
+defineToggleSwitch("PLT_GEAR_LVR", 11, 3001, 232, "Cockpit Mechanics PLT", "PILOT Gear Lever, UP/DOWN")
+defineToggleSwitch("PLT_GEAR_LVR_LOCK", 11, 3002, 228, "Cockpit Mechanics PLT", "PILOT Gear Lever Lock, UP/DOWN")
+defineToggleSwitch("OP_GEAR_SW", 11, 3005, 677, "Cockpit Mechanics OP", "OPERATOR Gear Switch, UP/DOWN")
+defineToggleSwitch("OP_GEAR_SW_CV", 11, 3006, 676, "Cockpit Mechanics OP", "OPERATOR Gear Switch Cover UP/DOWN")
+defineToggleSwitch("PLT_EMERG_GEAR_LVR", 11, 3007, 827, "Cockpit Mechanics PLT", "PILOT Emergency Gear Lever")
+definePushButton("PLT_WIN_SPRAY", 11, 3015, 384, "Cockpit Mechanics PLT", "PILOT Window Sprayer Button")
+definePushButton("OP_WIN_SPRAY", 11, 3016, 680, "Cockpit Mechanics OP", "OPERATOR Window Sprayer Button")
+definePushButton("PLT_COLLECTIVE_STOP", 11, 3028, 753, "Cockpit Mechanics PLT", "PILOT friction clutch of the collective")
+defineToggleSwitch("OP_CLOCK_HEAT", 11, 3013, 672, "Cockpit Mechanics OP", "OPERATOR Clock Heating Switch, ON/OFF")
+defineToggleSwitch("OP_DUAS_HEAT", 11, 3012, 763, "Cockpit Mechanics OP", "OPERATOR Heating DUAS, ON/OFF")
+definePushButton("PLT_FAN_FUN", 11, 3029, 0, "Cockpit Mechanics PLT", "PILOT Cockpit Fan - Touch")
+definePushButton("OP_FAN_FUN", 11, 3030, 0, "Cockpit Mechanics OP", "OPERATOR Cockpit Fan - Touch")
+definePushButton("PLT_BRAKE_WHEEL", 11, 3026, 737, "Cockpit Mechanics PLT", "PILOT Wheel Brakes Handle")
+defineToggleSwitch("PLT_BRAKE_PARK", 11, 3027, 736, "Cockpit Mechanics PLT", "PILOT Parking Brake Handle")
+defineToggleSwitch("PLT_FAN", 11, 3024, 420, "Cockpit Mechanics PLT", "PILOT Fan, ON/OFF")
+defineToggleSwitch("OP_FAN", 11, 3025, 665, "Cockpit Mechanics OP", "OPERATOR Fan, ON/OFF")
+defineToggleSwitch("STICK_HIDE", 11, 3031, 974, "Cockpit Mechanics", "Hide Stick toggle")
 
 --IntLightSystem
 define3PosTumb("OP_CABIN_L_SW", 23, 3001, 682, "Int Light System", "OPERATOR Cabin Lighting Switch, WHITE/OFF/RED")
@@ -94,6 +100,39 @@ defineToggleSwitch("OP_LND_L_SW", 15, 3011, 669, "Ext Light System", "OPERATOR L
 
 --ECSystem
 defineToggleSwitch("PLT_CABIN_UNSEAL", 29, 3001, 133, "ECS", "PILOT Cabin Unseal Switch, ON/OFF")
+define3PosTumb("PLT_AC_MODE", 29, 3002, 134, "ECS", "PILOT Blowdown Conditioning Switch, CONDITIONING/OFF/BLOWDOWN")
+defineToggleSwitch("PLT_AC_FILTER", 29, 3003, 143, "ECS", "PILOT Filter Switch, ON/OFF")
+defineToggleSwitch("PLT_AC_HEAT_MODE_1", 29, 3004, 144, "ECS", "PILOT Heating Switch, HOT/NORMAL")
+defineMultipositionSwitch("PLT_AC_HEAT_MODE_2", 29, 3005, 145, 4, 0.1, "ECS", "PILOT Automatic Hot Cold Switch, OFF/COLD/HOT/AUTO")
+defineMultipositionSwitch("PLT_AC_TEMP", 29, 3006, 146, 11, 1/9, "ECS", "PILOT Temperature Selector, 5/10/15/18/20/22/24/30/35/40/50")
+defineToggleSwitch("OP_SIGHT_FAN", 29, 3007, 774, "ECS", "OPERATOR Sight Fan, ON/OFF")
+definePotentiometer("PLT_CABIN_PRESS", 29, 3008, 516, {0, 1}, "ECS", "PILOT Sealing, OPEN/CLOSE")
+
+--PKP72M
+defineToggleSwitch("PLT_GYRO_SW", 34, 3001, 12, "PKP72M", "PILOT Gyrovertical Switch, 1/2")
+defineToggleSwitch("OP_ADI_SW", 34, 3002, 759, "PKP72M", "OPERTOR ADI Switch, ON/OFF")
+definePushButton("PLT_ADI_TEST", 32, 3002, 946, "PKP72M", "PILOT Test ADI Button")
+defineRotary("PLT_ADI_PITCH_TRIM", 32, 3001, 941, "PKP72M", "PILOT ADI Pitch Trim Knob")
+definePushButton("OP_ADI_TEST", 33, 3002, 787, "PKP72M", "OPERTOR Test ADI Button")
+defineRotary("OP_ADI_PITCH_TRIM", 33, 3001, 782, "PKP72M", "OPERTOR ADI Pitch Trim Knob")
+
+--MGV1SU
+definePushButton("PLT_GYRO_1_CAGE", 25, 3001, 10, "MGV1SU", "PILOT Cage Gyro 1")
+definePushButton("PLT_GYRO_2_CAGE", 26, 3001, 14, "MGV1SU", "PILOT Cage Gyro 2")
+defineToggleSwitch("PLT_GYRO_1_PWR", 25, 3004, 369, "MGV1SU", "PILOT Gyro 1 Power, ON/OFF")
+defineToggleSwitch("PLT_GYRO_2_PWR", 26, 3004, 368, "MGV1SU", "PILOT Gyro 2 Power, ON/OFF")
+definePushButton("OP_GYRO_2_CAGE", 26, 3003, 701, "MGV1SU", "OPERATOR Cage Gyro 2")
+
+--UKT2
+defineRotary("PLT_UKT_PITCH_TRIM", 18, 3001, 951, "UKT 2", "PILOT UKT Pitch Trim Knob")
+
+--Barometric Altimeter
+definePotentiometer("PLT_ALT_PRESS", 41, 3001, 18, {0, 1}, "Barometric Altimeter", "PILOT Baro Pressure Knob")
+definePotentiometer("OP_ALT_PRESS", 42, 3001, 788, {0, 1}, "Barometric Altimeter", "OPERATOR Baro Pressure Knob")
+
+--RMI2
+defineToggleSwitch("PLT_RMI2_MODE", 43, 3002, 26, "RMI2", "PILOT Mode Switch, ZK/ARKU2")
+defineToggleSwitch("OP_RMI2_MODE", 44, 3002, 843, "RMI2", "OPERATOR Mode Switch, ZK/ARKU2")
 
 --SAU (autopilot)
 defineToggleSwitch("PLT_SAU_BTN_BRIGHT", 10, 3070, 267, "SAU", "PILOT SAU Button Brightness, BRIGHT/DIM")
@@ -166,11 +205,8 @@ defineIndicatorLight("PLT_SPUU_L_SPUU_OFF", 302, "SPUU Lights", "PILOT SAU SPUU 
 defineFloat("PLT_SPUU_DELTA", 271, {-1, 1}, "SPUU Gauges", "PILOT SPUU Delta")
 
 --Cyclic
----Pilot
-definePushButton("PLT_CYCLIC_AP_TRIM", 10, 3027, 742, "Cyclic (Pilot)", "PILOT Cyclic Autopilot Trimmer")
-
----Operator
-definePushButton("OP_CYCLIC_AP_TRIM", 10, 3028, 855, "Cyclic (Operator)", "OPERATOR Cyclic Autopilot Trimmer")
+definePushButton("PLT_CYCLIC_AP_TRIM", 10, 3027, 742, "Cyclic", "PILOT Cyclic Autopilot Trimmer")
+definePushButton("OP_CYCLIC_AP_TRIM", 10, 3028, 855, "Cyclic", "OPERATOR Cyclic Autopilot Trimmer")
 
 --WeaponSystems
 ---PUVL
@@ -230,17 +266,17 @@ defineIndicatorLight("PLT_PUVL_L_LH_SIDE", 535, "PUVL Lights", "PILOT PUVL LH Si
 defineIndicatorLight("PLT_PUVL_L_RH_SIDE", 534, "PUVL Lights", "PILOT PUVL RH Side Light (Amber)")
 
 --Gauges
-defineFloat("OP_CANOPY_VALUE", 849, {0, 1}, "Gauges", "OPERATOR Canopy Position")
-defineFloat("PLT_CANOPY_PILOT_VALUE", 9, {0, 1}, "Gauges", "PILOT Door Position")
-defineFloat("PLT_VARIOMETER", 1, {-1, 1}, "Gauges", "PILOT Variometer")
-defineFloat("PLT_GMETER", 17, {-1, 1}, "Gauges", "PILOT G-Meter")
-defineFloat("PLT_GMETER_MIN", 16, {-1, 1}, "Gauges", "PILOT G-Meter Min")
-defineFloat("PLT_GMETER_MAX", 16, {-1, 1}, "Gauges", "PILOT G-Meter Max")
-defineFloat("PLT_IAS", 790, {-1, 1}, "Gauges", "PILOT IAS Speed")
-defineFloat("OP_IAS", 776, {-1, 1}, "Gauges", "OPERATOR IAS Speed")
-defineFloat("PLT_UKT2_PITCH", 949, {-1, 1}, "Gauges", "PILOT UKT-2 Pitch")
-defineFloat("PLT_UKT2_ROLL", 950, {1, -1}, "Gauges", "PILOT UKT-2 Roll")
-defineFloat("PLT_UKT2_FAIL_FLG", 849, {0, 1}, "Gauges", "PILOT UKT-2 Failure Flag")
+defineFloat("OP_CANOPY_VALUE", 849, {0, 1}, "Gauges OP", "OPERATOR Canopy Position")
+defineFloat("PLT_CANOPY_PILOT_VALUE", 9, {0, 1}, "Gauges PLT", "PILOT Door Position")
+defineFloat("PLT_VARIOMETER", 1, {-1, 1}, "Gauges PLT", "PILOT Variometer")
+defineFloat("PLT_GMETER", 17, {-1, 1}, "Gauges PLT", "PILOT G-Meter")
+defineFloat("PLT_GMETER_MIN", 16, {-1, 1}, "Gauges PLT", "PILOT G-Meter Min")
+defineFloat("PLT_GMETER_MAX", 16, {-1, 1}, "Gauges PLT", "PILOT G-Meter Max")
+defineFloat("PLT_IAS", 790, {-1, 1}, "Gauges PLT", "PILOT IAS Speed")
+defineFloat("OP_IAS", 776, {-1, 1}, "Gauges OP", "OPERATOR IAS Speed")
+defineFloat("PLT_UKT2_PITCH", 949, {-1, 1}, "Gauges PLT", "PILOT UKT-2 Pitch")
+defineFloat("PLT_UKT2_ROLL", 950, {1, -1}, "Gauges PLT", "PILOT UKT-2 Roll")
+defineFloat("PLT_UKT2_FAIL_FLG", 849, {0, 1}, "Gauges PLT", "PILOT UKT-2 Failure Flag")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
