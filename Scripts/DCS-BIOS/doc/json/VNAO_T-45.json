@@ -7,11 +7,11 @@
                                                                              "identifier": "EXT_FAN",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 36864,
+                                                                                                   "address": 36882,
                                                                                                "description": "Fan",
-                                                                                                      "mask": 16384,
+                                                                                                      "mask": 1,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 14,
+                                                                                                  "shift_by": 0,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
@@ -23,7 +23,7 @@
                                                                              "identifier": "EXT_HOOK",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 36872,
+                                                                                                   "address": 36878,
                                                                                                "description": "Hook",
                                                                                                       "mask": 65535,
                                                                                                  "max_value": 65535,
@@ -39,11 +39,11 @@
                                                                              "identifier": "EXT_NAV_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 36864,
+                                                                                                   "address": 36870,
                                                                                                "description": "Navigation Lights (yellow)",
-                                                                                                      "mask": 4096,
+                                                                                                      "mask": 16384,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 12,
+                                                                                                  "shift_by": 14,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
@@ -55,11 +55,11 @@
                                                                              "identifier": "EXT_POSITION_LIGHTS",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 36864,
+                                                                                                   "address": 36870,
                                                                                                "description": "Position Lights (green,red)",
-                                                                                                      "mask": 2048,
+                                                                                                      "mask": 8192,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 11,
+                                                                                                  "shift_by": 13,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
@@ -71,7 +71,7 @@
                                                                              "identifier": "EXT_SPEED_BRAKES",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 36874,
+                                                                                                   "address": 36880,
                                                                                                "description": "Speed Brakes",
                                                                                                       "mask": 65535,
                                                                                                  "max_value": 65535,
@@ -87,11 +87,11 @@
                                                                              "identifier": "EXT_STROBE",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 36864,
+                                                                                                   "address": 36870,
                                                                                                "description": "Strobe Lights (red)",
-                                                                                                      "mask": 512,
+                                                                                                      "mask": 2048,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 9,
+                                                                                                  "shift_by": 11,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
@@ -103,11 +103,11 @@
                                                                              "identifier": "EXT_TAIL_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 36864,
+                                                                                                   "address": 36870,
                                                                                                "description": "Tail Light (white)",
-                                                                                                      "mask": 1024,
+                                                                                                      "mask": 4096,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 10,
+                                                                                                  "shift_by": 12,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
@@ -119,11 +119,11 @@
                                                                              "identifier": "EXT_TAXI_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 36864,
+                                                                                                   "address": 36870,
                                                                                                "description": "Taxi Light (white)",
-                                                                                                      "mask": 8192,
+                                                                                                      "mask": 32768,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 13,
+                                                                                                  "shift_by": 15,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
@@ -135,11 +135,11 @@
                                                                              "identifier": "EXT_TOP_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 36864,
+                                                                                                   "address": 36870,
                                                                                                "description": "Top Light (white)",
-                                                                                                      "mask": 256,
+                                                                                                      "mask": 1024,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 8,
+                                                                                                  "shift_by": 10,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
@@ -151,11 +151,11 @@
                                                                              "identifier": "EXT_WOW_LEFT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 36876,
+                                                                                                   "address": 36882,
                                                                                                "description": "Weight ON Wheels Left Gear",
-                                                                                                      "mask": 2,
+                                                                                                      "mask": 8,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 1,
+                                                                                                  "shift_by": 3,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
@@ -167,11 +167,11 @@
                                                                              "identifier": "EXT_WOW_NOSE",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 36864,
+                                                                                                   "address": 36882,
                                                                                                "description": "Weight ON Wheels Nose Gear",
-                                                                                                      "mask": 32768,
+                                                                                                      "mask": 2,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 15,
+                                                                                                  "shift_by": 1,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
@@ -183,11 +183,11 @@
                                                                              "identifier": "EXT_WOW_RIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 36876,
+                                                                                                   "address": 36882,
                                                                                                "description": "Weight ON Wheels Right Gear",
-                                                                                                      "mask": 1,
+                                                                                                      "mask": 4,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 0,
+                                                                                                  "shift_by": 2,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
@@ -201,7 +201,7 @@
                                                                       "identifier": "ADI_SLIP",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 36868,
+                                                                                            "address": 36874,
                                                                                         "description": "gauge position",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -217,7 +217,7 @@
                                                                       "identifier": "AOA_GAUGE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 36870,
+                                                                                            "address": 36876,
                                                                                         "description": "gauge position",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -233,7 +233,7 @@
                                                                       "identifier": "CANOPY_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 36866,
+                                                                                            "address": 36872,
                                                                                         "description": "gauge position",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65535,
@@ -360,6 +360,1510 @@
                                                                         "physical_variant": "toggle_switch"
                                                                  }
                                             },
+                                "MFD Left": {
+                                                "MFD_L_BRIGHT_DEC": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Brightness Decrease",
+                                                                                 "identifier": "MFD_L_BRIGHT_DEC",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36864,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 512,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 9,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                "MFD_L_BRIGHT_INC": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Brightness Increase",
+                                                                                 "identifier": "MFD_L_BRIGHT_INC",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36864,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 256,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 8,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_L_BTN_1": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 1",
+                                                                                 "identifier": "MFD_L_BTN_1",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 8192,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 13,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_BTN_10": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 10",
+                                                                                 "identifier": "MFD_L_BTN_10",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 16,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 4,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_BTN_11": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 11",
+                                                                                 "identifier": "MFD_L_BTN_11",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 8,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 3,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_BTN_12": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 12",
+                                                                                 "identifier": "MFD_L_BTN_12",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 4,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 2,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_BTN_13": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 13",
+                                                                                 "identifier": "MFD_L_BTN_13",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 2,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 1,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_BTN_14": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 14",
+                                                                                 "identifier": "MFD_L_BTN_14",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 1,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_BTN_15": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 15",
+                                                                                 "identifier": "MFD_L_BTN_15",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36864,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 32768,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 15,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_BTN_16": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 16",
+                                                                                 "identifier": "MFD_L_BTN_16",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36864,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 16384,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 14,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_BTN_17": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 17",
+                                                                                 "identifier": "MFD_L_BTN_17",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36864,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 8192,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 13,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_BTN_18": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 18",
+                                                                                 "identifier": "MFD_L_BTN_18",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36864,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 4096,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 12,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_BTN_19": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 19",
+                                                                                 "identifier": "MFD_L_BTN_19",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36864,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 2048,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 11,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_L_BTN_2": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 2",
+                                                                                 "identifier": "MFD_L_BTN_2",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 4096,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 12,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_BTN_20": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 20",
+                                                                                 "identifier": "MFD_L_BTN_20",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36864,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 1024,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 10,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_L_BTN_3": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 3",
+                                                                                 "identifier": "MFD_L_BTN_3",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 2048,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 11,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_L_BTN_4": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 4",
+                                                                                 "identifier": "MFD_L_BTN_4",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 1024,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 10,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_L_BTN_5": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 5",
+                                                                                 "identifier": "MFD_L_BTN_5",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 512,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 9,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_L_BTN_6": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 6",
+                                                                                 "identifier": "MFD_L_BTN_6",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 256,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 8,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_L_BTN_7": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 7",
+                                                                                 "identifier": "MFD_L_BTN_7",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 128,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 7,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_L_BTN_8": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 8",
+                                                                                 "identifier": "MFD_L_BTN_8",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 64,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 6,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_L_BTN_9": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Push Button 9",
+                                                                                 "identifier": "MFD_L_BTN_9",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 32,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 5,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                       "MFD_L_OFF": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD Off",
+                                                                                 "identifier": "MFD_L_OFF",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36864,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 128,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 7,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_ON_DAY": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD On Day",
+                                                                                 "identifier": "MFD_L_ON_DAY",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36864,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 32,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 5,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_L_ON_NGT": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Left",
+                                                                               "control_type": "selector",
+                                                                                "description": "Left MFD On Night",
+                                                                                 "identifier": "MFD_L_ON_NGT",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36864,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 64,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 6,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    }
+                                            },
+                               "MFD Right": {
+                                                "MFD_R_BRIGHT_DEC": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Brightness Decrease",
+                                                                                 "identifier": "MFD_R_BRIGHT_DEC",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 4,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 2,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                "MFD_R_BRIGHT_INC": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Brightness Increase",
+                                                                                 "identifier": "MFD_R_BRIGHT_INC",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 2,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 1,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_R_BTN_1": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 1",
+                                                                                 "identifier": "MFD_R_BTN_1",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36870,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 64,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 6,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_BTN_10": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 10",
+                                                                                 "identifier": "MFD_R_BTN_10",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 8192,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 13,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_BTN_11": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 11",
+                                                                                 "identifier": "MFD_R_BTN_11",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 4096,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 12,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_BTN_12": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 12",
+                                                                                 "identifier": "MFD_R_BTN_12",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 2048,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 11,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_BTN_13": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 13",
+                                                                                 "identifier": "MFD_R_BTN_13",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 1024,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 10,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_BTN_14": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 14",
+                                                                                 "identifier": "MFD_R_BTN_14",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 512,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 9,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_BTN_15": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 15",
+                                                                                 "identifier": "MFD_R_BTN_15",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 256,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 8,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_BTN_16": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 16",
+                                                                                 "identifier": "MFD_R_BTN_16",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 128,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 7,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_BTN_17": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 17",
+                                                                                 "identifier": "MFD_R_BTN_17",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 64,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 6,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_BTN_18": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 18",
+                                                                                 "identifier": "MFD_R_BTN_18",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 32,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 5,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_BTN_19": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 19",
+                                                                                 "identifier": "MFD_R_BTN_19",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 16,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 4,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_R_BTN_2": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 2",
+                                                                                 "identifier": "MFD_R_BTN_2",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36870,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 32,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 5,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_BTN_20": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 20",
+                                                                                 "identifier": "MFD_R_BTN_20",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 8,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 3,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_R_BTN_3": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 3",
+                                                                                 "identifier": "MFD_R_BTN_3",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36870,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 16,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 4,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_R_BTN_4": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 4",
+                                                                                 "identifier": "MFD_R_BTN_4",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36870,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 8,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 3,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_R_BTN_5": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 5",
+                                                                                 "identifier": "MFD_R_BTN_5",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36870,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 4,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 2,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_R_BTN_6": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 6",
+                                                                                 "identifier": "MFD_R_BTN_6",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36870,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 2,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 1,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_R_BTN_7": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 7",
+                                                                                 "identifier": "MFD_R_BTN_7",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36870,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 1,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_R_BTN_8": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 8",
+                                                                                 "identifier": "MFD_R_BTN_8",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 32768,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 15,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                     "MFD_R_BTN_9": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Push Button 9",
+                                                                                 "identifier": "MFD_R_BTN_9",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 16384,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 14,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                       "MFD_R_OFF": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD Off",
+                                                                                 "identifier": "MFD_R_OFF",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36868,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 1,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_ON_DAY": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD On Day",
+                                                                                 "identifier": "MFD_R_ON_DAY",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 16384,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 14,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                    "MFD_R_ON_NGT": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "MFD Right",
+                                                                               "control_type": "selector",
+                                                                                "description": "Right MFD On Night",
+                                                                                 "identifier": "MFD_R_ON_NGT",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36866,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 32768,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 15,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    }
+                                            },
     "Warning, Caution and IndicatorLights": {
                                                 "L_AOA_FAST": {
                                                                       "category": "Warning, Caution and IndicatorLights",
@@ -368,11 +1872,11 @@
                                                                     "identifier": "L_AOA_FAST",
                                                                         "inputs": [  ],
                                                                        "outputs": [ {
-                                                                                          "address": 36864,
+                                                                                          "address": 36870,
                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                             "mask": 128,
+                                                                                             "mask": 512,
                                                                                         "max_value": 1,
-                                                                                         "shift_by": 7,
+                                                                                         "shift_by": 9,
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ]
@@ -384,11 +1888,11 @@
                                                                     "identifier": "L_AOA_OPT",
                                                                         "inputs": [  ],
                                                                        "outputs": [ {
-                                                                                          "address": 36864,
+                                                                                          "address": 36870,
                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                             "mask": 64,
+                                                                                             "mask": 256,
                                                                                         "max_value": 1,
-                                                                                         "shift_by": 6,
+                                                                                         "shift_by": 8,
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ]
@@ -400,11 +1904,11 @@
                                                                     "identifier": "L_AOA_SLOW",
                                                                         "inputs": [  ],
                                                                        "outputs": [ {
-                                                                                          "address": 36864,
+                                                                                          "address": 36870,
                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                             "mask": 32,
+                                                                                             "mask": 128,
                                                                                         "max_value": 1,
-                                                                                         "shift_by": 5,
+                                                                                         "shift_by": 7,
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ]

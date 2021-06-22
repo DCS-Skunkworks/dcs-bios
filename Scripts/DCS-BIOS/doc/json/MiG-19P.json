@@ -2719,9 +2719,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 5702,
                                                                                                     "description": "Left Position Light (red)",
-                                                                                                           "mask": 32,
+                                                                                                           "mask": 64,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 5,
+                                                                                                       "shift_by": 6,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -2735,9 +2735,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 5702,
                                                                                                     "description": "Right Position Light (green)",
-                                                                                                           "mask": 64,
+                                                                                                           "mask": 128,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 6,
+                                                                                                       "shift_by": 7,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -2783,9 +2783,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 5702,
                                                                                                     "description": "Weight ON Wheels Left Gear",
-                                                                                                           "mask": 512,
+                                                                                                           "mask": 1024,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 9,
+                                                                                                       "shift_by": 10,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -2799,9 +2799,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 5702,
                                                                                                     "description": "Weight ON Wheels Nose Gear",
-                                                                                                           "mask": 128,
+                                                                                                           "mask": 256,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 7,
+                                                                                                       "shift_by": 8,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -2815,9 +2815,9 @@
                                                                                      "outputs": [ {
                                                                                                         "address": 5702,
                                                                                                     "description": "Weight ON Wheels Right Gear",
-                                                                                                           "mask": 256,
+                                                                                                           "mask": 512,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 8,
+                                                                                                       "shift_by": 9,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ]
@@ -4814,6 +4814,35 @@
                                                                                                          "mask": 256,
                                                                                                     "max_value": 1,
                                                                                                      "shift_by": 8,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "toggle_switch"
+                                                                   },
+                                                 "EMERG_GEAR_HND": {
+                                                                                  "category": "Landing Gear Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Landing Gear Emergency Handle",
+                                                                                "identifier": "EMERG_GEAR_HND",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 5702,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 32,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 5,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],

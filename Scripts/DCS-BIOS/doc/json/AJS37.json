@@ -3538,6 +3538,22 @@
                                                                   }
                                },
          "Front Panel Lights": {
+                                        "AFK_ENABLED_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "AFK Enabled Lamp (red)",
+                                                               "identifier": "AFK_ENABLED_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18070,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 4096,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 12,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
                                      "ALT_WARNING_LAMP": {
                                                                  "category": "Front Panel Lights",
                                                              "control_type": "led",
@@ -3550,6 +3566,70 @@
                                                                                         "mask": 512,
                                                                                    "max_value": 1,
                                                                                     "shift_by": 9,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                             "AOA_15_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "AOA 15deg Lamp (white)",
+                                                               "identifier": "AOA_15_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18070,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 8192,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 13,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                      "BURNER_STAGE1_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Afterburner Stage 1 Lamp (white)",
+                                                               "identifier": "BURNER_STAGE1_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18088,
+                                                                                 "description": "Afterburner Stage Light 1",
+                                                                                        "mask": 8192,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 13,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                      "BURNER_STAGE2_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Afterburner Stage 2 Lamp (white)",
+                                                               "identifier": "BURNER_STAGE2_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18088,
+                                                                                 "description": "Afterburner Stage Light 2",
+                                                                                        "mask": 16384,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 14,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                      "BURNER_STAGE3_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Afterburner Stage 3 Lamp (white)",
+                                                               "identifier": "BURNER_STAGE3_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18088,
+                                                                                 "description": "Afterburner Stage Light 3",
+                                                                                        "mask": 32768,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 15,
                                                                                       "suffix": "",
                                                                                         "type": "integer"
                                                                              } ]
@@ -3598,6 +3678,118 @@
                                                                                         "mask": 256,
                                                                                    "max_value": 1,
                                                                                     "shift_by": 8,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                             "RDR_LL_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Radar Display lower/left Lamp (white)",
+                                                               "identifier": "RDR_LL_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18088,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 512,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 9,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                             "RDR_LR_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Radar Display lower/right Lamp (white)",
+                                                               "identifier": "RDR_LR_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18088,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 256,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 8,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                              "RDR_L_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Radar Display left Lamp (white)",
+                                                               "identifier": "RDR_L_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18088,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 1024,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 10,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                              "RDR_R_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Radar Display right Lamp (white)",
+                                                               "identifier": "RDR_R_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18070,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 32768,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 15,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                             "RDR_UL_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Radar Display upper/left Lamp (white)",
+                                                               "identifier": "RDR_UL_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18088,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 2048,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 11,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                             "RDR_UR_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Radar Display upper/right Lamp (white)",
+                                                               "identifier": "RDR_UR_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18070,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 16384,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 14,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         },
+                                           "REVERSAL_L": {
+                                                                 "category": "Front Panel Lights",
+                                                             "control_type": "led",
+                                                              "description": "Thrust Reverser Light (green)",
+                                                               "identifier": "REVERSAL_L",
+                                                                   "inputs": [  ],
+                                                                  "outputs": [ {
+                                                                                     "address": 18088,
+                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                        "mask": 4096,
+                                                                                   "max_value": 1,
+                                                                                    "shift_by": 12,
                                                                                       "suffix": "",
                                                                                         "type": "integer"
                                                                              } ]
