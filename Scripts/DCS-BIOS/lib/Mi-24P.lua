@@ -155,7 +155,7 @@ defineToggleSwitch("PLT_D_BATT_L", 1, 3034, 75, "Electric Interface", "PILOT DC 
 defineToggleSwitch("PLT_D_RECT_R", 1, 3043, 65, "Electric Interface", "PILOT DC Right Rectifier switch, ON/OFF")
 defineToggleSwitch("PLT_D_RECT_L", 1, 3040, 62, "Electric Interface", "PILOT DC Left Rectifier switch, ON/OFF")
 defineToggleSwitch("PLT_D_APU", 1, 3046, 66, "Electric Interface", "PILOT DC APU Generator switch, ON/OFF")
-defineMultipositionSwitch("PLT_D_VOLT_KNB", 1, 3055, 69, 10, 1/9, "Electric Interface", "PILOT DC Voltmeter knob")
+defineMultipositionSwitch("PLT_D_VOLT_KNB", 1, 3055, 69, 10, 1/9, "Electric Interface", "PILOT DC Voltmeter Knob")
 defineToggleSwitch("PLT_D_NET_BATT_CV", 1, 3067, 70, "Electric Interface", "PILOT DC Network to Batteries cover, UP/DOWN")
 defineToggleSwitch("PLT_D_NET_BATT", 1, 3052, 71, "Electric Interface", "PILOT DC Network to Batteries, ON/OFF")
 defineToggleSwitch("PLT_D_GROUND_PW", 1, 3031, 73, "Electric Interface", "PILOT DC Ground Power, ON/OFF")
@@ -167,7 +167,7 @@ define3PosTumb("PLT_A_TRANS_36", 1, 3013, 85, "Electric Interface", "PILOT AC Tr
 defineToggleSwitch("PLT_A_GPW", 1, 3001, 87, "Electric Interface", "PILOT AC Ground Power, ON/OFF")
 defineToggleSwitch("PLT_A_GCHECK_CV", 1, 3058, 88, "Electric Interface", "PILOT AC Ground Check Cover, UP/DOWN")
 defineToggleSwitch("PLT_A_GCHECK", 1, 3016, 89, "Electric Interface", "PILOT AC Ground Check, ON/OFF")
-defineMultipositionSwitch("PLT_A_VOLT_KNB", 1, 3025, 91, 11, 0.1, "Electric Interface", "PILOT AC Voltmeter knob")
+defineMultipositionSwitch("PLT_A_VOLT_KNB", 1, 3025, 91, 11, 0.1, "Electric Interface", "PILOT AC Voltmeter Knob")
 defineToggleSwitch("PLT_A_INVERT_115_CV", 1, 3061, 97, "Electric Interface", "PILOT AC Inverter PO-750A Cover, UP/DOWN")
 defineToggleSwitch("PLT_A_INVERT_115", 1, 3019, 98, "Electric Interface", "PILOT AC Inverter PO-750A, ON/OFF")
 defineToggleSwitch("PLT_A_INVERT_36_CV", 1, 3064, 99, "Electric Interface", "PILOT AC Inverter PT-125Ts Cover, UP/DOWN")
@@ -224,6 +224,55 @@ defineToggleSwitch("PLT_CB_L_FIRE_SYS_AUTO", 1, 3119, 587, "Electric Interface -
 defineToggleSwitch("PLT_CB_L_FIRE_SYS_MAN", 1, 3120, 588, "Electric Interface - CB-L", "PILOT CB Fire Protection System - Manual, ON/OFF")
 defineToggleSwitch("PLT_CB_L_FIRE_SYS_WARN", 1, 3121, 589, "Electric Interface - CB-L", "PILOT CB Fire Protection System Warning, ON/OFF")
 defineToggleSwitch("PLT_CB_L_CARGO_EXT_JETT", 1, 3122, 590, "Electric Interface - CB-L", "PILOT CB External Cargo Emergency Jettison, ON/OFF")
+defineToggleSwitch("PLT_CB_L_GEAR", 1, 3123, 591, "Electric Interface - CB-L", "PILOT CB Landing Gear Extend / Retract, ON/OFF")
+defineToggleSwitch("PLT_CB_L_GEAR_WARN", 1, 3124, 592, "Electric Interface - CB-L", "PILOT CB Landing Gear Warning, ON/OFF")
+defineToggleSwitch("PLT_CB_L_INVERTER", 1, 3125, 593, "Electric Interface - CB-L", "PILOT CB Inverter, ON/OFF")
+defineToggleSwitch("PLT_CB_L_AIR_SPEED", 1, 3126, 594, "Electric Interface - CB-L", "PILOT CB Air Speed Sensor, ON/OFF")
+defineToggleSwitch("PLT_CB_L_AFCS_WARN", 1, 3127, 595, "Electric Interface - CB-L", "PILOT CB AFCS Warn, ON/OFF")
+defineToggleSwitch("PLT_CB_L_AUTO_START", 1, 3128, 596, "Electric Interface - CB-L", "PILOT CB Auto Start System, ON/OFF")
+defineToggleSwitch("PLT_CB_L_IGNITION", 1, 3129, 597, "Electric Interface - CB-L", "PILOT CB Igniter, ON/OFF")
+defineToggleSwitch("PLT_CB_L_BEACON_L", 1, 3130, 598, "Electric Interface - CB-L", "PILOT CB Beacon Light, ON/OFF")
+defineToggleSwitch("PLT_CB_L_LAND_L", 1, 3131, 599, "Electric Interface - CB-L", "PILOT CB Landing Light Control, ON/OFF")
+defineToggleSwitch("PLT_CB_L_MAIN_ATT", 1, 3132, 600, "Electric Interface - CB-L", "PILOT CB Main Attitude Indicator, ON/OFF")
+
+--Fuel Interface
+defineToggleSwitch("PLT_FEED_TANK1", 2, 3031, 392, "Fuel Interface", "PILOT Feed Tank 1 Valve Switch, OPEN/CLOSE")
+defineToggleSwitch("PLT_FEED_TANK2", 2, 3034, 394, "Fuel Interface", "PILOT Feed Tank 2 Valve Switch, OPEN/CLOSE")
+defineToggleSwitch("PLT_FIRE_VALVE_L_CV", 2, 3019, 396, "Fuel Interface", "PILOT Left Engine Fire Valve Cover, UP/DOWN")
+defineToggleSwitch("PLT_FIRE_VALVE_L", 2, 3016, 397, "Fuel Interface", "PILOT Left Engine Fire Valve, OPEN/CLOSE")
+defineToggleSwitch("PLT_FIRE_VALVE_R_CV", 2, 3025, 399, "Fuel Interface", "PILOT Right Engine Fire Valve Cover, UP/DOWN")
+defineToggleSwitch("PLT_FIRE_VALVE_R", 2, 3022, 400, "Fuel Interface", "PILOT Right Engine Fire Valve, OPEN/CLOSE")
+defineToggleSwitch("PLT_FUEL_DELIM", 2, 3028, 402, "Fuel Interface", "PILOT Fuel Delimiter Valve, OPEN/CLOSE")
+defineToggleSwitch("PLT_EXT_TANKS", 2, 3013, 411, "Fuel Interface", "PILOT External Tanks, OPEN/CLOSE")
+defineToggleSwitch("PLT_PUMP_TANK4", 2, 3007, 404, "Fuel Interface", "PILOT Tank 4 Pump, ON/OFF")
+defineToggleSwitch("PLT_PUMP_TANK5", 2, 3010, 406, "Fuel Interface", "PILOT Tank 5 Pump, ON/OFF")
+defineToggleSwitch("PLT_PUMP_TANK1", 2, 3001, 408, "Fuel Interface", "PILOT Tank 1 Pump, ON/OFF")
+defineToggleSwitch("PLT_PUMP_TANK2", 2, 3004, 410, "Fuel Interface", "PILOT Tank 2 Pump, ON/OFF")
+definePushButton("PLT_FUEL_TEST_H", 2, 3040, 524, "Fuel Interface", "PILOT Fuel meter test low")
+definePushButton("PLT_FUEL_TEST_P", 2, 3042, 526, "Fuel Interface", "PILOT Fuel meter test high")
+defineMultipositionSwitch("PLT_FUEL_METER_KNB", 2, 3037, 191, 7, 1/6, "Fuel Interface", "PILOT Select tank for fuel meter")
+
+--Engine Interface
+definePushButton("PLT_APU_START", 3, 3012, 307, "Engine Interface", "PILOT APU Start")
+definePushButton("PLT_APU_STOP", 3, 3013, 311, "Engine Interface", "PILOT APU Stop")
+define3PosTumb("PLT_APU_CRANK", 3, 3014, 313, "Engine Interface", "PILOT APU Launch Method START/CRANK/FALSE")
+definePushButton("PLT_ENG_START", 3, 3015, 314, "Engine Interface", "PILOT Engine Start")
+definePushButton("PLT_ENG_ABORT", 3, 3017, 318, "Engine Interface", "PILOT Engine Interrupt Start")
+defineToggleSwitch("PLT_ENG_SEL_LR", 3, 3016, 320, "Engine Interface", "PILOT Engine Select RIGHT/LEFT")
+defineToggleSwitch("PLT_ENG_SEL_LAUNCH", 3, 3018, 321, "Engine Interface", "PILOT Engine Select RIGHT/LEFT")
+defineToggleSwitch("PLT_DEDUST_CV", 3, 3022, 514, "Engine Interface", "PILOT Antidust ON Cover, UP/DOWN")
+defineToggleSwitch("PLT_DEDUST", 3, 3021, 796, "Engine Interface", "PILOT Antidust ON/OFF")
+definePushButton("PLT_ENG_TEMP_COLD", 3, 3023, 194, "Engine Interface", "PILOT Engine Thermometer control COLD")
+definePushButton("PLT_ENG_TEMP_HOT", 3, 3024, 195, "Engine Interface", "PILOT Engine Thermometer control HOT")
+
+--AntiIce Interface
+defineToggleSwitch("PLT_DEICER_MODE", 60, 3001, 109, "AntiIce Interface", "PILOT AntiIce AUTO/MANUAL")
+definePushButton("PLT_DEICER_OFF", 60, 3002, 110, "AntiIce Interface", "PILOT AntiIce OFF")
+defineToggleSwitch("PLT_DEICER_ENG_L", 60, 3003, 113, "AntiIce Interface", "PILOT Left Engine AntiIce ON/OFF")
+defineToggleSwitch("PLT_DEICER_ENG_R", 60, 3004, 112, "AntiIce Interface", "PILOT Right Engine AntiIce ON/OFF")
+define3PosTumb("PLT_DEICER_WSHIELD", 60, 3005, 111, "AntiIce Interface", "PILOT Windshield Antiice LOW/OFF/HIGH")
+define3PosTumb("OP_DEICER_WSHIELD", 60, 3006, 675, "AntiIce Interface", "OPERATOR Windshield Antiice LOW/OFF/HIGH")
+defineMultipositionSwitch("PLT_DEICER_KNB", 60, 3007, 114, 11, 0.1, "AntiIce Interface", "PILOT AntiIce Knob")
 
 --SAU (autopilot)
 defineToggleSwitch("PLT_SAU_BTN_BRIGHT", 10, 3070, 267, "SAU", "PILOT SAU Button Brightness, BRIGHT/DIM")
@@ -281,6 +330,9 @@ defineFloat("PLT_SAU_T_NUM", 247, {0, 1}, "SAU Gauges", "PILOT SAU Pitch Number"
 defineFloat("PLT_SAU_H_CORRECT_PRESS", 233, {0, 1}, "SAU", "PILOT SAU Yaw Pressed")
 defineFloat("PLT_SAU_K_CORRECT_PRESS", 239, {0, 1}, "SAU", "PILOT SAU Roll Pressed")
 defineFloat("PLT_SAU_T_CORRECT_PRESS", 245, {0, 1}, "SAU", "PILOT SAU Pitch Pressed")
+
+--Fire Extinguisher
+
 
 --SPUU-52
 defineToggleSwitch("PLT_SPUU_POWER", 19, 3010, 270, "SPUU", "PILOT SPUU Power, ON/OFF")
