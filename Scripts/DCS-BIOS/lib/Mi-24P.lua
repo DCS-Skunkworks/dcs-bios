@@ -66,6 +66,11 @@ defineToggleSwitch("PLT_BRAKE_PARK", 11, 3027, 736, "Cockpit Mechanics PLT", "PI
 defineToggleSwitch("PLT_FAN", 11, 3024, 420, "Cockpit Mechanics PLT", "PILOT Fan, ON/OFF")
 defineToggleSwitch("OP_FAN", 11, 3025, 665, "Cockpit Mechanics OP", "OPERATOR Fan, ON/OFF")
 defineToggleSwitch("STICK_HIDE", 11, 3031, 974, "Cockpit Mechanics", "Hide Stick toggle")
+definePushButton("PLT_DOOR_LOCK_BTN", 11, 3018, 189, "Cockpit Mechanics PLT", "PILOT Door Safety Lock Button")
+defineToggleSwitch("PLT_DOOR_LOCK", 11, 3017, 8, "Cockpit Mechanics PLT", "PILOT Door Safety Lock, OPEN/CLOSE")
+defineToggleSwitch("OP_DOOR_LOCK", 11, 3019, 848, "Cockpit Mechanics OP", "OPERATOR Door Safety Lock, OPEN/CLOSE")
+defineToggleSwitch("OP_AP_TRIM", 11, 3040, 671, "Cockpit Mechanics OP", "OPERATOR Autopilot Trimmer for yourself")
+defineToggleSwitch("OP_AP_TRIM_CV", 11, 3041, 670, "Cockpit Mechanics OP", "OPERATOR Autopilot Trimmer for yourself Switch Cover, UP/DOWN")
 
 --IntLightSystem
 define3PosTumb("OP_CABIN_L_SW", 23, 3001, 682, "Int Light System", "OPERATOR Cabin Lighting Switch, WHITE/OFF/RED")
@@ -134,7 +139,15 @@ definePotentiometer("OP_ALT_PRESS", 42, 3001, 788, {0, 1}, "Barometric Altimeter
 defineToggleSwitch("PLT_RMI2_MODE", 43, 3002, 26, "RMI2", "PILOT Mode Switch, ZK/ARKU2")
 defineToggleSwitch("OP_RMI2_MODE", 44, 3002, 843, "RMI2", "OPERATOR Mode Switch, ZK/ARKU2")
 
--- CLOCK
+--Clock
+definePushButton("PLT_CLOCK_L_PUSH", 35, 3001, 57, "Clock", "PILOT Mech Clock Left Lever Push")
+defineRotary("PLT_CLOCK_L_TURN", 35, 3003, 58, "Clock", "PILOT Mech Clock Left Lever Turn") --Module BUG?
+definePushButton("PLT_CLOCK_R_PUSH", 35, 3004, 59, "Clock", "PILOT Mech Clock Right Lever Push")
+defineRotary("PLT_CLOCK_R_TURN", 35, 3005, 60, "Clock", "PILOT Mech Clock Right Lever Turn")
+definePushButton("OP_CLOCK_L_PUSH", 36, 3001, 687, "Clock", "OPERATOR Mech Clock Left Lever Push")
+defineRotary("OP_CLOCK_L_TURN", 36, 3003, 688, "Clock", "OPERATOR Mech Clock Left Lever Turn") --Module BUG?
+definePushButton("OP_CLOCK_R_PUSH", 36, 3004, 693, "Clock", "OPERATOR Mech Clock Right Lever Push")
+defineRotary("OP_CLOCK_R_TURN", 36, 3005, 694, "Clock", "OPERATOR Mech Clock Right Lever Turn")
 
 --Electric Interface
 defineToggleSwitch("PLT_D_BATT_R", 1, 3037, 61, "Electric Interface", "PILOT DC Right Battery switch, ON/OFF")
@@ -191,13 +204,26 @@ defineToggleSwitch("PLT_CB_R_FUEL_PUMP4", 1, 3100, 628, "Electric Interface - CB
 defineToggleSwitch("PLT_CB_R_PILOT_SEAT", 1, 3101, 629, "Electric Interface - CB-R", "PILOT CB Pilot Seat Adjustment, ON/OFF")
 defineToggleSwitch("PLT_CB_R_AICE_WARN", 1, 3102, 630, "Electric Interface - CB-R", "PILOT CB Anti-Ice System - Warning, ON/OFF")
 defineToggleSwitch("PLT_CB_R_AICE_CONTR", 1, 3103, 631, "Electric Interface - CB-R", "PILOT CB Anti-Ice System - Control, ON/OFF")
-
 definePushButton("PLT_CB_L_ALL", 1, 3070, 601, "Electric Interface - CB-L", "PILOT CB All Left CBs ON")
 defineToggleSwitch("PLT_CB_L_MISSLE_PWR", 1, 3104, 572, "Electric Interface - CB-L", "PILOT CB Missile Power - Control, ON/OFF")
 defineToggleSwitch("PLT_CB_L_EMERG_JETT", 1, 3105, 573, "Electric Interface - CB-L", "PILOT CB Emergency Jettison - Control, ON/OFF")
 defineToggleSwitch("PLT_CB_L_BOMBS", 1, 3106, 574, "Electric Interface - CB-L", "PILOT CB Bombs, ON/OFF")
 defineToggleSwitch("PLT_CB_L_ROCKETS", 1, 3107, 575, "Electric Interface - CB-L", "PILOT CB Rockets, ON/OFF")
 defineToggleSwitch("PLT_CB_L_ADF", 1, 3108, 576, "Electric Interface - CB-L", "PILOT CB ADF, ON/OFF")
+defineToggleSwitch("PLT_CB_L_FUEL_OFF", 1, 3109, 577, "Electric Interface - CB-L", "PILOT CB Fuel Shutoff Valve, ON/OFF")
+defineToggleSwitch("PLT_CB_L_CROSS_FEED", 1, 3110, 578, "Electric Interface - CB-L", "PILOT CB Cross Feed Valve, ON/OFF")
+defineToggleSwitch("PLT_CB_L_TANK1", 1, 3111, 579, "Electric Interface - CB-L", "PILOT CB Tank 1 Valve, ON/OFF")
+defineToggleSwitch("PLT_CB_L_TANK_FIRE", 1, 3112, 580, "Electric Interface - CB-L", "PILOT CB Tank Fire Warning, ON/OFF")
+defineToggleSwitch("PLT_CB_L_VALVE_SEP", 1, 3113, 581, "Electric Interface - CB-L", "PILOT CB Left Valve Separation, ON/OFF")
+defineToggleSwitch("PLT_CB_L_WS_SPRAY", 1, 3114, 582, "Electric Interface - CB-L", "PILOT CB Windshield Spray, ON/OFF")
+defineToggleSwitch("PLT_CB_L_WS_WIPER_OP", 1, 3115, 583, "Electric Interface - CB-L", "PILOT CB Windshield Wiper Gunner, ON/OFF")
+defineToggleSwitch("PLT_CB_L_WS_WIPER_PLT", 1, 3116, 584, "Electric Interface - CB-L", "PILOT CB Windshield Wiper Pilot, ON/OFF")
+defineToggleSwitch("PLT_CB_L_WARN_SYS", 1, 3117, 585, "Electric Interface - CB-L", "PILOT CB Audio Warning System, ON/OFF")
+defineToggleSwitch("PLT_CB_L_FLIGHT_REC", 1, 3118, 586, "Electric Interface - CB-L", "PILOT CB Flight Recorder, ON/OFF")
+defineToggleSwitch("PLT_CB_L_FIRE_SYS_AUTO", 1, 3119, 587, "Electric Interface - CB-L", "PILOT CB Fire Protection System - Auto, ON/OFF")
+defineToggleSwitch("PLT_CB_L_FIRE_SYS_MAN", 1, 3120, 588, "Electric Interface - CB-L", "PILOT CB Fire Protection System - Manual, ON/OFF")
+defineToggleSwitch("PLT_CB_L_FIRE_SYS_WARN", 1, 3121, 589, "Electric Interface - CB-L", "PILOT CB Fire Protection System Warning, ON/OFF")
+defineToggleSwitch("PLT_CB_L_CARGO_EXT_JETT", 1, 3122, 590, "Electric Interface - CB-L", "PILOT CB External Cargo Emergency Jettison, ON/OFF")
 
 --SAU (autopilot)
 defineToggleSwitch("PLT_SAU_BTN_BRIGHT", 10, 3070, 267, "SAU", "PILOT SAU Button Brightness, BRIGHT/DIM")
