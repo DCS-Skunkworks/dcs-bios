@@ -309,7 +309,7 @@ defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_COVER", 12, 3002, 630, "Hydraulics", "P
 defineToggleSwitch("PLT_HYD_ISOL_SW", 12, 3005, 631, "Hydraulics", "PILOT Hydraulic Isolation Switch")
 define3PosTumb("PLT_HYD_EMERG_FCONTR_SW", 12, 3003, 928, "Hydraulics", "PILOT Hydraulic Emergency Flight Control Switch")
 defineToggleSwitch("PLT_HYD_EMERG_FCONTR_COVER", 12, 3004, 615, "Hydraulics", "PILOT Hydraulic Emergency Flight Control Switch Cover")
-defineToggleSwitch("PLT_HYD_HAND_PUMP", 12, 3006, 632, "Hydraulics", "PILOT Hydraulic Hand Pump")
+defineToggleSwitch("PLT_HYD_HAND_PUMP", 12, 3006, 13133, "Hydraulics", "PILOT Hydraulic Hand Pump") --632
 
 -- Master Reset
 definePushButton("PLT_MASTER_RESET", 22, 3058, 1071, "Master Reset", "PILOT MASTER RESET")
@@ -477,7 +477,7 @@ define3PosTumb("RIO_ECM_OVERRIDE", 45, 3248, 156, "ECMD", "RIO ECM Display Overr
 define3PosTumb("RIO_ECM_CORR", 45, 3249, 168, "ECMD", "RIO ECM Display Corr")
 define3PosTumb("RIO_ECM_ADF", 45, 3250, 190, "ECMD", "RIO ECM Display Data/ADF")
 
--- TACAN Pilot Panel  (TACAN PANEL)
+-- TACAN Pilot Panel
 defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "TACAN", "PILOT TACAN CMD Button")
 defineToggleSwitch("RIO_TACAN_CMD_BUTTON", 47, 3325, 135, "TACAN", "RIO TACAN CMD Button")
 defineTumb("PLT_TACAN_MODE", 47, 3326, 2041, 0.25, {0, 1}, nil, false, "TACAN", "PILOT TACAN Mode")
