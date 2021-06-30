@@ -332,6 +332,19 @@ defineFloat("PLT_SAU_K_CORRECT_PRESS", 239, {0, 1}, "SAU", "PILOT SAU Roll Press
 defineFloat("PLT_SAU_T_CORRECT_PRESS", 245, {0, 1}, "SAU", "PILOT SAU Pitch Pressed")
 
 --Fire Extinguisher
+definePushButton("PLT_FIRE_EX_ENG_L1", 13, 3001, 502, "Fire Extinguisher", "PILOT Extinguish Left Engine 1")
+definePushButton("PLT_FIRE_EX_ENG_L2", 13, 3002, 504, "Fire Extinguisher", "PILOT Extinguish Left Engine 2")
+definePushButton("PLT_FIRE_EX_ENG_R1", 13, 3003, 498, "Fire Extinguisher", "PILOT Extinguish Right Engine 1")
+definePushButton("PLT_FIRE_EX_ENG_R2", 13, 3004, 500, "Fire Extinguisher", "PILOT Extinguish Right Engine 2")
+definePushButton("PLT_FIRE_EX_APU1", 13, 3005, 494, "Fire Extinguisher", "PILOT Extinguish APU 1")
+definePushButton("PLT_FIRE_EX_APU2", 13, 3006, 496, "Fire Extinguisher", "PILOT Extinguish APU 2")
+definePushButton("PLT_FIRE_EX_GEAR1", 13, 3007, 490, "Fire Extinguisher", "PILOT Extinguish Gearbox 1")
+definePushButton("PLT_FIRE_EX_GEAR2", 13, 3008, 492, "Fire Extinguisher", "PILOT Extinguish Gearbox 2")
+definePushButton("PLT_FIRE_ALARM_OFF", 13, 3009, 488, "Fire Extinguisher", "PILOT Turn Off Fire Signal Button")
+defineToggleSwitch("PLT_FIRE_EX_CONTROL", 13, 3010, 482, "Fire Extinguisher", "PILOT Extinguisher Control Switch EXING/CNTRL")
+defineTumb("PLT_FIRE_EX_SENSOR_CHAN", 13, 3013, 484, 0.3, {0, 1}, nil, false, "Fire Extinguisher", "PILOT Fire Extinguisher Sensor Channel OFF/1/2/3")
+define3Pos2CommandSwitch("PLT_FIRE_EX_SQUIB ", 13, 3012, 3011, 486, "Fire Extinguisher", "PILOT Extinguisher Squib Control")
+defineToggleSwitch("PLT_FIRE_EX_PW", 13, 3014, 487, "Fire Extinguisher", "PILOT Extinguisher Power ON/OFF")
 
 
 --SPUU-52
