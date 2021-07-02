@@ -363,7 +363,16 @@ defineFloat("PLT_SPUU_DELTA", 271, {-1, 1}, "SPUU Gauges", "PILOT SPUU Delta")
 definePushButton("PLT_CYCLIC_AP_TRIM", 10, 3027, 742, "Cyclic", "PILOT Cyclic Autopilot Trimmer")
 definePushButton("OP_CYCLIC_AP_TRIM", 10, 3028, 855, "Cyclic", "OPERATOR Cyclic Autopilot Trimmer")
 
---WeaponSystems
+----WeaponSystems
+--Stick
+defineToggleSwitch("PLT_STICK_FIRE_WPNS_CV", 6, 3002, 740, "Stick", "PILOT Stick Fire Weapons Cover")
+definePushButton("PLT_STICK_FIRE_WPNS", 6, 3001, 741, "Stick", "PILOT Stick Fire Weapons")
+defineToggleSwitch("OP_STICK_FIRE_WPNS_CV", 6, 3022, 583, "Stick", "OPERATOR Stick Fire Weapons Cover")
+definePushButton("OP_STICK_FIRE_WPNS", 6, 3021, 187, "Stick", "OPERATOR Stick Fire Weapons")
+definePushButton("OP_STICK_ENGAGE", 30, 3011, 865, "Stick", "OPERATOR Engage Stick")
+defineToggleSwitch("OP_STICK_DISENGAGE_CV", 30, 3013, 857, "Stick", "OPERATOR Disengage Stick Cover")
+definePushButton("OP_STICK_DISENGAGE", 30, 3012, 859, "Stick", "OPERATOR Disengage Stick")
+
 ---PUVL
 defineToggleSwitch("PLT_PUVL_SIGHT_DISTANCE", 16, 3003, 515, "PUVL", "PILOT Sight Distance, MANUAL/AUTO")
 define3PosTumb("PLT_PUVL_BURST_LENGTH", 6, 3003, 521, "PUVL", "PILOT Burst Length, SHORT/LONG/MEDIUM")
@@ -419,6 +428,18 @@ defineIndicatorLight("PLT_PUVL_L_USLP_LOADED", 533, "PUVL Lights", "PILOT PUVL U
 defineIndicatorLight("PLT_PUVL_L_USLP_FINISHED", 532, "PUVL Lights", "PILOT PUVL USLP Finished Light (Amber)")
 defineIndicatorLight("PLT_PUVL_L_LH_SIDE", 535, "PUVL Lights", "PILOT PUVL LH Side Light (Amber)")
 defineIndicatorLight("PLT_PUVL_L_RH_SIDE", 534, "PUVL Lights", "PILOT PUVL RH Side Light (Amber)")
+
+--Signal Flares
+defineToggleSwitch("PLT_FLARES_1_PW", 64, 3001, 343, "Signal Flares", "PILOT Signal Flares Cassette 1 Power Switch, ON/OFF")
+defineToggleSwitch("PLT_FLARES_1_RED", 64, 3003, 344, "Signal Flares", "PILOT Signal Flares Cassette 1 Launch Red Button")
+defineToggleSwitch("PLT_FLARES_1_GRN", 64, 3002, 345, "Signal Flares", "PILOT Signal Flares Cassette 1 Launch Green Button")
+defineToggleSwitch("PLT_FLARES_1_YEL", 64, 3005, 346, "Signal Flares", "PILOT Signal Flares Cassette 1 Launch Yellow Button")
+defineToggleSwitch("PLT_FLARES_1_WHT", 64, 3004, 347, "Signal Flares", "PILOT Signal Flares Cassette 1 Launch White Button")
+defineToggleSwitch("PLT_FLARES_2_PW", 64, 3006, 352, "Signal Flares", "PILOT Signal Flares Cassette 2 Power Switch, ON/OFF")
+defineToggleSwitch("PLT_FLARES_2_RED", 64, 3008, 351, "Signal Flares", "PILOT Signal Flares Cassette 2 Launch Red Button")
+defineToggleSwitch("PLT_FLARES_2_GRN", 64, 3007, 350, "Signal Flares", "PILOT Signal Flares Cassette 2 Launch Green Button")
+defineToggleSwitch("PLT_FLARES_2_YEL", 64, 3010, 349, "Signal Flares", "PILOT Signal Flares Cassette 2 Launch Yellow Button")
+defineToggleSwitch("PLT_FLARES_2_WHT", 64, 3009, 348, "Signal Flares", "PILOT Signal Flares Cassette 2 Launch White Button")
 
 --Gauges
 defineFloat("OP_CANOPY_VALUE", 849, {0, 1}, "Gauges OP", "OPERATOR Canopy Position")
