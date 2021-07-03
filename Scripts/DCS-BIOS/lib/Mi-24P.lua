@@ -343,7 +343,7 @@ definePushButton("PLT_FIRE_EX_GEAR2", 13, 3008, 492, "Fire Extinguisher", "PILOT
 definePushButton("PLT_FIRE_ALARM_OFF", 13, 3009, 488, "Fire Extinguisher", "PILOT Turn Off Fire Signal Button")
 defineToggleSwitch("PLT_FIRE_EX_CONTROL", 13, 3010, 482, "Fire Extinguisher", "PILOT Extinguisher Control Switch EXING/CNTRL")
 defineTumb("PLT_FIRE_EX_SENSOR_CHAN", 13, 3013, 484, 0.3, {0, 1}, nil, false, "Fire Extinguisher", "PILOT Fire Extinguisher Sensor Channel OFF/1/2/3")
-define3Pos2CommandSwitch("PLT_FIRE_EX_SQUIB ", 13, 3012, 3011, 486, "Fire Extinguisher", "PILOT Extinguisher Squib Control")
+define3Pos2CommandSwitch("PLT_FIRE_EX_SQUIB", 13, 3012, 3011, 486, "Fire Extinguisher", "PILOT Extinguisher Squib Control")
 defineToggleSwitch("PLT_FIRE_EX_PW", 13, 3014, 487, "Fire Extinguisher", "PILOT Extinguisher Power ON/OFF")
 
 
