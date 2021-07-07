@@ -1,4 +1,4 @@
--- V1.8 by Warlord (aka BlackLibrary)
+-- V1.8a by Warlord (aka BlackLibrary)
 -- Added HARM,VIP,VRP pages by Matchstick
 -- Tested and fixes by BuzzKillington & afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick
@@ -1539,7 +1539,9 @@ end
 
 defineString("UHF_FREQ_DISP", get_UHF_FREQUENCY, 7, "UHF", "UHF Manual Frequency Display")  
 
-defineFloat("SAI_BANK_ARROW", 72, {-1, 1}, "SAI", "SAI Bank Arrow")
+defineFloat("SAI_BANK_ARROW", 72, {-1, 1}, "SAI", "SAI Bank Arrow")	   
+
+defineToggleSwitch("SEAT_EJECT_HANDLE", 10, 3006, 0,"Cockpit Mechanics" ,"Ejection Handle, PULL/STOW")
 ------------------------------------------------------------------Externals-----------------------------------------------------------------------------------------
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
