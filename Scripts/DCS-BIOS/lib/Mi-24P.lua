@@ -428,6 +428,12 @@ defineToggleSwitch("PLT_SIGHT_GEN", 7, 3006, 910, "I9K113", "PILOT Sight GENERAT
 define3PosTumb("PLT_SIGHT_CHECK", 7, 3007, 905, "I9K113", "PILOT Sight CHECK2-NEUTR-CHECK1")
 defineToggleSwitch("OP_SIGHT_CHECK", 7, 3008, 903, "I9K113", "OPERATOR Sight WORK-CHECK")
 defineToggleSwitch("PLT_SIGHT_PM_START", 7, 3010, 911, "I9K113", "PILOT Sight Start PM")
+defineMultipositionSwitch("PLT_BVK_SET", 7, 3009, 899, 5, 0.1, "I9K113", "PILOT BVK Set")
+defineToggleSwitch("PLT_SIGHT_HEAT", 7, 3064, 890, "I9K113", "PILOT Sight Heating")
+defineToggleSwitch("PLT_SIGHT_ZOOM", 7, 3021, 871, "I9K113", "PILOT Sight Zoom In-Out")
+defineToggleSwitch("PLT_SIGHT_FILTER_ORG", 7, 3022, 872, "I9K113", "PILOT Sight Orange Filter")
+defineToggleSwitch("PLT_SIGHT_FILTER_LASER", 7, 3023, 873, "I9K113", "PILOT Sight Laser Filter")
+defineToggleSwitch("OP_SIGHT_MISL_HEAT", 7, 3018, 775, "I9K113", "OPERATOR Sight Doors")
 
 ---ASP17
 defineToggleSwitch("PLT_ASP17_MODE_MAN_AUTO", 16, 3001, 553, "ASP17", "PILOT ASP17 Sight Mode, MANUAL/AUTO")
