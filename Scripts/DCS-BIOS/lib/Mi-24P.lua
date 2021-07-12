@@ -416,6 +416,11 @@ defineToggleSwitch("PLT_PUVL_JETT_PYLONS_CV", 6, 3016, 541, "PUVL", "PILOT Jetti
 definePushButton("PLT_PUVL_JETT_LAUNCHER", 6, 3017, 538, "PUVL", "PILOT Jettison Launcher")
 defineToggleSwitch("PLT_PUVL_JETT_LAUNCHER_CV", 6, 3018, 537, "PUVL", "PILOT Jettison Launcher Cover, UP/DOWN")
 definePushButton("PLT_PUVL_ARM_ROCKETS", 6, 3019, 536, "PUVL", "PILOT Arm Rockets")
+defineRotary("PLT_PUVL_USB_COUNT1", 6, 3092, 719, "PUVL", "PILOT Counter Adjustment 1")
+defineRotary("PLT_PUVL_USB_COUNT2", 6, 3093, 723, "PUVL", "PILOT Counter Adjustment 2")
+defineRotary("PLT_PUVL_USB_COUNT3", 6, 3094, 727, "PUVL", "PILOT Counter Adjustment 3")
+defineRotary("PLT_PUVL_USB_COUNT4", 6, 3095, 731, "PUVL", "PILOT Counter Adjustment 4")
+defineRotary("PLT_PUVL_USB_COUNT5", 6, 3096, 735, "PUVL", "PILOT Counter Adjustment 6")
 
 --I9K113
 defineToggleSwitch("PLT_SIGHT_PW", 7, 3001, 885, "I9K113", "PILOT Sight Power Switch")
@@ -434,6 +439,14 @@ defineToggleSwitch("PLT_SIGHT_ZOOM", 7, 3021, 871, "I9K113", "PILOT Sight Zoom I
 defineToggleSwitch("PLT_SIGHT_FILTER_ORG", 7, 3022, 872, "I9K113", "PILOT Sight Orange Filter")
 defineToggleSwitch("PLT_SIGHT_FILTER_LASER", 7, 3023, 873, "I9K113", "PILOT Sight Laser Filter")
 defineToggleSwitch("OP_SIGHT_MISL_HEAT", 7, 3018, 775, "I9K113", "OPERATOR Sight Doors")
+define3PosTumb("PLT_SIGHT_L_CHECK", 7, 3011, 870, "I9K113", "PILOT Sight Lamps Check")
+defineToggleSwitch("PLT_SHTV_SW_0_04", 7, 3014, 933, "I9K113", "PILOT SHTV Switcher 0 - 0.4")
+defineToggleSwitch("PLT_SHTV_SW_IN_OUT", 7, 3012, 934, "I9K113", "PILOT SHTV Switcher IN-OUT")
+defineToggleSwitch("PLT_SHTV_SW_CODE", 7, 3013, 935, "I9K113", "PILOT SHTV Switcher CODE1-CODE2")
+definePushButton("PLT_SHTV_CHECK", 7, 3015, 931, "I9K113", "PILOT SHTV Checking")
+definePushButton("PLT_SHTV_HIGH_K", 7, 3016, 875, "I9K113", "PILOT SHTV High K")
+definePushButton("PLT_SHTV_L_CHECK", 7, 3017, 932, "I9K113", "PILOT SHTV Lamps Check")
+definePushButton("OP_SHTV_RAD_RESET", 7, 3029, 882, "I9K113", "OPERATOR SHTV Radiation Reset")
 
 ---ASP17
 defineToggleSwitch("PLT_ASP17_MODE_MAN_AUTO", 16, 3001, 553, "ASP17", "PILOT ASP17 Sight Mode, MANUAL/AUTO")
@@ -446,6 +459,10 @@ definePotentiometer("PLT_ASP17_GRID_BRIGHT_ADJ", 16, 3010, 567, {0, 1}, "ASP17",
 defineToggleSwitch("PLT_ASP17_CROSSHAIR_LAMP", 16, 3013, 568, "ASP17", "PILOT ASP17 Sight Crosshair Lamp, MAIN/BACKUP")
 defineToggleSwitch("PLT_ASP17_GRID_LAMP", 16, 3012, 569, "ASP17", "PILOT ASP17 Sight Grid Lamp, MAIN/BACKUP")
 definePushButton("PLT_ASP17_CONTROL", 16, 3009, 570, "ASP17", "PILOT ASP17 Sight Control")
+defineToggleSwitch("PLT_ASP17_USR_PW", 16, 3015, 761, "ASP17", "PILOT ASP17 Sight USR power")
+defineToggleSwitch("PLT_ASP17_USR_CHECK", 16, 3016, 762, "ASP17", "PILOT ASP17 Sight USR check")
+defineToggleSwitch("PLT_ASP17_REFLECTOR_FIX", 16, 3045, 1005, "ASP17", "PILOT ASP17 Sight Reflector Control Fix")
+defineRotary("PLT_ASP17_REFLECTOR_MOVE", 16, 3046, 1006, "ASP17", "PILOT ASP17 Sight Reflector Control Move")
 
 defineIndicatorLight("PLT_ASP17_L_KMG", 559, "ASP17 Lights", "PILOT ASP17 KMG (USLP) Light (Amber)")
 defineIndicatorLight("PLT_ASP17_L_GUV", 560, "ASP17 Lights", "PILOT ASP17 GUV (FXD MG) Light (Amber)")
@@ -466,6 +483,15 @@ defineIndicatorLight("PLT_PUVL_L_USLP_LOAD", 533, "PUVL Lights", "PILOT PUVL USL
 defineIndicatorLight("PLT_PUVL_L_USLP_FINISHED", 532, "PUVL Lights", "PILOT PUVL USLP Finished Light (Amber)")
 defineIndicatorLight("PLT_PUVL_L_LH_SIDE", 535, "PUVL Lights", "PILOT PUVL LH Side Light (Amber)")
 defineIndicatorLight("PLT_PUVL_L_RH_SIDE", 534, "PUVL Lights", "PILOT PUVL RH Side Light (Amber)")
+
+--ASO-2V
+definePushButton("PLT_ASO2V_COUNTERMEASURES", 9, 3003, 968, "ASO-2V", "PILOT Launch Countermeasures")
+defineTumb("PLT_ASO2V_SET", 6, 3006, 971, 0.1, {0.0, 0.3}, nil, false, "ASO-2V", "PILOT Set I/II/III")
+definePushButton("PLT_ASO2V_INTERVAL", 9, 3001, 1008, "ASO-2V", "PILOT Interval")
+definePushButton("PLT_ASO2V_SERIE", 9, 3002, 965, "ASO-2V", "PILOT Serie")
+definePushButton("PLT_ASO2V_LEFT", 9, 3004, 969, "ASO-2V", "PILOT Left Side")
+definePushButton("PLT_ASO2V_RIGHT", 9, 3005, 970, "ASO-2V", "PILOT Right Side")
+definePushButton("PLT_ASO2V_SNARS", 9, 3007, 847, "ASO-2V", "PILOT Launch Snars")
 
 --Signal Flares
 defineToggleSwitch("PLT_FLARES_1_PW", 64, 3001, 343, "Signal Flares", "PILOT Signal Flares Cassette 1 Power Switch, ON/OFF")
