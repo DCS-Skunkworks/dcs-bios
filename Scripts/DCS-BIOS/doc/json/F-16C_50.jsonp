@@ -1792,6 +1792,35 @@ docdata["F-16C_50"] =
                                                                                                       "type": "integer"
                                                                                            } ]
                                                                        },
+                                                  "SEAT_EJECT_HANDLE": {
+                                                                                      "category": "Cockpit Mechanics",
+                                                                                  "control_type": "selector",
+                                                                                   "description": "Ejection Handle, PULL/STOW",
+                                                                                    "identifier": "SEAT_EJECT_HANDLE",
+                                                                                        "inputs": [ {
+                                                                                                      "description": "switch to previous or next state",
+                                                                                                        "interface": "fixed_step"
+                                                                                                  }, {
+                                                                                                      "description": "set position",
+                                                                                                        "interface": "set_state",
+                                                                                                        "max_value": 1
+                                                                                                  }, {
+                                                                                                         "argument": "TOGGLE",
+                                                                                                      "description": "Toggle switch state",
+                                                                                                        "interface": "action"
+                                                                                                  } ],
+                                                                           "momentary_positions": "none",
+                                                                                       "outputs": [ {
+                                                                                                          "address": 17534,
+                                                                                                      "description": "selector position",
+                                                                                                             "mask": 16384,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 14,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ],
+                                                                              "physical_variant": "toggle_switch"
+                                                                       },
                                                     "SEAT_EJECT_SAFE": {
                                                                                       "category": "Cockpit Mechanics",
                                                                                   "control_type": "selector",
@@ -3046,9 +3075,9 @@ docdata["F-16C_50"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 17534,
                                                                                                        "description": "Wing Position Lights (L-red; R-green)",
-                                                                                                              "mask": 16384,
+                                                                                                              "mask": 32768,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 14,
+                                                                                                          "shift_by": 15,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -3060,11 +3089,11 @@ docdata["F-16C_50"] =
                                                                                      "identifier": "EXT_POSITION_LIGHT_FUSELAGE",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17534,
+                                                                                                           "address": 17684,
                                                                                                        "description": "Fuselage Position Lights (L-red; R-green;Back-white)",
-                                                                                                              "mask": 32768,
+                                                                                                              "mask": 256,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 15,
+                                                                                                          "shift_by": 8,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -3110,9 +3139,9 @@ docdata["F-16C_50"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 17684,
                                                                                                        "description": "Tail Strobe Light",
-                                                                                                              "mask": 256,
+                                                                                                              "mask": 512,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 8,
+                                                                                                          "shift_by": 9,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -3142,9 +3171,9 @@ docdata["F-16C_50"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 17684,
                                                                                                        "description": "Weight ON Wheels Left Gear",
-                                                                                                              "mask": 2048,
+                                                                                                              "mask": 4096,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 11,
+                                                                                                          "shift_by": 12,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -3158,9 +3187,9 @@ docdata["F-16C_50"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 17684,
                                                                                                        "description": "Weight ON Wheels Nose Gear",
-                                                                                                              "mask": 512,
+                                                                                                              "mask": 1024,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 9,
+                                                                                                          "shift_by": 10,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -3174,9 +3203,9 @@ docdata["F-16C_50"] =
                                                                                         "outputs": [ {
                                                                                                            "address": 17684,
                                                                                                        "description": "Weight ON Wheels Right Gear",
-                                                                                                              "mask": 1024,
+                                                                                                              "mask": 2048,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 10,
+                                                                                                          "shift_by": 11,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
