@@ -71,6 +71,7 @@ defineToggleSwitch("PLT_DOOR_LOCK", 11, 3017, 8, "Cockpit Mechanics PLT", "PILOT
 defineToggleSwitch("OP_DOOR_LOCK", 11, 3019, 848, "Cockpit Mechanics OP", "OPERATOR Door Safety Lock, OPEN/CLOSE")
 defineToggleSwitch("OP_AP_TRIM", 11, 3040, 671, "Cockpit Mechanics OP", "OPERATOR Autopilot Trimmer for yourself")
 defineToggleSwitch("OP_AP_TRIM_CV", 11, 3041, 670, "Cockpit Mechanics OP", "OPERATOR Autopilot Trimmer for yourself Switch Cover, UP/DOWN")
+define3PosTumb("PLT_STATIC-VALVE", 37, 3001, 520, "Cockpit Mechanics PLT", "PILOT Static valve sensor select LEFT/BOTH/RIGHT")
 
 --IntLightSystem
 define3PosTumb("OP_CABIN_L_SW", 23, 3001, 682, "Int Light System", "OPERATOR Cabin Lighting Switch, WHITE/OFF/RED")
@@ -525,6 +526,13 @@ definePushButton("PLT_DISS_INC_DEVIATION", 8, 3010, 804, "DISS", "PILOT DISS inc
 defineToggleSwitch("PLT_DISS_MODE_WORK", 8, 3011, 797, "DISS", "PILOT DISS Mode WORK/CHECK")
 defineToggleSwitch("PLT_DISS_MODE_LAND", 8, 3012, 798, "DISS", "PILOT DISS Mode LAND/SEA")
 defineMultipositionSwitch("PLT_DISS_SEL_KNB", 8, 3013, 826, 5, 0.1, "DISS", "PILOT DISS select mode IDK/IDK/IDK/MEM/OPER")
+
+--MAP DISPLAY
+define3PosTumb("PLT_MAP_LIGHT", 45, 3011, 192, "MAP DISPLAY", "PILOT Map Highlight  BRIGHT/OFF/DIM")
+definePotentiometer("PLT_MAP_ADJ_HOR", 45, 3006, 983, {0, 1}, "MAP DISPLAY", "PILOT Set the horizontal position of the helicopter on the Map")
+definePotentiometer("PLT_MAP_ADJ_VERT", 45, 3004, 291, {0, 1}, "MAP DISPLAY", "PILOT Set the vertical position of the helicopter on the Map")
+defineToggleSwitch("PLT_MAP_PW", 45, 3008, 984, "MAP DISPLAY", "PILOT Map Power ON/OFF")
+defineToggleSwitch("PLT_MAP_SCALE", 45, 3001, 985, "MAP DISPLAY", "PILOT Map Scale Selector")
 
 --Signal Flares
 defineToggleSwitch("PLT_FLARES_1_PW", 64, 3001, 343, "Signal Flares", "PILOT Signal Flares Cassette 1 Power Switch, ON/OFF")

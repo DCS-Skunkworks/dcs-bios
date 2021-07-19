@@ -441,47 +441,47 @@ defineTumb("SARPP_MODE",55, start_command + 1, 315, 1, {0,1}, nil, false, "SARPP
 
 --################################################ ###########################################
 
-defineTumb("P503B_PWR",56, start_command + 1, 305, 1, {0,1}, nil, false, "Recorder P-503B", "Recorder P-503B Power Switch, ON/OFF")
+defineTumb("P503B_PWR",56, 3001, 305, 1, {0,1}, nil, false, "Recorder P-503B", "Recorder P-503B Power Switch, ON/OFF")
 
 --################################################ ###########################################
 
-defineTumb("IFF_SEL",57, start_command + 2, 301, 1, {0,1}, nil, false, "IFF", "IFF Transponder Device Selector Switch, WORK/RESERVE")
-defineTumb("IFF_MODE",57, start_command + 3, 300, 1, {0,1}, nil, false, "IFF", "IFF Transponder Device Mode Switch, 1/2")
-defineTumb("IFF_ERASE_COVER",57, start_command + 4, 296, 1, {0,1}, nil, false, "IFF", "IFF Transponder Erase Button Cover, OPEN/CLOSE")
-defineTumb("IFF_ERASE",57, start_command + 5, 297, 1, {0,1}, nil, false, "IFF", "IFF Transponder Erase Button - Push to erase")
-defineTumb("IFF_DIS_COVER",57, start_command + 6, 298, 1, {0,1}, nil, false, "IFF", "IFF Transponder Disaster Switch Cover, OPEN/CLOSE")
-defineTumb("IFF_DIS",57, start_command + 7, 299, 1, {0,1}, nil, false, "IFF", "IFF Transponder Disaster Switch, ON/OFF")
+defineTumb("IFF_SEL",57, 3002, 301, 1, {0,1}, nil, false, "IFF", "IFF Transponder Device Selector Switch, WORK/RESERVE")
+defineTumb("IFF_MODE",57, 3003, 300, 1, {0,1}, nil, false, "IFF", "IFF Transponder Device Mode Switch, 1/2")
+defineTumb("IFF_ERASE_COVER",57, 3004, 296, 1, {0,1}, nil, false, "IFF", "IFF Transponder Erase Button Cover, OPEN/CLOSE")
+defineTumb("IFF_ERASE",57, 3005, 297, 1, {0,1}, nil, false, "IFF", "IFF Transponder Erase Button - Push to erase")
+defineTumb("IFF_DIS_COVER",57, 3006, 298, 1, {0,1}, nil, false, "IFF", "IFF Transponder Disaster Switch Cover, OPEN/CLOSE")
+defineTumb("IFF_DIS",57, 3007, 299, 1, {0,1}, nil, false, "IFF", "IFF Transponder Disaster Switch, ON/OFF")
 
 --################################################ ###########################################
 
-defineTumb("JMP_SIREN",20, start_command + 1, 323, 1, {0,1}, nil, false, "Jump Siren", "Alarm Bell Button - Push to turn on")
+defineTumb("JMP_SIREN",20, 3001, 323, 1, {0,1}, nil, false, "Jump Siren", "Alarm Bell Button - Push to turn on")
 
 --################################################ ###########################################
 
-defineRotary("BAR_L_QFE",26, start_command + 1, 18, "Bariometer", "Baro Pressure QFE Knob")
-defineRotary("BAR_R_QFE",27, start_command + 1, 97, "Bariometer", "Baro Pressure QFE Knob")
+defineRotary("BAR_L_QFE",26, 3001, 18, "Bariometer", "Baro Pressure QFE Knob")
+defineRotary("BAR_R_QFE",27, 3001, 97, "Bariometer", "Baro Pressure QFE Knob")
 
-defineRotary("VAR_L_ADJ",30, start_command + 1, 17, "Variometer", "Variometer Adjustment Knob")
-defineRotary("VAR_L_ADJ",31, start_command + 1, 96, "Variometer", "Variometer Adjustment Knob")
+defineRotary("VAR_L_ADJ",30, 3001, 17, "Variometer", "Variometer Adjustment Knob")
+defineRotary("VAR_L_ADJ",31, 3001, 96, "Variometer", "Variometer Adjustment Knob")
 
-defineRotary("HSI_L_CRS",34, start_command + 1, 26, "HSI", "HSI Course Set Knob")
-defineRotary("HSI_R_CRS",35, start_command + 1, 102, "HSI", "HSI Course Set Knob")
-defineRotary("SPUU52_ADJ",8, start_command + 2, 128, "SPUU-52", "SPUU-52 Adjustment Knob")
+defineRotary("HSI_L_CRS",34, 3001, 26, "HSI", "HSI Course Set Knob")
+defineRotary("HSI_R_CRS",35, 3001, 102, "HSI", "HSI Course Set Knob")
+defineRotary("SPUU52_ADJ",8, 3002, 128, "SPUU-52", "SPUU-52 Adjustment Knob")
 
-defineTumb("HSI_COMP_SEL",34, start_command + 3, 858, 1, {0,1}, nil, false, "HSI", "HSI Radio Compass Selector Switch, ARC-9/ARC-UD")
-defineTumb("MISC_TST_WORK",15, start_command + 11, 797, 1, {0,1}, nil, false, "Misc", "Test/Work Switch")
-defineTumb("MISC_LAND_SEA",15, start_command + 12, 798, 1, {0,1}, nil, false, "Misc", "Land/Sea Switch")
-defineTumb("R863_UNIT_SWITCH",38, start_command + 2, 132, 1, {0,1}, nil, false, "R-863", "R-863, Unit Switch, DIAL/MEMORY")
+defineTumb("HSI_COMP_SEL",34, 3003, 858, 1, {0,1}, nil, false, "HSI", "HSI Radio Compass Selector Switch, ARC-9/ARC-UD")
+defineTumb("MISC_TST_WORK",15, 3011, 797, 1, {0,1}, nil, false, "Misc", "Test/Work Switch")
+defineTumb("MISC_LAND_SEA",15, 3012, 798, 1, {0,1}, nil, false, "Misc", "Land/Sea Switch")
+defineTumb("R863_UNIT_SWITCH",38, 3002, 132, 1, {0,1}, nil, false, "R-863", "R-863, Unit Switch, DIAL/MEMORY")
 defineTumb("R863_SQL_SWITCH",38, start_command + 4, 155, 1, {0,1}, nil, false, "R-863", "R-863, Squelch Switch, ON/OFF")
-defineTumb("R863_EMG_RCVR",38, start_command + 10, 153, 1, {0,1}, nil, false, "R-863", "R-863, Emergency Receiver Switch, ON/OFF (N/F)")
-defineTumb("R863_ARC",38, start_command + 11, 154, 1, {0,1}, nil, false, "R-863", "R-863, ARC Switch, ON/OFF (N/F)")
+defineTumb("R863_EMG_RCVR",38, 3010, 153, 1, {0,1}, nil, false, "R-863", "R-863, Emergency Receiver Switch, ON/OFF (N/F)")
+defineTumb("R863_ARC",38, 3011, 154, 1, {0,1}, nil, false, "R-863", "R-863, ARC Switch, ON/OFF (N/F)")
 defineTumb("R828_SQL_SWITCH",39, start_command + 4, 739, 1, {0,1}, nil, false, "R-828", "R-828, Squelch Switch, ON/OFF")
 defineTumb("R828_PWR",39, start_command + 5, 756, 1, {0,1}, nil, false, "R-828", "R-828, Power Switch, ON/OFF")
 defineTumb("R828_COMP_SWITCH",39, start_command + 6, 757, 1, {0,1}, nil, false, "R-828", "R-828, Compass Switch, COMM/NAV")
-defineTumb("CMD_PWR",48, start_command + 10, 910, 1, {0,1}, nil, false, "CMD", "CMD Power Switch, ON/OFF")
+defineTumb("CMD_PWR",48, 3010, 910, 1, {0,1}, nil, false, "CMD", "CMD Power Switch, ON/OFF")
 defineTumb("CMD_FLRS_AMOUNT",48, start_command + 3, 913, 1, {0,1}, nil, false, "CMD", "CMD Flares Amount Switch, COUNTER/PROGRAMMING")
 
-defineTumb("AC_VOLT_SEL", 1, start_command + 17, 535, 0.1,   { 0, 1.0}, nil, false, "Electrical system", "AC Voltmeter Selector")
+defineTumb("AC_VOLT_SEL", 1, 3017, 535, 0.1,   { 0, 1.0}, nil, false, "Electrical system", "AC Voltmeter Selector")
 defineTumb("FUEL_METER_SWITCH",2, start_command + 8, 61, 0.1,{0, 0.5}, nil, false,  "FUEL", "Fuel Meter Switch, OFF/SUM/LEFT/RIGHT/FEED/ADDITIONAL")
 defineTumb("POD_VAR_SEL",12, start_command + 13, 719, 0.1,{0, 0.5}, nil, false, "PODS", "Pod Variants Selector Switch")
 defineTumb("ESBR_POS",12, start_command + 29, 730, 0.0555,{0, 0.8325}, nil, false, "ESBR", "ESBR Position Selector Switch")
@@ -526,10 +526,10 @@ definePotentiometer("ARCUD_VOL",41, start_command + 5, 455,{ 0, 1},"Radio Volume
 definePotentiometer("SGT_BRIGHT",47, start_command + 1, 589,{ 0, 1},"Weapons", "Sight Brightness Knob")
 definePotentiometer("ARC9_VOL",40, start_command + 1, 448,{ 0, 1},"Radio Volume", "ARC-9, Volume Knob")
 
-defineTumb("SPUU52_TEST", 8, start_command + 3, 129, 1, {-1, 1}, nil, false, "SPUU-52", "SPUU-52 Test Switch, P/OFF/t)")
-defineTumb("GMC_CTRL_SWITCH", 14, start_command + 3, 476, 1, {-1, 1}, nil, false, "GMC", "GMC Control Switch, 0/CONTROL/300")
-defineTumb("GMC_CRS_SWITCH", 14, start_command + 5, 477, 1, {-1, 1}, nil, false, "GMC", "GMC Course Setting Switch, CCW/OFF/CW)")
-defineTumb("R863_CNL_SEL", 38, start_command + 3, 370, 0.05, {0, 0.949768}, nil, false, "R-863", "R-863, Radio Channel Selector Knob")
+defineTumb("SPUU52_TEST", 8, 3003, 129, 1, {-1, 1}, nil, false, "SPUU-52", "SPUU-52 Test Switch, P/OFF/t)")
+defineTumb("GMC_CTRL_SWITCH", 14, 3003, 476, 1, {-1, 1}, nil, false, "GMC", "GMC Control Switch, 0/CONTROL/300")
+defineTumb("GMC_CRS_SWITCH", 14, 3005, 477, 1, {-1, 1}, nil, false, "GMC", "GMC Course Setting Switch, CCW/OFF/CW)")
+defineTumb("R863_CNL_SEL", 38, 3003, 370, 0.05, {0, 0.949768}, nil, false, "R-863", "R-863, Radio Channel Selector Knob")
 
 local R863_FREQ1_POS = {
   ["0"] = "10",
@@ -557,10 +557,10 @@ local R863_FREQ1_POS = {
   ["22"] = "39"
 }
 
-defineFixedStepTumb("R863_FREQ1", 38, start_command + 6, 157, 0.01, {0, 0.23}, {-0.1, 0.1}, {"10", "11", "12", "13", "14", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"}, "R-863", "R-863, 10MHz Rotary Knob")
-defineFixedStepTumb("R863_FREQ2", 38, start_command + 7, 158, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 1MHz Rotary Knob")
-defineFixedStepTumb("R863_FREQ3", 38, start_command + 8, 159, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 100KHz Rotary Knob")
-defineFixedStepTumb("R863_FREQ4", 38, start_command + 9, 160, 0.25, {0, 1}, {-0.1, 0.1}, {"00", "25", "50", "75", "00"}, "R-863", "R-863, 1KHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ1", 38, 3006, 157, 0.01, {0, 0.23}, {-0.1, 0.1}, {"10", "11", "12", "13", "14", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"}, "R-863", "R-863, 10MHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ2", 38, 3007, 158, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 1MHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ3", 38, 3008, 159, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 100KHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ4", 38, 3009, 160, 0.25, {0, 1}, {-0.1, 0.1}, {"00", "25", "50", "75", "00"}, "R-863", "R-863, 1KHz Rotary Knob")
 
 local function getR863Frequency()
     local freq1 = R863_FREQ1_POS[string.format("%.0f", GetDevice(0):get_argument_value(157)*100)]
@@ -576,14 +576,14 @@ local function getR863Frequency()
 	return  freq1 .. freq2 .. "." .. freq3 .. freq4 or "0000000"
 end
 
-defineTumb("R828_PRST_CHAN_SEL", 39, start_command + 1, 735, 0.1, {0, 0.9}, nil, false, "R-828", "R-828, Radio Channel Selector Knob")
+defineTumb("R828_PRST_CHAN_SEL", 39, 3001, 735, 0.1, {0, 0.9}, nil, false, "R-828", "R-828, Radio Channel Selector Knob")
 
-defineFixedStepTumb("YADRO1A_FREQ1", 37, start_command + 2, 745, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1MHz")
-defineFixedStepTumb("YADRO1A_FREQ2", 37, start_command + 3, 746, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 100kHz")
-defineFixedStepTumb("YADRO1A_FREQ3", 37, start_command + 4, 747, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 10kHz")
-defineFixedStepTumb("YADRO1A_FREQ4", 37, start_command + 5, 748, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1kHz")
-defineFixedStepTumb("YADRO1A_FREQ5", 37, start_command + 6, 749, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 100Hz")
-defineTumb("YADRO1A_SQL", 37, start_command + 8, 741, 0.7, {0, 0.7}, nil, false, "YaDRO-1A", "YaDRO-1A, Squelch Switch")
+defineFixedStepTumb("YADRO1A_FREQ1", 37, 3002, 745, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1MHz")
+defineFixedStepTumb("YADRO1A_FREQ2", 37, 3003, 746, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 100kHz")
+defineFixedStepTumb("YADRO1A_FREQ3", 37, 3004, 747, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 10kHz")
+defineFixedStepTumb("YADRO1A_FREQ4", 37, 3005, 748, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 1kHz")
+defineFixedStepTumb("YADRO1A_FREQ5", 37, 3006, 749, 0.1, {0, 1}, {-0.1, 0.1}, nil, "YaDRO-1A", "YaDRO-1A, Frequency Selector, 100Hz")
+defineTumb("YADRO1A_SQL", 37, 3008, 741, 0.7, {0, 0.7}, nil, false, "YaDRO-1A", "YaDRO-1A, Squelch Switch")
 
 local function getYadro1AFrequency()
     local yfreq1 = string.format("%.0f", GetDevice(0):get_argument_value(750)*10)
