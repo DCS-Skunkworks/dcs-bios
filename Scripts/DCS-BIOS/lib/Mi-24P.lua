@@ -493,6 +493,39 @@ definePushButton("PLT_ASO2V_LEFT", 9, 3004, 969, "ASO-2V", "PILOT Left Side")
 definePushButton("PLT_ASO2V_RIGHT", 9, 3005, 970, "ASO-2V", "PILOT Right Side")
 definePushButton("PLT_ASO2V_SNARS", 9, 3007, 847, "ASO-2V", "PILOT Launch Snars")
 
+--SPO-10
+definePushButton("PLT_RWR_CHECK", 67, 3004, 990, "SPO-10", "PILOT Check RWR")
+defineToggleSwitch("PLT_RWR_DAY_NIGHT", 67, 3003, 989, "SPO-10", "PILOT RWR DAY/NIGHT")
+defineToggleSwitch("PLT_RWR_PW", 67, 3001, 366, "SPO-10", "PILOT RWR Power")
+defineToggleSwitch("PLT_RWR_SIGNAL", 67, 3002, 365, "SPO-10", "PILOT RWR Signal")
+
+--GREBEN
+defineRotary("PLT_GREB_CRS_SET", 27, 3015, 858, "GREBEN", "PILOT Greben Course setter")
+defineToggleSwitch("PLT_GREB_PW", 27, 3001, 367, "GREBEN", "PILOT Greben ON/OFF")
+definePushButton("PLT_GREB_MATCH", 27, 3007, 450, "GREBEN", "PILOT Greben Match")
+defineToggleSwitch("PLT_GREB_SETUP", 27, 3012, 451, "GREBEN", "PILOT Greben mode SETUP/OPER")
+define3PosTumb("PLT_GREB_MODE", 27, 3009, 449, "GREBEN", "PILOT Greben mode ZK/GPK/MK")
+defineRotary("PLT_GREB_LAT_SET", 27, 3004, 448, "GREBEN", "PILOT Greben Set Latitude")
+
+--KM-2
+definePushButton("PLT_KM2_TEST", 68, 3002, 645, "KM-2", "PILOT KM-2 Test button")
+defineRotary("PLT_KM2_MAG_DEC", 68, 3001, 647, "KM-2", "PILOT KM-2 set magnetic declination")
+
+--DISS
+defineToggleSwitch("PLT_DISS_PW", 8, 3001, 371, "DISS", "PILOT DISS-15D ON/OFF")
+defineToggleSwitch("PLT_DISS_DVS", 8, 3002, 370, "DISS", "PILOT Airspeed to DISS ON/OFF")
+definePushButton("PLT_DISS_COORD_OFF", 8, 3003, 818, "DISS", "PILOT DISS coordinates OFF")
+definePushButton("PLT_DISS_COORD_ON", 8, 3004, 819, "DISS", "PILOT DISS coordinates ON")
+definePushButton("PLT_DISS_DEC_MAPANGLE", 8, 3005, 815, "DISS", "PILOT DISS decrease map angle")
+definePushButton("PLT_DISS_INC_MAPANGLE", 8, 3006, 816, "DISS", "PILOT DISS increase map angle")
+definePushButton("PLT_DISS_DEC_PATH", 8, 3007, 809, "DISS", "PILOT DISS decrease path")
+definePushButton("PLT_DISS_INC_PATH", 8, 3008, 810, "DISS", "PILOT DISS increase path")
+definePushButton("PLT_DISS_DEC_DEVIATION", 8, 3009, 803, "DISS", "PILOT DISS decrease deviation")
+definePushButton("PLT_DISS_INC_DEVIATION", 8, 3010, 804, "DISS", "PILOT DISS increase deviation")
+defineToggleSwitch("PLT_DISS_MODE_WORK", 8, 3011, 797, "DISS", "PILOT DISS Mode WORK/CHECK")
+defineToggleSwitch("PLT_DISS_MODE_LAND", 8, 3012, 798, "DISS", "PILOT DISS Mode LAND/SEA")
+defineMultipositionSwitch("PLT_DISS_SEL_KNB", 8, 3013, 826, 5, 0.1, "DISS", "PILOT DISS select mode IDK/IDK/IDK/MEM/OPER")
+
 --Signal Flares
 defineToggleSwitch("PLT_FLARES_1_PW", 64, 3001, 343, "Signal Flares", "PILOT Signal Flares Cassette 1 Power Switch, ON/OFF")
 defineToggleSwitch("PLT_FLARES_1_RED", 64, 3003, 344, "Signal Flares", "PILOT Signal Flares Cassette 1 Launch Red Button")
