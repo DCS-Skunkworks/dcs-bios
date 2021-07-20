@@ -534,6 +534,47 @@ definePotentiometer("PLT_MAP_ADJ_VERT", 45, 3004, 291, {0, 1}, "MAP DISPLAY", "P
 defineToggleSwitch("PLT_MAP_PW", 45, 3008, 984, "MAP DISPLAY", "PILOT Map Power ON/OFF")
 defineToggleSwitch("PLT_MAP_SCALE", 45, 3001, 985, "MAP DISPLAY", "PILOT Map Scale Selector")
 
+--ARC-15
+definePotentiometer("PLT_ARC_VOL", 47, 3001, 459, {0, 1}, "ARC-15 PLT", "PILOT ARC-15 Volume")
+defineToggleSwitch("PLT_ARC_MODUL", 47, 3002, 460, "ARC-15 PLT", "PILOT ARC-15 TLF/TLG")
+defineMultipositionSwitch("PLT_ARC_MODE", 47, 3003, 463, 4, 0.115, "ARC-15 PLT", "PILOT ARC-15 mode OFF/COMPASS/ANT/FRAME")
+defineMultipositionSwitch("PLT_ARC_FREQ_L_100", 47, 3004, 467, 18, 1/17, "ARC-15 PLT", "PILOT ARC-15 Left Frequency 100KHz")
+defineMultipositionSwitch("PLT_ARC_FREQ_L_10", 47, 3005, 468, 10, 1/9, "ARC-15 PLT", "PILOT ARC-15 Left Frequency 10KHz")
+defineMultipositionSwitch("PLT_ARC_FREQ_L_1", 47, 3006, 469, 20, 1/20, "ARC-15 PLT", "PILOT ARC-15 Left Frequency 1KHz")
+defineMultipositionSwitch("PLT_ARC_FREQ_R_100", 47, 3007, 464, 18, 1/17, "ARC-15 PLT", "PILOT ARC-15 Right Frequency 100KHz")
+defineMultipositionSwitch("PLT_ARC_FREQ_R_10", 47, 3008, 465, 10, 1/9, "ARC-15 PLT", "PILOT ARC-15 Right Frequency 10KHz")
+defineMultipositionSwitch("PLT_ARC_FREQ_R_1", 47, 3009, 466, 20, 1/20, "ARC-15 PLT", "PILOT ARC-15 Right Frequency 1KHz")
+definePushButton("PLT_ARC_LOOP", 47, 3010, 458, "ARC-15 PLT", "PILOT ARC-15 Loop Button")
+defineToggleSwitch("PLT_ARC_CHAN", 47, 3011, 462, "ARC-15 PLT", "PILOT ARC-15 1/2")
+definePushButton("PLT_ARC_CONTROL", 47, 3012, 461, "ARC-15 PLT", "PILOT ARC-15 Control Button")
+
+definePotentiometer("OP_ARC_VOL", 47, 3001, 634, {0, 1}, "ARC-15 OP", "OPERATOR ARC-15 Volume")
+defineToggleSwitch("OP_ARC_MODUL", 47, 3002, 635, "ARC-15 OP", "OPERATOR ARC-15 TLF/TLG")
+defineMultipositionSwitch("OP_ARC_MODE", 47, 3003, 638, 4, 0.115, "ARC-15 OP", "OPERATOR ARC-15 mode OFF/COMPASS/ANT/FRAME")
+defineMultipositionSwitch("OP_ARC_FREQ_L_100", 47, 3004, 639, 18, 1/17, "ARC-15 OP", "OPERATOR ARC-15 Left Frequency 100KHz")
+defineMultipositionSwitch("OP_ARC_FREQ_L_10", 47, 3005, 640, 10, 1/9, "ARC-15 OP", "OPERATOR ARC-15 Left Frequency 10KHz")
+defineMultipositionSwitch("OP_ARC_FREQ_L_1", 47, 3006, 641, 20, 1/20, "ARC-15 OP", "OPERATOR ARC-15 Left Frequency 1KHz")
+defineMultipositionSwitch("OP_ARC_FREQ_R_100", 47, 3007, 642, 18, 1/17, "ARC-15 OP", "OPERATOR ARC-15 Right Frequency 100KHz")
+defineMultipositionSwitch("OP_ARC_FREQ_R_10", 47, 3008, 643, 10, 1/9, "ARC-15 OP", "OPERATOR ARC-15 Right Frequency 10KHz")
+defineMultipositionSwitch("OP_ARC_FREQ_R_1", 47, 3009, 644, 20, 1/20, "ARC-15 OP", "OPERATOR ARC-15 Right Frequency 1KHz")
+definePushButton("OP_ARC_LOOP", 47, 3010, 633, "ARC-15 OP", "OPERATOR ARC-15 Loop Button")
+defineToggleSwitch("OP_ARC_CHAN", 47, 3011, 637, "ARC-15 OP", "OPERATOR ARC-15 1/2")
+definePushButton("OP_ARC_CONTROL", 47, 3012, 636, "ARC-15 OP", "OPERATOR ARC-15 Control Button")
+
+--R863
+defineToggleSwitch("PLT_R863_PW", 49, 3001, 375, "R-863", "PILOT R-863 ON/OFF")
+defineToggleSwitch("PLT_R863_MODUL", 49, 3004, 506, "R-863", "PILOT R-863 FM/AM")
+defineToggleSwitch("PLT_R863_EMERG_RCV", 49, 3015, 507, "R-863", "PILOT R-863 Emergency Receiver ON/OFF")
+defineToggleSwitch("PLT_R863_ARC", 49, 3018, 509, "R-863", "PILOT R-863 ARC-UD ON/OFF")
+defineToggleSwitch("PLT_R863_SQUELCH", 49, 3009, 510, "R-863", "PILOT R-863 Squelch ON/OFF")
+definePotentiometer("PLT_R863_VOL", 49, 3012, 511, {0, 1}, "R-863", "PILOT R-863 Volume")
+defineMultipositionSwitch("PLT_R863_CHAN", 49, 3007, 513, 20, 1/20, "R-863", "PILOT R-863 Channel Select")
+
+--Jadro 1I
+
+--Accelerometer
+definePushButton("PLT_RESET_G", 53, 3001, 947, "Accelerometer", "PILOT Accelerometer Reset Button - Push to reset")
+
 --Signal Flares
 defineToggleSwitch("PLT_FLARES_1_PW", 64, 3001, 343, "Signal Flares", "PILOT Signal Flares Cassette 1 Power Switch, ON/OFF")
 defineToggleSwitch("PLT_FLARES_1_RED", 64, 3003, 344, "Signal Flares", "PILOT Signal Flares Cassette 1 Launch Red Button")
