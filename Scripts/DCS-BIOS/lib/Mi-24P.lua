@@ -577,6 +577,10 @@ definePotentiometer("PLT_JADRO_VOL", 50, 3019, 426, {0, 1}, "Jadro-1I", "PILOT J
 definePotentiometer("PLT_JADRO_SQUELCH", 50, 3022, 421, {0, 1}, "Jadro-1I", "PILOT Jadro-1I Squelch")
 definePushButton("PLT_JADRO_TEST", 50, 3025, 423, "Jadro-1I", "PILOT Jadro-1I Test")
 
+--R852
+definePotentiometer("PLT_R852_VOL", 52, 3004, 517, {0, 1}, "R-852", "PILOT R-852 Volume")
+defineMultipositionSwitch("PLT_R852_CHAN", 52, 3001, 518, 4, 0.1, "R-852", "PILOT R-852 Channel Select")
+
 --Accelerometer
 definePushButton("PLT_RESET_G", 53, 3001, 947, "Accelerometer", "PILOT Accelerometer Reset Button - Push to reset")
 
@@ -608,6 +612,11 @@ defineMultipositionSwitch("OP_SPU-8_MODE", 55, 3011, 659, 6, 1/5, "SPU-8 OP", "O
 defineToggleSwitch("OP_SPU-8_ICS", 55, 3012, 660, "SPU-8 OP", "OPERATOR SPU-8 Radio/ICS Switch")
 definePotentiometer("OP_SPU-8_VOL", 55, 3009, 661, {0, 1}, "SPU-8 OP", "OPERATOR SPU-8 Volume Knob")
 defineToggleSwitch("OP_SPU-8_SPUU_PW", 55, 3015, 664, "SPU-8 OP", "OPERATOR SPU-8 SPUU Power ON/OFF")
+
+-- RI-65
+definePushButton("PLT_RI65_OFF", 59, 3001, 359, "RI-65", "PILOT RI-65 OFF Button")
+definePushButton("PLT_RI65_CHECK", 59, 3002, 360, "RI-65", "PILOT RI-65 Check Button")
+definePushButton("PLT_RI65_REPEAT", 59, 3003, 361, "RI-65", "PILOT RI-65 Repeat Button")
 
 --Signal Flares
 defineToggleSwitch("PLT_FLARES_1_PW", 64, 3001, 343, "Signal Flares", "PILOT Signal Flares Cassette 1 Power Switch, ON/OFF")
