@@ -736,9 +736,9 @@ definePushButton("PLT_HUD_MODE_LAND", 40, 3220, 1011, "Display", "PILOT HUD Land
 
 -- Standby ADI
 definePushButton("PLT_STDBYAI_UNCAGE", 30, 3545, 1032, "Standby ADI", "PILOT Standby ADI Push to uncage")
-definePotentiometer("PLT_STDBYAI_TRIM", 30, 3546, 19103, {0.0, 1.0}, "Standby ADI", "PILOT Standby ADI Knob")
+defineRotary("PLT_STDBYAI_TRIM", 30, 3546, 1042, "Standby ADI", "PILOT Standby ADI Knob")
 definePushButton("RIO_STDBYAI_UNCAGE", 30, 3547, 6155, "Standby ADI", "RIO Standby ADI Push to uncage")
-definePotentiometer("RIO_STDBYAI_TRIM", 30, 3548, 6157, {0.0, 1.0}, "Standby ADI", "RIO Standby ADI Knob")
+defineRotary("RIO_STDBYAI_TRIM", 30, 3548, 6156, "Standby ADI", "RIO Standby ADI Knob")
 definePushButton("PLT_ACCEL_RESET", 24, 3488, 228, "Display", "PILOT Accelerometer Reset")
 
 -- VDI & HUD Indicator Controls
