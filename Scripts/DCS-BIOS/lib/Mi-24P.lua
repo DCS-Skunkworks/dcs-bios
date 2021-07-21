@@ -571,9 +571,43 @@ definePotentiometer("PLT_R863_VOL", 49, 3012, 511, {0, 1}, "R-863", "PILOT R-863
 defineMultipositionSwitch("PLT_R863_CHAN", 49, 3007, 513, 20, 1/20, "R-863", "PILOT R-863 Channel Select")
 
 --Jadro 1I
+defineToggleSwitch("PLT_JADRO_PW", 50, 3027, 374, "Jadro-1I", "PILOT Jadro-1I ON/OFF")
+defineMultipositionSwitch("PLT_JADRO_MODUL", 50, 3001, 438, 3, 0.1, "Jadro-1I", "PILOT Jadro-1I Mode OFF/AM/OM")
+definePotentiometer("PLT_JADRO_VOL", 50, 3019, 426, {0, 1}, "Jadro-1I", "PILOT Jadro-1I Volume")
+definePotentiometer("PLT_JADRO_SQUELCH", 50, 3022, 421, {0, 1}, "Jadro-1I", "PILOT Jadro-1I Squelch")
+definePushButton("PLT_JADRO_TEST", 50, 3025, 423, "Jadro-1I", "PILOT Jadro-1I Test")
 
 --Accelerometer
 definePushButton("PLT_RESET_G", 53, 3001, 947, "Accelerometer", "PILOT Accelerometer Reset Button - Push to reset")
+
+--Wiper
+defineTumb("PLT_WIPER_OFF", 11, 3020, 418, 0.1, {0, 0}, nil, false, "Wiper", "PILOT Windscreen Wiper Control Switch, OFF")
+defineTumb("PLT_WIPER_ON", 11, 3020, 418, 0.05, {0, 0.05}, nil, false, "Wiper", "PILOT Windscreen Wiper Control Switch, START")
+defineTumb("PLT_WIPER_RST", 11, 3020, 418, 0.35, {0, 0.35}, nil, false, "Wiper", "PILOT Windscreen Wiper Control Switch, RESET")
+defineTumb("PLT_WIPER_SPD_1", 11, 3020, 418, 0.15, {0, 0.15}, nil, false, "Wiper", "PILOT Windscreen Wiper Control Switch, SPEED 1")
+defineTumb("PLT_WIPER_SPD_2", 11, 3020, 418, 0.25, {0, 0.25}, nil, false, "Wiper", "PILOT Windscreen Wiper Control Switch, SPEED 2")
+defineTumb("OP_WIPER_OFF", 11, 3021, 674, 0.1, {0, 0}, nil, false, "Wiper", "OPERATOR Windscreen Wiper Control Switch, OFF")
+defineTumb("OP_WIPER_ON", 11, 3021, 674, 0.05, {0, 0.05}, nil, false, "Wiper", "OPERATOR Windscreen Wiper Control Switch, START")
+defineTumb("OP_WIPER_RST", 11, 3021, 674, 0.35, {0, 0.35}, nil, false, "Wiper", "OPERATOR Windscreen Wiper Control Switch, RESET")
+defineTumb("OP_WIPER_SPD_1", 11, 3021, 674, 0.15, {0, 0.15}, nil, false, "Wiper", "OPERATOR Windscreen Wiper Control Switch, SPEED 1")
+defineTumb("OP_WIPER_SPD_2", 11, 3021, 674, 0.25, {0, 0.25}, nil, false, "Wiper", "OPERATOR Windscreen Wiper Control Switch, SPEED 2")
+
+-- SPU-8 
+defineToggleSwitch("PLT_SPU-8_NET", 55, 3007, 452, "SPU-8 PLT", "PILOT SPU-8 Network 1/2 Switch (N/F)")
+definePotentiometer("PLT_SPU-8_RADIO_VOL", 55, 3002, 453, {0, 1}, "SPU-8 PLT", "PILOT SPU-8 Radio Volume Knob")
+definePushButton("PLT_SPU-8_CIRC", 55, 3008, 454, "SPU-8 PLT", "PILOT SPU-8 Circular Call Button (N/F)")
+defineMultipositionSwitch("PLT_SPU-8_MODE", 55, 3003, 455, 6, 1/5, "SPU-8 PLT", "PILOT SPU-8 Radio Source Selector Switch, R-863/NF/JADRO-1A/R-828(Eucalypt)/ARC-15/ARC-U2")
+defineToggleSwitch("PLT_SPU-8_ICS", 55, 3004, 456, "SPU-8 PLT", "PILOT SPU-8 Radio/ICS Switch")
+definePotentiometer("PLT_SPU-8_VOL", 55, 3001, 457, {0, 1}, "SPU-8 PLT", "PILOT SPU-8 Volume Knob")
+defineToggleSwitch("PLT_SPU-8_1_PW", 55, 3017, 376, "SPU-8 PLT", "PILOT SPU-8 Switch NET-1 ON/OFF")
+defineToggleSwitch("PLT_SPU-8_2_PW", 55, 3018, 377, "SPU-8 PLT", "PILOT SPU-8 Switch NET-2 ON/OFF")
+defineToggleSwitch("OP_SPU-8_NET", 55, 3013, 656, "SPU-8 OP", "OPERATOR SPU-8 Network 1/2 Switch (N/F)")
+definePotentiometer("OP_SPU-8_RADIO_VOL", 55, 3010, 657, {0, 1}, "SPU-8 OP", "OPERATOR SPU-8 Radio Volume Knob")
+definePushButton("OP_SPU-8_CIRC", 55, 3014, 658, "SPU-8 OP", "OPERATOR SPU-8 Circular Call Button (N/F)")
+defineMultipositionSwitch("OP_SPU-8_MODE", 55, 3011, 659, 6, 1/5, "SPU-8 OP", "OPERATOR SPU-8 Radio Source Selector Switch, R-863/NF/JADRO-1A/R-828(Eucalypt)/ARC-15/ARC-U2")
+defineToggleSwitch("OP_SPU-8_ICS", 55, 3012, 660, "SPU-8 OP", "OPERATOR SPU-8 Radio/ICS Switch")
+definePotentiometer("OP_SPU-8_VOL", 55, 3009, 661, {0, 1}, "SPU-8 OP", "OPERATOR SPU-8 Volume Knob")
+defineToggleSwitch("OP_SPU-8_SPUU_PW", 55, 3015, 664, "SPU-8 OP", "OPERATOR SPU-8 SPUU Power ON/OFF")
 
 --Signal Flares
 defineToggleSwitch("PLT_FLARES_1_PW", 64, 3001, 343, "Signal Flares", "PILOT Signal Flares Cassette 1 Power Switch, ON/OFF")
