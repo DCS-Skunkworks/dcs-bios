@@ -527,6 +527,11 @@ defineToggleSwitch("PLT_DISS_MODE_WORK", 8, 3011, 797, "DISS", "PILOT DISS Mode 
 defineToggleSwitch("PLT_DISS_MODE_LAND", 8, 3012, 798, "DISS", "PILOT DISS Mode LAND/SEA")
 defineMultipositionSwitch("PLT_DISS_SEL_KNB", 8, 3013, 826, 5, 0.1, "DISS", "PILOT DISS select mode IDK/IDK/IDK/MEM/OPER")
 
+--Radar Altimeter
+definePushButton("PLT_RAD_ALT_PW", 12, 3003, 372, "Radar altimeter", "PILOT RV-5 ON/OFF")
+definePushButton("PLT_RAD_ALT_TEST", 12, 3002, 31, "Radar altimeter", "PILOT RV-5 Test")
+defineRotary("PLT_RAD_ALT_ADJ", 12, 3001, 30, "Radar altimeter", "PILOT RV-5 Adjust")
+
 --MAP DISPLAY
 define3PosTumb("PLT_MAP_LIGHT", 45, 3011, 192, "MAP DISPLAY", "PILOT Map Highlight  BRIGHT/OFF/DIM")
 definePotentiometer("PLT_MAP_ADJ_HOR", 45, 3006, 983, {0, 1}, "MAP DISPLAY", "PILOT Set the horizontal position of the helicopter on the Map")
@@ -577,6 +582,13 @@ definePotentiometer("PLT_JADRO_VOL", 50, 3019, 426, {0, 1}, "Jadro-1I", "PILOT J
 definePotentiometer("PLT_JADRO_SQUELCH", 50, 3022, 421, {0, 1}, "Jadro-1I", "PILOT Jadro-1I Squelch")
 definePushButton("PLT_JADRO_TEST", 50, 3025, 423, "Jadro-1I", "PILOT Jadro-1I Test")
 
+--Eucalypt_M24 (R828)
+defineToggleSwitch("PLT_R828_PW", 51, 3005, 373, "Eucalypt-M24", "PILOT Eucalypt-M24 ON/OFF")
+defineMultipositionSwitch("PLT_R828_CHAN", 51, 3001, 337, 10, 0.1, "Eucalypt-M24", "PILOT Eucalypt-M24 Channel Select")
+definePotentiometer("OP_SPU-PLT_R828_VOL", 51, 3002, 339, {0, 1}, "Eucalypt-M24", "PILOT Eucalypt-M24 Volume Knob")
+definePushButton("PLT_R828_ASU", 51, 3003, 340, "Eucalypt-M24", "PILOT Eucalypt-M24 ASU")
+defineToggleSwitch("PLT_R828_SQUELCH", 51, 3004, 341, "Eucalypt-M24", "PILOT Eucalypt-M24 Squelch ON/OFF")
+
 --R852
 definePotentiometer("PLT_R852_VOL", 52, 3004, 517, {0, 1}, "R-852", "PILOT R-852 Volume")
 defineMultipositionSwitch("PLT_R852_CHAN", 52, 3001, 518, 4, 0.1, "R-852", "PILOT R-852 Channel Select")
@@ -596,7 +608,13 @@ defineTumb("OP_WIPER_RST", 11, 3021, 674, 0.35, {0, 0.35}, nil, false, "Wiper", 
 defineTumb("OP_WIPER_SPD_1", 11, 3021, 674, 0.15, {0, 0.15}, nil, false, "Wiper", "OPERATOR Windscreen Wiper Control Switch, SPEED 1")
 defineTumb("OP_WIPER_SPD_2", 11, 3021, 674, 0.25, {0, 0.25}, nil, false, "Wiper", "OPERATOR Windscreen Wiper Control Switch, SPEED 2")
 
--- SPU-8 
+--ARK U2
+defineToggleSwitch("PLT_ARCU2_PW", 54, 3001, 324, "ARC-U2 ", "PILOT ARC-U2 switcher ON/OFF")
+define3Pos2CommandSwitch("PLT_ARCU2_FRAME", 54, 3002, 3003, 325, "ARC-U2 ", "PILOT ARC-U2 switcher L–RAMKA-P")
+defineToggleSwitch("PLT_ARCU2_SENS", 54, 3004, 326, "ARC-U2 ", "PILOT ARC-U2 switcher sensitivity B-M")
+define3PosTumb("PLT_ARCU2_COMPASS", 54, 3005, 327, "ARC-U2 ", "PILOT ARC-U2 switcher COMPASS R-852–RADIOLINK–COMPASS R-828")
+
+--SPU-8 
 defineToggleSwitch("PLT_SPU-8_NET", 55, 3007, 452, "SPU-8 PLT", "PILOT SPU-8 Network 1/2 Switch (N/F)")
 definePotentiometer("PLT_SPU-8_RADIO_VOL", 55, 3002, 453, {0, 1}, "SPU-8 PLT", "PILOT SPU-8 Radio Volume Knob")
 definePushButton("PLT_SPU-8_CIRC", 55, 3008, 454, "SPU-8 PLT", "PILOT SPU-8 Circular Call Button (N/F)")
@@ -613,10 +631,36 @@ defineToggleSwitch("OP_SPU-8_ICS", 55, 3012, 660, "SPU-8 OP", "OPERATOR SPU-8 Ra
 definePotentiometer("OP_SPU-8_VOL", 55, 3009, 661, {0, 1}, "SPU-8 OP", "OPERATOR SPU-8 Volume Knob")
 defineToggleSwitch("OP_SPU-8_SPUU_PW", 55, 3015, 664, "SPU-8 OP", "OPERATOR SPU-8 SPUU Power ON/OFF")
 
--- RI-65
+--IFF
+defineMultipositionSwitch("PLT_IFF_MODE", 57, 3001, 334, 4, 1/3, "IFF", "PILOT IFF Transponder Mode Selector Switch, AUTO/KD/+-15/KP")
+defineToggleSwitch("PLT_IFF_DEVICE_SEL", 57, 3002, 336, "IFF", "PILOT IFF Transponder Device Selector Switch, WORK/RESERVE")
+defineToggleSwitch("PLT_IFF_MODE_1_2", 57, 3003, 332, "IFF", "PILOT IFF Transponder Device Mode Switch, 1/2")
+defineToggleSwitch("PLT_IFF_ERASE_CV", 57, 3004, 328, "IFF", "PILOT IFF Transponder Erase Button Cover, OPEN/CLOSE")
+definePushButton("PLT_IFF_ERASE", 57, 3005, 329, "IFF", "PILOT IFF Transponder Erase Button - Push to erase")
+defineToggleSwitch("PLT_IFF_SOS_CV", 57, 3006, 330, "IFF", "PILOT IFF Transponder Disaster Switch Cover, OPEN/CLOSE")
+defineToggleSwitch("PLT_IFF_SOS", 57, 3007, 331, "IFF", "PILOT IFF Transponder Disaster Switch, ON/OFF")
+defineToggleSwitch("PLT_IFF_PW", 57, 3008, 383, "IFF", "PILOT IFF Transponder Power Switch, ON/OFF")
+
+--Recorder MC 61
+defineToggleSwitch("PLT_REC_PW", 58, 3001, 378, "Recorder MC 61", "PILOT Recorder MC 61 Power Switch, ON/OFF")
+defineToggleSwitch("PLT_REC_MODE", 58, 3002, 1007, "Recorder MC 61", "PILOT Recorder MC 61 AUTO/WORK")
+definePotentiometer("PLT_REC_BRGHT", 58, 3003, 381, {0, 1}, "Recorder MC 61", "PILOT Recorder MC 61 Brightness Knob")
+defineToggleSwitch("PLT_REC_SOURCE", 58, 3004, 1012, "Recorder MC 61", "PILOT Recorder MC 61 Laryngophone Switch, ON/OFF")
+
+--RI-65
 definePushButton("PLT_RI65_OFF", 59, 3001, 359, "RI-65", "PILOT RI-65 OFF Button")
 definePushButton("PLT_RI65_CHECK", 59, 3002, 360, "RI-65", "PILOT RI-65 Check Button")
 definePushButton("PLT_RI65_REPEAT", 59, 3003, 361, "RI-65", "PILOT RI-65 Repeat Button")
+
+--External Cargo Equipment
+defineToggleSwitch("PLT_CARGO_TACT_CV", 61, 3002, 751, "External Cargo Equipment", "PILOT Tactical Cargo Release Button Cover, OPEN/CLOSE")
+definePushButton("PLT_CARGO_TACT", 61, 3001, 752, "External Cargo Equipment", "PILOT Tactical Cargo Release Button - Push to release")
+defineToggleSwitch("PLT_CARGO_EMERG_CV", 61, 3004, 748, "External Cargo Equipment", "PILOT Emergency Cargo Release Button Cover, OPEN/CLOSE")
+definePushButton("PLT_CARGO_EMERG", 61, 3003, 749, "External Cargo Equipment", "PILOT Emergency Cargo Release Button - Push to release")
+defineToggleSwitch("PLT_CARGO_AUTOLOCK", 61, 3007, 199, "External Cargo Equipment", "PILOT External Cargo Automatic Dropping, ON/OFF")
+defineToggleSwitch("PLT_CARGO_REMOVE", 61, 3008, 198, "External Cargo Equipment", "PILOT External Cargo Remove Release, ON/OFF")
+defineToggleSwitch("OP_CARGO_EMERG_CV", 61, 3006, 862, "External Cargo Equipment", "OPERATOR Emergency Cargo Release Button Cover, OPEN/CLOSE")
+definePushButton("OP_CARGO_EMERG", 61, 3005, 863, "External Cargo Equipment", "OPERATOR Emergency Cargo Release Button - Push to release")
 
 --Signal Flares
 defineToggleSwitch("PLT_FLARES_1_PW", 64, 3001, 343, "Signal Flares", "PILOT Signal Flares Cassette 1 Power Switch, ON/OFF")
