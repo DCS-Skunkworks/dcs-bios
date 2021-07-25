@@ -32,6 +32,20 @@ defineRotary("PLT_ENG_THROTTLE_L", 3, 3006, 5, "Engine", "PILOT Left Engine Thro
 defineRotary("PLT_ENG_THROTTLE_R", 3, 3008, 4, "Engine", "PILOT Right Engine Throttle")
 define3Pos2CommandSwitch("PLT_FREE_TURB_RPM", 3, 3020, 3019, 747, "Engine", "PILOT Readjust Free Turbine RPM, RIGHT/NEUTRAL/LEFT")
 
+defineFloat("PLT_ROTOR_RPM", 42, {0, 1}, "Engine Gauges", "PILOT Rotor RPM")
+defineFloat("PLT_ROTOR_PITCH", 36, {0, 1}, "Engine Gauges", "PILOT Rotor Pitch")
+defineFloat("OP_ROTOR_RPM", 845, {0, 1}, "Engine Gauges", "OPERATOR Rotor RPM")
+defineFloat("PLT_ENG_L_RPM", 40, {0, 1}, "Engine Gauges", "PILOT Left Engine RPM")
+defineFloat("PLT_ENG_R_RPM", 41, {0, 1}, "Engine Gauges", "PILOT Right Engine RPM")
+defineFloat("OP_ENG_L_RPM", 838, {0, 1}, "Engine Gauges", "OPERATOR Left Engine RPM")
+defineFloat("OP_ENG_R_RPM", 839, {0, 1}, "Engine Gauges", "OPERATOR Right Engine RPM")
+defineFloat("PLT_ENG_L_TEMP_100", 43, {0, 1}, "Engine Gauges", "PILOT Left Engine Temperature 100")
+defineFloat("PLT_ENG_L_TEMP_10", 44, {0, 1}, "Engine Gauges", "PILOT Left Engine Temperature 10")
+defineFloat("PLT_ENG_R_TEMP_100", 45, {0, 1}, "Engine Gauges", "PILOT Right Engine Temperature 100")
+defineFloat("PLT_ENG_R_TEMP_10", 46, {0, 1}, "Engine Gauges", "PILOT Right Engine Temperature 10")
+defineFloat("PLT_APU_TEMP", 292, {0, 1}, "Engine Gauges", "PILOT APU Temperature")
+defineFloat("PLT_APU_PRESS", 305, {0, 1}, "Engine Gauges", "PILOT APU Pressure")
+
 --HydroInterface
 defineToggleSwitch("PLT_MAIN_AUXHYD_CV", 4, 3002, 216, "Hydro Interface", "PILOT Main/Auxiliary Hydraulic Switch Cover, UP/DOWN")
 defineToggleSwitch("PLT_MAIN_AUXHYD", 4, 3001, 217, "Hydro Interface", "PILOT Main/Auxiliary Hydraulic Switch, MAIN/AUXILIARY")
@@ -130,15 +144,38 @@ defineToggleSwitch("PLT_GYRO_2_PWR", 26, 3004, 368, "MGV1SU", "PILOT Gyro 2 Powe
 definePushButton("OP_GYRO_2_CAGE", 26, 3003, 701, "MGV1SU", "OPERATOR Cage Gyro 2")
 
 --UKT2
-defineRotary("PLT_UKT_PITCH_TRIM", 18, 3001, 951, "UKT 2", "PILOT UKT Pitch Trim Knob")
+defineRotary("PLT_UKT2_PITCH_TRIM", 18, 3001, 951, "UKT-2", "PILOT UKT-2 Pitch Trim Knob")
+defineFloat("PLT_UKT2_PITCH", 949, {-1, 1}, "UKT-2 Gauges", "PILOT UKT-2 Pitch")
+defineFloat("PLT_UKT2_ROLL", 950, {1, -1}, "UKT-2 Gauges", "PILOT UKT-2 Roll")
+defineFloat("PLT_UKT2_FAIL_FLG", 849, {0, 1}, "UKT-2 Gauges", "PILOT UKT-2 Failure Flag")
 
 --Barometric Altimeter
 definePotentiometer("PLT_ALT_PRESS", 41, 3001, 18, {0, 1}, "Barometric Altimeter", "PILOT Baro Pressure Knob")
 definePotentiometer("OP_ALT_PRESS", 42, 3001, 788, {0, 1}, "Barometric Altimeter", "OPERATOR Baro Pressure Knob")
 
+defineFloat("PLT_ALT_100", 19, {0, 1}, "Barometric Altimeter Gauges", "PILOT Baro Pressure 100 Gauge")
+defineFloat("PLT_ALT_10", 20, {0, 1}, "Barometric Altimeter Gauges", "PILOT Baro Pressure 10 Gauge")
+defineFloat("PLT_ALT_IND_100", 833, {0, 1}, "Barometric Altimeter Gauges", "PILOT Baro Pressure Ind 100 Gauge")
+defineFloat("PLT_ALT_IND_10", 832, {0, 1}, "Barometric Altimeter Gauges", "PILOT Baro Pressure Ind 10 Gauge")
+defineFloat("PLT_ALT_SHUTTER", 916, {0.822, 0.75}, "Barometric Altimeter Gauges", "PILOT Baro Pressure Shutter Gauge")
+defineFloat("PLT_ALT_RESS", 21, {0, 1}, "Barometric Altimeter Gauges", "PILOT Baro Pressure RESS Gauge")
+defineFloat("OP_ALT_100", 789, {0, 1}, "Barometric Altimeter Gauges", "OPERATOR Baro Pressure 100 Gauge")
+defineFloat("OP_ALT_10", 988, {0, 1}, "Barometric Altimeter Gauges", "OPERATOR Baro Pressure 10 Gauge")
+defineFloat("OP_ALT_IND_100", 837, {0, 1}, "Barometric Altimeter Gauges", "OPERATOR Baro Pressure Ind 100 Gauge")
+defineFloat("OP_ALT_IND_10", 836, {0, 1}, "Barometric Altimeter Gauges", "OPERATOR Baro Pressure Ind 10 Gauge")
+defineFloat("OP_ALT_SHUTTER", 835, {0.822, 0.75}, "Barometric Altimeter Gauges", "OPERATOR Baro Pressure Shutter Gauge")
+defineFloat("OP_ALT_RESS", 834, {0, 1}, "Barometric Altimeter Gauges", "OPERATOR Baro Pressure RESS Gauge")
+
 --RMI2
-defineToggleSwitch("PLT_RMI2_MODE", 43, 3002, 26, "RMI2", "PILOT Mode Switch, ZK/ARKU2")
-defineToggleSwitch("OP_RMI2_MODE", 44, 3002, 843, "RMI2", "OPERATOR Mode Switch, ZK/ARKU2")
+defineToggleSwitch("PLT_RMI2_MODE", 43, 3002, 26, "RMI2", "PILOT RMI2 Mode Switch, ZK/ARKU2")
+defineToggleSwitch("OP_RMI2_MODE", 44, 3002, 843, "RMI2", "OPERATOR RMI2 Mode Switch, ZK/ARKU2")
+
+defineFloat("PLT_RMI2_HDG", 25, {0, 1}, "RMI2 Gauges", "PILOT RMI2 Heading Gauge")
+defineFloat("PLT_RMI2_CRS1", 28, {0, 1}, "RMI2 Gauges", "PILOT RMI2 Bearing 1 Gauge")
+defineFloat("PLT_RMI2_CRS2", 27, {0, 1}, "RMI2 Gauges", "PILOT RMI2 Bearing 2 Gauge")
+defineFloat("OP_RMI2_HDG", 841, {0, 1}, "RMI2 Gauges", "OPERATOR RMI2 Heading Gauge")
+defineFloat("OP_RMI2_CRS1", 842, {0, 1}, "RMI2 Gauges", "OPERATOR RMI2 Bearing 1 Gauge")
+defineFloat("OP_RMI2_CRS2", 840, {0, 1}, "RMI2 Gauges", "OPERATOR RMI2 Bearing 2 Gauge")
 
 --Clock
 definePushButton("PLT_CLOCK_L_PUSH", 35, 3001, 57, "Clock", "PILOT Mech Clock Left Lever Push")
@@ -275,7 +312,7 @@ define3PosTumb("PLT_DEICER_WSHIELD", 60, 3005, 111, "AntiIce Interface", "PILOT 
 define3PosTumb("OP_DEICER_WSHIELD", 60, 3006, 675, "AntiIce Interface", "OPERATOR Windshield Antiice LOW/OFF/HIGH")
 defineMultipositionSwitch("PLT_DEICER_KNB", 60, 3007, 114, 11, 0.1, "AntiIce Interface", "PILOT AntiIce Knob")
 
---SAU (autopilot)
+--SAU (Autopilot)
 defineToggleSwitch("PLT_SAU_BTN_BRIGHT", 10, 3070, 267, "SAU", "PILOT SAU Button Brightness, BRIGHT/DIM")
 definePushButton("PLT_SAU_H_ON", 10, 3005, 237, "SAU", "PILOT SAU H Channel ON")
 definePushButton("PLT_SAU_H_OFF", 10, 3007, 236, "SAU", "PILOT SAU H Channel OFF")
@@ -294,7 +331,6 @@ definePushButton("PLT_SAU_HOVER_MODE_ON", 10, 3036, 259, "SAU", "PILOT SAU Hover
 definePushButton("PLT_SAU_ROUTE_MODE_ON", 10, 3038, 261, "SAU", "PILOT SAU Route Mode ON")
 definePushButton("PLT_SAU_HOVER_ROUTE_MODE_OFF", 10, 3040, 260, "SAU", "PILOT SAU Hover and Route Modes OFF")
 defineRotary("PLT_SAU_ROUTE_AZIMUTH", 10, 3030, 262, "SAU", "PILOT SAU Route Azimuth")
--- defineFixedStepInput("PLT_SAU_ROUTE_AZIMUTH", 10, 3030, {-1, 1}, "SAU", "PILOT SAU Route Azimuth") --TODO: get fixed step input working
 
 local function getSAURouteAzimuth()
     local function a(n) return GetDevice(0):get_argument_value(n) end
@@ -351,10 +387,8 @@ defineToggleSwitch("PLT_SPUU_OFF", 19, 3001, 275, "SPUU", "PILOT SPUU OFF")
 defineRockerSwitch("PLT_SPUU_CONTROL", 19, 3007, 3007, 3006, 3006, 277, "SPUU", "PILOT SPUU Control Switch, P/NONE/T")
 definePotentiometer("PLT_SPUU_ROUTE_AZIMUTH", 19, 3003, 276, {0, 1}, "SPUU", "PILOT SPUU Route Azimuth")
 
----Lights
 defineIndicatorLight("PLT_SPUU_L_SPUU_OFF", 302, "SPUU Lights", "PILOT SAU SPUU OFF Light (Red)")
 
----Gauges
 defineFloat("PLT_SPUU_DELTA", 271, {-1, 1}, "SPUU Gauges", "PILOT SPUU Delta")
 
 --Cyclic
@@ -528,9 +562,14 @@ defineToggleSwitch("PLT_DISS_MODE_LAND", 8, 3012, 798, "DISS", "PILOT DISS Mode 
 defineMultipositionSwitch("PLT_DISS_SEL_KNB", 8, 3013, 826, 5, 0.1, "DISS", "PILOT DISS select mode IDK/IDK/IDK/MEM/OPER")
 
 --Radar Altimeter
-definePushButton("PLT_RAD_ALT_PW", 12, 3003, 372, "Radar altimeter", "PILOT RV-5 ON/OFF")
-definePushButton("PLT_RAD_ALT_TEST", 12, 3002, 31, "Radar altimeter", "PILOT RV-5 Test")
-defineRotary("PLT_RAD_ALT_ADJ", 12, 3001, 30, "Radar altimeter", "PILOT RV-5 Adjust")
+definePushButton("PLT_RV5_PW", 12, 3003, 372, "Radar Altimeter", "PILOT RV-5 ON/OFF")
+definePushButton("PLT_RV5_TEST", 12, 3002, 31, "Radar Altimeter", "PILOT RV-5 Test")
+defineRotary("PLT_RV5_ADJ", 12, 3001, 30, "Radar Altimeter", "PILOT RV-5 Adjust")
+
+defineFloat("PLT_RV5_ALT", 32, {0, 1}, "Radar Altimeter Gauges", "PILOT Radar Altitude")
+defineFloat("PLT_RV5_DALT", 33, {0, 1}, "Radar Altimeter Gauges", "PILOT Radar Danger Altitude")
+defineFloat("PLT_RV5_WARN_FLG", 1021, {0, 1}, "Radar Altimeter Gauges", "PILOT Radar Warning Flag")
+defineIndicatorLight("PLT_RV5_DALT_L", 284, "Radar Altimeter Lights", "PILOT Radar Danger Altitude Light (Yellow)")
 
 --MAP DISPLAY
 define3PosTumb("PLT_MAP_LIGHT", 45, 3011, 192, "MAP DISPLAY", "PILOT Map Highlight  BRIGHT/OFF/DIM")
@@ -540,6 +579,29 @@ defineToggleSwitch("PLT_MAP_PW", 45, 3008, 984, "MAP DISPLAY", "PILOT Map Power 
 defineToggleSwitch("PLT_MAP_SCALE", 45, 3001, 985, "MAP DISPLAY", "PILOT Map Scale Selector")
 
 --ARC-15
+local ARC15_FREQ_POS = {
+  ["0"] = "0",
+  ["1"] = "0.5",
+  ["2"] = "1",
+  ["3"] = "1.5",
+  ["4"] = "2",
+  ["5"] = "2.5",
+  ["6"] = "3",
+  ["7"] = "3.5",
+  ["8"] = "4",
+  ["9"] = "4.5",
+  ["10"] = "5",
+  ["11"] = "5.5",
+  ["12"] = "6",
+  ["13"] = "6.5",
+  ["14"] = "7",
+  ["15"] = "7.5",
+  ["16"] = "8",
+  ["17"] = "8.5",
+  ["18"] = "9",
+  ["19"] = "9.5"
+}
+
 definePotentiometer("PLT_ARC_VOL", 47, 3001, 459, {0, 1}, "ARC-15 PLT", "PILOT ARC-15 Volume")
 defineToggleSwitch("PLT_ARC_MODUL", 47, 3002, 460, "ARC-15 PLT", "PILOT ARC-15 TLF/TLG")
 defineMultipositionSwitch("PLT_ARC_MODE", 47, 3003, 463, 4, 0.115, "ARC-15 PLT", "PILOT ARC-15 mode OFF/COMPASS/ANT/FRAME")
@@ -553,6 +615,28 @@ definePushButton("PLT_ARC_LOOP", 47, 3010, 458, "ARC-15 PLT", "PILOT ARC-15 Loop
 defineToggleSwitch("PLT_ARC_CHAN", 47, 3011, 462, "ARC-15 PLT", "PILOT ARC-15 1/2")
 definePushButton("PLT_ARC_CONTROL", 47, 3012, 461, "ARC-15 PLT", "PILOT ARC-15 Control Button")
 
+local function getARCLPLTFrequency()
+    local freq1 = string.format("%.0f", GetDevice(0):get_argument_value(467)/(1/17))
+	if freq1 == nil then freq1 = "0" end
+    local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(468)/(1/9))
+	if freq2 == nil then freq2 = "0" end
+	local freq3 = ARC15_FREQ_POS[string.format("%.0f", GetDevice(0):get_argument_value(469)/(1/20))]
+	if freq3 == nil then freq3 = "000" end
+	return  freq1 .. freq2 .. freq3 or "000000"
+end
+defineString("PLT_ARC_FREQ_L", getARCLPLTFrequency, 6, "ARC-15 PLT", "PILOT ARC-15 Left Frequency (String)")
+
+local function getARCRPLTFrequency()
+    local freq1 = string.format("%.0f", GetDevice(0):get_argument_value(464)/(1/17))
+	if freq1 == nil then freq1 = "0" end
+    local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(465)/(1/9))
+	if freq2 == nil then freq2 = "0" end
+	local freq3 = ARC15_FREQ_POS[string.format("%.0f", GetDevice(0):get_argument_value(466)/(1/20))]
+	if freq3 == nil then freq3 = "000" end
+	return  freq1 .. freq2 .. freq3 or "000000"
+end
+defineString("PLT_ARC_FREQ_R", getARCRPLTFrequency, 6, "ARC-15 PLT", "PILOT ARC-15 Right Frequency (String)")
+
 definePotentiometer("OP_ARC_VOL", 47, 3001, 634, {0, 1}, "ARC-15 OP", "OPERATOR ARC-15 Volume")
 defineToggleSwitch("OP_ARC_MODUL", 47, 3002, 635, "ARC-15 OP", "OPERATOR ARC-15 TLF/TLG")
 defineMultipositionSwitch("OP_ARC_MODE", 47, 3003, 638, 4, 0.115, "ARC-15 OP", "OPERATOR ARC-15 mode OFF/COMPASS/ANT/FRAME")
@@ -565,6 +649,28 @@ defineMultipositionSwitch("OP_ARC_FREQ_R_1", 47, 3009, 644, 20, 1/20, "ARC-15 OP
 definePushButton("OP_ARC_LOOP", 47, 3010, 633, "ARC-15 OP", "OPERATOR ARC-15 Loop Button")
 defineToggleSwitch("OP_ARC_CHAN", 47, 3011, 637, "ARC-15 OP", "OPERATOR ARC-15 1/2")
 definePushButton("OP_ARC_CONTROL", 47, 3012, 636, "ARC-15 OP", "OPERATOR ARC-15 Control Button")
+
+local function getARCLOPFrequency()
+    local freq1 = string.format("%.0f", GetDevice(0):get_argument_value(639)/(1/17))
+	if freq1 == nil then freq1 = "0" end
+    local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(640)/(1/9))
+	if freq2 == nil then freq2 = "0" end
+	local freq3 = ARC15_FREQ_POS[string.format("%.0f", GetDevice(0):get_argument_value(641)/(1/20))]
+	if freq3 == nil then freq3 = "000" end
+	return  freq1 .. freq2 .. freq3 or "000000"
+end
+defineString("OP_ARC_FREQ_L", getARCLOPFrequency, 6, "ARC-15 OP", "OPERATOR ARC-15 Left Frequency (String)")
+
+local function getARCROPFrequency()
+    local freq1 = string.format("%.0f", GetDevice(0):get_argument_value(642)/(1/17))
+	if freq1 == nil then freq1 = "0" end
+    local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(643)/(1/9))
+	if freq2 == nil then freq2 = "0" end
+	local freq3 = ARC15_FREQ_POS[string.format("%.0f", GetDevice(0):get_argument_value(644)/(1/20))]
+	if freq3 == nil then freq3 = "000" end
+	return  freq1 .. freq2 .. freq3 or "000000"
+end
+defineString("OP_ARC_FREQ_R", getARCROPFrequency, 6, "ARC-15 OP", "OPERATOR ARC-15 Right Frequency (String)")
 
 --R863
 defineToggleSwitch("PLT_R863_PW", 49, 3001, 375, "R-863", "PILOT R-863 ON/OFF")
@@ -581,6 +687,28 @@ defineMultipositionSwitch("PLT_JADRO_MODUL", 50, 3001, 438, 3, 0.1, "Jadro-1I", 
 definePotentiometer("PLT_JADRO_VOL", 50, 3019, 426, {0, 1}, "Jadro-1I", "PILOT Jadro-1I Volume")
 definePotentiometer("PLT_JADRO_SQUELCH", 50, 3022, 421, {0, 1}, "Jadro-1I", "PILOT Jadro-1I Squelch")
 definePushButton("PLT_JADRO_TEST", 50, 3025, 423, "Jadro-1I", "PILOT Jadro-1I Test")
+defineFixedStepTumb("PLT_JADRO_1M", 50, 3004, 437, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"}, "Jadro-1I", "PILOT Jadro-1I Frequency 1MHz")
+defineFixedStepTumb("PLT_JADRO_100K", 50, 3007, 436, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "Jadro-1I", "PILOT Jadro-1I Frequency 100KHz")
+defineFixedStepTumb("PLT_JADRO_10K", 50, 3010, 429, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "Jadro-1I", "PILOT Jadro-1I Frequency 10KHz")
+defineFixedStepTumb("PLT_JADRO_1K", 50, 3013, 428, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "Jadro-1I", "PILOT Jadro-1I Frequency 1KHz")
+defineFixedStepTumb("PLT_JADRO_100H", 50, 3016, 427, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "Jadro-1I", "PILOT Jadro-1I Frequency 100Hz")
+
+local function getJadroFrequency()
+    local yfreq0 = string.format("%.0f", GetDevice(0):get_argument_value(435)*10)
+	if yfreq0 == nil then yfreq0 = "0" end
+    local yfreq1 = string.format("%.0f", GetDevice(0):get_argument_value(437)*10)
+	if yfreq1 == nil then yfreq1 = "0" end
+    local yfreq2 = string.format("%.0f", GetDevice(0):get_argument_value(436)*10)
+	if yfreq2 == nil then yfreq2 = "0" end
+    local yfreq3 = string.format("%.0f", GetDevice(0):get_argument_value(429)*10)
+	if yfreq3 == nil then yfreq3 = "0" end
+    local yfreq4 = string.format("%.0f", GetDevice(0):get_argument_value(428)*10)
+	if yfreq4 == nil then yfreq4 = "0" end
+    local yfreq5 = string.format("%.0f", GetDevice(0):get_argument_value(427)*10)
+	if yfreq5 == nil then yfreq5 = "0" end
+	return  yfreq0 .. yfreq1 .. yfreq2 .. yfreq3 .. yfreq4 .. "." .. yfreq5
+end
+defineString("JADRO_FREQ", getJadroFrequency, 7, "Jadro-1I", "PILOT Jadro-1I Frequency (String)")
 
 --Eucalypt_M24 (R828)
 defineToggleSwitch("PLT_R828_PW", 51, 3005, 373, "Eucalypt-M24", "PILOT Eucalypt-M24 ON/OFF")
@@ -676,16 +804,13 @@ defineToggleSwitch("PLT_FLARES_2_WHT", 64, 3009, 348, "Signal Flares", "PILOT Si
 
 --Gauges
 defineFloat("OP_CANOPY_VALUE", 849, {0, 1}, "Gauges OP", "OPERATOR Canopy Position")
-defineFloat("PLT_CANOPY_PILOT_VALUE", 9, {0, 1}, "Gauges PLT", "PILOT Door Position")
+defineFloat("PLT_CANOPY_VALUE", 9, {0, 1}, "Gauges PLT", "PILOT Door Position")
 defineFloat("PLT_VARIOMETER", 1, {-1, 1}, "Gauges PLT", "PILOT Variometer")
 defineFloat("PLT_GMETER", 17, {-1, 1}, "Gauges PLT", "PILOT G-Meter")
 defineFloat("PLT_GMETER_MIN", 16, {-1, 1}, "Gauges PLT", "PILOT G-Meter Min")
 defineFloat("PLT_GMETER_MAX", 16, {-1, 1}, "Gauges PLT", "PILOT G-Meter Max")
 defineFloat("PLT_IAS", 790, {-1, 1}, "Gauges PLT", "PILOT IAS Speed")
 defineFloat("OP_IAS", 776, {-1, 1}, "Gauges OP", "OPERATOR IAS Speed")
-defineFloat("PLT_UKT2_PITCH", 949, {-1, 1}, "Gauges PLT", "PILOT UKT-2 Pitch")
-defineFloat("PLT_UKT2_ROLL", 950, {1, -1}, "Gauges PLT", "PILOT UKT-2 Roll")
-defineFloat("PLT_UKT2_FAIL_FLG", 849, {0, 1}, "Gauges PLT", "PILOT UKT-2 Failure Flag")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
