@@ -14,8 +14,8 @@ local hdgDegFrac = 0
 local iasDisp
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	-- skip  this data if ownship export is disabled
-	if not LoIsOwnshipExportAllowed() then return end
+	
+	if not LoIsOwnshipExportAllowed() then return end -- skip this data if ownship export is disabled
 	
 	playerName = LoGetPilotName()
 		if playerName == nil then playerName = "XXX" end
@@ -48,12 +48,12 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		     lonDir = "E" end			 
 
 	latDeg = math.floor(lat)
-	lat1 = (lat - latDeg) * 60 -- convert to seconds
+	lat1 = (lat - latDeg) * 60 -- to sec
 	latSec = math.floor(lat1)
 	latFractionalSec = lat1 - latSec
 
 	lonDeg = math.floor(lon)
-	lon1 = (lon - lonDeg) * 60 -- convert to seconds
+	lon1 = (lon - lonDeg) * 60 -- to sec
 	lonSec = math.floor(lon1)
 	lonFractionalSec = lon1 - lonSec
 	
@@ -63,6 +63,11 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		hdgDegFrac = hdgDegValue - hdgDeg
 	end
 end
+
+-- local function theatreName()
+  -- theatreNameV = env.mission.theatre
+  -- return theatreNameV
+-- end
 
 local function misstime()
 misstimesec = LoGetMissionStartTime()
@@ -124,5 +129,6 @@ end, 127, "Heading", "Heading (Fractional Degrees, divide by 127)")
 
 defineString("MISS_TIME",  misstime, 5, "Metadata", "Mission Start Time")
 defineString("MOD_TIME", function() return modtime or "00000" end, 5, "Metadata", "Model Time in sec")
+-- defineString("MAPNAME", theatreName, 24, "Metadata", "Theatre Name")
 
 BIOS.protocol.endModule()

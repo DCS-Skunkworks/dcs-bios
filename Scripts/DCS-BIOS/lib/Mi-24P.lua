@@ -617,6 +617,15 @@ defineToggleSwitch("PLT_GREB_SETUP", 27, 3012, 451, "GREBEN", "PILOT Greben mode
 define3PosTumb("PLT_GREB_MODE", 27, 3009, 449, "GREBEN", "PILOT Greben mode ZK/GPK/MK")
 defineRotary("PLT_GREB_LAT_SET", 27, 3004, 448, "GREBEN", "PILOT Greben Set Latitude")
 
+defineFloat("PLT_GREB_CLOSE_N", 443, {0, 1}, "GREBEN Gauges", "PILOT Greben North Closed")
+defineFloat("PLT_GREB_CLOSE_N_10", 442, {0, 1}, "GREBEN Gauges", "PILOT Greben North 10")
+defineFloat("PLT_GREB_CLOSE_N_1", 441, {0, 1}, "GREBEN Gauges", "PILOT Greben North 1")
+defineFloat("PLT_GREB_CLOSE_N_10S", 440, {0, 1}, "GREBEN Gauges", "PILOT Greben North 10s")
+defineFloat("PLT_GREB_CLOSE_S", 443, {0, 1}, "GREBEN Gauges", "PILOT Greben South Closed")
+defineFloat("PLT_GREB_CLOSE_S_10", 446, {0, 1}, "GREBEN Gauges", "PILOT Greben South 10")
+defineFloat("PLT_GREB_CLOSE_S_1", 445, {0, 1}, "GREBEN Gauges", "PILOT Greben South 1")
+defineFloat("PLT_GREB_CLOSE_S_10S", 444, {0, 1}, "GREBEN Gauges", "PILOT Greben South 10s")
+
 --KM-2
 definePushButton("PLT_KM2_TEST", 68, 3002, 645, "KM-2", "PILOT KM-2 Test button")
 defineRotary("PLT_KM2_MAG_DEC", 68, 3001, 647, "KM-2", "PILOT KM-2 set magnetic declination")
@@ -681,6 +690,11 @@ definePotentiometer("PLT_MAP_ADJ_HOR", 45, 3006, 983, {0, 1}, "MAP DISPLAY", "PI
 definePotentiometer("PLT_MAP_ADJ_VERT", 45, 3004, 291, {0, 1}, "MAP DISPLAY", "PILOT Set the vertical position of the helicopter on the Map")
 defineToggleSwitch("PLT_MAP_PW", 45, 3008, 984, "MAP DISPLAY", "PILOT Map Power ON/OFF")
 defineToggleSwitch("PLT_MAP_SCALE", 45, 3001, 985, "MAP DISPLAY", "PILOT Map Scale Selector")
+
+defineFloat("PLT_MAP_LON", 986, {-1, 1}, "MAP DISPLAY Gauges", "PILOT Map Longitude")
+defineFloat("PLT_MAP_LAT", 987, {-1, 1}, "MAP DISPLAY Gauges", "PILOT Map Latitude")
+
+defineIndicatorLight("PLT_MAP_L", 977, "MAP DISPLAY Lights", "PILOT Map Display Light (white)")
 
 --ARC-15
 local ARC15_FREQ_POS = {
@@ -785,6 +799,17 @@ defineToggleSwitch("PLT_R863_SQUELCH", 49, 3009, 510, "R-863", "PILOT R-863 Sque
 definePotentiometer("PLT_R863_VOL", 49, 3012, 511, {0, 1}, "R-863", "PILOT R-863 Volume")
 defineMultipositionSwitch("PLT_R863_CHAN", 49, 3007, 513, 20, 1/20, "R-863", "PILOT R-863 Channel Select")
 
+local function getR863Chan()
+    local chan = string.format("%.0f", GetDevice(0):get_argument_value(513)/(1/20))
+    if chan == nil then chan = "00" end
+	return  chan or "00"
+end
+defineString("PLT_R863_CHAN_S", getR863Chan, 2, "R-863", "PILOT R-863 Channel (String)")
+
+defineFloat("PLT_R863_CHAN_G", 512, {0, 1}, "R-863 Gauges", "PILOT R-863 Channel Gauge")
+
+defineIndicatorLight("PLT_R863_L", 508, "R-863 Lights", "PILOT R-863 Light (green)")
+
 --Jadro 1I
 defineToggleSwitch("PLT_JADRO_PW", 50, 3027, 374, "Jadro-1I", "PILOT Jadro-1I ON/OFF")
 defineMultipositionSwitch("PLT_JADRO_MODUL", 50, 3001, 438, 3, 0.1, "Jadro-1I", "PILOT Jadro-1I Mode OFF/AM/OM")
@@ -814,6 +839,10 @@ local function getJadroFrequency()
 end
 defineString("JADRO_FREQ", getJadroFrequency, 7, "Jadro-1I", "PILOT Jadro-1I Frequency (String)")
 
+defineIndicatorLight("PLT_JADRO_SEARCH_L", 422, "Jadro-1I Lights", "PILOT Jadro-1I Search Lamp (yellow)")
+defineIndicatorLight("PLT_JADRO_CTL_L", 424, "Jadro-1I Lights", "PILOT Jadro-1I Ctl Lamp (red)")
+defineIndicatorLight("PLT_JADRO_BREAK_L", 425, "Jadro-1I Lights", "PILOT Jadro-1I Breakdown Lamp (yellow)")
+
 --Eucalypt_M24 (R828)
 defineToggleSwitch("PLT_R828_PW", 51, 3005, 373, "Eucalypt-M24", "PILOT Eucalypt-M24 ON/OFF")
 defineMultipositionSwitch("PLT_R828_CHAN", 51, 3001, 337, 10, 0.1, "Eucalypt-M24", "PILOT Eucalypt-M24 Channel Select")
@@ -824,6 +853,8 @@ defineToggleSwitch("PLT_R828_SQUELCH", 51, 3004, 341, "Eucalypt-M24", "PILOT Euc
 --R852
 definePotentiometer("PLT_R852_VOL", 52, 3004, 517, {0, 1}, "R-852", "PILOT R-852 Volume")
 defineMultipositionSwitch("PLT_R852_CHAN", 52, 3001, 518, 4, 0.1, "R-852", "PILOT R-852 Channel Select")
+
+defineFloat("PLT_R852_CHAN_G", 519, {0, 1}, "R-852 Gauges", "PILOT R-852 Channel Gauge")
 
 --Accelerometer
 definePushButton("PLT_RESET_G", 53, 3001, 947, "Accelerometer", "PILOT Accelerometer Reset Button - Push to reset")
@@ -909,6 +940,8 @@ defineToggleSwitch("PLT_FLARES_2_WHT", 64, 3009, 348, "Signal Flares", "PILOT Si
 --Gauges
 defineFloat("OP_CANOPY_VALUE", 849, {0, 1}, "Gauges OP", "OPERATOR Canopy Position")
 defineFloat("PLT_CANOPY_VALUE", 9, {0, 1}, "Gauges PLT", "PILOT Door Position")
+defineFloat("OP_WIPER_POS", 973, {0, 1}, "Gauges OP", "OPERATOR Wiper Position")
+defineFloat("PLT_WIPER_POS", 972, {0, 1}, "Gauges PLT", "PILOT Wiper Position")
 defineFloat("PLT_VARIOMETER", 1, {-1, 1}, "Gauges PLT", "PILOT Variometer")
 defineFloat("PLT_GMETER", 17, {-1, 1}, "Gauges PLT", "PILOT G-Meter")
 defineFloat("PLT_GMETER_MIN", 16, {-1, 1}, "Gauges PLT", "PILOT G-Meter Min")
