@@ -532,6 +532,16 @@ defineFloat("PLT_PUVL_USB_4_10", 729, {0, 1}, "PUVL Gauges", "PILOT Counter 4 10
 defineFloat("PLT_PUVL_USB_5_100", 732, {0, 1}, "PUVL Gauges", "PILOT Counter 5 100")
 defineFloat("PLT_PUVL_USB_5_10", 733, {0, 1}, "PUVL Gauges", "PILOT Counter 5 10")
 
+defineIndicatorLight("PLT_PUVL_L_EXPL_ARM", 548, "PUVL Lights", "PILOT PUVL Explosion on Jettison ARMED Light (red)")
+defineIndicatorLight("PLT_PUVL_L_PYLON_1", 544, "PUVL Lights", "PILOT PUVL Pylon 1 Light (yellow)")
+defineIndicatorLight("PLT_PUVL_L_PYLON_2", 543, "PUVL Lights", "PILOT PUVL Pylon 2 Light (yellow)")
+defineIndicatorLight("PLT_PUVL_L_PYLON_3", 540, "PUVL Lights", "PILOT PUVL Pylon 3 Light (yellow)")
+defineIndicatorLight("PLT_PUVL_L_PYLON_4", 539, "PUVL Lights", "PILOT PUVL Pylon 4 Light (yellow)")
+defineIndicatorLight("PLT_PUVL_L_USLP_LOAD", 533, "PUVL Lights", "PILOT PUVL USLP Loaded Light (amber)")
+defineIndicatorLight("PLT_PUVL_L_USLP_FINISHED", 532, "PUVL Lights", "PILOT PUVL USLP Finished Light (amber)")
+defineIndicatorLight("PLT_PUVL_L_LH_SIDE", 535, "PUVL Lights", "PILOT PUVL LH Side Light (amber)")
+defineIndicatorLight("PLT_PUVL_L_RH_SIDE", 534, "PUVL Lights", "PILOT PUVL RH Side Light (amber)")
+
 --I9K113
 defineToggleSwitch("PLT_SIGHT_PW", 7, 3001, 885, "I9K113", "PILOT Sight Power Switch")
 defineToggleSwitch("PLT_SIGHT_BACK_L", 7, 3062, 884, "I9K113", "PILOT Sight Backlight")
@@ -584,15 +594,9 @@ defineIndicatorLight("PLT_ASP17_L_YEL", 678, "ASP17 Lights", "PILOT ASP17 yellow
 defineIndicatorLight("PLT_ASP17_L_GODEN", 571, "ASP17 Lights", "PILOT ASP17 Goden Light")
 defineIndicatorLight("PLT_ASP17_L_USR_CHECK", 760, "ASP17 Lights", "PILOT ASP17 USR Check Light")
 
-defineIndicatorLight("PLT_PUVL_L_EXPL_ARM", 548, "PUVL Lights", "PILOT PUVL Explosion on Jettison ARMED Light (red)")
-defineIndicatorLight("PLT_PUVL_L_PYLON_1", 544, "PUVL Lights", "PILOT PUVL Pylon 1 Light (yellow)")
-defineIndicatorLight("PLT_PUVL_L_PYLON_2", 543, "PUVL Lights", "PILOT PUVL Pylon 2 Light (yellow)")
-defineIndicatorLight("PLT_PUVL_L_PYLON_3", 540, "PUVL Lights", "PILOT PUVL Pylon 3 Light (yellow)")
-defineIndicatorLight("PLT_PUVL_L_PYLON_4", 539, "PUVL Lights", "PILOT PUVL Pylon 4 Light (yellow)")
-defineIndicatorLight("PLT_PUVL_L_USLP_LOAD", 533, "PUVL Lights", "PILOT PUVL USLP Loaded Light (amber)")
-defineIndicatorLight("PLT_PUVL_L_USLP_FINISHED", 532, "PUVL Lights", "PILOT PUVL USLP Finished Light (amber)")
-defineIndicatorLight("PLT_PUVL_L_LH_SIDE", 535, "PUVL Lights", "PILOT PUVL LH Side Light (amber)")
-defineIndicatorLight("PLT_PUVL_L_RH_SIDE", 534, "PUVL Lights", "PILOT PUVL RH Side Light (amber)")
+defineFloat("PLT_ASP17_UP_DN", 555, {1, 0}, "ASP17 Gauges", "PILOT ASP17 Up Down")
+defineFloat("PLT_ASP17_L_R", 565, {0, 1}, "ASP17 Gauges", "PILOT ASP17 Left Right")
+defineFloat("PLT_ASP17_BASE", 558, {0, 1}, "ASP17 Gauges", "PILOT ASP17 Base")
 
 --ASO-2V
 definePushButton("PLT_ASO2V_COUNTERMEASURES", 9, 3003, 968, "ASO-2V", "PILOT Launch Countermeasures")
@@ -613,8 +617,8 @@ defineToggleSwitch("PLT_RWR_SIGNAL", 67, 3002, 365, "SPO-10", "PILOT RWR Signal"
 defineRotary("PLT_GREB_CRS_SET", 27, 3015, 858, "GREBEN", "PILOT Greben Course setter")
 defineToggleSwitch("PLT_GREB_PW", 27, 3001, 367, "GREBEN", "PILOT Greben ON/OFF")
 definePushButton("PLT_GREB_MATCH", 27, 3007, 450, "GREBEN", "PILOT Greben Match")
-defineToggleSwitch("PLT_GREB_SETUP", 27, 3012, 451, "GREBEN", "PILOT Greben mode SETUP/OPER")
-define3PosTumb("PLT_GREB_MODE", 27, 3009, 449, "GREBEN", "PILOT Greben mode ZK/GPK/MK")
+defineToggleSwitch("PLT_GREB_SETUP", 27, 3012, 451, "GREBEN", "PILOT Greben Mode SETUP/OPER")
+define3PosTumb("PLT_GREB_MODE", 27, 3009, 449, "GREBEN", "PILOT Greben Mode ZK/GPK/MK")
 defineRotary("PLT_GREB_LAT_SET", 27, 3004, 448, "GREBEN", "PILOT Greben Set Latitude")
 
 defineFloat("PLT_GREB_CLOSE_N", 443, {0, 1}, "GREBEN Gauges", "PILOT Greben North Closed")
@@ -628,7 +632,9 @@ defineFloat("PLT_GREB_CLOSE_S_10S", 444, {0, 1}, "GREBEN Gauges", "PILOT Greben 
 
 --KM-2
 definePushButton("PLT_KM2_TEST", 68, 3002, 645, "KM-2", "PILOT KM-2 Test button")
-defineRotary("PLT_KM2_MAG_DEC", 68, 3001, 647, "KM-2", "PILOT KM-2 set magnetic declination")
+defineRotary("PLT_KM2_MAG_DEC", 68, 3001, 647, "KM-2", "PILOT KM-2 set Magnetic Declination")
+
+defineFloat("PLT_KM2_MAG_DEC_G", 646, {0, 1}, "KM-2 Gauges", "PILOT KM-2 Magnetic Declination Gauge")
 
 --DISS
 defineToggleSwitch("PLT_DISS_PW", 8, 3001, 371, "DISS-15", "PILOT DISS-15D ON/OFF")
@@ -849,6 +855,17 @@ defineMultipositionSwitch("PLT_R828_CHAN", 51, 3001, 337, 10, 0.1, "Eucalypt-M24
 definePotentiometer("OP_SPU-PLT_R828_VOL", 51, 3002, 339, {0, 1}, "Eucalypt-M24", "PILOT Eucalypt-M24 Volume Knob")
 definePushButton("PLT_R828_ASU", 51, 3003, 340, "Eucalypt-M24", "PILOT Eucalypt-M24 ASU")
 defineToggleSwitch("PLT_R828_SQUELCH", 51, 3004, 341, "Eucalypt-M24", "PILOT Eucalypt-M24 Squelch ON/OFF")
+
+local function getR828Chan()
+    local chan = string.format("%.0f", GetDevice(0):get_argument_value(337)*10)
+    if chan == nil then chan = "0" end
+	return  chan or "0"
+end
+defineString("PLT_R828_CHAN_S", getR828Chan, 1, "Eucalypt-M24", "PILOT Eucalypt-M24 Channel (String)")
+
+defineFloat("PLT_R828_CHAN_G", 338, {0, 1}, "Eucalypt-M24 Gauges", "PILOT Eucalypt-M24 Channel Gauge")
+
+defineIndicatorLight("PLT_R828_L", 342, "Eucalypt-M24 Lights", "PILOT Eucalypt-M24 Light (green)")
 
 --R852
 definePotentiometer("PLT_R852_VOL", 52, 3004, 517, {0, 1}, "R-852", "PILOT R-852 Volume")
