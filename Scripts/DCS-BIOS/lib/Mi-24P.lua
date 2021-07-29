@@ -62,6 +62,12 @@ defineFloat("PLT_OIL_TEMP_ENG_R", 185, {-0.25, 0.75}, "Engine Gauges", "PILOT Oi
 defineFloat("PLT_HYD_PRESS_MAIN", 23, {0, 1}, "Engine Gauges", "PILOT Hydraulic Main Pressure")
 defineFloat("PLT_HYD_PRESS_AUX", 24, {0, 1}, "Engine Gauges", "PILOT Hydraulic Auxiliary Pressure")
 defineFloat("PLT_HYD_PRESS_UTIL", 22, {0, 1}, "Engine Gauges", "PILOT Hydraulic Utility Pressure")
+defineFloat("PLT_RAM_TEMP", 980, {0, 1}, "Engine Gauges", "PILOT RAM Temperature")
+
+defineIndicatorLight("PLT_APU_ON_L", 79, "Engine Lights", "PILOT APU OFF Light (amber)")
+defineIndicatorLight("PLT_GEN_R_OFF_L", 81, "Engine Lights", "PILOT Right Generator OFF Light (red)")
+defineIndicatorLight("PLT_GEN_L_OFF_L", 94, "Engine Lights", "PILOT Left Generator OFF Light (red)")
+defineIndicatorLight("PLT_GEN_PARALLEL_L", 94, "Engine Lights", "PILOT Generators in Parallel Light (green)")
 
 --HydroInterface
 defineToggleSwitch("PLT_MAIN_AUXHYD_CV", 4, 3002, 216, "Hydro Interface", "PILOT Main/Auxiliary Hydraulic Switch Cover, UP/DOWN")
@@ -113,7 +119,7 @@ defineToggleSwitch("PLT_CARGO_COLOR_L_SW", 23, 3005, 355, "Int Light System", "P
 definePushButton("PLT_WARN_L_TEST", 23, 3008, 363, "Int Light System", "PILOT Test Warning Lights Button")
 definePushButton("OP_WARN_L_TEST", 23, 3009, 681, "Int Light System", "OPERATOR Test Warning Lights Button")
 defineToggleSwitch("PLT_DAY_NIGHT_SW", 23, 3010, 362, "Int Light System", "PILOT Day-Night Switch, DAY/NIGHT")
-defineToggleSwitch("PLT_BLINK_SW", 23, 3011, 36, "Int Light System", "PILOT Blinker Switch, ON/OFF")
+defineToggleSwitch("PLT_BLINK_SW", 23, 3011, 364, "Int Light System", "PILOT Blinker Switch, ON/OFF")
 defineTumb("PLT_TRANSFROM_1_R", 23, 3012, 148, 0.1, {0, 1}, nil, false, "Int Light System", "PILOT Transformer 1 Group Of Red Lights Right And Pilot Panel, OFF/8V/9V/10V/11V/12V/13V/14V/16V/18V/20V")
 defineTumb("PLT_TRANSFROM_2_R", 23, 3013, 147, 0.1, {0, 1}, nil, false, "Int Light System", "PILOT Transformer 2 Group Of Red Lights Right And Pilot Panel, OFF/8V/9V/10V/11V/12V/13V/14V/16V/18V/20V")
 defineToggleSwitch("PLT_ARM_RED_L_SW", 23, 3014, 822, "Int Light System", "PILOT Armament Panel red Lights Switch, ON/OFF")
@@ -181,7 +187,7 @@ definePushButton("OP_GYRO_2_CAGE", 26, 3003, 701, "MGV1SU", "OPERATOR Cage Gyro 
 defineRotary("PLT_UKT2_PITCH_TRIM", 18, 3001, 951, "UKT-2", "PILOT UKT-2 Pitch Trim Knob")
 defineFloat("PLT_UKT2_PITCH", 949, {-1, 1}, "UKT-2 Gauges", "PILOT UKT-2 Pitch")
 defineFloat("PLT_UKT2_ROLL", 950, {1, -1}, "UKT-2 Gauges", "PILOT UKT-2 Roll")
-defineFloat("PLT_UKT2_FAIL_FLG", 849, {0, 1}, "UKT-2 Gauges", "PILOT UKT-2 Failure Flag")
+defineFloat("PLT_UKT2_FAIL_FLG", 948, {0, 1}, "UKT-2 Gauges", "PILOT UKT-2 Failure Flag")
 
 --Barometric Altimeter
 definePotentiometer("PLT_ALT_PRESS", 41, 3001, 18, {0, 1}, "Barometric Altimeter", "PILOT Baro Pressure Knob")
@@ -230,7 +236,7 @@ defineFloat("PLT_CLOCK_F_M", 53, {0, 1}, "Clock Gauges", "PILOT Clock Flight Min
 defineFloat("PLT_CLOCK_ST_M", 54, {0, 1}, "Clock Gauges", "PILOT Clock Seconds Time Minutes")
 defineFloat("PLT_CLOCK_ST_S", 55, {0, 1}, "Clock Gauges", "PILOT Clock Seconds Time Seconds")
 defineFloat("OP_CLOCK_CT_H", 695, {0, 1}, "Clock Gauges", "OPERATOR Clock Current Time Hours")
-defineFloat("OP_CLOCK_CT_M", 695, {0, 1}, "Clock Gauges", "OPERATOR Clock Current Time Minutes")
+defineFloat("OP_CLOCK_CT_M", 696, {0, 1}, "Clock Gauges", "OPERATOR Clock Current Time Minutes")
 defineFloat("OP_CLOCK_CT_S", 690, {0, 1}, "Clock Gauges", "OPERATOR Clock Current Time Seconds")
 defineFloat("OP_CLOCK_FT_STAT", 692, {0, 1}, "Clock Gauges", "OPERATOR Clock Flight Time Status")
 defineFloat("OP_CLOCK_F_H", 961, {0, 1}, "Clock Gauges", "OPERATOR Clock Flight Hours")
@@ -476,7 +482,7 @@ define3PosTumb("OP_BURST_LENGTH", 6, 3026, 770, "Weapon Systems", "OPERATOR Burs
 defineToggleSwitch("OP_CAN_RATE", 6, 3037, 772, "Weapon Systems", "OPERATOR Cannon Fire Rate SLOW/FAST")
 defineToggleSwitch("OP_MISSL_PW", 6, 3028, 773, "Weapon Systems", "OPERATOR Missiles Power")
 definePushButton("OP_JETT_TEST", 6, 3031, 768, "Weapon Systems", "OPERATOR Release Check PU")
-define3PosTumb("OP_DISTR_CONTROL", 6, 3029, 762, "Weapon Systems", "OPERATOR CHECK1-WORK-CHECK2")
+define3PosTumb("OP_DISTR_CONTROL", 6, 3029, 762, "Weapon Systems", "OPERATOR CHECK1-WORK-CHECK2") --Arg doubled
 definePushButton("OP_CAN_RELOAD", 6, 3039, 769, "Weapon Systems", "OPERATOR Reload Cannon")
 defineToggleSwitch("OP_SCHO_PW", 6, 3030, 955, "Weapon Systems", "OPERATOR SCHO Power")
 definePushButton("OP_SCHO_L_CHECK", 6, 3035, 956, "Weapon Systems", "OPERATOR SCHO Lamps Check")
@@ -487,7 +493,7 @@ definePushButton("OP_CONTAINER_STOP", 6, 3046, 710, "Weapon Systems", "OPERATOR 
 --Stick
 defineToggleSwitch("PLT_STICK_FIRE_WPNS_CV", 6, 3002, 740, "Stick", "PILOT Stick Fire Weapons Cover")
 definePushButton("PLT_STICK_FIRE_WPNS", 6, 3001, 741, "Stick", "PILOT Stick Fire Weapons")
-defineToggleSwitch("OP_STICK_FIRE_WPNS_CV", 6, 3022, 583, "Stick", "OPERATOR Stick Fire Weapons Cover")
+defineToggleSwitch("OP_STICK_FIRE_WPNS_CV", 6, 3022, 853, "Stick", "OPERATOR Stick Fire Weapons Cover")
 definePushButton("OP_STICK_FIRE_WPNS", 6, 3021, 187, "Stick", "OPERATOR Stick Fire Weapons")
 definePushButton("OP_STICK_ENGAGE", 30, 3011, 865, "Stick", "OPERATOR Engage Stick")
 defineToggleSwitch("OP_STICK_DISENGAGE_CV", 30, 3013, 857, "Stick", "OPERATOR Disengage Stick Cover")
@@ -568,6 +574,9 @@ definePushButton("PLT_SHTV_HIGH_K", 7, 3016, 875, "I9K113", "PILOT SHTV High K")
 definePushButton("PLT_SHTV_L_CHECK", 7, 3017, 932, "I9K113", "PILOT SHTV Lamps Check")
 definePushButton("OP_SHTV_RAD_RESET", 7, 3029, 882, "I9K113", "OPERATOR SHTV Radiation Reset")
 
+defineFloat("PLT_SIGHT_AZI", 874, {-1, 1}, "I9K113 Gauges", "PILOT Sight Azimuth")
+defineFloat("PLT_SIGHT_ELE", 876, {-1, 1}, "I9K113 Gauges", "PILOT Sight Elevation")
+
 ---ASP17
 defineToggleSwitch("PLT_ASP17_MODE_MAN_AUTO", 16, 3001, 553, "ASP17", "PILOT ASP17 Sight Mode, MANUAL/AUTO")
 defineToggleSwitch("PLT_ASP17_MODE_SYNC_ASYNC", 16, 3002, 554, "ASP17", "PILOT ASP17 Sight Mode, SYNC/ASYNC")
@@ -579,8 +588,8 @@ definePotentiometer("PLT_ASP17_GRID_BRIGHT_ADJ", 16, 3010, 567, {0, 1}, "ASP17",
 defineToggleSwitch("PLT_ASP17_CROSSHAIR_LAMP", 16, 3013, 568, "ASP17", "PILOT ASP17 Sight Crosshair Lamp, MAIN/BACKUP")
 defineToggleSwitch("PLT_ASP17_GRID_LAMP", 16, 3012, 569, "ASP17", "PILOT ASP17 Sight Grid Lamp, MAIN/BACKUP")
 definePushButton("PLT_ASP17_CONTROL", 16, 3009, 570, "ASP17", "PILOT ASP17 Sight Control")
-defineToggleSwitch("PLT_ASP17_USR_PW", 16, 3015, 761, "ASP17", "PILOT ASP17 Sight USR power")
-defineToggleSwitch("PLT_ASP17_USR_CHECK", 16, 3016, 762, "ASP17", "PILOT ASP17 Sight USR check")
+defineToggleSwitch("OP_USR_PW", 16, 3015, 761, "ASP17", "OPERATOR USR power")
+defineToggleSwitch("OP_USR_CHECK", 16, 3016, 762, "ASP17", "OPERATOR USR check")  -- Arg doubled
 defineToggleSwitch("PLT_ASP17_REFLECTOR_FIX", 16, 3045, 1005, "ASP17", "PILOT ASP17 Sight Reflector Control Fix")
 defineRotary("PLT_ASP17_REFLECTOR_MOVE", 16, 3046, 1006, "ASP17", "PILOT ASP17 Sight Reflector Control Move")
 
@@ -625,7 +634,7 @@ defineFloat("PLT_GREB_CLOSE_N", 443, {0, 1}, "GREBEN Gauges", "PILOT Greben Nort
 defineFloat("PLT_GREB_CLOSE_N_10", 442, {0, 1}, "GREBEN Gauges", "PILOT Greben North 10")
 defineFloat("PLT_GREB_CLOSE_N_1", 441, {0, 1}, "GREBEN Gauges", "PILOT Greben North 1")
 defineFloat("PLT_GREB_CLOSE_N_10S", 440, {0, 1}, "GREBEN Gauges", "PILOT Greben North 10s")
-defineFloat("PLT_GREB_CLOSE_S", 443, {0, 1}, "GREBEN Gauges", "PILOT Greben South Closed")
+defineFloat("PLT_GREB_CLOSE_S", 447, {0, 1}, "GREBEN Gauges", "PILOT Greben South Closed")
 defineFloat("PLT_GREB_CLOSE_S_10", 446, {0, 1}, "GREBEN Gauges", "PILOT Greben South 10")
 defineFloat("PLT_GREB_CLOSE_S_1", 445, {0, 1}, "GREBEN Gauges", "PILOT Greben South 1")
 defineFloat("PLT_GREB_CLOSE_S_10S", 444, {0, 1}, "GREBEN Gauges", "PILOT Greben South 10s")
@@ -921,11 +930,16 @@ defineToggleSwitch("PLT_IFF_SOS_CV", 57, 3006, 330, "IFF", "PILOT IFF Transponde
 defineToggleSwitch("PLT_IFF_SOS", 57, 3007, 331, "IFF", "PILOT IFF Transponder Disaster Switch, ON/OFF")
 defineToggleSwitch("PLT_IFF_PW", 57, 3008, 383, "IFF", "PILOT IFF Transponder Power Switch, ON/OFF")
 
+defineIndicatorLight("PLT_IFF_KD_L", 333, "IFF Lights", "PILOT IFF KD Lamp (green)")
+defineIndicatorLight("PLT_IFF_KP_L", 335, "IFF Lights", "PILOT IFF KP Lamp (green)")
+
 --Recorder MC 61
 defineToggleSwitch("PLT_REC_PW", 58, 3001, 378, "Recorder MC 61", "PILOT Recorder MC 61 Power Switch, ON/OFF")
 defineToggleSwitch("PLT_REC_MODE", 58, 3002, 1007, "Recorder MC 61", "PILOT Recorder MC 61 AUTO/WORK")
 definePotentiometer("PLT_REC_BRGHT", 58, 3003, 381, {0, 1}, "Recorder MC 61", "PILOT Recorder MC 61 Brightness Knob")
 defineToggleSwitch("PLT_REC_SOURCE", 58, 3004, 1012, "Recorder MC 61", "PILOT Recorder MC 61 Laryngophone Switch, ON/OFF")
+
+defineIndicatorLight("PLT_REC_L", 379, "Recorder MC 61 Lights", "PILOT Recorder MC 61 Lamp (green)")
 
 --RI-65
 definePushButton("PLT_RI65_OFF", 59, 3001, 359, "RI-65", "PILOT RI-65 OFF Button")
@@ -962,9 +976,15 @@ defineFloat("PLT_WIPER_POS", 972, {0, 1}, "Gauges PLT", "PILOT Wiper Position")
 defineFloat("PLT_VARIOMETER", 1, {-1, 1}, "Gauges PLT", "PILOT Variometer")
 defineFloat("PLT_GMETER", 17, {-1, 1}, "Gauges PLT", "PILOT G-Meter")
 defineFloat("PLT_GMETER_MIN", 16, {-1, 1}, "Gauges PLT", "PILOT G-Meter Min")
-defineFloat("PLT_GMETER_MAX", 16, {-1, 1}, "Gauges PLT", "PILOT G-Meter Max")
+defineFloat("PLT_GMETER_MAX", 18, {-1, 1}, "Gauges PLT", "PILOT G-Meter Max")
 defineFloat("PLT_IAS", 790, {-1, 1}, "Gauges PLT", "PILOT IAS Speed")
 defineFloat("OP_IAS", 776, {-1, 1}, "Gauges OP", "OPERATOR IAS Speed")
+
+--Warning, Caution and IndicatorLights
+defineIndicatorLight("OP_GYRO2_FAIL", 320, "Warning, Caution and IndicatorLights","OP failure Gyro 2 Lamp (red)")
+defineIndicatorLight("PLT_L_VU_OFF", 63, "Warning, Caution and IndicatorLights","PILOT Left VU OFF (amber)")
+defineIndicatorLight("PLT_R_VU_OFF", 64, "Warning, Caution and IndicatorLights","PILOT Right VU OFF (amber)")
+defineIndicatorLight("PLT_DC_SOCK_ON", 64, "Warning, Caution and IndicatorLights","PILOT DC Socket ON (amber)")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHTS", function()
