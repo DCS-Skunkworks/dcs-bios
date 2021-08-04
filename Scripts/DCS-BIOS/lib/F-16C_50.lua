@@ -1,4 +1,4 @@
--- V1.8a by Warlord (aka BlackLibrary)
+-- V1.8b by Warlord (aka BlackLibrary)
 -- Added HARM,VIP,VRP pages by Matchstick
 -- Tested and fixes by BuzzKillington & afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick
@@ -396,9 +396,9 @@ defineRotary("ADI_PITCH_TRIM", 50, 3001, 22, "ADI", "ADI Pitch Trim Knob")
 
 --EHSI
 definePushButton("EHSI_CRS_SET", 28, 3005, 43,"EHSI" , "EHSI CRS Set")
-defineTumb("EHSI_CRS_SET_KNB", 28, 3004, 43, 0.032, {-0.032, 0.032}, nil, false, "EHSI", "EHSI CRS Set Knob")
+defineRotary("EHSI_CRS_SET_KNB", 28, 3004, 43, "EHSI", "EHSI CRS Set Knob")
 definePushButton("EHSI_HDG_SET_BTN", 28, 3003, 42,"EHSI" , "EHSI HDG Set Button")
-defineTumb("EHSI_HDG_SET_KNB", 28, 3002, 44, 0.032, {-0.032, 0.032}, nil, false, "EHSI", "EHSI HDG Set Knob")
+defineRotary("EHSI_HDG_SET_KNB", 28, 3002, 44, "EHSI", "EHSI HDG Set Knob")
 definePushButton("EHSI_MODE", 28, 3001, 46,"EHSI" , "EHSI Mode (M) Button")
 
 --Clock
