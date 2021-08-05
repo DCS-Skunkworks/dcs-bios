@@ -674,7 +674,7 @@ defineIndicatorLight("OP_L166B_FAIL_L", 869, "I9K113 Lights", "OPERATOR L166B Fa
 
 ---ASP17
 defineToggleSwitch("PLT_ASP17_MODE_MAN_AUTO", 16, 3001, 553, "ASP17", "PILOT ASP17 Sight Mode, MANUAL/AUTO")
-defineToggleSwitch("PLT_ASP17_MODE_SYNC_ASYNC", 16, 3002, 554, "ASP17", "PILOT ASP17 Sight Mode, SYNC/ASYNC")
+defineToggleSwitch("PLT_ASP17_MODE_SYNC_ASYNC", 16, 3002, 554, "ASP17", "PILOT ASP17 Sight Sync, SYNC/ASYNC")
 definePotentiometer("PLT_ASP17_VERTICAL_ADJ", 16, 3005, 556, {0, 1}, "ASP17", "PILOT ASP17 Sight Crosshair Vertical Adjustment")
 definePotentiometer("PLT_ASP17_BASE_ADJ", 16, 3008, 557, {0, 1}, "ASP17", "PILOT ASP17 Base and Range Adjustment")
 definePotentiometer("PLT_ASP17_CROSSHAIR_BRIGHT_ADJ", 16, 3011, 564, {0, 1}, "ASP17", "PILOT ASP17 Sight Crosshair Brightness Adjustment")

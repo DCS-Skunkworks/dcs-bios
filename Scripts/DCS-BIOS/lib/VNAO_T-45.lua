@@ -17,7 +17,7 @@ local definePotentiometer = BIOS.util.definePotentiometer
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
--------- FRONT Pit Clickables ------
+-------- FRONT Pit ------
 
 defineTumb("FLAPS_LVR", 19, 3013, 7, 0.5, {0, 1}, nil, false, "General", "Flaps Lever, UP/ 1/2 /DOWN")
 defineToggleSwitch("EMERG_FLAP_SW", 19, 3027, 184, "General", "EMER FLAPS Switch, NORM/DOWN")
@@ -78,17 +78,21 @@ definePushButton("MFD_R_BTN_3", 12, 3508, 42, "MFD Right", "Right MFD Push Butto
 definePushButton("MFD_R_BTN_2", 12, 3507, 41, "MFD Right", "Right MFD Push Button 2")
 definePushButton("MFD_R_BTN_1", 12, 3506, 40, "MFD Right", "Right MFD Push Button 1")
 
--------- REAR Pit Clickables ------
+-------- REAR Pit ------
 
 --Warning, Caution and IndicatorLights
-defineIndicatorLight("L_AOA_SLOW", 320, "Warning, Caution and IndicatorLights","AOA Light Slow (green)")
-defineIndicatorLight("L_AOA_OPT", 321, "Warning, Caution and IndicatorLights","AOA Light Optimum (yellow)")
-defineIndicatorLight("L_AOA_FAST", 322, "Warning, Caution and IndicatorLights","AOA Light Fast (red)")
+defineIndicatorLight("AOA_SLOW_L", 320, "Warning, Caution and IndicatorLights","AOA Light Slow (green)")
+defineIndicatorLight("AOA_OPT_L", 321, "Warning, Caution and IndicatorLights","AOA Light Optimum (yellow)")
+defineIndicatorLight("AOA_FAST_L", 322, "Warning, Caution and IndicatorLights","AOA Light Fast (red)")
 
 --Gauges
 defineFloat("CANOPY_VALUE", 1, {0, 1}, "Gauges", "Canopy Position")
 defineFloat("ADI_SLIP", 161, {-0.1, 0.1}, "Gauges", "ADI Slip")
 defineFloat("AOA_GAUGE", 161, {0, 1}, "Gauges", "AoA Gauge")
+defineFloat("EGT_G", 178, {0, 1}, "Gauges", "EGT Gauge")
+defineFloat("CLOCK_H_G", 185, {0, 1}, "Gauges", "Clock Hours Gauge")
+defineFloat("CLOCK_M_G", 186, {0, 1}, "Gauges", "Clock Minutes Gauge")
+defineFloat("CLOCK_S_G", 187, {0, 1}, "Gauges", "Clock Seconds Gauge")
 
 defineIntegerFromGetter("EXT_HOOK", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(25)*65535)
