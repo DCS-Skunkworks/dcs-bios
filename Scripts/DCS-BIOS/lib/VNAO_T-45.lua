@@ -15,6 +15,7 @@ local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
+local defineRotary = BIOS.util.defineRotary
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -------- FRONT Pit ------
@@ -23,6 +24,10 @@ defineTumb("FLAPS_LVR", 19, 3013, 7, 0.5, {0, 1}, nil, false, "General", "Flaps 
 defineToggleSwitch("EMERG_FLAP_SW", 19, 3027, 184, "General", "EMER FLAPS Switch, NORM/DOWN")
 defineToggleSwitch("PARK_BRAKE", 19, 3038, 117, "General", "Parking Brake Handle, OUT/IN")
 definePushButton("HYD2_RESET_BTN", 19, 3025, 66, "Gear", "HYD 2 Reset Button")
+defineToggleSwitch("PARK_BRAKE", 19, 3026, 180, "General", "Pitot Heat Switch, HEAT/OFF")
+defineRotary("ALT_SET_KNB", 8, 3557, 165, "General", "Altimeter Setting Knob")
+defineToggleSwitch("CANOPY_HANDLE", 19, 3042, 116, "General", "Canopy Handle, OPEN/CLOSE")
+definePushButton("MASTER_ALERT_BTN", 19, 3040, 143, "General", "Master Alert Button")
 
 -- MFD Left ----
 definePushButton("MFD_L_ON_DAY", 12, 3501, 424, "MFD Left", "Left MFD On Day")
@@ -93,6 +98,34 @@ defineFloat("EGT_G", 178, {0, 1}, "Gauges", "EGT Gauge")
 defineFloat("CLOCK_H_G", 185, {0, 1}, "Gauges", "Clock Hours Gauge")
 defineFloat("CLOCK_M_G", 186, {0, 1}, "Gauges", "Clock Minutes Gauge")
 defineFloat("CLOCK_S_G", 187, {0, 1}, "Gauges", "Clock Seconds Gauge")
+defineFloat("SADI_PITCH_G", 169, {1, -1}, "Gauges", "SADI Pitch Gauge")
+defineFloat("SADI_ROLL_G", 170, {1, -1}, "Gauges", "SADI Roll Gauge")
+defineFloat("VERT_VELOCITY_G", 162, {-1, 1}, "Gauges", "Vertical Velocity Gauge")
+defineFloat("AIRSPEED_G", 162, {0, 1}, "Gauges", "Airspeed Gauge")
+defineFloat("ALT_NEEDLE_G", 164, {0, 1}, "Gauges", "Altimeter Needle Gauge")
+defineFloat("ALT_10K_G", 314, {0, 1}, "Gauges", "Altimeter 10K Gauge")
+defineFloat("ALT_1K_G", 315, {0, 1}, "Gauges", "Altimeter 1K Gauge")
+defineFloat("ALT_100_G", 316, {0, 1}, "Gauges", "Altimeter 100 Gauge")
+defineFloat("ALT_10_G", 317, {0, 1}, "Gauges", "Altimeter 10 Gauge")
+defineFloat("ALT_1_G", 318, {0, 1}, "Gauges", "Altimeter 1 Gauge")
+defineFloat("ALT_BARO10_G", 324, {0, 1}, "Gauges", "Altimeter Barometric 10 Gauge")
+defineFloat("ALT_BARO1_G", 325, {0, 1}, "Gauges", "Altimeter Barometric 1 Gauge")
+defineFloat("ALT_BARO010_G", 326, {0, 1}, "Gauges", "Altimeter Barometric 0.10 Gauge")
+defineFloat("ALT_BARO0100_G", 327, {0, 1}, "Gauges", "Altimeter Barometric 0.100 Gauge")
+defineFloat("FUEL_FLOW_G", 173, {0, 1}, "Gauges", "Fuel Flow Needle Gauge")
+defineFloat("FUEL_TOTAL_G", 174, {0, 1}, "Gauges", "Total Fuel Needle Gauge")
+defineFloat("RPM_G", 175, {0, 1}, "Gauges", "RPM Needle Gauge")
+defineFloat("RPM_S_G", 176, {0, 1}, "Gauges", "RPM Needle Small Gauge")
+defineFloat("TACAN_1_G", 332, {0, 1}, "Gauges", "TACAN Dial 1 Gauge")
+defineFloat("TACAN_10_G", 331, {0, 1}, "Gauges", "TACAN Dial 10 Gauge")
+defineFloat("TACAN_100_G", 330, {0, 1}, "Gauges", "TACAN Dial 100 Gauge")
+defineFloat("VOR_NXX_G", 334, {0, 1}, "Gauges", "VOR Dial Whole Xxx Gauge")
+defineFloat("VOR_XNX_G", 335, {0, 1}, "Gauges", "VOR Dial Whole xXx Gauge")
+defineFloat("VOR_XXN_G", 336, {0, 1}, "Gauges", "VOR Dial Whole xxX Gauge")
+defineFloat("VOR_DEC_NX_G", 337, {0, 1}, "Gauges", "VOR Dial Decimal Xx Gauge")
+defineFloat("VOR_DEC_XN_G", 338, {0, 1}, "Gauges", "VOR Dial Decimal xX Gauge")
+defineFloat("INT_PTT_G", 295, {0, 1}, "Gauges", "Intercom PTT Gauge")
+defineFloat("MAG_COMP_G", 118, {1, 0}, "Gauges", "Magnetic Compasss Gauge")
 
 defineIntegerFromGetter("EXT_HOOK", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(25)*65535)
