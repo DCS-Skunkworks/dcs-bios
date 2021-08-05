@@ -68,7 +68,7 @@ defineTumb("MAGNETO",2, 3004,75, 0.3, {0,0.9}, nil, false, "Cockpit", "Magneto S
 defineTumb("STARTER_SWITCH",2, 3008, 105, 0.5, {0,1}, nil, false, "Cockpit", "Starter Switch. Starter Power")
 defineTumb("MBG_EMG_HNDL",2, 3013, 91, 1, {0,1}, nil, false, "Cockpit", "MBG Emergency Mode Handle")
 defineTumb("FUEL_TNK_SEL",6, 3001, 90, 0.1, {0,0.3}, nil, false, "Cockpit", "Fuel Tank Selector Valve (CLOSE/FORWARD/AFT/BOTH)")
-defineTumb("FUEL_GAUGE_SEL",6, 3002, 99, 0.5, {-0.5,1}, nil, false, "Cockpit", "Fuel Gauge Selector (FORWARD/NONE/AFT)")
+defineTumb("FUEL_GAUGE_SEL",6, 3002, 99, 0.5, {0,1}, nil, false, "Cockpit", "Fuel Gauge Selector (FORWARD/NONE/AFT)")
 defineTumb("FUEL_MWB4_SEL",6, 3003, 161, 1, {0,1}, nil, false, "Cockpit", "MW-B4 Selector (Not Functional)")
 defineTumb("FUEL_PRIM_PMPL",6, 3009, 162, 1, {0,1}, nil, false,"Cockpit", "Primer Pump")
 defineTumb("FL_TR_HOR_PWR_ON",1, 3005, 141, 1, {0,1}, nil, false, "Electric System", "Flaps, Trimmer, Artificial Horizon Power On")
