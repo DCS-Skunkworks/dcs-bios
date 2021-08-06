@@ -64,11 +64,6 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	end
 end
 
--- local function theatreName()
-  -- theatreNameV = env.mission.theatre
-  -- return theatreNameV
--- end
-
 local function misstime()
 misstimesec = LoGetMissionStartTime()
   local seconds = tonumber(misstimesec)
@@ -129,6 +124,5 @@ end, 127, "Heading", "Heading (Fractional Degrees, divide by 127)")
 
 defineString("MISS_TIME",  misstime, 5, "Metadata", "Mission Start Time")
 defineString("MOD_TIME", function() return modtime or "00000" end, 5, "Metadata", "Model Time in sec")
--- defineString("MAPNAME", theatreName, 24, "Metadata", "Theatre Name")
 
 BIOS.protocol.endModule()

@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("SuperCarrier", 0x0700)
-BIOS.protocol.setExportModuleAircrafts(BIOS.ALL_PLAYABLE_AIRCRAFT)
+BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})--(BIOS.ALL_PLAYABLE_AIRCRAFT)
 
 local documentation = moduleBeingDefined.documentation
 
@@ -10,9 +10,9 @@ local parse_indication = BIOS.util.parse_indication
 local definePushButton = BIOS.util.definePushButton
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 
-definePushButton("CVN_CUT_L", 0, 2, 27, "Panel", "Cut Lights")
-definePushButton("CVN_WAVEOFF_L", 0, 3, 28, "Panel", "WaveOff Lights")
-definePushButton("CVN_DECK_L", 0, 4, 34, "Panel", "DECK Lights On")
+definePushButton("CVN_CUT_L", 0, 3002, 27, "Panel", "Cut Lights")
+definePushButton("CVN_WAVEOFF_L", 0, 3003, 28, "Panel", "WaveOff Lights")
+definePushButton("CVN_DECK_L", 0, 3004, 34, "Panel", "DECK Lights On")
 
 defineIndicatorLight("CVN_MASTER_IND", 10, "Lights", "Master Caution Light (yellow)")
 defineIndicatorLight("CVN_CUT_IND", 11, "Lights", "CUT Light (green)")

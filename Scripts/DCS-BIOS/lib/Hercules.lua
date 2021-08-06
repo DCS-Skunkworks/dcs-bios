@@ -19,34 +19,33 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 --ICS_PANEL
-defineToggleSwitch("P_ICS_VOL_BTN", 14, 13039, 1431, "ICS Panel", "PILOT ICS Volume (Pull)")
-definePotentiometer("P_ICS_VOL_KNB", 14, 13038, 1430, {-0.5, 0.5}, "ICS Panel", "PILOT ICS Volume (Rotate)")
-defineToggleSwitch("CP_ICS_VOL_BTN", 14, 13040, 1433, "ICS Panel", "COPILOT ICS Volume (Pull)")
-definePotentiometer("CP_ICS_VOL_KNB", 14, 13041, 1432, {-0.5, 0.5}, "ICS Panel", "COPILOT ICS Volume (Rotate)")
-definePotentiometer("P_ICS_UN_KNB", 14, 13041, 1434, {-0.5, 0.5}, "ICS Panel", "PILOT ICS Undefined Knob")
-definePotentiometer("CP_ICS_UN_KNB", 14, 13042, 1435, {-0.5, 0.5}, "ICS Panel", "COPILOT ICS Undefined Knob")
+defineToggleSwitch("P_ICS_VOL_BTN", 13, 13039, 1431, "ICS Panel", "PILOT ICS Volume (Pull)")
+definePotentiometer("P_ICS_VOL_KNB", 13, 13038, 1430, {-0.5, 0.5}, "ICS Panel", "PILOT ICS Volume (Rotate)")
+defineToggleSwitch("CP_ICS_VOL_BTN", 13, 13040, 1433, "ICS Panel", "COPILOT ICS Volume (Pull)")
+definePotentiometer("CP_ICS_VOL_KNB", 13, 13041, 1432, {-0.5, 0.5}, "ICS Panel", "COPILOT ICS Volume (Rotate)")
+definePotentiometer("P_ICS_UN_KNB", 13, 13041, 1434, {-0.5, 0.5}, "ICS Panel", "PILOT ICS Undefined Knob")
+definePotentiometer("CP_ICS_UN_KNB", 13, 13042, 1435, {-0.5, 0.5}, "ICS Panel", "COPILOT ICS Undefined Knob")
 
 -- ELECTRICAL_PANEL
-defineToggleSwitch("BATTERY_SW", 14, 13009, 1000, "Electric Panel", "Battery Switch")
-defineToggleSwitch("BATTERY_SW1", 14, 13010, 1000, "Electric Panel", "Battery Switch1")
+defineToggleSwitch("BATTERY_SW", 13, 13010, 1000, "Electric Panel", "Battery Switch")
 
-define3PosTumb("EXT_PW_SW", 14, 13047, 1001, "Electric Panel", "External Power/OFF/APU Switch")
-defineToggleSwitch("GEN1_SW", 14, 13048, 1003, "Electric Panel", "Generator 1 Switch")
-defineToggleSwitch("GEN2_SW", 14, 13049, 1004, "Electric Panel", "Generator 2 Switch")
-defineToggleSwitch("GEN3_SW", 14, 13050, 1005, "Electric Panel", "Generator 3 Switch")
-defineToggleSwitch("GEN4_SW", 14, 13051, 1006, "Electric Panel", "Generator 4 Switch")
-define3PosTumb("BATT_TEST_SW", 14, 13052, 1007, "Electric Panel", "Battery Test Switch")
+define3PosTumb("EXT_PW_SW", 13, 13047, 1001, "Electric Panel", "External Power/OFF/APU Switch")
+defineToggleSwitch("GEN1_SW", 13, 13048, 1003, "Electric Panel", "Generator 1 Switch")
+defineToggleSwitch("GEN2_SW", 13, 13049, 1004, "Electric Panel", "Generator 2 Switch")
+defineToggleSwitch("GEN3_SW", 13, 13050, 1005, "Electric Panel", "Generator 3 Switch")
+defineToggleSwitch("GEN4_SW", 13, 13051, 1006, "Electric Panel", "Generator 4 Switch")
+define3PosTumb("BATT_TEST_SW", 13, 13052, 1007, "Electric Panel", "Battery Test Switch")
 
 -- FIRE_HANDLES
 
 -- ENGINE_START_PANEL
-defineTumb("ENG1_START_SW", 14, 13053, 1009, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 1 Stop/Run/Start Selector")
-defineTumb("ENG2_START_SW", 14, 13054, 1012, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 2 Stop/Run/Start Selector")
-defineTumb("ENG3_START_SW", 14, 13055, 1015, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 3 Stop/Run/Start Selector")
-defineTumb("ENG4_START_SW", 14, 13056, 1018, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 4 Stop/Run/Start Selector")
+defineTumb("ENG1_START_SW", 13, 13053, 1009, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 1 Stop/Run/Start Selector")
+defineTumb("ENG2_START_SW", 13, 13054, 1012, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 2 Stop/Run/Start Selector")
+defineTumb("ENG3_START_SW", 13, 13055, 1015, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 3 Stop/Run/Start Selector")
+defineTumb("ENG4_START_SW", 13, 13056, 1018, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 4 Stop/Run/Start Selector")
 
 -- APU_PANEL
-defineTumb("APU_START_SW", 14, 13056, 1050, 0.5, {0, 1}, nil, false, "APU Panel", "APU Stop/Run/Start Selector")
+defineTumb("APU_START_SW", 13, 13056, 1050, 0.5, {0, 1}, nil, false, "APU Panel", "APU Stop/Run/Start Selector")
 
 -- PROPELLER_CONTROL_PANEL
 
