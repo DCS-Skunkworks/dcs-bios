@@ -182,7 +182,7 @@ end
 
 local function getHUD_Mode()
     local hud_m = "1"
-	if GetDevice(0) == nil then  --nil
+	if GetDevice(0) == nil then
         hud_m = "1"
     elseif GetDevice(0):get_argument_value(1015) == 1 then  --Take Off
         hud_m = "1"
@@ -202,7 +202,7 @@ end
 
 local function getSTEER_Mode()
     local steer_m = "2"
-    if GetDevice(0) == nil then  --nil
+    if GetDevice(0) == nil then
         steer_m = "2"
 	elseif GetDevice(0):get_argument_value(1002) == 1 then  --TACAN
         steer_m = "1"
@@ -222,7 +222,7 @@ end
 
 local function getAIRSOURCE_Mode()
     local airsource_m = "5"
-	if GetDevice(0) == nil then  --nil
+	if GetDevice(0) == nil then
         airsource_m = "5"
     elseif GetDevice(0):get_argument_value(929) == 1 then  --RAM
         airsource_m = "1"
@@ -748,7 +748,6 @@ definePotentiometer("PLT_VSDI_TRIM", 42, 3230, 1035, {0.0, 1.0}, "HUD", "PILOT V
 definePotentiometer("PLT_VDI_CONTRAST", 42, 3231, 1038, {0.0, 1.0}, "HUD", "PILOT VDI Screen Contrast")
 definePotentiometer("PLT_VSDI_BRIGHT", 42, 3232, 1036, {0.0, 1.0}, "HUD", "PILOT VSDI Screen Brightness")
 definePotentiometer("PLT_HUD_BRIGHT", 40, 3233, 1037, {0.0, 1.0}, "HUD", "PILOT HUD Brightness")
---definePushButton("PLT_VDI_FILTER", 42, 3234, XXXXX, "HUD", "PILOT VDI Filter") missing arg
 
 -- Under HUD / Master Arm / Gun/Weapons Panel
 defineToggleSwitch("PLT_MASTER_ARM_COVER", 55, 3135, 1046, "Weapons Panel", "PILOT Master Arm Cover")
@@ -799,7 +798,6 @@ definePushButton("RIO_RADAR_20", 39, 3452, 42, "DDD", "RIO Radar 20 NM")
 definePushButton("RIO_RADAR_50", 39, 3453, 43, "DDD", "RIO Radar 50 NM")
 definePushButton("RIO_RADAR_100", 39, 3454, 44, "DDD", "RIO Radar 100 NM")
 definePushButton("RIO_RADAR_200", 39, 3455, 45, "DDD", "RIO Radar 200 NM")
---definePushButton("RIO_DDD_FILTER", 39, 3456, XXX, "DDD", "RIO DDD Filter") Missing agr
 definePushButton("RIO_RADAR_PULSE", 39, 3457, 10, "DDD", "RIO Radar Pulse Search")
 definePushButton("RIO_RADAR_TWSMAN", 39, 3458, 11, "DDD", "RIO Track While Scan Manual")
 definePushButton("RIO_RADAR_TWSAUTO", 39, 3459, 12, "DDD", "RIO Track While Scan Auto")
@@ -938,7 +936,6 @@ defineTumb("RIO_IFF_M3_100", 64, 3640, 198, 0.111, {0.0, 1.0}, nil, false, "IFF"
 defineTumb("RIO_IFF_M3_1000", 64, 3641, 199, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M3 Code 1000s")
 defineTumb("RIO_IFF_M1_1", 64, 3642, 200, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M1 Code 1s")
 defineTumb("RIO_IFF_M1_10", 64, 3643, 201, 0.111, {0.0, 1.0}, nil, false, "IFF", "RIO IFF M1 Code 10s")
-
 
 -- LIQUID Cooling
 define3PosTumb("RIO_LIQUD_COOL", 39, 3694, 95, "Radar Panel", "RIO Liquid Cooling Switch")
@@ -1362,7 +1359,7 @@ local function getPLTFuelLeft()
 	if digit4 == nil then digit4 = "0" end
     return tonumber(digit1 .. digit2 .. digit3 .. digit4)
 end
-defineIntegerFromGetter("PLT_FUEL_LEFT_DISP", getPLTFuelLeft, 9999, "PLT Gauges", "PILOT Fuel Left Display")
+defineIntegerFromGetter("PLT_FUEL_LEFT_DISP", getPLTFuelLeft, 2000, "PLT Gauges", "PILOT Fuel Left Display")
 
 defineFloat("PLT_FUEL_RIGHT_1K", 6004, {0, 1}, "PLT Gauges", "PILOT Fuel Right 1000")
 defineFloat("PLT_FUEL_RIGHT_100", 6005, {0, 1}, "PLT Gauges", "PILOT Fuel Right 100")
@@ -1380,7 +1377,7 @@ local function getPLTFuelRight()
 	if digit4 == nil then digit4 = "0" end
     return tonumber(digit1 .. digit2 .. digit3 .. digit4)
 end
-defineIntegerFromGetter("PLT_FUEL_RIGHT_DISP", getPLTFuelRight, 9999, "PLT Gauges", "PILOT Fuel Right Display")
+defineIntegerFromGetter("PLT_FUEL_RIGHT_DISP", getPLTFuelRight, 2000, "PLT Gauges", "PILOT Fuel Right Display")
 
 defineFloat("PLT_FUEL_TOTAL_10K", 6010, {0, 1}, "PLT Gauges", "PILOT Fuel Total 10000")
 defineFloat("PLT_FUEL_TOTAL_1K", 6011, {0, 1}, "PLT Gauges", "PILOT Fuel Total 1000")
@@ -1401,7 +1398,7 @@ local function getPLTFuelTotal()
 	if digit5 == nil then digit5 = "0" end
     return tonumber(digit1 .. digit2 .. digit3 .. digit4 .. digit5)
 end
-defineIntegerFromGetter("PLT_FUEL_TOTAL_DISP", getPLTFuelTotal, 59999, "PLT Gauges", "PILOT Fuel Total Display")
+defineIntegerFromGetter("PLT_FUEL_TOTAL_DISP", getPLTFuelTotal, 25000, "PLT Gauges", "PILOT Fuel Total Display")
 
 defineFloat("PLT_FUEL_BINGO_10K", 6020, {0, 1}, "PLT Gauges", "PILOT Fuel Bingo 10000")
 defineFloat("PLT_FUEL_BINGO_1K", 6021, {0, 1}, "PLT Gauges", "PILOT Fuel Bingo 1000")
@@ -1465,7 +1462,7 @@ local function getAmmo()
 	if digit3 == nil then digit3 = "0" end
     return tonumber(digit1 .. digit2 .. digit3)
 end
-defineIntegerFromGetter("PLT_AMMO_DISP", getAmmo, 999, "PLT Gauges", "PILOT Ammo Display")
+defineIntegerFromGetter("PLT_AMMO_DISP", getAmmo, 690, "PLT Gauges", "PILOT Ammo Display")
 
 defineFloat("PLT_GUN_LEAD_100", 2270, {0, 1}, "PLT Gauges", "PILOT Gun Lead 100")
 defineFloat("PLT_GUN_LEAD_10", 2271, {0, 1}, "PLT Gauges", "PILOT Gun Lead 10")
@@ -1480,7 +1477,7 @@ local function getGunLead()
 	if digit3 == nil then digit3 = "0" end
     return tonumber(digit1 .. digit2 .. digit3)
 end
-defineIntegerFromGetter("PLT_GUN_LEAD_DISP", getGunLead, 999, "PLT Gauges", "PILOT Gun Lead Display")
+defineIntegerFromGetter("PLT_GUN_LEAD_DISP", getGunLead, 187, "PLT Gauges", "PILOT Gun Lead Display")
 defineFloat("PLT_WEAPON_STORE_1A", 9221, {0, 1}, "PLT Gauges", "PILOT Weapon Store 1A")
 defineFloat("PLT_WEAPON_STORE_1B", 9222, {0, 1}, "PLT Gauges", "PILOT Weapon Store 1B")
 defineFloat("PLT_WEAPON_STORE_3", 9223, {0, 1}, "PLT Gauges", "PILOT Weapon Store 3")
@@ -1558,7 +1555,7 @@ local function getRIOFuelTotal()
 	if digit5 == nil then digit5 = "0" end
     return tonumber(digit1 .. digit2 .. digit3 .. digit4 .. digit5)
 end
-defineIntegerFromGetter("RIO_FUEL_TOTAL_DISP", getRIOFuelTotal, 65535, "RIO Gauges", "RIO Fuel Total Display")
+defineIntegerFromGetter("RIO_FUEL_TOTAL_DISP", getRIOFuelTotal, 25000, "RIO Gauges", "RIO Fuel Total Display")
 
 defineFloat("RIO_STDBYAI_OFF_FLAG", 19900, {0, 1}, "RIO Gauges", "RIO Standby ADI Off Flag")
 defineFloat("RIO_STDBYAI_PITCH", 3333, {-1, 1}, "RIO Gauges", "RIO Standby ADI Pitch")
@@ -1696,13 +1693,7 @@ end, 65535, "External Aircraft Model", "Wing Position Right")
 defineFloat("INTERNAL_FLOOD_RED_L", 1800, {0, 1}, "zAdditional Parameters", "Flood Lights red")
 defineFloat("INTERNAL_FLOOD_WHT_L", 1803, {0, 1}, "zAdditional Parameters", "Flood Lights white")
 defineFloat("INTERNAL_PLT_PANEL_L", 1801, {1, 0}, "zAdditional Parameters", "Panel Lights (red) inverted")
-
--- defineToggleSwitch("WALKMAN_Play", 55, 3070, 1, "Walkman", "WALKMAN_Play")
--- defineToggleSwitch("WALKMAN_Stop", 55, 3071, 1, "Walkman", "WALKMAN_Stop")
--- defineToggleSwitch("WALKMAN_FFWD", 55, 3072, 1, "Walkman", "WALKMAN_FFWD")
--- defineToggleSwitch("WALKMAN_FBWD", 55, 3073, 1, "Walkman", "WALKMAN_FBWD")
--- defineToggleSwitch("WALKMAN_VOLUP", 55, 3074, 1, "Walkman", "WALKMAN_VOLUP")
--- defineToggleSwitch("WALKMAN_VOLDOWN", 55, 3075, 1, "Walkman", "WALKMAN_VOLDOWN")
--- defineToggleSwitch("WALKMAN_Side", 55, 3790, 1, "Walkman", "WALKMAN_Side")
+definePushButton("PLT_VDI_FILTER", 42, 3234, 0, "HUD", "PILOT VDI Filter") --miss arg
+definePushButton("RIO_DDD_FILTER", 39, 3456, 0, "DDD", "RIO DDD Filter") --miss arg
 
 BIOS.protocol.endModule()
