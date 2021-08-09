@@ -844,18 +844,18 @@ local ARC15_FREQ_POS = {
   ["19"] = "9.5"
 }
 
-definePotentiometer("PLT_ARC_VOL", 47, 3001, 459, {0, 1}, "ARC 15 PLT", "PILOT ARC-15 Volume")
-defineToggleSwitch("PLT_ARC_MODUL", 47, 3002, 460, "ARC 15 PLT", "PILOT ARC-15 TLF/TLG")
-defineMultipositionSwitch("PLT_ARC_MODE", 47, 3003, 463, 4, 0.115, "ARC 15 PLT", "PILOT ARC-15 mode OFF/COMPASS/ANT/FRAME")
-defineMultipositionSwitch("PLT_ARC_FREQ_L_100", 47, 3004, 467, 18, 1/17, "ARC 15 PLT", "PILOT ARC-15 Left Frequency 100KHz")
-defineMultipositionSwitch("PLT_ARC_FREQ_L_10", 47, 3005, 468, 10, 1/9, "ARC 15 PLT", "PILOT ARC-15 Left Frequency 10KHz")
-defineMultipositionSwitch("PLT_ARC_FREQ_L_1", 47, 3006, 469, 20, 1/20, "ARC 15 PLT", "PILOT ARC-15 Left Frequency 1KHz")
-defineMultipositionSwitch("PLT_ARC_FREQ_R_100", 47, 3007, 464, 18, 1/17, "ARC 15 PLT", "PILOT ARC-15 Right Frequency 100KHz")
-defineMultipositionSwitch("PLT_ARC_FREQ_R_10", 47, 3008, 465, 10, 1/9, "ARC 15 PLT", "PILOT ARC-15 Right Frequency 10KHz")
-defineMultipositionSwitch("PLT_ARC_FREQ_R_1", 47, 3009, 466, 20, 1/20, "ARC 15 PLT", "PILOT ARC-15 Right Frequency 1KHz")
-definePushButton("PLT_ARC_LOOP", 47, 3010, 458, "ARC 15 PLT", "PILOT ARC-15 Loop Button")
-defineToggleSwitch("PLT_ARC_CHAN", 47, 3011, 462, "ARC 15 PLT", "PILOT ARC-15 1/2")
-definePushButton("PLT_ARC_CONTROL", 47, 3012, 461, "ARC 15 PLT", "PILOT ARC-15 Control Button")
+definePotentiometer("PLT_ARC_VOL", 47, 3001, 459, {0, 1}, "ARC-15 PLT", "PILOT ARC-15 Volume")
+defineToggleSwitch("PLT_ARC_MODUL", 47, 3002, 460, "ARC-15 PLT", "PILOT ARC-15 TLF/TLG")
+defineMultipositionSwitch("PLT_ARC_MODE", 47, 3003, 463, 4, 0.115, "ARC-15 PLT", "PILOT ARC-15 mode OFF/COMPASS/ANT/FRAME")
+defineMultipositionSwitch("PLT_ARC_FREQ_L_100", 47, 3004, 467, 18, 1/17, "ARC-15 PLT", "PILOT ARC-15 Left Frequency 100KHz")
+defineMultipositionSwitch("PLT_ARC_FREQ_L_10", 47, 3005, 468, 10, 1/9, "ARC-15 PLT", "PILOT ARC-15 Left Frequency 10KHz")
+defineMultipositionSwitch("PLT_ARC_FREQ_L_1", 47, 3006, 469, 20, 1/20, "ARC-15 PLT", "PILOT ARC-15 Left Frequency 1KHz")
+defineMultipositionSwitch("PLT_ARC_FREQ_R_100", 47, 3007, 464, 18, 1/17, "ARC-15 PLT", "PILOT ARC-15 Right Frequency 100KHz")
+defineMultipositionSwitch("PLT_ARC_FREQ_R_10", 47, 3008, 465, 10, 1/9, "ARC-15 PLT", "PILOT ARC-15 Right Frequency 10KHz")
+defineMultipositionSwitch("PLT_ARC_FREQ_R_1", 47, 3009, 466, 20, 1/20, "ARC-15 PLT", "PILOT ARC-15 Right Frequency 1KHz")
+definePushButton("PLT_ARC_LOOP", 47, 3010, 458, "ARC-15 PLT", "PILOT ARC-15 Loop Button")
+defineToggleSwitch("PLT_ARC_CHAN", 47, 3011, 462, "ARC-15 PLT", "PILOT ARC-15 1/2")
+definePushButton("PLT_ARC_CONTROL", 47, 3012, 461, "ARC-15 PLT", "PILOT ARC-15 Control Button")
 
 local function getARCLPLTFrequency()
     local freq1 = string.format("%.0f", GetDevice(0):get_argument_value(467)/(1/17))
@@ -866,7 +866,7 @@ local function getARCLPLTFrequency()
 	if freq3 == nil then freq3 = "000" end
 	return  freq1 .. freq2 .. freq3 or "000000"
 end
-defineString("PLT_ARC_FREQ_L", getARCLPLTFrequency, 6, "ARC 15 PLT", "PILOT ARC-15 Left Frequency (String)")
+defineString("PLT_ARC_FREQ_L", getARCLPLTFrequency, 6, "ARC-15 PLT", "PILOT ARC-15 Left Frequency (String)")
 
 local function getARCRPLTFrequency()
     local freq1 = string.format("%.0f", GetDevice(0):get_argument_value(464)/(1/17))
@@ -877,20 +877,20 @@ local function getARCRPLTFrequency()
 	if freq3 == nil then freq3 = "000" end
 	return  freq1 .. freq2 .. freq3 or "000000"
 end
-defineString("PLT_ARC_FREQ_R", getARCRPLTFrequency, 6, "ARC 15 PLT", "PILOT ARC-15 Right Frequency (String)")
+defineString("PLT_ARC_FREQ_R", getARCRPLTFrequency, 6, "ARC-15 PLT", "PILOT ARC-15 Right Frequency (String)")
 
-definePotentiometer("OP_ARC_VOL", 48, 3001, 634, {0, 1}, "ARC 15 OP", "OPERATOR ARC-15 Volume")
-defineToggleSwitch("OP_ARC_MODUL", 48, 3002, 635, "ARC 15 OP", "OPERATOR ARC-15 TLF/TLG")
-defineMultipositionSwitch("OP_ARC_MODE", 48, 3003, 638, 4, 0.115, "ARC 15 OP", "OPERATOR ARC-15 mode OFF/COMPASS/ANT/FRAME")
-defineMultipositionSwitch("OP_ARC_FREQ_L_100", 48, 3004, 639, 18, 1/17, "ARC 15 OP", "OPERATOR ARC-15 Left Frequency 100KHz")
-defineMultipositionSwitch("OP_ARC_FREQ_L_10", 48, 3005, 640, 10, 1/9, "ARC 15 OP", "OPERATOR ARC-15 Left Frequency 10KHz")
-defineMultipositionSwitch("OP_ARC_FREQ_L_1", 48, 3006, 641, 20, 1/20, "ARC 15 OP", "OPERATOR ARC-15 Left Frequency 1KHz")
-defineMultipositionSwitch("OP_ARC_FREQ_R_100", 48, 3007, 642, 18, 1/17, "ARC 15 OP", "OPERATOR ARC-15 Right Frequency 100KHz")
-defineMultipositionSwitch("OP_ARC_FREQ_R_10", 48, 3008, 643, 10, 1/9, "ARC 15 OP", "OPERATOR ARC-15 Right Frequency 10KHz")
-defineMultipositionSwitch("OP_ARC_FREQ_R_1", 48, 3009, 644, 20, 1/20, "ARC 15 OP", "OPERATOR ARC-15 Right Frequency 1KHz")
-definePushButton("OP_ARC_LOOP", 48, 3010, 633, "ARC 15 OP", "OPERATOR ARC-15 Loop Button")
-defineToggleSwitch("OP_ARC_CHAN", 48, 3011, 637, "ARC 15 OP", "OPERATOR ARC-15 1/2")
-definePushButton("OP_ARC_CONTROL", 48, 3012, 636, "ARC 15 OP", "OPERATOR ARC-15 Control Button")
+definePotentiometer("OP_ARC_VOL", 48, 3001, 634, {0, 1}, "ARC-15 OP", "OPERATOR ARC-15 Volume")
+defineToggleSwitch("OP_ARC_MODUL", 48, 3002, 635, "ARC-15 OP", "OPERATOR ARC-15 TLF/TLG")
+defineMultipositionSwitch("OP_ARC_MODE", 48, 3003, 638, 4, 0.115, "ARC-15 OP", "OPERATOR ARC-15 mode OFF/COMPASS/ANT/FRAME")
+defineMultipositionSwitch("OP_ARC_FREQ_L_100", 48, 3004, 639, 18, 1/17, "ARC-15 OP", "OPERATOR ARC-15 Left Frequency 100KHz")
+defineMultipositionSwitch("OP_ARC_FREQ_L_10", 48, 3005, 640, 10, 1/9, "ARC-15 OP", "OPERATOR ARC-15 Left Frequency 10KHz")
+defineMultipositionSwitch("OP_ARC_FREQ_L_1", 48, 3006, 641, 20, 1/20, "ARC-15 OP", "OPERATOR ARC-15 Left Frequency 1KHz")
+defineMultipositionSwitch("OP_ARC_FREQ_R_100", 48, 3007, 642, 18, 1/17, "ARC-15 OP", "OPERATOR ARC-15 Right Frequency 100KHz")
+defineMultipositionSwitch("OP_ARC_FREQ_R_10", 48, 3008, 643, 10, 1/9, "ARC-15 OP", "OPERATOR ARC-15 Right Frequency 10KHz")
+defineMultipositionSwitch("OP_ARC_FREQ_R_1", 48, 3009, 644, 20, 1/20, "ARC-15 OP", "OPERATOR ARC-15 Right Frequency 1KHz")
+definePushButton("OP_ARC_LOOP", 48, 3010, 633, "ARC-15 OP", "OPERATOR ARC-15 Loop Button")
+defineToggleSwitch("OP_ARC_CHAN", 48, 3011, 637, "ARC-15 OP", "OPERATOR ARC-15 1/2")
+definePushButton("OP_ARC_CONTROL", 48, 3012, 636, "ARC-15 OP", "OPERATOR ARC-15 Control Button")
 
 local function getARCLOPFrequency()
     local freq1 = string.format("%.0f", GetDevice(0):get_argument_value(639)/(1/17))
@@ -901,7 +901,7 @@ local function getARCLOPFrequency()
 	if freq3 == nil then freq3 = "000" end
 	return  freq1 .. freq2 .. freq3 or "000000"
 end
-defineString("OP_ARC_FREQ_L", getARCLOPFrequency, 6, "ARC 15 OP", "OPERATOR ARC-15 Left Frequency (String)")
+defineString("OP_ARC_FREQ_L", getARCLOPFrequency, 6, "ARC-15 OP", "OPERATOR ARC-15 Left Frequency (String)")
 
 local function getARCROPFrequency()
     local freq1 = string.format("%.0f", GetDevice(0):get_argument_value(642)/(1/17))
@@ -912,7 +912,7 @@ local function getARCROPFrequency()
 	if freq3 == nil then freq3 = "000" end
 	return  freq1 .. freq2 .. freq3 or "000000"
 end
-defineString("OP_ARC_FREQ_R", getARCROPFrequency, 6, "ARC 15 OP", "OPERATOR ARC-15 Right Frequency (String)")
+defineString("OP_ARC_FREQ_R", getARCROPFrequency, 6, "ARC-15 OP", "OPERATOR ARC-15 Right Frequency (String)")
 
 --R863
 defineToggleSwitch("PLT_R863_PW", 49, 3001, 375, "R-863", "PILOT R-863 ON/OFF")

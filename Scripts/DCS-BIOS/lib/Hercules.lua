@@ -19,44 +19,43 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 --ICS_PANEL
-defineToggleSwitch("P_ICS_VOL_BTN", 13, 13039, 1431, "ICS Panel", "PILOT ICS Volume (Pull)")
-definePotentiometer("P_ICS_VOL_KNB", 13, 13038, 1430, {-0.5, 0.5}, "ICS Panel", "PILOT ICS Volume (Rotate)")
-defineToggleSwitch("CP_ICS_VOL_BTN", 13, 13040, 1433, "ICS Panel", "COPILOT ICS Volume (Pull)")
-definePotentiometer("CP_ICS_VOL_KNB", 13, 13041, 1432, {-0.5, 0.5}, "ICS Panel", "COPILOT ICS Volume (Rotate)")
-definePotentiometer("P_ICS_UN_KNB", 13, 13041, 1434, {-0.5, 0.5}, "ICS Panel", "PILOT ICS Undefined Knob")
-definePotentiometer("CP_ICS_UN_KNB", 13, 13042, 1435, {-0.5, 0.5}, "ICS Panel", "COPILOT ICS Undefined Knob")
+defineToggleSwitch("P_ICS_VOL_BTN", 13, 13013, 1431, "ICS Panel", "PILOT ICS Volume (Pull)")
+definePotentiometer("P_ICS_VOL_KNB", 13, 13012, 1430, {-0.5, 0.5}, "ICS Panel", "PILOT ICS Volume (Rotate)")
+defineToggleSwitch("CP_ICS_VOL_BTN", 13, 13015, 1433, "ICS Panel", "COPILOT ICS Volume (Pull)")
+definePotentiometer("CP_ICS_VOL_KNB", 13, 13014, 1432, {-0.5, 0.5}, "ICS Panel", "COPILOT ICS Volume (Rotate)")
+definePotentiometer("P_ICS_UN_KNB", 13, 13016, 1434, {-0.5, 0.5}, "ICS Panel", "PILOT ICS Undefined Knob")
+definePotentiometer("CP_ICS_UN_KNB", 13, 13017, 1435, {-0.5, 0.5}, "ICS Panel", "COPILOT ICS Undefined Knob")
 
 -- ELECTRICAL_PANEL
-defineToggleSwitch("BATTERY_SW", 13, 13010, 1000, "Electric Panel", "Battery Switch")
+defineToggleSwitch("BATTERY_SW", 13, 13048, 1000, "1Electric Panel", "Battery Switch")
+define3PosTumb("EXT_PW_SW", 13, 13011, 1001, "Electric Panel", "External Power/OFF/APU Switch")
+defineToggleSwitch("GEN1_SW", 13, 13012, 1003, "Electric Panel", "Generator 1 Switch")
+defineToggleSwitch("GEN2_SW", 13, 13013, 1004, "Electric Panel", "Generator 2 Switch")
+defineToggleSwitch("GEN3_SW", 13, 13014, 1005, "Electric Panel", "Generator 3 Switch")
+defineToggleSwitch("GEN4_SW", 13, 13015, 1006, "Electric Panel", "Generator 4 Switch")
+define3PosTumb("BATT_TEST_SW", 13, 13016, 1007, "Electric Panel", "Battery Test Switch")
 
-define3PosTumb("EXT_PW_SW", 13, 13047, 1001, "Electric Panel", "External Power/OFF/APU Switch")
-defineToggleSwitch("GEN1_SW", 13, 13048, 1003, "Electric Panel", "Generator 1 Switch")
-defineToggleSwitch("GEN2_SW", 13, 13049, 1004, "Electric Panel", "Generator 2 Switch")
-defineToggleSwitch("GEN3_SW", 13, 13050, 1005, "Electric Panel", "Generator 3 Switch")
-defineToggleSwitch("GEN4_SW", 13, 13051, 1006, "Electric Panel", "Generator 4 Switch")
-define3PosTumb("BATT_TEST_SW", 13, 13052, 1007, "Electric Panel", "Battery Test Switch")
-
+defineIndicatorLight("EXT_PW_L", 1002, "Electric Panel Lights", "External Power Indicator Light (green)")
 -- FIRE_HANDLES
 
 -- ENGINE_START_PANEL
-defineTumb("ENG1_START_SW", 13, 13053, 1009, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 1 Stop/Run/Start Selector")
-defineTumb("ENG2_START_SW", 13, 13054, 1012, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 2 Stop/Run/Start Selector")
-defineTumb("ENG3_START_SW", 13, 13055, 1015, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 3 Stop/Run/Start Selector")
-defineTumb("ENG4_START_SW", 13, 13056, 1018, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 4 Stop/Run/Start Selector")
+defineTumb("ENG1_START_SW", 13, 13010, 1009, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 1 Stop/Run/Start Selector")
+defineTumb("ENG2_START_SW", 13, 13011, 1012, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 2 Stop/Run/Start Selector")
+defineTumb("ENG3_START_SW", 13, 13012, 1015, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 3 Stop/Run/Start Selector")
+defineTumb("ENG4_START_SW", 13, 1301, 1018, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 4 Stop/Run/Start Selector")
+
+defineIndicatorLight("ENG1_START_L", 1010, "Engine Start Panel Lights", "Engine 1 Start Light (green)")
+defineIndicatorLight("ENG2_START_L", 1013, "Engine Start Panel Lights", "Engine 2 Start Light (green)")
+defineIndicatorLight("ENG3_START_L", 1016, "Engine Start Panel Lights", "Engine 3 Start Light (green)")
+defineIndicatorLight("ENG4_START_L", 1019, "Engine Start Panel Lights", "Engine 4 Start Light (green)")
 
 -- APU_PANEL
 defineTumb("APU_START_SW", 13, 13056, 1050, 0.5, {0, 1}, nil, false, "APU Panel", "APU Stop/Run/Start Selector")
 
--- PROPELLER_CONTROL_PANEL
+defineIndicatorLight("APU_SEL_L", 1051, "APU Panel Lights", "APU Selector Light (green)")
+defineIndicatorLight("APU_BLEED_L", 1377, "APU Panel Lights", "APU Bleed Air Light (yellow)")
 
--- LIGHTS
-defineIndicatorLight("EXT_PW_L", 1002, "Warning, Caution and IndicatorLights", "External Power Indicator Light (green)")
-defineIndicatorLight("APU_SEL_L", 1051, "Warning, Caution and IndicatorLights", "APU Selector Light (green)")
-defineIndicatorLight("APU_BLEED_L", 1377, "Warning, Caution and IndicatorLights", "APU Bleed Air Light (yellow)")
-defineIndicatorLight("ENG1_START_L", 1010, "Warning, Caution and IndicatorLights", "Engine 1 Start Light (green)")
-defineIndicatorLight("ENG2_START_L", 1013, "Warning, Caution and IndicatorLights", "Engine 2 Start Light (green)")
-defineIndicatorLight("ENG3_START_L", 1016, "Warning, Caution and IndicatorLights", "Engine 3 Start Light (green)")
-defineIndicatorLight("ENG4_START_L", 1019, "Warning, Caution and IndicatorLights", "Engine 4 Start Light (green)")
+-- PROPELLER_CONTROL_PANEL
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKEs", function()
