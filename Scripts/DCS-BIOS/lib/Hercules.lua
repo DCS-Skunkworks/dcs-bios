@@ -27,7 +27,7 @@ definePotentiometer("P_ICS_UN_KNB", 13, 13016, 1434, {-0.5, 0.5}, "ICS Panel", "
 definePotentiometer("CP_ICS_UN_KNB", 13, 13017, 1435, {-0.5, 0.5}, "ICS Panel", "COPILOT ICS Undefined Knob")
 
 -- ELECTRICAL_PANEL
-defineToggleSwitch("BATTERY_SW", 13, 13048, 1000, "1Electric Panel", "Battery Switch")
+defineToggleSwitch("BATTERY_SW", 13, 13048, 1000, "Electric Panel", "Battery Switch")
 define3PosTumb("EXT_PW_SW", 13, 13011, 1001, "Electric Panel", "External Power/OFF/APU Switch")
 defineToggleSwitch("GEN1_SW", 13, 13012, 1003, "Electric Panel", "Generator 1 Switch")
 defineToggleSwitch("GEN2_SW", 13, 13013, 1004, "Electric Panel", "Generator 2 Switch")
@@ -36,13 +36,23 @@ defineToggleSwitch("GEN4_SW", 13, 13015, 1006, "Electric Panel", "Generator 4 Sw
 define3PosTumb("BATT_TEST_SW", 13, 13016, 1007, "Electric Panel", "Battery Test Switch")
 
 defineIndicatorLight("EXT_PW_L", 1002, "Electric Panel Lights", "External Power Indicator Light (green)")
+
 -- FIRE_HANDLES
+defineToggleSwitch("FIRE_HAND_ENG1", 13, 13010, 1380, "Fire Handle", "Engine 1 Fire Handle")
+defineToggleSwitch("FIRE_HAND_ENG2", 13, 13010, 1382, "Fire Handle", "Engine 2 Fire Handle")
+defineToggleSwitch("FIRE_HAND_ENG3", 13, 13010, 1384, "Fire Handle", "Engine 3 Fire Handle")
+defineToggleSwitch("FIRE_HAND_ENG4", 13, 13010, 1386, "Fire Handle", "Engine 4 Fire Handle")
+
+defineIndicatorLight("FIRE_HAND_ENG1_L", 1381, "Fire Handle Lights", "Fire Handle Engine 1 Light (red)")
+defineIndicatorLight("FIRE_HAND_ENG2_L", 1383, "Fire Handle Lights", "Fire Handle Engine 2 Light (red)")
+defineIndicatorLight("FIRE_HAND_ENG3_L", 1385, "Fire Handle Lights", "Fire Handle Engine 3 Light (red)")
+defineIndicatorLight("FIRE_HAND_ENG4_L", 1387, "Fire Handle Lights", "Fire Handle Engine 4 Light (red)")
 
 -- ENGINE_START_PANEL
 defineTumb("ENG1_START_SW", 13, 13010, 1009, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 1 Stop/Run/Start Selector")
 defineTumb("ENG2_START_SW", 13, 13011, 1012, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 2 Stop/Run/Start Selector")
 defineTumb("ENG3_START_SW", 13, 13012, 1015, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 3 Stop/Run/Start Selector")
-defineTumb("ENG4_START_SW", 13, 1301, 1018, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 4 Stop/Run/Start Selector")
+defineTumb("ENG4_START_SW", 13, 13013, 1018, 0.5, {-0.5, 1}, nil, false, "Engine Start Panel", "Engine 4 Stop/Run/Start Selector")
 
 defineIndicatorLight("ENG1_START_L", 1010, "Engine Start Panel Lights", "Engine 1 Start Light (green)")
 defineIndicatorLight("ENG2_START_L", 1013, "Engine Start Panel Lights", "Engine 2 Start Light (green)")
@@ -51,9 +61,11 @@ defineIndicatorLight("ENG4_START_L", 1019, "Engine Start Panel Lights", "Engine 
 
 -- APU_PANEL
 defineTumb("APU_START_SW", 13, 13056, 1050, 0.5, {0, 1}, nil, false, "APU Panel", "APU Stop/Run/Start Selector")
+defineToggleSwitch("FIRE_HAND_APU", 13, 13010, 1388, "APU Panel", "APU Fire Handle")
 
 defineIndicatorLight("APU_SEL_L", 1051, "APU Panel Lights", "APU Selector Light (green)")
 defineIndicatorLight("APU_BLEED_L", 1377, "APU Panel Lights", "APU Bleed Air Light (yellow)")
+defineIndicatorLight("APU_FIRE_HAND_L", 1389, "APU Panel Lights", "APU Fire Handle Light (red)")
 
 -- PROPELLER_CONTROL_PANEL
 
