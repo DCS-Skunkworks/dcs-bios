@@ -1,716 +1,722 @@
 {
-                               "APU Panel": {
-                                                "APU_START_SW": {
-                                                                               "category": "APU Panel",
-                                                                           "control_type": "selector",
-                                                                            "description": "APU Stop/Run/Start Selector",
-                                                                             "identifier": "APU_START_SW",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 2
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 26122,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 48,
-                                                                                                 "max_value": 2,
-                                                                                                  "shift_by": 4,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "limited_rotary"
-                                                                }
-                                            },
-                          "Electric Panel": {
-                                                  "BATTERY_SW": {
-                                                                               "category": "Electric Panel",
-                                                                           "control_type": "selector",
-                                                                            "description": "Battery Switch",
-                                                                             "identifier": "BATTERY_SW",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 26112,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 4,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 2,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "toggle_switch"
-                                                                },
-                                                "BATT_TEST_SW": {
-                                                                               "category": "Electric Panel",
-                                                                           "control_type": "selector",
-                                                                            "description": "Battery Test Switch",
-                                                                             "identifier": "BATT_TEST_SW",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 2
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 26112,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 1536,
-                                                                                                 "max_value": 2,
-                                                                                                  "shift_by": 9,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "3_position_switch"
-                                                                },
-                                                   "EXT_PW_SW": {
-                                                                               "category": "Electric Panel",
-                                                                           "control_type": "selector",
-                                                                            "description": "External Power/OFF/APU Switch",
-                                                                             "identifier": "EXT_PW_SW",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 2
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 26112,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 24,
-                                                                                                 "max_value": 2,
-                                                                                                  "shift_by": 3,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "3_position_switch"
-                                                                },
-                                                     "GEN1_SW": {
-                                                                               "category": "Electric Panel",
-                                                                           "control_type": "selector",
-                                                                            "description": "Generator 1 Switch",
-                                                                             "identifier": "GEN1_SW",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 26112,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 32,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 5,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "toggle_switch"
-                                                                },
-                                                     "GEN2_SW": {
-                                                                               "category": "Electric Panel",
-                                                                           "control_type": "selector",
-                                                                            "description": "Generator 2 Switch",
-                                                                             "identifier": "GEN2_SW",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 26112,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 64,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 6,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "toggle_switch"
-                                                                },
-                                                     "GEN3_SW": {
-                                                                               "category": "Electric Panel",
-                                                                           "control_type": "selector",
-                                                                            "description": "Generator 3 Switch",
-                                                                             "identifier": "GEN3_SW",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 26112,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 128,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 7,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "toggle_switch"
-                                                                },
-                                                     "GEN4_SW": {
-                                                                               "category": "Electric Panel",
-                                                                           "control_type": "selector",
-                                                                            "description": "Generator 4 Switch",
-                                                                             "identifier": "GEN4_SW",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 26112,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 256,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 8,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "toggle_switch"
-                                                                }
-                                            },
-                      "Engine Start Panel": {
-                                                "ENG1_START_SW": {
-                                                                                "category": "Engine Start Panel",
-                                                                            "control_type": "selector",
-                                                                             "description": "Engine 1 Stop/Run/Start Selector",
-                                                                              "identifier": "ENG1_START_SW",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 3
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 26112,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 6144,
-                                                                                                  "max_value": 3,
-                                                                                                   "shift_by": 11,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "limited_rotary"
-                                                                 },
-                                                "ENG2_START_SW": {
-                                                                                "category": "Engine Start Panel",
-                                                                            "control_type": "selector",
-                                                                             "description": "Engine 2 Stop/Run/Start Selector",
-                                                                              "identifier": "ENG2_START_SW",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 3
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 26112,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 24576,
-                                                                                                  "max_value": 3,
-                                                                                                   "shift_by": 13,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "limited_rotary"
-                                                                 },
-                                                "ENG3_START_SW": {
-                                                                                "category": "Engine Start Panel",
-                                                                            "control_type": "selector",
-                                                                             "description": "Engine 3 Stop/Run/Start Selector",
-                                                                              "identifier": "ENG3_START_SW",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 3
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 26122,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 3,
-                                                                                                  "max_value": 3,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "limited_rotary"
-                                                                 },
-                                                "ENG4_START_SW": {
-                                                                                "category": "Engine Start Panel",
-                                                                            "control_type": "selector",
-                                                                             "description": "Engine 4 Stop/Run/Start Selector",
-                                                                              "identifier": "ENG4_START_SW",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 3
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 26122,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 12,
-                                                                                                  "max_value": 3,
-                                                                                                   "shift_by": 2,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "limited_rotary"
-                                                                 }
-                                            },
-                 "External Aircraft Model": {
-                                                 "EXT_LANDING_LIGHT_GEAR": {
-                                                                                   "category": "External Aircraft Model",
-                                                                               "control_type": "metadata",
-                                                                                "description": "Gear Landing Light (white)",
-                                                                                 "identifier": "EXT_LANDING_LIGHT_GEAR",
-                                                                                     "inputs": [  ],
-                                                                                    "outputs": [ {
-                                                                                                       "address": 26122,
-                                                                                                   "description": "Gear Landing Light (white)",
-                                                                                                          "mask": 16384,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 14,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ]
-                                                                           },
-                                                 "EXT_LANDING_LIGHT_LEFT": {
-                                                                                   "category": "External Aircraft Model",
-                                                                               "control_type": "metadata",
-                                                                                "description": "Left Landing Light (white)",
-                                                                                 "identifier": "EXT_LANDING_LIGHT_LEFT",
-                                                                                     "inputs": [  ],
-                                                                                    "outputs": [ {
-                                                                                                       "address": 26122,
-                                                                                                   "description": "Left Landing Light (white)",
-                                                                                                          "mask": 4096,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 12,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ]
-                                                                           },
-                                                "EXT_LANDING_LIGHT_RIGHT": {
-                                                                                   "category": "External Aircraft Model",
-                                                                               "control_type": "metadata",
-                                                                                "description": "Right Landing Light (white)",
-                                                                                 "identifier": "EXT_LANDING_LIGHT_RIGHT",
-                                                                                     "inputs": [  ],
-                                                                                    "outputs": [ {
-                                                                                                       "address": 26122,
-                                                                                                   "description": "Right Landing Light (white)",
-                                                                                                          "mask": 8192,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 13,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ]
-                                                                           },
-                                                       "EXT_SPEED_BRAKEs": {
-                                                                                   "category": "External Aircraft Model",
-                                                                               "control_type": "metadata",
-                                                                                "description": "Speed Brakes",
-                                                                                 "identifier": "EXT_SPEED_BRAKEs",
-                                                                                     "inputs": [  ],
-                                                                                    "outputs": [ {
-                                                                                                       "address": 26124,
-                                                                                                   "description": "Speed Brakes",
-                                                                                                          "mask": 65535,
-                                                                                                     "max_value": 65535,
-                                                                                                      "shift_by": 0,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ]
-                                                                           },
-                                                           "EXT_WOW_LEFT": {
-                                                                                   "category": "External Aircraft Model",
-                                                                               "control_type": "metadata",
-                                                                                "description": "Weight ON Wheels Left Gear",
-                                                                                 "identifier": "EXT_WOW_LEFT",
-                                                                                     "inputs": [  ],
-                                                                                    "outputs": [ {
-                                                                                                       "address": 26126,
-                                                                                                   "description": "Weight ON Wheels Left Gear",
-                                                                                                          "mask": 2,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 1,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ]
-                                                                           },
-                                                           "EXT_WOW_NOSE": {
-                                                                                   "category": "External Aircraft Model",
-                                                                               "control_type": "metadata",
-                                                                                "description": "Weight ON Wheels Nose Gear",
-                                                                                 "identifier": "EXT_WOW_NOSE",
-                                                                                     "inputs": [  ],
-                                                                                    "outputs": [ {
-                                                                                                       "address": 26122,
-                                                                                                   "description": "Weight ON Wheels Nose Gear",
-                                                                                                          "mask": 32768,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 15,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ]
-                                                                           },
-                                                          "EXT_WOW_RIGHT": {
-                                                                                   "category": "External Aircraft Model",
-                                                                               "control_type": "metadata",
-                                                                                "description": "Weight ON Wheels Right Gear",
-                                                                                 "identifier": "EXT_WOW_RIGHT",
-                                                                                     "inputs": [  ],
-                                                                                    "outputs": [ {
-                                                                                                       "address": 26126,
-                                                                                                   "description": "Weight ON Wheels Right Gear",
-                                                                                                          "mask": 1,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 0,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ]
-                                                                           }
-                                            },
-                               "ICS Panel": {
-                                                 "CP_ICS_UN_KNB": {
-                                                                          "category": "ICS Panel",
-                                                                      "control_type": "limited_dial",
-                                                                       "description": "COPILOT ICS Undefined Knob",
-                                                                        "identifier": "CP_ICS_UN_KNB",
-                                                                            "inputs": [ {
-                                                                                          "description": "set the position of the dial",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 65535
-                                                                                      }, {
-                                                                                             "description": "turn the dial left or right",
-                                                                                               "interface": "variable_step",
-                                                                                               "max_value": 65535,
-                                                                                          "suggested_step": 3200
-                                                                                      } ],
-                                                                           "outputs": [ {
-                                                                                              "address": 26120,
-                                                                                          "description": "position of the potentiometer",
-                                                                                                 "mask": 65535,
-                                                                                            "max_value": 65535,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ]
-                                                                  },
-                                                "CP_ICS_VOL_BTN": {
-                                                                                 "category": "ICS Panel",
-                                                                             "control_type": "selector",
-                                                                              "description": "COPILOT ICS Volume (Pull)",
-                                                                               "identifier": "CP_ICS_VOL_BTN",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 1
-                                                                                             }, {
-                                                                                                    "argument": "TOGGLE",
-                                                                                                 "description": "Toggle switch state",
-                                                                                                   "interface": "action"
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 26112,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 2,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 1,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "toggle_switch"
-                                                                  },
-                                                "CP_ICS_VOL_KNB": {
-                                                                          "category": "ICS Panel",
-                                                                      "control_type": "limited_dial",
-                                                                       "description": "COPILOT ICS Volume (Rotate)",
-                                                                        "identifier": "CP_ICS_VOL_KNB",
-                                                                            "inputs": [ {
-                                                                                          "description": "set the position of the dial",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 65535
-                                                                                      }, {
-                                                                                             "description": "turn the dial left or right",
-                                                                                               "interface": "variable_step",
-                                                                                               "max_value": 65535,
-                                                                                          "suggested_step": 3200
-                                                                                      } ],
-                                                                           "outputs": [ {
-                                                                                              "address": 26116,
-                                                                                          "description": "position of the potentiometer",
-                                                                                                 "mask": 65535,
-                                                                                            "max_value": 65535,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ]
-                                                                  },
-                                                  "P_ICS_UN_KNB": {
-                                                                          "category": "ICS Panel",
-                                                                      "control_type": "limited_dial",
-                                                                       "description": "PILOT ICS Undefined Knob",
-                                                                        "identifier": "P_ICS_UN_KNB",
-                                                                            "inputs": [ {
-                                                                                          "description": "set the position of the dial",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 65535
-                                                                                      }, {
-                                                                                             "description": "turn the dial left or right",
-                                                                                               "interface": "variable_step",
-                                                                                               "max_value": 65535,
-                                                                                          "suggested_step": 3200
-                                                                                      } ],
-                                                                           "outputs": [ {
-                                                                                              "address": 26118,
-                                                                                          "description": "position of the potentiometer",
-                                                                                                 "mask": 65535,
-                                                                                            "max_value": 65535,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ]
-                                                                  },
-                                                 "P_ICS_VOL_BTN": {
-                                                                                 "category": "ICS Panel",
-                                                                             "control_type": "selector",
-                                                                              "description": "PILOT ICS Volume (Pull)",
-                                                                               "identifier": "P_ICS_VOL_BTN",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 1
-                                                                                             }, {
-                                                                                                    "argument": "TOGGLE",
-                                                                                                 "description": "Toggle switch state",
-                                                                                                   "interface": "action"
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                     "address": 26112,
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 1,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 0,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "toggle_switch"
-                                                                  },
-                                                 "P_ICS_VOL_KNB": {
-                                                                          "category": "ICS Panel",
-                                                                      "control_type": "limited_dial",
-                                                                       "description": "PILOT ICS Volume (Rotate)",
-                                                                        "identifier": "P_ICS_VOL_KNB",
-                                                                            "inputs": [ {
-                                                                                          "description": "set the position of the dial",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 65535
-                                                                                      }, {
-                                                                                             "description": "turn the dial left or right",
-                                                                                               "interface": "variable_step",
-                                                                                               "max_value": 65535,
-                                                                                          "suggested_step": 3200
-                                                                                      } ],
-                                                                           "outputs": [ {
-                                                                                              "address": 26114,
-                                                                                          "description": "position of the potentiometer",
-                                                                                                 "mask": 65535,
-                                                                                            "max_value": 65535,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ]
-                                                                  }
-                                            },
-    "Warning, Caution and IndicatorLights": {
-                                                 "APU_BLEED_L": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "APU Bleed Air Light (yellow)",
-                                                                      "identifier": "APU_BLEED_L",
+              "1Electric Panel": {
+                                     "BATTERY_SW": {
+                                                                  "category": "1Electric Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Battery Switch",
+                                                                "identifier": "BATTERY_SW",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                       "momentary_positions": "none",
+                                                                   "outputs": [ {
+                                                                                      "address": 26112,
+                                                                                  "description": "selector position",
+                                                                                         "mask": 4,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 2,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ],
+                                                          "physical_variant": "toggle_switch"
+                                                   }
+                                 },
+                    "APU Panel": {
+                                     "APU_START_SW": {
+                                                                    "category": "APU Panel",
+                                                                "control_type": "selector",
+                                                                 "description": "APU Stop/Run/Start Selector",
+                                                                  "identifier": "APU_START_SW",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 2
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 26122,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 768,
+                                                                                      "max_value": 2,
+                                                                                       "shift_by": 8,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "limited_rotary"
+                                                     }
+                                 },
+             "APU Panel Lights": {
+                                     "APU_BLEED_L": {
+                                                            "category": "APU Panel Lights",
+                                                        "control_type": "led",
+                                                         "description": "APU Bleed Air Light (yellow)",
+                                                          "identifier": "APU_BLEED_L",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 26122,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 2048,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 11,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                       "APU_SEL_L": {
+                                                            "category": "APU Panel Lights",
+                                                        "control_type": "led",
+                                                         "description": "APU Selector Light (green)",
+                                                          "identifier": "APU_SEL_L",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 26122,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 1024,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 10,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    }
+                                 },
+               "Electric Panel": {
+                                     "BATT_TEST_SW": {
+                                                                    "category": "Electric Panel",
+                                                                "control_type": "selector",
+                                                                 "description": "Battery Test Switch",
+                                                                  "identifier": "BATT_TEST_SW",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 2
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 26112,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 1536,
+                                                                                      "max_value": 2,
+                                                                                       "shift_by": 9,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "3_position_switch"
+                                                     },
+                                        "EXT_PW_SW": {
+                                                                    "category": "Electric Panel",
+                                                                "control_type": "selector",
+                                                                 "description": "External Power/OFF/APU Switch",
+                                                                  "identifier": "EXT_PW_SW",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 2
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 26112,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 24,
+                                                                                      "max_value": 2,
+                                                                                       "shift_by": 3,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "3_position_switch"
+                                                     },
+                                          "GEN1_SW": {
+                                                                    "category": "Electric Panel",
+                                                                "control_type": "selector",
+                                                                 "description": "Generator 1 Switch",
+                                                                  "identifier": "GEN1_SW",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 26112,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 32,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 5,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "toggle_switch"
+                                                     },
+                                          "GEN2_SW": {
+                                                                    "category": "Electric Panel",
+                                                                "control_type": "selector",
+                                                                 "description": "Generator 2 Switch",
+                                                                  "identifier": "GEN2_SW",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 26112,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 64,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 6,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "toggle_switch"
+                                                     },
+                                          "GEN3_SW": {
+                                                                    "category": "Electric Panel",
+                                                                "control_type": "selector",
+                                                                 "description": "Generator 3 Switch",
+                                                                  "identifier": "GEN3_SW",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 26112,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 128,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 7,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "toggle_switch"
+                                                     },
+                                          "GEN4_SW": {
+                                                                    "category": "Electric Panel",
+                                                                "control_type": "selector",
+                                                                 "description": "Generator 4 Switch",
+                                                                  "identifier": "GEN4_SW",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 26112,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 256,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 8,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "toggle_switch"
+                                                     }
+                                 },
+        "Electric Panel Lights": {
+                                     "EXT_PW_L": {
+                                                         "category": "Electric Panel Lights",
+                                                     "control_type": "led",
+                                                      "description": "External Power Indicator Light (green)",
+                                                       "identifier": "EXT_PW_L",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 26112,
+                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                "mask": 2048,
+                                                                           "max_value": 1,
+                                                                            "shift_by": 11,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 }
+                                 },
+           "Engine Start Panel": {
+                                     "ENG1_START_SW": {
+                                                                     "category": "Engine Start Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "Engine 1 Stop/Run/Start Selector",
+                                                                   "identifier": "ENG1_START_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 3
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 26112,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 12288,
+                                                                                       "max_value": 3,
+                                                                                        "shift_by": 12,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                     "ENG2_START_SW": {
+                                                                     "category": "Engine Start Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "Engine 2 Stop/Run/Start Selector",
+                                                                   "identifier": "ENG2_START_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 3
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 26112,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 49152,
+                                                                                       "max_value": 3,
+                                                                                        "shift_by": 14,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                     "ENG3_START_SW": {
+                                                                     "category": "Engine Start Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "Engine 3 Stop/Run/Start Selector",
+                                                                   "identifier": "ENG3_START_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 3
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 26122,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 3,
+                                                                                       "max_value": 3,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      },
+                                     "ENG4_START_SW": {
+                                                                     "category": "Engine Start Panel",
+                                                                 "control_type": "selector",
+                                                                  "description": "Engine 4 Stop/Run/Start Selector",
+                                                                   "identifier": "ENG4_START_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 3
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 26122,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 12,
+                                                                                       "max_value": 3,
+                                                                                        "shift_by": 2,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "limited_rotary"
+                                                      }
+                                 },
+    "Engine Start Panel Lights": {
+                                     "ENG1_START_L": {
+                                                             "category": "Engine Start Panel Lights",
+                                                         "control_type": "led",
+                                                          "description": "Engine 1 Start Light (green)",
+                                                           "identifier": "ENG1_START_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 26122,
+                                                                             "description": "0 if light is off, 1 if light is on",
+                                                                                    "mask": 16,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 4,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                     "ENG2_START_L": {
+                                                             "category": "Engine Start Panel Lights",
+                                                         "control_type": "led",
+                                                          "description": "Engine 2 Start Light (green)",
+                                                           "identifier": "ENG2_START_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 26122,
+                                                                             "description": "0 if light is off, 1 if light is on",
+                                                                                    "mask": 32,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 5,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                     "ENG3_START_L": {
+                                                             "category": "Engine Start Panel Lights",
+                                                         "control_type": "led",
+                                                          "description": "Engine 3 Start Light (green)",
+                                                           "identifier": "ENG3_START_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 26122,
+                                                                             "description": "0 if light is off, 1 if light is on",
+                                                                                    "mask": 64,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 6,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                     "ENG4_START_L": {
+                                                             "category": "Engine Start Panel Lights",
+                                                         "control_type": "led",
+                                                          "description": "Engine 4 Start Light (green)",
+                                                           "identifier": "ENG4_START_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 26122,
+                                                                             "description": "0 if light is off, 1 if light is on",
+                                                                                    "mask": 128,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 7,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     }
+                                 },
+      "External Aircraft Model": {
+                                      "EXT_LANDING_LIGHT_GEAR": {
+                                                                        "category": "External Aircraft Model",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Gear Landing Light (white)",
+                                                                      "identifier": "EXT_LANDING_LIGHT_GEAR",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
                                                                                             "address": 26122,
-                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                               "mask": 128,
+                                                                                        "description": "Gear Landing Light (white)",
+                                                                                               "mask": 16384,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 7,
+                                                                                           "shift_by": 14,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ]
                                                                 },
-                                                   "APU_SEL_L": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "APU Selector Light (green)",
-                                                                      "identifier": "APU_SEL_L",
+                                      "EXT_LANDING_LIGHT_LEFT": {
+                                                                        "category": "External Aircraft Model",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Left Landing Light (white)",
+                                                                      "identifier": "EXT_LANDING_LIGHT_LEFT",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
                                                                                             "address": 26122,
-                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                               "mask": 64,
+                                                                                        "description": "Left Landing Light (white)",
+                                                                                               "mask": 4096,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 6,
+                                                                                           "shift_by": 12,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ]
                                                                 },
-                                                "ENG1_START_L": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Engine 1 Start Light (green)",
-                                                                      "identifier": "ENG1_START_L",
+                                     "EXT_LANDING_LIGHT_RIGHT": {
+                                                                        "category": "External Aircraft Model",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Right Landing Light (white)",
+                                                                      "identifier": "EXT_LANDING_LIGHT_RIGHT",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
                                                                                             "address": 26122,
-                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                               "mask": 256,
+                                                                                        "description": "Right Landing Light (white)",
+                                                                                               "mask": 8192,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 8,
+                                                                                           "shift_by": 13,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ]
                                                                 },
-                                                "ENG2_START_L": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Engine 2 Start Light (green)",
-                                                                      "identifier": "ENG2_START_L",
+                                            "EXT_SPEED_BRAKEs": {
+                                                                        "category": "External Aircraft Model",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Speed Brakes",
+                                                                      "identifier": "EXT_SPEED_BRAKEs",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 26122,
-                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                               "mask": 512,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 9,
+                                                                                            "address": 26124,
+                                                                                        "description": "Speed Brakes",
+                                                                                               "mask": 65535,
+                                                                                          "max_value": 65535,
+                                                                                           "shift_by": 0,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ]
                                                                 },
-                                                "ENG3_START_L": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Engine 3 Start Light (green)",
-                                                                      "identifier": "ENG3_START_L",
+                                                "EXT_WOW_LEFT": {
+                                                                        "category": "External Aircraft Model",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Weight ON Wheels Left Gear",
+                                                                      "identifier": "EXT_WOW_LEFT",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 26122,
-                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                               "mask": 1024,
+                                                                                            "address": 26126,
+                                                                                        "description": "Weight ON Wheels Left Gear",
+                                                                                               "mask": 2,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 10,
+                                                                                           "shift_by": 1,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ]
                                                                 },
-                                                "ENG4_START_L": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Engine 4 Start Light (green)",
-                                                                      "identifier": "ENG4_START_L",
+                                                "EXT_WOW_NOSE": {
+                                                                        "category": "External Aircraft Model",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Weight ON Wheels Nose Gear",
+                                                                      "identifier": "EXT_WOW_NOSE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
                                                                                             "address": 26122,
-                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                               "mask": 2048,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 11,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                    "EXT_PW_L": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "External Power Indicator Light (green)",
-                                                                      "identifier": "EXT_PW_L",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 26112,
-                                                                                        "description": "0 if light is off, 1 if light is on",
+                                                                                        "description": "Weight ON Wheels Nose Gear",
                                                                                                "mask": 32768,
                                                                                           "max_value": 1,
                                                                                            "shift_by": 15,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ]
+                                                                },
+                                               "EXT_WOW_RIGHT": {
+                                                                        "category": "External Aircraft Model",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Weight ON Wheels Right Gear",
+                                                                      "identifier": "EXT_WOW_RIGHT",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                            "address": 26126,
+                                                                                        "description": "Weight ON Wheels Right Gear",
+                                                                                               "mask": 1,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 0,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ]
                                                                 }
-                                            }
+                                 },
+                    "ICS Panel": {
+                                      "CP_ICS_UN_KNB": {
+                                                               "category": "ICS Panel",
+                                                           "control_type": "limited_dial",
+                                                            "description": "COPILOT ICS Undefined Knob",
+                                                             "identifier": "CP_ICS_UN_KNB",
+                                                                 "inputs": [ {
+                                                                               "description": "set the position of the dial",
+                                                                                 "interface": "set_state",
+                                                                                 "max_value": 65535
+                                                                           }, {
+                                                                                  "description": "turn the dial left or right",
+                                                                                    "interface": "variable_step",
+                                                                                    "max_value": 65535,
+                                                                               "suggested_step": 3200
+                                                                           } ],
+                                                                "outputs": [ {
+                                                                                   "address": 26120,
+                                                                               "description": "position of the potentiometer",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                     "CP_ICS_VOL_BTN": {
+                                                                      "category": "ICS Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "COPILOT ICS Volume (Pull)",
+                                                                    "identifier": "CP_ICS_VOL_BTN",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                           "momentary_positions": "none",
+                                                                       "outputs": [ {
+                                                                                          "address": 26112,
+                                                                                      "description": "selector position",
+                                                                                             "mask": 2,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 1,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ],
+                                                              "physical_variant": "toggle_switch"
+                                                       },
+                                     "CP_ICS_VOL_KNB": {
+                                                               "category": "ICS Panel",
+                                                           "control_type": "limited_dial",
+                                                            "description": "COPILOT ICS Volume (Rotate)",
+                                                             "identifier": "CP_ICS_VOL_KNB",
+                                                                 "inputs": [ {
+                                                                               "description": "set the position of the dial",
+                                                                                 "interface": "set_state",
+                                                                                 "max_value": 65535
+                                                                           }, {
+                                                                                  "description": "turn the dial left or right",
+                                                                                    "interface": "variable_step",
+                                                                                    "max_value": 65535,
+                                                                               "suggested_step": 3200
+                                                                           } ],
+                                                                "outputs": [ {
+                                                                                   "address": 26116,
+                                                                               "description": "position of the potentiometer",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                       "P_ICS_UN_KNB": {
+                                                               "category": "ICS Panel",
+                                                           "control_type": "limited_dial",
+                                                            "description": "PILOT ICS Undefined Knob",
+                                                             "identifier": "P_ICS_UN_KNB",
+                                                                 "inputs": [ {
+                                                                               "description": "set the position of the dial",
+                                                                                 "interface": "set_state",
+                                                                                 "max_value": 65535
+                                                                           }, {
+                                                                                  "description": "turn the dial left or right",
+                                                                                    "interface": "variable_step",
+                                                                                    "max_value": 65535,
+                                                                               "suggested_step": 3200
+                                                                           } ],
+                                                                "outputs": [ {
+                                                                                   "address": 26118,
+                                                                               "description": "position of the potentiometer",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                      "P_ICS_VOL_BTN": {
+                                                                      "category": "ICS Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "PILOT ICS Volume (Pull)",
+                                                                    "identifier": "P_ICS_VOL_BTN",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                           "momentary_positions": "none",
+                                                                       "outputs": [ {
+                                                                                          "address": 26112,
+                                                                                      "description": "selector position",
+                                                                                             "mask": 1,
+                                                                                        "max_value": 1,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ],
+                                                              "physical_variant": "toggle_switch"
+                                                       },
+                                      "P_ICS_VOL_KNB": {
+                                                               "category": "ICS Panel",
+                                                           "control_type": "limited_dial",
+                                                            "description": "PILOT ICS Volume (Rotate)",
+                                                             "identifier": "P_ICS_VOL_KNB",
+                                                                 "inputs": [ {
+                                                                               "description": "set the position of the dial",
+                                                                                 "interface": "set_state",
+                                                                                 "max_value": 65535
+                                                                           }, {
+                                                                                  "description": "turn the dial left or right",
+                                                                                    "interface": "variable_step",
+                                                                                    "max_value": 65535,
+                                                                               "suggested_step": 3200
+                                                                           } ],
+                                                                "outputs": [ {
+                                                                                   "address": 26114,
+                                                                               "description": "position of the potentiometer",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       }
+                                 }
 }

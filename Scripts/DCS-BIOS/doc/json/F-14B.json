@@ -2218,11 +2218,11 @@
                                                                                        "identifier": "RIO_CMDS_CHAFFCNT_DISPLAY",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                             "address": 5144,
+                                                                                                             "address": 5114,
                                                                                                          "description": "RIO CMDS Chaff Counter Display",
-                                                                                                                "mask": 127,
+                                                                                                                "mask": 32512,
                                                                                                            "max_value": 99,
-                                                                                                            "shift_by": 0,
+                                                                                                            "shift_by": 8,
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
                                                                                                      } ]
@@ -2384,11 +2384,11 @@
                                                                                        "identifier": "RIO_CMDS_FLARECNT_DISPLAY",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                             "address": 5144,
+                                                                                                             "address": 5148,
                                                                                                          "description": "RIO CMDS Flare Counter Display",
-                                                                                                                "mask": 16256,
+                                                                                                                "mask": 127,
                                                                                                            "max_value": 99,
-                                                                                                            "shift_by": 7,
+                                                                                                            "shift_by": 0,
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
                                                                                                      } ]
@@ -2455,11 +2455,11 @@
                                                                                        "identifier": "RIO_CMDS_JAMMCNT_DISPLAY",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                             "address": 5154,
+                                                                                                             "address": 5148,
                                                                                                          "description": "RIO CMDS Jammer Counter Display",
-                                                                                                                "mask": 127,
+                                                                                                                "mask": 16256,
                                                                                                            "max_value": 99,
-                                                                                                            "shift_by": 0,
+                                                                                                            "shift_by": 7,
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
                                                                                                      } ]
@@ -2952,9 +2952,9 @@
                                                                                            "outputs": [ {
                                                                                                               "address": 4980,
                                                                                                           "description": "selector position",
-                                                                                                                 "mask": 16384,
+                                                                                                                 "mask": 2048,
                                                                                                             "max_value": 1,
-                                                                                                             "shift_by": 14,
+                                                                                                             "shift_by": 11,
                                                                                                                "suffix": "",
                                                                                                                  "type": "integer"
                                                                                                       } ],
@@ -3296,6 +3296,36 @@
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
                                                                                                      } ]
+                                                                                 },
+                                                               "RIO_DDD_FILTER": {
+                                                                                             "api_variant": "momentary_last_position",
+                                                                                                "category": "DDD",
+                                                                                            "control_type": "selector",
+                                                                                             "description": "RIO DDD Filter",
+                                                                                              "identifier": "RIO_DDD_FILTER",
+                                                                                                  "inputs": [ {
+                                                                                                                "description": "switch to previous or next state",
+                                                                                                                  "interface": "fixed_step"
+                                                                                                            }, {
+                                                                                                                "description": "set position",
+                                                                                                                  "interface": "set_state",
+                                                                                                                  "max_value": 1
+                                                                                                            }, {
+                                                                                                                   "argument": "TOGGLE",
+                                                                                                                "description": "Toggle switch state",
+                                                                                                                  "interface": "action"
+                                                                                                            } ],
+                                                                                     "momentary_positions": "none",
+                                                                                                 "outputs": [ {
+                                                                                                                    "address": 5240,
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 1024,
+                                                                                                                  "max_value": 1,
+                                                                                                                   "shift_by": 10,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                                            } ],
+                                                                                        "physical_variant": "push_button"
                                                                                  },
                                                                   "RIO_DDD_IFF": {
                                                                                              "api_variant": "momentary_last_position",
@@ -4645,7 +4675,7 @@
                                                                                   "identifier": "PLT_AIR_SOURCE_MODE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 5264,
+                                                                                                        "address": 5262,
                                                                                                     "description": "PILOT Air Source Mode (string)",
                                                                                                      "max_length": 1,
                                                                                                          "suffix": "",
@@ -4771,7 +4801,7 @@
                                                                                   "identifier": "PLT_HUD_MODE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 5260,
+                                                                                                        "address": 5258,
                                                                                                     "description": "PILOT HUD Mode (string)",
                                                                                                      "max_length": 1,
                                                                                                          "suffix": "",
@@ -5168,7 +5198,7 @@
                                                                                   "identifier": "PLT_STEER_MODE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 5262,
+                                                                                                        "address": 5260,
                                                                                                     "description": "PILOT STEER Mode (string)",
                                                                                                      "max_length": 1,
                                                                                                          "suffix": "",
@@ -5857,7 +5887,7 @@
                                                                                                              } ],
                                                                                       "momentary_positions": "none",
                                                                                                   "outputs": [ {
-                                                                                                                     "address": 5114,
+                                                                                                                     "address": 4990,
                                                                                                                  "description": "selector position",
                                                                                                                         "mask": 2048,
                                                                                                                    "max_value": 1,
@@ -6223,11 +6253,11 @@
                                                                                          "identifier": "EXT_ANTI_COL",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
-                                                                                                               "address": 5242,
+                                                                                                               "address": 5148,
                                                                                                            "description": "Anticollision Lights",
-                                                                                                                  "mask": 256,
+                                                                                                                  "mask": 16384,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 8,
+                                                                                                              "shift_by": 14,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ]
@@ -6271,7 +6301,7 @@
                                                                                          "identifier": "EXT_POSITION_LIGHTS_BODY",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
-                                                                                                               "address": 5114,
+                                                                                                               "address": 4990,
                                                                                                            "description": "Position Lights Body (red/green)",
                                                                                                                   "mask": 32768,
                                                                                                              "max_value": 1,
@@ -6303,7 +6333,7 @@
                                                                                          "identifier": "EXT_POSITION_LIGHTS_WINGS",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
-                                                                                                               "address": 5114,
+                                                                                                               "address": 4990,
                                                                                                            "description": "Position Lights Wings (red/green)",
                                                                                                                   "mask": 16384,
                                                                                                              "max_value": 1,
@@ -6335,7 +6365,7 @@
                                                                                          "identifier": "EXT_POSITION_LIGHT_CHIN",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
-                                                                                                               "address": 5144,
+                                                                                                               "address": 5114,
                                                                                                            "description": "Chinpod Position Light (red)",
                                                                                                                   "mask": 32768,
                                                                                                              "max_value": 1,
@@ -6351,11 +6381,11 @@
                                                                                          "identifier": "EXT_POSITION_LIGHT_TAIL",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
-                                                                                                               "address": 5144,
+                                                                                                               "address": 5002,
                                                                                                            "description": "Tail Position Light (white)",
-                                                                                                                  "mask": 16384,
+                                                                                                                  "mask": 32768,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 14,
+                                                                                                              "shift_by": 15,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ]
@@ -6383,7 +6413,7 @@
                                                                                          "identifier": "EXT_REFUEL_PROBE_LIGHT",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
-                                                                                                               "address": 5114,
+                                                                                                               "address": 4990,
                                                                                                            "description": "Refuel Probe Light (red)",
                                                                                                                   "mask": 8192,
                                                                                                              "max_value": 1,
@@ -6479,11 +6509,11 @@
                                                                                          "identifier": "EXT_WOW_LEFT",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
-                                                                                                               "address": 5242,
+                                                                                                               "address": 5240,
                                                                                                            "description": "Weight ON Wheels Left Gear",
-                                                                                                                  "mask": 2048,
+                                                                                                                  "mask": 256,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 11,
+                                                                                                              "shift_by": 8,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ]
@@ -6495,11 +6525,11 @@
                                                                                          "identifier": "EXT_WOW_NOSE",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
-                                                                                                               "address": 5242,
+                                                                                                               "address": 5148,
                                                                                                            "description": "Weight ON Wheels Nose Gear",
-                                                                                                                  "mask": 512,
+                                                                                                                  "mask": 32768,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 9,
+                                                                                                              "shift_by": 15,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ]
@@ -6511,11 +6541,11 @@
                                                                                          "identifier": "EXT_WOW_RIGHT",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
-                                                                                                               "address": 5242,
+                                                                                                               "address": 5180,
                                                                                                            "description": "Weight ON Wheels Right Gear",
-                                                                                                                  "mask": 1024,
+                                                                                                                  "mask": 32768,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 10,
+                                                                                                              "shift_by": 15,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ]
@@ -6576,9 +6606,9 @@
                                                                                             "outputs": [ {
                                                                                                                "address": 4980,
                                                                                                            "description": "selector position",
-                                                                                                                  "mask": 32768,
+                                                                                                                  "mask": 4096,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 15,
+                                                                                                              "shift_by": 12,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ],
@@ -6604,11 +6634,11 @@
                                                                                                        } ],
                                                                                 "momentary_positions": "none",
                                                                                             "outputs": [ {
-                                                                                                               "address": 4990,
+                                                                                                               "address": 4980,
                                                                                                            "description": "selector position",
-                                                                                                                  "mask": 16384,
+                                                                                                                  "mask": 8192,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 14,
+                                                                                                              "shift_by": 13,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                                        } ],
@@ -6893,7 +6923,7 @@
                                                                         "identifier": "CANOPY_POS",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                              "address": 5234,
+                                                                                              "address": 5232,
                                                                                           "description": "gauge position",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -7341,7 +7371,7 @@
                                                                                                             } ],
                                                                                      "momentary_positions": "none",
                                                                                                  "outputs": [ {
-                                                                                                                    "address": 5114,
+                                                                                                                    "address": 4990,
                                                                                                                 "description": "selector position",
                                                                                                                        "mask": 4096,
                                                                                                                   "max_value": 1,
@@ -7850,7 +7880,7 @@
                                                                                "identifier": "HSD_MAN_CRS_S",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 5276,
+                                                                                                     "address": 5274,
                                                                                                  "description": "HSD MAN Course Display (string)",
                                                                                                   "max_length": 3,
                                                                                                       "suffix": "",
@@ -7864,11 +7894,11 @@
                                                                                "identifier": "HSD_TACAN_CRS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 5154,
+                                                                                                     "address": 5278,
                                                                                                  "description": "HSD TACAN Course Display",
-                                                                                                        "mask": 65408,
+                                                                                                        "mask": 511,
                                                                                                    "max_value": 360,
-                                                                                                    "shift_by": 7,
+                                                                                                    "shift_by": 0,
                                                                                                       "suffix": "",
                                                                                                         "type": "integer"
                                                                                              } ]
@@ -7880,7 +7910,7 @@
                                                                                "identifier": "HSD_TACAN_CRS_S",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 5272,
+                                                                                                     "address": 5270,
                                                                                                  "description": "HSD TACAN Course Display (string)",
                                                                                                   "max_length": 3,
                                                                                                       "suffix": "",
@@ -7894,7 +7924,7 @@
                                                                                "identifier": "HSD_TACAN_RANGE_S",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
-                                                                                                     "address": 5266,
+                                                                                                     "address": 5264,
                                                                                                  "description": "HSD TACAN Range Display (string)",
                                                                                                   "max_length": 5,
                                                                                                       "suffix": "",
@@ -8105,6 +8135,36 @@
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ]
+                                                                        },
+                                                      "PLT_VDI_FILTER": {
+                                                                                    "api_variant": "momentary_last_position",
+                                                                                       "category": "HUD",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "PILOT VDI Filter",
+                                                                                     "identifier": "PLT_VDI_FILTER",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                           "address": 5240,
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 512,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 9,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "push_button"
                                                                         },
                                                      "PLT_VSDI_BRIGHT": {
                                                                                 "category": "HUD",
@@ -10428,7 +10488,7 @@
                                                                                                                "address": 4858,
                                                                                                            "description": "PILOT Ammo Display",
                                                                                                                   "mask": 65472,
-                                                                                                             "max_value": 999,
+                                                                                                             "max_value": 690,
                                                                                                               "shift_by": 6,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
@@ -11147,8 +11207,8 @@
                                                                                             "outputs": [ {
                                                                                                                "address": 4980,
                                                                                                            "description": "PILOT Fuel Left Display",
-                                                                                                                  "mask": 16383,
-                                                                                                             "max_value": 9999,
+                                                                                                                  "mask": 2047,
+                                                                                                             "max_value": 2000,
                                                                                                               "shift_by": 0,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
@@ -11227,8 +11287,8 @@
                                                                                             "outputs": [ {
                                                                                                                "address": 4990,
                                                                                                            "description": "PILOT Fuel Right Display",
-                                                                                                                  "mask": 16383,
-                                                                                                             "max_value": 9999,
+                                                                                                                  "mask": 2047,
+                                                                                                             "max_value": 2000,
                                                                                                               "shift_by": 0,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
@@ -11323,8 +11383,8 @@
                                                                                             "outputs": [ {
                                                                                                                "address": 5002,
                                                                                                            "description": "PILOT Fuel Total Display",
-                                                                                                                  "mask": 65535,
-                                                                                                             "max_value": 59999,
+                                                                                                                  "mask": 32767,
+                                                                                                             "max_value": 25000,
                                                                                                               "shift_by": 0,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
@@ -11499,8 +11559,8 @@
                                                                                             "outputs": [ {
                                                                                                                "address": 5114,
                                                                                                            "description": "PILOT Gun Lead Display",
-                                                                                                                  "mask": 1023,
-                                                                                                             "max_value": 999,
+                                                                                                                  "mask": 255,
+                                                                                                             "max_value": 187,
                                                                                                               "shift_by": 0,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
@@ -14029,7 +14089,7 @@
                                                                                      "identifier": "RIO_ALTIMETER_NEEDLE",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5170,
+                                                                                                           "address": 5168,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14045,7 +14105,7 @@
                                                                                      "identifier": "RIO_ALT_METER_100",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5194,
+                                                                                                           "address": 5192,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14061,7 +14121,7 @@
                                                                                      "identifier": "RIO_ALT_METER_1000",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5192,
+                                                                                                           "address": 5190,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14077,7 +14137,7 @@
                                                                                      "identifier": "RIO_ALT_METER_10000",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5190,
+                                                                                                           "address": 5188,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14093,7 +14153,7 @@
                                                                                      "identifier": "RIO_ALT_METER_SMALL_1",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5196,
+                                                                                                           "address": 5194,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14109,7 +14169,7 @@
                                                                                      "identifier": "RIO_ALT_METER_SMALL_2",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5198,
+                                                                                                           "address": 5196,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14125,7 +14185,7 @@
                                                                                      "identifier": "RIO_ALT_METER_SMALL_3",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5200,
+                                                                                                           "address": 5198,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14141,7 +14201,7 @@
                                                                                      "identifier": "RIO_ALT_METER_SMALL_4",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5202,
+                                                                                                           "address": 5200,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14157,7 +14217,7 @@
                                                                                      "identifier": "RIO_ALT_METER_STBY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5204,
+                                                                                                           "address": 5202,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14173,7 +14233,7 @@
                                                                                      "identifier": "RIO_CLOCK_H",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5162,
+                                                                                                           "address": 5160,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14189,7 +14249,7 @@
                                                                                      "identifier": "RIO_CLOCK_M",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5164,
+                                                                                                           "address": 5162,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14205,7 +14265,7 @@
                                                                                      "identifier": "RIO_CLOCK_T",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5168,
+                                                                                                           "address": 5166,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14221,7 +14281,7 @@
                                                                                      "identifier": "RIO_CLOCK_TS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5166,
+                                                                                                           "address": 5164,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14269,7 +14329,7 @@
                                                                                      "identifier": "RIO_CMDS_FLARE_COUNT_1",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5148,
+                                                                                                           "address": 5146,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14285,7 +14345,7 @@
                                                                                      "identifier": "RIO_CMDS_FLARE_COUNT_10",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5146,
+                                                                                                           "address": 5144,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14333,7 +14393,7 @@
                                                                                      "identifier": "RIO_COMP_FLAG",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5208,
+                                                                                                           "address": 5206,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14349,7 +14409,7 @@
                                                                                      "identifier": "RIO_COMP_NEEDLE_ADF",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5212,
+                                                                                                           "address": 5210,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14365,7 +14425,7 @@
                                                                                      "identifier": "RIO_COMP_NEEDLE_TACAN",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5210,
+                                                                                                           "address": 5208,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14381,7 +14441,7 @@
                                                                                      "identifier": "RIO_COMP_RING",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5206,
+                                                                                                           "address": 5204,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14397,7 +14457,7 @@
                                                                                      "identifier": "RIO_COMP_ROLLER1",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5214,
+                                                                                                           "address": 5212,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14413,7 +14473,7 @@
                                                                                      "identifier": "RIO_COMP_ROLLER2",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5216,
+                                                                                                           "address": 5214,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14429,7 +14489,7 @@
                                                                                      "identifier": "RIO_COMP_ROLLER3",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5218,
+                                                                                                           "address": 5216,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14445,7 +14505,7 @@
                                                                                      "identifier": "RIO_DDD_RADAR_MODE",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5224,
+                                                                                                           "address": 5222,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14461,7 +14521,7 @@
                                                                                      "identifier": "RIO_DDD_RANGE_ROLLER",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5220,
+                                                                                                           "address": 5218,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14477,7 +14537,7 @@
                                                                                      "identifier": "RIO_ELEVATION_RADAR",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5158,
+                                                                                                           "address": 5156,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14493,7 +14553,7 @@
                                                                                      "identifier": "RIO_ELEVATION_TCS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5160,
+                                                                                                           "address": 5158,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14509,7 +14569,7 @@
                                                                                      "identifier": "RIO_FUEL_TOTAL_1",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5180,
+                                                                                                           "address": 5178,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14525,7 +14585,7 @@
                                                                                      "identifier": "RIO_FUEL_TOTAL_10",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5178,
+                                                                                                           "address": 5176,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14541,7 +14601,7 @@
                                                                                      "identifier": "RIO_FUEL_TOTAL_100",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5176,
+                                                                                                           "address": 5174,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14557,7 +14617,7 @@
                                                                                      "identifier": "RIO_FUEL_TOTAL_10K",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5172,
+                                                                                                           "address": 5170,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14573,7 +14633,7 @@
                                                                                      "identifier": "RIO_FUEL_TOTAL_1K",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5174,
+                                                                                                           "address": 5172,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14589,10 +14649,10 @@
                                                                                      "identifier": "RIO_FUEL_TOTAL_DISP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5182,
+                                                                                                           "address": 5180,
                                                                                                        "description": "RIO Fuel Total Display",
-                                                                                                              "mask": 65535,
-                                                                                                         "max_value": 65535,
+                                                                                                              "mask": 32767,
+                                                                                                         "max_value": 25000,
                                                                                                           "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
@@ -14605,7 +14665,7 @@
                                                                                      "identifier": "RIO_RECORD_MIN_HI",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5228,
+                                                                                                           "address": 5226,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14621,7 +14681,7 @@
                                                                                      "identifier": "RIO_RECORD_MIN_LOW",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5232,
+                                                                                                           "address": 5230,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14637,7 +14697,7 @@
                                                                                      "identifier": "RIO_RECORD_MIN_MED",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5230,
+                                                                                                           "address": 5228,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14653,7 +14713,7 @@
                                                                                      "identifier": "RIO_STDBYAI_OFF_FLAG",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5184,
+                                                                                                           "address": 5182,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14669,7 +14729,7 @@
                                                                                      "identifier": "RIO_STDBYAI_PITCH",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5186,
+                                                                                                           "address": 5184,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14685,7 +14745,7 @@
                                                                                      "identifier": "RIO_STDBYAI_ROLL",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5188,
+                                                                                                           "address": 5186,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14701,7 +14761,7 @@
                                                                                      "identifier": "RIO_TACAN_COMAND_IND",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5156,
+                                                                                                           "address": 5154,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14717,7 +14777,7 @@
                                                                                      "identifier": "RIO_TID_SRC_ROLLER",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5222,
+                                                                                                           "address": 5220,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -14733,7 +14793,7 @@
                                                                                      "identifier": "RIO_TID_STEER_ROLLER",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 5226,
+                                                                                                           "address": 5224,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -19772,7 +19832,7 @@
                                                                                        "identifier": "PLT_UHF_REMOTE_DISP",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                             "address": 5236,
+                                                                                                             "address": 5234,
                                                                                                          "description": "PILOT UHF ARC-159 Radio Remote Display",
                                                                                                           "max_length": 7,
                                                                                                               "suffix": "",
@@ -19865,7 +19925,7 @@
                                                                                        "identifier": "RIO_UHF_REMOTE_DISP",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                             "address": 5244,
+                                                                                                             "address": 5242,
                                                                                                          "description": "RIO UHF ARC-159 Radio Remote Display",
                                                                                                           "max_length": 7,
                                                                                                               "suffix": "",
@@ -19935,7 +19995,7 @@
                                                                                         "identifier": "PLT_VUHF_REMOTE_DISP",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                              "address": 5252,
+                                                                                                              "address": 5250,
                                                                                                           "description": "PILOT VHF/UHF ARC-182 Radio Remote Display",
                                                                                                            "max_length": 7,
                                                                                                                "suffix": "",
@@ -20359,11 +20419,11 @@
                                                                              "identifier": "RIO_MCB_L_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 5114,
+                                                                                                   "address": 4980,
                                                                                                "description": "0 if light is off, 1 if light is on",
-                                                                                                      "mask": 1024,
+                                                                                                      "mask": 32768,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 10,
+                                                                                                  "shift_by": 15,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
@@ -20375,11 +20435,11 @@
                                                                              "identifier": "RIO_MCB_R_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 4990,
+                                                                                                   "address": 4980,
                                                                                                "description": "0 if light is off, 1 if light is on",
-                                                                                                      "mask": 32768,
+                                                                                                      "mask": 16384,
                                                                                                  "max_value": 1,
-                                                                                                  "shift_by": 15,
+                                                                                                  "shift_by": 14,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
