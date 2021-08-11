@@ -683,7 +683,7 @@ definePotentiometer("PLT_ASP17_HORIZONTAL_ADJ", 16, 3006, 566, {0, 1}, "ASP17", 
 definePotentiometer("PLT_ASP17_GRID_BRIGHT_ADJ", 16, 3010, 567, {0, 1}, "ASP17", "PILOT ASP17 Sight Grid Brightness Adjustment")
 defineToggleSwitch("PLT_ASP17_CROSSHAIR_LAMP", 16, 3013, 568, "ASP17", "PILOT ASP17 Sight Crosshair Lamp, MAIN/BACKUP")
 defineToggleSwitch("PLT_ASP17_GRID_LAMP", 16, 3012, 569, "ASP17", "PILOT ASP17 Sight Grid Lamp, MAIN/BACKUP")
-definePushButton("PLT_ASP17_CONTROL", 16, 3009, 570, "ASP17", "PILOT ASP17 Sight Control")
+definePushButton("PLT_ASP17_CONTROL", 16, 3009, 570, "ASP17", "PILOT ASP17 Sight Check")
 defineToggleSwitch("OP_USR_PW", 16, 3015, 761, "ASP17", "OPERATOR USR power")
 defineToggleSwitch("OP_USR_CHECK", 16, 3016, 762, "ASP17", "OPERATOR USR check")  -- Arg doubled
 defineToggleSwitch("PLT_ASP17_REFLECTOR_FIX", 16, 3045, 1005, "ASP17", "PILOT ASP17 Sight Reflector Control Fix")
