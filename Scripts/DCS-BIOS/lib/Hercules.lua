@@ -68,6 +68,42 @@ defineIndicatorLight("APU_BLEED_L", 1377, "APU Panel Lights", "APU Bleed Air Lig
 defineIndicatorLight("APU_FIRE_HAND_L", 1389, "APU Panel Lights", "APU Fire Handle Light (red)")
 
 -- PROPELLER_CONTROL_PANEL
+define3PosTumb("PROP_CONTR_ENG_1", 13, 13016, 1020, "Propeller Control Panel", "Propeller 1 Control")
+define3PosTumb("PROP_CONTR_ENG_2", 13, 13016, 1020, "Propeller Control Panel", "Propeller 2 Control")
+define3PosTumb("PROP_CONTR_ENG_3", 13, 13016, 1020, "Propeller Control Panel", "Propeller 3 Control")
+define3PosTumb("PROP_CONTR_ENG_4", 13, 13016, 1020, "Propeller Control Panel", "Propeller 4 Control")
+defineToggleSwitch("FADEC1_CV", 13, 13010, 1024, "Propeller Control Panel", "FADEC 1 Switch Cover")
+defineToggleSwitch("FADEC1_SW", 13, 13010, 1025, "Propeller Control Panel", "FADEC 1 Switch")
+defineToggleSwitch("FADEC2_CV", 13, 13010, 1026, "Propeller Control Panel", "FADEC 2 Switch Cover")
+defineToggleSwitch("FADEC2_SW", 13, 13010, 1027, "Propeller Control Panel", "FADEC 2 Switch")
+defineToggleSwitch("FADEC3_CV", 13, 13010, 1028, "Propeller Control Panel", "FADEC 3 Switch Cover")
+defineToggleSwitch("FADEC3_SW", 13, 13010, 1029, "Propeller Control Panel", "FADEC 3 Switch")
+defineToggleSwitch("FADEC4_CV", 13, 13010, 1030, "Propeller Control Panel", "FADEC 4 Switch Cover")
+defineToggleSwitch("FADEC4_SW", 13, 13010, 1031, "Propeller Control Panel", "FADEC 4 Switch")
+
+-- THROTTLE_QUADRANT_ASSEMBLY
+
+defineIndicatorLight("SPEED_MODE_ENG1_L", 1044, "Throttle Quadrant Lights", "Engine 1 Speed Mode Light (green)")
+defineIndicatorLight("SPEED_MODE_ENG2_L", 1045, "Throttle Quadrant Lights", "Engine 2 Speed Mode Light (green)")
+defineIndicatorLight("SPEED_MODE_ENG3_L", 1046, "Throttle Quadrant Lights", "Engine 3 Speed Mode Light (green)")
+defineIndicatorLight("SPEED_MODE_ENG4_L", 1047, "Throttle Quadrant Lights", "Engine 4 Speed Mode Light (green)")
+
+-- BLEED_AIR_PANEL
+
+-- LANDING_GEAR_LIGHTS_PANEL
+
+defineIndicatorLight("GEAR_L_GL", 1062, "Landing Gear Panel Lights", "Left Gear Light (green)")
+defineIndicatorLight("GEAR_L_YL", 1063, "Landing Gear Panel Lights", "Left Gear Light (yellow)")
+defineIndicatorLight("GEAR_N_GL", 1064, "Landing Gear Panel Lights", "Nose Gear Light (green)")
+defineIndicatorLight("GEAR_N_YL", 1065, "Landing Gear Panel Lights", "Nose Gear Light (yellow)")
+defineIndicatorLight("GEAR_R_GL", 1066, "Landing Gear Panel Lights", "Right Gear Light (green)")
+defineIndicatorLight("GEAR_R_YL", 1067, "Landing Gear Panel Lights", "Right Gear Light (yellow)")
+defineIndicatorLight("LAND_LIGHT_MOTORS_L_L", 1070, "Landing Gear Panel Lights", "Left Landing Motors Light (yellow)")
+defineIndicatorLight("LAND_LIGHT_MOTORS_R_L", 1071, "Landing Gear Panel Lights", "Right Landing Motors Light (yellow)")	
+
+-- Annunciator_Panel
+defineIndicatorLight("AP_ON_L", 1500, "Annunciator Panel Lights", "AP ON Light (green)")
+defineIndicatorLight("AP_DSNG_L", 1501, "Annunciator Panel Lights", "AP DSNG Light (green)")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKEs", function()
