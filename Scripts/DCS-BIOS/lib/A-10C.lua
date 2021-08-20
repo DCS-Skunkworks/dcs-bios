@@ -64,8 +64,6 @@ local function getUHFFrequency()
     return freqStatus:sub(0,3) .. "." .. freqStatus:sub(4,6)
 end
 
-
-
 local vhf_lut1 = {
     ["0.0"] = "3",
     ["0.15"] = "3",
@@ -108,9 +106,6 @@ local function getVhfFmFreqency()
 
     return freq1 .. freq2 .. "." .. freq3 .. freq4
 end
-
-
-
 
 local function getTacanChannel()
     local tcn_2 = ""
@@ -157,8 +152,6 @@ local function getILSFrequency()
 	if khz == nil then khz = "10" end
     return mhz .. "." .. khz
 end
-
-
 
 local cmsp1Alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = 19 }
 local cmsp2Alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = 19 }
