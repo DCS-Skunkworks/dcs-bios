@@ -12,19 +12,28 @@ local altFt = 0
 local hdgDeg
 local hdgDegFrac = 0
 local iasDisp
+local startTimeLow = 0
+local startTimeHigh = 0
+local modTimeLow = 0
+local modTimeHigh = 0
 
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()	
 	if not LoIsOwnshipExportAllowed() then return end -- skip this data if ownship export is disabled
 	
 	playerName = LoGetPilotName()
 		if playerName == nil then playerName = "XXX" end
     
-	misstime = string.format(LoGetMissionStartTime())
-		if misstime == nil then misstime = "0" end
-		
-	modtime = string.format("%5.0f", LoGetModelTime())
-		if modtime == nil then modtime = "0" end
+	
+	startTime = LoGetMissionStartTime() or 0
+	misstime = string.format(startTime)
+	startTimeLow = startTime%65536
+	startTimeHigh = (startTime - startTimeLow)/65536
+	
+	local modTimeFloat = LoGetModelTime() or 0	
+	modtime = string.format("%5.0f", modTimeFloat)
+	local modTimeHundredth = math.floor (modTimeFloat*100)
+	modTimeLow = modTimeHundredth%65536
+	modTimeHigh = (modTimeHundredth - modTimeLow) / 65536
 			
 	iasDisp = LoGetIndicatedAirSpeed()
 		if iasDisp == nil then iasDisp = "0000" end
@@ -65,16 +74,16 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 end
 
 local function misstime()
-misstimesec = LoGetMissionStartTime()
-  local seconds = tonumber(misstimesec)
+  local mtseconds = tonumber(startTime)
 
-  if seconds <= 0 then
-    return "00:00";
+  if mtseconds <= 0 then
+    return "00:00:00";
   else
-    hours = string.format("%02.f", math.floor(seconds/3600));
-    mins = string.format("%02.f", math.floor(seconds/60 - (hours*60)));
+	mtsec = string.format("%02.f", math.floor(mtseconds));
+    mthours = string.format("%02.f", math.floor(mtseconds/3600));
+    mtmins = string.format("%02.f", math.floor(mtseconds/60 - (mthours*60)));
   end
-     return hours .. ":" .. mins
+     return mthours .. ":" .. mtmins .. ":" .. mtsec
 end
 
 local function getVersion()
@@ -122,7 +131,12 @@ defineIntegerFromGetter("HDG_DEG_FRAC", function()
 	return hdgDegFrac * 127
 end, 127, "Heading", "Heading (Fractional Degrees, divide by 127)")
 
-defineString("MISS_TIME",  misstime, 5, "Metadata", "Mission Start Time")
-defineString("MOD_TIME", function() return modtime or "00000" end, 5, "Metadata", "Model Time in sec")
+defineString("MISS_TIME",  misstime, 8, "Time", "Mission Start Time")
+defineString("MOD_TIME", function() return modtime or "00000" end, 6, "Time", "Model Time in sec")
+  
+defineIntegerFromGetter("TIME_START_HIGH", function() return startTimeHigh end, 65535, "Time", "Start time high bits in seconds")
+defineIntegerFromGetter("TIME_START_LOW", function() return startTimeLow end, 65535, "Time", "Start time low bits in seconds")
+defineIntegerFromGetter("TIME_MODEL_HIGH", function() return modTimeHigh end, 65535, "Time", "Model time high bits in hundredth of a second")
+defineIntegerFromGetter("TIME_MODEL_LOW", function() return modTimeLow end, 65535, "Time", "Model time low bits in hundredth of a second")
 
 BIOS.protocol.endModule()
