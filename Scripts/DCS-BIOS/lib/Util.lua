@@ -369,7 +369,6 @@ function BIOS.util.definePotentiometer(msg, device_id, command, arg_number, limi
 			newValue = BIOS.util.cap(tonumber(value), {0, 65535})
 		end
 		
-		--GetDevice(device_id):performClickableAction(command, value/65535*intervalLength + limits[1])
 		GetDevice(device_id):performClickableAction(command, newValue/65535*intervalLength + limits[1])
 	end
 	
@@ -1328,7 +1327,7 @@ function BIOS.util.define3Pos2CommandSwitchF5(msg, device_id, switch1, switch2, 
 		identifier = msg,
 		category = category,
 		description = description,
-		control_type = "3Pos_2Command_Switch",
+		control_type = "3Pos_2Command_SwitchF5",
 		inputs = {
 			{ interface = "set_state", max_value = 2, description = "set the switch position" }
 		},
@@ -1339,19 +1338,18 @@ function BIOS.util.define3Pos2CommandSwitchF5(msg, device_id, switch1, switch2, 
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
 			  max_value = 2,
-			  description = "switch position -- 0 = Down, 1 = Mid ,  2 = UP"
+			  description = "switch position -- 0 = Left, 1 = Mid ,  2 = Right"
 			}
 		}
 	}
 	moduleBeingDefined.inputProcessors[msg] = function(toState)
 		local dev = GetDevice(device_id)
-			 dev:performClickableAction(switch1, 0)			 
-			 dev:performClickableAction(switch2, 0)
 		 if toState == "0" then --off
-			 dev:performClickableAction(switch1, -1)		 
+			 dev:performClickableAction(switch1, -1)
+			dev:performClickableAction(switch1, 0)			 
 	     elseif toState == "1" then --Middle
-			 dev:performClickableAction(switch1, 1)			 
-			 dev:performClickableAction(switch2, -1)
+			 dev:performClickableAction(switch1, 1)
+			 dev:performClickableAction(switch1, 0)			 
 		 elseif toState == "2" then --Up
 			 dev:performClickableAction(switch2, 1)			 
 		end
