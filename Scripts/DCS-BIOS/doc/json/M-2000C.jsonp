@@ -3175,7 +3175,7 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_FORMATION_LIGHTS_AFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29526,
+                                                                                             "address": 29528,
                                                                                          "description": "Aft Formation Lights",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3191,7 +3191,7 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_FORMATION_LIGHTS_FRONT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29524,
+                                                                                             "address": 29526,
                                                                                          "description": "Front Formation Lights",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3207,11 +3207,11 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_POSITION_LIGHT_LEFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29502,
+                                                                                             "address": 29500,
                                                                                          "description": "Left Position Light (red)",
-                                                                                                "mask": 64,
+                                                                                                "mask": 16384,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 6,
+                                                                                            "shift_by": 14,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3223,11 +3223,11 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29502,
+                                                                                             "address": 29500,
                                                                                          "description": "Right Position Light (green)",
-                                                                                                "mask": 128,
+                                                                                                "mask": 32768,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 7,
+                                                                                            "shift_by": 15,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3271,11 +3271,11 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_STROBE_BOTTOM",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29502,
+                                                                                             "address": 29524,
                                                                                          "description": "Bottom Strobe Light",
-                                                                                                "mask": 512,
+                                                                                                "mask": 2,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 9,
+                                                                                            "shift_by": 1,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3287,11 +3287,11 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_STROBE_TOP",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29502,
+                                                                                             "address": 29524,
                                                                                          "description": "Top Strobe Light",
-                                                                                                "mask": 256,
+                                                                                                "mask": 1,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 8,
+                                                                                            "shift_by": 0,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3303,11 +3303,11 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_WOW_LEFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29502,
+                                                                                             "address": 29524,
                                                                                          "description": "Weight ON Wheels Left Gear",
-                                                                                                "mask": 4096,
+                                                                                                "mask": 16,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 12,
+                                                                                            "shift_by": 4,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3319,11 +3319,11 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_WOW_NOSE",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29502,
+                                                                                             "address": 29524,
                                                                                          "description": "Weight ON Wheels Nose Gear",
-                                                                                                "mask": 1024,
+                                                                                                "mask": 4,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 10,
+                                                                                            "shift_by": 2,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3335,11 +3335,11 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_WOW_RIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29502,
+                                                                                             "address": 29524,
                                                                                          "description": "Weight ON Wheels Right Gear",
-                                                                                                "mask": 2048,
+                                                                                                "mask": 8,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 11,
+                                                                                            "shift_by": 3,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3378,11 +3378,11 @@ docdata["M-2000C"] =
                                                                   "identifier": "AIR_REFUEL_L",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
-                                                                                        "address": 29502,
+                                                                                        "address": 29500,
                                                                                     "description": "0 if light is off, 1 if light is on",
-                                                                                           "mask": 16,
+                                                                                           "mask": 4096,
                                                                                       "max_value": 1,
-                                                                                       "shift_by": 4,
+                                                                                       "shift_by": 12,
                                                                                          "suffix": "",
                                                                                            "type": "integer"
                                                                                 } ]
@@ -5982,11 +5982,11 @@ docdata["M-2000C"] =
                                                                                     } ],
                                                              "momentary_positions": "none",
                                                                          "outputs": [ {
-                                                                                            "address": 29502,
+                                                                                            "address": 29500,
                                                                                         "description": "selector position",
-                                                                                               "mask": 32,
+                                                                                               "mask": 8192,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 5,
+                                                                                           "shift_by": 13,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -6202,11 +6202,11 @@ docdata["M-2000C"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 29492,
+                                                                                             "address": 29500,
                                                                                          "description": "selector position",
-                                                                                                "mask": 8192,
+                                                                                                "mask": 32,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 13,
+                                                                                            "shift_by": 5,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -6231,11 +6231,11 @@ docdata["M-2000C"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 29492,
+                                                                                             "address": 29500,
                                                                                          "description": "selector position",
-                                                                                                "mask": 32768,
+                                                                                                "mask": 128,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 15,
+                                                                                            "shift_by": 7,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -6260,11 +6260,11 @@ docdata["M-2000C"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 29492,
+                                                                                             "address": 29500,
                                                                                          "description": "selector position",
-                                                                                                "mask": 16384,
+                                                                                                "mask": 64,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 14,
+                                                                                            "shift_by": 6,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -10002,11 +10002,11 @@ docdata["M-2000C"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 29470,
+                                                                                           "address": 29472,
                                                                                        "description": "selector position",
-                                                                                              "mask": 32768,
+                                                                                              "mask": 128,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 15,
+                                                                                          "shift_by": 7,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -10027,7 +10027,7 @@ docdata["M-2000C"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 29476,
+                                                                                           "address": 29472,
                                                                                        "description": "selector position",
                                                                                               "mask": 49152,
                                                                                          "max_value": 2,
@@ -10044,7 +10044,7 @@ docdata["M-2000C"] =
                                                               "identifier": "UHF_FREQUENCY",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 29482,
+                                                                                    "address": 29484,
                                                                                 "description": "O - UHF - Frequency Report Display",
                                                                                  "max_length": 5,
                                                                                      "suffix": "",
@@ -10066,11 +10066,11 @@ docdata["M-2000C"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 29470,
+                                                                                           "address": 29472,
                                                                                        "description": "selector position",
-                                                                                              "mask": 7680,
+                                                                                              "mask": 30,
                                                                                          "max_value": 10,
-                                                                                          "shift_by": 9,
+                                                                                          "shift_by": 1,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -10083,7 +10083,7 @@ docdata["M-2000C"] =
                                                               "identifier": "UHF_PRESET",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 29480,
+                                                                                    "address": 29482,
                                                                                 "description": "gauge position",
                                                                                        "mask": 65535,
                                                                                   "max_value": 65535,
@@ -10103,19 +10103,19 @@ docdata["M-2000C"] =
                                                                                    }, {
                                                                                        "description": "set position",
                                                                                          "interface": "set_state",
-                                                                                         "max_value": 20
+                                                                                         "max_value": 19
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 29476,
+                                                                                           "address": 29472,
                                                                                        "description": "selector position",
                                                                                               "mask": 15872,
-                                                                                         "max_value": 20,
+                                                                                         "max_value": 19,
                                                                                           "shift_by": 9,
                                                                                             "suffix": "_INT",
                                                                                               "type": "integer"
                                                                                    }, {
-                                                                                           "address": 29478,
+                                                                                           "address": 29480,
                                                                                        "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
                                                                                         "max_length": 2,
                                                                                             "suffix": "_STR",
@@ -10142,11 +10142,11 @@ docdata["M-2000C"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 29470,
+                                                                                           "address": 29472,
                                                                                        "description": "selector position",
-                                                                                              "mask": 8192,
+                                                                                              "mask": 32,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 13,
+                                                                                          "shift_by": 5,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -10159,11 +10159,11 @@ docdata["M-2000C"] =
                                                               "identifier": "UHF_REP_L_1",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 29502,
+                                                                                    "address": 29500,
                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                       "mask": 1,
+                                                                                       "mask": 256,
                                                                                   "max_value": 1,
-                                                                                   "shift_by": 0,
+                                                                                   "shift_by": 8,
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ]
@@ -10175,11 +10175,11 @@ docdata["M-2000C"] =
                                                               "identifier": "UHF_REP_L_2",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 29502,
+                                                                                    "address": 29500,
                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                       "mask": 2,
+                                                                                       "mask": 512,
                                                                                   "max_value": 1,
-                                                                                   "shift_by": 1,
+                                                                                   "shift_by": 9,
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ]
@@ -10191,11 +10191,11 @@ docdata["M-2000C"] =
                                                               "identifier": "UHF_SECURE_L",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 29502,
+                                                                                    "address": 29500,
                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                       "mask": 8,
+                                                                                       "mask": 2048,
                                                                                   "max_value": 1,
-                                                                                   "shift_by": 3,
+                                                                                   "shift_by": 11,
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ]
@@ -10219,11 +10219,11 @@ docdata["M-2000C"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 29470,
+                                                                                           "address": 29472,
                                                                                        "description": "selector position",
-                                                                                              "mask": 16384,
+                                                                                              "mask": 64,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 14,
+                                                                                          "shift_by": 6,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -10236,11 +10236,11 @@ docdata["M-2000C"] =
                                                               "identifier": "UHF_TEST_L",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 29502,
+                                                                                    "address": 29500,
                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                       "mask": 4,
+                                                                                       "mask": 1024,
                                                                                   "max_value": 1,
-                                                                                   "shift_by": 2,
+                                                                                   "shift_by": 10,
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ]
@@ -10265,7 +10265,7 @@ docdata["M-2000C"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 29476,
+                                                                                           "address": 29472,
                                                                                        "description": "selector position",
                                                                                               "mask": 256,
                                                                                          "max_value": 1,
@@ -10299,9 +10299,9 @@ docdata["M-2000C"] =
                                                                     "outputs": [ {
                                                                                        "address": 29470,
                                                                                    "description": "selector position",
-                                                                                          "mask": 128,
+                                                                                          "mask": 32768,
                                                                                      "max_value": 1,
-                                                                                      "shift_by": 7,
+                                                                                      "shift_by": 15,
                                                                                         "suffix": "",
                                                                                           "type": "integer"
                                                                                } ],
@@ -10389,9 +10389,9 @@ docdata["M-2000C"] =
                                                                     "outputs": [ {
                                                                                        "address": 29470,
                                                                                    "description": "selector position",
-                                                                                          "mask": 1,
+                                                                                          "mask": 256,
                                                                                      "max_value": 1,
-                                                                                      "shift_by": 0,
+                                                                                      "shift_by": 8,
                                                                                         "suffix": "",
                                                                                           "type": "integer"
                                                                                } ],
@@ -10419,9 +10419,9 @@ docdata["M-2000C"] =
                                                                     "outputs": [ {
                                                                                        "address": 29470,
                                                                                    "description": "selector position",
-                                                                                          "mask": 2,
+                                                                                          "mask": 512,
                                                                                      "max_value": 1,
-                                                                                      "shift_by": 1,
+                                                                                      "shift_by": 9,
                                                                                         "suffix": "",
                                                                                           "type": "integer"
                                                                                } ],
@@ -10449,9 +10449,9 @@ docdata["M-2000C"] =
                                                                     "outputs": [ {
                                                                                        "address": 29470,
                                                                                    "description": "selector position",
-                                                                                          "mask": 4,
+                                                                                          "mask": 1024,
                                                                                      "max_value": 1,
-                                                                                      "shift_by": 2,
+                                                                                      "shift_by": 10,
                                                                                         "suffix": "",
                                                                                           "type": "integer"
                                                                                } ],
@@ -10479,9 +10479,9 @@ docdata["M-2000C"] =
                                                                     "outputs": [ {
                                                                                        "address": 29470,
                                                                                    "description": "selector position",
-                                                                                          "mask": 8,
+                                                                                          "mask": 2048,
                                                                                      "max_value": 1,
-                                                                                      "shift_by": 3,
+                                                                                      "shift_by": 11,
                                                                                         "suffix": "",
                                                                                           "type": "integer"
                                                                                } ],
@@ -10509,9 +10509,9 @@ docdata["M-2000C"] =
                                                                     "outputs": [ {
                                                                                        "address": 29470,
                                                                                    "description": "selector position",
-                                                                                          "mask": 16,
+                                                                                          "mask": 4096,
                                                                                      "max_value": 1,
-                                                                                      "shift_by": 4,
+                                                                                      "shift_by": 12,
                                                                                         "suffix": "",
                                                                                           "type": "integer"
                                                                                } ],
@@ -10539,9 +10539,9 @@ docdata["M-2000C"] =
                                                                     "outputs": [ {
                                                                                        "address": 29470,
                                                                                    "description": "selector position",
-                                                                                          "mask": 32,
+                                                                                          "mask": 8192,
                                                                                      "max_value": 1,
-                                                                                      "shift_by": 5,
+                                                                                      "shift_by": 13,
                                                                                         "suffix": "",
                                                                                           "type": "integer"
                                                                                } ],
@@ -10569,9 +10569,9 @@ docdata["M-2000C"] =
                                                                     "outputs": [ {
                                                                                        "address": 29470,
                                                                                    "description": "selector position",
-                                                                                          "mask": 64,
+                                                                                          "mask": 16384,
                                                                                      "max_value": 1,
-                                                                                      "shift_by": 6,
+                                                                                      "shift_by": 14,
                                                                                         "suffix": "",
                                                                                           "type": "integer"
                                                                                } ],
@@ -10601,8 +10601,8 @@ docdata["M-2000C"] =
                                                                                           "type": "integer"
                                                                                }, {
                                                                                        "address": 29468,
-                                                                                   "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
-                                                                                    "max_length": 2,
+                                                                                   "description": "possible values: \"002\" \"003\" \"004\" \"005\" \"006\" \"007\" \"008\" \"009\" \"010\" \"011\" \"012\" \"013\" \"014\" \"015\" \"016\" \"017\" \"018\" \"019\" \"020\" \"001\" ",
+                                                                                    "max_length": 3,
                                                                                         "suffix": "_STR",
                                                                                           "type": "string"
                                                                                } ],
@@ -10628,11 +10628,11 @@ docdata["M-2000C"] =
                                                                                } ],
                                                         "momentary_positions": "none",
                                                                     "outputs": [ {
-                                                                                       "address": 29470,
+                                                                                       "address": 29472,
                                                                                    "description": "selector position",
-                                                                                          "mask": 256,
+                                                                                          "mask": 1,
                                                                                      "max_value": 1,
-                                                                                      "shift_by": 8,
+                                                                                      "shift_by": 0,
                                                                                         "suffix": "",
                                                                                           "type": "integer"
                                                                                } ],
@@ -10645,7 +10645,7 @@ docdata["M-2000C"] =
                                                           "identifier": "VHF_FREQUENCY",
                                                               "inputs": [  ],
                                                              "outputs": [ {
-                                                                                "address": 29472,
+                                                                                "address": 29474,
                                                                             "description": "O - VHF - Frequency Report Display",
                                                                              "max_length": 5,
                                                                                  "suffix": "",
@@ -10836,9 +10836,9 @@ docdata["M-2000C"] =
                                                                           "outputs": [ {
                                                                                              "address": 29488,
                                                                                          "description": "selector position",
-                                                                                                "mask": 31,
+                                                                                                "mask": 7936,
                                                                                            "max_value": 19,
-                                                                                            "shift_by": 0,
+                                                                                            "shift_by": 8,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -10859,7 +10859,7 @@ docdata["M-2000C"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 29486,
+                                                                                             "address": 29478,
                                                                                          "description": "selector position",
                                                                                                 "mask": 3840,
                                                                                            "max_value": 9,
@@ -10888,7 +10888,7 @@ docdata["M-2000C"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 29486,
+                                                                                             "address": 29478,
                                                                                          "description": "selector position",
                                                                                                 "mask": 4096,
                                                                                            "max_value": 1,
@@ -10917,7 +10917,7 @@ docdata["M-2000C"] =
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 29486,
+                                                                                             "address": 29478,
                                                                                          "description": "selector position",
                                                                                                 "mask": 8192,
                                                                                            "max_value": 1,
@@ -10946,9 +10946,9 @@ docdata["M-2000C"] =
                                                                          "outputs": [ {
                                                                                             "address": 29490,
                                                                                         "description": "selector position",
-                                                                                               "mask": 96,
+                                                                                               "mask": 12288,
                                                                                           "max_value": 2,
-                                                                                           "shift_by": 5,
+                                                                                           "shift_by": 12,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -10971,9 +10971,9 @@ docdata["M-2000C"] =
                                                                          "outputs": [ {
                                                                                             "address": 29492,
                                                                                         "description": "selector position",
-                                                                                               "mask": 12,
+                                                                                               "mask": 768,
                                                                                           "max_value": 2,
-                                                                                           "shift_by": 2,
+                                                                                           "shift_by": 8,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -10994,11 +10994,11 @@ docdata["M-2000C"] =
                                                                                     } ],
                                                              "momentary_positions": "none",
                                                                          "outputs": [ {
-                                                                                            "address": 29490,
+                                                                                            "address": 29492,
                                                                                         "description": "selector position",
-                                                                                               "mask": 24576,
+                                                                                               "mask": 48,
                                                                                           "max_value": 2,
-                                                                                           "shift_by": 13,
+                                                                                           "shift_by": 4,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -11019,11 +11019,11 @@ docdata["M-2000C"] =
                                                                                     } ],
                                                              "momentary_positions": "none",
                                                                          "outputs": [ {
-                                                                                            "address": 29490,
+                                                                                            "address": 29492,
                                                                                         "description": "selector position",
-                                                                                               "mask": 1536,
+                                                                                               "mask": 3,
                                                                                           "max_value": 2,
-                                                                                           "shift_by": 9,
+                                                                                           "shift_by": 0,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -11044,11 +11044,11 @@ docdata["M-2000C"] =
                                                                                     } ],
                                                              "momentary_positions": "none",
                                                                          "outputs": [ {
-                                                                                            "address": 29490,
+                                                                                            "address": 29488,
                                                                                         "description": "selector position",
-                                                                                               "mask": 24,
+                                                                                               "mask": 49152,
                                                                                           "max_value": 2,
-                                                                                           "shift_by": 3,
+                                                                                           "shift_by": 14,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -11069,11 +11069,11 @@ docdata["M-2000C"] =
                                                                                     } ],
                                                              "momentary_positions": "none",
                                                                          "outputs": [ {
-                                                                                            "address": 29490,
+                                                                                            "address": 29492,
                                                                                         "description": "selector position",
-                                                                                               "mask": 6144,
+                                                                                               "mask": 12,
                                                                                           "max_value": 2,
-                                                                                           "shift_by": 11,
+                                                                                           "shift_by": 2,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -11096,9 +11096,9 @@ docdata["M-2000C"] =
                                                                          "outputs": [ {
                                                                                             "address": 29492,
                                                                                         "description": "selector position",
-                                                                                               "mask": 3,
+                                                                                               "mask": 192,
                                                                                           "max_value": 2,
-                                                                                           "shift_by": 0,
+                                                                                           "shift_by": 6,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -11121,9 +11121,9 @@ docdata["M-2000C"] =
                                                                          "outputs": [ {
                                                                                             "address": 29490,
                                                                                         "description": "selector position",
-                                                                                               "mask": 384,
+                                                                                               "mask": 49152,
                                                                                           "max_value": 2,
-                                                                                           "shift_by": 7,
+                                                                                           "shift_by": 14,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -11148,7 +11148,7 @@ docdata["M-2000C"] =
                                                                                     } ],
                                                              "momentary_positions": "none",
                                                                          "outputs": [ {
-                                                                                            "address": 29486,
+                                                                                            "address": 29478,
                                                                                         "description": "selector position",
                                                                                                "mask": 32768,
                                                                                           "max_value": 1,
@@ -11175,9 +11175,9 @@ docdata["M-2000C"] =
                                                                          "outputs": [ {
                                                                                             "address": 29490,
                                                                                         "description": "selector position",
-                                                                                               "mask": 7,
+                                                                                               "mask": 3584,
                                                                                           "max_value": 7,
-                                                                                           "shift_by": 0,
+                                                                                           "shift_by": 9,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -11198,11 +11198,11 @@ docdata["M-2000C"] =
                                                                                     } ],
                                                              "momentary_positions": "none",
                                                                          "outputs": [ {
-                                                                                            "address": 29488,
+                                                                                            "address": 29490,
                                                                                         "description": "selector position",
-                                                                                               "mask": 28672,
+                                                                                               "mask": 448,
                                                                                           "max_value": 7,
-                                                                                           "shift_by": 12,
+                                                                                           "shift_by": 6,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -11223,11 +11223,11 @@ docdata["M-2000C"] =
                                                                                     } ],
                                                              "momentary_positions": "none",
                                                                          "outputs": [ {
-                                                                                            "address": 29488,
+                                                                                            "address": 29490,
                                                                                         "description": "selector position",
-                                                                                               "mask": 448,
+                                                                                               "mask": 7,
                                                                                           "max_value": 7,
-                                                                                           "shift_by": 6,
+                                                                                           "shift_by": 0,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -11254,9 +11254,9 @@ docdata["M-2000C"] =
                                                                          "outputs": [ {
                                                                                             "address": 29488,
                                                                                         "description": "selector position",
-                                                                                               "mask": 32,
+                                                                                               "mask": 8192,
                                                                                           "max_value": 1,
-                                                                                           "shift_by": 5,
+                                                                                           "shift_by": 13,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -11281,7 +11281,7 @@ docdata["M-2000C"] =
                                                                                     } ],
                                                              "momentary_positions": "none",
                                                                          "outputs": [ {
-                                                                                            "address": 29486,
+                                                                                            "address": 29478,
                                                                                         "description": "selector position",
                                                                                                "mask": 16384,
                                                                                           "max_value": 1,
@@ -11306,11 +11306,11 @@ docdata["M-2000C"] =
                                                                                     } ],
                                                              "momentary_positions": "none",
                                                                          "outputs": [ {
-                                                                                            "address": 29488,
+                                                                                            "address": 29490,
                                                                                         "description": "selector position",
-                                                                                               "mask": 3584,
+                                                                                               "mask": 56,
                                                                                           "max_value": 7,
-                                                                                           "shift_by": 9,
+                                                                                           "shift_by": 3,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -11339,9 +11339,9 @@ docdata["M-2000C"] =
                                                                         "outputs": [ {
                                                                                            "address": 29492,
                                                                                        "description": "selector position",
-                                                                                              "mask": 16,
+                                                                                              "mask": 4096,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 4,
+                                                                                          "shift_by": 12,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -11366,11 +11366,11 @@ docdata["M-2000C"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 29490,
+                                                                                           "address": 29492,
                                                                                        "description": "selector position",
-                                                                                              "mask": 32768,
+                                                                                              "mask": 2048,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 15,
+                                                                                          "shift_by": 11,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -11420,9 +11420,9 @@ docdata["M-2000C"] =
                                                                         "outputs": [ {
                                                                                            "address": 29492,
                                                                                        "description": "selector position",
-                                                                                              "mask": 32,
+                                                                                              "mask": 8192,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 5,
+                                                                                          "shift_by": 13,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -11447,11 +11447,11 @@ docdata["M-2000C"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 29488,
+                                                                                           "address": 29492,
                                                                                        "description": "selector position",
-                                                                                              "mask": 32768,
+                                                                                              "mask": 1024,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 15,
+                                                                                          "shift_by": 10,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -11474,9 +11474,9 @@ docdata["M-2000C"] =
                                                                         "outputs": [ {
                                                                                            "address": 29492,
                                                                                        "description": "selector position",
-                                                                                              "mask": 192,
+                                                                                              "mask": 49152,
                                                                                          "max_value": 2,
-                                                                                          "shift_by": 6,
+                                                                                          "shift_by": 14,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -11497,11 +11497,11 @@ docdata["M-2000C"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 29492,
+                                                                                           "address": 29500,
                                                                                        "description": "selector position",
-                                                                                              "mask": 768,
+                                                                                              "mask": 3,
                                                                                          "max_value": 2,
-                                                                                          "shift_by": 8,
+                                                                                          "shift_by": 0,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -11514,11 +11514,11 @@ docdata["M-2000C"] =
                                                               "identifier": "HUD_REC",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 29492,
+                                                                                    "address": 29500,
                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                       "mask": 4096,
+                                                                                       "mask": 16,
                                                                                   "max_value": 1,
-                                                                                   "shift_by": 12,
+                                                                                   "shift_by": 4,
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ]
@@ -11560,11 +11560,11 @@ docdata["M-2000C"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                           "address": 29492,
+                                                                                           "address": 29500,
                                                                                        "description": "selector position",
-                                                                                              "mask": 3072,
+                                                                                              "mask": 12,
                                                                                          "max_value": 2,
-                                                                                          "shift_by": 10,
+                                                                                          "shift_by": 2,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
@@ -11604,7 +11604,7 @@ docdata["M-2000C"] =
                                                          "identifier": "VARIO_NEEDLE",
                                                              "inputs": [  ],
                                                             "outputs": [ {
-                                                                               "address": 29500,
+                                                                               "address": 29502,
                                                                            "description": "gauge position",
                                                                                   "mask": 65535,
                                                                              "max_value": 65535,

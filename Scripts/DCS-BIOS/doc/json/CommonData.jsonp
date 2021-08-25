@@ -67,34 +67,6 @@ docdata["CommonData"] =
                                                                 "type": "string"
                                                      } ]
                                  },
-                    "MISS_TIME": {
-                                         "category": "Metadata",
-                                     "control_type": "display",
-                                      "description": "Mission Start Time",
-                                       "identifier": "MISS_TIME",
-                                           "inputs": [  ],
-                                          "outputs": [ {
-                                                             "address": 1080,
-                                                         "description": "Mission Start Time",
-                                                          "max_length": 5,
-                                                              "suffix": "",
-                                                                "type": "string"
-                                                     } ]
-                                 },
-                     "MOD_TIME": {
-                                         "category": "Metadata",
-                                     "control_type": "display",
-                                      "description": "Model Time in sec",
-                                       "identifier": "MOD_TIME",
-                                           "inputs": [  ],
-                                          "outputs": [ {
-                                                             "address": 1086,
-                                                         "description": "Model Time in sec",
-                                                          "max_length": 5,
-                                                              "suffix": "",
-                                                                "type": "string"
-                                                     } ]
-                                 },
                     "PILOTNAME": {
                                          "category": "Metadata",
                                      "control_type": "display",
@@ -297,5 +269,99 @@ docdata["CommonData"] =
                                                                  "type": "integer"
                                                       } ]
                                   }
+                },
+        "Time": {
+                          "MISS_TIME": {
+                                               "category": "Time",
+                                           "control_type": "display",
+                                            "description": "Mission Start Time",
+                                             "identifier": "MISS_TIME",
+                                                 "inputs": [  ],
+                                                "outputs": [ {
+                                                                   "address": 1080,
+                                                               "description": "Mission Start Time",
+                                                                "max_length": 8,
+                                                                    "suffix": "",
+                                                                      "type": "string"
+                                                           } ]
+                                       },
+                           "MOD_TIME": {
+                                               "category": "Time",
+                                           "control_type": "display",
+                                            "description": "Model Time in sec",
+                                             "identifier": "MOD_TIME",
+                                                 "inputs": [  ],
+                                                "outputs": [ {
+                                                                   "address": 1088,
+                                                               "description": "Model Time in sec",
+                                                                "max_length": 6,
+                                                                    "suffix": "",
+                                                                      "type": "string"
+                                                           } ]
+                                       },
+                    "TIME_MODEL_HIGH": {
+                                               "category": "Time",
+                                           "control_type": "metadata",
+                                            "description": "Model time high bits in hundredth of a second",
+                                             "identifier": "TIME_MODEL_HIGH",
+                                                 "inputs": [  ],
+                                                "outputs": [ {
+                                                                   "address": 1098,
+                                                               "description": "Model time high bits in hundredth of a second",
+                                                                      "mask": 65535,
+                                                                 "max_value": 65535,
+                                                                  "shift_by": 0,
+                                                                    "suffix": "",
+                                                                      "type": "integer"
+                                                           } ]
+                                       },
+                     "TIME_MODEL_LOW": {
+                                               "category": "Time",
+                                           "control_type": "metadata",
+                                            "description": "Model time low bits in hundredth of a second",
+                                             "identifier": "TIME_MODEL_LOW",
+                                                 "inputs": [  ],
+                                                "outputs": [ {
+                                                                   "address": 1100,
+                                                               "description": "Model time low bits in hundredth of a second",
+                                                                      "mask": 65535,
+                                                                 "max_value": 65535,
+                                                                  "shift_by": 0,
+                                                                    "suffix": "",
+                                                                      "type": "integer"
+                                                           } ]
+                                       },
+                    "TIME_START_HIGH": {
+                                               "category": "Time",
+                                           "control_type": "metadata",
+                                            "description": "Start time high bits in seconds",
+                                             "identifier": "TIME_START_HIGH",
+                                                 "inputs": [  ],
+                                                "outputs": [ {
+                                                                   "address": 1094,
+                                                               "description": "Start time high bits in seconds",
+                                                                      "mask": 65535,
+                                                                 "max_value": 65535,
+                                                                  "shift_by": 0,
+                                                                    "suffix": "",
+                                                                      "type": "integer"
+                                                           } ]
+                                       },
+                     "TIME_START_LOW": {
+                                               "category": "Time",
+                                           "control_type": "metadata",
+                                            "description": "Start time low bits in seconds",
+                                             "identifier": "TIME_START_LOW",
+                                                 "inputs": [  ],
+                                                "outputs": [ {
+                                                                   "address": 1096,
+                                                               "description": "Start time low bits in seconds",
+                                                                      "mask": 65535,
+                                                                 "max_value": 65535,
+                                                                  "shift_by": 0,
+                                                                    "suffix": "",
+                                                                      "type": "integer"
+                                                           } ]
+                                       }
                 }
 };

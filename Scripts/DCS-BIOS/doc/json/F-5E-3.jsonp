@@ -1617,29 +1617,24 @@ docdata["F-5E-3"] =
                                             },
                                     "Fuel": {
                                                       "AUTOBAL": {
-                                                                                "category": "Fuel",
-                                                                            "control_type": "selector",
-                                                                             "description": "Autobalance Switch, LEFT/NEUT/RIGHT",
-                                                                              "identifier": "AUTOBAL",
-                                                                                  "inputs": [ {
-                                                                                                "description": "switch to previous or next state",
-                                                                                                  "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                "description": "set position",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 2
-                                                                                            } ],
-                                                                     "momentary_positions": "none",
-                                                                                 "outputs": [ {
-                                                                                                    "address": 30222,
-                                                                                                "description": "selector position",
-                                                                                                       "mask": 3,
-                                                                                                  "max_value": 2,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ],
-                                                                        "physical_variant": "3_position_switch"
+                                                                         "category": "Fuel",
+                                                                     "control_type": "3Pos_2Command_SwitchF5",
+                                                                      "description": "Autobalance Switch, LEFT/NEUT/RIGHT",
+                                                                       "identifier": "AUTOBAL",
+                                                                           "inputs": [ {
+                                                                                         "description": "set the switch position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 2
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                             "address": 30222,
+                                                                                         "description": "switch position -- 0 = Left, 1 = Mid ,  2 = Right",
+                                                                                                "mask": 3,
+                                                                                           "max_value": 2,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
                                                                  },
                                                     "CROSSFEED": {
                                                                                 "category": "Fuel",
@@ -5022,7 +5017,7 @@ docdata["F-5E-3"] =
                                                    "RADAR_CURSOR": {
                                                                            "category": "Radar",
                                                                        "control_type": "limited_dial",
-                                                                        "description": "AN/APQ-159 Radar Pitch Knob",
+                                                                        "description": "AN/APQ-159 Radar Cursor Knob",
                                                                          "identifier": "RADAR_CURSOR",
                                                                              "inputs": [ {
                                                                                            "description": "set the position of the dial",
@@ -5035,7 +5030,7 @@ docdata["F-5E-3"] =
                                                                                            "suggested_step": 3200
                                                                                        } ],
                                                                             "outputs": [ {
-                                                                                               "address": 30318,
+                                                                                               "address": 30316,
                                                                                            "description": "position of the potentiometer",
                                                                                                   "mask": 65535,
                                                                                              "max_value": 65535,
@@ -5111,6 +5106,31 @@ docdata["F-5E-3"] =
                                                                                        } ],
                                                                             "outputs": [ {
                                                                                                "address": 30312,
+                                                                                           "description": "position of the potentiometer",
+                                                                                                  "mask": 65535,
+                                                                                             "max_value": 65535,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                                    "RADAR_PITCH": {
+                                                                           "category": "Radar",
+                                                                       "control_type": "limited_dial",
+                                                                        "description": "AN/APQ-159 Radar Pitch Knob",
+                                                                         "identifier": "RADAR_PITCH",
+                                                                             "inputs": [ {
+                                                                                           "description": "set the position of the dial",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 65535
+                                                                                       }, {
+                                                                                              "description": "turn the dial left or right",
+                                                                                                "interface": "variable_step",
+                                                                                                "max_value": 65535,
+                                                                                           "suggested_step": 3200
+                                                                                       } ],
+                                                                            "outputs": [ {
+                                                                                               "address": 30318,
                                                                                            "description": "position of the potentiometer",
                                                                                                   "mask": 65535,
                                                                                              "max_value": 65535,
