@@ -904,7 +904,7 @@ defineTumb("CLOCK_L_LEV_PRESS", 45, 3002, 57, 1, {-1, 0}, nil, false, "Clock", "
 defineFloat("R863_FREQ1_TUBE", 157, {0, 1}, "Indicator", "R-863, 10MHz Tube")
 defineFloat("R863_FREQ2_TUBE", 158, {0, 1}, "Indicator", "R-863, 1MHz Tube")
 defineFloat("R863_FREQ3_TUBE", 159, {0, 1}, "Indicator", "R-863, 100KHz Tube")
-defineFloat("R863_FREQ4_TUBE", 116, {0, 1}, "Indicator", "R-863, 1KHz Tube")
+defineFloat("R863_FREQ4_TUBE", 160, {0, 1}, "Indicator", "R-863, 1KHz Tube")
 
 defineFloat("SBY_COMPASS_HDG", 272, {-1, 1}, "Windscreen", "Standby Compass Heading")
 defineFloat("SBY_COMPASS_PITCH", 274, {-1, 1}, "Windscreen", "Standby Compass Pitch")
