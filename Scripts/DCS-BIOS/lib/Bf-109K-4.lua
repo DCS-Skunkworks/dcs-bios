@@ -428,7 +428,7 @@ definePushButton("FLARE_GUN_WH", 20, 3005, 165, "Flare Gun", "Fire Flare Gun Whi
 definePushButton("FLARE_GUN_YE", 20, 3006, 165, "Flare Gun", "Fire Flare Gun Yellow")
 
 -- Rudder and Wheel Brakes
-definePotentiometer("LH_WHEELBRAKE", 4, 3015, 103, {0, 1}, "Pedals", "Left Wheel Brake")
-definePotentiometer("RH_WHEELBRAKE", 4, 3018, 104, {0, 1}, "Pedals", "Right Wheel Brake")
+definePotentiometer("LH_WHEELBRAKE", 4, 3015, 103, {0, 1}, "Cockpit", "Left Wheel Brake")
+definePotentiometer("RH_WHEELBRAKE", 4, 3018, 104, {0, 1}, "Cockpit", "Right Wheel Brake")
 
 BIOS.protocol.endModule()
