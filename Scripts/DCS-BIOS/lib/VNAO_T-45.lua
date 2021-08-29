@@ -31,7 +31,7 @@ defineToggleSwitch("CANOPY_HANDLE", 19, 3042, 116, "General", "Canopy Handle, OP
 definePushButton("MASTER_ALERT_BTN", 19, 3040, 143, "General", "Master Alert Button")
 --define3PosTumb("CONTR_AUG_SW", xx, 30xx, 92, "Electric System", "Control Aug Switch, ALL/SBI/RESET")
 defineRotary("RUDDER_TRIM_KNB", 19, 3557, 165, "General", "Rudder Trim Knob")
-defineToggleSwitch("BATTERY1_SW", 19, 3061, 265, "General", "Seat Arming Handle, SAFE/ARMED")
+defineToggleSwitch("SEAT_ARM", 19, 3061, 265, "General", "Seat Arming Handle, SAFE/ARMED")
 definePushButton("EJECT_HANDLE", 19, 3063, 264, "General", "Ejection Handle - Pull To Eject")
 
 -- Electric system
