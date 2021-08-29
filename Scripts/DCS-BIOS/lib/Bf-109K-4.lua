@@ -155,12 +155,6 @@ definePushButton("L_RADIATOR_OFF", 4, 3043, 90, "Engine", "LH Radiator Cut-Off")
 -- RH Radiator Hose Cut-Off Pull Handle
 definePushButton("R_RADIATOR_OFF", 4, 3045, 91, "Engine", "RH Radiator Cut-Off")
 
-
-
--- Rudder and Wheel Brakes
---TODO LEFT & RIGHT WHEEL BRAKES
-
--- Navigation Instruments
 -- Altimeter
 defineRotary("ALT_PRESS_SET", 8, 3001, 11, "Cockpit", "Altimeter Pressure Set")
 
@@ -190,7 +184,6 @@ definePotentiometer("SIGHT_BRIGHT", 1, 3044, 48, {0,1}, "Gun Sight", "Gun Sight 
 defineTumb("SIGHT_FOLD", 3, 3007, 139, 1, {0,1}, nil, false, "Gun Sight", "Gun Sight Fold")
 -- P 112 Gun Sight Smoked Screen Controls
 definePushButton("SIGHT_SCREEN", 3, 3010, 47, "Gun Sight", "Gun Sight Smoked Screen Up/Down")
---
 -- Radio Controls
 defineTumb("RADIO_MODE", 14, 3001, 128, 0.1, {0,0.3}, nil, false, "Radio", "Radio Mode")
 
@@ -226,7 +219,6 @@ definePushButton("FLARE_GUN", 20, 3001, 72, "Flare Gun", "Fire Flare Gun")
 
 
 -- Throttle Lever
---TODO Throttle Lever
 -- Propellor Control Rocker
 defineTumb("DEC_RPM", 1, 3060, 85, 1, {-1,1}, nil, false, "Engine", "Decrease RPM")
 defineTumb("INC_RPM", 1, 3060, 85, 1, {-1,1}, nil, false, "Engine", "Increase RPM")
@@ -238,7 +230,6 @@ defineTumb("GOV_AUTO_SWITCH", 1, 3058, 89, 1, {0,1}, nil, false, "Engine", "Gove
 
 -- Cold Weather Start Valve Handle
 definePushButton("COLD_START", 5, 3008, 86, "Engine", "Cold Weather Start")
---
 
 defineFloat("MIRRORS_DRAW", 183, {1, 0}, "Indicator", "mirrors_draw")
 defineFloat("PANEL_SHAKE_Z", 146, {-0.8, 0.8}, "Indicator", "Panel_Shake_Z")
@@ -295,7 +286,6 @@ defineIndicatorLight("LANDINGGEARGREENLIGHTRIGHT", 58, "Indicator", "LandingGear
 defineIndicatorLight("FUEL_RESERVE_LAMP", 135, "Indicator", "Fuel_Reserve_Lamp")
 
 -- Gauge Formulas
-
 local function getManifold()
      local returnValue = (GetDevice(0):get_argument_value(32))*65+10
      return returnValue
@@ -437,5 +427,8 @@ definePushButton("FLARE_GUN_RD", 20, 3004, 165, "Flare Gun", "Fire Flare Gun Red
 definePushButton("FLARE_GUN_WH", 20, 3005, 165, "Flare Gun", "Fire Flare Gun White")
 definePushButton("FLARE_GUN_YE", 20, 3006, 165, "Flare Gun", "Fire Flare Gun Yellow")
 
+-- Rudder and Wheel Brakes
+definePotentiometer("LH_WHEELBRAKE", 4, 3015, 103, {0, 1}, "Pedals", "Left Wheel Brake")
+definePotentiometer("RH_WHEELBRAKE", 4, 3018, 104, {0, 1}, "Pedals", "Right Wheel Brake")
 
 BIOS.protocol.endModule()
