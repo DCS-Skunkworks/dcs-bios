@@ -264,7 +264,7 @@ defineMultipositionSwitch("APC_ENABLE", 27, 3095, 135, 3, 1.0, "ApproachPowerCom
 defineMultipositionSwitch("APS_COLD_STD_HOT", 27, 3096, 136, 3, 1.0, "ApproachPowerCompensator", "APC Cold/Std/Hot")
 
 --Mechanical Systems
-defineToggleSwitch("GEAR HANDLE", 14, 3020, 8, "Mechanical Systems", "Landing Gear Handle")
+defineToggleSwitch("GEAR_HANDLE", 14, 3020, 8, "Mechanical Systems", "Landing Gear Handle")
 defineToggleSwitch("HOOK_HANDLE", 14, 3021, 10, "Gear", "Landing Hook Handle")
 defineToggleSwitch("SPOILER_ARM", 15, 3017, 84, "Mechanical Systems", "Spoiler Arm Switch")
 defineToggleSwitch("SPEEDBRAKE", 12, 3024, 85, "Mechanical Systems", "Speedbrake Switch")

@@ -639,7 +639,7 @@ defineIndicatorLight("OP_SHTV_MINUS27V_L", 914, "I9K113 Lights", "OPERATOR SHTV 
 defineIndicatorLight("OP_SHTV_0_L", 918, "I9K113 Lights", "OPERATOR SHTV Tablo 0 Light (yellow)")
 defineIndicatorLight("OP_SHTV_04K_L", 924, "I9K113 Lights", "OPERATOR SHTV Tablo 0,4K Light (yellow)")
 defineIndicatorLight("OP_SHTV_04T_L", 923, "I9K113 Lights", "OPERATOR SHTV Tablo 0,4T Light (yellow)")
-defineIndicatorLight("OP_SHTV_APCH _L", 922, "I9K113 Lights", "OPERATOR SHTV Tablo APCH  Light (yellow)")
+defineIndicatorLight("OP_SHTV_APCH_L", 922, "I9K113 Lights", "OPERATOR SHTV Tablo APCH  Light (yellow)")
 defineIndicatorLight("OP_SHTV_UP_L", 928, "I9K113 Lights", "OPERATOR SHTV Tablo UP Light (yellow)")
 defineIndicatorLight("OP_SHTV_L_L", 929, "I9K113 Lights", "OPERATOR SHTV Tablo LEFT Light (yellow)")
 defineIndicatorLight("OP_SHTV_DN_L", 927, "I9K113 Lights", "OPERATOR SHTV Tablo DOWN Light (yellow)")
