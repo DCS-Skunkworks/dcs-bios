@@ -93,7 +93,7 @@ definePushButton("OIL_DILUTE", 15, 3013, 62, "Engine Control Panel", "Oil Dilute
 definePushButton("STARTER", 15, 3008, 63, "Engine Control Panel", "Starter Activate")
 defineToggleSwitch("STARTER_COVER", 15, 3009, 64, "Engine Control Panel", "Starter Switch Cover")
 definePushButton("PRIMER", 15, 3011, 65, "Engine Control Panel", "Primer Activate")
-defineFloat("AIRSPEED_NEEDLE", 11, {0, 1}, "Airspeed Indicator", "Airspeed Needle")
+defineFloat("AIRSPEED_NEEDLE", 11, {0, 0.7}, "Airspeed Indicator", "Airspeed Needle")
 defineRotary("SET_PRESSURE", 17, 3001, 26, "Altimeter", "Set Pressure")
 defineFloat("ALTIMETER_PRESSURE", 97, {0, 1}, "Altimeter", "Altimeter Pressure")
 defineFloat("ALTIMETER_100_FOOT", 25, {0, 1}, "Altimeter", "Altimeter 100 Foot")
