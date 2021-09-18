@@ -1428,8 +1428,8 @@ defineFloat("PLT_SPOILER_DN_OR", 8318, {0, 1}, "PLT Gauges", "PILOT Spoiler DN O
 defineFloat("PLT_SPOILER_DN_IR", 8317, {0, 1}, "PLT Gauges", "PILOT Spoiler DN Outer Right")
 defineFloat("PLT_SPOILER_IND_OL", 8319, {0, 1}, "PLT Gauges", "PILOT Spoiler Indicator Outer Left")
 defineFloat("PLT_SPOILER_IND_IL", 8320, {0, 1}, "PLT Gauges", "PILOT Spoiler Indicator Inner Left")
-defineFloat("PLT_SPOILER_IND_OR", 8321, {0, 1}, "PLT Gauges", "PILOT Spoiler Indicator Outer Right")
-defineFloat("PLT_SPOILER_IND_IR", 8322, {0, 1}, "PLT Gauges", "PILOT Spoiler Indicator Outer Right")
+defineFloat("PLT_SPOILER_IND_OR", 8322, {0, 1}, "PLT Gauges", "PILOT Spoiler Indicator Outer Right")
+defineFloat("PLT_SPOILER_IND_IR", 8321, {0, 1}, "PLT Gauges", "PILOT Spoiler Indicator Inner Right")
 defineFloat("PLT_STABI_IND_L", 1090, {0, 1}, "PLT Gauges", "PILOT Stabilisator Indicator Left")
 defineFloat("PLT_STABI_IND_R", 1091, {0, 1}, "PLT Gauges", "PILOT Stabilisator Indicator Right")
 defineFloat("PLT_RUDDER_IND_L", 1092, {0, 1}, "PLT Gauges", "PILOT Rudder Indicator Left")
@@ -1583,7 +1583,7 @@ defineFloat("RIO_RECORD_MIN_HI", 11600, {0, 1}, "RIO Gauges", "RIO Record Minute
 defineFloat("RIO_RECORD_MIN_MED", 11601, {0, 1}, "RIO Gauges", "RIO Record Minutes MED")
 defineFloat("RIO_RECORD_MIN_LOW", 11602, {0, 1}, "RIO Gauges", "RIO Record Minutes LOW")
 
-defineFloat("CANOPY_POS", 403, {0, 1}, "Gauges", "Canopy Position")
+defineFloat("CANOPY_POS", 403, {0, 1}, "Cockpit", "Canopy Position")
 
 defineString("PLT_UHF_REMOTE_DISP", function() return get_radio_remote_display(9, 15004) or "0000000" end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")  
 defineString("RIO_UHF_REMOTE_DISP", function() return get_radio_remote_display(10,405) or "0000000" end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")  
@@ -1695,5 +1695,7 @@ defineFloat("INTERNAL_FLOOD_WHT_L", 1803, {0, 1}, "zAdditional Parameters", "Flo
 defineFloat("INTERNAL_PLT_PANEL_L", 1801, {1, 0}, "zAdditional Parameters", "Panel Lights (red) inverted")
 definePushButton("PLT_VDI_FILTER", 42, 3234, 0, "HUD", "PILOT VDI Filter") --miss arg
 definePushButton("RIO_DDD_FILTER", 39, 3456, 0, "DDD", "RIO DDD Filter") --miss arg
+defineFloat("PLT_EJECT_SEAT_SAVE", 2503, {0, 1}, "Cockpit", "PILOT Ejection Seat Safety")
+defineFloat("RIO_EJECT_SEAT_SAVE", 2504, {0, 1}, "Cockpit", "RIO Ejection Seat Safety")
 
 BIOS.protocol.endModule()

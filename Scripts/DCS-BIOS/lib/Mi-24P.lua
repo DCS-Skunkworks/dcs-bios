@@ -264,7 +264,7 @@ defineFloat("PLT_CLOCK_F_M", 53, {0, 1}, "Clock Gauges", "PILOT Clock Flight Min
 defineFloat("PLT_CLOCK_ST_M", 54, {0, 1}, "Clock Gauges", "PILOT Clock Seconds Time Minutes")
 defineFloat("PLT_CLOCK_ST_S", 55, {0, 1}, "Clock Gauges", "PILOT Clock Seconds Time Seconds")
 defineFloat("OP_CLOCK_CT_H", 695, {0, 1}, "Clock Gauges", "OPERATOR Clock Current Time Hours")
-defineFloat("OP_CLOCK_CT_M", 696, {0, 1}, "Clock Gauges", "OPERATOR Clock Current Time Minutes")
+defineFloat("OP_CLOCK_CT_M", 1027, {0, 1}, "Clock Gauges", "OPERATOR Clock Current Time Minutes")
 defineFloat("OP_CLOCK_CT_S", 690, {0, 1}, "Clock Gauges", "OPERATOR Clock Current Time Seconds")
 defineFloat("OP_CLOCK_FT_STAT", 692, {0, 1}, "Clock Gauges", "OPERATOR Clock Flight Time Status")
 defineFloat("OP_CLOCK_F_H", 961, {0, 1}, "Clock Gauges", "OPERATOR Clock Flight Hours")
@@ -1191,5 +1191,17 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+
+defineIndicatorLight("OP_TIMER_L", 1026, "Internal Lights", "OPERATOR Timer Device Lamp (yellow)")
+defineToggleSwitch("PLT_SPU8_STICK_BTN", 55, 3024, 738, "SPU-8 PLT", "PILOT SPU-8 Trigger Button, RADIO(LMB)/ICS(RMB)")
+defineToggleSwitch("OP_SPU8_STICK_BTN", 55, 3025, 856, "SPU-8 OP", "OPERATOR SPU-8 Trigger Button, RADIO(LMB)/ICS(RMB)")
+
+--Timer
+defineToggleSwitch("OP_TIMER_L_UP", 70, 3003, 1015, "Timer", "OPERATOR Left Timer Control Up/Down")
+definePotentiometer("OP_TIMER_L_ROT", 70, 3004, 1016, {0, 1}, "Timer", "OPERATOR Left Timer Control Rotary")
+defineToggleSwitch("OP_TIMER_R_UP", 70, 3005, 1019, "Timer", "OPERATOR Right Timer Control Up/Down")
+definePotentiometer("OP_TIMER_R_ROT", 70, 3006, 1020, {0, 1}, "Timer", "OPERATOR Right Timer Control Rotary")
+defineTumb("OP_TIMER_SEL", 70, 3002, 1017, 0.5, {0, 1}, nil, false, "Timer", "OPERATOR Active Timer Select")
+defineToggleSwitch("OP_TIMER_ON", 70, 3001, 1018, "Timer", "OPERATOR Active Timer Start/Stop")
 
 BIOS.protocol.endModule()
