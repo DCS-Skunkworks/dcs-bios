@@ -12065,11 +12065,11 @@ docdata["Mi-24P"] =
                                                                                                          "type": "integer"
                                                                                               } ]
                                                                           },
-                                                       "OP_SHTV_APCH _L": {
+                                                        "OP_SHTV_APCH_L": {
                                                                                   "category": "I9K113 Lights",
                                                                               "control_type": "led",
                                                                                "description": "OPERATOR SHTV Tablo APCH  Light (yellow)",
-                                                                                "identifier": "OP_SHTV_APCH _L",
+                                                                                "identifier": "OP_SHTV_APCH_L",
                                                                                     "inputs": [  ],
                                                                                    "outputs": [ {
                                                                                                       "address": 26968,
@@ -12977,6 +12977,22 @@ docdata["Mi-24P"] =
                                                                                                           "mask": 256,
                                                                                                      "max_value": 1,
                                                                                                       "shift_by": 8,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                             "OP_TIMER_L": {
+                                                                                   "category": "Internal Lights",
+                                                                               "control_type": "led",
+                                                                                "description": "OPERATOR Timer Device Lamp (yellow)",
+                                                                                 "identifier": "OP_TIMER_L",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 27204,
+                                                                                                   "description": "0 if light is off, 1 if light is on",
+                                                                                                          "mask": 2,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 1,
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ]
@@ -17854,6 +17870,35 @@ docdata["Mi-24P"] =
                                                                                                     } ],
                                                                                 "physical_variant": "toggle_switch"
                                                                          },
+                                                    "OP_SPU8_STICK_BTN": {
+                                                                                        "category": "SPU-8 OP",
+                                                                                    "control_type": "selector",
+                                                                                     "description": "OPERATOR SPU-8 Trigger Button, RADIO(LMB)/ICS(RMB)",
+                                                                                      "identifier": "OP_SPU8_STICK_BTN",
+                                                                                          "inputs": [ {
+                                                                                                        "description": "switch to previous or next state",
+                                                                                                          "interface": "fixed_step"
+                                                                                                    }, {
+                                                                                                        "description": "set position",
+                                                                                                          "interface": "set_state",
+                                                                                                          "max_value": 1
+                                                                                                    }, {
+                                                                                                           "argument": "TOGGLE",
+                                                                                                        "description": "Toggle switch state",
+                                                                                                          "interface": "action"
+                                                                                                    } ],
+                                                                             "momentary_positions": "none",
+                                                                                         "outputs": [ {
+                                                                                                            "address": 27204,
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 8,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 3,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ],
+                                                                                "physical_variant": "toggle_switch"
+                                                                         },
                                                           "OP_SPU8_VOL": {
                                                                                  "category": "SPU-8 OP",
                                                                              "control_type": "limited_dial",
@@ -18076,6 +18121,35 @@ docdata["Mi-24P"] =
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ]
+                                                                          },
+                                                    "PLT_SPU8_STICK_BTN": {
+                                                                                         "category": "SPU-8 PLT",
+                                                                                     "control_type": "selector",
+                                                                                      "description": "PILOT SPU-8 Trigger Button, RADIO(LMB)/ICS(RMB)",
+                                                                                       "identifier": "PLT_SPU8_STICK_BTN",
+                                                                                           "inputs": [ {
+                                                                                                         "description": "switch to previous or next state",
+                                                                                                           "interface": "fixed_step"
+                                                                                                     }, {
+                                                                                                         "description": "set position",
+                                                                                                           "interface": "set_state",
+                                                                                                           "max_value": 1
+                                                                                                     }, {
+                                                                                                            "argument": "TOGGLE",
+                                                                                                         "description": "Toggle switch state",
+                                                                                                           "interface": "action"
+                                                                                                     } ],
+                                                                              "momentary_positions": "none",
+                                                                                          "outputs": [ {
+                                                                                                             "address": 27204,
+                                                                                                         "description": "selector position",
+                                                                                                                "mask": 4,
+                                                                                                           "max_value": 1,
+                                                                                                            "shift_by": 2,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                                     } ],
+                                                                                 "physical_variant": "toggle_switch"
                                                                           },
                                                           "PLT_SPU8_VOL": {
                                                                                   "category": "SPU-8 PLT",
@@ -18746,6 +18820,170 @@ docdata["Mi-24P"] =
                                                                                                          } ],
                                                                                      "physical_variant": "toggle_switch"
                                                                               }
+                                                },
+                                       "Timer": {
+                                                    "OP_TIMER_L_ROT": {
+                                                                              "category": "Timer",
+                                                                          "control_type": "limited_dial",
+                                                                           "description": "OPERATOR Left Timer Control Rotary",
+                                                                            "identifier": "OP_TIMER_L_ROT",
+                                                                                "inputs": [ {
+                                                                                              "description": "set the position of the dial",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 65535
+                                                                                          }, {
+                                                                                                 "description": "turn the dial left or right",
+                                                                                                   "interface": "variable_step",
+                                                                                                   "max_value": 65535,
+                                                                                              "suggested_step": 3200
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 27206,
+                                                                                              "description": "position of the potentiometer",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                     "OP_TIMER_L_UP": {
+                                                                                     "category": "Timer",
+                                                                                 "control_type": "selector",
+                                                                                  "description": "OPERATOR Left Timer Control Up/Down",
+                                                                                   "identifier": "OP_TIMER_L_UP",
+                                                                                       "inputs": [ {
+                                                                                                     "description": "switch to previous or next state",
+                                                                                                       "interface": "fixed_step"
+                                                                                                 }, {
+                                                                                                     "description": "set position",
+                                                                                                       "interface": "set_state",
+                                                                                                       "max_value": 1
+                                                                                                 }, {
+                                                                                                        "argument": "TOGGLE",
+                                                                                                     "description": "Toggle switch state",
+                                                                                                       "interface": "action"
+                                                                                                 } ],
+                                                                          "momentary_positions": "none",
+                                                                                      "outputs": [ {
+                                                                                                         "address": 27204,
+                                                                                                     "description": "selector position",
+                                                                                                            "mask": 16,
+                                                                                                       "max_value": 1,
+                                                                                                        "shift_by": 4,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ],
+                                                                             "physical_variant": "toggle_switch"
+                                                                      },
+                                                       "OP_TIMER_ON": {
+                                                                                     "category": "Timer",
+                                                                                 "control_type": "selector",
+                                                                                  "description": "OPERATOR Active Timer Start/Stop",
+                                                                                   "identifier": "OP_TIMER_ON",
+                                                                                       "inputs": [ {
+                                                                                                     "description": "switch to previous or next state",
+                                                                                                       "interface": "fixed_step"
+                                                                                                 }, {
+                                                                                                     "description": "set position",
+                                                                                                       "interface": "set_state",
+                                                                                                       "max_value": 1
+                                                                                                 }, {
+                                                                                                        "argument": "TOGGLE",
+                                                                                                     "description": "Toggle switch state",
+                                                                                                       "interface": "action"
+                                                                                                 } ],
+                                                                          "momentary_positions": "none",
+                                                                                      "outputs": [ {
+                                                                                                         "address": 27204,
+                                                                                                     "description": "selector position",
+                                                                                                            "mask": 256,
+                                                                                                       "max_value": 1,
+                                                                                                        "shift_by": 8,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ],
+                                                                             "physical_variant": "toggle_switch"
+                                                                      },
+                                                    "OP_TIMER_R_ROT": {
+                                                                              "category": "Timer",
+                                                                          "control_type": "limited_dial",
+                                                                           "description": "OPERATOR Right Timer Control Rotary",
+                                                                            "identifier": "OP_TIMER_R_ROT",
+                                                                                "inputs": [ {
+                                                                                              "description": "set the position of the dial",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 65535
+                                                                                          }, {
+                                                                                                 "description": "turn the dial left or right",
+                                                                                                   "interface": "variable_step",
+                                                                                                   "max_value": 65535,
+                                                                                              "suggested_step": 3200
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 27208,
+                                                                                              "description": "position of the potentiometer",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                     "OP_TIMER_R_UP": {
+                                                                                     "category": "Timer",
+                                                                                 "control_type": "selector",
+                                                                                  "description": "OPERATOR Right Timer Control Up/Down",
+                                                                                   "identifier": "OP_TIMER_R_UP",
+                                                                                       "inputs": [ {
+                                                                                                     "description": "switch to previous or next state",
+                                                                                                       "interface": "fixed_step"
+                                                                                                 }, {
+                                                                                                     "description": "set position",
+                                                                                                       "interface": "set_state",
+                                                                                                       "max_value": 1
+                                                                                                 }, {
+                                                                                                        "argument": "TOGGLE",
+                                                                                                     "description": "Toggle switch state",
+                                                                                                       "interface": "action"
+                                                                                                 } ],
+                                                                          "momentary_positions": "none",
+                                                                                      "outputs": [ {
+                                                                                                         "address": 27204,
+                                                                                                     "description": "selector position",
+                                                                                                            "mask": 32,
+                                                                                                       "max_value": 1,
+                                                                                                        "shift_by": 5,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ],
+                                                                             "physical_variant": "toggle_switch"
+                                                                      },
+                                                      "OP_TIMER_SEL": {
+                                                                                     "category": "Timer",
+                                                                                 "control_type": "selector",
+                                                                                  "description": "OPERATOR Active Timer Select",
+                                                                                   "identifier": "OP_TIMER_SEL",
+                                                                                       "inputs": [ {
+                                                                                                     "description": "switch to previous or next state",
+                                                                                                       "interface": "fixed_step"
+                                                                                                 }, {
+                                                                                                     "description": "set position",
+                                                                                                       "interface": "set_state",
+                                                                                                       "max_value": 2
+                                                                                                 } ],
+                                                                          "momentary_positions": "none",
+                                                                                      "outputs": [ {
+                                                                                                         "address": 27204,
+                                                                                                     "description": "selector position",
+                                                                                                            "mask": 192,
+                                                                                                       "max_value": 2,
+                                                                                                        "shift_by": 6,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ],
+                                                                             "physical_variant": "limited_rotary"
+                                                                      }
                                                 },
                                        "UKT-2": {
                                                     "PLT_UKT2_PITCH_TRIM": {

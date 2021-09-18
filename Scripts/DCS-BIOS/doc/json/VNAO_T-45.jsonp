@@ -2109,35 +2109,6 @@ docdata["VNAO_T-45"] =
                                                                                                    "type": "integer"
                                                                                         } ]
                                                                     },
-                                                     "BATTERY1_SW": {
-                                                                                   "category": "General",
-                                                                               "control_type": "selector",
-                                                                                "description": "Seat Arming Handle, SAFE/ARMED",
-                                                                                 "identifier": "BATTERY1_SW",
-                                                                                     "inputs": [ {
-                                                                                                   "description": "switch to previous or next state",
-                                                                                                     "interface": "fixed_step"
-                                                                                               }, {
-                                                                                                   "description": "set position",
-                                                                                                     "interface": "set_state",
-                                                                                                     "max_value": 1
-                                                                                               }, {
-                                                                                                      "argument": "TOGGLE",
-                                                                                                   "description": "Toggle switch state",
-                                                                                                     "interface": "action"
-                                                                                               } ],
-                                                                        "momentary_positions": "none",
-                                                                                    "outputs": [ {
-                                                                                                       "address": 36864,
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 256,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 8,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                               } ],
-                                                                           "physical_variant": "toggle_switch"
-                                                                    },
                                                    "CANOPY_HANDLE": {
                                                                                    "category": "General",
                                                                                "control_type": "selector",
@@ -2361,6 +2332,35 @@ docdata["VNAO_T-45"] =
                                                                                                  "suffix": "_KNOB_POS",
                                                                                                    "type": "integer"
                                                                                         } ]
+                                                                    },
+                                                        "SEAT_ARM": {
+                                                                                   "category": "General",
+                                                                               "control_type": "selector",
+                                                                                "description": "Seat Arming Handle, SAFE/ARMED",
+                                                                                 "identifier": "SEAT_ARM",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 36864,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 256,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 8,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "toggle_switch"
                                                                     }
                                             },
                                      "HUD": {
@@ -5564,11 +5564,11 @@ docdata["VNAO_T-45"] =
                                                                                                  "type": "integer"
                                                                                       } ]
                                                                   },
-                                                      "LP PMP_L": {
+                                                      "LP_PMP_L": {
                                                                           "category": "Warning, Caution and IndicatorLights",
                                                                       "control_type": "led",
                                                                        "description": "LP PMP Light (yellow)",
-                                                                        "identifier": "LP PMP_L",
+                                                                        "identifier": "LP_PMP_L",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
                                                                                               "address": 36916,

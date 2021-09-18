@@ -2872,6 +2872,56 @@
                                                                                          "physical_variant": "limited_rotary"
                                                                                   }
                                                 },
+                                     "Cockpit": {
+                                                             "CANOPY_POS": {
+                                                                                   "category": "Cockpit",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Canopy Position",
+                                                                                 "identifier": "CANOPY_POS",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5232,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                    "PLT_EJECT_SEAT_SAVE": {
+                                                                                   "category": "Cockpit",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "PILOT Ejection Seat Safety",
+                                                                                 "identifier": "PLT_EJECT_SEAT_SAVE",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5316,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                    "RIO_EJECT_SEAT_SAVE": {
+                                                                                   "category": "Cockpit",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "RIO Ejection Seat Safety",
+                                                                                 "identifier": "RIO_EJECT_SEAT_SAVE",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5318,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           }
+                                                },
                            "Cockpit Mechanics": {
                                                         "PLT_CANOPY_JETT": {
                                                                                           "category": "Cockpit Mechanics",
@@ -6914,24 +6964,6 @@
                                                                                                           } ],
                                                                                       "physical_variant": "3_position_switch"
                                                                                }
-                                                },
-                                      "Gauges": {
-                                                    "CANOPY_POS": {
-                                                                          "category": "Gauges",
-                                                                      "control_type": "analog_gauge",
-                                                                       "description": "Canopy Position",
-                                                                        "identifier": "CANOPY_POS",
-                                                                            "inputs": [  ],
-                                                                           "outputs": [ {
-                                                                                              "address": 5232,
-                                                                                          "description": "gauge position",
-                                                                                                 "mask": 65535,
-                                                                                            "max_value": 65535,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ]
-                                                                  }
                                                 },
                              "Gauges as Light": {
                                                             "PLT_FLAPS_IND_LIGHT": {
@@ -11921,7 +11953,7 @@
                                                              "PLT_SPOILER_IND_IR": {
                                                                                            "category": "PLT Gauges",
                                                                                        "control_type": "analog_gauge",
-                                                                                        "description": "PILOT Spoiler Indicator Outer Right",
+                                                                                        "description": "PILOT Spoiler Indicator Inner Right",
                                                                                          "identifier": "PLT_SPOILER_IND_IR",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
