@@ -12,9 +12,9 @@ local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
+local define3PosTumb = BIOS.util.define3PosTumb
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- remove Arg# Pilot 500
@@ -54,6 +54,52 @@ definePotentiometer("FLOOD_L_DIM_R", 4, 3053, 14, {0, 1}, "JBA", "Right Flood Li
 definePotentiometer("BOX_B_DIM", 4, 3056, 15, {0, 1}, "JBA", "J.B.B. Flood Light Dimmer")
 defineToggleSwitch("AIR_FILTER", 4, 3066, 114, "JBA", "Tropical Air Filter Switch")
 defineToggleSwitch("FUEL_PUMP_L_CVR", 2, 3065, 282, "JBA", "Fuel Pump Light Cover")
+
+defineIndicatorLight("FUEL_PUMP_L", 281, "JBA Lights", "Fuel Pump Light (yellow)")
+
+--Main Panel
+defineRotary("REP_COMP", 8, 3001, 49, "Main Panel", "Repeater Compass Course Set")
+defineRotary("ALT_SET", 2, 3010, 72, "Main Panel", "Altimeter Set")
+defineRotary("DI_SET", 2, 3013, 74, "Main Panel", "Directional Gyro Set")
+defineRotary("UC_BLIND", 2, 3018, 304, "Main Panel", "U/C Indicator Blind Up/Down")
+defineToggleSwitch("PORT_OXY_VALVE", 15, 3003, 84, "Main Panel", "Oxygen Regulator Port")
+definePushButton("BOOST_CUT_OFF", 3, 3049, 292, "Main Panel", "Boost Cut-Off T-Handle")
+defineToggleSwitch("PORT_LAND_L_SW", 4, 3018, 62, "Main Panel", "Landing Light Switch Port")
+defineToggleSwitch("STBD_LAND_L_SW", 4, 3020, 63, "Main Panel", "Landing Light Switch Starboard")
+define3PosTumb("BOMB_DOORS_LVR", 17, 3001, 115, "Main Panel", "Bomb Doors Lever")
+define3PosTumb("CHASSIS_LVR", 17, 3002, 116, "Main Panel", "Chassis Lever")
+define3PosTumb("FLAPS_LVR", 17, 3003, 118, "Main Panel", "Flaps Lever")
+defineToggleSwitch("CHASSIS_GATE", 17, 3004, 117, "Main Panel", "Chassis Lever Gate")
+defineToggleSwitch("FLAPS_GATE", 17, 3006, 119, "Main Panel", "Flaps Lever Gate")
+defineToggleSwitch("GUN_MASTER_CVR", 5, 3001, 120, "Main Panel", "Gun Firing Master Switch Cover")
+defineTumb("GUN_MASTER", 5, 3003, 121, 2, {-1, 1}, nil, false, "Main Panel", "Gun Firing Master Switch")
+defineToggleSwitch("DE_ICE_PUMP", 23, 3001, 370, "Main Panel", "De-Ice Glycol Pump Handle")
+defineRotary("RUDDER_TRIM", 2, 3053, 111, "Main Panel", "Rudder Trim")
+defineRotary("AILERON_TRIM", 2, 3051, 280, "Main Panel", "Aileron Trim")
+definePotentiometer("BOMB_PANEL_DIM", 4, 3059, 16, {0, 1}, "Main Panel" , "Bomb Panel Flood Dimmer")
+defineToggleSwitch("BOMB_DOOR_L_CVR", 2, 3067, 284, "Main Panel", "Bomb Door Light Cover")
+defineToggleSwitch("JETT_CONT_CVR", 5, 3056, 144, "Main Panel", "Container Jettison Cover")
+definePushButton("JETT_CONT", 5, 3058, 145, "Main Panel", "Container Jettison Button")
+defineToggleSwitch("BOMB_PANEL_CVR", 5, 3059, 311, "Main Panel", "Bomb Panel Cover")
+defineToggleSwitch("CINE_CAM", 5, 3061, 143, "Main Panel", "Cine Camera Changeover Switch")
+defineToggleSwitch("WING_ORD_1", 5, 3063, 148, "Main Panel", "Wing Ordnance 1 Switch")
+defineToggleSwitch("WING_ORD_2", 5, 3065, 149, "Main Panel", "Wing Ordnance 2 Switch")
+defineToggleSwitch("FUSELAGE_BOMB_3", 5, 3067, 150, "Main Panel", "Fuselage Bombs 3 Switch")
+defineToggleSwitch("FUSELAGE_BOMB_4", 5, 3069, 151, "Main Panel", "Fuselage Bombs 4 Switch")
+defineToggleSwitch("NOSE_BOMBS", 5, 3071, 152, "Main Panel", "All Nose Bombs Switch")
+defineToggleSwitch("TAIL_BOMBS", 5, 3073, 153, "Main Panel", "All Tail Bombs Switch")
+defineRotary("FOOTAGE_SCALE", 18, 3003, 90, "Main Panel", "Footage Indicator Scale")
+defineToggleSwitch("FOOTAGE_EXPOSURE", 18, 3001, 91, "Main Panel", "Footage Indicator Exposure Switch")
+
+defineIndicatorLight("BOMB_DOOR_L", 283, "Main Panel Lights", "Bomb Door Light (yellow)")
+defineIndicatorLight("MAIN_PANEL_C_LAMP_L", 271, "Main Panel Lights", "Main Panel Center Lamp (white)")
+defineIndicatorLight("MAIN_PANEL_L_LAMP_L", 270, "Main Panel Lights", "Main Panel Left Lamp (white)")
+
+--Clock
+definePushButton("CLOCK_PIN_PULL", 19, 3003, 101, "Clock", "Clock Set (Pull)")  
+defineRotary("CLOCK_PIN_TURN", 19, 3001, 102, "Clock", "Clock Set (Turn)")
+defineRotary("CLOCK_REF_H", 19, 3005, 375, "Clock", "Clock Reference Hours")
+defineRotary("CLOCK_REF_M", 19, 3007, 376, "Clock", "Clock Reference Minutes")
 
 defineFloat("COCKPIT_HATCH", 255, {0, 1}, "Cockpit", "Cockpit Hatch")
 defineFloat("REP_COMP_HDG_G", 47, {0, 1}, "Gauges", "Repeater Compass Heading")
@@ -111,11 +157,24 @@ defineFloat("R1155_TUNE_ANO_G", 228, {0, 1}, "Gauges", "R1155 Tuning Anode Gauge
 defineFloat("R1155_DFLH_G", 88, {-1, 1}, "Gauges", "R1155 DFLH Gauge")
 defineFloat("R1155_DFRH_G", 89, {-1, 1}, "Gauges", "R1155 DFRH Gauge")
 
-defineIndicatorLight("RADIO_A_LIGHT", 37, "Radio", "Radio A Light (white)")
-defineIndicatorLight("RADIO_B_LIGHT", 38, "Radio", "Radio B Light (white)")
-defineIndicatorLight("RADIO_C_LIGHT", 39, "Radio", "Radio C Light (white)")
-defineIndicatorLight("RADIO_D_LIGHT", 40, "Radio", "Radio D Light (white)")
-defineIndicatorLight("RADIO_TX_LIGHT", 41, "Radio", "Radio TX Light (white)")
+defineIndicatorLight("RADIO_A_L", 37, "Radio Lights", "Radio A Light (white)")
+defineIndicatorLight("RADIO_B_L", 38, "Radio Lights", "Radio B Light (white)")
+defineIndicatorLight("RADIO_C_L", 39, "Radio Lights", "Radio C Light (white)")
+defineIndicatorLight("RADIO_D_L", 40, "Radio Lights", "Radio D Light (white)")
+defineIndicatorLight("RADIO_TX_L", 41, "Radio Lights", "Radio TX Light (white)")
+
+defineIndicatorLight("UV_L_L", 325, "Cockpit Lights", "Left UV Light (multi)")
+defineIndicatorLight("UV_R_L", 326, "Cockpit Lights", "Right UV Light (multi)")
+defineIndicatorLight("TRANS_TYPF_L", 308, "Cockpit Lights", "Transmitter TypeF Light (yellow)")
+defineIndicatorLight("RED_LAMP_L_L", 379, "Cockpit Lights", "Left Red Lamp (red)")
+defineIndicatorLight("WH_LAMP_R_L", 301, "Cockpit Lights", "Right White Lamp (white)")
+defineIndicatorLight("WH_LAMP_F_L", 300, "Cockpit Lights", "Front White Lamp (white)")
+defineIndicatorLight("WH_LAMP_L_L", 299, "Cockpit Lights", "Left White Lamp (white)")
+defineIndicatorLight("DOME_LAMP_L", 276, "Cockpit Lights", "Dome Lamp (white)")
+defineIndicatorLight("ANT_LAMP_L", 275, "Cockpit Lights", "Antenna Lamp (white)")
+
+
+defineIndicatorLight("GAUGES_GLOW_L", 297, "Cockpit Lights", "Gauges Glow (green)")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
