@@ -98,7 +98,7 @@
                                                          "DEICER": {
                                                                                   "category": "Cockpit",
                                                                               "control_type": "selector",
-                                                                               "description": "Windscreen De-Icer On/Off",
+                                                                               "description": "Windscreen De-Ice On/Off",
                                                                                 "identifier": "DEICER",
                                                                                     "inputs": [ {
                                                                                                   "description": "switch to previous or next state",
@@ -208,7 +208,7 @@
                                                           "HATCH": {
                                                                                   "category": "Cockpit",
                                                                               "control_type": "selector",
-                                                                               "description": "Canopy Open/Close",
+                                                                               "description": "Canopy Open/Close Control",
                                                                                 "identifier": "HATCH",
                                                                                     "inputs": [ {
                                                                                                   "description": "switch to previous or next state",
@@ -237,7 +237,7 @@
                                                  "HATCH_JETTISON": {
                                                                                   "category": "Cockpit",
                                                                               "control_type": "selector",
-                                                                               "description": "Jettison Canopy",
+                                                                               "description": "Jettison Canopy Pull Ball",
                                                                                 "identifier": "HATCH_JETTISON",
                                                                                     "inputs": [ {
                                                                                                   "description": "switch to previous or next state",
@@ -295,7 +295,7 @@
                                                       "SIDE_DOOR": {
                                                                                   "category": "Cockpit",
                                                                               "control_type": "selector",
-                                                                               "description": "Side Door Open/Close",
+                                                                               "description": "Side Door Open/Close Control",
                                                                                 "identifier": "SIDE_DOOR",
                                                                                     "inputs": [ {
                                                                                                   "description": "switch to previous or next state",
@@ -611,7 +611,7 @@
                                                  "DROPTANK_JETT": {
                                                                                  "category": "Engine",
                                                                              "control_type": "selector",
-                                                                              "description": "Drop Tank Release",
+                                                                              "description": "Drop Tank Release Handle",
                                                                                "identifier": "DROPTANK_JETT",
                                                                                    "inputs": [ {
                                                                                                  "description": "switch to previous or next state",
@@ -1290,7 +1290,7 @@
                                                             "AHORIZONBANK": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "AHorizonBank",
+                                                                                 "description": "AHorizon Bank",
                                                                                   "identifier": "AHORIZONBANK",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1306,7 +1306,7 @@
                                                            "AHORIZONPITCH": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "AHorizonPitch",
+                                                                                 "description": "AHorizon Pitch",
                                                                                   "identifier": "AHORIZONPITCH",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1322,7 +1322,7 @@
                                                            "AIRSPEEDGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "AirspeedGauge",
+                                                                                 "description": "Airspeed Gauge",
                                                                                   "identifier": "AIRSPEEDGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1338,7 +1338,7 @@
                                                        "ALTIMETERHUNDREDS": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "AltimeterHundreds",
+                                                                                 "description": "Altimeter 100",
                                                                                   "identifier": "ALTIMETERHUNDREDS",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1354,7 +1354,7 @@
                                                     "ALTIMETERSETPRESSURE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "AltimeterSetPressure",
+                                                                                 "description": "Altimeter Set Pressure",
                                                                                   "identifier": "ALTIMETERSETPRESSURE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1370,7 +1370,7 @@
                                                   "ALTIMETERTENSTHOUSANDS": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "AltimeterTensThousands",
+                                                                                 "description": "Altimeter 10000",
                                                                                   "identifier": "ALTIMETERTENSTHOUSANDS",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1386,7 +1386,7 @@
                                                       "ALTIMETERTHOUSANDS": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "AltimeterThousands",
+                                                                                 "description": "Altimeter 1000",
                                                                                   "identifier": "ALTIMETERTHOUSANDS",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1402,7 +1402,7 @@
                                                               "BOOSTGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "BoostGauge",
+                                                                                 "description": "Boost Gauge",
                                                                                   "identifier": "BOOSTGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1418,7 +1418,7 @@
                                                             "CANOPY_CRANK": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "Canopy_Crank",
+                                                                                 "description": "Canopy Crank",
                                                                                   "identifier": "CANOPY_CRANK",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1450,7 +1450,7 @@
                                                            "CANOPY_TRUCKS": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "Canopy_Trucks",
+                                                                                 "description": "Canopy Trucks",
                                                                                   "identifier": "CANOPY_TRUCKS",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1466,7 +1466,7 @@
                                                        "CANOPY_VISIBILITY": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "Canopy_Visibility",
+                                                                                 "description": "Canopy Visibility",
                                                                                   "identifier": "CANOPY_VISIBILITY",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1530,7 +1530,7 @@
                                                                  "DIGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "DIGauge",
+                                                                                 "description": "DI Gauge",
                                                                                   "identifier": "DIGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1546,7 +1546,7 @@
                                                         "FUELRESERVEGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "FuelReserveGauge",
+                                                                                 "description": "Fuel Reserve Gauge",
                                                                                   "identifier": "FUELRESERVEGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1562,7 +1562,7 @@
                                                      "LEFTWHEELBRAKEGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "LeftWheelBrakeGauge",
+                                                                                 "description": "Left Wheel Brake Gauge",
                                                                                   "identifier": "LEFTWHEELBRAKEGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1578,7 +1578,7 @@
                                                         "OILPRESSUREGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "OilPressureGauge",
+                                                                                 "description": "Oil Pressure Gauge",
                                                                                   "identifier": "OILPRESSUREGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1594,7 +1594,7 @@
                                                      "OILTEMPERATUREGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "OilTemperatureGauge",
+                                                                                 "description": "Oil Temperature Gauge",
                                                                                   "identifier": "OILTEMPERATUREGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1610,7 +1610,7 @@
                                                      "OXYGENDELIVERYGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "OxygenDeliveryGauge",
+                                                                                 "description": "Oxygen Delivery Gauge",
                                                                                   "identifier": "OXYGENDELIVERYGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1626,7 +1626,7 @@
                                                        "OXYGENSUPPLYGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "OxygenSupplyGauge",
+                                                                                 "description": "Oxygen Supply Gauge",
                                                                                   "identifier": "OXYGENSUPPLYGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1706,7 +1706,7 @@
                                                 "RADIATORTEMPERATUREGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "RadiatorTemperatureGauge",
+                                                                                 "description": "Radiator Temperature Gauge",
                                                                                   "identifier": "RADIATORTEMPERATUREGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1722,7 +1722,7 @@
                                                     "RIGHTWHEELBRAKEGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "RightWheelBrakeGauge",
+                                                                                 "description": "Right Wheel Brake Gauge",
                                                                                   "identifier": "RIGHTWHEELBRAKEGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1738,7 +1738,7 @@
                                                            "SIDESLIPGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "SideslipGauge",
+                                                                                 "description": "Sideslip Gauge",
                                                                                   "identifier": "SIDESLIPGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1754,7 +1754,7 @@
                                                          "TACHOMETERGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "TachometerGauge",
+                                                                                 "description": "Tachometer Gauge",
                                                                                   "identifier": "TACHOMETERGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1770,7 +1770,7 @@
                                                                "TRIMGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "TrimGauge",
+                                                                                 "description": "Trim Gauge",
                                                                                   "identifier": "TRIMGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1786,7 +1786,7 @@
                                                                "TURNGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "TurnGauge",
+                                                                                 "description": "Turn Gauge",
                                                                                   "identifier": "TURNGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1802,7 +1802,7 @@
                                                          "VARIOMETERGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "VariometerGauge",
+                                                                                 "description": "Variometer Gauge",
                                                                                   "identifier": "VARIOMETERGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1818,7 +1818,7 @@
                                                           "VOLTMETERGAUGE": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "VoltmeterGauge",
+                                                                                 "description": "Voltmeter Gauge",
                                                                                   "identifier": "VOLTMETERGAUGE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -1993,376 +1993,456 @@
                                                                  }
                                             },
                                    "Radio": {
-                                                       "IFF_0": {
-                                                                            "api_variant": "momentary_last_position",
-                                                                               "category": "Radio",
-                                                                           "control_type": "selector",
-                                                                            "description": "I.F.F. Detonate Button 1",
-                                                                             "identifier": "IFF_0",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 21538,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 1,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 0,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "push_button"
-                                                                },
-                                                       "IFF_1": {
-                                                                            "api_variant": "momentary_last_position",
-                                                                               "category": "Radio",
-                                                                           "control_type": "selector",
-                                                                            "description": "I.F.F. Detonate Button 2",
-                                                                             "identifier": "IFF_1",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 21538,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 2,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 1,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "push_button"
-                                                                },
-                                                       "IFF_B": {
-                                                                               "category": "Radio",
-                                                                           "control_type": "selector",
-                                                                            "description": "I.F.F. Circuit B",
-                                                                             "identifier": "IFF_B",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 21536,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 8192,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 13,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "limited_rotary"
-                                                                },
-                                                   "IFF_COVER": {
-                                                                               "category": "Radio",
-                                                                           "control_type": "selector",
-                                                                            "description": "I.F.F. Cover Open/Close",
-                                                                             "identifier": "IFF_COVER",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 21536,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 32768,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 15,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "limited_rotary"
-                                                                },
-                                                       "IFF_D": {
-                                                                               "category": "Radio",
-                                                                           "control_type": "selector",
-                                                                            "description": "I.F.F. Circuit D",
-                                                                             "identifier": "IFF_D",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 21536,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 16384,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 14,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "limited_rotary"
-                                                                },
-                                                     "RCTRL_A": {
-                                                                               "category": "Radio",
-                                                                           "control_type": "selector",
-                                                                            "description": "Radio Channel A",
-                                                                             "identifier": "RCTRL_A",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 21518,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 32768,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 15,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "limited_rotary"
-                                                                },
-                                                     "RCTRL_B": {
-                                                                               "category": "Radio",
-                                                                           "control_type": "selector",
-                                                                            "description": "Radio Channel B",
-                                                                             "identifier": "RCTRL_B",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 21532,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 1,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 0,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "limited_rotary"
-                                                                },
-                                                     "RCTRL_C": {
-                                                                               "category": "Radio",
-                                                                           "control_type": "selector",
-                                                                            "description": "Radio Channel C",
-                                                                             "identifier": "RCTRL_C",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 21532,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 2,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 1,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "limited_rotary"
-                                                                },
-                                                     "RCTRL_D": {
-                                                                               "category": "Radio",
-                                                                           "control_type": "selector",
-                                                                            "description": "Radio Channel D",
-                                                                             "identifier": "RCTRL_D",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 21532,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 4,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 2,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "limited_rotary"
-                                                                },
-                                                   "RCTRL_DIM": {
-                                                                               "category": "Radio",
-                                                                           "control_type": "selector",
-                                                                            "description": "Radio Channel Dimmer",
-                                                                             "identifier": "RCTRL_DIM",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 21532,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 8,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 3,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "limited_rotary"
-                                                                },
-                                                   "RCTRL_OFF": {
-                                                                               "category": "Radio",
-                                                                           "control_type": "selector",
-                                                                            "description": "Radio Power OFF",
-                                                                             "identifier": "RCTRL_OFF",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 21518,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 16384,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 14,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "limited_rotary"
-                                                                },
-                                                 "RCTRL_TLOCK": {
-                                                                               "category": "Radio",
-                                                                           "control_type": "selector",
-                                                                            "description": "Switch Locking Lever",
-                                                                             "identifier": "RCTRL_TLOCK",
-                                                                                 "inputs": [ {
-                                                                                               "description": "switch to previous or next state",
-                                                                                                 "interface": "fixed_step"
-                                                                                           }, {
-                                                                                               "description": "set position",
-                                                                                                 "interface": "set_state",
-                                                                                                 "max_value": 1
-                                                                                           }, {
-                                                                                                  "argument": "TOGGLE",
-                                                                                               "description": "Toggle switch state",
-                                                                                                 "interface": "action"
-                                                                                           } ],
-                                                                    "momentary_positions": "none",
-                                                                                "outputs": [ {
-                                                                                                   "address": 21532,
-                                                                                               "description": "selector position",
-                                                                                                      "mask": 16,
-                                                                                                 "max_value": 1,
-                                                                                                  "shift_by": 4,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ],
-                                                                       "physical_variant": "limited_rotary"
-                                                                },
-                                                "RCTRL_T_MODE": {
-                                                                        "category": "Radio",
-                                                                    "control_type": "3Pos_2Command_Switch",
-                                                                     "description": "Radio Mode Switch",
-                                                                      "identifier": "RCTRL_T_MODE",
-                                                                          "inputs": [ {
-                                                                                        "description": "set the switch position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 2
-                                                                                    } ],
-                                                                         "outputs": [ {
-                                                                                            "address": 21532,
-                                                                                        "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
-                                                                                               "mask": 96,
-                                                                                          "max_value": 2,
-                                                                                           "shift_by": 5,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                }
+                                                         "IFF_0": {
+                                                                              "api_variant": "momentary_last_position",
+                                                                                 "category": "Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "I.F.F. Detonate Button 1",
+                                                                               "identifier": "IFF_0",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 21538,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 1,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "push_button"
+                                                                  },
+                                                         "IFF_1": {
+                                                                              "api_variant": "momentary_last_position",
+                                                                                 "category": "Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "I.F.F. Detonate Button 2",
+                                                                               "identifier": "IFF_1",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 21538,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 2,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 1,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "push_button"
+                                                                  },
+                                                         "IFF_B": {
+                                                                                 "category": "Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "I.F.F. Circuit B",
+                                                                               "identifier": "IFF_B",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 21536,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 8192,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 13,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "limited_rotary"
+                                                                  },
+                                                     "IFF_COVER": {
+                                                                                 "category": "Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "I.F.F. Cover Open/Close",
+                                                                               "identifier": "IFF_COVER",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 21536,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 32768,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 15,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "limited_rotary"
+                                                                  },
+                                                         "IFF_D": {
+                                                                                 "category": "Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "I.F.F. Circuit D",
+                                                                               "identifier": "IFF_D",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 21536,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 16384,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 14,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "limited_rotary"
+                                                                  },
+                                                 "RADIO_A_LIGHT": {
+                                                                          "category": "Radio",
+                                                                      "control_type": "led",
+                                                                       "description": "Radio A Light (white)",
+                                                                        "identifier": "RADIO_A_LIGHT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 21594,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 128,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 7,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                 "RADIO_B_LIGHT": {
+                                                                          "category": "Radio",
+                                                                      "control_type": "led",
+                                                                       "description": "Radio B Light (white)",
+                                                                        "identifier": "RADIO_B_LIGHT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 21594,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 256,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 8,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                 "RADIO_C_LIGHT": {
+                                                                          "category": "Radio",
+                                                                      "control_type": "led",
+                                                                       "description": "Radio C Light (white)",
+                                                                        "identifier": "RADIO_C_LIGHT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 21594,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 512,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 9,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                 "RADIO_D_LIGHT": {
+                                                                          "category": "Radio",
+                                                                      "control_type": "led",
+                                                                       "description": "Radio D Light (white)",
+                                                                        "identifier": "RADIO_D_LIGHT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 21594,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 1024,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 10,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                "RADIO_TX_LIGHT": {
+                                                                          "category": "Radio",
+                                                                      "control_type": "led",
+                                                                       "description": "Radio TX Light (white)",
+                                                                        "identifier": "RADIO_TX_LIGHT",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                              "address": 21594,
+                                                                                          "description": "0 if light is off, 1 if light is on",
+                                                                                                 "mask": 2048,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 11,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                       "RCTRL_A": {
+                                                                                 "category": "Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Radio Channel A",
+                                                                               "identifier": "RCTRL_A",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 21518,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 32768,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 15,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "limited_rotary"
+                                                                  },
+                                                       "RCTRL_B": {
+                                                                                 "category": "Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Radio Channel B",
+                                                                               "identifier": "RCTRL_B",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 21532,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 1,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "limited_rotary"
+                                                                  },
+                                                       "RCTRL_C": {
+                                                                                 "category": "Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Radio Channel C",
+                                                                               "identifier": "RCTRL_C",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 21532,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 2,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 1,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "limited_rotary"
+                                                                  },
+                                                       "RCTRL_D": {
+                                                                                 "category": "Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Radio Channel D",
+                                                                               "identifier": "RCTRL_D",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 21532,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 4,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 2,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "limited_rotary"
+                                                                  },
+                                                     "RCTRL_DIM": {
+                                                                                 "category": "Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Radio Channel Dimmer",
+                                                                               "identifier": "RCTRL_DIM",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 21532,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 8,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 3,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "limited_rotary"
+                                                                  },
+                                                     "RCTRL_OFF": {
+                                                                                 "category": "Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Radio Power OFF",
+                                                                               "identifier": "RCTRL_OFF",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 21518,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 16384,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 14,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "limited_rotary"
+                                                                  },
+                                                   "RCTRL_TLOCK": {
+                                                                                 "category": "Radio",
+                                                                             "control_type": "selector",
+                                                                              "description": "Switch Locking Lever",
+                                                                               "identifier": "RCTRL_TLOCK",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 21532,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 16,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 4,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "limited_rotary"
+                                                                  },
+                                                  "RCTRL_T_MODE": {
+                                                                          "category": "Radio",
+                                                                      "control_type": "3Pos_2Command_Switch",
+                                                                       "description": "Radio Mode Switch",
+                                                                        "identifier": "RCTRL_T_MODE",
+                                                                            "inputs": [ {
+                                                                                          "description": "set the switch position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 2
+                                                                                      } ],
+                                                                           "outputs": [ {
+                                                                                              "address": 21532,
+                                                                                          "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                                 "mask": 96,
+                                                                                            "max_value": 2,
+                                                                                             "shift_by": 5,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ]
+                                                                  }
                                             },
                            "Undercarriage": {
                                                           "UC": {
@@ -2455,7 +2535,7 @@
                                                 "WHEEL_BRAKES": {
                                                                         "category": "Undercarriage",
                                                                     "control_type": "limited_dial",
-                                                                     "description": "Wheel Brakes",
+                                                                     "description": "Wheel Brakes Lever",
                                                                       "identifier": "WHEEL_BRAKES",
                                                                           "inputs": [ {
                                                                                         "description": "set the position of the dial",
@@ -2849,7 +2929,7 @@
                                                          "SAFETY": {
                                                                                   "category": "Weapons",
                                                                               "control_type": "selector",
-                                                                               "description": "Safety",
+                                                                               "description": "Safety Lever",
                                                                                 "identifier": "SAFETY",
                                                                                     "inputs": [ {
                                                                                                   "description": "switch to previous or next state",
