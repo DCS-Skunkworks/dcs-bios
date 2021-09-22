@@ -1,4 +1,4 @@
--- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.5c
+-- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.5d
 -- Many thanks to Capt Zeen for the pointers on analog and Radio outputs and UFC/IFEI export
 
 BIOS.protocol.beginModule("FA-18C_hornet", 0x7400)
@@ -917,7 +917,7 @@ defineFloat("STBY_PRESS_SET_1", 222, {0, 1}, "Standby Altimeter", "Pressure Sett
 defineFloatWithValueConversion("STBY_PRESS_SET_2", 223, {0, 1}, {26, 31}, {0.0, 1.0}, "Standby Altimeter", "Pressure Setting 3")
 
 -- 29. Standby Rate of Climb Indicator
-defineFloatWithValueConversion("VSI", 225, {0, 1}, {-6000.0, -4000.0, -3000.0, -2000.0, -1000.0, -500.0, 0.0, 500.0, 1000.0, 2000.0, 3000.0, 4000.0, 6000.0}, { -1.0,   -0.83,   -0.73,  -0.605,   -0.40,  -0.22, 0.0,  0.22,   0.40,  0.605,   0.73,   0.83,    1.0}, "Standby Rate of Climb Indicator", "Vertical Speed")
+defineFloatWithValueConversion("VSI", 225, {-1, 1}, {-6000.0, -4000.0, -3000.0, -2000.0, -1000.0, -500.0, 0.0, 500.0, 1000.0, 2000.0, 3000.0, 4000.0, 6000.0}, { -1.0,   -0.83,   -0.73,  -0.605,   -0.40,  -0.22, 0.0,  0.22,   0.40,  0.605,   0.73,   0.83,    1.0}, "Standby Rate of Climb Indicator", "Vertical Speed")
 
 -- 30. Environment Control Louver
 definePotentiometer("LEFT_LOUVER", 11, 3010, 505, {0, 1}, "Environment Control Louver", "Left Louver")
