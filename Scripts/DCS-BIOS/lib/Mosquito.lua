@@ -16,6 +16,7 @@ local define3PosTumb = BIOS.util.define3PosTumb
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+local define3Pos2CommandSwitchWW2 = BIOS.util.define3Pos2CommandSwitchWW2
 
 -- remove Arg# Pilot 500
 
@@ -76,7 +77,7 @@ defineTumb("GUN_MASTER", 5, 3003, 121, 2, {-1, 1}, nil, false, "Main Panel", "Gu
 defineToggleSwitch("DE_ICE_PUMP", 23, 3001, 370, "Main Panel", "De-Ice Glycol Pump Handle")
 defineRotary("RUDDER_TRIM", 2, 3053, 111, "Main Panel", "Rudder Trim")
 defineRotary("AILERON_TRIM", 2, 3051, 280, "Main Panel", "Aileron Trim")
-definePotentiometer("BOMB_PANEL_DIM", 4, 3059, 16, {0, 1}, "Main Panel" , "Bomb Panel Flood Dimmer")
+definePotentiometer("BOMB_PANEL_DIM", 4, 3059, 16, {0, 1}, "Main Panel", "Bomb Panel Flood Dimmer")
 defineToggleSwitch("BOMB_DOOR_L_CVR", 2, 3067, 284, "Main Panel", "Bomb Door Light Cover")
 defineToggleSwitch("JETT_CONT_CVR", 5, 3056, 144, "Main Panel", "Container Jettison Cover")
 definePushButton("JETT_CONT", 5, 3058, 145, "Main Panel", "Container Jettison Button")
@@ -101,6 +102,88 @@ defineRotary("CLOCK_PIN_TURN", 19, 3001, 102, "Clock", "Clock Set (Turn)")
 defineRotary("CLOCK_REF_H", 19, 3005, 375, "Clock", "Clock Reference Hours")
 defineRotary("CLOCK_REF_M", 19, 3007, 376, "Clock", "Clock Reference Minutes")
 
+--Port Wall
+defineRotary("COMPASS_RING", 2, 3007, 28, "Port Wall", "Magnetic Compass")
+definePotentiometer("EMERG_DIM", 4, 3006, 10, {0, 1}, "Port Wall", "Emergency Light Rheostat")
+definePotentiometer("COMPASS_DIM", 4, 3012, 11, {0, 1}, "Port Wall", "Compass Flood Light Dimmer")
+definePotentiometer("L_SIDE_DIM", 4, 3015, 12, {0, 1}, "Port Wall", "L.H. Flood Light Dimmer")
+defineToggleSwitch("JETT_W_TANK_CVR", 5, 3008, 8, "Port Wall", "Wing Tank Jettison Cover")
+definePushButton("JETT_W_TANK", 5, 3010, 9, "Port Wall", "Wing Tank Jettison Button")
+definePushButton("UV_EXCITER", 4, 3024, 294, "Port Wall", "UV Exciter Button")
+definePotentiometer("LH_UV_CAP", 20, 3001, 295, {0, 1}, "Port Wall", "LH UV Lamp Cap")
+definePotentiometer("RH_UV_CAP", 21, 3001, 296, {0, 1}, "Port Wall", "RH UV Lamp Cap")
+definePotentiometer("BA_VOLUME", 30, 3003, 7, {0, 1}, "Port Wall", "Beam Approach Volume Rheostat")
+defineToggleSwitch("REP_COMPASS_SW1", 4, 3001, 1, "Port Wall", "R.I. Compass Switch")
+defineToggleSwitch("REP_COMPASS_SW2", 4, 3002, 2, "Port Wall", "R.I. Compass De-ground Switch")
+defineToggleSwitch("BEAM_SW", 4, 3004, 3, "Port Wall", "Beam Approach Switch")
+defineToggleSwitch("SCR_PTT", 24, 3099, 4, "Port Wall", "SCR-522 PTT Button")
+defineRotary("ELEVATOR_TRIM", 2, 3016, 279, "Port Wall", "Elevator Trim")
+
+--Radio
+definePushButton("RADIO_OFF", 24, 3001, 32, "Radio", "Radio OFF Button")
+definePushButton("RADIO_A", 24, 3002, 33, "Radio", "Radio A Button")
+definePushButton("RADIO_B", 24, 3003, 34, "Radio", "Radio B Button")
+definePushButton("RADIO_C", 24, 3004, 35, "Radio", "Radio C Button")
+definePushButton("RADIO_D", 24, 3005, 36, "Radio", "Radio D Button")
+defineToggleSwitch("RADIO_DIM", 24, 3006, 42, "Radio", "Radio Dimmer Toggle")
+defineToggleSwitch("RADIO_TLOCK", 24, 3017, 43, "Radio", "Radio Transmit Lock Toggle")
+define3Pos2CommandSwitchWW2("RADIO_T_MODE", 24, 3008, 3007, 44, "Radio", "Radio Mode Switch")
+definePotentiometer("RADIO_VOL", 24, 3015, 364, {0, 1}, "Radio", "Radio Volume")
+
+defineIndicatorLight("RADIO_A_L", 37, "Radio Lights", "Radio A Light (white)")
+defineIndicatorLight("RADIO_B_L", 38, "Radio Lights", "Radio B Light (white)")
+defineIndicatorLight("RADIO_C_L", 39, "Radio Lights", "Radio C Light (white)")
+defineIndicatorLight("RADIO_D_L", 40, "Radio Lights", "Radio D Light (white)")
+defineIndicatorLight("RADIO_TX_L", 41, "Radio Lights", "Radio TX Light (white)")
+
+--Throttle Quadrant
+definePotentiometer("THROTTLE_FRICTION", 3, 3030, 25, {0, 1}, "Throttle Quadrant", "Throttle Friction")
+definePotentiometer("THROTTLE_CONTROL_L", 3, 3020, 288, {0, 1}, "Throttle Quadrant", "Throttles Control L")
+definePotentiometer("THROTTLE_TRANSIT_L", 3, 3016, 18, {0, 1}, "Throttle Quadrant", "Throttles Transit L")
+defineRotary("THROTTLE_CONTROL_L_TRIG", 3, 3014, 20, "Throttle Quadrant", "Throttles Control L Trigger")
+definePotentiometer("THROTTLE_CONTROL_R", 3, 3023, 289, {0, 1}, "Throttle Quadrant", "Throttles Control R")
+definePotentiometer("THROTTLE_TRANSIT_R", 3, 3017, 19, {0, 1}, "Throttle Quadrant", "Throttles Transit R")
+defineRotary("THROTTLE_CONTROL_R_TRIG", 3, 3015, 21, "Throttle Quadrant", "Throttles Control R Trigger")
+definePotentiometer("PROP_FRICTION", 3, 3033, 24, {0, 1}, "Throttle Quadrant", "Propeller Friction")
+definePotentiometer("PROP_CONTROL_L", 3, 3036, 22, {0, 1}, "Throttle Quadrant", "Propeller Control L")
+definePotentiometer("PROP_CONTROL_R", 3, 3039, 23, {0, 1}, "Throttle Quadrant", "Propeller Control R")
+defineToggleSwitch("MIXTURE", 3, 3086, 27, "Throttle Quadrant", "Mixture Control")
+defineToggleSwitch("SUPERCHARGER", 4, 3022, 26, "Throttle Quadrant", "Supercharger Gear Change Switch")
+
+--Starboard Wall
+definePushButton("DOOR_LOCK", 2, 3072, 254, "Starboard Wall", "Door Handle")
+defineToggleSwitch("DOOR_JETT", 2, 3073, 324, "Starboard Wall", "Door Jettison Handle")
+defineTumb("DN_IDENT_L_SW", 4, 3075, 160, 0.5, {0, 1}, nil, false, "Starboard Wall", "Down Ident Lights Switch")
+defineToggleSwitch("CAM_GUN_SW", 4, 3078, 161, "Starboard Wall", "Camera Gun Switch")
+defineToggleSwitch("NAV_L_SW", 4, 3080, 162, "Starboard Wall", "Nav Lights Switch")
+defineToggleSwitch("UV_L_SW", 4, 3082, 163, "Starboard Wall", "UV Lighting Switch")
+defineToggleSwitch("PITOT_SW", 4, 3084, 164, "Starboard Wall", "Pitot Head Switch")
+defineToggleSwitch("FUEL_PUMP_SW", 4, 3086, 165, "Starboard Wall", "Fuel Pump Switch")
+defineToggleSwitch("REFLECTOR_SIGHT_SW", 4, 3051, 166, "Starboard Wall", "Reflector Sight Switch")
+defineTumb("NAV_HEAD_L_SW", 4, 3048, 167, 0.5, {0, 1}, nil, false, "Starboard Wall", "Nav. Head Lamp Switch")
+defineToggleSwitch("IFF_SW", 4, 3088, 168, "Starboard Wall", "IFF Switch")
+defineToggleSwitch("IFF_DESRUCT_CVR", 4, 3036, 169, "Starboard Wall", "IFF Detonator Cover")
+definePushButton("IFF_DESRUCT_L_BTN", 4, 3038, 170, "Starboard Wall", "IFF Detonator Left Switch")
+definePushButton("IFF_DESRUCT_R_BTN", 4, 3039, 171, "Starboard Wall", "IFF Detonator Right Switch")
+defineToggleSwitch("PORT_EXTG_CVR", 4, 3040, 172, "Starboard Wall", "Extinguisher Switch Cover Port")
+definePushButton("PORT_EXTG_BTN", 4, 3042, 173, "Starboard Wall", "Extinguisher Switch Port")
+defineToggleSwitch("STBD_EXTG_CVR", 4, 3043, 174, "Starboard Wall", "Extinguisher Switch Cover Starboard")
+definePushButton("STBD_EXTG_BTN", 4, 3045, 175, "Starboard Wall", "Extinguisher Switch Starboard")
+definePotentiometer("WIPER_RT", 4, 3033, 176, {0, 1}, "Starboard Wall", "Windscreen Wiper Rheostat")
+defineToggleSwitch("RESIN_L_SW", 4, 3046, 178, "Starboard Wall", "Resin Lights Switch")
+definePushButton("MORSE_KEY", 4, 3068, 157, "Starboard Wall", "Morse Key")
+defineTumb("DOWNWARD_LVR", 4, 3069, 158, 0.5, {0, 1}, nil, false, "Starboard Wall", "Downward Lamp Mode Selector")
+defineTumb("UPWARD_LVR", 4, 3072, 159, 0.5, {0, 1}, nil, false, "Starboard Wall", "Upward Lamp Mode Selector")
+defineToggleSwitch("OXY_H_PRESS_VALVE", 2, 3055, 293, "Starboard Wall", "Oxygen High Pressure Valve")
+defineToggleSwitch("STBD_OXY_VALVE", 16, 3003, 187, "Starboard Wall", "Oxygen Regulator Starboard")
+definePotentiometer("CHART_DIM", 4, 3095, 303, {0, 1}, "Port Wall", "Chart Table Flood Light Dimmer")
+
+
+defineToggleSwitch("TRANS_TYPF_SW", 4, 3113, 307, "Starboard Wall", "Transmitter TypeF Switch")	
+
+defineIndicatorLight("GEN_WARN_L", 177, "Starboard Wall Lights", "Generator Warning Light (red)")
+
+--Gauges
 defineFloat("COCKPIT_HATCH", 255, {0, 1}, "Cockpit", "Cockpit Hatch")
 defineFloat("REP_COMP_HDG_G", 47, {0, 1}, "Gauges", "Repeater Compass Heading")
 defineFloat("REP_COMP_CRS_G", 48, {0, 1}, "Gauges", "Repeater Compass Set Course")
@@ -156,12 +239,6 @@ defineFloat("R1155_TUNE_CAT_G", 239, {0, 1}, "Gauges", "R1155 Tuning Cathode Gau
 defineFloat("R1155_TUNE_ANO_G", 228, {0, 1}, "Gauges", "R1155 Tuning Anode Gauge")
 defineFloat("R1155_DFLH_G", 88, {-1, 1}, "Gauges", "R1155 DFLH Gauge")
 defineFloat("R1155_DFRH_G", 89, {-1, 1}, "Gauges", "R1155 DFRH Gauge")
-
-defineIndicatorLight("RADIO_A_L", 37, "Radio Lights", "Radio A Light (white)")
-defineIndicatorLight("RADIO_B_L", 38, "Radio Lights", "Radio B Light (white)")
-defineIndicatorLight("RADIO_C_L", 39, "Radio Lights", "Radio C Light (white)")
-defineIndicatorLight("RADIO_D_L", 40, "Radio Lights", "Radio D Light (white)")
-defineIndicatorLight("RADIO_TX_L", 41, "Radio Lights", "Radio TX Light (white)")
 
 defineIndicatorLight("UV_L_L", 325, "Cockpit Lights", "Left UV Light (multi)")
 defineIndicatorLight("UV_R_L", 326, "Cockpit Lights", "Right UV Light (multi)")
