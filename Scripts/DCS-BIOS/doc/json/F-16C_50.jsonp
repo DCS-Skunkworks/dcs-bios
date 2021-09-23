@@ -4313,6 +4313,9 @@ docdata["F-16C_50"] =
                                                                                      "description": "IFF MODE 1 Selector Lever, DIGIT 1",
                                                                                       "identifier": "IFF_M1_SEL_1",
                                                                                           "inputs": [ {
+                                                                                                        "description": "switch to previous or next state",
+                                                                                                          "interface": "fixed_step"
+                                                                                                    }, {
                                                                                                         "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                           "interface": "set_state",
                                                                                                           "max_value": 2
@@ -4335,6 +4338,9 @@ docdata["F-16C_50"] =
                                                                                      "description": "IFF MODE 1 Selector Lever, DIGIT 2",
                                                                                       "identifier": "IFF_M1_SEL_2",
                                                                                           "inputs": [ {
+                                                                                                        "description": "switch to previous or next state",
+                                                                                                          "interface": "fixed_step"
+                                                                                                    }, {
                                                                                                         "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                           "interface": "set_state",
                                                                                                           "max_value": 2
@@ -4357,6 +4363,9 @@ docdata["F-16C_50"] =
                                                                                      "description": "IFF MODE 3 Selector Lever, DIGIT 1",
                                                                                       "identifier": "IFF_M3_SEL_1",
                                                                                           "inputs": [ {
+                                                                                                        "description": "switch to previous or next state",
+                                                                                                          "interface": "fixed_step"
+                                                                                                    }, {
                                                                                                         "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                           "interface": "set_state",
                                                                                                           "max_value": 2
@@ -4379,6 +4388,9 @@ docdata["F-16C_50"] =
                                                                                      "description": "IFF MODE 3 Selector Lever, DIGIT 2",
                                                                                       "identifier": "IFF_M3_SEL_2",
                                                                                           "inputs": [ {
+                                                                                                        "description": "switch to previous or next state",
+                                                                                                          "interface": "fixed_step"
+                                                                                                    }, {
                                                                                                         "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                           "interface": "set_state",
                                                                                                           "max_value": 2
@@ -5525,6 +5537,9 @@ docdata["F-16C_50"] =
                                                                              "description": "MFD Left BRT Rocker Switch",
                                                                               "identifier": "MFD_L_BRT_SW",
                                                                                   "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
                                                                                                 "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                   "interface": "set_state",
                                                                                                   "max_value": 2
@@ -5547,6 +5562,9 @@ docdata["F-16C_50"] =
                                                                              "description": "MFD Left CON Rocker Switch",
                                                                               "identifier": "MFD_L_CON_SW",
                                                                                   "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
                                                                                                 "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                   "interface": "set_state",
                                                                                                   "max_value": 2
@@ -5569,6 +5587,9 @@ docdata["F-16C_50"] =
                                                                              "description": "MFD Left GAIN Rocker Switch",
                                                                               "identifier": "MFD_L_GAIN_SW",
                                                                                   "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
                                                                                                 "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                   "interface": "set_state",
                                                                                                   "max_value": 2
@@ -5591,6 +5612,9 @@ docdata["F-16C_50"] =
                                                                              "description": "MFD Left SYM Rocker Switch",
                                                                               "identifier": "MFD_L_SYM_SW",
                                                                                   "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
                                                                                                 "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                   "interface": "set_state",
                                                                                                   "max_value": 2
@@ -6215,6 +6239,9 @@ docdata["F-16C_50"] =
                                                                              "description": "MFD Right BRT Rocker Switch",
                                                                               "identifier": "MFD_R_BRT_SW",
                                                                                   "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
                                                                                                 "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                   "interface": "set_state",
                                                                                                   "max_value": 2
@@ -6237,6 +6264,9 @@ docdata["F-16C_50"] =
                                                                              "description": "MFD Right CON Rocker Switch",
                                                                               "identifier": "MFD_R_CON_SW",
                                                                                   "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
                                                                                                 "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                   "interface": "set_state",
                                                                                                   "max_value": 2
@@ -6259,6 +6289,9 @@ docdata["F-16C_50"] =
                                                                              "description": "MFD Right GAIN Rocker Switch",
                                                                               "identifier": "MFD_R_GAIN_SW",
                                                                                   "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
                                                                                                 "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                   "interface": "set_state",
                                                                                                   "max_value": 2
@@ -6281,6 +6314,9 @@ docdata["F-16C_50"] =
                                                                              "description": "MFD Right SYM Rocker Switch",
                                                                               "identifier": "MFD_R_SYM_SW",
                                                                                   "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
                                                                                                 "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                   "interface": "set_state",
                                                                                                   "max_value": 2

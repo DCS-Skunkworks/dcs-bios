@@ -3030,6 +3030,9 @@ docdata["MiG-21Bis"] =
                                                                                 "description": "Clock Left Lever Push/Pull",
                                                                                  "identifier": "CLK_LEFT_LVR",
                                                                                      "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
                                                                                                    "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                      "interface": "set_state",
                                                                                                      "max_value": 2
@@ -5263,6 +5266,9 @@ docdata["MiG-21Bis"] =
                                                                          "description": "ARU Speed",
                                                                           "identifier": "ARU_SPD",
                                                                               "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
                                                                                             "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                               "interface": "set_state",
                                                                                               "max_value": 2
@@ -9078,6 +9084,9 @@ docdata["MiG-21Bis"] =
                                                                       "description": "Trimmer",
                                                                        "identifier": "TRM_ADJ",
                                                                            "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
                                                                                          "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                            "interface": "set_state",
                                                                                            "max_value": 2

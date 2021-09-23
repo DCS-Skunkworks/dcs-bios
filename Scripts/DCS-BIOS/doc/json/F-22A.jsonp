@@ -2083,6 +2083,9 @@ docdata["F-22A"] =
                                                                              "description": "ICP Rocker Switch Up/Down",
                                                                               "identifier": "ICP_ROCKER",
                                                                                   "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
                                                                                                 "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                   "interface": "set_state",
                                                                                                   "max_value": 2

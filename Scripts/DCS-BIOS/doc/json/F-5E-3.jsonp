@@ -1617,24 +1617,29 @@ docdata["F-5E-3"] =
                                             },
                                     "Fuel": {
                                                       "AUTOBAL": {
-                                                                         "category": "Fuel",
-                                                                     "control_type": "3Pos_2Command_SwitchF5",
-                                                                      "description": "Autobalance Switch, LEFT/NEUT/RIGHT",
-                                                                       "identifier": "AUTOBAL",
-                                                                           "inputs": [ {
-                                                                                         "description": "set the switch position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 2
-                                                                                     } ],
-                                                                          "outputs": [ {
-                                                                                             "address": 30222,
-                                                                                         "description": "switch position -- 0 = Left, 1 = Mid ,  2 = Right",
-                                                                                                "mask": 3,
-                                                                                           "max_value": 2,
-                                                                                            "shift_by": 0,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ]
+                                                                                "category": "Fuel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Autobalance Switch, LEFT/NEUT/RIGHT",
+                                                                              "identifier": "AUTOBAL",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 2
+                                                                                            } ],
+                                                                     "momentary_positions": "first_and_last",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 30222,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 3,
+                                                                                                  "max_value": 2,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "rocker_switch"
                                                                  },
                                                     "CROSSFEED": {
                                                                                 "category": "Fuel",

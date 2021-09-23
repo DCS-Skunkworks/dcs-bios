@@ -89,6 +89,9 @@
                                                                           "description": "Toggle Steerpoint",
                                                                            "identifier": "AAP_STEER",
                                                                                "inputs": [ {
+                                                                                             "description": "switch to previous or next state",
+                                                                                               "interface": "fixed_step"
+                                                                                         }, {
                                                                                              "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                "interface": "set_state",
                                                                                                "max_value": 2
@@ -825,6 +828,9 @@
                                                                                "description": "ELECT / PNEU",
                                                                                 "identifier": "ALT_ELECT_PNEU",
                                                                                     "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
                                                                                                   "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                     "interface": "set_state",
                                                                                                     "max_value": 2
@@ -1613,6 +1619,9 @@
                                                                          "description": "CDU Display Brightness Adjustment",
                                                                           "identifier": "CDU_BRT",
                                                                               "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
                                                                                             "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                               "interface": "set_state",
                                                                                               "max_value": 2
@@ -1725,6 +1734,9 @@
                                                                          "description": "+/- Rocker",
                                                                           "identifier": "CDU_DATA",
                                                                               "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
                                                                                             "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                               "interface": "set_state",
                                                                                               "max_value": 2
@@ -2557,6 +2569,9 @@
                                                                          "description": "PG Rocker",
                                                                           "identifier": "CDU_PG",
                                                                               "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
                                                                                             "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                               "interface": "set_state",
                                                                                               "max_value": 2
@@ -2729,6 +2744,9 @@
                                                                          "description": "Scroll Waypoint Names (Blank Rocker)",
                                                                           "identifier": "CDU_SCROLL",
                                                                               "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
                                                                                             "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                               "interface": "set_state",
                                                                                               "max_value": 2
@@ -3862,6 +3880,9 @@
                                                                         "description": "Cycle Program or Value Up/Down",
                                                                          "identifier": "CMSP_UPDN",
                                                                              "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
                                                                                            "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                              "interface": "set_state",
                                                                                              "max_value": 2
@@ -10957,6 +10978,9 @@
                                                                        "description": "ADJ",
                                                                         "identifier": "LMFD_ADJ",
                                                                             "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
                                                                                           "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                             "interface": "set_state",
                                                                                             "max_value": 2
@@ -10979,6 +11003,9 @@
                                                                        "description": "BRT",
                                                                         "identifier": "LMFD_BRT",
                                                                             "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
                                                                                           "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                             "interface": "set_state",
                                                                                             "max_value": 2
@@ -11001,6 +11028,9 @@
                                                                        "description": "CON",
                                                                         "identifier": "LMFD_CON",
                                                                             "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
                                                                                           "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                             "interface": "set_state",
                                                                                             "max_value": 2
@@ -11023,6 +11053,9 @@
                                                                        "description": "DSP",
                                                                         "identifier": "LMFD_DSP",
                                                                             "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
                                                                                           "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                             "interface": "set_state",
                                                                                             "max_value": 2
@@ -11070,6 +11103,9 @@
                                                                        "description": "SYM",
                                                                         "identifier": "LMFD_SYM",
                                                                             "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
                                                                                           "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                             "interface": "set_state",
                                                                                             "max_value": 2
@@ -11838,6 +11874,9 @@
                                                                                       "description": "Seat Adjust",
                                                                                        "identifier": "SEAT_ADJUST",
                                                                                            "inputs": [ {
+                                                                                                         "description": "switch to previous or next state",
+                                                                                                           "interface": "fixed_step"
+                                                                                                     }, {
                                                                                                          "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                            "interface": "set_state",
                                                                                                            "max_value": 2
@@ -13095,6 +13134,9 @@
                                                                        "description": "ADJ",
                                                                         "identifier": "RMFD_ADJ",
                                                                             "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
                                                                                           "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                             "interface": "set_state",
                                                                                             "max_value": 2
@@ -13117,6 +13159,9 @@
                                                                        "description": "BRT",
                                                                         "identifier": "RMFD_BRT",
                                                                             "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
                                                                                           "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                             "interface": "set_state",
                                                                                             "max_value": 2
@@ -13139,6 +13184,9 @@
                                                                        "description": "CON",
                                                                         "identifier": "RMFD_CON",
                                                                             "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
                                                                                           "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                             "interface": "set_state",
                                                                                             "max_value": 2
@@ -13161,6 +13209,9 @@
                                                                        "description": "DSP",
                                                                         "identifier": "RMFD_DSP",
                                                                             "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
                                                                                           "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                             "interface": "set_state",
                                                                                             "max_value": 2
@@ -13208,6 +13259,9 @@
                                                                        "description": "SYM",
                                                                         "identifier": "RMFD_SYM",
                                                                             "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
                                                                                           "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                             "interface": "set_state",
                                                                                             "max_value": 2
@@ -14575,6 +14629,9 @@
                                                                                        "description": "ENG OPER L",
                                                                                         "identifier": "ENGINE_OPER_L",
                                                                                             "inputs": [ {
+                                                                                                          "description": "switch to previous or next state",
+                                                                                                            "interface": "fixed_step"
+                                                                                                      }, {
                                                                                                           "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                             "interface": "set_state",
                                                                                                             "max_value": 2
@@ -14597,6 +14654,9 @@
                                                                                        "description": "ENG OPER R",
                                                                                         "identifier": "ENGINE_OPER_R",
                                                                                             "inputs": [ {
+                                                                                                          "description": "switch to previous or next state",
+                                                                                                            "interface": "fixed_step"
+                                                                                                      }, {
                                                                                                           "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                             "interface": "set_state",
                                                                                                             "max_value": 2
@@ -15079,6 +15139,9 @@
                                                                                  "description": "DATA Up/Down",
                                                                                   "identifier": "UFC_DATA",
                                                                                       "inputs": [ {
+                                                                                                    "description": "switch to previous or next state",
+                                                                                                      "interface": "fixed_step"
+                                                                                                }, {
                                                                                                     "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                       "interface": "set_state",
                                                                                                       "max_value": 2
@@ -15101,6 +15164,9 @@
                                                                                  "description": "DEPR Up/Down",
                                                                                   "identifier": "UFC_DEPR",
                                                                                       "inputs": [ {
+                                                                                                    "description": "switch to previous or next state",
+                                                                                                      "interface": "fixed_step"
+                                                                                                }, {
                                                                                                     "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                       "interface": "set_state",
                                                                                                       "max_value": 2
@@ -15213,6 +15279,9 @@
                                                                                  "description": "INTEN Incr/Decr",
                                                                                   "identifier": "UFC_INTEN",
                                                                                       "inputs": [ {
+                                                                                                    "description": "switch to previous or next state",
+                                                                                                      "interface": "fixed_step"
+                                                                                                }, {
                                                                                                     "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                       "interface": "set_state",
                                                                                                       "max_value": 2
@@ -15505,6 +15574,9 @@
                                                                                  "description": "SEL Up/Down",
                                                                                   "identifier": "UFC_SEL",
                                                                                       "inputs": [ {
+                                                                                                    "description": "switch to previous or next state",
+                                                                                                      "interface": "fixed_step"
+                                                                                                }, {
                                                                                                     "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                       "interface": "set_state",
                                                                                                       "max_value": 2
@@ -15557,6 +15629,9 @@
                                                                                  "description": "STEER Up/Down",
                                                                                   "identifier": "UFC_STEER",
                                                                                       "inputs": [ {
+                                                                                                    "description": "switch to previous or next state",
+                                                                                                      "interface": "fixed_step"
+                                                                                                }, {
                                                                                                     "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                                       "interface": "set_state",
                                                                                                       "max_value": 2
