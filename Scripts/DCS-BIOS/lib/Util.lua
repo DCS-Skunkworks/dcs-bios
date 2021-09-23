@@ -98,7 +98,7 @@ function BIOS.util.MemoryAllocation:setValue(value)
 	assert(self.maxValue)
 	assert(value)
 	value = math.floor(value)
-	if value < 0 then
+	if value < -1 then
 		BIOS.log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
 		return
 	end
@@ -762,7 +762,6 @@ function BIOS.util.defineVariableStepTumb(msg, device_id, command, arg_number, m
 		GetDevice(device_id):performClickableAction(command, delta)
 	end
 	
-	
 	document {
 		identifier = msg,
 		category = category,
@@ -870,6 +869,7 @@ function BIOS.util.defineRockerSwitch(msg, device_id, pos_command, pos_stop_comm
 		momentary_positions = "first_and_last",
 		physical_variant = "rocker_switch",
 		inputs = {
+		    { interface = "fixed_step", description = "switch to previous or next state" },
 			{ interface = "set_state", max_value = 2, description = "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up" },
 		},
 		outputs = {
@@ -1306,52 +1306,6 @@ function BIOS.util.defineSpringloaded_3_pos_tumb(msg, device_id, downSwitch, upS
 			dev:performClickableAction(downSwitch, 0)
 			dev:performClickableAction(upSwitch, 0) 
 			dev:performClickableAction(upSwitch, 1)
-		end
-	end
-end
-
-function BIOS.util.define3Pos2CommandSwitchF5(msg, device_id, switch1, switch2, arg_number, category, description)
-	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
-	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-	    local val = dev0:get_argument_value(arg_number)
-		if val == -1 then
-			alloc:setValue(0)
-		elseif val == 0 then
-			alloc:setValue(1)
-		elseif val == 1 then
-			alloc:setValue(2)
-		end
-	end
-	
-	document {
-		identifier = msg,
-		category = category,
-		description = description,
-		control_type = "3Pos_2Command_SwitchF5",
-		inputs = {
-			{ interface = "set_state", max_value = 2, description = "set the switch position" }
-		},
-		outputs = {
-			{ ["type"] = "integer",
-			  suffix = "",
-			  address = alloc.address,
-			  mask = alloc.mask,
-			  shift_by = alloc.shiftBy,
-			  max_value = 2,
-			  description = "switch position -- 0 = Left, 1 = Mid ,  2 = Right"
-			}
-		}
-	}
-	moduleBeingDefined.inputProcessors[msg] = function(toState)
-		local dev = GetDevice(device_id)
-		 if toState == "0" then --off
-			 dev:performClickableAction(switch1, -1)
-			dev:performClickableAction(switch1, 0)			 
-	     elseif toState == "1" then --Middle
-			 dev:performClickableAction(switch1, 1)
-			 dev:performClickableAction(switch1, 0)			 
-		 elseif toState == "2" then --Up
-			 dev:performClickableAction(switch2, 1)			 
 		end
 	end
 end
