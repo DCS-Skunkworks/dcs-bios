@@ -28,7 +28,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CommonData.lua]])
 -- Following text : Example (case sensitive!) : -- ID = x, ProperName = <pretty name>
 -- is used by DCSFlightpanels GUI to pick up DCS-BIOS modules
 -- ID range 1-3 is used internally in DCSFlightpanels.
--- If you add a new module remember that is must have an uniques ID.
+-- New modules must have an uniques ID.
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-29B.lua]]) -- ID = 41, ProperName = A-29B Super Tucano
