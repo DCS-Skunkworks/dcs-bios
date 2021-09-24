@@ -1,5 +1,6 @@
 BIOS.protocol.beginModule("Mosquito", 0x7000)
 BIOS.protocol.setExportModuleAircrafts({"MosquitoFBMkVI"})
+--v1.0 by WarLord (aka BlackLibrary)
 
 local documentation = moduleBeingDefined.documentation
 
@@ -280,8 +281,8 @@ defineTumb("T1154_C4_B", 25, 3020, 211, 0.1, {0.0, 0.7}, nil, true, "T1154", "T.
 defineTumb("T1154_C15_B", 25, 3023, 213, 0.1, {0.0, 0.7}, nil, true, "T1154", "T.1154 Condenser C15 Presets Knob")
 defineTumb("T1154_C16_B", 25, 3026, 214, 0.1, {0.0, 0.7}, nil, true, "T1154", "T.1154 Condenser C16 Presets Knob")
 defineTumb("T1154_C17_B", 25, 3029, 210, 0.1, {0.0, 0.7}, nil, true, "T1154", "T.1154 Condenser C17 Presets Knob")
-defineRotary("T1154_C2_V", 25, 3032, 223, "T1154", "T.1154 Master Oscillator C2 Vernier")
-defineRotary("T1154_C4_V", 25, 3035, 222, "T1154", "T.1154 Master Oscillator C4 Vernier")
+definePotentiometer("T1154_C2_V", 25, 3032, 223, {-1, 1}, "T1154", "T.1154 Master Oscillator C2 Vernier")--
+definePotentiometer("T1154_C4_V", 25, 3035, 222, {-1, 1}, "T1154", "T.1154 Master Oscillator C4 Vernier")--
 defineMultipositionSwitch("T1154_FREQ_RANGE", 25, 3038, 215, 3, 0.1, "T1154", "T.1154 Frequency Range Switch S1 S2")
 defineMultipositionSwitch("T1154_S3", 25, 3041, 216, 9, 0.1, "T1154", "T.1154 Inductance Tapping Switch S3")
 defineMultipositionSwitch("T1154_S4", 25, 3044, 217, 9, 0.1, "T1154", "T.1154 Inductance Tapping Switch S4")
@@ -306,11 +307,11 @@ definePotentiometer("R1155_VOL", 25, 3068, 229, {0, 1}, "R1155", "R.1155 Volume 
 definePotentiometer("R1155_RANGE_HIGH", 25, 3071, 233, {0, 1}, "R1155", "R.1155 Tuning (Fine)")
 definePotentiometer("R1155_RANGE_LOW", 25, 3074, 234, {0, 1}, "R1155", "R.1155 Tuning (Coarse)")
 defineToggleSwitch("R1155_HETI", 25, 3077, 230, "R1155", "R.1155 Heterodyne Switch")
-defineRotary("R1155_METER_BAL", 25, 3079, 225, "R1155", "R.1155 Meter Balance Knob")	
+definePotentiometer("R1155_METER_BAL", 25, 3079, 225, {-1, 1}, "R1155", "R.1155 Meter Balance Knob")	--
 defineToggleSwitch("R1155_FILTER", 25, 3082, 226, "R1155", "R.1155 Filter Switch")
 definePotentiometer("R1155_METER_AMP", 25, 3084, 227, {0, 1}, "R1155", "R.1155 Meter Amplitude Knob")			
 defineToggleSwitch("R1155_METER_DEF", 25, 3087, 235, "R1155", "R.1155 Meter Deflection Sensitivity Switch")
-defineToggleSwitch("R1155_AURAL_SENSE", 25, 3089, 236, "R1155", "R.1155 Aural Sense Switch")
+define3PosTumb("R1155_AURAL_SENSE", 25, 3089, 236, "R1155", "R.1155 Aural Sense Switch")
 defineToggleSwitch("R1155_SW_SPEED", 25, 3090, 237, "R1155", "R.1155 Meter Frequency Switch")
 
 defineFloat("R1155_TUNER_G", 232, {0, 1}, "R1155 Gauges", "R.1155 Tuner Gauge")
