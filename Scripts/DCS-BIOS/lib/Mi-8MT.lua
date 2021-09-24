@@ -511,7 +511,7 @@ defineFixedStepTumb("R863_FREQ4", 38, 3009, 160, 0.25, {0, 1}, {-0.1, 0.1}, nil,
 
 local function getR863Frequency()
     local freq1 = R863_FREQ1_POS[string.format("%.0f", GetDevice(0):get_argument_value(157)*100)]
-	if freq1 == nil then freq1 = "00" end
+	if freq1 == nil then freq1 = "10" end
     local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(158)*10)
 	if freq2 == nil then freq2 = "0" end
 	if freq2 == "10" then freq2 = "0" end
@@ -529,7 +529,7 @@ local function getR863Frequency()
 	elseif freq4F >= 87.5                   then freq4 = "00"
 	end
 
-	return  freq1 .. freq2 .. "." .. freq3 .. freq4 or "000.000"
+	return  freq1 .. freq2 .. "." .. freq3 .. freq4 or "100.000"
 end
 
 defineTumb("R828_PRST_CHAN_SEL", 39, 3001, 735, 0.1, {0, 0.9}, nil, false, "R-828", "R-828, Radio Channel Selector Knob")
