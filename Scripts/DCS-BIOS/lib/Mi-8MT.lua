@@ -504,23 +504,32 @@ local R863_FREQ1_POS = {
   ["22"] = "39"
 }
 
-defineFixedStepTumb("R863_FREQ1", 38, 3006, 157, 0.01, {0, 0.23}, {-0.1, 0.1}, {"10", "11", "12", "13", "14", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"}, "R-863", "R-863, 10MHz Rotary Knob")
-defineFixedStepTumb("R863_FREQ2", 38, 3007, 158, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 1MHz Rotary Knob")
-defineFixedStepTumb("R863_FREQ3", 38, 3008, 159, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "R-863", "R-863, 100KHz Rotary Knob")
-defineFixedStepTumb("R863_FREQ4", 38, 3009, 160, 0.25, {0, 1}, {-0.1, 0.1}, {"00", "25", "50", "75", "00"}, "R-863", "R-863, 1KHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ1", 38, 3006, 157, 0.01, {0, 0.23}, {-0.1, 0.1}, nil, "R-863", "R-863, 10MHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ2", 38, 3007, 158, 0.1, {0, 1}, {-0.1, 0.1}, nil, "R-863", "R-863, 1MHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ3", 38, 3008, 159, 0.1, {0, 1}, {-0.1, 0.1}, nil, "R-863", "R-863, 100KHz Rotary Knob")
+defineFixedStepTumb("R863_FREQ4", 38, 3009, 160, 0.25, {0, 1}, {-0.1, 0.1}, nil, "R-863", "R-863, 1KHz Rotary Knob")
 
 local function getR863Frequency()
     local freq1 = R863_FREQ1_POS[string.format("%.0f", GetDevice(0):get_argument_value(157)*100)]
 	if freq1 == nil then freq1 = "00" end
     local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(158)*10)
 	if freq2 == nil then freq2 = "0" end
+	if freq2 == "10" then freq2 = "0" end
     local freq3 = string.format("%.0f", GetDevice(0):get_argument_value(159)*10)
 	if freq3 == nil then freq3 = "0" end
-    local freq4 = string.format("%.0f", GetDevice(0):get_argument_value(160)*100)
-	if freq4 == nil then freq4 = "00" end
-	if freq4 == "10" then freq4 = "00" end
-	if freq4 == "0" then freq4 = "00" end
-	return  freq1 .. freq2 .. "." .. freq3 .. freq4 or "0000000"
+	if freq3 == "10" then freq3 = "0" end
+
+    local freq4 = "00"
+	local freq4F = GetDevice(0):get_argument_value(160)*100
+	if     freq4F == nil then freq4 = "00"
+	elseif freq4F >= 0    and freq4F < 12.5 then freq4 = "00"
+	elseif freq4F >= 12.5 and freq4F < 37.5 then freq4 = "25"
+	elseif freq4F >= 37.5 and freq4F < 62.5 then freq4 = "50"
+	elseif freq4F >= 62.5 and freq4F < 87.5 then freq4 = "75"
+	elseif freq4F >= 87.5                   then freq4 = "00"
+	end
+
+	return  freq1 .. freq2 .. "." .. freq3 .. freq4 or "000.000"
 end
 
 defineTumb("R828_PRST_CHAN_SEL", 39, 3001, 735, 0.1, {0, 0.9}, nil, false, "R-828", "R-828, Radio Channel Selector Knob")
