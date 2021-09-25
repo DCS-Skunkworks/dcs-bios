@@ -1,5 +1,4 @@
 function highlightThis() {
-	// http://stackoverflow.com/questions/11128130/select-text-in-javascript
 	var doc = document;
 	if (doc.body.createTextRange) { // ms
 		var range = doc.body.createTextRange();
@@ -50,6 +49,14 @@ $(function() {
 		$("#pointercal").toggle(!$("#pointercal").is(':visible'));
 	});
 	headerDiv.append(button);
+	
+	headerDiv.append($('<span> </span>'));
+	
+ 	var button2 = $("<button>").text("Refresh");
+    button2.on("click", function() {
+		chrome.runtime.reload()
+    });
+    headerDiv.append(button2);
 	
 	$("#app").append(headerDiv);
 	$("#app").append($('<iframe id="pointercal" style="display:none" src="pointercal.html" width="100%" height="500"></iframe>'));
