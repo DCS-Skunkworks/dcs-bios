@@ -543,17 +543,17 @@ defineTumb("YADRO1A_SQL", 37, 3008, 741, 0.7, {0, 0.7}, nil, false, "YaDRO-1A", 
 
 local function getYadro1AFrequency()
     local yfreq1 = string.format("%.0f", GetDevice(0):get_argument_value(750)*10)
-	if yfreq1 == nil then yfreq1 = "0" end
+	if yfreq1 == nil or yfreq1 == "10" then yfreq1 = "0" end
     local yfreq2 = string.format("%.0f", GetDevice(0):get_argument_value(745)*10)
-	if yfreq2 == nil then yfreq2 = "0" end
+	if yfreq2 == nil or yfreq2 == "10" then yfreq2 = "0" end
     local yfreq3 = string.format("%.0f", GetDevice(0):get_argument_value(746)*10)
-	if yfreq3 == nil then yfreq3 = "0" end
+	if yfreq3 == nil or yfreq3 == "10" then yfreq3 = "0" end
     local yfreq4 = string.format("%.0f", GetDevice(0):get_argument_value(747)*10)
-	if yfreq4 == nil then yfreq4 = "0" end
+	if yfreq4 == nil or yfreq4 == "10" then yfreq4 = "0" end
     local yfreq5 = string.format("%.0f", GetDevice(0):get_argument_value(748)*10)
-	if yfreq5 == nil then yfreq5 = "0" end
+	if yfreq5 == nil or yfreq5 == "10" then yfreq5 = "0" end
     local yfreq6 = string.format("%.0f", GetDevice(0):get_argument_value(749)*10)
-	if yfreq6 == nil then yfreq6 = "0" end
+	if yfreq6 == nil or yfreq6 == "10" then yfreq6 = "0" end
 	return  yfreq1 .. yfreq2 .. yfreq3 .. yfreq4 .. yfreq5 .. "." .. yfreq6
 end
 
