@@ -75,6 +75,18 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Yak-52.lua]]) -- ID = 39, ProperNa
 ----------------------------------------------------------------------------Modules End--------------------------------------
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 
+--Saves all aliases for each aircraft for consumption by others
+local function saveAliases()
+	local JSON = loadfile([[Scripts\JSON.lua]])()
+	local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\AircraftAliases.json]], "w")
+	local json_string = JSON:encode_pretty(BIOS.dbg.aircraftNameToModuleNames)
+	if file then
+		file:write(json_string)
+		file:close()
+	end
+end
+pcall(saveAliases)
+
 -- Prev Export functions.
 local PrevExport = {}
 PrevExport.LuaExportStart = LuaExportStart
