@@ -331,6 +331,11 @@ defineIndicatorLight("WH_LAMP_F_L", 300, "Cockpit Lights", "Front White Lamp (wh
 defineIndicatorLight("WH_LAMP_L_L", 299, "Cockpit Lights", "Left White Lamp (white)")
 defineIndicatorLight("GAUGES_GLOW_L", 297, "Cockpit Lights", "Gauges Glow (green)")
 
+defineIndicatorLight("GEAR_UP_L_L", 77, "Main Panel Lights", "Under Carriage Left UP Light (red)")
+defineIndicatorLight("GEAR_UP_R_L", 79, "Main Panel Lights", "Under Carriage Right UP Light (red)")
+defineIndicatorLight("GEAR_DN_L_L", 78, "Main Panel Lights", "Under Carriage Left DOWN Light (green)")
+defineIndicatorLight("GEAR_DN_R_L", 80, "Main Panel Lights", "Under Carriage Right DOWN Light (green)")
+
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
