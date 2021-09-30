@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("SuperCarrier", 0x0700)
-BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})--(BIOS.ALL_PLAYABLE_AIRCRAFT)
+BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR", "FA-18C_hornet", "A-4E-C", "T-45"})--(BIOS.ALL_PLAYABLE_AIRCRAFT)
 
 local documentation = moduleBeingDefined.documentation
 
