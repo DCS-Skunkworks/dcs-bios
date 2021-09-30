@@ -361,9 +361,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 28924,
                                                                                        "description": "Green Bottom Light (green)",
-                                                                                              "mask": 8,
+                                                                                              "mask": 128,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 3,
+                                                                                          "shift_by": 7,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -377,9 +377,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 28924,
                                                                                        "description": "Red Bottom Light (red)",
-                                                                                              "mask": 2,
+                                                                                              "mask": 32,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 1,
+                                                                                          "shift_by": 5,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -393,9 +393,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 28924,
                                                                                        "description": "Yellow Bottom Light (yellow)",
-                                                                                              "mask": 4,
+                                                                                              "mask": 64,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 2,
+                                                                                          "shift_by": 6,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -409,9 +409,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 28924,
                                                                                        "description": "Left Landing Light (white)",
-                                                                                              "mask": 16,
+                                                                                              "mask": 256,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 4,
+                                                                                          "shift_by": 8,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -425,9 +425,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 28924,
                                                                                        "description": "Right Landing Light (white)",
-                                                                                              "mask": 32,
+                                                                                              "mask": 512,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 5,
+                                                                                          "shift_by": 9,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -439,11 +439,11 @@
                                                                      "identifier": "EXT_POSITION_LIGHT_LEFT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 28906,
+                                                                                           "address": 28924,
                                                                                        "description": "Left Position Light (red)",
-                                                                                              "mask": 4096,
+                                                                                              "mask": 1,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 12,
+                                                                                          "shift_by": 0,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -455,11 +455,11 @@
                                                                      "identifier": "EXT_POSITION_LIGHT_NOSE",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 28906,
+                                                                                           "address": 28924,
                                                                                        "description": "Nose Light (white)",
-                                                                                              "mask": 32768,
+                                                                                              "mask": 8,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 15,
+                                                                                          "shift_by": 3,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -471,11 +471,11 @@
                                                                      "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 28906,
+                                                                                           "address": 28924,
                                                                                        "description": "Right Position Light (green)",
-                                                                                              "mask": 8192,
+                                                                                              "mask": 2,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 13,
+                                                                                          "shift_by": 1,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -487,11 +487,11 @@
                                                                      "identifier": "EXT_POSITION_LIGHT_TAIL",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 28906,
+                                                                                           "address": 28924,
                                                                                        "description": "Tail Position Light (white)",
-                                                                                              "mask": 16384,
+                                                                                              "mask": 4,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 14,
+                                                                                          "shift_by": 2,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -505,9 +505,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 28924,
                                                                                        "description": "Wing Lights (white)",
-                                                                                              "mask": 1,
+                                                                                              "mask": 16,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 0,
+                                                                                          "shift_by": 4,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -521,9 +521,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 28924,
                                                                                        "description": "Weight ON Wheels Left Gear",
-                                                                                              "mask": 256,
+                                                                                              "mask": 4096,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 8,
+                                                                                          "shift_by": 12,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -537,9 +537,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 28924,
                                                                                        "description": "Weight ON Wheels Nose Gear",
-                                                                                              "mask": 64,
+                                                                                              "mask": 1024,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 6,
+                                                                                          "shift_by": 10,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -553,9 +553,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 28924,
                                                                                        "description": "Weight ON Wheels Right Gear",
-                                                                                              "mask": 128,
+                                                                                              "mask": 2048,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 7,
+                                                                                          "shift_by": 11,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -3184,6 +3184,70 @@
                                                                                          "mask": 64,
                                                                                     "max_value": 1,
                                                                                      "shift_by": 6,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                           "GEAR_DN_L_L": {
+                                                                  "category": "Main Panel Lights",
+                                                              "control_type": "led",
+                                                               "description": "Under Carriage Left DOWN Light (green)",
+                                                                "identifier": "GEAR_DN_L_L",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 28906,
+                                                                                  "description": "0 if light is off, 1 if light is on",
+                                                                                         "mask": 16384,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 14,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                           "GEAR_DN_R_L": {
+                                                                  "category": "Main Panel Lights",
+                                                              "control_type": "led",
+                                                               "description": "Under Carriage Right DOWN Light (green)",
+                                                                "identifier": "GEAR_DN_R_L",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 28906,
+                                                                                  "description": "0 if light is off, 1 if light is on",
+                                                                                         "mask": 32768,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 15,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                           "GEAR_UP_L_L": {
+                                                                  "category": "Main Panel Lights",
+                                                              "control_type": "led",
+                                                               "description": "Under Carriage Left UP Light (red)",
+                                                                "identifier": "GEAR_UP_L_L",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 28906,
+                                                                                  "description": "0 if light is off, 1 if light is on",
+                                                                                         "mask": 4096,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 12,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                           "GEAR_UP_R_L": {
+                                                                  "category": "Main Panel Lights",
+                                                              "control_type": "led",
+                                                               "description": "Under Carriage Right UP Light (red)",
+                                                                "identifier": "GEAR_UP_R_L",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 28906,
+                                                                                  "description": "0 if light is off, 1 if light is on",
+                                                                                         "mask": 8192,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 13,
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ]
