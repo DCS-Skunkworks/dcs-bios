@@ -368,9 +368,9 @@ defineIntegerFromGetter("EXT_LAND_LIGHT_R", function()
 	if LoGetAircraftDrawArgumentValue(209) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Right Landing Light (white)")
 
-defineIntegerFromGetter("EXT_WOW_NOSE", function()
+defineIntegerFromGetter("EXT_WOW_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
+end, 1, "External Aircraft Model", "Weight ON Wheels Tail Gear")
 defineIntegerFromGetter("EXT_WOW_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(4) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
