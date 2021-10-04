@@ -1697,5 +1697,6 @@ definePushButton("PLT_VDI_FILTER", 42, 3234, 0, "HUD", "PILOT VDI Filter") --mis
 definePushButton("RIO_DDD_FILTER", 39, 3456, 0, "DDD", "RIO DDD Filter") --miss arg
 defineFloat("PLT_EJECT_SEAT_SAVE", 2503, {0, 1}, "Cockpit", "PILOT Ejection Seat Safety")
 defineFloat("RIO_EJECT_SEAT_SAVE", 2504, {0, 1}, "Cockpit", "RIO Ejection Seat Safety")
+defineFloat("RIO_LANTIRN_PRESENT", 666, {0, 1}, "Cockpit", "RIO LANTIRN Present")
 
 BIOS.protocol.endModule()
