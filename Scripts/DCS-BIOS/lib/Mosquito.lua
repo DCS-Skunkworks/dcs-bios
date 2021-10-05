@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mosquito", 0x7000)
 BIOS.protocol.setExportModuleAircrafts({"MosquitoFBMkVI"})
---v1.0 by WarLord (aka BlackLibrary)
+--v1.1 by WarLord (aka BlackLibrary)
 
 local documentation = moduleBeingDefined.documentation
 
@@ -69,9 +69,9 @@ defineToggleSwitch("PORT_OXY_VALVE", 15, 3003, 84, "Main Panel", "Oxygen Regulat
 definePushButton("BOOST_CUT_OFF", 3, 3049, 292, "Main Panel", "Boost Cut-Off T-Handle")
 defineToggleSwitch("PORT_LAND_L_SW", 4, 3018, 62, "Main Panel", "Landing Light Switch Port")
 defineToggleSwitch("STBD_LAND_L_SW", 4, 3020, 63, "Main Panel", "Landing Light Switch Starboard")
-define3PosTumb("BOMB_DOORS_LVR", 17, 3001, 115, "Main Panel", "Bomb Doors Lever")
-define3PosTumb("CHASSIS_LVR", 17, 3002, 116, "Main Panel", "Chassis Lever")
-define3PosTumb("FLAPS_LVR", 17, 3003, 118, "Main Panel", "Flaps Lever")
+defineTumb("BOMB_DOORS_LVR", 17, 3001, 115, 1, {-1, 1}, nil, false, "Main Panel", "Bomb Doors Lever")
+defineTumb("CHASSIS_LVR", 17, 3002, 116, 1, {-1, 1}, nil, false, "Main Panel", "Chassis Lever")
+defineTumb("FLAPS_LVR", 17, 3003, 118, 1, {-1, 1}, nil, false, "Main Panel", "Flaps Lever")
 defineToggleSwitch("CHASSIS_GATE", 17, 3004, 117, "Main Panel", "Chassis Lever Gate")
 defineToggleSwitch("FLAPS_GATE", 17, 3006, 119, "Main Panel", "Flaps Lever Gate")
 defineToggleSwitch("GUN_MASTER_CVR", 5, 3001, 120, "Main Panel", "Gun Firing Master Switch Cover")
