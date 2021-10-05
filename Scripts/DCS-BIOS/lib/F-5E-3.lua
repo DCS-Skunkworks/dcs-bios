@@ -100,7 +100,7 @@ defineToggleSwitch("R_SHUTOFF_S", 4, 3002, 362,"Fuel" , "Right Fuel Shutoff Swit
 defineToggleSwitch("EXT_PYLON_SW", 4, 3003, 378,"Fuel" , "Ext Fuel Pylons Switch, ON/OFF")
 defineToggleSwitch("EXT_CENTER_SW", 4, 3004, 377,"Fuel" , "Ext Fuel Cl Switch, ON/OFF")
 defineToggleSwitch("CROSSFEED", 4, 3005, 381,"Fuel" , "Crossfeed Switch, OPEN/CLOSED")
-defineRockerSwitch("AUTOBAL", 4, 3007, 3006, 3006, 3007, 383, "Fuel", "Autobalance Switch, LEFT/NEUT/RIGHT")--
+defineRockerSwitch("AUTOBAL", 4, 3006, 3006, 3007, 3007, 383, "Fuel", "Autobalance Switch, LEFT/NEUT/RIGHT")--
 defineToggleSwitch("L_BOOSTPUMP", 4, 3008, 380,"Fuel" , "Left Boost Pump Switch, ON/OFF")
 defineToggleSwitch("R_BOOSTPUMP", 4, 3009, 382,"Fuel" , "Right Boost Pump Switch, ON/OFF")
 defineToggleSwitch("L_SHUTOFF_C", 4, 3010, 359,"Fuel" , "Left Fuel Shutoff Switch Cover, OPEN/CLOSED")
@@ -407,7 +407,7 @@ defineTumb("UHF_100MHZ_SEL", 23, 3002, 327, 0.1, {0.0, 0.3}, nil, false, "UHF Ra
 defineTumb("UHF_10MHZ_SEL", 23, 3003, 328, 0.1, {0, 1}, nil, false, "UHF Radio" , "UHF Radio 10 MHz Frequency Selector Knob")
 defineTumb("UHF_1MHZ_SEL", 23, 3004, 329, 0.1, {0, 1}, nil, false, "UHF Radio" , "UHF Radio 1 MHz Frequency Selector Knob")
 defineTumb("UHF_01MHZ_SEL", 23, 3005, 330, 0.1, {0, 1}, nil, false, "UHF Radio" , "UHF Radio 0.1 MHz Frequency Selector Knob")
-defineTumb("UHF_0025MHZ_SEL", 23, 3006, 331, 0.25, {0, 1}, nil, false, "UHF Radio" , "UHF Radio 0.025 MHz Frequency Selector Knob")
+defineTumb("UHF_0025MHZ_SEL", 23, 3006, 331, 0.25, {0, 1}, {"00", "75", "50", "25", "00"}, false, "UHF Radio", "UHF Radio 0.025 MHz Frequency Selector Knob")
 definePotentiometer("UHF_VOL", 23, 3011, 309, {0, 1}, "UHF Radio", "UHF Radio Volume Knob")
 defineMultipositionSwitch("UHF_ANT", 23, 3016, 336, 3, 0.5, "UHF Radio", "UHF Radio Antenna Selector Switch, UPPER/AUTO/LOWER")
 definePushButton("UHF_MIC_BT", 24, 3001, 135,"UHF Radio" , "UHF Radio Microphone Button")
