@@ -763,6 +763,14 @@ DEDLayout_l1["VIP to TGT Label Asteriscs_both"] = {3,1,14,"","I"}
 -- VRP
 DEDLayout_l1["Target to VRP Label"] = {4,10}
 DEDLayout_l1["Target to VRP Label Asteriscs_both"] = {3,1,14,"","I"}
+--HMCS
+DEDLayout_l1["HMCS DISPLAY HMCS_DISPLAY_TOPIC"] = {7,12}
+DEDLayout_l1["HMCS DISPLAY INS_SelectedSteerpoint"] = {20,2}
+DEDLayout_l1["HMCS DISPLAY INS_STPT_IncDecSymbol"] = {23,1}
+DEDLayout_l1["HMCS ALIGN HMCS_ALIGN_TOPIC"] = {6,10}
+DEDLayout_l1["HMCS ALIGN INS_SelectedSteerpoint"] = {20,2}
+DEDLayout_l1["HMCS ALIGN INS_STPT_IncDecSymbol"] = {23,1}
+
 --DEDLayout_l1[""] = {,}
 
 --TODO
@@ -871,7 +879,10 @@ DEDLayout_l2["Target number"] = {4,3}
 DEDLayout_l2["Target number value"] = {9,3,0,"_inv","I"}
 DEDLayout_l2["Target number up down arrows"] = {13,1}
 DEDLayout_l2["Target number Asteriscs_both"] = {8,1,12,"","I"}
-
+--HMCS
+DEDLayout_l2["HMCS DISPLAY HMCS_HUD_BLANK"] = {3,8}
+DEDLayout_l2["HMCS ALIGN HMCS_COARSE"] = {2,6}
+DEDLayout_l2["HMCS ALIGN Asterisks_COARSE_both"] = {1,1,8,"","I"}
 --DEDLayout_l2[""] = {,}
 
 --CNI
@@ -1031,6 +1042,10 @@ DEDLayout_l3["VIP bearing Asteriscs_both"] = {8,1,15,"","I"}
 DEDLayout_l3["Target bearing"] = {3,4}
 DEDLayout_l3["Target bearing value"] = {9,6,0,"_inv","I"}
 DEDLayout_l3["Target bearing Asteriscs_both"] = {8,1,15,"","I"}
+--HMCS
+DEDLayout_l3["HMCS DISPLAY HMCS_CKPT_BLANK"] = {3,9}
+DEDLayout_l3["HMCS ALIGN HMCS_AZ_EL"] = {2,5}
+DEDLayout_l3["HMCS ALIGN Asterisks_AZ_EL_both"] = {1,1,7,"","I"}
 
 --DEDLayout_l3[""] = {,}
 
@@ -1181,6 +1196,10 @@ DEDLayout_l4["Range"] = {4,3}
 DEDLayout_l4["Range value"] = {11,4,0,"_inv","I"}
 DEDLayout_l4["Range Asteriscs_both"] = {10,1,15,"","I"}
 DEDLayout_l4["Range NM"] = {16,2}
+--HMCS
+DEDLayout_l4["HMCS DISPLAY HMCS_DECLUTTER"] = {3,14}
+DEDLayout_l4["HMCS ALIGN HMCS_ROLL"] = {2,4}
+DEDLayout_l4["HMCS ALIGN Asterisks_ROLL_both"] = {1,1,6,"","I"}
 
 --DEDLayout_l4[""] = {,}
 
@@ -1303,7 +1322,10 @@ DEDLayout_l5["Asterisks_T5_both"] = {17,1,21,"","I"}
 DEDLayout_l5["Elevation"] = {3,4}
 DEDLayout_l5["Elevation value"] = {9,6,0,"_inv","I"}
 DEDLayout_l5["Elevation Asteriscs_both"] = {8,1,17,"","I"}
-
+--HMCS
+DEDLayout_l5["HMCS DISPLAY HMCS_RWR_DISPLAY"] = {3,9}
+DEDLayout_l5["HMCS DISPLAY HMCS_RWR_DISPLAY_STATUS"] = {13,3}
+DEDLayout_l5["HMCS DISPLAY Asterisks_RWR_DISPLAY_both"] = {12,1,16,"","I"}
 --DEDLayout_l5[""] = {,}
 
 DEDLayout = {DEDLayout_l1, DEDLayout_l2, DEDLayout_l3, DEDLayout_l4, DEDLayout_l5}
@@ -1362,6 +1384,8 @@ local function buildDEDLine(line)
 	local intraflight = DED_fields["INTRAFLIGHT lbl"]
 	local dlnk_A_G = DED_fields["A-G DL lbl"]
 	local nav_status = DED_fields["NAV Status lbl"]
+	local hmcs_display = DED_fields["HMCS_DISPLAY_TOPIC"]
+	local hmcs_align = DED_fields["HMCS_ALIGN_TOPIC"]
 --Loop through Exported DED Objects
 	for k,v in pairs(DED_fields) do
 -- Handle Duplicate Key Names on COM2 Guard page items        
@@ -1391,6 +1415,12 @@ local function buildDEDLine(line)
 -- Handle Duplicate Key Names on NAV page		
 		elseif nav_status ~= nil then
 			label = nav_status.." "..k
+-- Handle Duplicate Key Names on HMCS Display page		
+		elseif hmcs_display ~= nil then
+			label = hmcs_display.." "..k
+-- Handle Duplicate Key Names on HMCS Align page		
+		elseif hmcs_align ~= nil then
+			label = hmcs_align.." "..k
 		else
 			label = k
 		end
