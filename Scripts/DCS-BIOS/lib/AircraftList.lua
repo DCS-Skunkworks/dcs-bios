@@ -12,6 +12,7 @@ end
 
 a("A-10C", true)
 a("A-10C_2", true)
+--a("AH-64D", true)
 a("AJS37", true)
 a("AV8BNA", true)
 a("Bf-109K-4", true)
