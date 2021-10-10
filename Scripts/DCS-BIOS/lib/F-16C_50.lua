@@ -1,4 +1,4 @@
--- V1.8b by Warlord (aka BlackLibrary)
+-- V1.8c by Warlord (aka BlackLibrary)
 -- Added HARM,VIP,VRP pages by Matchstick
 -- Tested and fixes by BuzzKillington & afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick
