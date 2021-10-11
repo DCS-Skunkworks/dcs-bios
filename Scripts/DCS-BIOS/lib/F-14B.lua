@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4.1 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v4.2 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -478,24 +478,24 @@ define3PosTumb("RIO_ECM_CORR", 45, 3249, 168, "ECMD", "RIO ECM Display Corr")
 define3PosTumb("RIO_ECM_ADF", 45, 3250, 190, "ECMD", "RIO ECM Display Data/ADF")
 
 -- TACAN Pilot Panel
-defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "TACAN", "PILOT TACAN CMD Button")
-defineToggleSwitch("RIO_TACAN_CMD_BUTTON", 47, 3325, 135, "TACAN", "RIO TACAN CMD Button")
-defineTumb("PLT_TACAN_MODE", 47, 3326, 2041, 0.25, {0, 1}, nil, false, "TACAN", "PILOT TACAN Mode")
-definePotentiometer("PLT_TACAN_VOLUME", 47, 3328, 2036, {0, 1}, "TACAN", "PILOT TACAN Volume")
-defineTumb("PLT_TACAN_MODE_NORMAL_INV", 47, 3335, 2042, 2, {-1, 1}, nil, false, "TACAN", "PILOT TACAN Mode Normal/Inverse")
-defineTumb("PLT_TACAN_CHANNEL", 47, 3336, 2043, 2, {-1, 1}, nil, false, "TACAN", "PILOT TACAN Channel XY")
-definePushButton("PLT_TACAN_BIT", 47, 3334, 2115, "TACAN", "PILOT TACAN Bit")
-defineTumb("PLT_TACAN_DIAL_TENS", 47, 3330, 8888, 1/12, {0, 1}, nil, false, "TACAN", "PILOT TACAN Channel Wheel (Tens)")
-defineTumb("PLT_TACAN_DIAL_ONES", 47, 3332, 8889, 1/9, {0, 1}, nil, false, "TACAN", "PILOT TACAN Channel Lever (Ones)")
+defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "TACAN PILOT", "PILOT TACAN CMD Button")
+defineToggleSwitch("RIO_TACAN_CMD_BUTTON", 47, 3325, 135, "TACAN RIO", "RIO TACAN CMD Button")
+defineTumb("PLT_TACAN_MODE", 47, 3326, 2041, 0.25, {0, 1}, nil, false, "TACAN PILOT", "PILOT TACAN Mode")
+definePotentiometer("PLT_TACAN_VOLUME", 47, 3328, 2036, {0, 1}, "TACAN PILOT", "PILOT TACAN Volume")
+defineFixedStepTumb("PLT_TACAN_MODE_NORMAL_INV", 47, 3335, 2042, 2, {-1, 1}, {-1, 1}, nil, "TACAN PILOT", "PILOT TACAN Mode Normal/Inverse")
+defineFixedStepTumb("PLT_TACAN_CHANNEL", 47, 3336, 2043, 2, {-1, 1}, {-1, 1}, nil, "TACAN PILOT", "PILOT TACAN Channel XY")
+definePushButton("PLT_TACAN_BIT", 47, 3334, 2115, "TACAN PILOT", "PILOT TACAN Bit")
+defineTumb("PLT_TACAN_DIAL_TENS", 47, 3330, 8888, 1/12, {0, 1}, nil, false, "TACAN PILOT", "PILOT TACAN Channel Wheel (Tens)")
+defineTumb("PLT_TACAN_DIAL_ONES", 47, 3332, 8889, 1/9, {0, 1}, nil, false, "TACAN PILOT", "PILOT TACAN Channel Lever (Ones)")
 
 -- TACAN RIO Panel
-defineTumb("RIO_TACAN_MODE", 47, 3338, 374, 0.25, {0, 1}, nil, false, "TACAN", "RIO TACAN Mode")
-definePotentiometer("RIO_TACAN_VOLUME", 47, 3340, 375, {0, 1}, "TACAN", "RIO TACAN Volume")
-defineToggleSwitch("RIO_TACAN_MODE_NORMAL_INV", 47, 3347, 373, "TACAN", "RIO TACAN Mode Normal/Inverse")
-defineToggleSwitch("RIO_TACAN_CHANNEL", 47, 3348, 372, "TACAN", "RIO TACAN Channel XY")
-definePushButton("RIO_TACAN_BIT", 47, 3346, 371, "TACAN", "RIO TACAN Bit")
-defineTumb("RIO_TACAN_DIAL_TENS", 47, 3342, 8891, 1/12, {0, 1}, nil, false, "TACAN", "RIO TACAN Channel Wheel (Tens)")
-defineTumb("RIO_TACAN_DIAL_ONES", 47, 3344, 8890, 1/9, {0, 1}, nil, false, "TACAN", "RIO TACAN Channel Lever (Ones)")
+defineTumb("RIO_TACAN_MODE", 47, 3338, 374, 0.25, {0, 1}, nil, false, "TACAN RIO", "RIO TACAN Mode")
+definePotentiometer("RIO_TACAN_VOLUME", 47, 3340, 375, {0, 1}, "TACAN RIO", "RIO TACAN Volume")
+defineToggleSwitch("RIO_TACAN_MODE_NORMAL_INV", 47, 3347, 373, "TACAN RIO", "RIO TACAN Mode Normal/Inverse")
+defineToggleSwitch("RIO_TACAN_CHANNEL", 47, 3348, 372, "TACAN RIO", "RIO TACAN Channel XY")
+definePushButton("RIO_TACAN_BIT", 47, 3346, 371, "TACAN RIO", "RIO TACAN Bit")
+defineTumb("RIO_TACAN_DIAL_TENS", 47, 3342, 8891, 1/12, {0, 1}, nil, false, "TACAN RIO", "RIO TACAN Channel Wheel (Tens)")
+defineTumb("RIO_TACAN_DIAL_ONES", 47, 3344, 8890, 1/9, {0, 1}, nil, false, "TACAN RIO", "RIO TACAN Channel Lever (Ones)")
 
 -- AN/ARA-63 Panel
 defineToggleSwitch("PLT_ARA63_PW", 48, 3319, 910, "ANARA63 Panel", "PILOT AN/ARA-63 Power")
