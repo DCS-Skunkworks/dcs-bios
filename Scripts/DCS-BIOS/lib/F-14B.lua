@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4.2 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v4.3 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -241,7 +241,7 @@ local function getAIRSOURCE_Mode()
 end
 
 --------------------------------- Matchstick --------------------------------- 
-function parse_indication_number_index(indicator_id)  -- Thanks to [FSF]Ian code
+local function parse_indication_number_index(indicator_id)  -- Thanks to [FSF]Ian code
 -- Custom version of parse_indication function that uses numbers for the index of the output table
 -- for use in situations where the names of values in the indication are unusable (eg random GUID)
 -- also adds the number of rows to the table at index 0
@@ -304,149 +304,149 @@ end
 ----------------------------------------- BIOS-Profile  
 
 -- Hydraulics
-defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_SW", 12, 3001, 629, "Hydraulics", "PILOT Hydraulic Transfer Pump Switch")
-defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_COVER", 12, 3002, 630, "Hydraulics", "PILOT Hydraulic Transfer Pump Switch Cover")
-defineToggleSwitch("PLT_HYD_ISOL_SW", 12, 3005, 631, "Hydraulics", "PILOT Hydraulic Isolation Switch")
-define3PosTumb("PLT_HYD_EMERG_FCONTR_SW", 12, 3003, 928, "Hydraulics", "PILOT Hydraulic Emergency Flight Control Switch")
-defineToggleSwitch("PLT_HYD_EMERG_FCONTR_COVER", 12, 3004, 615, "Hydraulics", "PILOT Hydraulic Emergency Flight Control Switch Cover")
-defineToggleSwitch("PLT_HYD_HAND_PUMP", 12, 3006, 13133, "Hydraulics", "PILOT Hydraulic Hand Pump") --632
+defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_SW", 13, 3001, 629, "Hydraulics", "PILOT Hydraulic Transfer Pump Switch")
+defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_COVER", 13, 3002, 630, "Hydraulics", "PILOT Hydraulic Transfer Pump Switch Cover")
+defineToggleSwitch("PLT_HYD_ISOL_SW", 13, 3005, 631, "Hydraulics", "PILOT Hydraulic Isolation Switch")
+define3PosTumb("PLT_HYD_EMERG_FCONTR_SW", 13, 3003, 928, "Hydraulics", "PILOT Hydraulic Emergency Flight Control Switch")
+defineToggleSwitch("PLT_HYD_EMERG_FCONTR_COVER", 13, 3004, 615, "Hydraulics", "PILOT Hydraulic Emergency Flight Control Switch Cover")
+defineToggleSwitch("PLT_HYD_HAND_PUMP", 13, 3006, 13133, "Hydraulics", "PILOT Hydraulic Hand Pump") --632
 
 -- Master Reset
-definePushButton("PLT_MASTER_RESET", 22, 3058, 1071, "Master Reset", "PILOT MASTER RESET")
+definePushButton("PLT_MASTER_RESET", 23, 3058, 1071, "Master Reset", "PILOT MASTER RESET")
 
 -- AICS
-defineToggleSwitch("PLT_INLET_RAMPS_L", 13, 3007, 2100, "AICS", "PILOT Stow Inlet Ramps Left Switch")
-defineToggleSwitch("PLT_INLET_RAMPS_R", 13, 3008, 2101, "AICS", "PILOT Stow Inlet Ramps Right Switch")
+defineToggleSwitch("PLT_INLET_RAMPS_L", 14, 3007, 2100, "AICS", "PILOT Stow Inlet Ramps Left Switch")
+defineToggleSwitch("PLT_INLET_RAMPS_R", 14, 3008, 2101, "AICS", "PILOT Stow Inlet Ramps Right Switch")
 
 -- Wing Sweep
-defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_COVER", 16, 3029, 317, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Cover")
-definePotentiometer("PLT_EMERG_WING_SWEEPLT_LEVER", 16, 3031, 384, {0, 1}, "Wing Sweep", "PILOT Emergency Wing Sweep Handle")
-defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_POP", 12, 3030, 15096, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Pop out")
+defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_COVER", 17, 3029, 317, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Cover")
+definePotentiometer("PLT_EMERG_WING_SWEEPLT_LEVER", 17, 3031, 384, {0, 1}, "Wing Sweep", "PILOT Emergency Wing Sweep Handle")
+defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_POP", 13, 3030, 15096, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Pop out")
 
 --Radar Altimeter
-definePushButton("PLT_RADAR_ALT_BIT", 29, 3485, 16020, "Radar Altimeter", "PILOT Radar Altimeter BIT Test Button")
-defineRotary("PLT_RADAR_ALT_KNOB", 29, 3484, 308, "Radar Altimeter", "PILOT Radar Altimeter Control Knob")
+definePushButton("PLT_RADAR_ALT_BIT", 30, 3485, 16020, "Radar Altimeter", "PILOT Radar Altimeter BIT Test Button")
+defineRotary("PLT_RADAR_ALT_KNOB", 30, 3484, 308, "Radar Altimeter", "PILOT Radar Altimeter Control Knob")
 
 -- Airspeed Indicator
-definePushButton("PLT_AIRSPD_KNOB_PUSH", 27, 3492, 2127, "Airspeed Indicator", "PILOT Airspeed Indicator Bug Push Knob")
-defineRotary("PLT_AIRSPD_KNOB", 27, 3491, 310, "Airspeed Indicator", "PILOT Airspeed Indicator Bug Knob")
-definePushButton("RIO_AIRSPD_KNOB_PUSH", 27, 3651, 255, "Airspeed Indicator", "RIO Airspeed Indicator Bug Push Knob")
-defineRotary("RIO_AIRSPD_KNOB", 27, 3652, 254, "Airspeed Indicator", "RIO Airspeed Indicator Bug Knob")
+definePushButton("PLT_AIRSPD_KNOB_PUSH", 28, 3492, 2127, "Airspeed Indicator", "PILOT Airspeed Indicator Bug Push Knob")
+defineRotary("PLT_AIRSPD_KNOB", 28, 3491, 310, "Airspeed Indicator", "PILOT Airspeed Indicator Bug Knob")
+definePushButton("RIO_AIRSPD_KNOB_PUSH", 28, 3651, 255, "Airspeed Indicator", "RIO Airspeed Indicator Bug Push Knob")
+defineRotary("RIO_AIRSPD_KNOB", 28, 3652, 254, "Airspeed Indicator", "RIO Airspeed Indicator Bug Knob")
 
 -- Altimeter
 define3PosTumb("PLT_ALTIMETER_MODE", 28, 3487, 307, "Altimeter", "PILOT Altimeter Mode Switch")
 defineRotary("PLT_ALTIMETER_KNOB", 28, 3486, 306, "Altimeter", "PILOT Altimeter Pressure Setting")
 
 -- RIO Altimeter
-define3PosTumb("RIO_ALTIMETER_MODE", 28, 3490, 20307, "Altimeter", "RIO Altimeter Mode Switch")
-defineRotary("RIO_ALTIMETER_KNOB", 28, 3489, 20306, "Altimeter", "RIO Altimeter Pressure Setting")
+define3PosTumb("RIO_ALTIMETER_MODE", 29, 3490, 20307, "Altimeter", "RIO Altimeter Mode Switch")
+defineRotary("RIO_ALTIMETER_KNOB", 29, 3489, 20306, "Altimeter", "RIO Altimeter Pressure Setting")
 
 -- Gear
-defineToggleSwitch("PLT_GEAR_LEVER", 17, 3016, 326, "Gear", "PILOT Landing Gear Lever")
-defineToggleSwitch("PLT_GEAR_LEVER_EMERG", 17, 3646, 16015, "Gear", "PILOT Landing Gear Lever RB emergency extend")
-definePushButton("PLT_LAUNCHBAR_ABORT", 17, 3672, 497, "Gear", "PILOT Launch Bar Abort")
-defineToggleSwitch("PLT_LAUNCHBAR_ABORT_COVER", 17, 3673, 496, "Gear", "PILOT Launch Bar Abort Switch Cover")
-define3PosTumb("PLT_NOSE_STRUT_SW", 17, 3019, 1075, "Gear", "PILOT Nose Strut Compression Switch")
+defineToggleSwitch("PLT_GEAR_LEVER", 18, 3016, 326, "Gear", "PILOT Landing Gear Lever")
+defineToggleSwitch("PLT_GEAR_LEVER_EMERG", 18, 3646, 16015, "Gear", "PILOT Landing Gear Lever RB emergency extend")
+definePushButton("PLT_LAUNCHBAR_ABORT", 18, 3672, 497, "Gear", "PILOT Launch Bar Abort")
+defineToggleSwitch("PLT_LAUNCHBAR_ABORT_COVER", 18, 3673, 496, "Gear", "PILOT Launch Bar Abort Switch Cover")
+define3PosTumb("PLT_NOSE_STRUT_SW", 18, 3019, 1075, "Gear", "PILOT Nose Strut Compression Switch")
 
 -- Hook
-defineToggleSwitch("PLT_HOOK_LEVER", 17, 3021, 238, "Gear", "PILOT Hook Extension Handle")
-defineToggleSwitch("PLT_HOOK_LEVER_EMERG", 17, 3022, 15078, "Gear", "PILOT Hook Extension Handle RB cycle emergency mode")
+defineToggleSwitch("PLT_HOOK_LEVER", 18, 3021, 238, "Gear", "PILOT Hook Extension Handle")
+defineToggleSwitch("PLT_HOOK_LEVER_EMERG", 18, 3022, 15078, "Gear", "PILOT Hook Extension Handle RB cycle emergency mode")
 
 -- Brakes
-define3PosTumb("PLT_ANTI_SKID_SW", 17, 3014, 1072, "Brakes", "Anti-Skid Spoiler BK Switch")
-defineToggleSwitch("PLT_PARK_BRAKE", 17, 3013, 237, "Brakes", "PILOT Parking Brake Handle")
+define3PosTumb("PLT_ANTI_SKID_SW", 18, 3014, 1072, "Brakes", "Anti-Skid Spoiler BK Switch")
+defineToggleSwitch("PLT_PARK_BRAKE", 18, 3013, 237, "Brakes", "PILOT Parking Brake Handle")
 
 -- SAS
-defineToggleSwitch("PLT_AFCS_PITCH", 21, 3034, 2106, "SAS", "PILOT AFCS Stability Augmentation - Pitch")
-defineToggleSwitch("PLT_AFCS_ROLL", 21, 3035, 2107, "SAS", "PILOT AFCS Stability Augmentation - Roll")
-defineToggleSwitch("PLT_AFCS_YAW", 21, 3036, 2108, "SAS", "PILOT AFCS Stability Augmentation - Yaw")
+defineToggleSwitch("PLT_AFCS_PITCH", 22, 3034, 2106, "SAS", "PILOT AFCS Stability Augmentation - Pitch")
+defineToggleSwitch("PLT_AFCS_ROLL", 22, 3035, 2107, "SAS", "PILOT AFCS Stability Augmentation - Roll")
+defineToggleSwitch("PLT_AFCS_YAW", 22, 3036, 2108, "SAS", "PILOT AFCS Stability Augmentation - Yaw")
 
 -- Autopilot
-define3PosTumb("PLT_AUTOPLT_VECTOR_CARRIER", 21, 3037, 2109, "Autopilot", "PILOT Autopilot - Vector / Automatic Carrier Landing")
-defineToggleSwitch("PLT_AUTOPLT_ALT", 21, 3038, 2110, "Autopilot", "PILOT Autopilot - Altitude Hold")
-define3PosTumb("PLT_AUTOPLT_HDG", 21, 3039, 2111, "Autopilot", "PILOT Autopilot - Heading / Ground Track")
-defineToggleSwitch("PLT_AUTOPLT_ENGAGE", 21, 3040, 2112, "Autopilot", "PILOT Autopilot - Engage")
+define3PosTumb("PLT_AUTOPLT_VECTOR_CARRIER", 22, 3037, 2109, "Autopilot", "PILOT Autopilot - Vector / Automatic Carrier Landing")
+defineToggleSwitch("PLT_AUTOPLT_ALT", 22, 3038, 2110, "Autopilot", "PILOT Autopilot - Altitude Hold")
+define3PosTumb("PLT_AUTOPLT_HDG", 22, 3039, 2111, "Autopilot", "PILOT Autopilot - Heading / Ground Track")
+defineToggleSwitch("PLT_AUTOPLT_ENGAGE", 22, 3040, 2112, "Autopilot", "PILOT Autopilot - Engage")
 
 -- Flaps
-definePotentiometer("PLT_FLAPS_LEVER", 18, 3044, 225, {0, 1}, "Flaps", "PILOT Flaps Lever")
+definePotentiometer("PLT_FLAPS_LEVER", 19, 3044, 225, {0, 1}, "Flaps", "PILOT Flaps Lever")
 
 -- Engine
-defineToggleSwitch("PLT_ENGINE_FUEL_CUT_L", 19, 3128, 12300, "Engine", "PILOT Left Engine Fuel Cutoff")
-defineToggleSwitch("PLT_ENGINE_FUEL_CUT_R", 19, 3129, 12301, "Engine", "PILOT Right Engine Fuel Cutoff")
-define3PosTumb("PLT_THROTTLE_MODE", 19, 3045, 2104, "Engine", "PILOT Throttle Mode")
-define3PosTumb("PLT_THROTTLE_TEMP", 19, 3047, 2103, "Engine", "PILOT Throttle Temp")
-define3PosTumb("PLT_ANTI_ICE", 19, 3049, 941, "Engine", "PILOT Engine/Probe Anti-Ice")
-defineToggleSwitch("PLT_ENGINE_AIRSTART", 19, 3050, 2105, "Engine", "PILOT Engine Airstart")
-define3PosTumb("PLT_ENGINE_CRANK", 19, 3051, 2102, "Engine", "PILOT Engine Crank")
-defineToggleSwitch("PLT_ENGINE_MODE_L", 19, 3052, 16007, "Engine", "PILOT Left Engine Mode")
-defineToggleSwitch("PLT_ENGINE_MODE_R", 19, 3053, 16008, "Engine", "PILOT Right Engine Mode")
-defineToggleSwitch("PLT_ASY_THRUST_LIMIT_COVER", 19, 3055, 16005, "Engine", "PILOT Asymmetric Thrust Limiter Cover")
-defineToggleSwitch("PLT_ASY_THRUST_LIMIT", 19, 3054, 16006, "Engine", "PILOT Asymmetric Thrust Limiter")
+defineToggleSwitch("PLT_ENGINE_FUEL_CUT_L", 20, 3128, 12300, "Engine", "PILOT Left Engine Fuel Cutoff")
+defineToggleSwitch("PLT_ENGINE_FUEL_CUT_R", 20, 3129, 12301, "Engine", "PILOT Right Engine Fuel Cutoff")
+define3PosTumb("PLT_THROTTLE_MODE", 20, 3045, 2104, "Engine", "PILOT Throttle Mode")
+define3PosTumb("PLT_THROTTLE_TEMP", 20, 3047, 2103, "Engine", "PILOT Throttle Temp")
+define3PosTumb("PLT_ANTI_ICE", 20, 3049, 941, "Engine", "PILOT Engine/Probe Anti-Ice")
+defineToggleSwitch("PLT_ENGINE_AIRSTART", 20, 3050, 2105, "Engine", "PILOT Engine Airstart")
+define3PosTumb("PLT_ENGINE_CRANK", 20, 3051, 2102, "Engine", "PILOT Engine Crank")
+defineToggleSwitch("PLT_ENGINE_MODE_L", 20, 3052, 16007, "Engine", "PILOT Left Engine Mode")
+defineToggleSwitch("PLT_ENGINE_MODE_R", 20, 3053, 16008, "Engine", "PILOT Right Engine Mode")
+defineToggleSwitch("PLT_ASY_THRUST_LIMIT_COVER", 20, 3055, 16005, "Engine", "PILOT Asymmetric Thrust Limiter Cover")
+defineToggleSwitch("PLT_ASY_THRUST_LIMIT", 20, 3054, 16006, "Engine", "PILOT Asymmetric Thrust Limiter")
 
 -- Fuel System
-defineToggleSwitch("PLT_FUEL_SHUTOFF_R", 20, 3061, 1044, "Fuel System", "PILOT Fuel Shutoff - Right")
-defineToggleSwitch("PLT_FUEL_SHUTOFF_L", 20, 3062, 15081, "Fuel System", "PILOT Fuel Shutoff - Left")
-defineToggleSwitch("PLT_FUEL_FEED_COVER", 20, 3064, 1094, "Fuel System", "PILOT Fuel Feed Cover")
-define3PosTumb("PLT_FUEL_FEED", 20, 3065, 1095, "Fuel System", "PILOT Fuel Feed")
-define3PosTumb("PLT_FUEL_WING_EXT_TRANS", 20, 3066, 1001, "Fuel System", "PILOT Fuel Wing/Ext Trans")
-defineToggleSwitch("PLT_FUEL_DUMP", 20, 3067, 1074, "Fuel System", "PILOT Fuel Dump")
-define3PosTumb("PLT_REFUEL_PROBE", 20, 3068, 1073, "Fuel System", "PILOT Refuel Probe")
-define3PosTumb("PLT_FUEL_QUANT_SEL", 20, 3063, 1076, "Fuel System", "PILOT Fuel Quantity Selector")
-definePotentiometer("PLT_BINGO_FUEL_KNOB", 20, 3069, 1050, {0, 1}, "Flaps", "PILOT BINGO Fuel Level Knob")
+defineToggleSwitch("PLT_FUEL_SHUTOFF_R", 21, 3061, 1044, "Fuel System", "PILOT Fuel Shutoff - Right")
+defineToggleSwitch("PLT_FUEL_SHUTOFF_L", 21, 3062, 15081, "Fuel System", "PILOT Fuel Shutoff - Left")
+defineToggleSwitch("PLT_FUEL_FEED_COVER", 21, 3064, 1094, "Fuel System", "PILOT Fuel Feed Cover")
+define3PosTumb("PLT_FUEL_FEED", 21, 3065, 1095, "Fuel System", "PILOT Fuel Feed")
+define3PosTumb("PLT_FUEL_WING_EXT_TRANS", 21, 3066, 1001, "Fuel System", "PILOT Fuel Wing/Ext Trans")
+defineToggleSwitch("PLT_FUEL_DUMP", 21, 3067, 1074, "Fuel System", "PILOT Fuel Dump")
+define3PosTumb("PLT_REFUEL_PROBE", 21, 3068, 1073, "Fuel System", "PILOT Refuel Probe")
+define3PosTumb("PLT_FUEL_QUANT_SEL", 21, 3063, 1076, "Fuel System", "PILOT Fuel Quantity Selector")
+definePotentiometer("PLT_BINGO_FUEL_KNOB", 21, 3069, 1050, {0, 1}, "Flaps", "PILOT BINGO Fuel Level Knob")
 
 -- Electrics
-define3PosTumb("PLT_L_GEN_SW", 14, 3009, 937, "Electrics", "PILOT Left Generator Switch")
-define3PosTumb("PLT_R_GEN_SW", 14, 3010, 936, "Electrics", "PILOT Right Generator Switch")
-defineToggleSwitch("PLT_EMERG_GEN_COVER", 14, 3011, 927, "Electrics", "PILOT Emergency Generator Switch Cover")
-defineToggleSwitch("PLT_EMERG_GEN_SW", 14, 3012, 926, "Electrics", "PILOT Emergency Generator Switch")
+define3PosTumb("PLT_L_GEN_SW", 15, 3009, 937, "Electrics", "PILOT Left Generator Switch")
+define3PosTumb("PLT_R_GEN_SW", 15, 3010, 936, "Electrics", "PILOT Right Generator Switch")
+defineToggleSwitch("PLT_EMERG_GEN_COVER", 15, 3011, 927, "Electrics", "PILOT Emergency Generator Switch Cover")
+defineToggleSwitch("PLT_EMERG_GEN_SW", 15, 3012, 926, "Electrics", "PILOT Emergency Generator Switch")
 
 -- Cockpit Mechanics
-defineToggleSwitch("PLT_CANOPY_JETT", 11, 3184, 224, "Cockpit Mechanics", "PILOT Canopy Jettison")
-defineToggleSwitch("RIO_CANOPY_JETT", 11, 3760, 2051, "Cockpit Mechanics", "RIO Canopy Jettison")
-defineToggleSwitch("RIO_EJECT_CMD", 11, 3185, 2049, "Cockpit Mechanics", "RIO Ejection CMD Lever")
-defineToggleSwitch("PLT_EJECT_SEAT_SAFE", 11, 3186, 404, "Cockpit Mechanics", "PILOT Ejection Seat Safety")
-defineToggleSwitch("RIO_EJECT_SEAT_SAFE", 11, 3187, 498, "Cockpit Mechanics", "RIO Ejection Seat Safety")
-defineToggleSwitch("RIO_STORAGE_BOX", 11, 3612, 122, "Cockpit Mechanics", "RIO Storage Box")
+defineToggleSwitch("PLT_CANOPY_JETT", 12, 3184, 224, "Cockpit Mechanics", "PILOT Canopy Jettison")
+defineToggleSwitch("RIO_CANOPY_JETT", 12, 3760, 2051, "Cockpit Mechanics", "RIO Canopy Jettison")
+defineToggleSwitch("RIO_EJECT_CMD", 12, 3185, 2049, "Cockpit Mechanics", "RIO Ejection CMD Lever")
+defineToggleSwitch("PLT_EJECT_SEAT_SAFE", 12, 3186, 404, "Cockpit Mechanics", "PILOT Ejection Seat Safety")
+defineToggleSwitch("RIO_EJECT_SEAT_SAFE", 12, 3187, 498, "Cockpit Mechanics", "RIO Ejection Seat Safety")
+defineToggleSwitch("RIO_STORAGE_BOX", 12, 3612, 122, "Cockpit Mechanics", "RIO Storage Box")
 
 -- Enivornment Control
-defineToggleSwitch("PLT_OXY_ON", 11, 3190, 8114, "Enivornment Control", "PILOT Oxygen On")
-defineToggleSwitch("RIO_OXY_ON", 11, 3191, 119, "Enivornment Control", "RIO Oxygen On")
-defineToggleSwitch("PLT_CABIN_PRESS_DUMP", 11, 3192, 939, "Enivornment Control", "PILOT Cabin Pressure Dump")
-definePushButton("PLT_AIR_SOURCE_RAM", 11, 3193, 929, "Enivornment Control", "PILOT Air Source Ram")
-definePushButton("PLT_AIR_SOURCE_OFF", 11, 3194, 933, "Enivornment Control", "PILOT Air Source Off")
-definePushButton("PLT_AIR_SOURCE_L", 11, 3195, 930, "Enivornment Control", "PILOT Air Left Engine")
-definePushButton("PLT_AIR_SOURCE_R", 11, 3196, 931, "Enivornment Control", "PILOT Air Right Engine")
-definePushButton("PLT_AIR_SOURCE_BOTH", 11, 3197, 932, "Enivornment Control", "PILOT Air Both Engines")
-define3PosTumb("PLT_WINDSHIELD_AIR", 11, 3647, 942, "Enivornment Control", "PILOT Wind Shield Air")
-defineMultipositionSwitch("PLT_TEMP", 11, 3648, 950, 9, 0.125,"Enivornment Control" ,"PILOT Cabin Temperature Switch")
-defineToggleSwitch("PLT_TEMP_AUTO_MAN", 11, 3649, 940, "Enivornment Control", "PILOT Temperature Auto/Man")
-defineToggleSwitch("PLT_RAM_AIR", 11, 3650, 938, "Enivornment Control", "PILOT Ram Air")
+defineToggleSwitch("PLT_OXY_ON", 12, 3190, 8114, "Enivornment Control", "PILOT Oxygen On")
+defineToggleSwitch("RIO_OXY_ON", 12, 3191, 119, "Enivornment Control", "RIO Oxygen On")
+defineToggleSwitch("PLT_CABIN_PRESS_DUMP", 12, 3192, 939, "Enivornment Control", "PILOT Cabin Pressure Dump")
+definePushButton("PLT_AIR_SOURCE_RAM", 12, 3193, 929, "Enivornment Control", "PILOT Air Source Ram")
+definePushButton("PLT_AIR_SOURCE_OFF", 12, 3194, 933, "Enivornment Control", "PILOT Air Source Off")
+definePushButton("PLT_AIR_SOURCE_L", 12, 3195, 930, "Enivornment Control", "PILOT Air Left Engine")
+definePushButton("PLT_AIR_SOURCE_R", 12, 3196, 931, "Enivornment Control", "PILOT Air Right Engine")
+definePushButton("PLT_AIR_SOURCE_BOTH", 12, 3197, 932, "Enivornment Control", "PILOT Air Both Engines")
+define3PosTumb("PLT_WINDSHIELD_AIR", 12, 3647, 942, "Enivornment Control", "PILOT Wind Shield Air")
+defineMultipositionSwitch("PLT_TEMP", 12, 3648, 950, 9, 0.125,"Enivornment Control" ,"PILOT Cabin Temperature Switch")
+defineToggleSwitch("PLT_TEMP_AUTO_MAN", 12, 3649, 940, "Enivornment Control", "PILOT Temperature Auto/Man")
+defineToggleSwitch("PLT_RAM_AIR", 12, 3650, 938, "Enivornment Control", "PILOT Ram Air")
 
 -- BIT Panel
-defineTumb("PLT_BIT_SWITCH", 10, 3076, 934, 1/11, {0, 1}, nil, false, "BIT Panel", "PILOT Master Test Selector (LB to rotate)")
-defineToggleSwitch("PLT_BIT_SWITCH_PUSH", 10, 3077, 15098, "BIT Panel", "PILOT Master Test Selector (RB to pull/push)")
+defineTumb("PLT_BIT_SWITCH", 11, 3076, 934, 1/11, {0, 1}, nil, false, "BIT Panel", "PILOT Master Test Selector (LB to rotate)")
+defineToggleSwitch("PLT_BIT_SWITCH_PUSH", 11, 3077, 15098, "BIT Panel", "PILOT Master Test Selector (RB to pull/push)")
 
 -- Light Panel
-defineToggleSwitch("PLT_HOOK_BYPASS", 25, 3211, 915, "Light Panel", "PILOT Hook Bypass")
-defineToggleSwitch("PLT_TAXI_LIGHT", 11, 3171, 918, "Light Panel", "PILOT Taxi Light")
-define3PosTumb("PLT_FLOOD_LIGHT_RED", 11, 3172, 924, "Light Panel", "PILOT Red Flood Light")
-define3PosTumb("PLT_FLOOD_LIGHT_WH", 11, 3173, 921, "Light Panel", "PILOT White Flood Light")
-define3PosTumb("PLT_POS_LIGHT_WING", 11, 3174, 913, "Light Panel", "PILOT Position Lights Wings")
-define3PosTumb("PLT_POS_LIGHT_TAIL", 11, 3175, 916, "Light Panel", "PILOT Position Lights Tail")
-defineToggleSwitch("PLT_POS_LIGHT_FLASH", 11, 3176, 919, "Light Panel", "PILOT Position Lights Flash")
-defineToggleSwitch("PLT_ANTICOL_LIGHT", 11, 3177, 923, "Light Panel", "PILOT Anti-Collision Lights")
-defineMultipositionSwitch("PLT_LIGHT_INTENT_ACM", 11, 3178, 15005, 9, 0.125,"Light Panel" ,"PILOT ACM Panel Light Intensity")
-defineMultipositionSwitch("PLT_LIGHT_INTENT_INDEXER", 25, 3212, 15006, 9, 0.125,"Light Panel" ,"PILOT AoA Indexer Light Intensity")
-defineMultipositionSwitch("PLT_LIGHT_INTENT_INSTRUMENT", 11, 3179, 15007, 9, 0.125,"Light Panel" ,"PILOT Instrument Light Intensity")
-defineMultipositionSwitch("PLT_LIGHT_INTENT_CONSOLE", 11, 3180, 15008, 9, 0.125,"Light Panel" ,"PILOT Console Light Intensity")
-defineMultipositionSwitch("PLT_LIGHT_INTENT_FORMATION", 11, 3181, 15009, 9, 0.125,"Light Panel" ,"PILOT Formation Light Intensity")
+defineToggleSwitch("PLT_HOOK_BYPASS", 26, 3211, 915, "Light Panel", "PILOT Hook Bypass")
+defineToggleSwitch("PLT_TAXI_LIGHT", 12, 3171, 918, "Light Panel", "PILOT Taxi Light")
+define3PosTumb("PLT_FLOOD_LIGHT_RED", 12, 3172, 924, "Light Panel", "PILOT Red Flood Light")
+define3PosTumb("PLT_FLOOD_LIGHT_WH", 12, 3173, 921, "Light Panel", "PILOT White Flood Light")
+define3PosTumb("PLT_POS_LIGHT_WING", 12, 3174, 913, "Light Panel", "PILOT Position Lights Wings")
+define3PosTumb("PLT_POS_LIGHT_TAIL", 12, 3175, 916, "Light Panel", "PILOT Position Lights Tail")
+defineToggleSwitch("PLT_POS_LIGHT_FLASH", 12, 3176, 919, "Light Panel", "PILOT Position Lights Flash")
+defineToggleSwitch("PLT_ANTICOL_LIGHT", 12, 3177, 923, "Light Panel", "PILOT Anti-Collision Lights")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_ACM", 12, 3178, 15005, 9, 0.125,"Light Panel" ,"PILOT ACM Panel Light Intensity")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_INDEXER", 26, 3212, 15006, 9, 0.125,"Light Panel" ,"PILOT AoA Indexer Light Intensity")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_INSTRUMENT", 12, 3179, 15007, 9, 0.125,"Light Panel" ,"PILOT Instrument Light Intensity")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_CONSOLE", 12, 3180, 15008, 9, 0.125,"Light Panel" ,"PILOT Console Light Intensity")
+defineMultipositionSwitch("PLT_LIGHT_INTENT_FORMATION", 12, 3181, 15009, 9, 0.125,"Light Panel" ,"PILOT Formation Light Intensity")
 
 -- Light panel RIO
-define3PosTumb("RIO_FLOOD_LIGHT_RED", 11, 3706, 194, "Light Panel", "RIO Red Flood Light")
-define3PosTumb("RIO_FLOOD_LIGHT_WH", 11, 3707, 159, "Light Panel", "RIO White Flood Light")
-defineMultipositionSwitch("RIO_LIGHT_INTENT_INSTRUMENT", 11, 3708, 193, 9, 0.125,"Light Panel" ,"RIO Instrument Light Intensity")
-defineMultipositionSwitch("RIO_LIGHT_INTENT_CONSOLE", 11, 3709, 192, 9, 0.125,"Light Panel" ,"RIO Console Light Intensity")
-
+define3PosTumb("RIO_FLOOD_LIGHT_RED", 12, 3706, 194, "Light Panel", "RIO Red Flood Light")
+define3PosTumb("RIO_FLOOD_LIGHT_WH", 12, 3707, 159, "Light Panel", "RIO White Flood Light")
+defineMultipositionSwitch("RIO_LIGHT_INTENT_INSTRUMENT", 12, 3708, 193, 9, 0.125,"Light Panel" ,"RIO Instrument Light Intensity")
+defineMultipositionSwitch("RIO_LIGHT_INTENT_CONSOLE", 12, 3709, 192, 9, 0.125,"Light Panel" ,"RIO Console Light Intensity")
+---STOP-----
 -- DISPLAY Panel: Power
 defineToggleSwitch("PLT_VDI_PW_SW", 42, 3214, 1010, "Display", "PILOT VDI Power On/Off")
 defineToggleSwitch("PLT_HUD_PW_SW", 40, 3213, 1009, "Display", "PILOT HUD Power On/Off")
@@ -713,10 +713,10 @@ defineFixedStepTumb("PLT_AHRS_HEMISPHERE", 51, 3436, 906, 2, {-1, 1}, {-1, 1}, n
 definePotentiometer("PLT_AHRS_LAT", 51, 3438, 909, {0.0, 1.0}, "AHRS", "PILOT Compass LAT Correction")
 
 -- Spoiler Overrides
-defineToggleSwitch("PLT_SPOIL_OVER_COVER_INBOARD", 14, 3428, 902, "Spoiler", "PILOT Inboard Spoiler Override Cover")
-defineToggleSwitch("PLT_SPOIL_OVER_COVER_OUTBOARD", 14, 3429, 903, "Spoiler", "PILOT Outboard Spoiler Override Cover")
-defineToggleSwitch("PLT_SPOIL_OVER_INBOARD", 14, 3430, 908, "Spoiler", "PILOT Inboard Spoiler Override")
-defineToggleSwitch("PLT_SPOIL_OVER_OUTBOARD", 14, 3431, 907, "Spoiler", "PILOT Outboard Spoiler Override")
+defineToggleSwitch("PLT_SPOIL_OVER_COVER_INBOARD", 15, 3428, 902, "Spoiler", "PILOT Inboard Spoiler Override Cover")
+defineToggleSwitch("PLT_SPOIL_OVER_COVER_OUTBOARD", 15, 3429, 903, "Spoiler", "PILOT Outboard Spoiler Override Cover")
+defineToggleSwitch("PLT_SPOIL_OVER_INBOARD", 15, 3430, 908, "Spoiler", "PILOT Inboard Spoiler Override")
+defineToggleSwitch("PLT_SPOIL_OVER_OUTBOARD", 15, 3431, 907, "Spoiler", "PILOT Outboard Spoiler Override")
 
 -- Gun Elevation 
 defineRotary("PLT_GUN_ELEV_ADJUST", 55, 3131, 1000, "Gun", "PILOT Gun Elevation Lead Adjustment")
@@ -735,11 +735,11 @@ definePushButton("PLT_HUD_MODE_A2G", 40, 3219, 1012, "Display", "PILOT HUD Air-t
 definePushButton("PLT_HUD_MODE_LAND", 40, 3220, 1011, "Display", "PILOT HUD Landing Mode")
 
 -- Standby ADI
-definePushButton("PLT_STDBYAI_UNCAGE", 30, 3545, 1032, "Standby ADI", "PILOT Standby ADI Push to uncage")
-defineRotary("PLT_STDBYAI_TRIM", 30, 3546, 1042, "Standby ADI", "PILOT Standby ADI Knob")
-definePushButton("RIO_STDBYAI_UNCAGE", 30, 3547, 6155, "Standby ADI", "RIO Standby ADI Push to uncage")
-defineRotary("RIO_STDBYAI_TRIM", 30, 3548, 6156, "Standby ADI", "RIO Standby ADI Knob")
-definePushButton("PLT_ACCEL_RESET", 24, 3488, 228, "Display", "PILOT Accelerometer Reset")
+definePushButton("PLT_STDBYAI_UNCAGE", 31, 3545, 1032, "Standby ADI", "PILOT Standby ADI Push to uncage")
+defineRotary("PLT_STDBYAI_TRIM", 31, 3546, 1042, "Standby ADI", "PILOT Standby ADI Knob")
+definePushButton("RIO_STDBYAI_UNCAGE", 31, 3547, 6155, "Standby ADI", "RIO Standby ADI Push to uncage")
+defineRotary("RIO_STDBYAI_TRIM", 31, 3548, 6156, "Standby ADI", "RIO Standby ADI Knob")
+definePushButton("PLT_ACCEL_RESET", 25, 3488, 228, "Display", "PILOT Accelerometer Reset")
 
 -- VDI & HUD Indicator Controls
 defineToggleSwitch("PLT_HUD_FILTER", 40, 3228, 1033, "HUD", "PILOT HUD Filter")
@@ -754,16 +754,16 @@ defineToggleSwitch("PLT_MASTER_ARM_COVER", 55, 3135, 1046, "Weapons Panel", "PIL
 define3PosTumb("PLT_MASTER_ARM_SW", 55, 3136, 1047, "Weapons Panel", "PILOT Master Arm Switch")
 defineToggleSwitch("PLT_ACM_COVER", 55, 3133, 1049, "Weapons Panel", "PILOT ACM Cover")
 definePushButton("PLT_ACM_JETT", 55, 3138, 1048, "Weapons Panel", "PILOT ACM Jettison")
-definePushButton("PLT_MASTER_CAUTION_RESET", 34, 3056, 9199, "Weapons Panel", "PILOT Master Caution Reset")
+definePushButton("PLT_MASTER_CAUTION_RESET", 35, 3056, 9199, "Weapons Panel", "PILOT Master Caution Reset")
 definePushButton("PLT_GUN_RATE", 55, 3130, 16000, "Weapons Panel", "PILOT Gun Rate")
 definePushButton("PLT_SIDEWINDER_COOL", 55, 3139, 16001, "Weapons Panel", "PILOT Sidewinder Cool")
 definePushButton("PLT_MISSLE_PREP", 55, 3140, 16002, "Weapons Panel", "PILOT Missile Prepare")
 definePushButton("PLT_MISSLE_MODE", 55, 3141, 16003, "Weapons Panel", "PILOT Missile Mode")
 definePushButton("PLT_EMERG_STORE_JETT", 55, 3142, 239, "Weapons Panel", "PILOT Emergency Stores Jettison")
-defineRotary("PLT_CLOCK_WIND", 26, 3042, 1051, "Weapons Panel", "PILOT Clock Wind")
-definePushButton("PLT_CLOCK_TIMER", 26, 3043, 1000, "Weapons Panel", "PILOT Clock Timer Start/Stop/Reset")
-defineRotary("RIO_CLOCK_WIND", 26, 3710, 1052, "Weapons Panel", "RIO Clock Wind")
-definePushButton("RIO_CLOCK_TIMER", 26, 3711, 1053, "Weapons Panel", "RIO Clock Timer Start/Stop/Reset")
+defineRotary("PLT_CLOCK_WIND", 27, 3042, 1051, "Weapons Panel", "PILOT Clock Wind")
+definePushButton("PLT_CLOCK_TIMER", 27, 3043, 1000, "Weapons Panel", "PILOT Clock Timer Start/Stop/Reset")
+defineRotary("RIO_CLOCK_WIND", 27, 3710, 1052, "Weapons Panel", "RIO Clock Wind")
+definePushButton("RIO_CLOCK_TIMER", 27, 3711, 1053, "Weapons Panel", "RIO Clock Timer Start/Stop/Reset")
 
 -- RIO TID
 defineMultipositionSwitch("RIO_TID_MODE", 43, 3112, 2005, 4, 0.33333, "TID" ,"RIO TID Mode")
@@ -838,12 +838,12 @@ defineToggleSwitch("RIO_RADAR_STABI", 39, 3449, 83, "Radar", "RIO Radar Stabiliz
 define3PosTumb("RIO_RADAR_VSL", 39, 3448, 84, "Radar", "RIO Radar VSL Switch")
 
 -- RIO TCS Controls
-define3PosTumb("RIO_TCS_ACQ", 37, 3495, 87, "TCS", "RIO TCS Acquisition")
-defineToggleSwitch("RIO_TCS_FOV", 37, 3494, 88, "TCS", "RIO TCS FOV")
-define3PosTumb("RIO_TCS_SLAVE", 37, 3496, 89, "TCS", "RIO TCS Slave")
-define3PosTumb("RIO_RECORD_PW", 37, 3617, 90, "TCS", "RIO Record Power")
-defineMultipositionSwitch("RIO_RECORD_MODE", 37, 3618, 91, 5, 1.0/4.0, "TCS" ,"RIO Record Mode")
-definePotentiometer("RIO_RECORD_RESET", 37, 3622, 16016, {0.0, 1.0}, "Radar", "RIO Record Reset")
+define3PosTumb("RIO_TCS_ACQ", 38, 3495, 87, "TCS", "RIO TCS Acquisition")
+defineToggleSwitch("RIO_TCS_FOV", 38, 3494, 88, "TCS", "RIO TCS FOV")
+define3PosTumb("RIO_TCS_SLAVE", 38, 3496, 89, "TCS", "RIO TCS Slave")
+define3PosTumb("RIO_RECORD_PW", 38, 3617, 90, "TCS", "RIO Record Power")
+defineMultipositionSwitch("RIO_RECORD_MODE", 38, 3618, 91, 5, 1.0/4.0, "TCS" ,"RIO Record Mode")
+definePotentiometer("RIO_RECORD_RESET", 38, 3622, 16016, {0.0, 1.0}, "Radar", "RIO Record Reset")
 
 -- RIO Armament Panel
 defineMultipositionSwitch("RIO_WEAPON_TYPE", 55, 3146, 59, 44, 1.0/43.0, "Armament Panel" ,"RIO Weapon Type Wheel")
@@ -874,33 +874,33 @@ definePushButton("RIO_WEAPON_AA_LAUNCH", 55, 3161, 74, "Armament Panel", "RIO We
 definePushButton("RIO_WEAPON_NEXT_LAUNCH", 43, 3162, 9964, "Armament Panel", "RIO Weapon Next Launch")
 
 -- Computer Address Panel (CAP)
-defineMultipositionSwitch("RIO_CAP_CATRGORY", 23, 3530, 98, 6, 0.2, "CAP" ,"RIO CAP Category")
-definePushButton("RIO_CAP_BTN_4", 23, 3521, 124, "CAP", "RIO CAP Button 4")
-definePushButton("RIO_CAP_BTN_5", 23, 3522, 123, "CAP", "RIO CAP Button 5")
-definePushButton("RIO_CAP_BTN_3", 23, 3520, 125, "CAP", "RIO CAP Button 3")
-definePushButton("RIO_CAP_BTN_2", 23, 3519, 126, "CAP", "RIO CAP Button 2")
-definePushButton("RIO_CAP_BTN_1", 23, 3518, 127, "CAP", "RIO CAP Button 1")
-definePushButton("RIO_CAP_BTN_TNG", 23, 3528, 128, "CAP", "RIO CAP Button TNG NBR")
-definePushButton("RIO_CAP_BTN_10", 23, 3527, 129, "CAP", "RIO CAP Button 10")
-definePushButton("RIO_CAP_BTN_9", 23, 3526, 130, "CAP", "RIO CAP Button 9")
-definePushButton("RIO_CAP_BTN_8", 23, 3525, 131, "CAP", "RIO CAP Button 8")
-definePushButton("RIO_CAP_BTN_7", 23, 3524, 132, "CAP", "RIO CAP Button 7")
-definePushButton("RIO_CAP_BTN_6", 23, 3523, 133, "CAP", "RIO CAP Button 6")
-definePushButton("RIO_CAP_BTN_PGM_RESTRT", 23, 3529, 134, "CAP", "RIO CAP Button PGM RSTRT")
-definePushButton("RIO_CAP_LONG_6", 23, 3541, 136, "CAP", "RIO CAP LONG 6")
-definePushButton("RIO_CAP_LAT_1", 23, 3536, 137, "CAP", "RIO CAP LAT 1")
-definePushButton("RIO_CAP_NBR_2", 23, 3537, 138, "CAP", "RIO CAP NBR 2")
-definePushButton("RIO_CAP_7", 23, 3542, 139, "CAP", "RIO CAP 7")
-definePushButton("RIO_CAP_HDG_8", 23, 3543, 140, "CAP", "RIO CAP HDG 8")
-definePushButton("RIO_CAP_SPD_3", 23, 3538, 141, "CAP", "RIO CAP SPD 3")
-definePushButton("RIO_CAP_ALT_4", 23, 3539, 143, "CAP", "RIO CAP ALT 4")
-definePushButton("RIO_CAP_9", 23, 3544, 142, "CAP", "RIO CAP 9")
-definePushButton("RIO_CAP_BRG_0", 23, 3535, 144, "CAP", "RIO CAP BRG 0")
-definePushButton("RIO_CAP_RNG_5", 23, 3540, 145, "CAP", "RIO CAP RNG 5")
-definePushButton("RIO_CAP_NE", 23, 3533, 146, "CAP", "RIO CAP N+E")
-definePushButton("RIO_CAP_SW", 23, 3532, 147, "CAP", "RIO CAP S-W")
-definePushButton("RIO_CAP_CLEAR", 23, 3531, 148, "CAP", "RIO CAP Clear")
-definePushButton("RIO_CAP_ENTER", 23, 3534, 149, "CAP", "RIO CAP Enter")
+defineMultipositionSwitch("RIO_CAP_CATRGORY", 24, 3530, 98, 6, 0.2, "CAP" ,"RIO CAP Category")
+definePushButton("RIO_CAP_BTN_4", 24, 3521, 124, "CAP", "RIO CAP Button 4")
+definePushButton("RIO_CAP_BTN_5", 24, 3522, 123, "CAP", "RIO CAP Button 5")
+definePushButton("RIO_CAP_BTN_3", 24, 3520, 125, "CAP", "RIO CAP Button 3")
+definePushButton("RIO_CAP_BTN_2", 24, 3519, 126, "CAP", "RIO CAP Button 2")
+definePushButton("RIO_CAP_BTN_1", 24, 3518, 127, "CAP", "RIO CAP Button 1")
+definePushButton("RIO_CAP_BTN_TNG", 24, 3528, 128, "CAP", "RIO CAP Button TNG NBR")
+definePushButton("RIO_CAP_BTN_10", 24, 3527, 129, "CAP", "RIO CAP Button 10")
+definePushButton("RIO_CAP_BTN_9", 24, 3526, 130, "CAP", "RIO CAP Button 9")
+definePushButton("RIO_CAP_BTN_8", 24, 3525, 131, "CAP", "RIO CAP Button 8")
+definePushButton("RIO_CAP_BTN_7", 24, 3524, 132, "CAP", "RIO CAP Button 7")
+definePushButton("RIO_CAP_BTN_6", 24, 3523, 133, "CAP", "RIO CAP Button 6")
+definePushButton("RIO_CAP_BTN_PGM_RESTRT", 24, 3529, 134, "CAP", "RIO CAP Button PGM RSTRT")
+definePushButton("RIO_CAP_LONG_6", 24, 3541, 136, "CAP", "RIO CAP LONG 6")
+definePushButton("RIO_CAP_LAT_1", 24, 3536, 137, "CAP", "RIO CAP LAT 1")
+definePushButton("RIO_CAP_NBR_2", 24, 3537, 138, "CAP", "RIO CAP NBR 2")
+definePushButton("RIO_CAP_7", 24, 3542, 139, "CAP", "RIO CAP 7")
+definePushButton("RIO_CAP_HDG_8", 24, 3543, 140, "CAP", "RIO CAP HDG 8")
+definePushButton("RIO_CAP_SPD_3", 24, 3538, 141, "CAP", "RIO CAP SPD 3")
+definePushButton("RIO_CAP_ALT_4", 24, 3539, 143, "CAP", "RIO CAP ALT 4")
+definePushButton("RIO_CAP_9", 24, 3544, 142, "CAP", "RIO CAP 9")
+definePushButton("RIO_CAP_BRG_0", 24, 3535, 144, "CAP", "RIO CAP BRG 0")
+definePushButton("RIO_CAP_RNG_5", 24, 3540, 145, "CAP", "RIO CAP RNG 5")
+definePushButton("RIO_CAP_NE", 24, 3533, 146, "CAP", "RIO CAP N+E")
+definePushButton("RIO_CAP_SW", 24, 3532, 147, "CAP", "RIO CAP S-W")
+definePushButton("RIO_CAP_CLEAR", 24, 3531, 148, "CAP", "RIO CAP Clear")
+definePushButton("RIO_CAP_ENTER", 24, 3534, 149, "CAP", "RIO CAP Enter")
 
 -- Datalink
 define3PosTumb("RIO_DATALINK_PW", 52, 3602, 413, "Datalink", "RIO Datalink Power")
@@ -941,11 +941,11 @@ defineTumb("RIO_IFF_M1_10", 64, 3643, 201, 0.111, {0.0, 1.0}, nil, false, "IFF",
 define3PosTumb("RIO_LIQUD_COOL", 39, 3694, 95, "Radar Panel", "RIO Liquid Cooling Switch")
 
 -- LANTIRN (Panel Arg:666)
-defineMultipositionSwitch("RIO_LANTIRN_PW", 38, 3689, 667, 3, 1.0/2.0, "LANTIRN" ,"RIO LANTIRN Power")
-defineToggleSwitch("RIO_LANTIRN_LASER_ARM", 38, 3516, 668, "LANTIRN", "RIO LANTIRN Laser Arm Switch")
-definePushButton("RIO_LANTIRN_TCS_SEL", 38, 3498, 670, "LANTIRN", "RIO Video Output Toggle (TCS/LANTIRN)")
-definePushButton("RIO_LANTIRN_TCS_SEL", 38, 3704, 669, "LANTIRN", "RIO LANTIRN Operate Mode (Unstow)")
-definePushButton("RIO_LANTIRN_IBIT", 38, 3690, 671, "LANTIRN", "RIO LANTIRN IBIT")
+defineMultipositionSwitch("RIO_LANTIRN_PW", 7, 3689, 667, 3, 1.0/2.0, "LANTIRN" ,"RIO LANTIRN Power")
+defineToggleSwitch("RIO_LANTIRN_LASER_ARM", 7, 3516, 668, "LANTIRN", "RIO LANTIRN Laser Arm Switch")
+definePushButton("RIO_LANTIRN_TCS_SEL", 7, 3498, 670, "LANTIRN", "RIO Video Output Toggle (TCS/LANTIRN)")
+definePushButton("RIO_LANTIRN_TCS_SEL", 7, 3704, 669, "LANTIRN", "RIO LANTIRN Operate Mode (Unstow)")
+definePushButton("RIO_LANTIRN_IBIT", 7, 3690, 671, "LANTIRN", "RIO LANTIRN IBIT")
 defineIndicatorLightLANTTop("RIO_LANTIRN_1_OPER", 673, "LANTIRN","RIO LANTIRN STBY Light (TOP) (green)")
 defineIndicatorLightLANT("RIO_LANTIRN_2_OPERSTBY", 673, "LANTIRN","RIO LANTIRN OPER STBY Light (BOOTH) (green)")
 defineIndicatorLightLANTBottom("RIO_LANTIRN_3_STBY", 673, "LANTIRN","RIO LANTIRN STBY Light (BOTTOM) (green)")
@@ -1597,9 +1597,9 @@ defineString("HSD_MAN_CRS_S", function() return HSD_MAN_CRS  or "000" end, 3, "H
 defineIntegerFromGetter("HSD_TACAN_CRS", function() return HSD_TACAN_CRSint  end, 360, "HSD", "HSD TACAN Course Display")
 defineIntegerFromGetter("HSD_MAN_CRS", function() return HSD_MAN_CRSint  end, 360, "HSD", "HSD MAN Course Display")
 
-defineToggleSwitch("PLT_HUDCAM", 11, 3756, 3490, "Cockpit Mechanics", "PILOT Hide Guncam")
-definePotentiometer("RIO_TCS_TRIM_AZI", 37, 3750, 85, {0, 1}, "TCS", "RIO TCS Trim Azimuth")
-definePotentiometer("RIO_TCS_TRIM_ELE", 37, 3751, 86, {0, 1}, "TCS", "RIO TCS Trim Elevation")
+defineToggleSwitch("PLT_HUDCAM", 12, 3756, 3490, "Cockpit Mechanics", "PILOT Hide Guncam")
+definePotentiometer("RIO_TCS_TRIM_AZI", 38, 3750, 85, {0, 1}, "TCS", "RIO TCS Trim Azimuth")
+definePotentiometer("RIO_TCS_TRIM_ELE", 38, 3751, 86, {0, 1}, "TCS", "RIO TCS Trim Elevation")
 
 -- Fire System
 definePushButton("PLT_FIRE_EX_BOTTLE_L", 67, 3059, 15083, "Fire System", "PILOT Fire Ext Bottle - Left")
@@ -1607,9 +1607,9 @@ definePushButton("PLT_FIRE_EX_BOTTLE_R", 67, 3060, 15082, "Fire System", "PILOT 
 
 defineIndicatorLight("RIO_MCB_R_LIGHT", 13130, "RIO F-14A Indicator Lights","RIO MCB Panel Right Test Light (red)(F-14A)")
 defineIndicatorLight("RIO_MCB_L_LIGHT", 13131, "RIO F-14A Indicator Lights","RIO MCB Panel Left Test Light (red)(F-14A)")
-defineToggleSwitch("RIO_MCOMP_BYPASS", 19, 3761, 13132, "F-14A Engine", "RIO Mid Compression Bypass Test (F-14A)")
+defineToggleSwitch("RIO_MCOMP_BYPASS", 20, 3761, 13132, "F-14A Engine", "RIO Mid Compression Bypass Test (F-14A)")
 
-defineToggleSwitch("PLT_GEAR_DN_LK_OVER", 17, 3017, 633, "Gear", "PILOT Gear Down Lock Override")
+defineToggleSwitch("PLT_GEAR_DN_LK_OVER", 18, 3017, 633, "Gear", "PILOT Gear Down Lock Override")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
