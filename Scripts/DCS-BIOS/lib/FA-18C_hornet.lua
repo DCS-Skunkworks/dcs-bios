@@ -1,4 +1,4 @@
--- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.5d
+-- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.5e
 -- Many thanks to Capt Zeen for the pointers on analog and Radio outputs and UFC/IFEI export
 
 BIOS.protocol.beginModule("FA-18C_hornet", 0x7400)

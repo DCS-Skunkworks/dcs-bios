@@ -197,7 +197,7 @@ defineFloat("PLT_ADI_BLANK_T", 938, {0, 1}, "PKP72M Gauges", "PILOT ADI Blanker 
 defineFloat("OP_ADI_PITCH_G", 780, {-1, 1}, "PKP72M Gauges", "OPERTOR ADI Pitch Gauge")
 defineFloat("OP_ADI_BANK_G", 783, {0.5, -0.5}, "PKP72M Gauges", "OPERTOR ADI Bank Gauge")
 defineFloat("OP_ADI_FLAG", 781, {0, 1}, "PKP72M Gauges", "OPERTOR ADI Flag")
-defineFloat("OP_ADI_ALT", 785, {0, 1}, "PKP72M Gauges", "OPERTOR ADI Altitude")
+defineFloat("OP_ADI_ALT", 786, {0, 1}, "PKP72M Gauges", "OPERTOR ADI Altitude")
 defineFloat("OP_ADI_ALT_FLAG", 777, {0, 1}, "PKP72M Gauges", "OPERTOR ADI Altitude Flag")
 defineFloat("OP_ADI_BALL", 784, {1, -1}, "PKP72M Gauges", "OPERTOR ADI Slip Ball")
 defineFloat("OP_ADI_BLANK_K", 778, {0, 1}, "PKP72M Gauges", "OPERTOR ADI Blanker K")
@@ -290,7 +290,7 @@ define3PosTumb("PLT_A_TRANS_36", 1, 3013, 85, "Electric Interface", "PILOT AC Tr
 defineToggleSwitch("PLT_A_GPW", 1, 3001, 87, "Electric Interface", "PILOT AC Ground Power, ON/OFF")
 defineToggleSwitch("PLT_A_GCHECK_CV", 1, 3058, 88, "Electric Interface", "PILOT AC Ground Check Cover, UP/DOWN")
 defineToggleSwitch("PLT_A_GCHECK", 1, 3016, 89, "Electric Interface", "PILOT AC Ground Check, ON/OFF")
-defineMultipositionSwitch("PLT_A_VOLT_KNB", 1, 3025, 91, 11, 0.1, "Electric Interface", "PILOT AC Voltmeter Knob")
+defineMultipositionSwitch("PLT_A_VOLT_KNB", 1, 3025, 91, 11, 0.0947, "Electric Interface", "PILOT AC Voltmeter Knob")
 defineToggleSwitch("PLT_A_INVERT_115_CV", 1, 3061, 97, "Electric Interface", "PILOT AC Inverter PO-750A Cover, UP/DOWN")
 defineToggleSwitch("PLT_A_INVERT_115", 1, 3019, 98, "Electric Interface", "PILOT AC Inverter PO-750A, ON/OFF")
 defineToggleSwitch("PLT_A_INVERT_36_CV", 1, 3064, 99, "Electric Interface", "PILOT AC Inverter PT-125Ts Cover, UP/DOWN")
@@ -1203,5 +1203,19 @@ defineToggleSwitch("OP_TIMER_R_UP", 70, 3005, 1019, "Timer", "OPERATOR Right Tim
 definePotentiometer("OP_TIMER_R_ROT", 70, 3006, 1020, {0, 1}, "Timer", "OPERATOR Right Timer Control Rotary")
 defineTumb("OP_TIMER_SEL", 70, 3002, 1017, 0.5, {0, 1}, nil, false, "Timer", "OPERATOR Active Timer Select")
 defineToggleSwitch("OP_TIMER_ON", 70, 3001, 1018, "Timer", "OPERATOR Active Timer Start/Stop")
+
+defineFloat("PLT_KM2_MAG_DEC_01P_G", 651, {0, 1}, "KM-2 Gauges", "PILOT KM-2 Magnetic Declination 01 Plus Gauge")
+defineFloat("PLT_KM2_MAG_DEC_1P_G", 650, {0, 1}, "KM-2 Gauges", "PILOT KM-2 Magnetic Declination 1 Plus Gauge")
+defineFloat("PLT_KM2_MAG_DEC_10P_G", 649, {0, 1}, "KM-2 Gauges", "PILOT KM-2 Magnetic Declination 10 Plus Gauge")
+defineFloat("PLT_KM2_MAG_DEC_100P_G", 648, {0, 1}, "KM-2 Gauges", "PILOT KM-2 Magnetic Declination 100 Plus Gauge")
+defineFloat("PLT_KM2_MAG_DEC_01M_G", 652, {0, 1}, "KM-2 Gauges", "PILOT KM-2 Magnetic Declination 01 Minus Gauge")
+defineFloat("PLT_KM2_MAG_DEC_1M_G", 653, {0, 1}, "KM-2 Gauges", "PILOT KM-2 Magnetic Declination 1 Minus Gauge")
+defineFloat("PLT_KM2_MAG_DEC_10M_G", 654, {0, 1}, "KM-2 Gauges", "PILOT KM-2 Magnetic Declination 10 Minus Gauge")
+defineFloat("PLT_KM2_MAG_DEC_100M_G", 655, {0, 1}, "KM-2 Gauges", "PILOT KM-2 Magnetic Declination 100 Minus Gauge")
+
+--PKI
+defineRotary("OP_PKI_CONTROL", 17, 3001, 846, "PKI", "OPERATOR PKI reflector control")
+definePotentiometer("OP_PKI_BRIGHT", 17, 3004, 136, {0, 1}, "PKI", "OPERATOR PKI Brightness Adjustment")
+defineToggleSwitch("OP_PKI_LOCK", 17, 3006, 15, "PKI", "OPERATOR PKI Lock/Unlock")
 
 BIOS.protocol.endModule()

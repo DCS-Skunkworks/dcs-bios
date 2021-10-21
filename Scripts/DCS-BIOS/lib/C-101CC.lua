@@ -319,7 +319,7 @@ defineToggleSwitch("FRONT_EJECT_HANDLE", 1, 3245, 536, "Misc", "FRONT Ejection H
 defineToggleSwitch("FRONT_EJECT_HANDLE_COVER", 1, 3246, 538, "Misc", "FRONT Ejection Handle Safety")
 defineToggleSwitch("FRONT_MAN_SEPERATION_HANDLE", 1, 3247, 537, "Misc", "FRONT Manual Seperation Handle")
 definePotentiometer("FRONT_STORAGE_BOX", 1, 3248, 296, {0, 1}, "Misc", "FRONT Storage Box Cover")
-definePotentiometer("FRONT_AIR_VENT", 1, 3242, 101, nil, "Misc", "FRONT Air Vent")
+definePotentiometer("FRONT_AIR_VENT", 1, 3800, 101, nil, "Misc", "FRONT Air Vent")
 defineToggleSwitch("FRONT_GEAR_HANDLE", 1, 3250, 8, "Misc", "FRONT Landing Gear Handle")
 defineMultipositionSwitch("BACK_FLAP_SEL", 1, 3514, 38, 3, 0.5,"Misc" ,"BACK Flap Position Selector")
 defineToggleSwitch("BACK_CPT_EMERG_JETT", 1, 3515, 302, "Misc", "BACK Canopy Emergency Jettison")
