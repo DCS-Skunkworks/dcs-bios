@@ -1,13 +1,18 @@
 {
     "name": "DCS-BIOS Control Reference Live Preview",
+	"short_name": "DCS-BIOS REF",
     "description": "Show live data from DCS inside the DCS-BIOS control reference documentation",
-    "version": "0.1.2",
-    "manifest_version": 2,
+    "version": "0.1.3",
+    "manifest_version": 3,
 	"permissions": ["alwaysOnTopWindows"],
+	"icons": {
+		"16": "images/Refpage16.png",
+		"128": "images/Refpage128.png"
+		},
 	"app": {
 		"background": {
 			"scripts": ["js/chrome-extension-background.js"]
-		}
+			}
 	},
     "sockets": {
         "tcp": {
