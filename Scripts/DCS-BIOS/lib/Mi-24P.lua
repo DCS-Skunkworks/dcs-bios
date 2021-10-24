@@ -122,8 +122,8 @@ defineToggleSwitch("OP_AP_TRIM_CV", 11, 3041, 670, "Cockpit Mechanics OP", "OPER
 define3PosTumb("PLT_STATIC-VALVE", 37, 3001, 520, "Cockpit Mechanics PLT", "PILOT Static valve sensor select LEFT/BOTH/RIGHT")
 
 defineIndicatorLight("PLT_GEAR_N_DN_L", 230, "Cockpit Mechanics Lights", "PILOT Nose Gear Down Light (green)")
-defineIndicatorLight("PLT_GEAR_L_DN_L", 231, "Cockpit Mechanics Lights", "PILOT Left Gear Down Light (green)")
-defineIndicatorLight("PLT_GEAR_R_DN_L", 299, "Cockpit Mechanics Lights", "PILOT Right Gear Down Light (green)")
+defineIndicatorLight("PLT_GEAR_L_DN_L", 229, "Cockpit Mechanics Lights", "PILOT Left Gear Down Light (green)")
+defineIndicatorLight("PLT_GEAR_R_DN_L", 231, "Cockpit Mechanics Lights", "PILOT Right Gear Down Light (green)")
 defineIndicatorLight("PLT_GEAR_N_UP_L", 226, "Cockpit Mechanics Lights", "PILOT Nose Gear Up Light (red)")
 defineIndicatorLight("PLT_GEAR_L_UP_L", 225, "Cockpit Mechanics Lights", "PILOT Left Gear Up Light (red)")
 defineIndicatorLight("PLT_GEAR_R_UP_L", 227, "Cockpit Mechanics Lights", "PILOT Right Gear Up Light (red)")
