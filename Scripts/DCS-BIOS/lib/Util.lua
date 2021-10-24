@@ -287,7 +287,7 @@ function BIOS.util.defineIndicatorLight(msg, arg_number, category, description)
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.5 then
+		if dev0:get_argument_value(arg_number) < 0.3 then
 			value:setValue(0)
 		else
 			value:setValue(1)
