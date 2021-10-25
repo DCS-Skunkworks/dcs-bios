@@ -58,9 +58,17 @@ $(function() {
     });
     headerDiv.append(button2);
 	
+	headerDiv.append($('<span> </span>'));
+	
+	var button4 = $("<button>").text("?");
+	button4.on("click", function test() {
+		window.open('Start.html');
+		chrome.browser.openTab({url: "Start.html"});
+	});
+	headerDiv.append(button4);
+	
 	$("#app").append(headerDiv);
 	$("#app").append($('<iframe id="pointercal" style="display:none" src="pointercal.html" width="100%" height="500"></iframe>'));
-
 
 	var controlsDiv = $("<div>");
 	$("#app").append(controlsDiv);
