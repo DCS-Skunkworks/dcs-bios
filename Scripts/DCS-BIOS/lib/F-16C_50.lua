@@ -363,10 +363,9 @@ defineSpringloaded_3_pos_tumb("SEAT_ADJ", 10, 3014, 3013, 786, "Cockpit Mechanic
 defineToggleSwitch("CANOPY_JETT_THANDLE", 10, 3005, 601,"Cockpit Mechanics" ,"CANOPY JETTISON T-Handle, PULL/STOW")
 defineToggleSwitch("SEAT_EJECT_SAFE", 10, 3009, 785,"Cockpit Mechanics" ,"Ejection Safety Lever, ARMED/LOCKED")
 defineSpringloaded_3_pos_tumb("CANOPY_SW", 10, 3003, 3002, 606, "Cockpit Mechanics", "Canopy Switch, OPEN/HOLD/CLOSE")
-defineToggleSwitch("SEAT_EJECT_SAFE", 10, 3009, 785,"Cockpit Mechanics" ,"Ejection Safety Lever, ARMED/LOCKED")
 defineToggleSwitch("HIDE_STICK", 10, 3015, 796,"Cockpit Mechanics" ,"Hide Stick toggle")
-------------------------------------------------------------------Warning, Caution and Indicator Lights-------------------------------------------------------------
 
+------------------------------------------------------------------Warning, Caution and Indicator Lights-------------------------------------------------------------
 --Caution Light Panel
 defineIndicatorLight("LIGHT_FLCS_FAULT", 630, "Warning, Caution and IndicatorLights","FLCS FAULT Light (yellow)")
 defineIndicatorLight("LIGHT_ENGINE_FAULT", 631, "Warning, Caution and IndicatorLights","ENGINE FAULT Light (yellow)")
@@ -884,8 +883,8 @@ DEDLayout_l2["Target number Asteriscs_both"] = {8,1,12,"","I"}
 DEDLayout_l2["HMCS DISPLAY HMCS_HUD_BLANK"] = {3,8}
 DEDLayout_l2["HMCS ALIGN HMCS_COARSE"] = {2,6}
 DEDLayout_l2["HMCS ALIGN Asterisks_COARSE_both"] = {1,1,8,"","I"}
---DEDLayout_l2[""] = {,}
 
+--DEDLayout_l2[""] = {,}
 --CNI
 DEDLayout_l3["VHF Label"]={1,3}
 DEDLayout_l3["VHF IncDecSymbol"]={5,1}
@@ -1049,7 +1048,6 @@ DEDLayout_l3["HMCS ALIGN HMCS_AZ_EL"] = {2,5}
 DEDLayout_l3["HMCS ALIGN Asterisks_AZ_EL_both"] = {1,1,7,"","I"}
 
 --DEDLayout_l3[""] = {,}
-
 --TODO
 DEDLayout_l4["TODO remove label"] = {4,20}
 --CNI
@@ -1203,7 +1201,6 @@ DEDLayout_l4["HMCS ALIGN HMCS_ROLL"] = {2,4}
 DEDLayout_l4["HMCS ALIGN Asterisks_ROLL_both"] = {1,1,6,"","I"}
 
 --DEDLayout_l4[""] = {,}
-
 --CNI
 DEDLayout_l5["IFF Modes Label"]={1,1}
 DEDLayout_l5["IFF Modes Enabled"]={2,6}
@@ -1523,6 +1520,7 @@ defineString("UHF_FREQ_DISP", get_UHF_FREQUENCY, 7, "UHF", "UHF Manual Frequency
 defineFloat("SAI_BANK_ARROW", 72, {-1, 1}, "SAI", "SAI Bank Arrow")	   
 
 defineToggleSwitch("SEAT_EJECT_HANDLE", 10, 3006, 0,"Cockpit Mechanics" ,"Ejection Handle, PULL/STOW")
+
 ------------------------------------------------------------------Externals-----------------------------------------------------------------------------------------
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
