@@ -24,6 +24,7 @@ local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
+local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local define3Pos2CommandSwitch = BIOS.util.define3Pos2CommandSwitch
@@ -92,7 +93,7 @@ defineTumb("ENGINE_FEED_KNB", 4, 3004, 556, 0.1, {0, 0.3}, nil, true, "External 
 defineToggleSwitch("AIR_REFUEL_SW", 4, 3008, 555, "Fuel System", "AIR REFUEL Switch, OPEN/CLOSE")
 defineToggleSwitch("EXT_FUEL_TRANS_SW", 4, 3003, 159, "Fuel System", "External Fuel Transfer Switch, NORM/ WING FIRST")
 defineTumb("FUEL_QTY_SEL_KNB", 4, 3005, 158, 0.1, {0.1, 0.5}, nil, false, "Fuel System", "FUEL QTY SEL Knob, NORM/RSVR/INT WING/EXT WING/EXT CTR")
---definePushButton1("FUEL_QTY_SEL_T_KNB", 4, 3006, 158, "Fuel System", "FUEL QTY SEL Knob, TEST")
+defineFixedStepTumb("FUEL_QTY_SEL_T_KNB", 4, 3006, 158, 0.1, {0, 0.1}, {-0.1, 0.1}, nil, "Fuel System", "FUEL QTY SEL Knob, TEST")
 
 --Gear System
 defineToggleSwitch("GEAR_HANDLE", 7, 3001, 362, "Gear System", "LG Handle, UP/DN")
