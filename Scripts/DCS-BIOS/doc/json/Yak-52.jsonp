@@ -397,6 +397,20 @@ docdata["Yak-52"] =
                                                                      }
                                             },
                                 "BAKLAN-5": {
+                                                       "BAKLAN5_FREQ": {
+                                                                               "category": "BAKLAN-5",
+                                                                           "control_type": "display",
+                                                                            "description": "Fore VHF Radio Frequency (String)",
+                                                                             "identifier": "BAKLAN5_FREQ",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8394,
+                                                                                               "description": "Fore VHF Radio Frequency (String)",
+                                                                                                "max_length": 7,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                                           } ]
+                                                                       },
                                                 "FRONT_VHF_RADIO_KHZ": {
                                                                             "api_variant": "multiturn",
                                                                                "category": "BAKLAN-5",
@@ -2321,6 +2335,70 @@ docdata["Yak-52"] =
                                                                                                         "type": "integer"
                                                                                              } ]
                                                                          },
+                                                   "FRONT_RADIO_100KHZ": {
+                                                                                 "category": "Gauges",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Fore VHF Radio 100 khz",
+                                                                               "identifier": "FRONT_RADIO_100KHZ",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 8390,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                   "FRONT_RADIO_100MHZ": {
+                                                                                 "category": "Gauges",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Fore VHF Radio 100 mhz",
+                                                                               "identifier": "FRONT_RADIO_100MHZ",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 8386,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                    "FRONT_RADIO_10KHZ": {
+                                                                                 "category": "Gauges",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Fore VHF Radio 10 khz",
+                                                                               "identifier": "FRONT_RADIO_10KHZ",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 8392,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                     "FRONT_RADIO_1MHZ": {
+                                                                                 "category": "Gauges",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "Fore VHF Radio 1 mhz",
+                                                                               "identifier": "FRONT_RADIO_1MHZ",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 8388,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
                                                            "FRONT_SLIP": {
                                                                                  "category": "Gauges",
                                                                              "control_type": "analog_gauge",
@@ -4134,7 +4212,7 @@ docdata["Yak-52"] =
                                                        "F_GEN_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Front Generator Fault Warning Lamp (red)",
+                                                                           "description": "Front Generator Fault Warn Lamp (red)",
                                                                             "identifier": "F_GEN_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4150,7 +4228,7 @@ docdata["Yak-52"] =
                                                       "F_GYRO_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Front Gyro Compass Warning Lamp (yellow)",
+                                                                           "description": "Front Gyro Compass Warn Lamp (yellow)",
                                                                             "identifier": "F_GYRO_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4198,7 +4276,7 @@ docdata["Yak-52"] =
                                                       "F_MAXG_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Front Max G Warning Lamp (red)",
+                                                                           "description": "Front Max G Warn Lamp (red)",
                                                                             "identifier": "F_MAXG_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4214,7 +4292,7 @@ docdata["Yak-52"] =
                                                      "F_METAL_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Front Metal Chips Warning Lamp (yellow)",
+                                                                           "description": "Front Metal Chips Warn Lamp (yellow)",
                                                                             "identifier": "F_METAL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4262,7 +4340,7 @@ docdata["Yak-52"] =
                                                 "F_PITOT_HEAT_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Front Pitot-Tube Heat Warning Lamp (green)",
+                                                                           "description": "Front Pitot-Tube Heat Warn Lamp (green)",
                                                                             "identifier": "F_PITOT_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4310,7 +4388,7 @@ docdata["Yak-52"] =
                                                      "F_SPEED_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Front Danger Speed Warning Lamp (yellow)",
+                                                                           "description": "Front Danger Speed Warn Lamp (yellow)",
                                                                             "identifier": "F_SPEED_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4326,7 +4404,7 @@ docdata["Yak-52"] =
                                                 "F_STALL_HEAT_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Front Stall Heat Warning Lamp (green)",
+                                                                           "description": "Front Stall Heat Warn Lamp (green)",
                                                                             "identifier": "F_STALL_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4342,7 +4420,7 @@ docdata["Yak-52"] =
                                                      "F_STALL_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Front Stall Warning Lamp (red)",
+                                                                           "description": "Front Stall Warn Lamp (red)",
                                                                             "identifier": "F_STALL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4358,7 +4436,7 @@ docdata["Yak-52"] =
                                                    "L_FUEL_12_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Left Fueltank 12L Warning Lamp (red)",
+                                                                           "description": "Left Fueltank 12L Warn Lamp (red)",
                                                                             "identifier": "L_FUEL_12_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4374,7 +4452,7 @@ docdata["Yak-52"] =
                                                    "L_FUEL_15_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Left Fueltank 15L Warning Lamp (white)",
+                                                                           "description": "Left Fueltank 15L Warn Lamp (white)",
                                                                             "identifier": "L_FUEL_15_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4390,7 +4468,7 @@ docdata["Yak-52"] =
                                                    "L_FUEL_20_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Left Fueltank 20L Warning Lamp (white)",
+                                                                           "description": "Left Fueltank 20L Warn Lamp (white)",
                                                                             "identifier": "L_FUEL_20_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4406,7 +4484,7 @@ docdata["Yak-52"] =
                                                    "L_FUEL_25_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Left Fueltank 25L Warning Lamp (white)",
+                                                                           "description": "Left Fueltank 25L Warn Lamp (white)",
                                                                             "identifier": "L_FUEL_25_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4422,7 +4500,7 @@ docdata["Yak-52"] =
                                                    "L_FUEL_30_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Left Fueltank 30L Warning Lamp (white)",
+                                                                           "description": "Left Fueltank 30L Warn Lamp (white)",
                                                                             "identifier": "L_FUEL_30_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4438,7 +4516,7 @@ docdata["Yak-52"] =
                                                    "L_FUEL_35_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Left Fueltank 35L Warning Lamp (white)",
+                                                                           "description": "Left Fueltank 35L Warn Lamp (white)",
                                                                             "identifier": "L_FUEL_35_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4454,7 +4532,7 @@ docdata["Yak-52"] =
                                                    "L_FUEL_40_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Left Fueltank 40L Warning Lamp (white)",
+                                                                           "description": "Left Fueltank 40L Warn Lamp (white)",
                                                                             "identifier": "L_FUEL_40_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4470,7 +4548,7 @@ docdata["Yak-52"] =
                                                    "L_FUEL_45_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Left Fueltank 45L Warning Lamp (white)",
+                                                                           "description": "Left Fueltank 45L Warn Lamp (white)",
                                                                             "identifier": "L_FUEL_45_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4486,7 +4564,7 @@ docdata["Yak-52"] =
                                                    "L_FUEL_50_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Left Fueltank 50L Warning Lamp (white)",
+                                                                           "description": "Left Fueltank 50L Warn Lamp (white)",
                                                                             "identifier": "L_FUEL_50_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4502,7 +4580,7 @@ docdata["Yak-52"] =
                                                    "L_FUEL_60_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Left Fueltank 60L Warning Lamp (white)",
+                                                                           "description": "Left Fueltank 60L Warn Lamp (white)",
                                                                             "identifier": "L_FUEL_60_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4534,7 +4612,7 @@ docdata["Yak-52"] =
                                                       "R_BATT_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Rear Battery ON Warning Lamp (green)",
+                                                                           "description": "Rear Battery ON Warn Lamp (green)",
                                                                             "identifier": "R_BATT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4550,7 +4628,7 @@ docdata["Yak-52"] =
                                                      "R_EMPTY_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Rear Empty Warning Lamp (green)",
+                                                                           "description": "Rear Empty Warn Lamp (green)",
                                                                             "identifier": "R_EMPTY_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4598,7 +4676,7 @@ docdata["Yak-52"] =
                                                    "R_FUEL_12_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Right Fueltank 12L Warning Lamp (red)",
+                                                                           "description": "Right Fueltank 12L Warn Lamp (red)",
                                                                             "identifier": "R_FUEL_12_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4614,7 +4692,7 @@ docdata["Yak-52"] =
                                                    "R_FUEL_15_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Right Fueltank 15L Warning Lamp (white)",
+                                                                           "description": "Right Fueltank 15L Warn Lamp (white)",
                                                                             "identifier": "R_FUEL_15_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4630,7 +4708,7 @@ docdata["Yak-52"] =
                                                    "R_FUEL_20_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Right Fueltank 20L Warning Lamp (white)",
+                                                                           "description": "Right Fueltank 20L Warn Lamp (white)",
                                                                             "identifier": "R_FUEL_20_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4646,7 +4724,7 @@ docdata["Yak-52"] =
                                                    "R_FUEL_25_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Right Fueltank 25L Warning Lamp (white)",
+                                                                           "description": "Right Fueltank 25L Warn Lamp (white)",
                                                                             "identifier": "R_FUEL_25_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4662,7 +4740,7 @@ docdata["Yak-52"] =
                                                    "R_FUEL_30_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Right Fueltank 30L Warning Lamp (white)",
+                                                                           "description": "Right Fueltank 30L Warn Lamp (white)",
                                                                             "identifier": "R_FUEL_30_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4678,7 +4756,7 @@ docdata["Yak-52"] =
                                                    "R_FUEL_35_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Right Fueltank 35L Warning Lamp (white)",
+                                                                           "description": "Right Fueltank 35L Warn Lamp (white)",
                                                                             "identifier": "R_FUEL_35_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4694,7 +4772,7 @@ docdata["Yak-52"] =
                                                    "R_FUEL_40_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Right Fueltank 40L Warning Lamp (white)",
+                                                                           "description": "Right Fueltank 40L Warn Lamp (white)",
                                                                             "identifier": "R_FUEL_40_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4710,7 +4788,7 @@ docdata["Yak-52"] =
                                                    "R_FUEL_45_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Right Fueltank 45L Warning Lamp (white)",
+                                                                           "description": "Right Fueltank 45L Warn Lamp (white)",
                                                                             "identifier": "R_FUEL_45_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4726,7 +4804,7 @@ docdata["Yak-52"] =
                                                    "R_FUEL_50_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Right Fueltank 50L Warning Lamp (white)",
+                                                                           "description": "Right Fueltank 50L Warn Lamp (white)",
                                                                             "identifier": "R_FUEL_50_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4742,7 +4820,7 @@ docdata["Yak-52"] =
                                                    "R_FUEL_60_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Right Fueltank 60L Warning Lamp (white)",
+                                                                           "description": "Right Fueltank 60L Warn Lamp (white)",
                                                                             "identifier": "R_FUEL_60_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4758,7 +4836,7 @@ docdata["Yak-52"] =
                                                     "R_FUEL_L_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Rear Fuel 12L Left Warning Lamp (red)",
+                                                                           "description": "Rear Fuel 12L Left Warn Lamp (red)",
                                                                             "identifier": "R_FUEL_L_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4774,7 +4852,7 @@ docdata["Yak-52"] =
                                                     "R_FUEL_R_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Rear Fuel 12L Right Warning Lamp (red)",
+                                                                           "description": "Rear Fuel 12L Right Warn Lamp (red)",
                                                                             "identifier": "R_FUEL_R_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4790,7 +4868,7 @@ docdata["Yak-52"] =
                                                        "R_GEN_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Rear Generator Fault Warning Lamp (red)",
+                                                                           "description": "Rear Generator Fault Warn Lamp (red)",
                                                                             "identifier": "R_GEN_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4806,7 +4884,7 @@ docdata["Yak-52"] =
                                                       "R_GYRO_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Rear Gyro Compass Warning Lamp (yellow)",
+                                                                           "description": "Rear Gyro Compass Warn Lamp (yellow)",
                                                                             "identifier": "R_GYRO_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4854,7 +4932,7 @@ docdata["Yak-52"] =
                                                       "R_MAXG_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Rear Max G Warning Lamp (red)",
+                                                                           "description": "Rear Max G Warn Lamp (red)",
                                                                             "identifier": "R_MAXG_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4870,7 +4948,7 @@ docdata["Yak-52"] =
                                                      "R_METAL_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Rear Metal Chips Warning Lamp (yellow)",
+                                                                           "description": "Rear Metal Chips Warn Lamp (yellow)",
                                                                             "identifier": "R_METAL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4918,7 +4996,7 @@ docdata["Yak-52"] =
                                                 "R_PITOT_HEAT_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Rear Pitot-Tube Heat Warning Lamp (green)",
+                                                                           "description": "Rear Pitot-Tube Heat Warn Lamp (green)",
                                                                             "identifier": "R_PITOT_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4966,7 +5044,7 @@ docdata["Yak-52"] =
                                                      "R_SPEED_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Rear Danger Speed Warning Lamp (yellow)",
+                                                                           "description": "Rear Danger Speed Warn Lamp (yellow)",
                                                                             "identifier": "R_SPEED_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4982,7 +5060,7 @@ docdata["Yak-52"] =
                                                 "R_STALL_HEAT_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Rear Stall Heat Warning Lamp (green)",
+                                                                           "description": "Rear Stall Heat Warn Lamp (green)",
                                                                             "identifier": "R_STALL_HEAT_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
@@ -4998,7 +5076,7 @@ docdata["Yak-52"] =
                                                      "R_STALL_WARNL": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
-                                                                           "description": "Rear Stall Warning Lamp (red)",
+                                                                           "description": "Rear Stall Warn Lamp (red)",
                                                                             "identifier": "R_STALL_WARNL",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {

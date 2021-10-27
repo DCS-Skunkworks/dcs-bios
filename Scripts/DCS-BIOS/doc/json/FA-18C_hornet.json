@@ -1919,7 +1919,7 @@
                                                                                   "identifier": "CMSD_JET_SEL_L",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 29910,
+                                                                                                        "address": 29908,
                                                                                                     "description": "0 if light is off, 1 if light is on",
                                                                                                            "mask": 32768,
                                                                                                       "max_value": 1,
@@ -2716,7 +2716,7 @@
                                                                                           "identifier": "EXT_FORMATION_LIGHTS",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 30052,
+                                                                                                                "address": 30070,
                                                                                                             "description": "Formation Lights (light green)",
                                                                                                                    "mask": 65535,
                                                                                                               "max_value": 65535,
@@ -2732,7 +2732,7 @@
                                                                                           "identifier": "EXT_HOOK",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 30068,
+                                                                                                                "address": 30086,
                                                                                                             "description": "Hook",
                                                                                                                    "mask": 65535,
                                                                                                               "max_value": 65535,
@@ -2748,7 +2748,7 @@
                                                                                           "identifier": "EXT_NOZZLE_POS_L",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 30056,
+                                                                                                                "address": 30074,
                                                                                                             "description": "Left Nozzle Position",
                                                                                                                    "mask": 65535,
                                                                                                               "max_value": 65535,
@@ -2764,7 +2764,7 @@
                                                                                           "identifier": "EXT_NOZZLE_POS_R",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 30054,
+                                                                                                                "address": 30072,
                                                                                                             "description": "Right Nozzle Position",
                                                                                                                    "mask": 65535,
                                                                                                               "max_value": 65535,
@@ -2780,11 +2780,11 @@
                                                                                           "identifier": "EXT_POSITION_LIGHT_LEFT",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 29912,
+                                                                                                                "address": 29910,
                                                                                                             "description": "Left Position Light (red)",
-                                                                                                                   "mask": 2048,
+                                                                                                                   "mask": 1024,
                                                                                                               "max_value": 1,
-                                                                                                               "shift_by": 11,
+                                                                                                               "shift_by": 10,
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ]
@@ -2796,11 +2796,11 @@
                                                                                           "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 29912,
+                                                                                                                "address": 29910,
                                                                                                             "description": "Right Position Light (green)",
-                                                                                                                   "mask": 4096,
+                                                                                                                   "mask": 2048,
                                                                                                               "max_value": 1,
-                                                                                                               "shift_by": 12,
+                                                                                                               "shift_by": 11,
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ]
@@ -2812,7 +2812,7 @@
                                                                                           "identifier": "EXT_REFUEL_PROBE",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 30050,
+                                                                                                                "address": 30068,
                                                                                                             "description": "Refuel Probe",
                                                                                                                    "mask": 65535,
                                                                                                               "max_value": 65535,
@@ -2828,11 +2828,11 @@
                                                                                           "identifier": "EXT_REFUEL_PROBE_LIGHT",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 29912,
+                                                                                                                "address": 29910,
                                                                                                             "description": "Refuel Probe Light (white)",
-                                                                                                                   "mask": 1024,
+                                                                                                                   "mask": 512,
                                                                                                               "max_value": 1,
-                                                                                                               "shift_by": 10,
+                                                                                                               "shift_by": 9,
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ]
@@ -2844,7 +2844,7 @@
                                                                                           "identifier": "EXT_SPEED_BRAKE",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 30044,
+                                                                                                                "address": 30062,
                                                                                                             "description": "Speed Brake",
                                                                                                                    "mask": 65535,
                                                                                                               "max_value": 65535,
@@ -2860,7 +2860,7 @@
                                                                                           "identifier": "EXT_STAIR",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 30048,
+                                                                                                                "address": 30066,
                                                                                                             "description": "Stair",
                                                                                                                    "mask": 65535,
                                                                                                               "max_value": 65535,
@@ -2876,11 +2876,11 @@
                                                                                           "identifier": "EXT_STROBE_LIGHTS",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 29912,
+                                                                                                                "address": 29910,
                                                                                                             "description": "Strobe Lights (red)",
-                                                                                                                   "mask": 16384,
+                                                                                                                   "mask": 8192,
                                                                                                               "max_value": 1,
-                                                                                                               "shift_by": 14,
+                                                                                                               "shift_by": 13,
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ]
@@ -2892,11 +2892,11 @@
                                                                                           "identifier": "EXT_TAIL_LIGHT",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 29912,
+                                                                                                                "address": 29910,
                                                                                                             "description": "Tail Light (white)",
-                                                                                                                   "mask": 8192,
+                                                                                                                   "mask": 4096,
                                                                                                               "max_value": 1,
-                                                                                                               "shift_by": 13,
+                                                                                                               "shift_by": 12,
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ]
@@ -2908,7 +2908,7 @@
                                                                                           "identifier": "EXT_WING_FOLDING",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 30046,
+                                                                                                                "address": 30064,
                                                                                                             "description": "Wing Folding",
                                                                                                                    "mask": 65535,
                                                                                                               "max_value": 65535,
@@ -2924,11 +2924,11 @@
                                                                                           "identifier": "EXT_WOW_LEFT",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 29914,
+                                                                                                                "address": 29912,
                                                                                                             "description": "Weight ON Wheels Left Gear",
-                                                                                                                   "mask": 512,
+                                                                                                                   "mask": 256,
                                                                                                               "max_value": 1,
-                                                                                                               "shift_by": 9,
+                                                                                                               "shift_by": 8,
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ]
@@ -2940,11 +2940,11 @@
                                                                                           "identifier": "EXT_WOW_NOSE",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 29912,
+                                                                                                                "address": 29910,
                                                                                                             "description": "Weight ON Wheels Nose Gear",
-                                                                                                                   "mask": 32768,
+                                                                                                                   "mask": 16384,
                                                                                                               "max_value": 1,
-                                                                                                               "shift_by": 15,
+                                                                                                               "shift_by": 14,
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ]
@@ -2956,11 +2956,11 @@
                                                                                           "identifier": "EXT_WOW_RIGHT",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
-                                                                                                                "address": 29914,
+                                                                                                                "address": 29910,
                                                                                                             "description": "Weight ON Wheels Right Gear",
-                                                                                                                   "mask": 256,
+                                                                                                                   "mask": 32768,
                                                                                                               "max_value": 1,
-                                                                                                               "shift_by": 8,
+                                                                                                               "shift_by": 15,
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ]
@@ -4384,7 +4384,7 @@
                                                                                        "identifier": "IFEI_L_TEXTURE",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                             "address": 30064,
+                                                                                                             "address": 30082,
                                                                                                          "description": "Left Texture Visible: 1 = yes, 0 = no",
                                                                                                           "max_length": 1,
                                                                                                               "suffix": "",
@@ -4626,7 +4626,7 @@
                                                                                        "identifier": "IFEI_R_TEXTURE",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                             "address": 30066,
+                                                                                                             "address": 30084,
                                                                                                          "description": "Right Texture Visible: 1 = yes, 0 = no",
                                                                                                           "max_length": 1,
                                                                                                               "suffix": "",
@@ -4654,7 +4654,7 @@
                                                                                        "identifier": "IFEI_T",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                             "address": 30058,
+                                                                                                             "address": 30076,
                                                                                                          "description": "T",
                                                                                                           "max_length": 6,
                                                                                                               "suffix": "",
@@ -5061,32 +5061,32 @@
                                  "Internal Lights": {
                                                                "CHART_INT_LT": {
                                                                                        "category": "Internal Lights",
-                                                                                   "control_type": "led",
+                                                                                   "control_type": "analog_gauge",
                                                                                     "description": "Chart Lightning (light green)",
                                                                                      "identifier": "CHART_INT_LT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 29910,
-                                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 256,
-                                                                                                         "max_value": 1,
-                                                                                                          "shift_by": 8,
+                                                                                                           "address": 30046,
+                                                                                                       "description": "gauge position",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
                                                                                },
                                                              "CONSOLE_INT_LT": {
                                                                                        "category": "Internal Lights",
-                                                                                   "control_type": "led",
+                                                                                   "control_type": "analog_gauge",
                                                                                     "description": "Console Lightning (light green)",
                                                                                      "identifier": "CONSOLE_INT_LT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 29908,
-                                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8192,
-                                                                                                         "max_value": 1,
-                                                                                                          "shift_by": 13,
+                                                                                                           "address": 30040,
+                                                                                                       "description": "gauge position",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5098,11 +5098,11 @@
                                                                                      "identifier": "EMERG_INSTR_INT_LT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 29910,
+                                                                                                           "address": 29908,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 512,
+                                                                                                              "mask": 8192,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 9,
+                                                                                                          "shift_by": 13,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -5114,107 +5114,107 @@
                                                                                      "identifier": "ENG_INSTR_INT_LT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 29910,
+                                                                                                           "address": 29908,
                                                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 1024,
+                                                                                                              "mask": 16384,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 10,
+                                                                                                          "shift_by": 14,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
                                                                                },
                                                                "FLOOD_INT_LT": {
                                                                                        "category": "Internal Lights",
-                                                                                   "control_type": "led",
+                                                                                   "control_type": "analog_gauge",
                                                                                     "description": "Flood Lightning (light green)",
                                                                                      "identifier": "FLOOD_INT_LT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 29908,
-                                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16384,
-                                                                                                         "max_value": 1,
-                                                                                                          "shift_by": 14,
+                                                                                                           "address": 30042,
+                                                                                                       "description": "gauge position",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
                                                                                },
                                                             "IFEI_BTN_INT_LT": {
                                                                                        "category": "Internal Lights",
-                                                                                   "control_type": "led",
+                                                                                   "control_type": "analog_gauge",
                                                                                     "description": "IFEI Buttons Lightning (light green)",
                                                                                      "identifier": "IFEI_BTN_INT_LT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 29910,
-                                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 16384,
-                                                                                                         "max_value": 1,
-                                                                                                          "shift_by": 14,
+                                                                                                           "address": 30054,
+                                                                                                       "description": "gauge position",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
                                                                                },
                                                            "IFEI_DISP_INT_LT": {
                                                                                        "category": "Internal Lights",
-                                                                                   "control_type": "led",
+                                                                                   "control_type": "analog_gauge",
                                                                                     "description": "IFEI Display Lightning (light green)",
                                                                                      "identifier": "IFEI_DISP_INT_LT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 29910,
-                                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 8192,
-                                                                                                         "max_value": 1,
-                                                                                                          "shift_by": 13,
+                                                                                                           "address": 30052,
+                                                                                                       "description": "gauge position",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
                                                                                },
                                                                "INSTR_INT_LT": {
                                                                                        "category": "Internal Lights",
-                                                                                   "control_type": "led",
+                                                                                   "control_type": "analog_gauge",
                                                                                     "description": "Instrument Lightning (light green)",
                                                                                      "identifier": "INSTR_INT_LT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 29910,
-                                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 2048,
-                                                                                                         "max_value": 1,
-                                                                                                          "shift_by": 11,
+                                                                                                           "address": 30048,
+                                                                                                       "description": "gauge position",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
                                                                                },
                                                            "NVG_FLOOD_INT_LT": {
                                                                                        "category": "Internal Lights",
-                                                                                   "control_type": "led",
+                                                                                   "control_type": "analog_gauge",
                                                                                     "description": "Nvg Flood Lightning (light green)",
                                                                                      "identifier": "NVG_FLOOD_INT_LT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 29908,
-                                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 32768,
-                                                                                                         "max_value": 1,
-                                                                                                          "shift_by": 15,
+                                                                                                           "address": 30044,
+                                                                                                       "description": "gauge position",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
                                                                                },
                                                         "STBY_COMPASS_INT_LT": {
                                                                                        "category": "Internal Lights",
-                                                                                   "control_type": "led",
+                                                                                   "control_type": "analog_gauge",
                                                                                     "description": "Stby Compass Lightning (light green)",
                                                                                      "identifier": "STBY_COMPASS_INT_LT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 29910,
-                                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4096,
-                                                                                                         "max_value": 1,
-                                                                                                          "shift_by": 12,
+                                                                                                           "address": 30050,
+                                                                                                       "description": "gauge position",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -7409,16 +7409,16 @@
                                                                              },
                                                             "RWR_LT_BRIGHT": {
                                                                                      "category": "RWR Control Indicator",
-                                                                                 "control_type": "led",
+                                                                                 "control_type": "analog_gauge",
                                                                                   "description": "RWR Lights Brightness",
                                                                                    "identifier": "RWR_LT_BRIGHT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
-                                                                                                         "address": 29912,
-                                                                                                     "description": "0 if light is off, 1 if light is on",
-                                                                                                            "mask": 256,
-                                                                                                       "max_value": 1,
-                                                                                                        "shift_by": 8,
+                                                                                                         "address": 30056,
+                                                                                                     "description": "gauge position",
+                                                                                                            "mask": 65535,
+                                                                                                       "max_value": 65535,
+                                                                                                        "shift_by": 0,
                                                                                                           "suffix": "",
                                                                                                             "type": "integer"
                                                                                                  } ]
@@ -9180,11 +9180,11 @@
                                                                                       "identifier": "SAI_ATT_WARN_FLAG_L",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 29912,
+                                                                                                            "address": 29910,
                                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                               "mask": 512,
+                                                                                                               "mask": 256,
                                                                                                           "max_value": 1,
-                                                                                                           "shift_by": 9,
+                                                                                                           "shift_by": 8,
                                                                                                              "suffix": "",
                                                                                                                "type": "integer"
                                                                                                     } ]
@@ -9274,7 +9274,7 @@
                                                                                       "identifier": "SAI_POINTER_HOR",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 30042,
+                                                                                                            "address": 30060,
                                                                                                         "description": "gauge position",
                                                                                                                "mask": 65535,
                                                                                                           "max_value": 65535,
@@ -9290,7 +9290,7 @@
                                                                                       "identifier": "SAI_POINTER_VER",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
-                                                                                                            "address": 30040,
+                                                                                                            "address": 30058,
                                                                                                         "description": "gauge position",
                                                                                                                "mask": 65535,
                                                                                                           "max_value": 65535,

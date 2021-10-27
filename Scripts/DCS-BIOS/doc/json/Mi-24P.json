@@ -13435,22 +13435,150 @@
                                                                        }
                                                 },
                                  "KM-2 Gauges": {
-                                                    "PLT_KM2_MAG_DEC_G": {
-                                                                                 "category": "KM-2 Gauges",
-                                                                             "control_type": "analog_gauge",
-                                                                              "description": "PILOT KM-2 Magnetic Declination Gauge",
-                                                                               "identifier": "PLT_KM2_MAG_DEC_G",
-                                                                                   "inputs": [  ],
-                                                                                  "outputs": [ {
-                                                                                                     "address": 27018,
-                                                                                                 "description": "gauge position",
-                                                                                                        "mask": 65535,
-                                                                                                   "max_value": 65535,
-                                                                                                    "shift_by": 0,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ]
-                                                                         }
+                                                     "PLT_KM2_MAG_DEC_01M_G": {
+                                                                                      "category": "KM-2 Gauges",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "PILOT KM-2 Magnetic Declination 01 Minus Gauge",
+                                                                                    "identifier": "PLT_KM2_MAG_DEC_01M_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                          "address": 27218,
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ]
+                                                                              },
+                                                     "PLT_KM2_MAG_DEC_01P_G": {
+                                                                                      "category": "KM-2 Gauges",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "PILOT KM-2 Magnetic Declination 01 Plus Gauge",
+                                                                                    "identifier": "PLT_KM2_MAG_DEC_01P_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                          "address": 27210,
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ]
+                                                                              },
+                                                    "PLT_KM2_MAG_DEC_100M_G": {
+                                                                                      "category": "KM-2 Gauges",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "PILOT KM-2 Magnetic Declination 100 Minus Gauge",
+                                                                                    "identifier": "PLT_KM2_MAG_DEC_100M_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                          "address": 27224,
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ]
+                                                                              },
+                                                    "PLT_KM2_MAG_DEC_100P_G": {
+                                                                                      "category": "KM-2 Gauges",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "PILOT KM-2 Magnetic Declination 100 Plus Gauge",
+                                                                                    "identifier": "PLT_KM2_MAG_DEC_100P_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                          "address": 27216,
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ]
+                                                                              },
+                                                     "PLT_KM2_MAG_DEC_10M_G": {
+                                                                                      "category": "KM-2 Gauges",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "PILOT KM-2 Magnetic Declination 10 Minus Gauge",
+                                                                                    "identifier": "PLT_KM2_MAG_DEC_10M_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                          "address": 27222,
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ]
+                                                                              },
+                                                     "PLT_KM2_MAG_DEC_10P_G": {
+                                                                                      "category": "KM-2 Gauges",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "PILOT KM-2 Magnetic Declination 10 Plus Gauge",
+                                                                                    "identifier": "PLT_KM2_MAG_DEC_10P_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                          "address": 27214,
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ]
+                                                                              },
+                                                      "PLT_KM2_MAG_DEC_1M_G": {
+                                                                                      "category": "KM-2 Gauges",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "PILOT KM-2 Magnetic Declination 1 Minus Gauge",
+                                                                                    "identifier": "PLT_KM2_MAG_DEC_1M_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                          "address": 27220,
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ]
+                                                                              },
+                                                      "PLT_KM2_MAG_DEC_1P_G": {
+                                                                                      "category": "KM-2 Gauges",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "PILOT KM-2 Magnetic Declination 1 Plus Gauge",
+                                                                                    "identifier": "PLT_KM2_MAG_DEC_1P_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                          "address": 27212,
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ]
+                                                                              },
+                                                         "PLT_KM2_MAG_DEC_G": {
+                                                                                      "category": "KM-2 Gauges",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "PILOT KM-2 Magnetic Declination Gauge",
+                                                                                    "identifier": "PLT_KM2_MAG_DEC_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                          "address": 27018,
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ]
+                                                                              }
                                                 },
                                  "MAP DISPLAY": {
                                                      "PLT_MAP_ADJ_HOR": {
@@ -13788,6 +13916,84 @@
                                                                                                   } ],
                                                                               "physical_variant": "toggle_switch"
                                                                        }
+                                                },
+                                         "PKI": {
+                                                     "OP_PKI_BRIGHT": {
+                                                                              "category": "PKI",
+                                                                          "control_type": "limited_dial",
+                                                                           "description": "OPERATOR PKI Brightness Adjustment",
+                                                                            "identifier": "OP_PKI_BRIGHT",
+                                                                                "inputs": [ {
+                                                                                              "description": "set the position of the dial",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 65535
+                                                                                          }, {
+                                                                                                 "description": "turn the dial left or right",
+                                                                                                   "interface": "variable_step",
+                                                                                                   "max_value": 65535,
+                                                                                              "suggested_step": 3200
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 27228,
+                                                                                              "description": "position of the potentiometer",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                    "OP_PKI_CONTROL": {
+                                                                           "api_variant": "multiturn",
+                                                                              "category": "PKI",
+                                                                          "control_type": "analog_dial",
+                                                                           "description": "OPERATOR PKI reflector control",
+                                                                            "identifier": "OP_PKI_CONTROL",
+                                                                                "inputs": [ {
+                                                                                                 "description": "turn the dial left or right",
+                                                                                                   "interface": "variable_step",
+                                                                                                   "max_value": 65535,
+                                                                                              "suggested_step": 3200
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 27226,
+                                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "_KNOB_POS",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                       "OP_PKI_LOCK": {
+                                                                                     "category": "PKI",
+                                                                                 "control_type": "selector",
+                                                                                  "description": "OPERATOR PKI Lock/Unlock",
+                                                                                   "identifier": "OP_PKI_LOCK",
+                                                                                       "inputs": [ {
+                                                                                                     "description": "switch to previous or next state",
+                                                                                                       "interface": "fixed_step"
+                                                                                                 }, {
+                                                                                                     "description": "set position",
+                                                                                                       "interface": "set_state",
+                                                                                                       "max_value": 1
+                                                                                                 }, {
+                                                                                                        "argument": "TOGGLE",
+                                                                                                     "description": "Toggle switch state",
+                                                                                                       "interface": "action"
+                                                                                                 } ],
+                                                                          "momentary_positions": "none",
+                                                                                      "outputs": [ {
+                                                                                                         "address": 27204,
+                                                                                                     "description": "selector position",
+                                                                                                            "mask": 512,
+                                                                                                       "max_value": 1,
+                                                                                                        "shift_by": 9,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ],
+                                                                             "physical_variant": "toggle_switch"
+                                                                      }
                                                 },
                                       "PKP72M": {
                                                      "OP_ADI_PITCH_TRIM": {
