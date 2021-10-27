@@ -17,6 +17,7 @@ local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+local defineString = BIOS.util.defineString
 
 --Remove Pilot Arg# 275 / Remove Instructor Arg# 276
 
@@ -286,5 +287,34 @@ defineFloat("FRONT_RADIO_100MHZ", 92, {0, 0.2}, "Gauges", "Fore VHF Radio 100 mh
 defineFloat("FRONT_RADIO_1MHZ", 93, {0, 1}, "Gauges", "Fore VHF Radio 1 mhz")
 defineFloat("FRONT_RADIO_100KHZ", 94, {0, 1}, "Gauges", "Fore VHF Radio 100 khz")
 defineFloat("FRONT_RADIO_10KHZ", 95, {0, 1}, "Gauges", "Fore VHF Radio 10 khz")
+
+
+local function getBaklan5Frequency()
+    local bfreq1 = "00"
+	local bfreq1F = GetDevice(0):get_argument_value(92)
+	if     bfreq1F == nil then bfreq1 = "00"
+	elseif bfreq1F >= 0    and bfreq1F <= 0.1 then bfreq1 = "11"
+	elseif bfreq1F > 0.1 and bfreq1F <= 0.2 then bfreq1 = "12"
+	elseif bfreq1F > 0.2  then bfreq1 = "13"
+	end
+	
+    local bfreq2 = string.format("%.0f", GetDevice(0):get_argument_value(93)*10)--
+	if bfreq2 == nil then bfreq2 = "0" end
+    local bfreq3 = string.format("%.0f", GetDevice(0):get_argument_value(94)*10)--
+	if bfreq3 == nil then bfreq3 = "0" end
+	
+    local bfreq4 = "00"
+	local bfreq4F = GetDevice(0):get_argument_value(95)
+	if     bfreq4F == nil then bfreq4 = "00"
+	elseif bfreq4F >= 0    and bfreq4F < 0.25 then bfreq4 = "00"
+	elseif bfreq4F >= 0.25 and bfreq4F < 0.5 then bfreq4 = "25"
+	elseif bfreq4F >= 0.5 and bfreq4F < 0.75 then bfreq4 = "50"
+	elseif bfreq4F >= 0.75 and bfreq4F < 1 then bfreq4 = "75"
+	elseif bfreq4F >= 1                   then bfreq4 = "00"
+	end
+	
+	return  bfreq1 .. bfreq2 .. "." .. bfreq3 .. bfreq4
+end
+defineString("BAKLAN5_FREQ", getBaklan5Frequency, 7, "BAKLAN-5", "Fore VHF Radio Frequency (String)")
 
 BIOS.protocol.endModule()
