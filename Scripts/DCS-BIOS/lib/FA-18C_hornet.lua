@@ -1264,4 +1264,7 @@ defineIntegerFromGetter("EXT_HOOK", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(25)*65535)
 end, 65535, "External Aircraft Model", "Hook")
 
+defineFloat("INT_THROTTLE_LEFT", 104, {0, 1}, "Throttle Quadrant", "Left Throttle Position")
+defineFloat("INT_THROTTLE_RIGHT", 105, {0, 1}, "Throttle Quadrant", "Right Throttle Position")
+
 BIOS.protocol.endModule()
