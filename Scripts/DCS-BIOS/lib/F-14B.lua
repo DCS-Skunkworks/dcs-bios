@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4.3a by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v4.3b by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -1698,5 +1698,8 @@ definePushButton("RIO_DDD_FILTER", 39, 3456, 0, "DDD", "RIO DDD Filter") --miss 
 defineFloat("PLT_EJECT_SEAT_SAVE", 2503, {0, 1}, "Cockpit", "PILOT Ejection Seat Safety")
 defineFloat("RIO_EJECT_SEAT_SAVE", 2504, {0, 1}, "Cockpit", "RIO Ejection Seat Safety")
 defineFloat("RIO_LANTIRN_PRESENT", 666, {0, 1}, "Cockpit", "RIO LANTIRN Present")
+defineFloat("PLT_THROTTLE_POS_L", 753, {0, 1}, "Cockpit", "PILOT Left Throttle Position")
+defineFloat("PLT_THROTTLE_POS_R", 752, {0, 1}, "Cockpit", "PILOT Right Throttle Position")
+defineFloat("PLT_SWEEP_POS", 384, {0, 1}, "Cockpit", "PILOT Wing Sweep Handle Position")
 
 BIOS.protocol.endModule()
