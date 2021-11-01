@@ -334,8 +334,8 @@ definePushButton("RIO_AIRSPD_KNOB_PUSH", 28, 3651, 255, "Airspeed Indicator", "R
 defineRotary("RIO_AIRSPD_KNOB", 28, 3652, 254, "Airspeed Indicator", "RIO Airspeed Indicator Bug Knob")
 
 -- Altimeter
-define3PosTumb("PLT_ALTIMETER_MODE", 28, 3487, 307, "Altimeter", "PILOT Altimeter Mode Switch")
-defineRotary("PLT_ALTIMETER_KNOB", 28, 3486, 306, "Altimeter", "PILOT Altimeter Pressure Setting")
+define3PosTumb("PLT_ALTIMETER_MODE", 29, 3487, 307, "Altimeter", "PILOT Altimeter Mode Switch")
+defineRotary("PLT_ALTIMETER_KNOB", 29, 3486, 306, "Altimeter", "PILOT Altimeter Pressure Setting")
 
 -- RIO Altimeter
 define3PosTumb("RIO_ALTIMETER_MODE", 29, 3490, 20307, "Altimeter", "RIO Altimeter Mode Switch")
@@ -446,7 +446,7 @@ define3PosTumb("RIO_FLOOD_LIGHT_RED", 12, 3706, 194, "Light Panel", "RIO Red Flo
 define3PosTumb("RIO_FLOOD_LIGHT_WH", 12, 3707, 159, "Light Panel", "RIO White Flood Light")
 defineMultipositionSwitch("RIO_LIGHT_INTENT_INSTRUMENT", 12, 3708, 193, 9, 0.125,"Light Panel" ,"RIO Instrument Light Intensity")
 defineMultipositionSwitch("RIO_LIGHT_INTENT_CONSOLE", 12, 3709, 192, 9, 0.125,"Light Panel" ,"RIO Console Light Intensity")
----STOP-----
+
 -- DISPLAY Panel: Power
 defineToggleSwitch("PLT_VDI_PW_SW", 42, 3214, 1010, "Display", "PILOT VDI Power On/Off")
 defineToggleSwitch("PLT_HUD_PW_SW", 40, 3213, 1009, "Display", "PILOT HUD Power On/Off")
