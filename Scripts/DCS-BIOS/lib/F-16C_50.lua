@@ -942,7 +942,7 @@ DEDLayout_l3["List Item E Number"]={18,1,0,"","I"}
 DEDLayout_l3["List Item E Name"]={19,4}
 --T-ILS
 DEDLayout_l3["TILS Scratchpad"]={8,6,0,"_inv","I"}
-DEDLayout_l3["TILS Asterisks_both"]={7,1,14,"",'INV'}
+DEDLayout_l3["TILS Asterisks_both"]={7,1,14,"",'I'}
 DEDLayout_l3["ILS CMD STRG"]={15,8}
 DEDLayout_l3["TCN BCN Label"] = {0,3}
 DEDLayout_l3["TCN BCN ID"] = {4,3}
