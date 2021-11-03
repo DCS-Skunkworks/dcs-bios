@@ -9928,6 +9928,38 @@
                                                                            }
                                                     },
                                "Throttle Quadrant": {
+                                                          "INT_THROTTLE_LEFT": {
+                                                                                       "category": "Throttle Quadrant",
+                                                                                   "control_type": "analog_gauge",
+                                                                                    "description": "Left Throttle Position",
+                                                                                     "identifier": "INT_THROTTLE_LEFT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 30088,
+                                                                                                       "description": "gauge position",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                         "INT_THROTTLE_RIGHT": {
+                                                                                       "category": "Throttle Quadrant",
+                                                                                   "control_type": "analog_gauge",
+                                                                                    "description": "Right Throttle Position",
+                                                                                     "identifier": "INT_THROTTLE_RIGHT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 30090,
+                                                                                                       "description": "gauge position",
+                                                                                                              "mask": 65535,
+                                                                                                         "max_value": 65535,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
                                                             "THROTTLE_ATC_SW": {
                                                                                            "api_variant": "momentary_last_position",
                                                                                               "category": "Throttle Quadrant",
