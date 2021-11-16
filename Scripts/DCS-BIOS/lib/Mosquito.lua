@@ -331,10 +331,16 @@ defineIndicatorLight("WH_LAMP_F_L", 300, "Cockpit Lights", "Front White Lamp (wh
 defineIndicatorLight("WH_LAMP_L_L", 299, "Cockpit Lights", "Left White Lamp (white)")
 defineIndicatorLight("GAUGES_GLOW_L", 297, "Cockpit Lights", "Gauges Glow (green)")
 
-defineIndicatorLight("GEAR_UP_L_L", 77, "Main Panel Lights", "Under Carriage Left UP Light (red)")
-defineIndicatorLight("GEAR_UP_R_L", 79, "Main Panel Lights", "Under Carriage Right UP Light (red)")
-defineIndicatorLight("GEAR_DN_L_L", 78, "Main Panel Lights", "Under Carriage Left DOWN Light (green)")
-defineIndicatorLight("GEAR_DN_R_L", 80, "Main Panel Lights", "Under Carriage Right DOWN Light (green)")
+defineIndicatorLight("GEAR_UP_L_L", 77, "Main Panel Lights", "Under Carriage (Gear) Left UP Light (red)")
+defineIndicatorLight("GEAR_UP_R_L", 79, "Main Panel Lights", "Under Carriage (Gear) Right UP Light (red)")
+defineIndicatorLight("GEAR_DN_L_L", 78, "Main Panel Lights", "Under Carriage (Gear) Left DOWN Light (green)")
+defineIndicatorLight("GEAR_DN_R_L", 80, "Main Panel Lights", "Under Carriage (Gear) Right DOWN Light (green)")
+
+defineIndicatorLight("FUEL_PRESS_WARN_L_L", 277, "Main Panel Lights", "Left Fuel Pressure Warning Light (red)")
+defineIndicatorLight("FUEL_PRESS_WARN_L_R", 278, "Main Panel Lights", "Right Fuel Pressure Warning Light (red)")
+
+defineToggleSwitch("FUEL_PRESS_WARN_L_L_CVR", 2, 3000, 377, "Main Panel", "Left Fuel Pressure Warning Light Cover") --WIP
+defineToggleSwitch("FUEL_PRESS_WARN_L_R_CVR", 2, 3000, 378, "Main Panel", "Left Fuel Pressure Warning Light Cover") --WIP
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
