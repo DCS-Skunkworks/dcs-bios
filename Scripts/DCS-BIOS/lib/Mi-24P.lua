@@ -1218,4 +1218,6 @@ defineRotary("OP_PKI_CONTROL", 17, 3001, 846, "PKI", "OPERATOR PKI reflector con
 definePotentiometer("OP_PKI_BRIGHT", 17, 3004, 136, {0, 1}, "PKI", "OPERATOR PKI Brightness Adjustment")
 defineToggleSwitch("OP_PKI_LOCK", 17, 3006, 15, "PKI", "OPERATOR PKI Lock/Unlock")
 
+defineFloat("OP_AIM_REF_MARKER", 1028, {0, 1}, "Gauges OP", "OPERATOR Aiming Reference Marker")
+
 BIOS.protocol.endModule()
