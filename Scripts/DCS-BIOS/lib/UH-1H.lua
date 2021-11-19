@@ -265,7 +265,7 @@ defineRockerSwitch("CLP_BRIGHT_DIM_SW", 15, 3002, 3002, 3002, 3002, 112, "Cautio
 defineToggleSwitch("MAIN_FUEL_SW", 2, 3001, 81, "Fuel System", "Main Fuel Switch")
 definePushButton("TEST_FUEL_GAUGE_BTN", 2, 3002, 240, "Fuel System", "Test Fuel Gauge Button")
 
-defineFixedStepTumb("IFF_CODE", 17, 3007, 58, 0.1, {0.0, 0.3}, {1, -1}, nil, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
+defineFixedStepTumb("IFF_CODE", 17, 3007, 58, 0.1, {0, 0.3}, {1, -1}, nil, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
 defineMultipositionSwitch("IFF_MASTER", 17, 3008, 59, 5, 0.1, "IFF", "IFF Master")
 defineTumb("IFF_OUT_AUDIO_LIGHT", 17, 3009, 60, 1, {-1, 1}, nil, false, "IFF", "IFF Out: LIGHT - OFF - AUDIO")
 defineTumb("IFF_TEST_M1", 17, 3010, 61, 1, {-1, 1}, nil, true, "IFF", "Test M-1")
@@ -275,16 +275,16 @@ defineTumb("IFF_TEST_M4", 17, 3013, 64, 1, {-1, 1}, nil, true, "IFF", "Test M-4"
 defineTumb("IFF_RADTEST", 17, 3014, 65, 1, {-1, 1}, nil, true, "IFF", "RAD Test/Mon")
 defineTumb("IFF_MIC_IDENT", 17, 3015, 66, 1, {-1, 1}, nil, true, "IFF", "Ident/Mic Switch")
 defineToggleSwitch("IFF_ON_OUT", 17, 3016, 67, "IFF", "IFF On/Out")
-defineTumb("IFF_MODE1_WHEEL1", 17, 3001, 68, 0.1, {0.0, 0.7}, nil, true, "IFF", "Mode-1 Wheel 1")
-defineTumb("IFF_MODE1_WHEEL2", 17, 3002, 69, 0.1, {0.0, 0.3}, nil, true, "IFF", "Mode-1 Wheel 2")
-defineTumb("IFF_MODE3A_WHEEL1", 17, 3003, 70, 0.1, {0.0, 0.7}, nil, true, "IFF", "Mode-3A Wheel 1")
-defineTumb("IFF_MODE3A_WHEEL2", 17, 3004, 71, 0.1, {0.0, 0.7}, nil, true, "IFF", "Mode-3A Wheel 2")
-defineTumb("IFF_MODE3A_WHEEL3", 17, 3005, 72, 0.1, {0.0, 0.7}, nil, true, "IFF", "Mode-3A Wheel 3")
-defineTumb("IFF_MODE3A_WHEEL4", 17, 3006, 73, 0.1, {0.0, 0.7}, nil, true, "IFF", "Mode-3A Wheel 4")
+defineTumb("IFF_MODE1_WHEEL1", 17, 3001, 68, 0.1, {0, 0.7}, nil, true, "IFF", "Mode-1 Wheel 1")
+defineTumb("IFF_MODE1_WHEEL2", 17, 3002, 69, 0.1, {0, 0.3}, nil, true, "IFF", "Mode-1 Wheel 2")
+defineTumb("IFF_MODE3A_WHEEL1", 17, 3003, 70, 0.1, {0, 0.7}, nil, true, "IFF", "Mode-3A Wheel 1")
+defineTumb("IFF_MODE3A_WHEEL2", 17, 3004, 71, 0.1, {0, 0.7}, nil, true, "IFF", "Mode-3A Wheel 2")
+defineTumb("IFF_MODE3A_WHEEL3", 17, 3005, 72, 0.1, {0, 0.7}, nil, true, "IFF", "Mode-3A Wheel 3")
+defineTumb("IFF_MODE3A_WHEEL4", 17, 3006, 73, 0.1, {0, 0.7}, nil, true, "IFF", "Mode-3A Wheel 4")
 definePushButton("IFF_REPLY_TEST", 17, 3017, 74, "IFF", "REPLY Push to Test")
-definePotentiometer("IFF_REPLY_DIM", 17, 3020, 78, {0.0, 1.0}, "IFF", "IFF Reply Dim")
+definePotentiometer("IFF_REPLY_DIM", 17, 3020, 78, {0, 1}, "IFF", "IFF Reply Dim")
 definePushButton("IFF_TEST_TEST", 17, 3018, 75, "IFF", "TEST Push to Test")
-definePotentiometer("IFF_TEST_DIM", 17, 3021, 79, {0.0, 1.0}, "IFF", "TEST Reply Dim")
+definePotentiometer("IFF_TEST_DIM", 17, 3021, 79, {0, 1}, "IFF", "TEST Reply Dim")
 
 defineToggleSwitchToggleOnly("CLOCK_ADJUST_PULL", 30, 3001, 131, "Clock", "Adjustment Dial Pull")
 defineRotary("CLOCK_ADJUST", 30, 3002, 130, "Clock", "Adjustment Dial")
@@ -338,7 +338,7 @@ defineMultipositionSwitch("INT_MODE", 21, 3008, 30, 6, 0.1, "Intercom Panel", "I
 
 defineToggleSwitch("RADIO_ICS_SW", 21, 3009, 194, "Cyclic", "Radio/ICS Switch")
 
-defineTumb("UHF_PRESET", 22, 3001, 16, 0.05, {0.0, 0.95}, {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, false, "UHF Radio", "Preset Channel Selector")
+defineTumb("UHF_PRESET", 22, 3001, 16, 0.05, {0, 0.95}, {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, false, "UHF Radio", "Preset Channel Selector")
 
 local function getUhfFreq()
 	local function a(n) return GetDevice(0):get_argument_value(n) end
@@ -359,7 +359,7 @@ defineTumb("VHFFM_FREQ2", 23, 3002, 32, 0.1, {0.0, 0.9}, nil, false, "VHF FM Rad
 defineTumb("VHFFM_FREQ3", 23, 3003, 33, 0.1, {0.0, 0.9}, nil, false, "VHF FM Radio", "Frequency Decimals MHz")
 defineTumb("VHFFM_FREQ4", 23, 3004, 34, 0.1, {0.0, 0.1}, {"0", "5"}, false, "VHF FM Radio", "Frequency Hundreds of MHz")
 defineMultipositionSwitch("VHFFM_MODE", 23, 3007, 35, 4, 0.1, "VHF FM Radio", "Mode Dial: OFF / T/R / RETRAN / HOME")
-defineTumb("VHFFM_SQUELCH", 23, 3005, 36, 0.1, {0.0, 0.2}, nil, false, "VHF FM Radio", "Squelch Mode: DIS / CARR / TONE")
+defineTumb("VHFFM_SQUELCH", 23, 3005, 36, 0.1, {0, 0.2}, nil, false, "VHF FM Radio", "Squelch Mode: DIS / CARR / TONE")
 definePotentiometer("VHFFM_VOL", 23, 3006, 37, {0.3, 1}, "VHF FM Radio", "Volume Control")
 
 
@@ -380,7 +380,7 @@ documentation["VHF NAV Radio"]["VHFNAV_VOL"].inputs[2].suggested_step = 8192
 definePotentiometer("BEACON_VOL", 26, 3001, 57, {0, 1}, "Front Dash", "Marker Beacon Volume")
 defineToggleSwitch("BEACON_SENSING_SW", 26, 3002, 55, "Front Dash", "Marker Beacon Sensing LOW / HIGH")
 
-defineTumb("ADF_LOOP_LR", 27, 3005, 42, 0.1, {0.0, 0.4}, nil, false, "ADF", "ADF LOOP Left Low Speed / Left High Speed /Center / Right Low Speed / Right High Speed")
+defineTumb("ADF_LOOP_LR", 27, 3005, 42, 0.1, {0, 0.4}, nil, false, "ADF", "ADF LOOP Left Low Speed / Left High Speed /Center / Right Low Speed / Right High Speed")
 defineToggleSwitch("ADF_BFO_SW", 27, 3006, 41, "ADF", "BFO Switch")
 defineMultipositionSwitch("ADF_MODE", 27, 3001, 43, 4, 0.1, "ADF", "ADF Mode OFF / ADF / ANT / LOOP")
 definePotentiometer("ADF_GAIN", 27, 3004, 44, {0, 1}, "ADF", "ADF Gain")
@@ -425,7 +425,7 @@ definePotentiometer("SIGHT_INTEN_PLT", 49, 3001, 440, {0, 1}, "Flex Sight", "Pil
 definePotentiometer("SIGHT_ELEV_PLT", 49, 3003, 441, {-1, 1}, "Flex Sight", "Pilot Sight Elevation")
 
 defineTumb("WIPER_SEL", 12, 3002, 227, 1, {-1, 1}, nil, false, "Overhead Panel", "Wiper PILOT / BOTH / OPERATOR")
-defineFixedStepTumb("WIPER_SPD", 12, 3001, 229, 0.1, {0.0, 0.4}, {-1, 1}, nil, "Overhead Panel", "Wiper Speed PARK - STOP - SLOW - MED - HIGH")
+defineFixedStepTumb("WIPER_SPD", 12, 3001, 229, 0.1, {0, 0.4}, {-1, 1}, nil, "Overhead Panel", "Wiper Speed PARK - STOP - SLOW - MED - HIGH")
 
 definePushButton("TRIM_PLT", 41, 3001, 189, "Cyclic", "Force Trim (Pilot Side)")
 definePushButton("TRIM_CPLT", 41, 3002, 193, "Cyclic", "Force Trim (Copilot Side)")

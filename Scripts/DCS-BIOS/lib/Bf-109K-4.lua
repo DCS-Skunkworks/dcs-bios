@@ -19,77 +19,77 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- remove Arg# Pilot 540
 
-defineTumb("GEN_ON_OFF", 1, 3075, 114, 1, {0,1}, nil, false, "Generator", "Generator On/Off")
+defineTumb("GEN_ON_OFF", 1, 3075, 114, 1, {0, 1}, nil, false, "Generator", "Generator On/Off")
 definePushButton("GEN_ON", 1, 3077, 114, "Generator", "Generator On")
-defineTumb("GEN_OFF", 1, 3092, 151, 1, {0,1}, nil, false, "Generator", "Generator Off")
+defineTumb("GEN_OFF", 1, 3092, 151, 1, {0, 1}, nil, false, "Generator", "Generator Off")
 -- D 100 - Heating CB
-defineTumb("PIT_HEAT_ON_OFF", 1, 3012, 115, 1, {0,1}, nil, false, "Pitot", "Pitot/Windscreen Heating On/Off")
+defineTumb("PIT_HEAT_ON_OFF", 1, 3012, 115, 1, {0, 1}, nil, false, "Pitot", "Pitot/Windscreen Heating On/Off")
 definePushButton("PIT_HEAT_ON", 1, 3014, 115, "Pitot", "Pitot/Windscreen Heating On")
-defineTumb("PIT_HEAT_OFF", 1, 3086, 152, 1, {0,1}, nil, false, "Pitot", "Pitot/Windscreen Heating Off")
+defineTumb("PIT_HEAT_OFF", 1, 3086, 152, 1, {0, 1}, nil, false, "Pitot", "Pitot/Windscreen Heating Off")
 -- C 100 - Navigation Lights CB
-defineTumb("NAV_LIGHTS_ON_OFF", 1, 3006, 116, 1, {0,1}, nil, false, "Lights", "Nav. Lights On/Off")
+defineTumb("NAV_LIGHTS_ON_OFF", 1, 3006, 116, 1, {0, 1}, nil, false, "Lights", "Nav. Lights On/Off")
 definePushButton("NAV_LIGHTS_ON", 1, 3008, 116, "Lights", "Nav. Lights On")
-defineTumb("NAV_LIGHTS_OFF", 1, 3084, 153, 1, {0,1}, nil, false, "Lights", "Nav. Lights Off")
+defineTumb("NAV_LIGHTS_OFF", 1, 3084, 153, 1, {0, 1}, nil, false, "Lights", "Nav. Lights Off")
 -- C 101 - Instrument Panel Illumination CB
-defineTumb("UV_LIGHTS_ON_OFF", 1, 3009, 117, 1, {0,1}, nil, false, "Lights", "UV Lights On/Off")
+defineTumb("UV_LIGHTS_ON_OFF", 1, 3009, 117, 1, {0, 1}, nil, false, "Lights", "UV Lights On/Off")
 definePushButton("UV_LIGHTS_ON", 1, 3011, 117, "Lights", "UV Lights On")
-defineTumb("UV_LIGHTS_OFF", 1, 3085, 154, 1, {0,1}, nil, false, "Lights", "UV Lights Off")
+defineTumb("UV_LIGHTS_OFF", 1, 3085, 154, 1, {0, 1}, nil, false, "Lights", "UV Lights Off")
 -- V 101 - Drop Ordnance & Optional Armament CB
-defineTumb("WNG_DRP_ON_OFF", 1, 3024, 118, 1, {0,1}, nil, false, "Weapon Control", "Wing / Drop Ordnance On/Off")
+defineTumb("WNG_DRP_ON_OFF", 1, 3024, 118, 1, {0, 1}, nil, false, "Weapon Control", "Wing / Drop Ordnance On/Off")
 definePushButton("WNG_DRP_ON", 1, 3026, 118, "Weapon Control", "Wing / Drop Ordnance On")
-defineTumb("WNG_DRP_OFF", 1, 3090, 155, 1, {0,1}, nil, false, "Weapon Control", "Wing / Drop Ordnance Off")
+defineTumb("WNG_DRP_OFF", 1, 3090, 155, 1, {0, 1}, nil, false, "Weapon Control", "Wing / Drop Ordnance Off")
 -- V 100 - Systematic & Ignition CB
-defineTumb("IGN_ON_OFF", 1, 3003, 119, 1, {0,1}, nil, false, "Engine", "Ignition On/Off")
+defineTumb("IGN_ON_OFF", 1, 3003, 119, 1, {0, 1}, nil, false, "Engine", "Ignition On/Off")
 definePushButton("IGN_ON", 1, 3005, 119, "Engine", "Ignition On")
-defineTumb("IGN_OFF", 1, 3083, 156, 1, {0,1}, nil, false, "Engine", "Ignition Off")
+defineTumb("IGN_OFF", 1, 3083, 156, 1, {0, 1}, nil, false, "Engine", "Ignition Off")
 -- Right Row
 -- A 101 - Battery Cut-Off Relay
-defineTumb("BAT_ON_OFF", 1, 3078, 120, 1, {0,1}, nil, false, "Engine", "Battery On/Off")
+defineTumb("BAT_ON_OFF", 1, 3078, 120, 1, {0, 1}, nil, false, "Engine", "Battery On/Off")
 definePushButton("BAT_ON", 1, 3080, 120, "Engine", "Battery On")
-defineTumb("BAT_OFF", 1, 3093, 157, 1, {0,1}, nil, false, "Engine", "Battery Off")
+defineTumb("BAT_OFF", 1, 3093, 157, 1, {0, 1}, nil, false, "Engine", "Battery Off")
 -- F 135 - Radio CB - Labelled "FuG 16"
-defineTumb("RADIO_ON_OFF", 1, 3018, 121, 1, {0,1}, nil, false, "Radio", "Radio On/Off")
+defineTumb("RADIO_ON_OFF", 1, 3018, 121, 1, {0, 1}, nil, false, "Radio", "Radio On/Off")
 definePushButton("RADIO_ON", 1, 3020, 121, "Radio", "Radio On")
-defineTumb("RADIO_OFF", 1, 3088, 158, 1, {0,1}, nil, false, "Radio", "Radio Off")
+defineTumb("RADIO_OFF", 1, 3088, 158, 1, {0, 1}, nil, false, "Radio", "Radio Off")
 -- F 211 - IFF CB - Labelled "FuG 25a"
-defineTumb("IFF_ON_OFF", 1, 3021, 122, 1, {0,1}, nil, false, "Radio", "I.F.F. Power On/Off")
+defineTumb("IFF_ON_OFF", 1, 3021, 122, 1, {0, 1}, nil, false, "Radio", "I.F.F. Power On/Off")
 definePushButton("IFF_ON", 1, 3023, 122, "Radio", "I.F.F. Power On")
-defineTumb("IFF_OFF", 1, 3089, 159, 1, {0,1}, nil, false, "Radio", "I.F.F. Power Off")
+defineTumb("IFF_OFF", 1, 3089, 159, 1, {0, 1}, nil, false, "Radio", "I.F.F. Power Off")
 -- E 101 - Fuel Pump CB - Labelled "Tankpumpe"
-defineTumb("FUEL_ON_OFF", 1, 3015, 123, 1, {0,1}, nil, false, "Engine", "Fuel Pump On/Off")
+defineTumb("FUEL_ON_OFF", 1, 3015, 123, 1, {0, 1}, nil, false, "Engine", "Fuel Pump On/Off")
 definePushButton("FUEL_ON", 1, 3017, 123, "Engine", "Fuel Pump On")
-defineTumb("FUEL_OFF", 1, 3087, 160, 1, {0,1}, nil, false, "Engine", "Fuel Pump Off")
+defineTumb("FUEL_OFF", 1, 3087, 160, 1, {0, 1}, nil, false, "Engine", "Fuel Pump Off")
 
 -- Control Stick Triggers and Buttons
 -- Stick Safety / Trigger Lever
-defineTumb("TRG_SAFETY", 1, 3073, 107, 1, {0,1}, nil, false, "Weapon Control", "Trigger Safety Cover")
+defineTumb("TRG_SAFETY", 1, 3073, 107, 1, {0, 1}, nil, false, "Weapon Control", "Trigger Safety Cover")
 -- Button A - MG Trigger
-defineTumb("MG_TRIGGER", 1, 3051, 108, 1, {0,1}, nil, false, "Weapon Control", "Button A MG")
+defineTumb("MG_TRIGGER", 1, 3051, 108, 1, {0, 1}, nil, false, "Weapon Control", "Button A MG")
 -- Button B1 - Cannon Trigger
-defineTumb("CANNON_TRIGGER", 1, 3052, 109, 1, {0,1}, nil, false, "Weapon Control", "Button B1 CANNON")
+defineTumb("CANNON_TRIGGER", 1, 3052, 109, 1, {0, 1}, nil, false, "Weapon Control", "Button B1 CANNON")
 -- Button B2 - Secondary & Drop Ordnance Trigger
-defineTumb("BOMB_RLS", 1, 3053, 110, 1, {0,1}, nil, false, "Weapon Control", "Button B2 BOMB")
+defineTumb("BOMB_RLS", 1, 3053, 110, 1, {0, 1}, nil, false, "Weapon Control", "Button B2 BOMB")
 -- Button D - MK 108 Charge Button
-defineTumb("MK108_CHARGE", 1, 3055, 111, 1, {0,1}, nil, false, "Weapon Control", "Button D MK 108")
+defineTumb("MK108_CHARGE", 1, 3055, 111, 1, {0, 1}, nil, false, "Weapon Control", "Button D MK 108")
 
 -- Ignition Controls and Starter and Motor-Related Switches
 -- Magneto Selector
 defineTumb("MAGNETOS", 1, 3066, 59, 0.1, {0,0.3}, nil, false, "Engine", "Magnetos Off/M1/M2/M1+M2")
 
 -- Starter Handle Cover
-defineTumb("STARTER_HNDL_CVR", 1, 3063, 51, 1, {0,1}, nil, false, "Engine", "Starter Handle Cover")
+defineTumb("STARTER_HNDL_CVR", 1, 3063, 51, 1, {0, 1}, nil, false, "Engine", "Starter Handle Cover")
 -- Starter Turn Handle
-defineTumb("STARTER_HNDL", 1, 3065, 52, 1, {0,1}, nil, false, "Engine", "Starter")
+defineTumb("STARTER_HNDL", 1, 3065, 52, 1, {0, 1}, nil, false, "Engine", "Starter")
 -- WM-Kommandgerat Toggle
-defineTumb("GOV_ON_OFF", 1, 3058, 62, 1, {0,1}, nil, false, "Engine", "Governor Automation On/Off")
+defineTumb("GOV_ON_OFF", 1, 3058, 62, 1, {0, 1}, nil, false, "Engine", "Governor Automation On/Off")
 -- Dashboard and Secondary Switches
 -- A 104 - Kill Switch
-defineTumb("KILL_SWITCH", 1, 3001, 49, 1, {0,1}, nil, false, "Engine", "Kill Switch")
+defineTumb("KILL_SWITCH", 1, 3001, 49, 1, {0, 1}, nil, false, "Engine", "Kill Switch")
 
 -- Button T - Gun Camera Trigger
-defineTumb("GUN_CAM_TRG", 1, 3054, 149, 1, {0,1}, nil, false, "Weapon Control", "Button T")
+defineTumb("GUN_CAM_TRG", 1, 3054, 149, 1, {0, 1}, nil, false, "Weapon Control", "Button T")
 -- SZKK3 Weapons Control Master Switch
-defineTumb("SZKK3_CTRL_ON_OFF", 1, 3032, 37, 1, {0,1}, nil, false, "Weapon Control", "SZKK 3 Weapon Control On/Off")
+defineTumb("SZKK3_CTRL_ON_OFF", 1, 3032, 37, 1, {0, 1}, nil, false, "Weapon Control", "SZKK 3 Weapon Control On/Off")
 
 -- LH SZ 500 Ammo Counter
 defineRotary("SZKK3_AMMO_LEFT", 3, 3001, 38, "Weapon Control", "Left Ammo Counter Setter Pinion")
@@ -97,16 +97,16 @@ defineRotary("SZKK3_AMMO_LEFT", 3, 3001, 38, "Weapon Control", "Left Ammo Counte
 defineRotary("SZKK3_AMMO_RIGHT", 3, 3004, 39, "Weapon Control", "Right Ammo Counter Setter Pinion")
 
 -- MW50 Operational Toggle
-defineTumb("MW50_BOOST", 1, 3036, 60, 1, {0,1}, nil, false, "Engine", "MW50 Boost On/Off")
+defineTumb("MW50_BOOST", 1, 3036, 60, 1, {0, 1}, nil, false, "Engine", "MW50 Boost On/Off")
 -- Wing Cannons Toggle
-defineTumb("WNG_CANNONS_ON_OFF", 1, 3034, 61, 1, {0,1}, nil, false, "Weapon Control", "Wing Cannons On/Off")
+defineTumb("WNG_CANNONS_ON_OFF", 1, 3034, 61, 1, {0, 1}, nil, false, "Weapon Control", "Wing Cannons On/Off")
 -- MK 108 / Wing Guns Toggle
-defineTumb("MK108_R21", 1, 3081, 62, 1, {0,1}, nil, false, "Weapon Control", "MK 108 / R 21")
+defineTumb("MK108_R21", 1, 3081, 62, 1, {0, 1}, nil, false, "Weapon Control", "MK 108 / R 21")
 
 -- R 101 ZSK 244 A Bomb Panel Master Switch
 -- Operated internally via ZSK 244 A Mode Control
 -- R 101 ZSK 244 A Mode Selector
-defineTumb("FUSING_SEL", 3, 3013, 64, 0.25, {0,1}, nil, false, "Weapon Control", "Bomb Fusing Selector")
+defineTumb("FUSING_SEL", 3, 3013, 64, 0.25, {0, 1}, nil, false, "Weapon Control", "Bomb Fusing Selector")
 
 -- Illumination Controls
 -- C 102 LH UV Lamp Rheostat
@@ -118,12 +118,12 @@ definePotentiometer("R_UV_BRIGHT", 1, 3041, 82, {0, 1},"Lamps", "Right UV Lamp B
 definePushButton("OXYGEN_VALVE", 2, 3001, 127, "Oxygen", "Oxygen Valve")
 
 -- Regulator "Oxygen Shower" Blue Button
-defineTumb("OXY_BYPASS", 2, 3003, 126, 1, {0,1}, nil, false, "Oxygen", "Oxygen Emergency By-Pass")
+defineTumb("OXY_BYPASS", 2, 3003, 126, 1, {0, 1}, nil, false, "Oxygen", "Oxygen Emergency By-Pass")
 --
 -- Main Panel Controls
 -- Undercarriage Controls
 -- U/C Plungers Cover
-defineTumb("LG_COVER", 4, 3039, 53, 1, {0,1}, nil, false, "Landing Gear", "Undercarriage Controls Cover")
+defineTumb("LG_COVER", 4, 3039, 53, 1, {0, 1}, nil, false, "Landing Gear", "Undercarriage Controls Cover")
 -- U/C Raise Plunger
 defineTumb("LG_UP", 4, 3001, 54, 1,  {0, 1.0}, nil, false, "Landing Gear", "Raise Undercarriage")
 -- U/C Extension Plunger
@@ -141,7 +141,7 @@ definePushButton("FUEL_JETTISON", 4, 3041, 112, "Engine", "MW / Fuel Jettison")
 
 -- Fuel and MW50 Systems Controls
 -- Fuel Primer Hand Pump
-defineTumb("FUEL_PRIMER_PUMP", 4, 3012, 140, 1, {0,1}, nil, false, "Engine", "Fuel Priming Pump")
+defineTumb("FUEL_PRIMER_PUMP", 4, 3012, 140, 1, {0, 1}, nil, false, "Engine", "Fuel Priming Pump")
 
 -- Schnellstop Lever
 definePushButton("ENGINE_STOP", 5, 3006, 88, "Engine", "Engine Stop")
@@ -170,18 +170,18 @@ defineRotary("CLOCK_SCALE", 19, 3001, 21, "Cockpit", "Clock Scale Set")
 -- Clock Setter Pinion
 defineRotary("CLOCK_SET", 19, 3004, 22, "Cockpit", "Clock Adjusting Knob")
 -- Clock Freeze Lever
-defineTumb("CLOCK_TIME_LEVER", 19, 3006, 23, 1, {0,1}, nil, false, "Cockpit", "Time Setting Lever")
+defineTumb("CLOCK_TIME_LEVER", 19, 3006, 23, 1, {0, 1}, nil, false, "Cockpit", "Time Setting Lever")
 -- Clock Stopwatch Button
-defineTumb("CLOCK_TIMER", 19, 3008, 24, 1, {0,1}, nil, false, "Cockpit", "Start/Stop/Reset Chronometer")
+defineTumb("CLOCK_TIMER", 19, 3008, 24, 1, {0, 1}, nil, false, "Cockpit", "Start/Stop/Reset Chronometer")
 
 
 
 -- P 112 Gun Sight Brightness Rheostat
-definePotentiometer("SIGHT_BRIGHT", 1, 3044, 48, {0,1}, "Gun Sight", "Gun Sight Brightness")
+definePotentiometer("SIGHT_BRIGHT", 1, 3044, 48, {0, 1}, "Gun Sight", "Gun Sight Brightness")
 -- P 9 / P 10 REVI Power Plug and Socket
 -- Operated internally via gun sight movement
 -- P 112 Gun Sight Folding Controls
-defineTumb("SIGHT_FOLD", 3, 3007, 139, 1, {0,1}, nil, false, "Gun Sight", "Gun Sight Fold")
+defineTumb("SIGHT_FOLD", 3, 3007, 139, 1, {0, 1}, nil, false, "Gun Sight", "Gun Sight Fold")
 -- P 112 Gun Sight Smoked Screen Controls
 definePushButton("SIGHT_SCREEN", 3, 3010, 47, "Gun Sight", "Gun Sight Smoked Screen Up/Down")
 -- Radio Controls
@@ -190,26 +190,26 @@ defineTumb("RADIO_MODE", 14, 3001, 128, 0.1, {0,0.3}, nil, false, "Radio", "Radi
 
 defineRotary("FUG16_TUNING", 14,3008, 129, "Radio", "FuG16 ZY Fine Tune")
 defineRotary("FUG16_VOLUME", 14, 3003, 130, "Radio", "FuG16 ZY Volume")
-defineTumb("FT_ZF_SWITCH", 14, 3006, 131, 1, {0,1}, nil, false, "Radio", "FT FT / Y ZF Homing Switch")
+defineTumb("FT_ZF_SWITCH", 14, 3006, 131, 1, {0, 1}, nil, false, "Radio", "FT FT / Y ZF Homing Switch")
 
 defineTumb("FUG25_MODE", 14, 3012, 132, 1,  {0.0, 1}, nil, false, "Radio", "FuG25 Mode 1 / 2")
-defineTumb("FUG25_TEST", 14, 3014, 133, 1, {0,1}, nil, false, "Radio", "FuG25 Test")
+defineTumb("FUG25_TEST", 14, 3014, 133, 1, {0, 1}, nil, false, "Radio", "FuG25 Test")
 
 -- Left Wall Controls
 -- Tail Wheel Lock Handle
 definePushButton("TAIL_LOCK", 4, 3021, 97, "Tail Wheel", "Tail Wheel Lock")
 
-defineTumb("CANOPY_OPEN", 4, 3029, 136, 1, {0,1}, nil, false, "Canopy", "Canopy Open/Close")
+defineTumb("CANOPY_OPEN", 4, 3029, 136, 1, {0, 1}, nil, false, "Canopy", "Canopy Open/Close")
 
 definePushButton("JETTISON_CANOPY", 4, 3032, 83, "Canopy", "Jettison Canopy")
 
 -- Trim Wheel
-defineTumb("TRIM_WHEEL_UP", 4, 3008, 141, 1, {0,1}, nil, false, "Trim", "Stabilizer Trim Nose Up")
-defineTumb("TRIM_WHEEL_DOWN", 4, 3009, 142, 1, {0,1}, nil, false, "Trim", "Stabilizer Trim Nose Down")
+defineTumb("TRIM_WHEEL_UP", 4, 3008, 141, 1, {0, 1}, nil, false, "Trim", "Stabilizer Trim Nose Up")
+defineTumb("TRIM_WHEEL_DOWN", 4, 3009, 142, 1, {0, 1}, nil, false, "Trim", "Stabilizer Trim Nose Down")
 
 -- Flaps Wheel
-defineTumb("FLAPS_EXTEND", 4, 3010, 143, 1, {0,1}, nil, false, "Flaps", "Extend Flaps")
-defineTumb("FLAPS_RETRACT", 4, 3011, 144, 1, {0,1}, nil, false, "Flaps", "Retract Flaps")
+defineTumb("FLAPS_EXTEND", 4, 3010, 143, 1, {0, 1}, nil, false, "Flaps", "Extend Flaps")
+defineTumb("FLAPS_RETRACT", 4, 3011, 144, 1, {0, 1}, nil, false, "Flaps", "Retract Flaps")
 
 -- Notwurf / Ordinance Dump
 definePushButton("ORD_EMG_DUMP", 3, 3018, 92, "Weapon Control", "Ordinance Emergency Release")
@@ -223,10 +223,10 @@ definePushButton("FLARE_GUN", 20, 3001, 72, "Flare Gun", "Fire Flare Gun")
 defineTumb("DEC_RPM", 1, 3060, 85, 1, {-1,1}, nil, false, "Engine", "Decrease RPM")
 defineTumb("INC_RPM", 1, 3060, 85, 1, {-1,1}, nil, false, "Engine", "Increase RPM")
 -- Radio Transmit Button
-defineTumb("MIC_ON", 14, 3005, 150, 1, {0,1}, nil, false, "Radio", "Microphone On")
+defineTumb("MIC_ON", 14, 3005, 150, 1, {0, 1}, nil, false, "Radio", "Microphone On")
 
 -- E 103 Propellor Automation Switch
-defineTumb("GOV_AUTO_SWITCH", 1, 3058, 89, 1, {0,1}, nil, false, "Engine", "Governor Automation On/Off")
+defineTumb("GOV_AUTO_SWITCH", 1, 3058, 89, 1, {0, 1}, nil, false, "Engine", "Governor Automation On/Off")
 
 -- Cold Weather Start Valve Handle
 definePushButton("COLD_START", 5, 3008, 86, "Engine", "Cold Weather Start")
@@ -235,51 +235,51 @@ defineFloat("MIRRORS_DRAW", 183, {1, 0}, "Indicator", "mirrors_draw")
 defineFloat("PANEL_SHAKE_Z", 146, {-0.8, 0.8}, "Indicator", "Panel_Shake_Z")
 defineFloat("PANEL_SHAKE_Y", 147, {-0.8, 0.8}, "Indicator", "Panel_Shake_Y")
 defineFloat("PANEL_ROT_X", 148, {-0.5, 0.5}, "Indicator", "Panel_Rot_X")
-defineFloat("STICKPITCH", 105, {-1.0, 1.0}, "Indicator", "StickPitch")
-defineFloat("STICKBANK", 106, {-1.0, 1.0}, "Indicator", "StickBank")
-defineFloat("RUDDERPEDALS", 102, {-1.0, 1.0}, "Indicator", "RudderPedals")
+defineFloat("STICKPITCH", 105, {-1, 1}, "Indicator", "StickPitch")
+defineFloat("STICKBANK", 106, {-1, 1}, "Indicator", "StickBank")
+defineFloat("RUDDERPEDALS", 102, {-1, 1}, "Indicator", "RudderPedals")
 defineFloat("CANOPY_TRUCKS", 162, {0, 1}, "Indicator", "Canopy_Trucks")
 defineFloat("CANOPY_VISIBILITY", 163, {0, 1}, "Indicator", "Canopy_Visibility")
-defineFloat("CANOPY_CRANK", 147, {0.0, 1.0}, "Indicator", "Canopy_Crank")
+defineFloat("CANOPY_CRANK", 147, {0, 1}, "Indicator", "Canopy_Crank")
 defineFloat("LEFT_WHEEL_BRAKE", 103, {0, 1}, "Indicator", "Left_Wheel_Brake")
 defineFloat("RIGHT_WHEEL_BRAKE", 104, {0, 1}, "Indicator", "Right_Wheel_Brake")
-defineFloat("MW50_PRESSURE", 1, {0.0, 1.0}, "Indicator", "MW50_Pressure")
-defineFloat("AIRSPEEDNEEDLE", 2, {0.0, 1.0}, "Indicator", "AirspeedNeedle")
-defineFloat("TURNNEEDLE", 3, {-1.0, 1.0}, "Indicator", "TurnNeedle")
+defineFloat("MW50_PRESSURE", 1, {0, 1}, "Indicator", "MW50_Pressure")
+defineFloat("AIRSPEEDNEEDLE", 2, {0, 1}, "Indicator", "AirspeedNeedle")
+defineFloat("TURNNEEDLE", 3, {-1, 1}, "Indicator", "TurnNeedle")
 defineFloat("AHORIZON_BANK", 4, {1.0, -1.0}, "Indicator", "AHorizon_Bank")
 defineFloat("AHORIZON_PITCH", 5, {1.0, -1.0}, "Indicator", "AHorizon_Pitch")
-defineFloat("SLIPBALL", 6, {-1.0, 1.0}, "Indicator", "Slipball")
-defineFloat("AHORIZON_CAGED", 7, {0.0, 1.0}, "Indicator", "AHorizon_Caged")
-defineFloat("ALTIMETER_FINEPTR", 8, {0.0, 1.0}, "Indicator", "Altimeter_FinePtr")
-defineFloat("ALTIMETER_COARSEPTR", 9, {0.0, 1.0}, "Indicator", "Altimeter_CoarsePtr")
-defineFloat("ALTIMETER_PRESSURE", 10, {0.0, 1.0}, "Indicator", "Altimeter_Pressure")
-defineFloat("PRESSURE_SETTER_PINION", 11, {0.0, 1.0}, "Indicator", "Pressure_Setter_Pinion")
-defineFloat("COMPASSHEADING", 13, {0.0, 1.0}, "Indicator", "CompassHeading")
-defineFloat("COMMANDEDCOURSE", 12, {0.0, 1.0}, "Indicator", "CommandedCourse")
-defineFloat("AFN2_HORIZONTAL_NEEDLE", 14, {-1.0, 1.0}, "Indicator", "AFN2_Horizontal_Needle")
-defineFloat("AFN2_VERTICAL_NEEDLE", 15, {0.0, 1.0}, "Indicator", "AFN2_Vertical_Needle")
+defineFloat("SLIPBALL", 6, {-1, 1}, "Indicator", "Slipball")
+defineFloat("AHORIZON_CAGED", 7, {0, 1}, "Indicator", "AHorizon_Caged")
+defineFloat("ALTIMETER_FINEPTR", 8, {0, 1}, "Indicator", "Altimeter_FinePtr")
+defineFloat("ALTIMETER_COARSEPTR", 9, {0, 1}, "Indicator", "Altimeter_CoarsePtr")
+defineFloat("ALTIMETER_PRESSURE", 10, {0, 1}, "Indicator", "Altimeter_Pressure")
+defineFloat("PRESSURE_SETTER_PINION", 11, {0, 1}, "Indicator", "Pressure_Setter_Pinion")
+defineFloat("COMPASSHEADING", 13, {0, 1}, "Indicator", "CompassHeading")
+defineFloat("COMMANDEDCOURSE", 12, {0, 1}, "Indicator", "CommandedCourse")
+defineFloat("AFN2_HORIZONTAL_NEEDLE", 14, {-1, 1}, "Indicator", "AFN2_Horizontal_Needle")
+defineFloat("AFN2_VERTICAL_NEEDLE", 15, {0, 1}, "Indicator", "AFN2_Vertical_Needle")
 defineIndicatorLight("AFN2_SIGNAL_LAMP", 16, "Indicator", "AFN2_Signal_Lamp")
-defineFloat("FUEL_PRESSURE", 25, {0.0, 1.0}, "Indicator", "Fuel_Pressure")
+defineFloat("FUEL_PRESSURE", 25, {0, 1}, "Indicator", "Fuel_Pressure")
 defineFloat("OIL_PRESSURE", 26, {0, 1.0}, "Indicator", "Oil_Pressure")
 defineFloat("COOLANT_TEMPERATURE", 27, {-1, 1}, "Indicator", "Coolant_Temperature")
 defineFloat("OIL_TEMPERATURE", 28, {-1, 1}, "Indicator", "Oil_Temperature")
-defineFloat("ENGINE_RPM", 29, {0.0, 1.0}, "Indicator", "Engine_RPM")
-defineFloat("PROPELLER_PITCH_HOUR", 30, {0.0, 1.0}, "Indicator", "Propeller_Pitch_Hour")
-defineFloat("PROPELLER_PITCH_MINUTE", 31, {0.0, 1.0}, "Indicator", "Propeller_Pitch_Minute")
-defineFloat("MANIFOLD_PRESSURE", 32, {0.0, 1.0}, "Indicator", "Manifold_Pressure")
-defineFloat("FUEL_TANK_FUSELAGE", 33, {-1.0, 1.0}, "Indicator", "Fuel_Tank_Fuselage")
-defineFloat("OXYGEN_PRESSURE", 34, {0.0, 1.0}, "Indicator", "Oxygen_Pressure")
-defineFloat("OXYGEN_FLOW_BLINKER", 35, {0.0, 1.0}, "Indicator", "Oxygen_Flow_Blinker")
+defineFloat("ENGINE_RPM", 29, {0, 1}, "Indicator", "Engine_RPM")
+defineFloat("PROPELLER_PITCH_HOUR", 30, {0, 1}, "Indicator", "Propeller_Pitch_Hour")
+defineFloat("PROPELLER_PITCH_MINUTE", 31, {0, 1}, "Indicator", "Propeller_Pitch_Minute")
+defineFloat("MANIFOLD_PRESSURE", 32, {0, 1}, "Indicator", "Manifold_Pressure")
+defineFloat("FUEL_TANK_FUSELAGE", 33, {-1, 1}, "Indicator", "Fuel_Tank_Fuselage")
+defineFloat("OXYGEN_PRESSURE", 34, {0, 1}, "Indicator", "Oxygen_Pressure")
+defineFloat("OXYGEN_FLOW_BLINKER", 35, {0, 1}, "Indicator", "Oxygen_Flow_Blinker")
 defineFloat("VARIOMETERNEEDLE", 36, {-0.3, 0.3}, "Indicator", "VariometerNeedle")
-defineFloat("MG131_0_SHELL_COUNTER", 40, {0.0, 1.0}, "Indicator", "MG131_0_Shell_Counter")
-defineFloat("MG131_1_SHELL_COUNTER", 41, {0.0, 1.0}, "Indicator", "MG131_1_Shell_Counter")
-defineFloat("MG131_0_KLAPPANKER", 42, {0.0, 1.0}, "Indicator", "MG131_0_Klappanker")
-defineFloat("MG131_1_KLAPPANKER", 43, {0.0, 1.0}, "Indicator", "MG131_1_Klappanker")
+defineFloat("MG131_0_SHELL_COUNTER", 40, {0, 1}, "Indicator", "MG131_0_Shell_Counter")
+defineFloat("MG131_1_SHELL_COUNTER", 41, {0, 1}, "Indicator", "MG131_1_Shell_Counter")
+defineFloat("MG131_0_KLAPPANKER", 42, {0, 1}, "Indicator", "MG131_0_Klappanker")
+defineFloat("MG131_1_KLAPPANKER", 43, {0, 1}, "Indicator", "MG131_1_Klappanker")
 defineIndicatorLight("LEFTWING_MG151_CONTROL_LAMP", 44, "Indicator", "LeftWing_MG151_Control_Lamp")
 defineIndicatorLight("RIGHTWING_MG151_CONTROL_LAMP", 45, "Indicator", "RightWing_MG151_Control_Lamp")
-defineFloat("BODYSTATE", 46, {0.0, 1.0}, "Indicator", "BodyState")
-defineFloat("SMOKEDSCREEN", 47, {0.0, 1.0}, "Indicator", "SmokedScreen")
-defineFloat("SIGHTBRIGHTNESS", 48, {0.0, 1.0}, "Indicator", "SightBrightness")
+defineFloat("BODYSTATE", 46, {0, 1}, "Indicator", "BodyState")
+defineFloat("SMOKEDSCREEN", 47, {0, 1}, "Indicator", "SmokedScreen")
+defineFloat("SIGHTBRIGHTNESS", 48, {0, 1}, "Indicator", "SightBrightness")
 defineIndicatorLight("LANDINGGEARREDLIGHT", 56, "Indicator", "LandingGearRedLight")
 defineIndicatorLight("LANDINGGEARGREENLIGHTLEFT", 57, "Indicator", "LandingGearGreenLightLeft")
 defineIndicatorLight("LANDINGGEARGREENLIGHTRIGHT", 58, "Indicator", "LandingGearGreenLightRight")

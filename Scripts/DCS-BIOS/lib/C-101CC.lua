@@ -329,7 +329,7 @@ defineToggleSwitch("BACK_EJECT_HANDLE_COVER", 1, 3520, 521, "Misc", "BACK Ejecti
 defineToggleSwitch("BACK_MAN_SEPERATION_HANDLE", 1, 3521, 522, "Misc", "BACK Manual Seperation Handle")
 definePotentiometer("BACK_AIR_VENT", 1, 3523, 1230, nil, "Misc", "BACK Air Vent")
 defineToggleSwitch("BACK_GEAR_HANDLE", 1, 3524, 75, "Misc", "BACK Landing Gear Handle")
-defineFloat("CANOPY_VALUE", 1, {0.0, 1.0}, "Misc", "Canopy Position")
+defineFloat("CANOPY_VALUE", 1, {0, 1}, "Misc", "Canopy Position")
 
 -- WARNING, CAUTION AND INDICATORLIGHTS
 defineIndicatorLight("FRONT_TRANS_GEAR_LIGHT", 9, "Warning, Caution and IndicatorLights","FRONT Transition Gear Light (red)")
@@ -600,8 +600,8 @@ defineToggleSwitch("CC_FRONT_ADF_TRANS_SW", 13, 3011, 680, "ADF", "C-101CC FRONT
 -- GYROSCOPE PLATFORM 
 defineMultipositionSwitch("CC_FRONT_GYRO_FUNC_SEL", 1,3321,728,3,0.5,"Gyro" ,"C-101CC FRONT Gyro Function Selector")
 definePushButton("CC_FRONT_GYRO_SYNC_HDG_SET_BTN", 1, 3324, 1305, "Gyro", "C-101CC FRONT Gyro Synchnonizer and Heading Set Button")
-definePotentiometer("CC_FRONT_GYRO_SYNC_HDG_SET_KNB", 1,3322,729, {0,1}, "Gyro", "C-101CC FRONT Gyro Synchnonizer and Heading Set Knob")
-definePotentiometer("CC_FRONT_GYRO_LAT_CORR", 1,3323,730, {0,1}, "Gyro", "C-101CC FRONT Gyro Latitude Correction")
+definePotentiometer("CC_FRONT_GYRO_SYNC_HDG_SET_KNB", 1,3322,729, {0, 1}, "Gyro", "C-101CC FRONT Gyro Synchnonizer and Heading Set Knob")
+definePotentiometer("CC_FRONT_GYRO_LAT_CORR", 1,3323,730, {0, 1}, "Gyro", "C-101CC FRONT Gyro Latitude Correction")
 definePushButton("CC_FRONT_GYRO_FAST_ERECT", 1,3325,732, "Gyro", "C-101CC FRONT Gyro Fast Erect")
 defineMultipositionSwitch("CC_FRONT_GYRO_MAG_VAR", 1,3326,733,3,0.5,"Gyro" ,"C-101CC FRONT Gyro Mag Var Control")
 defineToggleSwitch("CC_FRONT_GYRO_HEMI_SW", 1,3327,734, "Gyro", "C-101CC FRONT Gyro Hemisphere Switch")

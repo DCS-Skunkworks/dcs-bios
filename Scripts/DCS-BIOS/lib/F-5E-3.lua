@@ -84,8 +84,8 @@ define3PosTumb("A_FLAPS", 2, 3006, 115, "Control Interface", "Auto Flap System T
 define3PosTumb("SPEED", 2, 3007, 101, "Control Interface", "Speed Brake Switch, OUT/OFF/IN")
 defineToggleSwitch("RUDDER_T", 2, 3014, 278, "Control Interface" , "Rudder Pedal Adjust T-Handle, PULL/STOW")
 defineFloat("TRIM_INDICATOR", 52, {1.0, 0.0, -0.1}, "Gauges", "Trim Position")
-defineFloat("FLAP_INDICATOR", 51, {0.0, 0.4}, "Gauges", "Flap Indicator")
-defineFloat("SLIPBALL", 3, {-1.0, 1.0}, "Gauges", "Slipball")
+defineFloat("FLAP_INDICATOR", 51, {0, 0.4}, "Gauges", "Flap Indicator")
+defineFloat("SLIPBALL", 3, {-1, 1}, "Gauges", "Slipball")
 
 -- Electric system
 defineToggleSwitch("SW_BATTERY", 3, 3001, 387,"Electric" , "Battery Switch")
@@ -116,7 +116,7 @@ definePushButton("R_START", 6, 3002, 358,"Engine Interface" , "Right Engine Star
 defineToggleSwitch("INLET_HEATER", 6, 3003, 376,"Engine Interface" , "Engine Anti-Ice Switch, ENGINE/OFF")
 defineFloat("NOZZLEPOS_L", 107, {0, 1}, "Gauges", "Nozzle Position Left")
 defineFloat("NOZZLEPOS_R", 108, {0, 1}, "Gauges", "Nozzle Position Right")
-defineFloat("AUXINT_DOOR", 111, {0.0, 0.2}, "Gauges", "Aux Intake Doors")
+defineFloat("AUXINT_DOOR", 111, {0, 0.2}, "Gauges", "Aux Intake Doors")
 defineFloat("OILPRESS_L", 112, {0, 1}, "Gauges", "Oil Pressure Left")
 defineFloat("OILPRESS_R", 113, {0, 1}, "Gauges", "Oil Pressure Right")
 defineFloat("EXHAUST_TEMP_L", 12, {0, 1}, "Gauges", "Exhaust Gas Temp Left")
@@ -186,8 +186,8 @@ define3PosTumb("BRI_DIM_SW", 12, 3009, 225,"Internal Lights" , "Bright/Dim Switc
 definePushButton("MC_RESET_BTN", 12, 3011, 172,"Internal Lights" , "Master Caution Button")
 
 -- Countermeasures Dispensing System
-defineTumb("CHAFF_MODE", 13, 3001, 400, 0.1, {0.0, 0.3}, nil, false, "CMDS", "Chaff Mode Selector, OFF/SINGLE/PRGM/MULT")
-defineTumb("FLARE_MODE_SEL", 13, 3002, 404, 0.1, {0.0, 0.2}, nil, false, "CMDS", "Flare Mode Selector, OFF/SINGLE/PRGM")
+defineTumb("CHAFF_MODE", 13, 3001, 400, 0.1, {0, 0.3}, nil, false, "CMDS", "Chaff Mode Selector, OFF/SINGLE/PRGM/MULT")
+defineTumb("FLARE_MODE_SEL", 13, 3002, 404, 0.1, {0, 0.2}, nil, false, "CMDS", "Flare Mode Selector, OFF/SINGLE/PRGM")
 defineToggleSwitch("FL_JETT_COVER", 13, 3003, 408,"CMDS" , "Flare Jettison Switch Cover, OPEN/CLOSED")
 defineToggleSwitch("FL_JETT_SW", 13, 3004, 409,"CMDS" , "Flare Jettison Switch, OFF/UP")
 definePushButton("CHAFF_COUNT", 13, 3005, 403,"CMDS" , "Chaff Counter Reset Button - Push to reset")
@@ -232,7 +232,7 @@ define3PosTumb("INT_SW", 15, 3008, 340, "Weapons Control", "Interval Switch [sec
 defineTumb("BOMBS_ARM_SW", 15, 3009, 341, 0.2, {0.2, 0.8}, nil, false,"Weapons Control" ,"Bombs Arm Switch, SAFE/TAIL/NOSE & TAIL/NOSE")
 defineToggleSwitch("MASTER_ARM_GUARD", 15, 3010, 342,"Weapons Control" , "Master Arm Safe Guard")
 define3PosTumb("MASTER_ARM", 15, 3011, 343,"Weapons Control" , "Master Arm Guns, GUNS MSL & CAMR/OFF/CAMR ONLY")
-defineTumb("EXT_STORE", 15, 3012, 344, 0.1, {0.0, 0.3}, nil, false, "Weapons Control", "External Stores Selector RIPL/BOMB/SAFE/RKT DISP")
+defineTumb("EXT_STORE", 15, 3012, 344, 0.1, {0, 0.3}, nil, false, "Weapons Control", "External Stores Selector RIPL/BOMB/SAFE/RKT DISP")
 definePushButton("MISSILE_UNCAGE", 15, 3014, 136,"Weapons Control" , "Missile Uncage Switch - Press and hold to uncage missile seeker head")
 definePotentiometer("MISSILE_VOL", 15, 3015, 345, {0, 1}, "Weapons Control", "Missile Volume Knob")
 definePushButton("WEAPON_RELEASE", 15, 3018, 128,"Weapons Control" , "Weapon Release Button")
@@ -244,8 +244,8 @@ defineTumb("AHRS_NAV_MODE", 16, 3004, 273, 0.1, {0.0, 0.1}, nil, false, "AHRS", 
 
 -- AN/APQ-159 Radar Control Panel
 definePotentiometer("RADAR_ELEVATION", 17, 3001, 321, {-1, 1}, "Radar", "AN/APQ-159 Radar Elevation Antenna Tilt Control Knob")
-defineTumb("RADAR_RANGE", 17, 3004, 315, 0.1, {0.0, 0.3}, nil, false, "Radar", "AN/APQ-159 Radar Range Selector Switch [nm], 5/10/20/40")
-defineTumb("RADAR_MODE", 17, 3005, 316, 0.1, {0.0, 0.3}, nil, false, "Radar", "AN/APQ-159 Radar Mode Selector Switch, OFF/STBY/OPER/TEST")
+defineTumb("RADAR_RANGE", 17, 3004, 315, 0.1, {0, 0.3}, nil, false, "Radar", "AN/APQ-159 Radar Range Selector Switch [nm], 5/10/20/40")
+defineTumb("RADAR_MODE", 17, 3005, 316, 0.1, {0, 0.3}, nil, false, "Radar", "AN/APQ-159 Radar Mode Selector Switch, OFF/STBY/OPER/TEST")
 definePushButton("RADAR_ACQUIS", 17, 3006, 317, "Radar" , "AN/APQ-159 Radar Acquisition Button")
 definePotentiometer("RADAR_SCALE", 17, 3007, 65, {0, 1}, "Radar", "AN/APQ-159 Radar Scale Knob")
 definePotentiometer("RADAR_BRIGHT", 17, 3008, 70, {0, 1}, "Radar", "AN/APQ-159 Radar Bright Knob")
@@ -262,11 +262,11 @@ defineIndicatorLight("RADAR_FAIL", 160, "Warning, Caution and IndicatorLights","
 defineIndicatorLight("RADAR_LOCKON", 161, "Warning, Caution and IndicatorLights","Radar LockOn Light")
 defineIndicatorLight("RADAR_EXCESS", 162, "Warning, Caution and IndicatorLights","Radar ExcessG Light")
 defineIndicatorLight("RADAR_SCALE_BRIGHT", 163, "Warning, Caution and IndicatorLights","Radar Scale Brightness")
-defineFloat("TDC_RANGE", 319, {-1.0, 1.0}, "Gauges", "TdcControlRange")
-defineFloat("TDC_AZIMUTH", 318, {-1.0, 1.0}, "Gauges", "TdcControlAzimuth")
+defineFloat("TDC_RANGE", 319, {-1, 1}, "Gauges", "TdcControlRange")
+defineFloat("TDC_AZIMUTH", 318, {-1, 1}, "Gauges", "TdcControlAzimuth")
 
 -- AN/ASG-31 Sight
-defineTumb("SIGHT_MODE", 18, 3001, 40, 0.1, {0.0, 0.4}, nil, false, "Sight", "AN/ASG-31 Sight Mode Selector, OFF/MSL/A/A1 GUNS/A/A2 GUNS/MAN")
+defineTumb("SIGHT_MODE", 18, 3001, 40, 0.1, {0, 0.4}, nil, false, "Sight", "AN/ASG-31 Sight Mode Selector, OFF/MSL/A/A1 GUNS/A/A2 GUNS/MAN")
 defineRotary("SIGHT_DEPRESS", 18, 3002, 42, "Sight", "AN/ASG-31 Sight Reticle Depression Knob")
 definePotentiometer("SIGHT_INTENS", 18, 3003, 41, {0, 1}, "Sight", "AN/ASG-31 Sight Reticle Intensity Knob")
 define3PosTumb("SIGHT_BIT", 18, 3004, 47, "Sight", "AN/ASG-31 Sight BIT Switch, BIT 1/OFF/BIT 2")
@@ -295,14 +295,14 @@ definePotentiometer("RWR_INT", 20, 3001, 140, {0, 1}, "AN ALR87", "RWR INT Knob"
 -- Sight Camera
 defineToggleSwitch("CAMERA_FPS", 21, 3001, 80,"Camera" , "Sight Camera FPS Select Switch, 24/48")
 definePotentiometer("CAMERA_LENS", 21, 3002, 140, {0, 1}, "Camera", "Sight Camera Lens f-Stop Selector, 2.8(dull)..22(bright)")
-defineTumb("CAMERA_OVERRUN", 21, 3003, 311, 0.1, {0.0, 0.3}, nil, false,"Camera" , "Sight Camera Overrun Selector, 0/3/10/20")
+defineTumb("CAMERA_OVERRUN", 21, 3003, 311, 0.1, {0, 0.3}, nil, false,"Camera" , "Sight Camera Overrun Selector, 0/3/10/20")
 definePushButton("CAMERA_RUN", 21, 3004, 573,"Camera" , "Sight Camera Run (Test) Switch, ON/OFF")
 
 -- IFF
 defineIndicatorLight("IFF_REPLY_L", 216, "IFF","IFF Reply Lamp (green)")
 defineIndicatorLight("IFF_TEST_L", 218, "IFF","IFF Test Lamp (green)")
-defineTumb("IFF4_CODE_SEL", 22, 3001, 199, 0.1, {0.0, 0.3}, nil, false,"IFF" , "IFF MODE 4 CODE Selector, ZERO/B/A/HOLD")
-defineTumb("IFF4_MASTER", 22, 3002, 200, 0.1, {0.0, 0.4}, nil, false,"IFF" , "IFF MASTER Control Selector, EMER/NORM/LOW/STBY/OFF")
+defineTumb("IFF4_CODE_SEL", 22, 3001, 199, 0.1, {0, 0.3}, nil, false,"IFF" , "IFF MODE 4 CODE Selector, ZERO/B/A/HOLD")
+defineTumb("IFF4_MASTER", 22, 3002, 200, 0.1, {0, 0.4}, nil, false,"IFF" , "IFF MASTER Control Selector, EMER/NORM/LOW/STBY/OFF")
 define3PosTumb("IFF4_MON_CONTR", 22, 3003, 201, "IFF", "IFF MODE 4 Monitor Control Switch, AUDIO/OUT/LIGHT")
 define3PosTumb("IFF4_M1", 22, 3004, 202, "IFF", "IFF Mode Select/TEST Switch, M-1 /ON/OUT")
 define3PosTumb("IFF4_M2", 22, 3005, 203, "IFF", "IFF Mode Select/TEST Switch, M-2 /ON/OUT")
@@ -400,10 +400,10 @@ defineFloat("CLOCK_ELAP_S", 37, {0, 1}, "Gauges", "CLOCK Elapsed Time Seconds")
 --UHF Radio AN/ARC-164
 definePushButton("UHF_TONE_BT", 23, 3009, 310,"UHF Radio" , "UHF Radio Tone Button")
 defineToggleSwitch("UHF_SQUELCH_SW", 23, 3010, 308,"UHF Radio" , "UHF Radio Squelch Switch, ON/OFF")
-defineTumb("UHF_FUNC", 23, 3008, 311, 0.1, {0.0, 0.3}, nil, false, "UHF Radio" , "UHF Radio Function Selector Switch, OFF/MAIN/BOTH/ADF")
-defineTumb("UHF_FREQ", 23, 3007, 307, 0.1, {0.0, 0.2}, nil, false, "UHF Radio" , "UHF Radio Frequency Mode Selector Switch, MANUAL/PRESET/GUARD")
+defineTumb("UHF_FUNC", 23, 3008, 311, 0.1, {0, 0.3}, nil, false, "UHF Radio" , "UHF Radio Function Selector Switch, OFF/MAIN/BOTH/ADF")
+defineTumb("UHF_FREQ", 23, 3007, 307, 0.1, {0, 0.2}, nil, false, "UHF Radio" , "UHF Radio Frequency Mode Selector Switch, MANUAL/PRESET/GUARD")
 defineTumb("UHF_PRESET_SEL", 23, 3001, 300, 0.05, {0, 1}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, false, "UHF Radio" , "UHF Radio Preset Channel Selector Knob")
-defineTumb("UHF_100MHZ_SEL", 23, 3002, 327, 0.1, {0.0, 0.3}, {"A", "3", "2", "T"}, false, "UHF Radio" , "UHF Radio 100 MHz Frequency Selector Knob")
+defineTumb("UHF_100MHZ_SEL", 23, 3002, 327, 0.1, {0, 0.3}, {"A", "3", "2", "T"}, false, "UHF Radio" , "UHF Radio 100 MHz Frequency Selector Knob")
 defineTumb("UHF_10MHZ_SEL", 23, 3003, 328, 0.1, {0, 1}, {"0", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0"}, false, "UHF Radio" , "UHF Radio 10 MHz Frequency Selector Knob")
 defineTumb("UHF_1MHZ_SEL", 23, 3004, 329, 0.1, {0, 1}, {"0", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0"}, false, "UHF Radio" , "UHF Radio 1 MHz Frequency Selector Knob")
 defineTumb("UHF_01MHZ_SEL", 23, 3005, 330, 0.1, {0, 1}, {"0", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0"}, false, "UHF Radio" , "UHF Radio 0.1 MHz Frequency Selector Knob")

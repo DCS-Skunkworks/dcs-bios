@@ -126,7 +126,7 @@ defineToggleSwitch("WEAPON_REL_MODE", 2, 3306, 266, "Weapon System", "Weapon Rel
 defineToggleSwitch("RB_BK_REL_MODE",2, 3307, 267, "Weapon System", "RB-04/RB-15/BK Release Mode Switch")
 
 --[[--Radar--]]--
-defineTumb("ANTI_JAM_MODE", 5, 3208, 217, 0.1, {0.0, 0.7}, nil, false, "Radar", "Anti Jamming Mode (AS) Selector")
+defineTumb("ANTI_JAM_MODE", 5, 3208, 217, 0.1, {0, 0.7}, nil, false, "Radar", "Anti Jamming Mode (AS) Selector")
 defineToggleSwitch("RADAR_GAIN", 5, 3209, 214, "Radar", "Lin/Log Radar Gain Switch")
 defineToggleSwitch("RADAR_PULSE_NORMAL_SHORT", 5, 3328, 218, "Radar", "Pulse Normal/Short Switch")
 defineToggleSwitch("RADAR_RECCE_ON_OFF", 5, 3350, 216, "Radar", "Passive Recce On/Off Switch")
@@ -170,7 +170,7 @@ defineToggleSwitch("TAXI_LANDING_LIGHTS", 17, 3009, 3554, "Lights", "Taxi/Landin
 defineToggleSwitch("EMERGENCY_LIGHTS", 17, 3010, 3555, "Lights", "Emergency Lights")
 definePotentiometer("FLOOD_LIGHTS", 17, 3007, 393, {0, 1}, "Lights", "Flood Lights")
 definePotentiometer("PANEL_LIGHTS", 17, 3006, 392, {0, 1}, "Lights", "Panel Lights")
-defineTumb("POSITION_LIGHTS_BRIGHTNESS", 17, 3005, 254, 0.1, {0.0, 0.2}, nil, false, "Lights", "Position Lights Brightness")
+defineTumb("POSITION_LIGHTS_BRIGHTNESS", 17, 3005, 254, 0.1, {0, 0.2}, nil, false, "Lights", "Position Lights Brightness")
 definePotentiometer("INSTRUMENT_LIGHTS", 17, 3008, 394, {0, 1}, "Lights", "Instrument Lights")
 
 --[[--Engine Panel--]]--
@@ -241,7 +241,7 @@ defineToggleSwitch("RENSA_BUTTON_COVER", 23, 3101, 300, "Navigation Panel", "Ren
 definePushButton("CK37_RENSA_CLEAR", 23, 3001, 301, "Navigation Panel", "CK37 Rensa Clear")
 
 --[[--RWR--]]--
-defineTumb("RADAR_WARN_SELECT", 24, 3004, 321, 0.1, {0.0, 0.2}, nil, false, "RWR", "Radar Warning Indication Selector")
+defineTumb("RADAR_WARN_SELECT", 24, 3004, 321, 0.1, {0, 0.2}, nil, false, "RWR", "Radar Warning Indication Selector")
 
 --[[--Warning Panel--]]--
 definePushButton("WARNING_PANEL_TEST", 26, 3002, 344, "Warning Panel", "Warning Panel Light Test")
@@ -249,11 +249,11 @@ definePushButton("INDICATOR_SYSTEM_TEST", 26, 3004, 315, "Warning Panel", "Indic
 defineToggleSwitch("MASTER_CAUTION_RESET", 26, 3001, 446, "Warning Panel", "Master Caution Reset")
 
 --[[--Countermeasures--]]--
-defineTumb("JAMMER_MODE_SELECTOR", 28, 3024, 317, 0.1, {0.0, 0.4}, nil, false, "Countermeasures", "Jammer Mode Selector")
-defineTumb("JAMMER_BAND_SELECTOR", 28, 3025, 318, 0.1, {0.0, 0.4}, nil, false, "Countermeasures", "Jammer Band Selector") 
-defineTumb("COUNTERMEASURE_MODE_SELECTOR", 28, 3026, 319, 0.1, {0.0, 0.4}, nil, false, "Countermeasures", "Countermeasure Operation Mode Selector")
+defineTumb("JAMMER_MODE_SELECTOR", 28, 3024, 317, 0.1, {0, 0.4}, nil, false, "Countermeasures", "Jammer Mode Selector")
+defineTumb("JAMMER_BAND_SELECTOR", 28, 3025, 318, 0.1, {0, 0.4}, nil, false, "Countermeasures", "Jammer Band Selector") 
+defineTumb("COUNTERMEASURE_MODE_SELECTOR", 28, 3026, 319, 0.1, {0, 0.4}, nil, false, "Countermeasures", "Countermeasure Operation Mode Selector")
 defineTumb("COUNTERMEASURE_STREAK_MODE_SELECTOR", 28, 3027, 320, 0.1, {0.0, 0.1}, nil, false, "Countermeasures", "Countermeasure Streak Mode Selector")
-defineTumb("COUNTERMEASURE_CHAFF_FLARES_SELECTOR", 28, 3028, 322, 0.1, {0.0, 0.2}, nil, false, "Countermeasures", "Countermeasure Chaff/Flares Selector")
+defineTumb("COUNTERMEASURE_CHAFF_FLARES_SELECTOR", 28, 3028, 322, 0.1, {0, 0.2}, nil, false, "Countermeasures", "Countermeasure Chaff/Flares Selector")
 defineTumb("COUNTERMEASURE_RELEASE_MODE", 22, 3001, 184, 1, {-1, 1}, nil, false, "Countermeasures", "Countermeasure Release Mode") --3030
 
 --[[--FR22 Radio--]]--

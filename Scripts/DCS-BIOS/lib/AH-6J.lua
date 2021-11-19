@@ -35,7 +35,7 @@ defineMultipositionSwitch("GUN_STATION_SEL", 2, 3209, 48, 4, 0.33, "Weapons Pane
 
 --RWR
 defineToggleSwitch("RWR_PW_SW", 3, 3214, 25, "RWR", "RWR Power Switch, OFF/ON")
-definePotentiometer("RWR_DISP_BRIGHT", 3, 3215, 30, {0.0, 1.0}, "RWR", "RWR Display Brightness Knob")
+definePotentiometer("RWR_DISP_BRIGHT", 3, 3215, 30, {0, 1}, "RWR", "RWR Display Brightness Knob")
 
 --External Lights
 defineToggleSwitch("POS_L_SW", 4, 3210, 11, "External Lights", "Position Light Switch")

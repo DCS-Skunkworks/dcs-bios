@@ -359,7 +359,7 @@ end
 
 function BIOS.util.definePotentiometer(msg, device_id, command, arg_number, limits, category, description)
 	--moduleBeingDefined.lowFrequencyMap[msg] = function(dev0) return string.format("%.4f", dev0:get_argument_value(arg_number)) end
-	if limits == nil then limits = {0.0, 1.0} end
+	if limits == nil then limits = {0, 1} end
 	local intervalLength = limits[2] - limits[1]
 	moduleBeingDefined.inputProcessors[msg] = function(value)
 		local newValue = ((GetDevice(0):get_argument_value(arg_number) - limits[1]) / intervalLength) * 65535

@@ -451,7 +451,7 @@ defineIndicatorLight("MC_READY", 44, "Master Arm Panel", "READY Light")
 definePushButton("FIRE_EXT_BTN", 12, 3008, 46, "Fire Systems", "Fire Extinguisher Pushbutton")
 
 -- 13. Left DDI
-defineTumb("LEFT_DDI_BRT_SELECT", 35, 3001, 51, 0.1, {0.0, 0.2}, nil, false, "Left DDI", "Brightness Selector Knob, OFF/NIGHT/DAY")
+defineTumb("LEFT_DDI_BRT_SELECT", 35, 3001, 51, 0.1, {0, 0.2}, nil, false, "Left DDI", "Brightness Selector Knob, OFF/NIGHT/DAY")
 definePotentiometer("LEFT_DDI_BRT_CTL", 35, 3002, 52, {0, 1}, "Left DDI", "Brightness Control Knob")
 definePotentiometer("LEFT_DDI_CONT_CTL", 35, 3003, 53, {0, 1}, "Left DDI", "Contrast Control Knob")
 definePushButton("LEFT_DDI_PB_01", 35, 3011, 54, "Left DDI", "Pushbutton 1")
@@ -601,7 +601,7 @@ defineString("UFC_SCRATCHPAD_STRING_1_DISPLAY", function() return UFC_ScratchPad
 defineString("UFC_SCRATCHPAD_STRING_2_DISPLAY", function() return UFC_ScratchPadString2Display end, 2, "Up Front Controller (UFC)", "Scratchpad String 2 Display")
 
 -- 15. Right DDI
-defineTumb("RIGHT_DDI_BRT_SELECT", 36, 3001, 76, 0.1, {0.0, 0.2}, nil, false, "Right DDI", "Brightness Selector Knob, OFF/NIGHT/DAY")
+defineTumb("RIGHT_DDI_BRT_SELECT", 36, 3001, 76, 0.1, {0, 0.2}, nil, false, "Right DDI", "Brightness Selector Knob, OFF/NIGHT/DAY")
 definePotentiometer("RIGHT_DDI_BRT_CTL", 36, 3002, 77, {0, 1}, "Right DDI", "Brightness Control Knob")
 definePotentiometer("RIGHT_DDI_CONT_CTL", 36, 3003, 78, {0, 1}, "Right DDI", "Contrast Control Knob")
 definePushButton("RIGHT_DDI_PB_01", 36, 3011, 79, "Right DDI", "Pushbutton 1")
@@ -630,17 +630,17 @@ defineIndicatorLight("SPIN_LT", 137, "Map Gain/Spin Recovery Panel", "Spin Light
 defineToggleSwitch("SPIN_RECOVERY_COVER", 2, 3008, 139, "Map Gain/Spin Recovery Panel", "Spin Recovery Switch Cover, OPEN/CLOSE")
 defineToggleSwitch("SPIN_RECOVERY_SW", 2, 3009, 138, "Map Gain/Spin Recovery Panel", "Spin Recovery Switch, RCVY/NORM")
 definePotentiometer("HMD_OFF_BRT", 58, 3001, 136, {0, 0.75}, "Map Gain/Spin Recovery Panel", "HMD OFF/BRT Knob") -- From TODO, will change
-defineTumb("IR_COOL_SW", 23, 3013, 135, 0.1, {0.0, 0.2}, nil, false, "Map Gain/Spin Recovery Panel", "IR Cooling Switch, ORIDE/NORM/OFF")
+defineTumb("IR_COOL_SW", 23, 3013, 135, 0.1, {0, 0.2}, nil, false, "Map Gain/Spin Recovery Panel", "IR Cooling Switch, ORIDE/NORM/OFF")
 
 -- 17. Emergency Jettison Button
 definePushButton("EMER_JETT_BTN", 23, 3004, 50, "Emergency Jettison Button", "Emergency Jettison Button")
 
 -- 18. HUD Control Panel
-defineTumb("HUD_SYM_REJ_SW", 34, 3001, 140, 0.1, {0.0, 0.2}, nil, false, "HUD Control Panel", "HUD Symbology Reject Switch, NORM/REJ 1/REJ 2")
+defineTumb("HUD_SYM_REJ_SW", 34, 3001, 140, 0.1, {0, 0.2}, nil, false, "HUD Control Panel", "HUD Symbology Reject Switch, NORM/REJ 1/REJ 2")
 definePotentiometer("HUD_SYM_BRT", 34, 3002, 141, {0, 1}, "HUD Control Panel", "HUD Symbology Brightness Control Knob")
 defineToggleSwitch("HUD_SYM_BRT_SELECT", 34, 3003, 142, "HUD Control Panel", "HUD Symbology Brightness Selector Knob, DAY/NIGHT")
 definePotentiometer("HUD_BLACK_LVL", 34, 3004, 143, {0, 1}, "HUD Control Panel", "Black Level Control Knob")
-defineTumb("HUD_VIDEO_CONTROL_SW", 34, 3005, 144, 0.1, {0.0, 0.2}, nil, false, "HUD Control Panel", "HUD Video Control Switch, W/B /VID/OFF")
+defineTumb("HUD_VIDEO_CONTROL_SW", 34, 3005, 144, 0.1, {0, 0.2}, nil, false, "HUD Control Panel", "HUD Video Control Switch, W/B /VID/OFF")
 definePotentiometer("HUD_BALANCE", 34, 3006, 145, {0, 1}, "HUD Control Panel", "Balance Control Knob")
 definePotentiometer("HUD_AOA_INDEXER", 34, 3007, 146, {0, 1}, "HUD Control Panel", "AOA Indexer Control Knob")
 defineToggleSwitch("HUD_ALT_SW", 34, 3008, 147, "HUD Control Panel", "Altitude Switch, BARO/RDR")
@@ -914,7 +914,7 @@ defineFloat("STBY_ALT_10000_FT_CNT", 220, {0, 1}, "Standby Altimeter", "10000 ft
 defineFloatWithValueConversion("STBY_ALT_1000_FT_CNT", 219, {0, 1}, {-1.0, 0.0, 0.0, 10.0}, {0.9, 1.0, 0.0, 1.0}, "Standby Altimeter", "1000 ft count")
 defineFloat("STBY_PRESS_SET_0", 221, {0, 1}, "Standby Altimeter", "Pressure Setting 1")
 defineFloat("STBY_PRESS_SET_1", 222, {0, 1}, "Standby Altimeter", "Pressure Setting 2")
-defineFloatWithValueConversion("STBY_PRESS_SET_2", 223, {0, 1}, {26, 31}, {0.0, 1.0}, "Standby Altimeter", "Pressure Setting 3")
+defineFloatWithValueConversion("STBY_PRESS_SET_2", 223, {0, 1}, {26, 31}, {0, 1}, "Standby Altimeter", "Pressure Setting 3")
 
 -- 29. Standby Rate of Climb Indicator
 defineFloat("VSI", 225, {-1, 1}, "Standby Rate of Climb Indicator", "Vertical Speed")
@@ -945,9 +945,9 @@ defineToggleSwitch("EMERGENCY_PARKING_BRAKE_PULL", 5, 3005, 240, "Emergency and 
 defineEmergencyParkingBrake("EMERGENCY_PARKING_BRAKE_ROTATE", 5, 3007, 3006, 241, "Emergency and Parking Brake Handle", "Emergency/Parking Brake Rotate")
 
 -- 35. Dispenser/EMC Panel
-defineTumb("CMSD_DISPENSE_SW", 54, 3001, 517, 0.1, {0.0, 0.2}, nil, false, "Dispenser/EMC Panel", "DISPENSER Switch, BYPASS/ON/OFF")
+defineTumb("CMSD_DISPENSE_SW", 54, 3001, 517, 0.1, {0, 0.2}, nil, false, "Dispenser/EMC Panel", "DISPENSER Switch, BYPASS/ON/OFF")
 definePushButton("CMSD_JET_SEL_BTN", 54, 3003, 515, "Dispenser/EMC Panel", "ECM JETT JETT SEL Button - Push to jettison")
-defineTumb("ECM_MODE_SW", 66, 3001, 248, 0.1, {0.0, 0.4}, nil, false, "Dispenser/EMC Panel", "ECM Mode Switch, XMIT/REC/BIT/STBY/OFF")
+defineTumb("ECM_MODE_SW", 66, 3001, 248, 0.1, {0, 0.4}, nil, false, "Dispenser/EMC Panel", "ECM Mode Switch, XMIT/REC/BIT/STBY/OFF")
 defineToggleSwitch("AUX_REL_SW", 23, 3012, 258, "Dispenser/EMC Panel", "Auxiliary Release Switch, ENABLE/NORM")
 
 -- 36. RWR Control Indicator
@@ -957,7 +957,7 @@ definePushButton("RWR_SPECIAL_BTN", 53, 3003, 272, "RWR Control Indicator", "ALR
 definePushButton("RWR_OFFSET_BTN", 53, 3004, 269, "RWR Control Indicator", "ALR-67 OFFSET Pushbutton")
 definePushButton("RWR_BIT_BTN", 53, 3005, 266, "RWR Control Indicator", "ALR-67 BIT Pushbutton")
 definePotentiometer("RWR_DMR_CTRL", 53, 3006, 263, {0, 1}, "RWR Control Indicator", "ALR-67 DMR Control Knob")
-defineTumb("RWR_DIS_TYPE_SW", 53, 3007, 261, 0.1, {0.0, 0.4}, nil, false, "RWR Control Indicator", "ALR-67 DIS TYPE Switch, N/I/A/U/F")
+defineTumb("RWR_DIS_TYPE_SW", 53, 3007, 261, 0.1, {0, 0.4}, nil, false, "RWR Control Indicator", "ALR-67 DIS TYPE Switch, N/I/A/U/F")
 definePotentiometer("RWR_RWR_INTESITY", 53, 3008, 216, {0, 1}, "RWR Control Indicator", "RWR Intensity Knob")
 defineIndicatorLight("RWR_LOWER_LT", 276, "RWR Control Indicator", "ALR-67 POWER Light ON (green)")
 defineIndicatorLight("RWR_LIMIT_LT", 273, "RWR Control Indicator", "ALR-67 LIMIT Light (green)")
@@ -1071,7 +1071,7 @@ defineToggleSwitch("COM_IFF_MASTER_SW", 40, 3012, 356, "Communication Panel", "I
 define3PosTumb("COM_IFF_MODE4_SW", 40, 3013, 355, "Communication Panel", "IFF Mode 4 Switch, DIS/AUD /DIS/OFF")
 defineRockerSwitch("COM_CRYPTO_SW", 40, 3015, 3015, 3014, 3014, 354, "Communication Panel", "CRYPTO Switch, HOLD/NORM/ZERO")
 defineToggleSwitch("COM_ILS_UFC_MAN_SW", 40, 3016, 353, "Communication Panel", "ILS UFC/MAN Switch, UFC/MAN")
-defineTumb("COM_ILS_CHANNEL_SW", 40, 3017, 352, 0.05, {0.0, 0.95}, nil, false, "Communication Panel", "ILS Channel Selector Switch")
+defineTumb("COM_ILS_CHANNEL_SW", 40, 3017, 352, 0.05, {0, 0.95}, nil, false, "Communication Panel", "ILS Channel Selector Switch")
 
 -- 8. LOX Indicator
 defineToggleSwitch("OBOGS_SW", 10, 3001, 365, "LOX Indicator", "OBOGS Control Switch, ON/OFF")
@@ -1112,7 +1112,7 @@ defineFloat("VOLT_U", 400, {0, 1}, "Electrical Power Panel", "Battery U Volts")
 defineFloat("VOLT_E", 401, {0, 1}, "Electrical Power Panel", "Battery E Volts")
 
 -- 2. Environment Control System Panel
-defineTumb("BLEED_AIR_KNOB", 11, 3001, 411, 0.1, {0.0, 0.3}, nil, true, "Environment Control System Panel", "Bleed Air Knob, R OFF/NORM/L OFF/OFF")
+defineTumb("BLEED_AIR_KNOB", 11, 3001, 411, 0.1, {0, 0.3}, nil, true, "Environment Control System Panel", "Bleed Air Knob, R OFF/NORM/L OFF/OFF")
 defineToggleSwitch("BLEED_AIR_PULL", 11, 3002, 412, "Environment Control System Panel", "Bleed Air Knob, AUG PULL")
 define3PosTumb("ECS_MODE_SW", 11, 3003, 405, "Environment Control System Panel", "ECS Mode Switch, AUTO/MAN/ OFF/RAM")
 define3PosTumb("CABIN_PRESS_SW", 11, 3004, 408, "Environment Control System Panel", "Cabin Pressure Switch, NORM/DUMP/ RAM/DUMP")
@@ -1134,15 +1134,15 @@ defineToggleSwitch("LIGHTS_TEST_SW", 9, 3007, 416, "Interior Lights Panel", "Lig
 define3PosTumb("FLIR_SW", 62, 3001, 439, "Sensor Panel", "FLIR Switch, ON/STBY/OFF")
 defineToggleSwitch("LTD_R_SW", 62, 3002, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE") 
 defineToggleSwitch("LST_NFLR_SW", 62, 3003, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF")
-defineTumb("RADAR_SW", 42, 3001, 440, 0.1, {0.0, 0.3}, nil, false, "Sensor Panel", "RADAR Switch Change ,OFF/STBY/OPR/EMERG(PULL)")
+defineTumb("RADAR_SW", 42, 3001, 440, 0.1, {0, 0.3}, nil, false, "Sensor Panel", "RADAR Switch Change ,OFF/STBY/OPR/EMERG(PULL)")
 definePushButton("RADAR_SW_PULL", 42, 3002, 440, "Sensor Panel", "RADAR Switch Pull (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
-defineTumb("INS_SW", 44, 3001, 443, 0.1, {0.0, 0.7}, nil, false, "Sensor Panel", "INS Switch, OFF/CV/GND/NAV/IFA/GYRO/GB/TEST")
+defineTumb("INS_SW", 44, 3001, 443, 0.1, {0, 0.7}, nil, false, "Sensor Panel", "INS Switch, OFF/CV/GND/NAV/IFA/GYRO/GB/TEST")
 
 -- 6. KY-58 Control
-defineTumb("KY58_MODE_SELECT", 41, 3001, 444, 0.1, {0.0, 0.3}, nil, false, "KY-58 Control", "KY-58 Mode Select Knob, P/C/LD/RV")
+defineTumb("KY58_MODE_SELECT", 41, 3001, 444, 0.1, {0, 0.3}, nil, false, "KY-58 Control", "KY-58 Mode Select Knob, P/C/LD/RV")
 definePotentiometer("KY58_VOLUME", 41, 3005, 445, {0, 1}, "KY-58 Control", "KY-58 Volume Control Knob")
-defineTumb("KY58_FILL_SELECT", 41, 3002, 446, 0.1, {0.0, 0.7}, nil, false, "KY-58 Control", "KY-58 Fill Select Knob, Z 1-5/1/2/3/4/5/6/Z ALL")
-defineTumb("KY58_POWER_SELECT", 41, 3004, 447, 0.1, {0.0, 0.2}, nil, false, "KY-58 Control", "KY-58 Power Select Knob, OFF/ON/TD")
+defineTumb("KY58_FILL_SELECT", 41, 3002, 446, 0.1, {0, 0.7}, nil, false, "KY-58 Control", "KY-58 Fill Select Knob, Z 1-5/1/2/3/4/5/6/Z ALL")
+defineTumb("KY58_POWER_SELECT", 41, 3004, 447, 0.1, {0, 0.2}, nil, false, "KY-58 Control", "KY-58 Power Select Knob, OFF/ON/TD")
 
 -- 11. Defog Panel
 definePotentiometer("DEFOG_HANDLE", 11, 3005, 451, {-1, 1}, "Defog Panel", "Defog Handle")

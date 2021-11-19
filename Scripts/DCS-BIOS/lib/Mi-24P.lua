@@ -502,7 +502,7 @@ definePushButton("OP_CYCLIC_AP_TRIM", 10, 3028, 855, "Cyclic", "OPERATOR Cyclic 
 
 ----Weapon Systems
 defineToggleSwitch("OP_MAIN_WPN_SAVE", 6, 3020, 673, "Weapon Systems", "OPERATOR Main Weapon Safe Switch")
-defineTumb("OP_WPN_SEL", 6, 3027, 709, 0.1, {0.0, 0.4}, nil, false, "Weapon Systems", "OPERATOR Select Weapon")
+defineTumb("OP_WPN_SEL", 6, 3027, 709, 0.1, {0, 0.4}, nil, false, "Weapon Systems", "OPERATOR Select Weapon")
 defineToggleSwitch("OP_EMERG_JETT_CV", 6, 3042, 141, "Weapon Systems", "OPERATOR Emergency Jettison Cover, UP/DOWN")
 definePushButton("OP_EMERG_JETT", 6, 3025, 142, "Weapon Systems", "OPERATOR Emergency Jettison")
 defineToggleSwitch("OP_BOMB_BLOCK_CV", 6, 3043, 699, "Weapon Systems", "OPERATOR Bombs/Blocks Mode Cover, UP/DOWN")
@@ -537,8 +537,8 @@ definePushButton("OP_STICK_DISENGAGE", 30, 3012, 859, "Stick", "OPERATOR Disenga
 ---PUVL
 defineToggleSwitch("PLT_PUVL_SIGHT_DIST", 16, 3003, 515, "PUVL", "PILOT Sight Distance, MANUAL/AUTO")
 define3PosTumb("PLT_PUVL_BURST_LENGTH", 6, 3003, 521, "PUVL", "PILOT Burst Length, SHORT/LONG/MEDIUM")
-defineTumb("PLT_PUVL_REL_LEFT_GONDOLA", 6, 3004, 522, 0.1, {0.0, 0.3}, nil, false, "PUVL", "PILOT Reload Left Gondola, OFF/1/2/3")
-defineTumb("PLT_PUVL_REL_RIGHT_GONDOLA", 6, 3005, 527, 0.1, {0.0, 0.3}, nil, false, "PUVL", "PILOT Reload Right Gondola, OFF/1/2/3")
+defineTumb("PLT_PUVL_REL_LEFT_GONDOLA", 6, 3004, 522, 0.1, {0, 0.3}, nil, false, "PUVL", "PILOT Reload Left Gondola, OFF/1/2/3")
+defineTumb("PLT_PUVL_REL_RIGHT_GONDOLA", 6, 3005, 527, 0.1, {0, 0.3}, nil, false, "PUVL", "PILOT Reload Right Gondola, OFF/1/2/3")
 defineToggleSwitch("PLT_PUVL_WPN_SIGHT", 16, 3014, 529, "PUVL", "PILOT Weapon Sight, ON/OFF")
 defineToggleSwitch("PLT_PUVL_WPN_CAM", 6, 3006, 530, "PUVL", "PILOT Weapon Camera, ON/OFF")
 definePotentiometer("PLT_PUVL_MAN_RANGE", 16, 3004, 552, {0, 1}, "PUVL", "PILOT Manual Range Adjustment")
@@ -705,7 +705,7 @@ defineFloat("PLT_ASP17_BASE", 558, {0, 1}, "ASP17 Gauges", "PILOT ASP17 Base")
 
 --ASO-2V
 definePushButton("OP_ASO2V_COUNTERMEASURES", 9, 3003, 968, "ASO-2V", "OPERATOR Launch Countermeasures")
-defineTumb("OP_ASO2V_SET", 6, 3006, 971, 0.1, {0.0, 0.3}, nil, false, "ASO-2V", "OPERATOR Set I/II/III")
+defineTumb("OP_ASO2V_SET", 6, 3006, 971, 0.1, {0, 0.3}, nil, false, "ASO-2V", "OPERATOR Set I/II/III")
 definePushButton("OP_ASO2V_INTERVAL", 9, 3001, 1008, "ASO-2V", "OPERATOR Interval")
 definePushButton("OP_ASO2V_SERIE", 9, 3002, 965, "ASO-2V", "OPERATOR Serie")
 definePushButton("OP_ASO2V_LEFT", 9, 3004, 969, "ASO-2V", "OPERATOR Left Side")

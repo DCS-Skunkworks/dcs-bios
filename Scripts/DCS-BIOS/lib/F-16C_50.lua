@@ -105,7 +105,7 @@ define3Pos2CommandSwitch("ANTI_SKID_SW", 7, 3010, 3004, 357, "Gear System", "ANT
 
 --ECS
 defineTumb("TEMP_KNB", 13, 3002, 692, 0.1, {-0.3,0.3}, nil, true, "ECS", "TEMP Knob")
-defineTumb("AIR_SOURCE_KNB", 13, 3001, 693, 0.1, {0.0, 0.4}, nil, true, "ECS", "AIR SOURCE Knob, OFF/NORM/DUMP/RAM")
+defineTumb("AIR_SOURCE_KNB", 13, 3001, 693, 0.1, {0, 0.4}, nil, true, "ECS", "AIR SOURCE Knob, OFF/NORM/DUMP/RAM")
 defineToggleSwitch("DEFOG_LEVER", 13, 3003, 602, "ECS", "DEFOG Lever")
 
 --EPU
@@ -123,7 +123,7 @@ defineSpringloaded_3_pos_tumb("AB_RESET_SW", 6, 3011, 3010, 450, "Engine", "AB R
 definePushButton("FIRE_OHEAT_DETECT_BTN", 6, 3012, 575, "Engine", "FIRE & OHEAT DETECT Test Button - Push to test")
 
 --Oxygen System
-defineTumb("OXY_SUPPLY_LVR", 8, 3001, 728, 0.5, {0.0, 1.0}, nil, true,"Oxygen System", "Supply Lever, PBG/ON/OFF")
+defineTumb("OXY_SUPPLY_LVR", 8, 3001, 728, 0.5, {0, 1}, nil, true,"Oxygen System", "Supply Lever, PBG/ON/OFF")
 defineToggleSwitch("OXY_DILUTER_LVR", 8, 3002, 727, "Oxygen System", "Diluter Lever, 100 percent/NORM")
 defineSpringloaded_3_pos_tumb("OXY_EMERG_LVR", 8, 3004, 3003, 726, "Oxygen System", "Emergency Lever, EMERGENCY/NORMAL/TEST MASK")
 defineToggleSwitch("OBOGS_SW", 8, 3005, 576, "Oxygen System", "OBOGS BIT Switch, BIT/OFF")
@@ -197,8 +197,8 @@ define3PosTumb("HUD_BRT_SW", 19, 3012, 681, "HUD Control Panel", "HUD Brightness
 define3PosTumb("HUD_TEST_SW", 19, 3013, 682, "HUD Control Panel", "HUD TEST Switch, STEP / ON / OFF")
 
 --Audio Control Panels
-defineTumb("COMM1_MODE_KNB", 39, 3002, 434, 0.5, {0,1}, nil, true, "Audio Panel", "COMM 1 (UHF) Mode Knob")
-defineTumb("COMM2_MODE_KNB", 39, 3004, 435, 0.5, {0,1}, nil, true, "Audio Panel", "COMM 2 (VHF) Mode Knob")
+defineTumb("COMM1_MODE_KNB", 39, 3002, 434, 0.5, {0, 1}, nil, true, "Audio Panel", "COMM 1 (UHF) Mode Knob")
+defineTumb("COMM2_MODE_KNB", 39, 3004, 435, 0.5, {0, 1}, nil, true, "Audio Panel", "COMM 2 (VHF) Mode Knob")
 definePotentiometer("COMM1_PWR_KNB", 39, 3001, 430, nil, "Audio Panel", "COMM 1 Power Knob")
 definePotentiometer("COMM2_PWR_KNB", 39, 3003, 431, nil, "Audio Panel", "COMM 2 Power Knob")
 definePotentiometer("SEC_VOICE_KNB", 39, 3005, 432, nil, "Audio Panel", "SECURE VOICE Knob")
@@ -530,11 +530,11 @@ defineIndicatorLight("LIGHT_ECM_SPL_T", 499, "Warning, Caution and IndicatorLigh
 defineIndicatorLight("LIGHT_MARKER_BEACON", 157, "Warning, Caution and IndicatorLights","MARKER BEACON Light (green)")
 
 ------------------------------------------------------------------Gauges--------------------------------------------------------------------------------------------
-defineFloat("CANOPY_VALUE", 7, {0.0, 1.0}, "Cockpit Mechanics", "Canopy Position")
-defineFloat("SEAT_HEIGHT", 783, {-1.0, 1.0}, "Cockpit Mechanics", "Seat Height")
+defineFloat("CANOPY_VALUE", 7, {0, 1}, "Cockpit Mechanics", "Canopy Position")
+defineFloat("SEAT_HEIGHT", 783, {-1, 1}, "Cockpit Mechanics", "Seat Height")
 
 --AOA				
-defineFloat("AOA_VALUE", 15, {-1.0, 1.0}, "AoA", "AoA Value")
+defineFloat("AOA_VALUE", 15, {-1, 1}, "AoA", "AoA Value")
 
 --Altimeter AAU-34/A
 defineFloat("ALT_100_FT_PTR", 51, {0, 1}, "Altimeter", "Altimeter 100 ft pointer")
@@ -548,10 +548,10 @@ defineFloat("ALT_PRESSURE_DRUM_3_CNT", 56, {0, 1}, "Altimeter", "Altimeter Press
 defineFloat("ALT_PNEU_FLAG", 61, {0, 1}, "Altimeter", "Altimeter PNEU Flag")
 
 --AirSpeed/Mach Indicator
-defineFloat("AIRSPEED", 48, {0.0, 1.0}, "Airspeed Indicator", "Airspeed Indicator")
-defineFloat("MAX_AIRSPEED", 47, {0.0, 1.0}, "Airspeed Indicator", "Max Airspeed")
+defineFloat("AIRSPEED", 48, {0, 1}, "Airspeed Indicator", "Airspeed Indicator")
+defineFloat("MAX_AIRSPEED", 47, {0, 1}, "Airspeed Indicator", "Max Airspeed")
 defineFloat("SET_AIRSPEED", 70, {0, 1}, "Airspeed Indicator", "Set Airspeed")
-defineFloat("MACH_INDICATOR", 49, {0.0, 1.0}, "Airspeed Indicator", "Mach Indicator")
+defineFloat("MACH_INDICATOR", 49, {0, 1}, "Airspeed Indicator", "Mach Indicator")
 
 --Standby Attitude Indicator
 defineFloat("SAI_PITCH", 63, {-1.0, -0.902, -0.793, -0.687, -0.576, -0.450, -0.339, -0.225, -0.115, 0.0, 0.114, 0.225, 0.336, 0.445, 0.569, 0.679, 0.784, 0.893, 0.995}, "SAI", " SAI Pitch")
@@ -561,15 +561,15 @@ defineFloat("SAI_AIRCRAFTREFERENCESYMBOL", 68, {-1, 1}, "SAI", "SAI Aircraft Ref
 defineFloat("SAI_KNB_ARROW", 69, {-1, 1}, "SAI", "SAI Knob Arrow")
 
 --Vertical Velocity Indicator
-defineFloat("VVI", 16, {-1.0, 1.0}, "Vertical Velocity Indicator", "VVI")
+defineFloat("VVI", 16, {-1, 1}, "Vertical Velocity Indicator", "VVI")
 
 --Attitude Director Indicator (ADI)
 defineFloat("ADI_PITCH", 17, {-1, 1}, "ADI", "ADI Pitch")
 defineFloat("ADI_BANK", 18, {-1, 1}, "ADI", "ADI Bank")
-defineFloat("ADI_OFF_FLAG", 25, {0.0, 1.0}, "ADI", "ADI Off Flag")
-defineFloat("ADI_LOC_FLAG", 13, {0.0, 1.0}, "ADI", "ADI LOC Flag")
-defineFloat("ADI_AUX_FLAG", 14, {0.0, 1.0}, "ADI", "ADI AUX Flag")
-defineFloat("ADI_GS_FLAG", 26, {0.0, 1.0},"ADI", "ADI GS Flag")
+defineFloat("ADI_OFF_FLAG", 25, {0, 1}, "ADI", "ADI Off Flag")
+defineFloat("ADI_LOC_FLAG", 13, {0, 1}, "ADI", "ADI LOC Flag")
+defineFloat("ADI_AUX_FLAG", 14, {0, 1}, "ADI", "ADI AUX Flag")
+defineFloat("ADI_GS_FLAG", 26, {0, 1},"ADI", "ADI GS Flag")
 defineFloat("ADI_LOC_BAR", 20, {-1, 1}, "ADI", "ADI LOC Bar")
 defineFloat("ADI_GS_BAR", 21, {-1, 1}, "ADI", "ADI GS Bar")
 defineFloat("ADI_TURNRATE", 23, {-3, 3}, "ADI", "ADI TurnRate")
@@ -581,20 +581,20 @@ defineFloat("ROLLTRIMIND", 561, {-1, 1}, "Trim Indicators", "Roll Trim Indicator
 defineFloat("PITCHTRIMIND", 563, {-1, 1}, "Trim Indicators", "Pitch Trim Indicator")
 
 --Speed brake indicator
-defineFloat("SPEEDBRAKE_INDICATOR", 363, {-1.0, 1.0}, "Speed Brake", "Speed Brake Indicator")
+defineFloat("SPEEDBRAKE_INDICATOR", 363, {-1, 1}, "Speed Brake", "Speed Brake Indicator")
 
 --Hydraulic Pressure Indicators
-defineFloat("SYSA_PRESSURE", 615, {0.0, 1.0}, "Hydraulic Pressure Indicators", "System A Pressure")
-defineFloat("SYSB_PRESSURE", 616, {0.0, 1.0}, "Hydraulic Pressure Indicators", "System B Pressure")
+defineFloat("SYSA_PRESSURE", 615, {0, 1}, "Hydraulic Pressure Indicators", "System A Pressure")
+defineFloat("SYSB_PRESSURE", 616, {0, 1}, "Hydraulic Pressure Indicators", "System B Pressure")
 
 --Engine Indicators
 defineFloat("ENGINE_OIL_PRESSURE", 93, {0, 1}, "Engine", "Oil Pressure Indicator")
-defineFloat("ENGINE_NOZZLE_POSITION", 94, {0.0, 1.0}, "Engine", "Engine Nozzle Position Indicator")
-defineFloat("ENGINE_TACHOMETER", 95, {0.0, 1.0}, "Engine", "Engine Tachometer Indicator")
-defineFloat("ENGINE_FTIT", 96, {0.0, 1.0}, "Engine", "Engine FTIT Indicator")
+defineFloat("ENGINE_NOZZLE_POSITION", 94, {0, 1}, "Engine", "Engine Nozzle Position Indicator")
+defineFloat("ENGINE_TACHOMETER", 95, {0, 1}, "Engine", "Engine Tachometer Indicator")
+defineFloat("ENGINE_FTIT", 96, {0, 1}, "Engine", "Engine FTIT Indicator")
 
 --Hydrazin Volume
-defineFloat("HYDRAZIN_VOLUME", 617, {0.0, 1.0}, "EPU", "Hydrazin Volume Indicator")
+defineFloat("HYDRAZIN_VOLUME", 617, {0, 1}, "EPU", "Hydrazin Volume Indicator")
 
 --Fuel Flow Indicator Counter
 defineFloat("FUELFLOWCOUNTER_10K", 88, {0, 1}, "Fuel System", "Fuel Flow Counter 10k")
@@ -602,8 +602,8 @@ defineFloat("FUELFLOWCOUNTER_1K", 89, {0, 1}, "Fuel System", "Fuel Flow Counter 
 defineFloat("FUELFLOWCOUNTER_100", 90, {0, 1}, "Fuel System", "Fuel Flow Counter 100")
 
 --Fuel Quantity Indicator (Dual)
-defineFloat("FUEL_AL", 613, {0.0, 1.0}, "Fuel System", "Fuel Quantity Indicator AL")
-defineFloat("FUEL_FR", 614, {0.0, 1.0}, "Fuel System", "Fuel Quantity Indicator FR")
+defineFloat("FUEL_AL", 613, {0, 1}, "Fuel System", "Fuel Quantity Indicator AL")
+defineFloat("FUEL_FR", 614, {0, 1}, "Fuel System", "Fuel Quantity Indicator FR")
 defineFloat("FUELTOTALIZER_10K", 730, {0, 1}, "Fuel System", "Fuel Totalizer Counter 10K")
 defineFloat("FUELTOTALIZER_1K", 731, {0, 1}, "Fuel System", "Fuel Totalizer Counter 1K")
 defineFloat("FUELTOTALIZER_100", 732, {0, 1}, "Fuel System", "Fuel Totalizer Counter 100")
@@ -612,7 +612,7 @@ defineFloat("FUELTOTALIZER_100", 732, {0, 1}, "Fuel System", "Fuel Totalizer Cou
 defineFloat("COCKPIT_ALITITUDE", 618, {0.0,	0.094, 0.194, 0.294, 0.394,	0.496, 0.597, 0.698, 0.798,	0.899, 1.0}, "Oxygen System", "Cabin Pressure Altimeter")
 
 --Oxygen Pressure Indicator
-defineFloat("OXYGEN_PRESSURE", 729, {0.0, 1.0}, "Oxygen System", "Oxygen Pressure")
+defineFloat("OXYGEN_PRESSURE", 729, {0, 1}, "Oxygen System", "Oxygen Pressure")
 defineFloat("FLOW_INDICATOR", 725, {0, 1}, "Oxygen System", "Flow Indicator Gauge")
 defineIndicatorLight("FLOW_INDICATOR_LIGHT", 725, "Oxygen System", "Flow Indicator Light")
 

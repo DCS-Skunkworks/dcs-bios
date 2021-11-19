@@ -210,7 +210,7 @@ defineToggleSwitch("ARC5_NEAR_FAR_NBD", 29, 3009, 123, "ARC5", "ARC-5 Near/Far N
 defineToggleSwitch("ARC5_NBD1", 29, 3010, 146, "ARC5", "ARC-5 NDB 1 Switch")
 defineToggleSwitch("ARC5_NBD2", 29, 3011, 147, "ARC5", "ARC-5 NDB 2 Switch")
 defineToggleSwitch("ARC5_NBD3", 29, 3012, 148, "ARC5", "ARC-5 NDB 3 Switch")
-defineFloat("ARC5_BAND", 238, {0.0, 0.4}, "ARC5", "ARC-5 Band")
+defineFloat("ARC5_BAND", 238, {0, 0.4}, "ARC5", "ARC-5 Band")
 defineFloat("ARC5_TUNE_METER", 176, {0, 1}, "ARC5", "ARC-5 Tuning Meter")
 defineFloat("ARC5_TUNE", 175, {0, 1}, "ARC5", "ARC-5 Tuning")
 defineFloat("ARC5_BEARING", 38, {0, 1}, "ARC5", "ARC-5 Bearing")
