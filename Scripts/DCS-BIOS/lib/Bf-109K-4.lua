@@ -159,7 +159,7 @@ definePushButton("R_RADIATOR_OFF", 4, 3045, 91, "Engine", "RH Radiator Cut-Off")
 defineRotary("ALT_PRESS_SET", 8, 3001, 11, "Cockpit", "Altimeter Pressure Set")
 
 -- Artificial Horizon
-definePotentiometer("HORIZON_CAGE", 9,3001, 7, {0.0, 0.511},"Cockpit", "Horizon Cage")
+definePotentiometer("HORIZON_CAGE", 9,3001, 7, {0, 0.511},"Cockpit", "Horizon Cage")
 
 -- Repeater Compass
 defineRotary("COURSE_SET", 10, 3001, 12, "Cockpit", "Course Set")

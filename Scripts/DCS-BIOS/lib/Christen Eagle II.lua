@@ -84,7 +84,7 @@ defineFloat("ALT_FT_100", 309, {0.0, 0.25, 0.5, 0.75, 1.0}, "Gauges", "ALT 100ft
 defineFloat("ALT_FT_1000", 310, {0, 1}, "Gauges", "ALT 1000ft Gauge")
 defineFloat("ALT_FT_10000", 312, {0, 1}, "Gauges", "ALT 10000ft Gauge")
 defineFloat("OIL_PRESS", 314, {0.0, 0.167, 0.391, 0.599, 0.806, 0.899, 1.000}, "Gauges", "OIL Pressure")
-defineFloat("OIL_TEMP", 315, {0.0, 0.091, 0.189, 0.341, 0.434, 0.548, 0.679, 0.835, 1.0}, "Gauges", "OIL Temperature")
+defineFloat("OIL_TEMP", 315, {0.0, 0.091, 0.189, 0.341, 0.434, 0.548, 0.679, 0.835, 1}, "Gauges", "OIL Temperature")
 defineFloat("MANIFOLD_PRESS", 316, {0.0, 0.205, 0.400, 0.603, 0.806, 1.0}, "Gauges", "MANIFOLD Pressure")
 defineFloat("FUEL_FLOW", 317, {0.0, 0.047, 0.105, 0.195, 0.290, 0.426, 0.569, 0.735, 0.931, 1.0}, "Gauges", "Fuel Flow")
 defineFloat("RPM", 318, {0.0, 0.120, 0.271, 0.416, 0.557, 0.696, 0.845, 1.0}, "Gauges", "RPM")
