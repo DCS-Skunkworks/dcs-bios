@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4.3c by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v4.3e by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -365,7 +365,7 @@ defineToggleSwitch("PLT_AFCS_YAW", 22, 3036, 2108, "SAS", "PILOT AFCS Stability 
 define3PosTumb("PLT_AUTOPLT_VECTOR_CARRIER", 22, 3037, 2109, "Autopilot", "PILOT Autopilot - Vector / Automatic Carrier Landing")
 defineToggleSwitch("PLT_AUTOPLT_ALT", 22, 3038, 2110, "Autopilot", "PILOT Autopilot - Altitude Hold")
 define3PosTumb("PLT_AUTOPLT_HDG", 22, 3039, 2111, "Autopilot", "PILOT Autopilot - Heading / Ground Track")
-defineToggleSwitch("PLT_AUTOPLT_ENGAGE", 22, 3040, 2112, "Autopilot", "PILOT Autopilot - Engage")
+defineFixedStepTumb("PLT_AUTOPLT_ENGAGE", 22, 3040, 2112, 2, {-1, 1}, {-1, 1}, nil, "Autopilot", "PILOT Autopilot - Engage")
 
 -- Flaps
 definePotentiometer("PLT_FLAPS_LEVER", 19, 3044, 225, {0, 1}, "Flaps", "PILOT Flaps Lever")
