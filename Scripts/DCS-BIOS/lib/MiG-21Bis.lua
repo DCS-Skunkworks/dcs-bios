@@ -75,7 +75,7 @@ definePotentiometer("GAUGE_LIGHT", 46, 3232, 156, {0, 1}, "Right Horizontal Aft 
 definePotentiometer("RED_LIGHT", 46, 3233, 157, {0, 1}, "Right Horizontal Forward Panel", "Red Lights")
 definePotentiometer("WHITE_LIGHT", 46, 3234, 222, {0, 1}, "Canopy Frame", "White Lights")
 defineTumb("NAV_LIGHTS", 46, 3032, 194, 0.33, {0.0, 0.99}, nil, true, "Avionics Power Panel", "Nav Lights Off/Dim/Med/Bright")
-defineTumb("LND_LIGHT", 46, 3033, 323, 0.5, {0.0, 1}, nil, false, "Landing Gear Control", "Landing Lights Land/Taxi/Off/Dim/Med/Bright")
+defineTumb("LND_LIGHT", 46, 3033, 323, 0.5, {0, 1}, nil, false, "Landing Gear Control", "Landing Lights Land/Taxi/Off/Dim/Med/Bright")
 
 --Warning Lights
 definePushButton("FUEL_WARN_LIGHT_TEST", 47, 3034, 369, "Main Warning Lights", "Fuel Warn Lights Test")
@@ -99,7 +99,7 @@ defineToggleSwitch("RAD_PWR", 22, 3041, 173, "Avionics Power Panel", "Radio On/O
 defineToggleSwitch("RAD_CPS", 22, 3042, 208, "Radio", "Radio/Compass Audio")
 defineToggleSwitch("RAD_SQL", 22, 3043, 209, "Radio", "Radio Squelch")
 definePotentiometer("RAD_VOL", 22, 3044, 210, {0, 1}, "Radio", "Radio Volume")
-defineTumb("RAD_CHAN", 22, 3045, 211, 0.05, {0.0, 0.95}, nil, true, "Radio", "Radio Channel")
+defineTumb("RAD_CHAN", 22, 3045, 211, 0.05, {0, 0.95}, nil, true, "Radio", "Radio Channel")
 definePushButton("RAD_PTT", 55, 3046, 315, "Throttle", "Radio PTT")
 
 --ARC

@@ -84,7 +84,7 @@ defineFloat("FRONT_RALT_DANGER", 59, {0.0,	0.094,	0.48,	0.998}, "Gauges","FRONT 
 defineFloat("FRONT_RALT_WARNFLAG", 62, {0.0, 1.0}, "Gauges","FRONT Radar Altimeter Warning Flag")
 defineFloat("BACK_RALT", 396, {0.0,	0.086,	0.439,	0.878,	0.955}, "Gauges","BACK Radar Altimeter")
 defineFloat("BACK_RALT_DANGER", 397, {0.0,	0.094,	0.48,	0.998}, "Gauges","BACK Radar Altimeter Danger Altitude")
-defineFloat("BACK_RALT_WARNFLAG", 400, {0.0, 1.0}, "Gauges","BACK Radar Altimeter Warning Flag")
+defineFloat("BACK_RALT_WARNFLAG", 400, {0, 1}, "Gauges","BACK Radar Altimeter Warning Flag")
 
 defineFloat("FRONT_ALT_100_PTR", 637, {0, 1}, "Gauges","FRONT Altimeter 100ft Ptr")
 defineFloat("FRONT_ALT_10000", 632, {0, 1}, "Gauges","FRONT Altimeter 10000ft")

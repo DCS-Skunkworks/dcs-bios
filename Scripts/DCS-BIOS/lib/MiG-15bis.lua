@@ -29,10 +29,10 @@ defineToggleSwitch("AFT_CANOPY_LEVER", 15, 3005, 224, "Cockpit Mech", "Aft Canop
 -- Control system
 define3PosTumb("ELEVATOR_TRIM", 3, 3002, 114, "Control System", "Elevator Trimmer Switch")
 define3PosTumb("AILERON_TRIM", 3, 3001, 142, "Control System", "Aileron Trimmer Switch")
-defineTumb("FLAPS_HANDLE", 3, 3003, 207, 0.5, {-1.0, 0.5}, nil, false, "Control System", "Wing Flaps Handle")
+defineTumb("FLAPS_HANDLE", 3, 3003, 207, 0.5, {-1, 0.5}, nil, false, "Control System", "Wing Flaps Handle")
 defineToggleSwitch("AIRBRAKE_SW", 3, 3005, 125, "Control System", "Airbrake Switch")
 defineToggleSwitch("HYDRO_BOOST", 3, 3006, 203, "Control System", "Hydro Booster Lever")
-defineTumb("THROTTLE_FRICTION", 3, 3008, 204, 0.5, {0.5, 1.0}, nil, false, "Control System", "Throttle Friction Lever")
+defineTumb("THROTTLE_FRICTION", 3, 3008, 204, 0.5, {0.5, 1}, nil, false, "Control System", "Throttle Friction Lever")
 definePushButton("AIRBRAKE_BT", 3, 3004, 198, "Control System", "Airbrake Button")
 
 -- Electric system
@@ -41,7 +41,7 @@ defineToggleSwitch("AIR_START", 2, 3005, 149, "Electric System", "Air Start Swit
 defineToggleSwitch("PITOT_CLOCK_HEATER", 2, 3011, 81, "Electric System", "Pitot and Clock Heater Switch")
 definePushButton("ENGINE_START", 2, 3003, 200, "Electric System", "Engine Start Button")
 defineToggleSwitch("ENGINE_START_COVER", 2, 3004, 214, "Electric System", "Engine Start Button Cover")
-defineFloat("V_A_METER_G", 83, {-1.0, 0.0, 1.0}, "Electric System", "Volt Amper Meter Gauge")
+defineFloat("V_A_METER_G", 83, {-1, 1}, "Electric System", "Volt Amper Meter Gauge")
 
 -- Circuit Breakers
 defineToggleSwitch("TRANSFER_PUMP", 2, 3017, 117, "Circuit Breakers", "Transfer Pump Switch")
@@ -66,18 +66,18 @@ defineToggleSwitch("GUN_SIGHT", 2, 3020, 163, "Right Panel", "ASP-3N Gunsight Sw
 defineToggleSwitch("GUN_CAM", 2, 3023, 164, "Right Panel", "S-13 Gun Camera Switch")
 
 -- Hydro System
-definePotentiometer("EMERG_FLAPS_VALVE", 12, 3001, 171, {0.0, 1.0}, "Hydro System", "Emergency Flaps Valve")
-definePotentiometer("EMERG_GEARS_VALVE", 12, 3002, 167, {0.0, 1.0}, "Hydro System", "Emergency Gears Valve")
+definePotentiometer("EMERG_FLAPS_VALVE", 12, 3001, 171, {0, 1}, "Hydro System", "Emergency Flaps Valve")
+definePotentiometer("EMERG_GEARS_VALVE", 12, 3002, 167, {0, 1}, "Hydro System", "Emergency Gears Valve")
 defineToggleSwitch("EMERG_FLAPS_VALVE_COVER", 12, 3003, 170, "Hydro System", "Emergency Flaps Valve Cover")
 defineToggleSwitch("EMERG_GEARS_VALVE_COVER", 12, 3004, 166, "Hydro System", "Emergency Gears Valve Cover")
-definePotentiometer("EMERG_SYS_FILL", 12, 3006, 186, {0.0, 1.0}, "Hydro System", "Emergency System Filling Valve")
-definePotentiometer("AIR_NET", 12, 3007, 242, {0.0, 1.0}, "Hydro System", "Air Net Valve")
-definePotentiometer("COCKPIT_FILL", 12, 3008, 241, {0.0, 1.0}, "Hydro System", "Cockpit Filling Valve")
-defineFloat("HYDRO_PRESS_MAIN", 168, {0.0, 1.0}, "Hydro System", "Hydraulic Pressure Main")
-defineFloat("HYDRO_PRESS_GAIN", 139, {0.0, 1.0}, "Hydro System", "Hydraulic Pressure Gain")
-defineFloat("HYDRO_PRESS_FLAPS", 169, {0.0, 1.0}, "Hydro System", "Hydraulic Pressure Air Flaps")
-defineFloat("HYDRO_PRESS_GEARS", 165, {0.0, 1.0}, "Hydro System", "Hydraulic Pressure Air Gears")
-defineFloat("HYDRO_PRESS_MAIN_AIR", 172, {0.0, 1.0}, "Hydro System", "Hydraulic Pressure Main Air")
+definePotentiometer("EMERG_SYS_FILL", 12, 3006, 186, {0, 1}, "Hydro System", "Emergency System Filling Valve")
+definePotentiometer("AIR_NET", 12, 3007, 242, {0, 1}, "Hydro System", "Air Net Valve")
+definePotentiometer("COCKPIT_FILL", 12, 3008, 241, {0, 1}, "Hydro System", "Cockpit Filling Valve")
+defineFloat("HYDRO_PRESS_MAIN", 168, {0, 1}, "Hydro System", "Hydraulic Pressure Main")
+defineFloat("HYDRO_PRESS_GAIN", 139, {0, 1}, "Hydro System", "Hydraulic Pressure Gain")
+defineFloat("HYDRO_PRESS_FLAPS", 169, {0, 1}, "Hydro System", "Hydraulic Pressure Air Flaps")
+defineFloat("HYDRO_PRESS_GEARS", 165, {0, 1}, "Hydro System", "Hydraulic Pressure Air Gears")
+defineFloat("HYDRO_PRESS_MAIN_AIR", 172, {0, 1}, "Hydro System", "Hydraulic Pressure Main Air")
 
 -- Gear System
 defineToggleSwitch("LANDING_GEAR", 13, 3001, 71, "Gear System", "Landing Gear Handle")
@@ -85,37 +85,37 @@ definePushButton("GEAR_LAMP_TEST", 13, 3003, 72, "Gear System", "Gear Lamps Test
 definePushButton("R_EMERG_GEAR", 13, 3005, 210, "Gear System", "Right Emergency Gear Release Handle")
 definePushButton("L_EMERG_GEAR", 13, 3004, 209, "Gear System", "Left Emergency Gear Release Handle")
 defineToggleSwitch("LANDING_GEAR_COVER", 13, 3002, 85, "Gear System", "Landing Gear Handle Lock")
-defineFloat("BRAKE_PRESS_L", 121, {0.0, 1.0}, "Gear System", "Left Brake Pressure")
-defineFloat("BRAKE_PRESS_R", 122, {0.0, 1.0}, "Gear System", "Right Brake Pressure")
+defineFloat("BRAKE_PRESS_L", 121, {0, 1}, "Gear System", "Left Brake Pressure")
+defineFloat("BRAKE_PRESS_R", 122, {0, 1}, "Gear System", "Right Brake Pressure")
 
 -- Fuel System
 defineToggleSwitch("DROP_TANK_SIGNAL", 10, 3001, 82, "Fuel System", "Drop Tank Signal Switch")
 defineFloat("FUEL_QUANTITY", 47, {0.0, 0.047, 0.136, 0.22, 0.38, 0.52, 0.631, 0.755, 0.869, 0.921, 1.0}, "Fuel System", "Fuel Quantity")
 
 -- Oxygen System
-definePotentiometer("O2_SUPPLY", 9, 3001, 141, {0.0, 1.0}, "Oxygen System", "Oxygen Supply Valve")
-definePotentiometer("AIR_DILUTER", 9, 3003, 143, {-1.0, 0.0}, "Oxygen System", "Air Diluter Valve")
-definePotentiometer("O2_EMERG", 9, 3002, 243, {0.0, 1.0}, "Oxygen System", "Oxygen Emergency Valve")
-defineFloat("O2_PRESS", 48, {0.0, 1.0}, "Oxygen System", "Oxygen Pressure")
-defineFloat("O2_FLOW_BLINK", 60, {0.0, 1.0}, "Oxygen System", "Flow Blinker")
+definePotentiometer("O2_SUPPLY", 9, 3001, 141, {0, 1}, "Oxygen System", "Oxygen Supply Valve")
+definePotentiometer("AIR_DILUTER", 9, 3003, 143, {-1, 0}, "Oxygen System", "Air Diluter Valve")
+definePotentiometer("O2_EMERG", 9, 3002, 243, {0, 1}, "Oxygen System", "Oxygen Emergency Valve")
+defineFloat("O2_PRESS", 48, {0, 1}, "Oxygen System", "Oxygen Pressure")
+defineFloat("O2_FLOW_BLINK", 60, {0, 1}, "Oxygen System", "Flow Blinker")
 defineFloat("O2_FLOW_PRESS", 49, {0.0, 0.9, 1.0}, "Oxygen System", "Flow Pressure")
 
 -- Conditioning and Heating System
-definePotentiometer("COCKPIT_AIT", 8, 3001, 187, {0.0, 1.0}, "Conditioning and Heating System", "Cockpit Air Valve")
-definePotentiometer("VENTILATION", 8, 3002, 86, {-1.0, 0.0}, "Conditioning and Heating System", "Ventilation Valve")
+definePotentiometer("COCKPIT_AIT", 8, 3001, 187, {0, 1}, "Conditioning and Heating System", "Cockpit Air Valve")
+definePotentiometer("VENTILATION", 8, 3002, 86, {-1, 0}, "Conditioning and Heating System", "Ventilation Valve")
 
 -- Internal Lights System
 definePotentiometer("L_UV_LIGHT", 22, 3001, 184, {0.23, 0.82}, "Internal Lights System", "Left UV Light Rheostat")
 definePotentiometer("R_UV_LIGHT", 22, 3002, 185, {0.23, 0.82}, "Internal Lights System", "Right UV Light Rheostat")
 definePotentiometer("PANELS_LIGHT", 22, 3003, 220, {0.23, 0.82}, "Internal Lights System", "Panels Light Rheostat")
-defineFloat("LAMP_LIGHT", 244, {0.0, 1.0}, "Internal Lights System", "Lamps Lightness") --???
+defineFloat("LAMP_LIGHT", 244, {0, 1}, "Internal Lights System", "Lamps Lightness") --???
 
 -- Nav Lights System
 defineToggleSwitch("EXT_LIGHTS", 14, 3001, 111, "Nav Lights System", "External Lights Switch")
 defineToggleSwitch("NOSE_LIGHT", 14, 3002, 80, "Nav Lights System", "Nose Light Switch")
 
 -- Power Plant
-definePotentiometer("ENGINE_STOP", 11, 3001, 208, {0.0, 1.0}, "Power Plant", "Engine Stop Lever")
+definePotentiometer("ENGINE_STOP", 11, 3001, 208, {0, 1}, "Power Plant", "Engine Stop Lever")
 defineToggleSwitch("ISO_VALVE", 11, 3002, 118, "Power Plant", "Isolating Valve Switch")
 
 -- Fire Extinguisher System
@@ -133,16 +133,16 @@ defineToggleSwitch("SIGNAL_FLARE_WHI", 28, 3004, 133, "Signal Flares", "Signal F
 ------ Devices
 -- AGK-47B
 defineToggleSwitch("AGK_CAGE", 25, 3002, 12, "AGK47B", "AGK-47B Artificial Horizon Cage")
-definePotentiometer("AGK_TRIM", 25, 3003, 13, {0.0, 1.0}, "AGK47B", "AGK-47B Artificial Horizon Zero Pitch Trim Knob")
-defineFloat("AGK_ROLL", 6, {-1.0, 1.0}, "AGK47B", "AGK-47B Roll Gauge")
+definePotentiometer("AGK_TRIM", 25, 3003, 13, {0, 1}, "AGK47B", "AGK-47B Artificial Horizon Zero Pitch Trim Knob")
+defineFloat("AGK_ROLL", 6, {-1, 1}, "AGK47B", "AGK-47B Roll Gauge")
 defineFloat("AGK_PITCH", 7, {1.0, -1.0}, "AGK47B", "AGK-47B Pitch Gauge")
-defineFloat("AGK_FLAG", 11, {0.0, 1.0}, "AGK47B", "AGK-47B Failure Flag")
-defineFloat("AGK_SLIP", 8, {-1.0, 1.0}, "AGK47B", "AGK-47B Sideslip Gauge")
-defineFloat("AGK_TURN", 9, {-1.0, 1.0}, "AGK47B", "AGK-47B Turn Gauge")
-defineFloat("AGK_HORIZON", 10, {-1.0, 1.0}, "AGK47B", "AGK-47B Horizon Gauge")
+defineFloat("AGK_FLAG", 11, {0, 1}, "AGK47B", "AGK-47B Failure Flag")
+defineFloat("AGK_SLIP", 8, {-1, 1}, "AGK47B", "AGK-47B Sideslip Gauge")
+defineFloat("AGK_TURN", 9, {-1, 1}, "AGK47B", "AGK-47B Turn Gauge")
+defineFloat("AGK_HORIZON", 10, {-1, 1}, "AGK47B", "AGK-47B Horizon Gauge")
 
 -- VD-15
-definePotentiometer("BARO_PRESS", 19, 3001, 30, {0.0, 1.0}, "VD15", "Barometric Pressure QFE Knob")
+definePotentiometer("BARO_PRESS", 19, 3001, 30, {0, 1}, "VD15", "Barometric Pressure QFE Knob")
 
 -- PRV-46
 defineToggleSwitch("RPV46_RANGE", 16, 3004, 36, "PRV46", "PRV-46 Radar Altimeter Indicator Range Switch")
@@ -150,24 +150,24 @@ defineToggleSwitch("RPV46_POWER", 16, 3003, 37, "PRV46", "PRV-46 Radar Altimeter
 defineFloat("RPV46_RALT", 35, {-1.0, 0.0, 1.0}, "PRV46", "PRV-46 Radar Altimeter Gauge")
 
 -- PDK-45
-definePotentiometer("PDK45_HEADING", 21, 3001, 34, {0.0, 1.0}, "PDK45", "Heading Knob")
+definePotentiometer("PDK45_HEADING", 21, 3001, 34, {0, 1}, "PDK45", "Heading Knob")
 definePushButton("PDK45_FAST_SLAVE", 21, 3003, 61, "PDK45", "Fast Slave Button")
-defineFloat("PDK45_HDG_SCALE", 32, {1.0, 0.0}, "PDK45", "Heading Scale")
-defineFloat("PDK45_HDG", 33, {0.0, 1.0}, "PDK45", "Heading")
+defineFloat("PDK45_HDG_SCALE", 32, {1, 0}, "PDK45", "Heading Scale")
+defineFloat("PDK45_HDG", 33, {0, 1}, "PDK45", "Heading")
 
 -- CLOCK
-defineTumb("CLOCK_LEFT_LVR1", 7, 3001, 23, 1, {-1.0, 0.0}, nil, false, "Clock", "AChS-1 Cockpit Chronograph Left Push/Pull (Stage 1)")
+defineTumb("CLOCK_LEFT_LVR1", 7, 3001, 23, 1, {-1, 0}, nil, false, "Clock", "AChS-1 Cockpit Chronograph Left Push/Pull (Stage 1)")
 definePushButton("CLOCK_LEFT_LVR2", 7, 3002, 23, "Clock", "AChS-1 Cockpit Chronograph Left Push/Pull (Stage 2)")
 defineRotary("CLOCK_LEFT_ROT", 7, 3003, 24, "Clock", "AChS-1 Cockpit Chronograph Left  Rotate")
 definePushButton("CLOCK_RIGHT_LVR", 7, 3004, 25, "Clock", "AChS-1 Cockpit Chronograph Right Push")
 defineRotary("CLOCK_RIGHT_ROT", 7, 3005, 26, "Clock", "AChS-1 Cockpit Chronograph Right Rotate")
-defineFloat("CLOCK_CUR_H", 15, {0.0, 1.0}, "Clock", "CLOCK currtime hours")
-defineFloat("CLOCK_CUR_M", 16, {0.0, 1.0}, "Clock", "CLOCK currtime minutes")
-defineFloat("CLOCK_FLY_STATUS", 22, {0.5, 0.0}, "Clock", "CLOCK flight time meter status")
-defineFloat("CLOCK_FLY_H", 18, {0.0, 1.0}, "Clock", "CLOCK fly hours")
-defineFloat("CLOCK_FLY_M", 19, {0.0, 1.0}, "Clock", "CLOCK fly minutes")
-defineFloat("CLOCK_SEC_M", 20, {1.0, 0.0}, "Clock", "CLOCK seconds meter time minutes")
-defineFloat("CLOCK_SEC_S", 17, {0.0, 1.0}, "Clock", "CLOCK seconds meter time seconds")
+defineFloat("CLOCK_CUR_H", 15, {0, 1}, "Clock", "CLOCK currtime hours")
+defineFloat("CLOCK_CUR_M", 16, {0, 1}, "Clock", "CLOCK currtime minutes")
+defineFloat("CLOCK_FLY_STATUS", 22, {0.5, 0}, "Clock", "CLOCK flight time meter status")
+defineFloat("CLOCK_FLY_H", 18, {0, 1}, "Clock", "CLOCK fly hours")
+defineFloat("CLOCK_FLY_M", 19, {0, 1}, "Clock", "CLOCK fly minutes")
+defineFloat("CLOCK_SEC_M", 20, {1, 0}, "Clock", "CLOCK seconds meter time minutes")
+defineFloat("CLOCK_SEC_S", 17, {0, 1}, "Clock", "CLOCK seconds meter time seconds")
 
 -- Weapon System
 definePushButton("N37_RELOAD", 4, 3005, 92, "Weapon System", "N-37D Cannon Reload Button")
@@ -191,19 +191,19 @@ defineToggleSwitch("GUN_SAFE", 4, 3010, 196, "Stick Buttons", "Guns Safety Cover
 -- ASP-3N Gunsight
 defineToggleSwitch("ASP3_MODE", 26, 3003, 101, "ASP3N Gunsight", "ASP-3N Gunsight Mode")
 defineToggleSwitch("ASP3_MASK_LEVER", 26, 3011, 106, "ASP3N Gunsight", "ASP-3N Gunsight Fixed Reticle Mask Lever")
-definePotentiometer("ASP3_WINGSPAN_ADJ", 26, 3001, 103, {-0.5, 1.0}, "ASP3N Gunsight", "ASP-3N Gunsight Target Wingspan Adjustment Dial")
-definePotentiometer("ASP3_BRIGHT", 26, 3004, 102, {0.0, 1.0}, "ASP3N Gunsight", "ASP-3N Gunsight Brightness Knob")
-definePotentiometer("ASP3_DIST", 26, 3002, 201, {0.0, 1.0}, "ASP3N Gunsight", "ASP-3N Gunsight Target Distance Knob")
+definePotentiometer("ASP3_WINGSPAN_ADJ", 26, 3001, 103, {-0.5, 1}, "ASP3N Gunsight", "ASP-3N Gunsight Target Wingspan Adjustment Dial")
+definePotentiometer("ASP3_BRIGHT", 26, 3004, 102, {0, 1}, "ASP3N Gunsight", "ASP-3N Gunsight Brightness Knob")
+definePotentiometer("ASP3_DIST", 26, 3002, 201, {0, 1}, "ASP3N Gunsight", "ASP-3N Gunsight Target Distance Knob")
 defineToggleSwitch("ASP3_COLOR", 26, 3012, 105, "ASP3N Gunsight", "ASP-3N Gunsight Color Filter")
-defineFloat("ASP3_RANGE", 245, {0.0, 1.0}, "ASP3N Gunsight", "ASP-3N Gunsight Range")
+defineFloat("ASP3_RANGE", 245, {0, 1}, "ASP3N Gunsight", "ASP-3N Gunsight Range")
 
 -- ARC-5 radio compass
-definePotentiometer("ARC5_VOL", 29, 3001, 180, {0.0, 1.0}, "ARC5", "ARC-5 Audio Volume Knob")
-defineTumb("ARC5_BAND", 29, 3004, 177, 0.5, {0.0, 1.0}, nil, false,"ARC5" ,"ARC-5 Frequency Band Switch")
-defineTumb("ARC5_SELECT", 29, 3003, 174, 0.1, {0.0, 0.4}, nil, false,"ARC5" ,"ARC-5 Function Selector Switch")
+definePotentiometer("ARC5_VOL", 29, 3001, 180, {0, 1}, "ARC5", "ARC-5 Audio Volume Knob")
+defineTumb("ARC5_BAND", 29, 3004, 177, 0.5, {0, 1}, nil, false,"ARC5" ,"ARC-5 Frequency Band Switch")
+defineTumb("ARC5_SELECT", 29, 3003, 174, 0.1, {0, 0.4}, nil, false,"ARC5" ,"ARC-5 Function Selector Switch")
 define3PosTumb("ARC5_LOOP", 29, 3006, 178, "ARC5", "ARC-5 LOOP L-R Switch")
-definePotentiometer("ARC5_TUNE", 29, 3005, 175, {0.0, 1.0}, "ARC5", "ARC-5 Tuning Crank")
-definePotentiometer("ARC5_LIGHT", 29, 3007, 181, {0.0, 1.0}, "ARC5", "ARC-5 Scale Light Knob")
+definePotentiometer("ARC5_TUNE", 29, 3005, 175, {0, 1}, "ARC5", "ARC-5 Tuning Crank")
+definePotentiometer("ARC5_LIGHT", 29, 3007, 181, {0, 1}, "ARC5", "ARC-5 Scale Light Knob")
 defineToggleSwitch("ARC5_TGL_TFL", 29, 3002, 173, "ARC5", "ARC-5 TLG-TLF Switch")
 definePushButton("ARC5_CONTROL", 29, 3008, 182, "ARC5", "ARC-5 Take Control Button")
 defineToggleSwitch("ARC5_NEAR_FAR_NBD", 29, 3009, 123, "ARC5", "ARC-5 Near/Far NDB Switch")
@@ -211,9 +211,9 @@ defineToggleSwitch("ARC5_NBD1", 29, 3010, 146, "ARC5", "ARC-5 NDB 1 Switch")
 defineToggleSwitch("ARC5_NBD2", 29, 3011, 147, "ARC5", "ARC-5 NDB 2 Switch")
 defineToggleSwitch("ARC5_NBD3", 29, 3012, 148, "ARC5", "ARC-5 NDB 3 Switch")
 defineFloat("ARC5_BAND", 238, {0.0, 0.4}, "ARC5", "ARC-5 Band")
-defineFloat("ARC5_TUNE_METER", 176, {0.0, 1.0}, "ARC5", "ARC-5 Tuning Meter")
-defineFloat("ARC5_TUNE", 175, {0.0, 1.0}, "ARC5", "ARC-5 Tuning")
-defineFloat("ARC5_BEARING", 38, {0.0, 1.0}, "ARC5", "ARC-5 Bearing")
+defineFloat("ARC5_TUNE_METER", 176, {0, 1}, "ARC5", "ARC-5 Tuning Meter")
+defineFloat("ARC5_TUNE", 175, {0, 1}, "ARC5", "ARC-5 Tuning")
+defineFloat("ARC5_BEARING", 38, {0, 1}, "ARC5", "ARC-5 Bearing")
 defineFloat("ARC5_FREQ", 239, {0.0,	0.0695,	0.14, 0.2865, 0.43, 0.7155, 1.0}, "ARC5", "ARC-5 Freq Scale")
 defineIndicatorLight("ARC5_PW_LIGHT", 183, "ARC5", "ARC-5 Power Light (green)")	
 
@@ -227,29 +227,29 @@ defineRotary("RSI6K_RECEIVE_FREQ", 30, 3003, 128, "RSI6K", "RSI-6K Receiver Tuni
 defineToggleSwitch("RSI6K_RECEIVE", 30, 3008, 140, "RSI6K", "RSI-6K Receive/ARC Switch")
 defineToggleSwitch("RSI6K_FORCE", 30, 3009, 240, "RSI6K", "RSI-6K Forced Mode Switch")
 definePushButton("RSI6K_MIC", 30, 3002, 202, "RSI6K", "Microphone Button")
-defineFloat("RSI6K_ANT_POWER", 235, {0.0, 1.0}, "RSI6K", "RSI-6K Antenna Power")
-defineFloat("RSI6K_RECEIVE_KNOB", 128, {0.0, 1.0}, "RSI6K", "RSI-6K Receiver Knob")
+defineFloat("RSI6K_ANT_POWER", 235, {0, 1}, "RSI6K", "RSI-6K Antenna Power")
+defineFloat("RSI6K_RECEIVE_KNOB", 128, {0, 1}, "RSI6K", "RSI-6K Receiver Knob")
 defineFloat("RSI6K_RECEIVE_IND", 127, {0.036, 0.961}, "RSI6K", "RSI-6K Receiver Ind")
 defineFloat("RSI6K_RECEIVE_GAUGE", 144, {0.026, 0.957}, "RSI6K", "RSI-6K Receiver Gauge")
 
 
 -- Instruments
 defineFloat("VARIOMETER", 14, {0.0,	0.075, 0.151, 0.24,	0.352, 0.401, 0.448, 0.5, 0.553, 0.6, 0.649, 0.76, 0.848, 0.925, 1.0}, "Gauges", "Variometer")
-defineFloat("ALT_KM", 28, {0.0, 1.0}, "Gauges", "Altimeter km")
-defineFloat("ALT_M", 29, {0.0, 1.0}, "Gauges", "Altimeter km")
+defineFloat("ALT_KM", 28, {0, 1}, "Gauges", "Altimeter km")
+defineFloat("ALT_M", 29, {0, 1}, "Gauges", "Altimeter km")
 defineFloat("ALT_PRESS", 31, {-0.0535, 0.0, 1.0}, "Gauges", "Altimeter Pressure")
-defineFloat("IAS", 4, {0.0, 1.0}, "Gauges", "IAS")
-defineFloat("TAS", 5, {0.0, 1.0}, "Gauges", "TAS")
+defineFloat("IAS", 4, {0, 1}, "Gauges", "IAS")
+defineFloat("TAS", 5, {0, 1}, "Gauges", "TAS")
 defineFloat("MACH", 27, {0.12,	0.215,	1.0}, "Gauges", "Mach")
-defineFloat("CANOPY_AIR_VALVE", 188, {0.0, 1.0}, "Gauges", "Canopy Air Valve Indication")
+defineFloat("CANOPY_AIR_VALVE", 188, {0, 1}, "Gauges", "Canopy Air Valve Indication")
 defineFloat("COCKPIT_ALT", 39, {0.008,	1.0}, "Gauges", "Cockpit Altitude")
 defineFloat("PRESS_DIFF", 40, {0.0,	0.243, 1.0}, "Gauges", "Pressure Difference")
-defineFloat("ENG_TACHO", 42, {0.0, 1.0}, "Gauges", "Engine Tachometer")
-defineFloat("ENG_TEMP", 41, {0.0, 1.0}, "Gauges", "Engine Temperature")
-defineFloat("OIL_TEMP", 45, {0.0, 1.0}, "Gauges", "Oil Temperature")
-defineFloat("OIL_PRESS", 44, {0.0, 1.0}, "Gauges", "Oil Pressure")
-defineFloat("ENG_FUEL_PRESS", 43, {0.0, 1.0}, "Gauges", "Engine Fuel Pressure")
-defineFloat("FUEL_PRESS", 46, {0.0, 1.0}, "Gauges", "Fuel Pressure")
+defineFloat("ENG_TACHO", 42, {0, 1}, "Gauges", "Engine Tachometer")
+defineFloat("ENG_TEMP", 41, {0, 1}, "Gauges", "Engine Temperature")
+defineFloat("OIL_TEMP", 45, {0, 1}, "Gauges", "Oil Temperature")
+defineFloat("OIL_PRESS", 44, {0, 1}, "Gauges", "Oil Pressure")
+defineFloat("ENG_FUEL_PRESS", 43, {0, 1}, "Gauges", "Engine Fuel Pressure")
+defineFloat("FUEL_PRESS", 46, {0, 1}, "Gauges", "Fuel Pressure")
 defineFloat("SBY_COMPASS_HDG", 3, {-1, 1}, "Gauges", "Standby Compass Heading")
 defineFloat("SBY_COMPASS_PITCH", 2, {-1, 1}, "Gauges", "Standby Compass Pitch")
 defineFloat("SBY_COMPASS_BANK", 1, {-1, 1}, "Gauges", "Standby Compass Bank")
