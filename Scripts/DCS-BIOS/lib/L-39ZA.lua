@@ -697,7 +697,7 @@ local function getRSBNNAVS()
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(191)*40+1)
     return tostring(digit1) 
 end
-defineIntegerFromGetter("FRONT_RSBN_CHAN_NAV_DISPLAY", getRSBNNAV, 99, "Readings", "FRONT RSBN NAV Channel Display")
+defineIntegerFromGetter("FRONT_RSBN_CHAN_NAV_DISPLAY", getRSBNNAV, 40, "Readings", "FRONT RSBN NAV Channel Display")
 defineString("FRONT_RSBN_CHAN_NAV_DISPLAY_STRING", getRSBNNAVS, 2, "Readings", "FRONT RSBN NAV Channel Display (string)")
 --
 local function getRSBNLAND()
@@ -709,7 +709,7 @@ local function getRSBNLANDS()
     local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(192)*40+1)
     return tostring(digit3)
 end
-defineIntegerFromGetter("FRONT_RSBN_CHAN_LAND_DISPLAY", getRSBNLAND, 99, "Readings", "FRONT RSBN LAND Channel Display")
+defineIntegerFromGetter("FRONT_RSBN_CHAN_LAND_DISPLAY", getRSBNLAND, 40, "Readings", "FRONT RSBN LAND Channel Display")
 defineString("FRONT_RSBN_CHAN_LAND_DISPLAY_STRING", getRSBNLANDS, 2, "Readings", "FRONT RSBN LAND Channel Display (string)")
 --
 local function getRadioPresetChan_FRONT()
@@ -721,7 +721,7 @@ local function getRadioPresetChan_FRONTS()
     local digit5 = string.format("%.0f", GetDevice(0):get_argument_value(284)*100/5)
     return tostring(digit5)
 end
-defineIntegerFromGetter("FRONT_RADIO_CHN_DISPLAY", getRadioPresetChan_FRONT, 99, "Readings", "FRONT Radio Preset Channel Display")
+defineIntegerFromGetter("FRONT_RADIO_CHN_DISPLAY", getRadioPresetChan_FRONT, 19, "Readings", "FRONT Radio Preset Channel Display")
 defineString("FRONT_RADIO_CHN_DISPLAY_STRING", getRadioPresetChan_FRONTS, 2, "Readings", "FRONT Radio Preset Channel Display (string)")
 --
 local function getRadioPresetChan_BACK()
@@ -733,7 +733,7 @@ local function getRadioPresetChan_BACKS()
     local digit7 = string.format("%.0f", GetDevice(0):get_argument_value(284)*100/5)
     return tostring(digit7)
 end
-defineIntegerFromGetter("BACK_RADIO_CHN_DISPLAY", getRadioPresetChan_BACK, 99, "Readings", "BACK Radio Preset Channel Display")
+defineIntegerFromGetter("BACK_RADIO_CHN_DISPLAY", getRadioPresetChan_BACK, 19, "Readings", "BACK Radio Preset Channel Display")
 defineString("BACK_RADIO_CHN_DISPLAY_STRING", getRadioPresetChan_BACKS, 2, "Readings", "BACK Radio Preset Channel Display (string)")
   
 BIOS.protocol.endModule()

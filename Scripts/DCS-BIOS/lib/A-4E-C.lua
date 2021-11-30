@@ -201,7 +201,7 @@ defineIndicatorLight("ECM_REC_LIGHT", 500, "ECM Panel", "ECM REC Light")
 
 defineFloat("CANOPY_VALUE", 26, {0, 1}, "Cockpit Mechanics", "Canopy Position")
 
-------CONTROLS---------
+------CONTROLS
 -- RADAR CONTROL PANEL
 defineMultipositionSwitch("RADAR_MODE", 9, 3063, 120, 5, 0.10, "RadarControlPanel", "Radar Mode")
 defineToggleSwitch("RADAR_AOACOMP", 9, 3064, 121, "RadarControlPanel", "Radar AoA Compensation")
@@ -209,12 +209,12 @@ definePotentiometer("RADAR_ANGLE", 9, 3065, 122, {0, 1}, "RadarControlPanel", "R
 definePotentiometer("RADAR_VOL", 9, 3068, 123, {-1,1}, "RadarControlPanel", "Radar Obstacle Tone Volume")
 
 -- RADAR SCOPE
-definePotentiometer("RADAR_STORAGE", 9, 3057, 400, {-1,1}, "RadarScope", "Radar Storage")
-definePotentiometer("RADAR_BRILLIANCE", 9, 3058, 401, {-1,1}, "RadarScope", "Radar Brilliance")
-definePotentiometer("RADAR_DETAIL", 9, 3059, 402, {-1,1}, "RadarScope", "Radar Detail")
-definePotentiometer("RADAR_GAIN", 9, 3060, 403, {-1,1}, "RadarScope", "Radar Gain")
-definePotentiometer("RADAR_RETICLE", 9, 3062, 404, {-1,1}, "RadarScope", "Radar Reticle")
-defineToggleSwitch("RADAR_FILTER", 9, 3061, 405, "RadarScope", "Radar Filter Plate")
+definePotentiometer("RADAR_STORAGE", 9, 3057, 400, {-1,1}, "RadarScope", "Radar Indicator Storage")
+definePotentiometer("RADAR_BRILLIANCE", 9, 3058, 401, {-1,1}, "RadarScope", "Radar Indicator Brilliance")
+definePotentiometer("RADAR_DETAIL", 9, 3059, 402, {-1,1}, "RadarScope", "Radar Indicator Detail")
+definePotentiometer("RADAR_GAIN", 9, 3060, 403, {-1,1}, "RadarScope", "Radar Indicator Gain")
+definePotentiometer("RADAR_RETICLE", 9, 3062, 404, {-1,1}, "RadarScope", "Radar Indicator Reticle")
+defineToggleSwitch("RADAR_FILTER", 9, 3061, 405, "RadarScope", "Radar Indicator Filter Plate")
 
 --Gunpods
 defineMultipositionSwitch("GUNPOD_CLEAR", 5, 3012, 390, 3, 1, "Gunpods", "Charge/Off/Clear")
