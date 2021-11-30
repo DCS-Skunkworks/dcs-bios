@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4.3e by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v4.3f by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -334,7 +334,7 @@ defineToggleSwitch("PLT_INLET_RAMPS_R", 14, 3008, 2101, "AICS", "PILOT Stow Inle
 -- Wing Sweep
 defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_COVER", 17, 3029, 317, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Cover")
 definePotentiometer("PLT_EMERG_WING_SWEEPLT_LEVER", 17, 3031, 384, {0, 1}, "Wing Sweep", "PILOT Emergency Wing Sweep Handle")
-defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_POP", 13, 3030, 15096, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Pop out")
+defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_POP", 17, 3030, 15096, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Pop out")
 
 --Radar Altimeter
 definePushButton("PLT_RADAR_ALT_BIT", 30, 3485, 16020, "Radar Altimeter", "PILOT Radar Altimeter BIT Test Button")
