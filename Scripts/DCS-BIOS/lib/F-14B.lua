@@ -1350,7 +1350,7 @@ defineFloat("PLT_HYD_PRESS_FLY", 1063, {0, 1}, "PLT Gauges", "PILOT Flight Hydra
 defineFloat("PLT_HYD_SPOIL_FLAG", 1023, {0, 1}, "PLT Gauges", "PILOT Hydraulic Spoiler Flag")
 defineFloat("PLT_HYD_EMERG_HI_FLAG", 1024, {0, 1}, "PLT Gauges", "PILOT Hydraulic Emergency HI Flag")
 defineFloat("PLT_HYD_EMERG_LOW_FLAG", 1025, {0, 1}, "PLT Gauges", "PILOT Hydraulic Emergency LOW Flag")
-defineFloat("PLT_GUN_ELEVATION_PLUSMINUS", 2273, {0, 1}, "PLT Gauges", "PILOT Gun Elevation Plus / Minus")
+defineFloat("PLT_GUN_LEAD_PLUSMINUS", 2273, {0, 1}, "PLT Gauges", "PILOT Gun Lead + / -")
 defineFloat("PLT_ACCEL_METER_NEEDLE2", 15076, {-1, 1}, "PLT Gauges", "PILOT Accelerometer Needle 2")
 defineFloat("PLT_ACCEL_METER_NEEDLE3", 15077, {-1, 1}, "PLT Gauges", "PILOT Accelerometer Needle 3")
 defineFloat("PLT_HSD_BIT_INDICATOR", 15079, {0, 1}, "PLT Gauges", "PILOT HSD BIT Indicator Flag")
@@ -1490,7 +1490,7 @@ local function getGunLead()
 	if digit3 == nil then digit3 = "0" end
     return tonumber(digit1 .. digit2 .. digit3)
 end
-defineIntegerFromGetter("PLT_GUN_LEAD_DISP", getGunLead, 187, "PLT Gauges", "PILOT Gun Lead Display")
+defineIntegerFromGetter("PLT_GUN_LEAD_DISP", getGunLead, 263, "PLT Gauges", "PILOT Gun Lead Display")
 defineFloat("PLT_WEAPON_STORE_1A", 9221, {0, 1}, "PLT Gauges", "PILOT Weapon Store 1A")
 defineFloat("PLT_WEAPON_STORE_1B", 9222, {0, 1}, "PLT Gauges", "PILOT Weapon Store 1B")
 defineFloat("PLT_WEAPON_STORE_3", 9223, {0, 1}, "PLT Gauges", "PILOT Weapon Store 3")
