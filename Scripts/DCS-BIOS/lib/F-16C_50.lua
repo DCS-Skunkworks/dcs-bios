@@ -1,4 +1,4 @@
--- V1.9 by Warlord (aka BlackLibrary)
+-- V1.9a by Warlord (aka BlackLibrary)
 -- Added HARM,VIP,VRP pages by Matchstick
 -- Tested and fixes by BuzzKillington & afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick
@@ -140,8 +140,8 @@ defineToggleSwitch("ST_STA_SW", 22, 3001, 716, "Avionic Panel", "ST STA Switch, 
 defineToggleSwitch("MFD_SW", 19, 3014, 717, "Avionic Panel", "MFD Switch, MFD/OFF")
 defineToggleSwitch("UFC_SW", 17, 3001, 718, "Avionic Panel", "UFC Switch, UFC/OFF")
 defineToggleSwitch("GPS_SW", 59, 3001, 720, "Avionic Panel", "GPS Switch, GPS/OFF")
-defineTumb("MIDS_LVT_KNB", 41, 3001, 723, 0.1, {0.0,0.2}, nil, true, "Avionic Panel", "MIDS LVT Knob, ZERO/OFF/ON")
-defineTumb("INS_KNB", 14, 3001, 719, 0.1, {0.0,0.6}, nil, true, "Avionic Panel", "INS Knob, OFF/STOR HDG/NORM/NAV/CAL/INFLT ALIGN/ATT")
+defineTumb("MIDS_LVT_KNB", 41, 3001, 723, 0.1, {0, 0.2}, nil, true, "Avionic Panel", "MIDS LVT Knob, ZERO/OFF/ON")
+defineTumb("INS_KNB", 14, 3001, 719, 0.1, {0 ,0.6}, nil, true, "Avionic Panel", "INS Knob, OFF/STOR HDG/NORM/NAV/CAL/INFLT ALIGN/ATT")
 defineToggleSwitch("MAP_SW", 61, 3001, 722, "Avionic Panel", "MAP Switch, MAP/OFF")
 defineToggleSwitch("DL_SW", 60, 3001, 721, "Avionic Panel", "DL Switch, DL/OFF")
 
@@ -554,8 +554,8 @@ defineFloat("SET_AIRSPEED", 70, {0, 1}, "Airspeed Indicator", "Set Airspeed")
 defineFloat("MACH_INDICATOR", 49, {0, 1}, "Airspeed Indicator", "Mach Indicator")
 
 --Standby Attitude Indicator
-defineFloat("SAI_PITCH", 63, {-1.0, -0.902, -0.793, -0.687, -0.576, -0.450, -0.339, -0.225, -0.115, 0.0, 0.114, 0.225, 0.336, 0.445, 0.569, 0.679, 0.784, 0.893, 0.995}, "SAI", " SAI Pitch")
-defineFloat("SAI_BANK", 64, {1.0, -1.0}, "SAI", "SAI Bank")
+defineFloat("SAI_PITCH", 63, {-1, -0.902, -0.793, -0.687, -0.576, -0.450, -0.339, -0.225, -0.115, 0, 0.114, 0.225, 0.336, 0.445, 0.569, 0.679, 0.784, 0.893, 0.995}, "SAI", " SAI Pitch")
+defineFloat("SAI_BANK", 64, {1, -1}, "SAI", "SAI Bank")
 defineFloat("SAI_OFF_FLAG", 65, {0, 1}, "SAI", "SAI Off Flag")
 defineFloat("SAI_AIRCRAFTREFERENCESYMBOL", 68, {-1, 1}, "SAI", "SAI Aircraft Reference Symbol")
 defineFloat("SAI_KNB_ARROW", 69, {-1, 1}, "SAI", "SAI Knob Arrow")
@@ -609,7 +609,7 @@ defineFloat("FUELTOTALIZER_1K", 731, {0, 1}, "Fuel System", "Fuel Totalizer Coun
 defineFloat("FUELTOTALIZER_100", 732, {0, 1}, "Fuel System", "Fuel Totalizer Counter 100")
 
 --ECS Cabin Pressure Altimeter
-defineFloat("COCKPIT_ALITITUDE", 618, {0.0,	0.094, 0.194, 0.294, 0.394,	0.496, 0.597, 0.698, 0.798,	0.899, 1.0}, "Oxygen System", "Cabin Pressure Altimeter")
+defineFloat("COCKPIT_ALITITUDE", 618, {0, 0.094, 0.194, 0.294, 0.394, 0.496, 0.597, 0.698, 0.798, 0.899, 1}, "Oxygen System", "Cabin Pressure Altimeter")
 
 --Oxygen Pressure Indicator
 defineFloat("OXYGEN_PRESSURE", 729, {0, 1}, "Oxygen System", "Oxygen Pressure")
@@ -628,8 +628,8 @@ defineFloat("CLOCK_CURRTIME_MS", 622, {0, 1}, "Clock", "Current Time Minutes")
 defineFloat("CLOCK_ELAPSED_TIME_M", 623, {0, 1}, "Clock", "Elapsed Time Minutes")
 defineFloat("CLOCK_ELAPSED_TIME_SEC", 624, {0, 1}, "Clock", "Elapsed Time Seconds")
 
-------------------------------------------------------------------DED Display by Matchstick ------------------------------------------------------------------------
-------------------------------------------------------------------DED Layout Information----------------------------------------------------------------------------
+---------------------------- DED Display by Matchstick
+---------------------------- Layout Info
 local DEDLayout_l1={}
 local DEDLayout_l2={}
 local DEDLayout_l3={}
@@ -774,6 +774,13 @@ DEDLayout_l1["HMCS ALIGN INS_STPT_IncDecSymbol"] = {23,1}
 --BULL
 DEDLayout_l1["BULLSEYE LABEL"] = {6,8,0,"_inv","I"}
 DEDLayout_l1["BULLSEYE LABEL Asteriscs_both"] = {5,1,14,"","I"}
+--MARK
+DEDLayout_l1["MARK"] = {1,4}
+DEDLayout_l1["MARK SOURCE"] = {7,4}
+DEDLayout_l1["MARK SOURCE Asteriscs_both"] = {6,1,11,"","I"}
+DEDLayout_l1["STPT NUMBER"] = {15,2,0,"_inv","I"}
+DEDLayout_l1["MARK IncDecSymbol"] = {18,1}
+DEDLayout_l1["MARK Number Asteriscs_both"] = {14,1,19,"","I"}
 --DEDLayout_l1[""] = {,}
 
 --TODO
@@ -892,6 +899,10 @@ DEDLayout_l2["BULL POINT LABEL"] = {6,4}
 DEDLayout_l2["BULLSEYE NUMBER"] = {12,4,0,"_inv","I"}
 DEDLayout_l2["BULLSEYE IncDecSymbol"] = {16,1}
 DEDLayout_l2["BULLSEYE SEQUENCE Asteriscs_both"] = {11,1,15,"","I"} 
+--MARK
+DEDLayout_l2["MARK Latitude"] = {2,3}
+DEDLayout_l2["MARK Latitude Value"] = {6,12,0,"_inv","I"}
+DEDLayout_l2["MARK Latitude Asteriscs_both"] = {5,1,18,"","I"} 
 --DEDLayout_l2[""] = {,}
 --CNI
 DEDLayout_l3["VHF Label"]={1,3}
@@ -942,7 +953,7 @@ DEDLayout_l3["List Item E Number"]={18,1,0,"","I"}
 DEDLayout_l3["List Item E Name"]={19,4}
 --T-ILS
 DEDLayout_l3["TILS Scratchpad"]={8,6,0,"_inv","I"}
-DEDLayout_l3["TILS Asterisks_both"]={7,1,14,"",'I'}
+DEDLayout_l3["TILS Asterisks_both"]={7,1,14,"",'INV'}
 DEDLayout_l3["ILS CMD STRG"]={15,8}
 DEDLayout_l3["TCN BCN Label"] = {0,3}
 DEDLayout_l3["TCN BCN ID"] = {4,3}
@@ -1055,7 +1066,10 @@ DEDLayout_l3["HMCS DISPLAY HMCS_CKPT_BLANK"] = {3,9,0,"_inv","I"}
 DEDLayout_l3["HMCS DISPLAY Asterisks_CKPT_BLANK_both"] = {2,1,12,"","I"}
 DEDLayout_l3["HMCS ALIGN HMCS_AZ_EL"] = {2,5,0,"_inv","I"}
 DEDLayout_l3["HMCS ALIGN Asterisks_AZ_EL_both"] = {1,1,7,"","I"}
-
+--MARK
+DEDLayout_l3["MARK Longitude"] = {2,3}
+DEDLayout_l3["MARK Longitude Value"] = {6,12,0,"_inv","I"}
+DEDLayout_l3["MARK Longitude Asteriscs_both"] = {5,1,18,"","I"} 
 --DEDLayout_l3[""] = {,}
 --TODO
 DEDLayout_l4["TODO remove label"] = {4,20}
@@ -1210,7 +1224,10 @@ DEDLayout_l4["HMCS DISPLAY HMCS_DECLUTTER_STATUS"] = {17,1}
 DEDLayout_l4["HMCS DISPLAY Asterisks_DECLUTTER_both"] = {12,1,18,"","I"}
 DEDLayout_l4["HMCS ALIGN HMCS_ROLL"] = {2,4,0,"_inv","I"}
 DEDLayout_l4["HMCS ALIGN Asterisks_ROLL_both"] = {1,1,6,"","I"}
-
+--MARK
+DEDLayout_l4["MARK Elevation"] = {1,4}
+DEDLayout_l4["MARK Elevation Value"] = {6,8,0,"_inv","I"}
+DEDLayout_l4["MARK Elevation Asteriscs_both"] = {5,1,14,"","I"}
 --DEDLayout_l4[""] = {,}
 --CNI
 DEDLayout_l5["IFF Modes Label"]={1,1}
@@ -1335,11 +1352,22 @@ DEDLayout_l5["Elevation Asteriscs_both"] = {8,1,17,"","I"}
 DEDLayout_l5["HMCS DISPLAY HMCS_RWR_DISPLAY"] = {3,9}
 DEDLayout_l5["HMCS DISPLAY HMCS_RWR_DISPLAY_STATUS"] = {13,3}
 DEDLayout_l5["HMCS DISPLAY Asterisks_RWR_DISPLAY_both"] = {12,1,16,"","I"}
+--MARK
+DEDLayout_l5["MARK MGRS"] = {1,4}
+DEDLayout_l5["MARK GRID DIGIT Value"] = {6,2,0,"_inv","I"}
+DEDLayout_l5["MARK GRID SYMBOL Value"] = {8,2,0,"_inv","I"}
+DEDLayout_l5["MARK SQUARE Value1"] = {9,2,0,"_inv","I"}
+DEDLayout_l5["MARK SQUARE Value2"] = {10,2,0,"_inv","I"}
+DEDLayout_l5["MARK EAST Value"] = {12,5,0,"_inv","I"}
+DEDLayout_l5["MARK Slash"] = {17,1}
+DEDLayout_l5["MARK NORTH Value"]={18,5,0,"_inv","I"}
+DEDLayout_l5["MARK MGRS Asteriscs_both"]={5,1,23,"","I"}
+
 --DEDLayout_l5[""] = {,}
 
 DEDLayout = {DEDLayout_l1, DEDLayout_l2, DEDLayout_l3, DEDLayout_l4, DEDLayout_l5}
 
-------------------------------------------------------------------DED Display Utility Functions---------------------------------------------------------------------
+---------------------------- DED Display Utility Functions
 function parse_indication(indicator_id)  -- Thanks to [FSF]Ian code
 	local t = {}
 	local li = list_indication(indicator_id)
@@ -1370,7 +1398,7 @@ local function mergeString(original_string, new_data, location)
 	end
 	return before..table.concat(merged)..after
 end
-------------------------------------------------------------------DED Display Main Function-------------------------------------------------------------------------
+---------------------------- DED Display Main Function
 local function buildDEDLine(line)
 -- Get Layout Information for line being built
 	local DEDLayoutLine = DEDLayout[line]
@@ -1477,7 +1505,7 @@ defineString("DED_LINE_3", function() return DEDLine3 end, 25, "DED Output Data"
 defineString("DED_LINE_4", function() return DEDLine4 end, 25, "DED Output Data", "DED Display Line 4")
 defineString("DED_LINE_5", function() return DEDLine5 end, 25, "DED Output Data", "DED Display Line 5")
 
-------------------------------------------------------------------CMDS Display--------------------------------------------------------------------------------------
+---------------------------- CMDS Display
 local CMDS_O1_Amount
 local CMDS_O2_Amount
 local CMDS_CH_Amount
@@ -1503,7 +1531,7 @@ defineString("CMDS_O2_Amount", function() return CMDS_O2_Amount end, 4, "CMDS", 
 defineString("CMDS_CH_Amount", function() return CMDS_CH_Amount end, 4, "CMDS", "CMDS CH Amount Display")
 defineString("CMDS_FL_Amount", function() return CMDS_FL_Amount end, 4, "CMDS", "CMDS FL Amount Display")
 
-------------------------------------------------------------------UHF Display---------------------------------------------------------------------------------------
+---------------------------- UHF Display
 local function get_UHF_CHAN()
     local UHF = parse_indication(10)
 	if UHF and UHF.txtPresetChannel then
