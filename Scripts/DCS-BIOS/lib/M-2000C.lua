@@ -1,6 +1,6 @@
 -----------------------------------------------------------                                         
 --     LIBRARY     	:    Mirage 2000C RAZBAM orginal by Exo7
---     VERSION     	:    v1.33 by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
+--     VERSION     	:    v1.34 by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
 -----------------------------------------------------------
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
@@ -1059,6 +1059,8 @@ definePotentiometer("HUD_BRIGHT_KNOB", 36, 3202, 202, {0, 1}, "VTH", "I - HUD - 
 --EVF
 defineTumb("EVF_CHAN_SEL", 39, 3968, 1004, 0.05, {0, 0.95}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "EVF", "I - EVF - Channel Selector")
 definePushButton("EVF_TEST_BTN", 39, 3970, 1006, "EVF", "I - EVF - Panel Test")
+
+defineIntegerFromGetter("RAD_VTB_RANGE", function() return parse_indication(1)["vtb-rdr-range"] end, 65535, "RADAR", "O - VTB Display Radar Range") 
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
