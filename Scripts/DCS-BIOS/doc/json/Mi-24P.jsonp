@@ -10353,54 +10353,70 @@ docdata["Mi-24P"] =
                                                                             }
                                                 },
                                    "Gauges OP": {
-                                                    "OP_CANOPY_VALUE": {
-                                                                               "category": "Gauges OP",
-                                                                           "control_type": "analog_gauge",
-                                                                            "description": "OPERATOR Canopy Position",
-                                                                             "identifier": "OP_CANOPY_VALUE",
-                                                                                 "inputs": [  ],
-                                                                                "outputs": [ {
-                                                                                                   "address": 27174,
-                                                                                               "description": "gauge position",
-                                                                                                      "mask": 65535,
-                                                                                                 "max_value": 65535,
-                                                                                                  "shift_by": 0,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ]
-                                                                       },
-                                                             "OP_IAS": {
-                                                                               "category": "Gauges OP",
-                                                                           "control_type": "analog_gauge",
-                                                                            "description": "OPERATOR IAS Speed",
-                                                                             "identifier": "OP_IAS",
-                                                                                 "inputs": [  ],
-                                                                                "outputs": [ {
-                                                                                                   "address": 27192,
-                                                                                               "description": "gauge position",
-                                                                                                      "mask": 65535,
-                                                                                                 "max_value": 65535,
-                                                                                                  "shift_by": 0,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ]
-                                                                       },
-                                                       "OP_WIPER_POS": {
-                                                                               "category": "Gauges OP",
-                                                                           "control_type": "analog_gauge",
-                                                                            "description": "OPERATOR Wiper Position",
-                                                                             "identifier": "OP_WIPER_POS",
-                                                                                 "inputs": [  ],
-                                                                                "outputs": [ {
-                                                                                                   "address": 27178,
-                                                                                               "description": "gauge position",
-                                                                                                      "mask": 65535,
-                                                                                                 "max_value": 65535,
-                                                                                                  "shift_by": 0,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ]
-                                                                       }
+                                                    "OP_AIM_REF_MARKER": {
+                                                                                 "category": "Gauges OP",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "OPERATOR Aiming Reference Marker",
+                                                                               "identifier": "OP_AIM_REF_MARKER",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 27230,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                      "OP_CANOPY_VALUE": {
+                                                                                 "category": "Gauges OP",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "OPERATOR Canopy Position",
+                                                                               "identifier": "OP_CANOPY_VALUE",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 27174,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                               "OP_IAS": {
+                                                                                 "category": "Gauges OP",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "OPERATOR IAS Speed",
+                                                                               "identifier": "OP_IAS",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 27192,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                         "OP_WIPER_POS": {
+                                                                                 "category": "Gauges OP",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "OPERATOR Wiper Position",
+                                                                               "identifier": "OP_WIPER_POS",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 27178,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         }
                                                 },
                                   "Gauges PLT": {
                                                     "PLT_CANOPY_VALUE": {
