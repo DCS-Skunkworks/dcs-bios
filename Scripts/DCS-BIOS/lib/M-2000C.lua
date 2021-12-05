@@ -1,6 +1,6 @@
 -----------------------------------------------------------                                         
 --     LIBRARY     	:    Mirage 2000C RAZBAM orginal by Exo7
---     VERSION     	:    v1.34 by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
+--     VERSION     	:    v1.34a by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
 -----------------------------------------------------------
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
@@ -904,7 +904,7 @@ definePushButton("RAD_TEST_BTN", 11, 3482, 482, "RADAR", "I - Radar Test Button"
 definePushButton("RAD_REARM_BTN", 11, 3483, 483, "RADAR", "I - Radar Rearm Button")
 define3PosTumb("RAD_DOP_REJ_SW", 11, 3484, 484, "RADAR", "I - Radar Doppler Reject Switch")
 defineTumb("RAD_CHAN_B", 11, 3485, 485, 2/12, {-0.95, 0.95}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12"}, true, "RADAR", "I - Change Radar Channel B")
-definePotentiometer("RAD_GAIN_DIAL", 11, 3485, 488, {0, 1}, "RADAR", "I - Radar Gain Dial")
+definePotentiometer("RAD_GAIN_DIAL", 11, 3488, 488, {0, 1}, "RADAR", "I - Radar Gain Dial")
 definePushButton("AG_RAD_A_MODE_BTN", 11, 3491, 491, "RADAR", "I - A/G Radar A Mode Button")
 definePushButton("AG_RAD_DEC_MODE_BTN", 11, 3493, 493, "RADAR", "I - A/G Radar DEC Mode Button")
 definePushButton("AG_RAD_VISU_MODE_BTN", 11, 3495, 495, "RADAR", "I - A/G Radar VISU Mode Button")
