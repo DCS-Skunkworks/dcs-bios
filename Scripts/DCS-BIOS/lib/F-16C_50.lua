@@ -688,6 +688,7 @@ DEDLayout_l1["STEERPOINT NUMBER"] = {12,2,0,"_inv","I"}
 DEDLayout_l1["STEERPOINT IncDecSymbol"] = {16,1}
 DEDLayout_l1["STEERPOINT SEQUENCE"] = {18,4}
 DEDLayout_l1["STEERPOINT NUMBER Asteriscs_both"] = {11,1,15,"","I"}
+DEDLayout_l1["STEERPOINT SEQUENCE Asteriscs_both"] = {17,1,22,"","I"}
 --TIME
 DEDLayout_l1["TIME_label"] = {9,4}
 --BINGO
