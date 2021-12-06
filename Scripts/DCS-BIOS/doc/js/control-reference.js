@@ -60,12 +60,11 @@ $(function() {
 	
 	headerDiv.append($('<span> </span>'));
 	
-	var button4 = $("<button>").text("?");
-	button4.on("click", function test() {
+	var button3 = $("<button>").text("?");
+	button3.on("click", function test() {
 		window.open('Start.html');
-		chrome.browser.openTab({url: "Start.html"});
 	});
-	headerDiv.append(button4);
+	headerDiv.append(button3);
 	
 	$("#app").append(headerDiv);
 	$("#app").append($('<iframe id="pointercal" style="display:none" src="pointercal.html" width="100%" height="500"></iframe>'));
