@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4.3c by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v4.3f by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -202,8 +202,8 @@ end
 
 local function getSTEER_Mode()
     local steer_m = "2"
-    if GetDevice(0) == nil then
-        steer_m = "2"
+    if GetDevice(0) == nil then 
+		steer_m = "2"
 	elseif GetDevice(0):get_argument_value(1002) == 1 then  --TACAN
         steer_m = "1"
     elseif GetDevice(0):get_argument_value(1003) == 1 then  --DEST 
@@ -223,7 +223,7 @@ end
 local function getAIRSOURCE_Mode()
     local airsource_m = "5"
 	if GetDevice(0) == nil then
-        airsource_m = "5"
+		airsource_m = "5"
     elseif GetDevice(0):get_argument_value(929) == 1 then  --RAM
         airsource_m = "1"
     elseif GetDevice(0):get_argument_value(930) == 1 then  --LEFT
@@ -232,16 +232,16 @@ local function getAIRSOURCE_Mode()
         airsource_m = "3"
     elseif GetDevice(0):get_argument_value(932) == 1 then  --BOTH
         airsource_m = "4"
-    elseif GetDevice(0):get_argument_value(933) == 1 then  --OFF  
+    elseif GetDevice(0):get_argument_value(933) == 1 then  --OFF 
         airsource_m = "5"    
 	else
-	    airsource_m = "5"		
+	    airsource_m = "5"
     end
     return airsource_m
 end
 
---------------------------------- Matchstick --------------------------------- 
-local function parse_indication_number_index(indicator_id)  -- Thanks to [FSF]Ian code
+--------------------------------- Matchstick  
+local function parse_indication_number_index(indicator_id) 
 -- Custom version of parse_indication function that uses numbers for the index of the output table
 -- for use in situations where the names of values in the indication are unusable (eg random GUID)
 -- also adds the number of rows to the table at index 0
@@ -260,28 +260,41 @@ local function parse_indication_number_index(indicator_id)  -- Thanks to [FSF]Ia
 	return t
 end
 
-local function get_radio_remote_display(indicatorId,testButtonId)-- Get data from specified device (9 for Pilot UHF, 10 for RIO UHF, 13 for Pilot VHF/UHF)
-	local data = parse_indication_number_index(indicatorId);
--- Get status of relevant test button (ID 15004 for Pilot UHF, 405 for RIO UHF, 15003 for Pilot VHF/UHF)
-	local testPressed = GetDevice(0):get_argument_value(testButtonId)
-	local retVal
-
-	if data and data[0] then
+local function get_radio_remote_display(indicatorId,testButtonId)-- Data from specified device (9=Pilot UHF, 10=RIO UHF, 13=Pilot VHF/UHF)
+    local data = parse_indication_number_index(indicatorId);-- status of relevant test button (ID 15004 = Pilot UHF, 405 = RIO UHF, 15003 = Pilot VHF/UHF)
+    local testPressed = GetDevice(0):get_argument_value(testButtonId)
+    local retVal
+ 
+    if data and data[0] then
 -- data[0] holds the length of the data table. 7 Indicates it is in manual frequency mode otherwise it is in preset mode.
 -- testPressed indicates the current value of the specified radio display test button - if pressed we need to return the test value not the current manual or preset frequency.
 -- depending on the type of data and the test button status assemble the result including separator if necessary.
-		if data[0]==7 and testPressed == 0 then
-			retVal  = data[5]:sub(1,3) .. data[6] .. data[5]:sub(4)
-		elseif data[0]==7 then
-			retVal  = data[3]:sub(1,3) .. data[4] .. data[3]:sub(4)
-		elseif testPressed == 0 then
-			retVal = data[5]
-		else
-			retVal = data[3]:sub(1,3)  .. data[4] .. data[3]:sub(4)
-		end
-	end
-	if retVal == nil then return end
-	return retVal
+-- 2021/11/23 - Heatblur have changed the order of items in the List Indication for the Pilot Remove Displays but not for the RIO.
+-- So we now need two different versions of the code depending which display we are requesting.
+        if indicatorId == 10 then
+            if data[0]==7 and testPressed == 0 then
+                retVal  = data[5]:sub(1,3) .. data[6] .. data[5]:sub(4)
+            elseif data[0]==7 then
+                retVal  = data[3]:sub(1,3) .. data[4] .. data[3]:sub(4)
+            elseif testPressed == 0 then
+                retVal = data[5]
+            else
+                retVal = data[3]:sub(1,3)  .. data[4] .. data[3]:sub(4)
+            end
+        else
+            if data[0]==7 and testPressed == 0 then
+                retVal  = data[3]:sub(1,3) .. data[4] .. data[3]:sub(4)
+            elseif data[0]==7 then
+                retVal  = data[5]:sub(1,3) .. data[6] .. data[5]:sub(4)
+            elseif testPressed == 0 then
+                retVal = data[3]
+            else
+                retVal = data[4]:sub(1,3)  .. data[5] .. data[4]:sub(4)
+            end
+        end
+    end
+    if retVal == nil then return end
+    return retVal
 end
 
 local HSD_TACAN_RANGE = ""
@@ -299,7 +312,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 			HSD_MAN_CRSint = tonumber(HSD_MAN_CRS)
         end
 end
---------------------------------- Matchstick End ---------------------------------  
+--------------------------------- Matchstick End   
 
 ----------------------------------------- BIOS-Profile  
 
@@ -321,7 +334,7 @@ defineToggleSwitch("PLT_INLET_RAMPS_R", 14, 3008, 2101, "AICS", "PILOT Stow Inle
 -- Wing Sweep
 defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_COVER", 17, 3029, 317, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Cover")
 definePotentiometer("PLT_EMERG_WING_SWEEPLT_LEVER", 17, 3031, 384, {0, 1}, "Wing Sweep", "PILOT Emergency Wing Sweep Handle")
-defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_POP", 13, 3030, 15096, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Pop out")
+defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_POP", 17, 3030, 15096, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Pop out")
 
 --Radar Altimeter
 definePushButton("PLT_RADAR_ALT_BIT", 30, 3485, 16020, "Radar Altimeter", "PILOT Radar Altimeter BIT Test Button")
@@ -365,7 +378,7 @@ defineToggleSwitch("PLT_AFCS_YAW", 22, 3036, 2108, "SAS", "PILOT AFCS Stability 
 define3PosTumb("PLT_AUTOPLT_VECTOR_CARRIER", 22, 3037, 2109, "Autopilot", "PILOT Autopilot - Vector / Automatic Carrier Landing")
 defineToggleSwitch("PLT_AUTOPLT_ALT", 22, 3038, 2110, "Autopilot", "PILOT Autopilot - Altitude Hold")
 define3PosTumb("PLT_AUTOPLT_HDG", 22, 3039, 2111, "Autopilot", "PILOT Autopilot - Heading / Ground Track")
-defineToggleSwitch("PLT_AUTOPLT_ENGAGE", 22, 3040, 2112, "Autopilot", "PILOT Autopilot - Engage")
+defineFixedStepTumb("PLT_AUTOPLT_ENGAGE", 22, 3040, 2112, 2, {-1, 1}, {-1, 1}, nil, "Autopilot", "PILOT Autopilot - Engage")
 
 -- Flaps
 definePotentiometer("PLT_FLAPS_LEVER", 19, 3044, 225, {0, 1}, "Flaps", "PILOT Flaps Lever")
@@ -1337,7 +1350,7 @@ defineFloat("PLT_HYD_PRESS_FLY", 1063, {0, 1}, "PLT Gauges", "PILOT Flight Hydra
 defineFloat("PLT_HYD_SPOIL_FLAG", 1023, {0, 1}, "PLT Gauges", "PILOT Hydraulic Spoiler Flag")
 defineFloat("PLT_HYD_EMERG_HI_FLAG", 1024, {0, 1}, "PLT Gauges", "PILOT Hydraulic Emergency HI Flag")
 defineFloat("PLT_HYD_EMERG_LOW_FLAG", 1025, {0, 1}, "PLT Gauges", "PILOT Hydraulic Emergency LOW Flag")
-defineFloat("PLT_GUN_ELEVATION_PLUSMINUS", 2273, {0, 1}, "PLT Gauges", "PILOT Gun Elevation Plus / Minus")
+defineFloat("PLT_GUN_LEAD_PLUSMINUS", 2273, {0, 1}, "PLT Gauges", "PILOT Gun Lead + / -")
 defineFloat("PLT_ACCEL_METER_NEEDLE2", 15076, {-1, 1}, "PLT Gauges", "PILOT Accelerometer Needle 2")
 defineFloat("PLT_ACCEL_METER_NEEDLE3", 15077, {-1, 1}, "PLT Gauges", "PILOT Accelerometer Needle 3")
 defineFloat("PLT_HSD_BIT_INDICATOR", 15079, {0, 1}, "PLT Gauges", "PILOT HSD BIT Indicator Flag")
@@ -1477,7 +1490,7 @@ local function getGunLead()
 	if digit3 == nil then digit3 = "0" end
     return tonumber(digit1 .. digit2 .. digit3)
 end
-defineIntegerFromGetter("PLT_GUN_LEAD_DISP", getGunLead, 187, "PLT Gauges", "PILOT Gun Lead Display")
+defineIntegerFromGetter("PLT_GUN_LEAD_DISP", getGunLead, 263, "PLT Gauges", "PILOT Gun Lead Display")
 defineFloat("PLT_WEAPON_STORE_1A", 9221, {0, 1}, "PLT Gauges", "PILOT Weapon Store 1A")
 defineFloat("PLT_WEAPON_STORE_1B", 9222, {0, 1}, "PLT Gauges", "PILOT Weapon Store 1B")
 defineFloat("PLT_WEAPON_STORE_3", 9223, {0, 1}, "PLT Gauges", "PILOT Weapon Store 3")
@@ -1585,10 +1598,10 @@ defineFloat("RIO_RECORD_MIN_LOW", 11602, {0, 1}, "RIO Gauges", "RIO Record Minut
 
 defineFloat("CANOPY_POS", 403, {0, 1}, "Cockpit", "Canopy Position")
 
-defineString("PLT_UHF_REMOTE_DISP", function() return get_radio_remote_display(9, 15004) or "0000000" end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")  
-defineString("RIO_UHF_REMOTE_DISP", function() return get_radio_remote_display(10,405) or "0000000" end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")  
-defineString("PLT_VUHF_REMOTE_DISP", function() return get_radio_remote_display(13,15003) or "0000000" end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")	
-defineString("PLT_HUD_MODE", getHUD_Mode, 1, "Display", "PILOT HUD Mode (string)")  
+defineString("PLT_UHF_REMOTE_DISP", function() return get_radio_remote_display(9, 15004) or "0000000" end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")
+defineString("RIO_UHF_REMOTE_DISP", function() return get_radio_remote_display(10,405) or "0000000" end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")
+defineString("PLT_VUHF_REMOTE_DISP", function() return get_radio_remote_display(13,15003) or "0000000" end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")
+defineString("PLT_HUD_MODE", getHUD_Mode, 1, "Display", "PILOT HUD Mode (string)")
 defineString("PLT_STEER_MODE", getSTEER_Mode, 1, "Display", "PILOT STEER Mode (string)")
 defineString("PLT_AIR_SOURCE_MODE", getAIRSOURCE_Mode, 1, "Display", "PILOT Air Source Mode (string)")
 defineString("HSD_TACAN_RANGE_S", function() return HSD_TACAN_RANGE or "00000" end, 5, "HSD", "HSD TACAN Range Display (string)")
