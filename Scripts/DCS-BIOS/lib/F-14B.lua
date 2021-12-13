@@ -1713,6 +1713,6 @@ defineFloat("RIO_EJECT_SEAT_SAVE", 2504, {0, 1}, "Cockpit", "RIO Ejection Seat S
 defineFloat("RIO_LANTIRN_PRESENT", 666, {0, 1}, "Cockpit", "RIO LANTIRN Present")
 defineFloat("PLT_THROTTLE_POS_L", 753, {0, 1}, "Cockpit", "PILOT Left Throttle Position")
 defineFloat("PLT_THROTTLE_POS_R", 752, {0, 1}, "Cockpit", "PILOT Right Throttle Position")
-defineFloat("PLT_SWEEP_POS", 384, {0, 1}, "Cockpit", "PILOT Wing Sweep Handle Position")
+defineFloat("PLT_SWEEP_HANDLE_POS", 384, {0, 1}, "Cockpit", "PILOT Wing Sweep Handle Position")
 
 BIOS.protocol.endModule()
