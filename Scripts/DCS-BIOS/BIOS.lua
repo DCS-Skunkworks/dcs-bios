@@ -109,6 +109,8 @@ end
 
 LuaExportStop = function()
 	
+	BIOS.protocol.shutdown()
+	BIOS.protocol_io.flush()
 	for _, v in pairs(BIOS.protocol_io.connections) do v:close() end
 	
 	-- Chain previously-included export as necessary
