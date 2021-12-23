@@ -18,6 +18,9 @@ local defineToggleSwitchToggleOnly = BIOS.util.defineToggleSwitchToggleOnly
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+local define3PosTumb = BIOS.util.define3PosTumb
+
+--remove Arg# Pilot 3333
 
 local function defineIndicatorLight1(msg, arg_number, category, description)
 	local value = moduleBeingDefined.memoryMap:allocateInt {
@@ -112,9 +115,7 @@ local function defineIndicatorLight3(msg, arg_number, category, description)
 	}
 end
 
--- remove Arg# Pilot 3333
-
---[[--Weapon System--]]--
+--Weapon System
 defineToggleSwitch("TRIGGER_SAFETY_BRACKET", 2, 3300, 8, "Weapon System", "Trigger Safety Bracket")
 defineToggleSwitch("WEAPON_RELEASE_COVER", 2, 3302, 260, "Weapon System", "Weapon Emergency Release Cover")
 definePushButton("WEAPON_RELEASE", 2, 3303, 261, "Weapon System", "Weapon Emergency Release Button")
@@ -125,7 +126,7 @@ defineTumb("WEAPON_INTERVAL", 2, 3305, 265, 0.1, {0, 1}, nil, false, "Weapon Sys
 defineToggleSwitch("WEAPON_REL_MODE", 2, 3306, 266, "Weapon System", "Weapon Release Mode Switch")
 defineToggleSwitch("RB_BK_REL_MODE",2, 3307, 267, "Weapon System", "RB-04/RB-15/BK Release Mode Switch")
 
---[[--Radar--]]--
+--Radar
 defineTumb("ANTI_JAM_MODE", 5, 3208, 217, 0.1, {0, 0.7}, nil, false, "Radar", "Anti Jamming Mode (AS) Selector")
 defineToggleSwitch("RADAR_GAIN", 5, 3209, 214, "Radar", "Lin/Log Radar Gain Switch")
 defineToggleSwitch("RADAR_PULSE_NORMAL_SHORT", 5, 3328, 218, "Radar", "Pulse Normal/Short Switch")
@@ -134,10 +135,10 @@ defineToggleSwitch("RADAR_MAINTENANCE_TEST", 5, 3914, 1006, "Radar", "Radar/EL M
 defineToggleSwitch("RADAR_IGNITION_COILS", 18, 3918, 395, "Radar", "Ignition Coils")
 definePushButton("RADAR_IFF_ID", 5, 3922, 1205, "Radar", "IFF Identification")
 
---[[--Reversal--]]--
+--Reversal
 defineToggleSwitch("REVERSAL", 7, 3001, 20, "Thrust Reverser", "Thrust Reverser On/Off")
 
---[[--Navigation--]]--
+--Navigation
 definePushButton("DATAPANEL_KEY_0", 12, 3020, 290, "Navigation", "Datapanel Key 0")
 definePushButton("DATAPANEL_KEY_1", 12, 3021, 291, "Navigation", "Datapanel Key 1")
 definePushButton("DATAPANEL_KEY_2", 12, 3022, 292, "Navigation", "Datapanel Key 2")
@@ -161,23 +162,23 @@ definePushButton("NAV_SELECT_BTN_BX", 12, 3010, 280, "Navigation", "Navigation S
 definePushButton("NAV_SELECT_BTN_LS", 12, 3009, 270, "Navigation", "Navigation Selector Button LS")
 definePushButton("NAV_SELECT_BTN_L_MAL", 12, 3008, 281, "Navigation", "Navigation Selector Button L MAL")
 
---[[Lights--]]--
+--Lights
 defineToggleSwitch("ANTI_COLLISION_LIGHTS", 17, 3001, 250, "Lights", "Anti Collision Lights")
 defineTumb("NAVIGATION_LIGHTS", 17, 3002, 251, 1, {-1,1}, nil, false, "Lights", "Navigation Lights")
 defineToggleSwitch("FORMATION_LIGHTS", 17, 3003, 252, "Lights", "Formation Lights")
 defineToggleSwitch("POSITION_LIGHTS", 17, 3004, 253, "Lights", "Position Lights")
-defineToggleSwitch("TAXI_LANDING_LIGHTS", 17, 3009, 3554, "Lights", "Taxi/Landing Lights")
+define3PosTumb("TAXI_LANDING_LIGHTS", 17, 3009, 3554, "Lights", "Taxi/Landing Lights")
 defineToggleSwitch("EMERGENCY_LIGHTS", 17, 3010, 3555, "Lights", "Emergency Lights")
 definePotentiometer("FLOOD_LIGHTS", 17, 3007, 393, {0, 1}, "Lights", "Flood Lights")
 definePotentiometer("PANEL_LIGHTS", 17, 3006, 392, {0, 1}, "Lights", "Panel Lights")
 defineTumb("POSITION_LIGHTS_BRIGHTNESS", 17, 3005, 254, 0.1, {0, 0.2}, nil, false, "Lights", "Position Lights Brightness")
 definePotentiometer("INSTRUMENT_LIGHTS", 17, 3008, 394, {0, 1}, "Lights", "Instrument Lights")
 
---[[--Engine Panel--]]--
+--Engine Panel
 defineToggleSwitch("START_SYSTEM", 18, 3001, 206, "Engine Panel", "Start System")
 defineToggleSwitch("LOW_PRES_FUEL_VALVE", 18, 3002, 204, "Engine Panel", "Low Pressure Fuel Valve")
-defineToggleSwitch("HIGH_PRES_FUEL_VALVE", 18, 3005, 202, "Engine Panel", "High Pressure Fuel Valve")
-defineToggleSwitch("ENGINE_DEICE", 18, 3008, 310, "Engine Panel", "Engine De-Ice")
+defineToggleSwitch("HIGH_PRES_FUEL_VALVE", 18, 3004, 202, "Engine Panel", "High Pressure Fuel Valve")
+defineToggleSwitch("ENGINE_DEICE", 18, 3099, 310, "Engine Panel", "Engine De-Ice")
 defineToggleSwitch("MANUAL_FUEL_REG", 18, 3007, 316, "Engine Panel", "Manual Fuel Regulator")
 defineToggleSwitch("CB_AUTOPILOT", 18, 3905, 302, "Engine Panel", "CB Autopilot SA")
 defineToggleSwitch("CB_HIGH_ALPHA_WARN", 18, 3906, 303, "Engine Panel", "CB High Alpha Warning")
@@ -196,18 +197,18 @@ defineTumb("AFK_LEVER", 18, 3304, 13, 1.138, {0, 1.138}, nil, false, "Engine Pan
 defineToggleSwitch("DATA_CARTRIDGE", 18, 3925, 4200, "Engine Panel", "Insert/Remove Data Cartridge")
 definePushButton("MISSILE_SELECT_BUTTON", 18, 3000, 400, "Engine Panel", "Missile Select Button")
 
---[[--Electric System--]]--
+--Electric System
 defineToggleSwitch("GENERATOR", 19, 3002, 207, "Electric System", "Generator")
 defineToggleSwitch("MAIN_ELECTRIC_POWER", 19, 3001, 203, "Electric System", "Main Electric Power")
 defineToggleSwitch("BACKUP_GENERATOR", 19, 3003, 312, "Electric System", "Backup Generator")
 
---[[--Radar Altimeter--]]--
+--Radar Altimeter
 defineToggleSwitch("RADAR_ALTIMETER_POWER", 20, 3002, 283, "Radar Altimeter", "Radar Altimeter Power")
 
---[[--Doppler--]]--
+--Doppler
 defineToggleSwitchToggleOnly("DOPPLER_LAND_SEA_MODE", 21, 3001, 213, "Doppler", "Doppler Land/Sea Mode")
 
---[[--Flight Data Unit--]]--
+--Flight Data Unit
 defineToggleSwitch("GEAR_HANDLE", 22, 3719, 12, "Flight Data Unit", "Gear Handle")
 definePushButton("SPAK", 22, 3301, 401,  "Flight Data Unit",  "SPAK")
 definePushButton("ATTITUDE_HOLD", 22, 3302, 402, "Flight Data Unit", "Attitude Hold")
@@ -216,7 +217,7 @@ defineTumb("TILS_CHANNEL_SELECT", 22, 3512, 282, 0.1, {0, 1}, nil, false, "Fligh
 defineToggleSwitch("TILS_CHANNEL_LAYER", 22, 3511, 285, "Flight Data Unit", "TILS Channel Layer Selection")
 defineToggleSwitch("EJECTION_SEAT_ARM", 22, 3405, 21, "Flight Data Unit", "Ejection Seat Arm")
 defineToggleSwitch("SLAV_SI", 22, 3201, 323, "Flight Data Unit", "Slav SI")
-defineToggleSwitch("HOJD_CISI", 22, 3200, 324, "Flight Data Unit", "HOJD CISI")
+defineToggleSwitch("HOJD_CISI", 22, 3097, 324, "Flight Data Unit", "HOJD CISI")
 definePotentiometer("BACKUP_ALT_SETTING", 22, 3721, 126, {0, 1}, "Flight Data Unit", "Backup Altimeter Setting")
 defineToggleSwitch("PITCH_GEAR_MODE", 22, 3210, 311, "Flight Data Unit", "Pitch Gear Automatic/Landing")
 defineToggleSwitch("OXYGEN_LEVER", 22, 3718, 176, "Flight Data Unit", "Oxygen Lever")
@@ -226,7 +227,7 @@ definePushButton("COUNTERMEASURE_FAST_RELEASE", 22, 3001, 184, "Flight Data Unit
 defineToggleSwitch("EMERGENCY_ROLL_TRIM", 22, 3716, 390, "Flight Data Unit", "Emergency Roll Trim")
 defineToggleSwitch("EMERGENCY_PITCH_TRIM", 22, 3717, 389, "Flight Data Unit", "Emergency Pitch Trim")
 defineToggleSwitch("EMERGENCY_YAW_TRIM", 22, 3918, 388, "Flight Data Unit", "Emergency Yaw Trim")
-defineToggleSwitch("MAG_DEC_COVER", 22, 3742, 666, "Flight Data Unit", "Magnetic Declination Cover")
+defineToggleSwitch("MAG_DEC_COVER", 22, 3742, 1200, "Flight Data Unit", "Magnetic Declination Cover")
 defineToggleSwitch("AUTO_YAW_TRIM_COVER", 22, 3741, 493, "Flight Data Unit", "Autopilot Yaw Trim Cover")
 defineToggleSwitchToggleOnly("PARKING_BRAKE", 22, 3408, 22, "Flight Data Unit", "Parking Brake")
 defineToggleSwitchToggleOnly("HUD_GLASS_POSITION", 22, 3401, 11, "Flight Data Unit", "HUD Reflector Glass Position")
@@ -234,21 +235,21 @@ defineToggleSwitchToggleOnly("AFK_MODE_3", 22, 3402, 464, "Flight Data Unit", "A
 defineToggleSwitchToggleOnly("AFK_15_DEG_MODE", 22, 3402, 464, "Flight Data Unit", "AFK 15 Deg Mode")
 defineTumb("MASTER_MODE_SELECT", 22, 3107, 209, 0.16666667, {0, 1}, nil, false, "Flight Data Unit", "Master Mode Selector")
 
---[[--Navigation Panel--]]--
+--Navigation Panel
 defineTumb("DATAPANEL_SELECTOR", 23, 3009, 200, 0.1, {0.0, 0.6}, nil, false, "Navigation Panel", "Datapanel Selector")
 defineToggleSwitch("DATA_IN_OUT", 23, 3008, 201, "Navigation Panel", "Data In/Out")
 defineToggleSwitch("RENSA_BUTTON_COVER", 23, 3101, 300, "Navigation Panel", "Rensa Button Cover")
 definePushButton("CK37_RENSA_CLEAR", 23, 3001, 301, "Navigation Panel", "CK37 Rensa Clear")
 
---[[--RWR--]]--
+--RWR
 defineTumb("RADAR_WARN_SELECT", 24, 3004, 321, 0.1, {0, 0.2}, nil, false, "RWR", "Radar Warning Indication Selector")
 
---[[--Warning Panel--]]--
+--Warning Panel
 definePushButton("WARNING_PANEL_TEST", 26, 3002, 344, "Warning Panel", "Warning Panel Light Test")
 definePushButton("INDICATOR_SYSTEM_TEST", 26, 3004, 315, "Warning Panel", "Indicator System Test")
-defineToggleSwitch("MASTER_CAUTION_RESET", 26, 3001, 446, "Warning Panel", "Master Caution Reset")
+definePushButton("MASTER_CAUTION_RESET", 26, 3001, 446, "Warning Panel", "Master Caution Reset")
 
---[[--Countermeasures--]]--
+--Countermeasures
 defineTumb("JAMMER_MODE_SELECTOR", 28, 3024, 317, 0.1, {0, 0.4}, nil, false, "Countermeasures", "Jammer Mode Selector")
 defineTumb("JAMMER_BAND_SELECTOR", 28, 3025, 318, 0.1, {0, 0.4}, nil, false, "Countermeasures", "Jammer Band Selector") 
 defineTumb("COUNTERMEASURE_MODE_SELECTOR", 28, 3026, 319, 0.1, {0, 0.4}, nil, false, "Countermeasures", "Countermeasure Operation Mode Selector")
@@ -256,14 +257,14 @@ defineTumb("COUNTERMEASURE_STREAK_MODE_SELECTOR", 28, 3027, 320, 0.1, {0.0, 0.1}
 defineTumb("COUNTERMEASURE_CHAFF_FLARES_SELECTOR", 28, 3028, 322, 0.1, {0, 0.2}, nil, false, "Countermeasures", "Countermeasure Chaff/Flares Selector")
 defineTumb("COUNTERMEASURE_RELEASE_MODE", 22, 3001, 184, 1, {-1, 1}, nil, false, "Countermeasures", "Countermeasure Release Mode") --3030
 
---[[--FR22 Radio--]]--
-defineRotary("FR22_INNER_LEFT_KNOB", 31, 3003, 171, "FR22 Radio", "Radio Frequency Knob Inner Left")
-defineRotary("FR22_OUTER_LEFT_KNOB", 31, 3004, 172, "FR22 Radio", "Radio Frequency Knob Outer Left")
-defineRotary("FR22_INNER_RIGHT_KNOB", 31, 3005, 173, "FR22 Radio", "Radio Frequency Knob Inner Right")
-defineRotary("FR22_OUTER_RIGHT_KNOB", 31, 3006, 174, "FR22 Radio", "Radio Frequency Knob Outer Right")
-defineToggleSwitchToggleOnly("FR22_SET_MODULATION", 31, 3008, 170, "FR22 Radio", "Radio Manual Frequency Setting Modulation")
+--FR22 Radio
+defineRotary("FR22_INNER_LEFT_KNOB", 30, 3003, 172, "FR22 Radio", "Radio Frequency Knob Inner Left")
+defineRotary("FR22_OUTER_LEFT_KNOB", 30, 3004, 171, "FR22 Radio", "Radio Frequency Knob Outer Left")
+defineRotary("FR22_INNER_RIGHT_KNOB", 30, 3005, 174, "FR22 Radio", "Radio Frequency Knob Inner Right")
+defineRotary("FR22_OUTER_RIGHT_KNOB", 30, 3006, 173, "FR22 Radio", "Radio Frequency Knob Outer Right")
+defineToggleSwitch("FR22_SET_MODULATION", 31, 3014, 170, "FR22 Radio", "Radio Manual Frequency Setting Modulation")
 
---[[--Raw Gauge Values--]]--
+--Raw Gauge Values
 defineFloat("STICK_PITCH", 2, {-1, 1}, "Raw Gauge Values", "Stick Pitch")
 defineFloat("STICK_ROLL", 3, {-1, 1}, "Raw Gauge Values", "Stick Roll")
 defineFloat("PEDALS", 4, {-1, 1}, "Raw Gauge Values", "Pedals")
@@ -305,7 +306,7 @@ defineIndicatorLight("SPAK_LAMP", 401, "Indicator Lights", "SPAK Lamp")
 defineIndicatorLight("ATT_LAMP", 402, "Indicator Lights", "ATT Lamp")
 defineIndicatorLight("HOJD_LAMP", 403, "Indicator Lights", "HOJD Lamp")
 
---[[--Error Panel Indicators--]]--
+--Error Panel Indicators
 defineIndicatorLight("BRAND_1", 406, "Error Panel", "Engine Fire 1 (red)")
 defineIndicatorLight("BRAND_2", 407, "Error Panel", "Engine Fire 2 (red)")
 defineIndicatorLight("BRA_UPPF", 408, "Error Panel", "Fuel Distribution Low Pressure (yellow)")
@@ -345,8 +346,7 @@ defineIndicatorLight("FACKL_SL", 441, "Error Panel", "Flares Empty (yellow)")
 defineIndicatorLight("MOTVERK", 442, "Error Panel", "Countermeasures/RWR (yellow)")
 defineIndicatorLight("LUFTBROMS", 443, "Error Panel", "Airbrakes (green)")
 
---[[--Actual Gauge Values--]]--
-
+--Actual Gauge Values
 local function getRPM()
      local returnValue = ((GetDevice(0):get_argument_value(139))*55+55)
      return returnValue
@@ -435,11 +435,10 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
- ---- added by Warlord
 definePushButton("MAX_G_RESET", 22, 3722, 175, "Flight Data Unit", "Max G Reset")
 definePushButton("BACK_ADI_CAGE", 22, 3720, 3402, "Flight Data Unit", "Backup ADI Cage")
 definePushButton("ROLL_CENTER", 22, 3305, 2003, "Flight Data Unit", "Roll Trim Reset / Centre")
-defineRotary("ALT_SET", 22, 3306, 2005, "Flight Data Unit", "Altimeter Setting")
+defineRotary("ALT_SET_ROT", 22, 3306, 2009, "Flight Data Unit", "Altimeter Setting (Rotary)")
 defineRotary("HUD_BRIGHT", 22, 3409, 9999, "Flight Data Unit", "HUD Brightness Knob")
 defineRotary("MAG_CORRECTION", 22, 3724, 1201, "Flight Data Unit", "Magnetic Declination Correction")
 definePotentiometer("AUTO_YAW_TRIM", 22, 3732, 211, {-1, 1}, "Flight Data Unit", "Autopilot Yaw Trim")
@@ -466,13 +465,13 @@ definePushButton("FR22_CHANNEL_CF", 31, 3207,369, "FR22 Radio", "Channel C/F")
 definePushButton("FR22_CHANNEL_C2", 31, 3208,370, "FR22 Radio", "Channel C2")
 definePushButton("FR22_CHANNEL_DE", 31, 3209,371, "FR22 Radio", "Channel D/E")
 definePushButton("FR22_GROUND_COM", 31, 3011,382, "FR22 Radio", "Ground Intercom")
-defineTumb("FR24_MODE", 31, 3110, 386, 0.1, {0.0, 0.5}, nil, false, "FR22 Radio", "FR24 Mode Selector")
-defineTumb("FR22_BASE", 31, 3230, 492, 0.05, {0, 1}, nil, false, "FR22 Radio", "FR22 Base Selector")
-defineTumb("FR22_GROUP", 31, 3307, 360, 0.1, {0, 1}, nil, false, "FR22 Radio", "FR22 Group Selector")
+defineTumb("FR24_MODE", 30, 3110, 386, 0.1, {0.0, 0.5}, nil, false, "FR22 Radio", "FR24 Mode Selector")
+defineTumb("FR22_BASE", 30, 3230, 492, 0.05, {0, 1}, nil, false, "FR22 Radio", "FR22 Base Selector")
+defineTumb("FR22_GROUP", 30, 3307, 360, 0.1, {0, 1}, nil, false, "FR22 Radio", "FR22 Group Selector")
 defineRotary("FR22_VOL", 21, 3112, 385, "FR22 Radio" , "Radio Volume")
 
 defineToggleSwitch("IFF_POWER", 18, 3001, 1203, "Radar", "IFF Power")
-defineTumb("IFF_CODE", 18, 3000, 309, 0.1, {0, 1}, nil, false, "Radar", "IFF Code")
+defineTumb("IFF_CODE", 18, 3000, 308, 0.1, {0, 1}, nil, false, "Radar", "IFF Code")
 definePotentiometer("DE-ICE", 18, 3912, 286, {0, 1},"Engine Panel" , "Windscreen De-Ice")
 defineRotary("TEST_MODE", 18, 3913, 675, "Engine Panel" , "Maintenance Testing Mode")
 defineRotary("DRYSUIT", 18, 3917, 396,"Engine Panel" , "Drysuit Ventilation Adjustment")
@@ -489,10 +488,6 @@ definePotentiometer("CI_FILTER", 5, 3801, 6905, {0, 1},"Radar" , "CI filter")
 --found no argument
 definePushButton("MISL_SEL_BTN", 2, 3800, 400, "Test", "Missile Select Button (IR-RB FRAMSTEGN)")
 
--- elements["SnabbresM-PTR"] = default_button(_("Snabbresning"), devices.FLIGHTDATAUNIT, 3091, 0) left bottom radar display
--- elements["PNT_POOP"] = default_axis_limited("Radar Night Filter", 5, 3800, -666, 1, 0.1, true, true)
--- elements["PNT_CMEASURES"] = multiposition_switch_limited("Countermeasure Dispense", 28, 3805, -666, 3, 1, false, -1.0)
-
 local function getAJS37NavIndicator1()
 	local li = list_indication(2)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
@@ -506,7 +501,6 @@ local function getAJS37NavIndicator1()
     end
 return "X"
 end
- 
 defineString("AJS37_NAV_INDICATOR_DATA_1", getAJS37NavIndicator1, 1, "Navigation Panel", "Navigataion Panel Data Digit 1")
 
 local function getAJS37NavIndicator2()
@@ -522,7 +516,6 @@ local function getAJS37NavIndicator2()
     end
 return "X"
 end
- 
 defineString("AJS37_NAV_INDICATOR_DATA_2", getAJS37NavIndicator2, 1, "Navigation Panel", "Navigataion Panel Data Digit 2")
 
 local function getAJS37NavIndicator3()
@@ -538,7 +531,6 @@ local function getAJS37NavIndicator3()
     end
 return "X"
 end
- 
 defineString("AJS37_NAV_INDICATOR_DATA_3", getAJS37NavIndicator3, 1, "Navigation Panel", "Navigataion Panel Data Digit 3")
 
 local function getAJS37NavIndicator4()
@@ -554,7 +546,6 @@ local function getAJS37NavIndicator4()
     end
 return "X"
 end
- 
 defineString("AJS37_NAV_INDICATOR_DATA_4", getAJS37NavIndicator4, 1, "Navigation Panel", "Navigataion Panel Data Digit 4")
 
 local function getAJS37NavIndicator5()
@@ -570,7 +561,6 @@ local function getAJS37NavIndicator5()
     end
 return "X"
 end
- 
 defineString("AJS37_NAV_INDICATOR_DATA_5", getAJS37NavIndicator5, 1, "Navigation Panel", "Navigataion Panel Data Digit 5")
 
 local function getAJS37NavIndicator6()
@@ -586,8 +576,8 @@ local function getAJS37NavIndicator6()
     end
 return "X"
 end
- 
 defineString("AJS37_NAV_INDICATOR_DATA_6", getAJS37NavIndicator6, 1, "Navigation Panel", "Navigataion Panel Data Digit 6")
+
 defineIndicatorLight("HUVUDVARNING_L", 444, "Front Panel Lights", "Master Caution Light left (red)")
 defineIndicatorLight("HUVUDVARNING_R", 445, "Front Panel Lights", "Master Caution Light right (red)")
 
@@ -604,7 +594,6 @@ local function getAJS37DestIndicator1()
     end
 return "X"
 end
- 
 defineString("AJS37_DEST_INDICATOR_DATA_1", getAJS37DestIndicator1, 1, "Destination", "Destination Data Digit 1")
 
 local function getAJS37DestIndicator2()
@@ -620,8 +609,8 @@ local function getAJS37DestIndicator2()
     end
 return "X"
 end
- 
 defineString("AJS37_DEST_INDICATOR_DATA_2", getAJS37DestIndicator2, 1, "Destination", "Destination Data Digit 2")
+
 defineIndicatorLight("ALT_WARNING_LAMP", 450, "Front Panel Lights", "Altitude Warning Lamp (red)")
 defineIndicatorLight("FALLD_LAST_LAMP", 461, "Front Panel Lights", "Falld Last (Stores Released) Lamp (red)")
 defineIndicatorLight("REV_TRANSONIC_LAMP", 462, "Front Panel Lights", "Revadvr Transonic Lamp (red)")
@@ -637,5 +626,17 @@ defineIndicatorLight("REVERSAL_L", 460, "Front Panel Lights", "Thrust Reverser L
 defineIndicatorLight1("BURNER_STAGE1_L", 405, "Front Panel Lights", "Afterburner Stage 1 Lamp (white)")
 defineIndicatorLight2("BURNER_STAGE2_L", 405, "Front Panel Lights", "Afterburner Stage 2 Lamp (white)")
 defineIndicatorLight3("BURNER_STAGE3_L", 405, "Front Panel Lights", "Afterburner Stage 3 Lamp (white)")
+definePushButton("SNABBRESNING", 22, 3091, 0, "Radar", "Snabbresning") --No Arg left bottom radar display 
+define3PosTumb("SEAT_HEIGHT", 22, 3404, 212, "Flight Data Unit", "Seat Height Adjustment")
+defineRotary("AIRSPEED_INDEXER", 22, 3410, 104, "Flight Data Unit", "Airspeed Indexer")
+defineToggleSwitch("BYPASS_FIRE_COVER", 2, 3308, 309, "Weapon System", "Bypass Firing Circuit Cover")
+definePushButton("BYPASS_FIRE_BTN", 2, 3309, 397, "Weapon System", "Bypass Firing Circuit Button")
+definePotentiometer("RADAR_GAIN", 5, 3325, 152, {-1, 1}, "Radar", "Radar Gain (MKR)")
+definePushButton("RADAR_MEMORY_MODE", 5, 3212, 153, "Radar", "Radar Memory Mode")
+define3PosTumb("RADAR_MODE_SEL", 23, 3002, 215, "Radar", "Radar Mode Selector")
+define3PosTumb("RADAR_RANGE_SEL", 5, 3323, 156, "Radar", "Radar Range Selector")
+definePotentiometer("RADAR_ANT_ELEVATION",5, 3641, 154, {-1, 1}, "Radar", "Radar Antenna Elevation")
+definePushButton("RADAR_TERRAIN_MODE", 5, 3213, 155, "Radar", "Radar Terrain Avoidance Mode")
+defineToggleSwitch("ALT_SET_PUSH", 22, 3715, 119, "Flight Data Unit", "Altimeter Setting (Push)")
 
 BIOS.protocol.endModule()

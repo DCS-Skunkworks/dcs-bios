@@ -1,4 +1,4 @@
--- V1.9a by Warlord (aka BlackLibrary)
+-- V1.10 by Warlord (aka BlackLibrary)
 -- Added HARM,VIP,VRP pages by Matchstick
 -- Tested and fixes by BuzzKillington & afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick
@@ -1559,6 +1559,21 @@ defineString("UHF_FREQ_DISP", get_UHF_FREQUENCY, 7, "UHF", "UHF Manual Frequency
 
 defineFloat("SAI_BANK_ARROW", 72, {-1, 1}, "SAI", "SAI Bank Arrow")	   
 defineToggleSwitch("SEAT_EJECT_HANDLE", 10, 3006, 0,"Cockpit Mechanics" ,"Ejection Handle, PULL/STOW")
+
+-- ECM
+define3PosTumb("ECM_PW_SW", 66, 3001, 455, "ECM", "ECM Power Switch")
+definePotentiometer("ECM_DIM_KNB", 66, 3003, 456, nil, "ADI", "ECM DIM Rotary Knob")
+define3PosTumb("ECM_XMIT_SW", 66, 3002, 457, "ECM", "ECM XMIT Switch")
+definePushButton("ECM_RESET_BTN", 66, 3004, 458, "Clock", "ECM Reset Button")
+definePushButton("ECM_BIT_BTN", 66, 3005, 459, "Clock", "ECM Bit Button")
+defineToggleSwitch("ECM_1_BTN", 66, 3006, 460, "Clock", "ECM 1 Button")
+defineToggleSwitch("ECM_2_BTN", 66, 3007, 465, "Clock", "ECM 2 Button")
+defineToggleSwitch("ECM_3_BTN", 66, 3008, 470, "Clock", "ECM 3 Button")
+defineToggleSwitch("ECM_4_BTN", 66, 3009, 475, "Clock", "ECM 4 Button")
+defineToggleSwitch("ECM_5_BTN", 66, 3010, 480, "Clock", "ECM 5 Button")
+defineToggleSwitch("ECM_6_BTN", 66, 3011, 485, "Clock", "ECM 6 Button")
+defineToggleSwitch("ECM_FRM_BTN", 66, 3012, 490, "Clock", "ECM FRM Button")
+defineToggleSwitch("ECM_SPL_BTN", 66, 3013, 495, "Clock", "ECM SPL Button")
 
 ------------------------------------------------------------------Externals-----------------------------------------------------------------------------------------
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()

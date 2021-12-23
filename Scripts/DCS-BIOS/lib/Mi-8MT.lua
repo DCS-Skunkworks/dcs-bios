@@ -128,7 +128,6 @@ defineTumb("CB_ARCUD", 1, 3085, 644, 1, {0, 1}, nil, false, "AZS Right Panel Rig
 defineTumb("CB_DOPPLER", 1, 3086, 645, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 2", "CB Radio: Doppler Navigator, ON/OFF")
 defineTumb("CB_RADIO_METER", 1, 3087, 646, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 2", "CB Radio: Radio Meter, ON/OFF")
 
-
 --AZS Right Panel Right Line 3
 defineTumb("CB_DFRST_CTRL", 1, 3097, 656, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 3", "CB Defrost System: Control, ON/OFF")
 defineTumb("CB_DFRST_LEFT", 1, 3098, 657, 1, {0, 1}, nil, false, "AZS Right Panel Right Line 3", "CB Defrost System: Left Engine, ON/OFF")
@@ -221,8 +220,6 @@ defineRotary("AUTOPILOT_ROLL_ADJ", 16, 3008, 140, "Autopilot", "Autopilot Roll A
 defineRotary("AUTOPILOT_PITCH_ADJ", 16, 3010, 142, "Autopilot", "Autopilot Pitch Adjustment Knob")
 defineTumb("AUTOPILOT_OFF_LEFT", 16, 3029, 183, 1, {0, 1}, nil, false, "Autopilot", "Autopilot Off Left Button")
 defineTumb("AUTOPILOT_OFF_RIGHT", 16, 3030, 226, 1, {0, 1}, nil, false, "Autopilot", "Autopilot Off Right Button")
-
---NOT WORKING PROPERLY TRIMS LEFT ONLY
 defineTumb("AUTOPILOT_TRM_LEFT", 16, 3031, 184, 1, {-1, 1}, nil, false, "Autopilot", "Trimmer Left Button")
 defineTumb("AUTOPILOT_TRM_RIGHT", 16, 3032, 227, 1, {-1, 1}, nil, false, "Autopilot", "Trimmer Right Button")
 
@@ -595,9 +592,8 @@ defineTumb("SIG_CAS2_GREEN", 52, 3007, 289, 1, {0, 1}, nil, false, "Signal Flare
 defineTumb("SIG_CAS2_YELLOW", 52, 3010, 290, 1, {0, 1}, nil, false, "Signal Flares", "Signal Flares Cassette 2 Launch Yellow Button")
 defineTumb("SIG_CAS2_WHITE", 52, 3009, 291, 1, {0, 1}, nil, false, "Signal Flares", "Signal Flares Cassette 2 Launch White Button")
 
--- Cannot test
-defineTumb("TRG_L_RADIO_ICS", 36, 3023, 182, 0.5, {0, 0.5}, nil, false, "Radio", "Left Trigger Button, RADIO/ICS")
-defineTumb("TRG_R_RADIO_ICS", 36, 3024, 225, 0.5, {0, 0.5}, nil, false, "Radio", "Right Trigger Button, RADIO/ICS")
+defineTumb("TRG_L_RADIO_ICS", 36, 3026, 182, 0.5, {0, 0.5}, nil, false, "Radio", "Left Trigger Button, RADIO/ICS")
+defineTumb("TRG_R_RADIO_ICS", 36, 3027, 225, 0.5, {0, 0.5}, nil, false, "Radio", "Right Trigger Button, RADIO/ICS")
 
 defineIndicatorLight("LMP_AP_HDG_ON",781, "Lamps", "AP heading on")
 defineIndicatorLight("LMP_AP_HEADING_OFF",782, "Lamps", "AP heading off")

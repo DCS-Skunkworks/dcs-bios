@@ -342,6 +342,11 @@ defineIndicatorLight("FUEL_PRESS_WARN_L_R", 278, "Main Panel Lights", "Right Fue
 defineToggleSwitch("FUEL_PRESS_WARN_L_L_CVR", 2, 3000, 377, "Main Panel", "Left Fuel Pressure Warning Light Cover") --WIP
 defineToggleSwitch("FUEL_PRESS_WARN_L_R_CVR", 2, 3000, 378, "Main Panel", "Left Fuel Pressure Warning Light Cover") --WIP
 
+definePushButton("RKT_FIRING_SW", 32, 3006, 386, "Throttle Quadrant", "Rockets Firing Switch")
+defineToggleSwitch("RKT_MASTER_SW", 32, 3001, 385, "Throttle Quadrant", "Rockets Master Switch")
+defineToggleSwitch("RKT_SALVO_SW", 32, 3003, 387, "Throttle Quadrant", "Rockets Salvo Switch")
+definePushButton("RKT_MAN_BTN", 32, 3005, 384, "Throttle Quadrant", "Rockets Manual Button")
+
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
@@ -373,7 +378,6 @@ end, 1, "External Aircraft Model", "Left Landing Light (white)")
 defineIntegerFromGetter("EXT_LAND_LIGHT_R", function()
 	if LoGetAircraftDrawArgumentValue(209) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Right Landing Light (white)")
-
 defineIntegerFromGetter("EXT_WOW_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Tail Gear")

@@ -1,9 +1,6 @@
------------------------------------------------------------                                         
---     LIBRARY     	:    Mirage 2000C RAZBAM orginal by Exo7
---     VERSION     	:    v1.34a by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
------------------------------------------------------------
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
+--v1.35 by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -27,7 +24,7 @@ local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 --remove Arg# Pilot 1000 
------------------------ Get Displays Functions
+----Get Displays Functions
 
 local function getUHFFrequency()
 	local li = list_indication(7)
@@ -149,7 +146,6 @@ local function getPCAUR5Disp()
 return "         "
 end
 
-
 local function getPCABR1Disp()
 	local li = list_indication(5)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
@@ -255,7 +251,7 @@ local function getPPAIntDisp()
 return "         "	
 end
 
------------------------ by Ergo fixed by Espresso29470
+----------------------- by Espresso29470
 local function getPCNDispL() 
    local li = list_indication(9)
    local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
@@ -441,7 +437,7 @@ local function getPCNDispPrep()
     end
 return "         "
 end
------------------------ END
+----END
 
 --ADI
 defineToggleSwitch("ADI_CAGE_LEV", 1, 3314, 314, "ADI", "I - ADI - Cage Lever")
@@ -613,7 +609,7 @@ defineToggleSwitch("ENG_FUEL_R_PUMP_SW", 4, 3648, 648, "ENGINE START PANEL", "I 
 definePushButton("ENG_START_SW", 7, 3649, 649, "ENGINE START PANEL", "I - Engine Start Switch")
 defineToggleSwitch("FUEL_CUTOFF_SW_COV", 7, 3651, 651, "ENGINE START PANEL", "I - Fuel Cutoff Switch Cover")
 defineToggleSwitch("FUEL_CUTOFF_SW", 7, 3652, 652, "ENGINE START PANEL", "I - Fuel Cutoff Switch")
-defineTumb("VENT_SEL_SW", 7, 3650, 650, 0.5, {0, 1}, nil, false, "ENGINE START PANEL", "I - Ventilation Selector Switch")
+defineTumb("INGIT_SEL_SW", 7, 3650, 650, 0.5, {0, 1}, nil, false, "ENGINE START PANEL", "I - Igniter Selector Switch")
 
 --ELECTRONIC WAR PANEL
 defineTumb("BR_PWR_SW", 13, 3606, 606, 0.5, {0, 1}, nil, false, "EW PANEL", "I - BR Power Switch")
@@ -715,7 +711,7 @@ definePotentiometer("WH_FLOOD_LGT_KNOB", 16, 3644, 644, {0, 1}, "INT LIGHTS", "I
 
 --LEFT CONSOLE
 defineToggleSwitch("EMER_THROTTLE_COV", 7, 3464, 464, "LEFT CONSOLE", "I - Emergency Throttle Cover")
-defineToggleSwitch("EMER_THROTTLE_HAND", 7, 3465, 465, "LEFT CONSOLE", "I - Emergency Throttle Handle")
+defineToggleSwitch("EMER_THROTTLE_HAND", 7, 3465, 465, "LEFT CONSOLE", "I - Emergency Throttle")
 defineToggleSwitch("ENG_IN-FLGT_START_SW", 7, 3468, 468, "LEFT CONSOLE", "I - Engine In-Flight Start Switch")
 defineToggleSwitch("AB_EMER_CUTOFF_SW_COV", 4, 3471, 471, "LEFT CONSOLE", "I - A/B Emergency Cutoff Switch Cover")
 defineToggleSwitch("AB_EMER_CUTOFF_SW", 4, 3472, 472, "LEFT CONSOLE", "I - A/B Emergency Cutoff Switch")
@@ -766,14 +762,14 @@ defineToggleSwitch("HYD_SYS_SEL", 14, 3395, 395, "MISCELANEOUS", "I - Hydraulic 
 defineToggleSwitch("NWS_IFF_INTERR_BTN", 22, 3807, 807, "MISCELANEOUS", "I - Nose Wheel Steering / IFF Interrogation Button")
 defineFloat("HYD_G_NEEDLE", 397, {0, 1}, "MISCELANEOUS", "O - HYD - Left Hyd Needle (Circuit #1 - Main)")
 defineFloat("HYD_D_NEEDLE", 398, {0, 1}, "MISCELANEOUS", "O - HYD - Right Hyd Needle (Circuit #2 - Emer)")
-defineMultipositionSwitch("CNPY_LK_N_LOW_LEV", 14, 3656, 656, 3, 0.5, "MISCELANEOUS", "I - Canopy Lock/Neutral/Lower Lever")
+defineMultipositionSwitch("CNPY_LK_N_LOW_LEV", 40, 3656, 656, 3, 0.5, "CANOPY", "I - Canopy Lock/Neutral/Lower Lever")
 defineToggleSwitch("PEDAL_ADJUST_LEV", 14, 3396, 396, "MISCELANEOUS", "I - Pedal Adjustment Lever")
-defineToggleSwitch("CNPY_JETT", 14, 3456, 456, "MISCELANEOUS", "I - Canopy Jettison")
+defineToggleSwitch("CNPY_JETT", 40, 3456, 456, "CANOPY", "I - Canopy Jettison")
 defineToggleSwitch("DRAG_CHUTE_LEV", 22, 3457, 457, "MISCELANEOUS", "I - Drag Chute Lever")
-defineToggleSwitch("CNPY_HAND1", 14, 3907, 907, "MISCELANEOUS", "I - Canopy Handle")
-defineToggleSwitch("CNPY_HAND2", 14, 3908, 908, "MISCELANEOUS", "I - Canopy Handle")
+defineToggleSwitch("CNPY_HAND1", 40, 3907, 907, "CANOPY", "I - Canopy Handle")
+defineToggleSwitch("CNPY_HAND2", 40, 3908, 908, "CANOPY", "I - Canopy Handle")
 defineToggleSwitch("MIRROR_TOGGLE", 22, 3909, 909, "MISCELANEOUS", "I - Mirror Rendering Toggle")
-defineTumb("CNPY_REST", 14, 3655, 655, 1, {-1, 1}, nil, false, "MISCELANEOUS", "I - Canopy Rest")
+defineTumb("CNPY_REST", 40, 3655, 655, 1, {-1, 1}, nil, false, "CANOPY", "I - Canopy Rest")
 defineTumb("SEAT_ADJUST_SW", 22, 3900, 900, 1, {-1, 1}, nil, false, "MISCELANEOUS", "I - Seat Adjustment Switch")
 
 --PCA
@@ -820,7 +816,6 @@ defineString("PCA_BR4_DISP", getPCABR4Disp, 3, "PCA", "O - PCA Bottom #4 Display
 defineString("PCA_BR5_DISP", getPCABR5Disp, 3, "PCA", "O - PCA Bottom #5 Display")
 
 --PCN
-defineMultipositionSwitch("INS_PARAM_SEL", 9, 3574, 574, 11, 0.1, "PCN", "I - PCN - INS Parameter Selector - MP_SW Variant")
 defineSetCommandTumb("INS_PARAM_SEL", 9, 3574, 574, 0.1, {0, 1.1}, nil, true, "PCN", " I - PCN - INS Parameter Selector - Rotary Variant") -- by Ergo
 definePushButton("INS_PREP_SW", 9, 3570, 570, "PCN", "I - PCN - PREP Switch")
 definePushButton("INS_DEST_SW", 9, 3572, 572, "PCN", "I - PCN - DEST Switch")
@@ -905,7 +900,7 @@ definePushButton("RAD_REARM_BTN", 11, 3483, 483, "RADAR", "I - Radar Rearm Butto
 define3PosTumb("RAD_DOP_REJ_SW", 11, 3484, 484, "RADAR", "I - Radar Doppler Reject Switch")
 defineTumb("RAD_CHAN_B", 11, 3485, 485, 2/12, {-0.95, 0.95}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12"}, true, "RADAR", "I - Change Radar Channel B")
 definePotentiometer("RAD_GAIN_DIAL", 11, 3488, 488, {0, 1}, "RADAR", "I - Radar Gain Dial")
-definePushButton("AG_RAD_A_MODE_BTN", 11, 3491, 491, "RADAR", "I - A/G Radar A Mode Button")
+definePushButton("AG_RAD_A_MODE_BTN", 11, 3491, 491, "RADAR", "I - Hardened Clutter Gate Mode Button")
 definePushButton("AG_RAD_DEC_MODE_BTN", 11, 3493, 493, "RADAR", "I - A/G Radar DEC Mode Button")
 definePushButton("AG_RAD_VISU_MODE_BTN", 11, 3495, 495, "RADAR", "I - A/G Radar VISU Mode Button")
 defineToggleSwitch("RAD_GRID_SEL_SW", 11, 3499, 499, "RADAR", "I - Radar Grid Selector Switch")
@@ -1066,32 +1061,27 @@ defineIntegerFromGetter("RAD_VTB_RANGE", function() return parse_indication(1)["
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(184)*65535)
 end, 65535, "External Aircraft Model", "Right Speed Brake")
-
 defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
 end, 65535, "External Aircraft Model", "Left Speed Brake")
-
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Left Position Light (red)")
 defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Right Position Light (green)")
-
 defineIntegerFromGetter("EXT_STROBE_TOP", function()
 	if LoGetAircraftDrawArgumentValue(83) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Top Strobe Light")
 defineIntegerFromGetter("EXT_STROBE_BOTTOM", function()
 	if LoGetAircraftDrawArgumentValue(802) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Bottom Strobe Light")
-
 defineIntegerFromGetter("EXT_FORMATION_LIGHTS_FRONT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
 end, 65535, "External Aircraft Model", "Front Formation Lights")
 defineIntegerFromGetter("EXT_FORMATION_LIGHTS_AFT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(201)*65535)
 end, 65535, "External Aircraft Model", "Aft Formation Lights")
-
 defineIntegerFromGetter("EXT_WOW_NOSE", function()
 	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
