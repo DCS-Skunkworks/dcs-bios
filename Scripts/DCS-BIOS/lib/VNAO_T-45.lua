@@ -19,8 +19,7 @@ local defineRotary = BIOS.util.defineRotary
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
--------- FRONT/SHARED Pit ------
-
+-------- FRONT/SHARED Pit 
 defineTumb("FLAPS_LVR", 19, 3013, 7, 0.5, {0, 1}, nil, false, "General", "Flaps Lever, UP/ 1/2 /DOWN")
 defineToggleSwitch("EMERG_FLAP_SW", 19, 3027, 184, "General", "EMER FLAPS Switch, NORM/DOWN")
 defineToggleSwitch("PARK_BRAKE", 19, 3038, 117, "General", "Parking Brake Handle, OUT/IN")
@@ -34,17 +33,17 @@ defineRotary("RUDDER_TRIM_KNB", 19, 3557, 165, "General", "Rudder Trim Knob")
 defineToggleSwitch("SEAT_ARM", 19, 3061, 265, "General", "Seat Arming Handle, SAFE/ARMED")
 definePushButton("EJECT_HANDLE", 19, 3063, 264, "General", "Ejection Handle - Pull To Eject")
 
--- Electric system
+--Electric system
 defineToggleSwitch("BATTERY1_SW", 19, 3020, 300, "Electric System", "Battery 1 Switch, ON/OFF")
 defineToggleSwitch("BATTERY2_SW", 19, 3021, 301, "Electric System", "Battery 2 Switch, ON/OFF")
 define3PosTumb("GEN_SW", 19, 3022, 303, "Electric System", "Generator Switch, ON/OFF/RESET")
 
--- Engine
+--Engine
 defineToggleSwitch("FINGER_LIFT", 19, 3024, 0, "Engine", "Finger Lift")
 define3PosTumb("ENG_SW", 19, 3019, 11, "Engine", "Engine Switch, OFF/ON/START")
 definePushButton("GAS_TURB_START_BTN", 19, 3023, 35, "Engine", "Gas Turbine Starter Button")
 
--- Gear System
+--Gear System
 defineToggleSwitch("GEAR_LVR", 19, 3016, 6, "Gear System", "Landing Gear Lever, UP/DOWN")
 defineToggleSwitch("HOOK_LVR", 19, 3011, 8, "Gear System", "Tail Hook Lever, UP/DOWN")
 defineToggleSwitch("ANTI_SKID_SW", 19, 3017, 10, "Gear System", "Anti-Skid Switch, OFF/ON")
@@ -61,7 +60,7 @@ defineIndicatorLight("GEAR_LVR_L", 411, "Gear System Lights","GEAR Lever Light (
 definePushButton("EMERG_JETT_BTN", 5, 3501, 182, "Weapon System", "Emergency Jettison Button")
 defineToggleSwitch("MASTER_ARM", 5, 3502, 114, "Weapon System", "Master Arm, ARM/SAFE")
 
--- External Lighting
+--External Lighting
 define3PosTumb("ANTI_COL_STROBE_L_SW", 19, 3028, 402, "External Lighting", "Anti-Collision/Strobe Lights, BOTH/OFF/A-COLL")
 define3PosTumb("TAIL_L_SW", 19, 3029, 404, "External Lighting", "Tail Lights, BRIGHT/OFF/DIM")
 define3PosTumb("WING_L_SW", 19, 3030, 405, "External Lighting", "Wing Lights, BRIGHT/OFF/DIM")
@@ -70,7 +69,7 @@ defineToggleSwitch("LAND_TAXI_L_SW", 19, 3032, 401, "External Lighting", "Landin
 defineToggleSwitch("NAV_L_SW", 19, 3033, 403, "External Lighting", "Nav Lights, FLASH/STEADY")
 defineToggleSwitch("EXT_L_MASTER_SW", 19, 3037, 400, "External Lighting", "Exterior Lights Master Switch")
 
--- Internal Lighting
+--Internal Lighting
 definePotentiometer("FLOOD_L_KNB", 19, 3034, 452, {0, 1}, "Internal Lighting", "Flood Lights Knob")
 definePotentiometer("CONSOLE_L_KNB", 19, 3035, 451, {0, 1}, "Internal Lighting", "Console Lights Knob")
 definePotentiometer("MIP_L_KNB", 19, 3036, 450, {0, 1}, "Internal Lighting", "MIP Lights Knob")
@@ -79,16 +78,16 @@ defineIndicatorLight("INSTRUMENTS_BL", 408, "Internal Lights","Instruments Backl
 defineIndicatorLight("CONSOLE_BL", 409, "Internal Lights","Console Backlight (white)")
 defineIndicatorLight("FLOOD_BL", 410, "Internal Lights","Flood Backlight (white)")
 
--- HUD
-defineToggleSwitch("HUD_PW_SW", 11, 3533, 219, "HUD", "HUD Power Knob, ON/OFF")
-definePotentiometer("HUD_BRIGHT_KNB", 11, 3534, 221, {0, 1}, "HUD", "HUD Brightness Knob")
+--HUD
+defineToggleSwitch("HUD_PW_SW", 11, 3535, 219, "HUD", "HUD Power Knob, ON/OFF")
+definePotentiometer("HUD_BRIGHT_KNB", 11, 3536, 221, {0, 1}, "HUD", "HUD Brightness Knob")
 
 defineIndicatorLight("AOA_SLOW_L", 320, "HUD Lights","AOA Light Slow (green)")
 defineIndicatorLight("AOA_OPT_L", 321, "HUD Lights","AOA Light Optimum (yellow)")
 defineIndicatorLight("AOA_FAST_L", 322, "HUD Lights","AOA Light Fast (red)")
 defineIndicatorLight("WHEELS_L", 138, "HUD Lights","WHEELS Light (red)")
 
--- Data Entry Panel (DEP)
+--Data Entry Panel (DEP)
 definePushButton("DEP_0_BTN", 15, 3537, 200, "DEP", "DEP 0 Button")
 definePushButton("DEP_1_BTN", 15, 3538, 201, "DEP", "DEP 1 Button")
 definePushButton("DEP_2_BTN", 15, 3539, 202, "DEP", "DEP 2 Button")
@@ -110,7 +109,7 @@ definePushButton("DEP_MASTER_MODE_BTN", 15, 3554, 218, "DEP", "DEP Master Mode B
 definePushButton("DEP_MIL_DEP_INC_BTN", 15, 3555, 223, "DEP", "DEP Mil Depression Increase Button")
 definePushButton("DEP_MIL_DEP_DEC_BTN", 15, 3556, 224, "DEP", "DEP Mil Depression Decrease Button")
 
--- MFD Left ----
+--MFD Left
 definePushButton("MFD_L_ON_DAY", 12, 3501, 424, "MFD Left", "Left MFD On Day")
 definePushButton("MFD_L_ON_NGT", 12, 3502, 425, "MFD Left", "Left MFD On Night")
 definePushButton("MFD_L_OFF", 12, 3503, 426, "MFD Left", "Left MFD Off")
@@ -137,7 +136,7 @@ definePushButton("MFD_L_BTN_3", 12, 3508, 17, "MFD Left", "Left MFD Push Button 
 definePushButton("MFD_L_BTN_2", 12, 3507, 16, "MFD Left", "Left MFD Push Button 2")
 definePushButton("MFD_L_BTN_1", 12, 3506, 15, "MFD Left", "Left MFD Push Button 1")
 
--- MFD Right ----
+--MFD Right
 definePushButton("MFD_R_ON_DAY", 12, 3501, 434, "MFD Right", "Right MFD On Day")
 definePushButton("MFD_R_ON_NGT", 12, 3502, 435, "MFD Right", "Right MFD On Night")
 definePushButton("MFD_R_OFF", 12, 3503, 436, "MFD Right", "Right MFD Off")
@@ -164,14 +163,14 @@ definePushButton("MFD_R_BTN_3", 12, 3508, 42, "MFD Right", "Right MFD Push Butto
 definePushButton("MFD_R_BTN_2", 12, 3507, 41, "MFD Right", "Right MFD Push Button 2")
 definePushButton("MFD_R_BTN_1", 12, 3506, 40, "MFD Right", "Right MFD Push Button 1")
 
--- COMM control panel
+--COMM control panel
 defineToggleSwitch("MIC_SW", 3, 3530, 196, "COMM Control Panel", "MIC Switch, HOT/COLD")
 defineToggleSwitch("COMM1_SW", 3, 3532, 191, "COMM Control Panel", "COMM 1 Switch")
 defineToggleSwitch("COMM2_SW", 3, 3533, 192, "COMM Control Panel", "COMM 2 Switch")
 definePotentiometer("INTERCOM_VOL", 3, 3531, 198, {0, 1}, "COMM Control Panel", "Intercom Volume")
 define3PosTumb("MIC_BTN", 3, 3534, 294, "COMM Control Panel", "Microphone Button, COMM 1/COMM 2")
 
---- V/UHF control panel 1
+---V/UHF control panel 1
 define3PosTumb("COMM_1_FREQ_10", 3, 3514, 250, "V/UHF 1", "COMM 1 Frequency Tens")
 define3PosTumb("COMM_1_FREQ_1", 3, 3515, 251, "V/UHF 1", "COMM 1 Frequency Ones")
 define3PosTumb("COMM_1_FREQ_010", 3, 3516, 252, "V/UHF 1", "COMM 1 Frequency Tenths")
@@ -184,7 +183,7 @@ definePotentiometer("COMM_1_BRIGHT", 3, 3521, 255, {0, 1}, "V/UHF 1", "COMM 1 Br
 defineIndicatorLight("COMM_1_FWD_L", 260, "V/UHF 1 Lights","COMM 1 FWD Light (green)")
 defineIndicatorLight("COMM_1_AFT_L", 261, "V/UHF 1 Lights","COMM 1 AFT Light (green)")
 
---- V/UHF control panel 2
+---V/UHF control panel 2
 define3PosTumb("COMM_2_FREQ_10", 4, 3522, 274, "V/UHF 2", "COMM 2 Frequency Tens")
 define3PosTumb("COMM_2_FREQ_1", 4, 3523, 275, "V/UHF 2", "COMM 2 Frequency Ones")
 define3PosTumb("COMM_2_FREQ_010", 4, 3524, 276, "V/UHF 2", "COMM 2 Frequency Tenths")
@@ -197,40 +196,39 @@ definePotentiometer("COMM_2_BRIGHT", 4, 3529, 279, {0, 1}, "V/UHF 2", "COMM 2 Br
 defineIndicatorLight("COMM_2_FWD_L", 262, "V/UHF 2 Lights","COMM 2 FWD Light (green)")
 defineIndicatorLight("COMM_2_AFT_L", 263, "V/UHF 2 Lights","COMM 2 AFT Light (green)")
 
--- VOR ILS
+--VOR ILS
 defineMultipositionSwitch("VOR_ILS_FREQ_1", 17, 3511, 230, 10, 0.1, "VOR ILS", "VOR/ILS 1MHz Frequency Knob")
 defineMultipositionSwitch("VOR_ILS_FREQ_50", 17, 3512, 232, 20, 0.05, "VOR ILS", "VOR/ILS 50KHz Frequency Knob")
 defineMultipositionSwitch("VOR_ILS_PW", 17, 3513, 231, 3, 0.5, "VOR ILS", "VOR/ILS Power Knob")
 
--- TACAN
+--TACAN
 defineToggleSwitch("TACAN_PW", 16, 3509, 241, "TACAN", "TACAN Power Switch, ON/OFF")
 defineMultipositionSwitch("TACAN_CHAN_1", 16, 3507, 245, 10, 0.1, "TACAN", "TACAN Channel Selector Ones")
 defineMultipositionSwitch("TACAN_CHAN_10", 16, 3508, 242, 20, 0.05, "TACAN", "TACAN Channel Selector Ones")
 
--------- REAR Pit ------
--- Misc Systems REAR
+--------REAR Pit 
+--Misc Systems REAR
 define3PosTumb("REAR_ENG_SW", 19, 3049, 11, "Rear Misc", "REAR Engine Switch, OFF/ON/START")
 defineTumb("REAR_FLAPS_LVR", 19, 3044, 7, 0.5, {0, 1}, nil, false, "Rear Misc", "REAR Flaps Lever, UP/ 1/2 /DOWN")
 
--- Electric system REAR
+--Electric system REAR
 defineToggleSwitch("REAR_BATTERY1_SW", 19, 3050, 300, "Rear Electric System", "REAR Battery 1 Switch, ON/OFF")
 defineToggleSwitch("REAR_BATTERY2_SW", 19, 3051, 301, "Rear Electric System", "REAR Battery 2 Switch, ON/OFF")
 define3PosTumb("REAR_GEN_SW", 19, 3052, 303, "Rear Electric System", "REAR Generator Switch, ON/OFF/RESET")
 
--- Internal Lighting REAR
+--Internal Lighting REAR
 definePotentiometer("REAR_FLOOD_L_KNB", 19, 3053, 455, {0, 1}, "Rear Internal Lighting", "REAR Flood Lights Knob")
 definePotentiometer("REAR_CONSOLE_L_KNB", 19, 3054, 454, {0, 1}, "Rear Internal Lighting", "REAR Console Lights Knob")
 definePotentiometer("REAR_MIP_L_KNB", 19, 3055, 453, {0, 1}, "Rear Internal Lighting", "REAR MIP Lights Knob")
 
--- Gear System REAR
+--Gear System REAR
 defineToggleSwitch("REAR_GEAR_LVR", 19, 3046, 6, "Rear Gear System", "REAR Landing Gear Lever, UP/DOWN")
 defineToggleSwitch("REAR_HOOK_LVR", 19, 3043, 8, "Rear Gear System", "REAR Tail Hook Lever, UP/DOWN")
 defineToggleSwitch("REAR_ANTI_SKID_SW", 19, 3047, 10, "Rear Gear System", "REAR Anti-Skid Switch, OFF/ON")
 defineToggleSwitch("REAR_EMERG_GEAR_LVR", 19, 3048, 183, "Rear Gear System", "REAR Landing Gear Emergency Release Handle")
 defineToggleSwitch("REAR_LAUNCH_BAR_SW", 19, 3045, 67, "Rear Gear System", "REAR Launch Bar Switch, UP/DOWN")
 
--------- Lights, Gauges ------
-
+--------Lights Gauges 
 --Warning, Caution and IndicatorLights
 defineIndicatorLight("SEAT_L", 71, "Warning, Caution and IndicatorLights","SEAT Light (yellow)")
 defineIndicatorLight("CANOPY_L", 72, "Warning, Caution and IndicatorLights","CANOPY Light (yellow)")

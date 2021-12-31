@@ -1,8 +1,6 @@
--- V1.10 by Warlord (aka BlackLibrary)
--- Added HARM,VIP,VRP pages by Matchstick
--- Tested and fixes by BuzzKillington & afewyards
+-- V1.10a by Warlord (aka BlackLibrary)
+-- Tested and fixes by BuzzKillington, afewyards & AMVI_Ares
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick
-
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
 
@@ -38,7 +36,7 @@ local function coerce_nil_to_string(value)
 	end
 end
 
-------------------------------------------------------------------Switches, Buttons---------------------------------------------------------------------------------
+------------------------------------------------------------------Switches, Buttons
 --Control Interface
 defineToggleSwitch("DIGI_BAK_SW", 2, 3001, 566, "Control Interface", "DIGITAL BACKUP Switch, OFF/BACKUP")
 defineToggleSwitch("ALT_FLAPS_SW", 2, 3002, 567, "Control Interface", "ALT FLAPS Switch, NORM/EXTEND")
@@ -366,7 +364,7 @@ defineToggleSwitch("SEAT_EJECT_SAFE", 10, 3009, 785,"Cockpit Mechanics" ,"Ejecti
 defineSpringloaded_3_pos_tumb("CANOPY_SW", 10, 3003, 3002, 606, "Cockpit Mechanics", "Canopy Switch, OPEN/HOLD/CLOSE")
 defineToggleSwitch("HIDE_STICK", 10, 3015, 796,"Cockpit Mechanics" ,"Hide Stick toggle")
 
-------------------------------------------------------------------Warning, Caution and Indicator Lights-------------------------------------------------------------
+------------------------------------------------------------------Warning, Caution and Indicator Lights
 --Caution Light Panel
 defineIndicatorLight("LIGHT_FLCS_FAULT", 630, "Warning, Caution and IndicatorLights","FLCS FAULT Light (yellow)")
 defineIndicatorLight("LIGHT_ENGINE_FAULT", 631, "Warning, Caution and IndicatorLights","ENGINE FAULT Light (yellow)")
@@ -401,7 +399,7 @@ defineIndicatorLight("LIGHT_CAUTION_4", 659, "Warning, Caution and IndicatorLigh
 defineIndicatorLight("LIGHT_CAUTION_5", 660, "Warning, Caution and IndicatorLights","5. Caution - Light (yellow)")
 defineIndicatorLight("LIGHT_CAUTION_6", 661, "Warning, Caution and IndicatorLights","6. Caution - Light  (yellow)")
 
---Edge of glareshield
+--Edge of Glareshield
 defineIndicatorLight("LIGHT_MASTER_CAUTION", 117, "Warning, Caution and IndicatorLights","MASTER CAUTION Light (yellow)")
 defineIndicatorLight("LIGHT_EDGE", 119, "Warning, Caution and IndicatorLights","Edge - Light (red)")
 defineIndicatorLight("LIGHT_TF_FAIL", 121, "Warning, Caution and IndicatorLights","TF FAIL Light (red)")
@@ -529,7 +527,7 @@ defineIndicatorLight("LIGHT_ECM_SPL_T", 499, "Warning, Caution and IndicatorLigh
 --Div
 defineIndicatorLight("LIGHT_MARKER_BEACON", 157, "Warning, Caution and IndicatorLights","MARKER BEACON Light (green)")
 
-------------------------------------------------------------------Gauges--------------------------------------------------------------------------------------------
+------------------------------------------------------------------Gauges
 defineFloat("CANOPY_VALUE", 7, {0, 1}, "Cockpit Mechanics", "Canopy Position")
 defineFloat("SEAT_HEIGHT", 783, {-1, 1}, "Cockpit Mechanics", "Seat Height")
 
@@ -763,8 +761,8 @@ DEDLayout_l1["Asterisks_T1_both"] = {17,1,21,"","I"}
 DEDLayout_l1["Visual initial point to TGT Label"] = {4,10}
 DEDLayout_l1["VIP to TGT Label Asteriscs_both"] = {3,1,14,"","I"}
 -- VRP
-DEDLayout_l1["Target to VRP Label"] = {4,10}
-DEDLayout_l1["Target to VRP Label Asteriscs_both"] = {3,1,14,"","I"}
+DEDLayout_l1["Target to VRP Label"] = {5,10}
+DEDLayout_l1["Target to VRP Label Asteriscs_both"] = {4,1,15,"","I"}
 --HMCS
 DEDLayout_l1["HMCS DISPLAY HMCS_DISPLAY_TOPIC"] = {7,12}
 DEDLayout_l1["HMCS DISPLAY INS_SelectedSteerpoint"] = {20,2}
@@ -836,7 +834,7 @@ DEDLayout_l2["CMDS_CH_Asterisks_both"] = {6,1,9,"","I"}
 -- DLNK
 DEDLayout_l2["FC lbl"] = {3,2}
 DEDLayout_l2["FC value"] = {6,3,0,"_inv","I"}
-DEDLayout_l2["Asterisks on FC_both"] = {15,1,20,"","I"}
+DEDLayout_l2["Asterisks on FC_both"] = {5,1,9,"","I"}
 DEDLayout_l2["CallSign Name char1"] = {11,1,0,"_inv","I"}
 DEDLayout_l2["CallSign Name char2"] = {12,1,0,"_inv","I"}
 DEDLayout_l2["Asterisks on CS Name_both"] = {10,1,13,"","I"}
@@ -844,9 +842,10 @@ DEDLayout_l2["VCS IncDecSymbol"] = {14,1}
 DEDLayout_l2["CallSign Number"] = {16,2,0,"_inv","I"}
 DEDLayout_l2["Asterisks on CS Number_both"] = {15,1,18,"","I"}
 DEDLayout_l2["STN id lbl1"] = {0,2}
-DEDLayout_l2["STN value1"] = {3,5}
+DEDLayout_l2["STN value1"] = {3,5,0,"_inv","I"}
 DEDLayout_l2["STN id lbl5"] = {9,2}
-DEDLayout_l2["STN value5"] = {12,5}
+DEDLayout_l2["STN value5"] = {12,5,0,"_inv","I"}
+DEDLayout_l2["Asterisks on STN1_both"] = {2,1,8,"","I"}
 DEDLayout_l2["OWN lbl"] = {18,3}
 DEDLayout_l2["GPS TIME lbl"] = {0,8}
 DEDLayout_l2["GPS TIME status"] = {9,3,0,"_inv","I"}
@@ -1009,13 +1008,16 @@ DEDLayout_l3["FL status"] = {16,3,0,"_inv","I"}
 DEDLayout_l3["Asterisks on FL_both"] = {15,1,19,"","I"}
 DEDLayout_l3["NUM lbl"] = {18,1}
 DEDLayout_l3["Own num value"] = {20,1}
+DEDLayout_l3["Asterisks on Own_both"]  = {19,1,21,"","I"}
 DEDLayout_l3["TIME lbl"] = {4,4}
 DEDLayout_l3["TIME value"] = {9,8,0,"_inv","I"}
 DEDLayout_l3["Asterisks on TIME_both"] = {8,1,17,"","I"}
 DEDLayout_l3["STN id lbl2"] = {0,2}
-DEDLayout_l3["STN value2"] = {3,5}
+DEDLayout_l3["STN value2"] = {3,5,0,"","_inv"}
+DEDLayout_l3["Asterisks on STN2_both"] = {2,1,8,"","I"}
 DEDLayout_l3["STN id lbl6"] = {9,2}
-DEDLayout_l3["STN value6"] = {12,5}
+DEDLayout_l3["STN value6"] = {12,5,0,"","_inv"}
+DEDLayout_l3["Asterisks on STN6_both"] = {11,1,17,"","I"}
 DEDLayout_l3["OWN lbl"] = {3,3}
 DEDLayout_l3["OWN value"] = {7,2}
 DEDLayout_l3["DATA lbl"] = {12,4}
@@ -1164,7 +1166,7 @@ DEDLayout_l4["INS_FIX_NECESSARY_lbl"] = {3,17}
 --CMDS
 DEDLayout_l4["CMDS_SQ_lbl"] = {6,2}
 DEDLayout_l4["CMDS_SQ_Scratchpad"] = {10,2,0,"_inv","I"}
-DEDLayout_l4["CMDS_SQ_Asterisks_both"] = {9,1,13,"","I"}
+DEDLayout_l4["CMDS_SQ_Asterisks_both"] = {9,1,12,"","I"}
 DEDLayout_l4["CMDS_O1_lbl"] = {2,2}
 DEDLayout_l4["CMDS_O1_Scratchpad"] = {7,2,0,"_inv","I"}
 DEDLayout_l4["CMDS_O1_Asterisks_both"] = {6,1,9,"","I"}
@@ -1177,14 +1179,16 @@ DEDLayout_l4["SC value"] = {6,3,0,"_inv","I"}
 DEDLayout_l4["Asterisks on SC_both"] = {5,1,9,"","I"}
 DEDLayout_l4["XMT lbl"] = {11,3}
 DEDLayout_l4["XMT status"] = {16,2,0,"_inv","I"}
-DEDLayout_l4["Asterisks on XMT_both"] = {15,1,18,"","I"}
+DEDLayout_l4["Asterisks on XMT_both"] = {15,1,20,"","I"}
 DEDLayout_l4["NTR lbl"] = {5,3}
 DEDLayout_l4["NTR status"] = {9,3,0,"_inv","I"}
 DEDLayout_l4["Asterisks on NTR_both"] = {8,1,12,"","I"}
 DEDLayout_l4["STN id lbl3"] = {0,2}
-DEDLayout_l4["STN value3"] = {3,5}
+DEDLayout_l4["STN value3"] = {3,5,0,"","_inv"}
+DEDLayout_l4["Asterisks on STN3_both"] = {2,1,8,"","I"}
 DEDLayout_l4["STN id lbl7"] = {9,2}
-DEDLayout_l4["STN value7"] = {12,5}
+DEDLayout_l4["STN value7"] = {12,5,0,"","_inv"}
+DEDLayout_l4["Asterisks on STN7_both"] = {11,1,17,"","I"}
 DEDLayout_l4["FILL lbl"] = {2,4}
 DEDLayout_l4["FILL status"] = {7,3}
 DEDLayout_l4["PRTL lbl"] = {12,4}
@@ -1216,8 +1220,8 @@ DEDLayout_l4["T4_code"] = {18,3,0,"_inv","I"}
 DEDLayout_l4["Asterisks_T4_both"] = {17,1,21,"","I"}
 -- VIP & VRP
 DEDLayout_l4["Range"] = {4,3}
-DEDLayout_l4["Range value"] = {11,4,0,"_inv","I"}
-DEDLayout_l4["Range Asteriscs_both"] = {10,1,15,"","I"}
+DEDLayout_l4["Range value"] = {9,8,0,"_inv","I"}
+DEDLayout_l4["Range Asteriscs_both"] = {8,1,17,"","I"}
 DEDLayout_l4["Range NM"] = {16,2}
 --HMCS
 DEDLayout_l4["HMCS DISPLAY HMCS_DECLUTTER"] = {3,14}
@@ -1241,7 +1245,7 @@ DEDLayout_l5["TACAN Band"]={23,1}
 DEDLayout_l5["TACAN A-A Distance"]={19,5}
 --COM
 DEDLayout_l5["Preset Frequency"]={5,6,0,"_inv","I"}
-DEDLayout_l5["Asterisks on PresetFrequency_both"]={4,11,11,"","I"}
+DEDLayout_l5["Asterisks on PresetFrequency_both"]={4,1,11,"","I"}
 DEDLayout_l5["Bandwidth"]={18,2,0,"_inv","I"}
 DEDLayout_l5["Asterisks on Band_both"]={17,1,20,"","I"}
 DEDLayout_l5["Preset Channel Number"]={20,2}
@@ -1315,12 +1319,14 @@ DEDLayout_l5["P2 lbl"] = {21,3}
 DEDLayout_l5["P3 lbl"] = {21,3}
 DEDLayout_l5["SYNC lbl"] = {4,4}
 DEDLayout_l5["SYNC status"] = {9,4,0,"_inv","I"}
-DEDLayout_l5["Asterisks on SYNC_both"] = {8,1,13,"","I"}
+DEDLayout_l5["Asterisks on SYNC_both"] = {8,1,15,"","I"}
 DEDLayout_l5["P1 lbl"] = {21,3}
 DEDLayout_l5["STN id lbl4"] = {0,2}
-DEDLayout_l5["STN value4"] = {3,5}
+DEDLayout_l5["STN value4"] = {3,5,0,"","_inv"}
+DEDLayout_l5["Asterisks on STN4_both"] = {2,1,8,"","I"}
 DEDLayout_l5["STN id lbl8"] = {9,2}
-DEDLayout_l5["STN value8"] = {12,5}
+DEDLayout_l5["STN value8"] = {12,5,0,"","_inv"}
+DEDLayout_l5["Asterisks on STN8_both"] = {11,1,17,"","I"}
 DEDLayout_l5["P5 lbl"] = {21,3}
 DEDLayout_l5["INTRAFLIGHT STN id lbl4"] = {1,2}
 DEDLayout_l5["INTRAFLIGHT STN value4"] = {4,5}
@@ -1337,7 +1343,7 @@ DEDLayout_l5["Laser ST Time Asteriscs_both"] = {16,1,19,"","I"}
 DEDLayout_l5["INTG M3 Mode"] = {0,2,0,"_inv","I"}
 DEDLayout_l5["INTG M3 Decoupled Status"] = {3,1}
 DEDLayout_l5["INTG M3 Code"] = {4,4}
-DEDLayout_l5["INTG Asterisks_both"] = {9,1,16,"","I"}
+DEDLayout_l5["INTG Asterisks_both"] = {9,1,15,"","I"}
 DEDLayout_l5["INTG Scratchpad"] = {10,5,0,"_inv","I"}
 DEDLayout_l5["INTG COUPLE Mode"] = {16,4,0,"_inv","I"}
 DEDLayout_l5["INTG COUPLE Key"] = {20,3}
@@ -1347,7 +1353,7 @@ DEDLayout_l5["T5_code"] = {18,3,0,"_inv","I"}
 DEDLayout_l5["Asterisks_T5_both"] = {17,1,21,"","I"}
 -- VIP & VRP
 DEDLayout_l5["Elevation"] = {3,4}
-DEDLayout_l5["Elevation value"] = {9,6,0,"_inv","I"}
+DEDLayout_l5["Elevation value"] = {9,8,0,"_inv","I"}
 DEDLayout_l5["Elevation Asteriscs_both"] = {8,1,17,"","I"}
 --HMCS
 DEDLayout_l5["HMCS DISPLAY HMCS_RWR_DISPLAY"] = {3,9}
@@ -1575,7 +1581,7 @@ defineToggleSwitch("ECM_6_BTN", 66, 3011, 485, "Clock", "ECM 6 Button")
 defineToggleSwitch("ECM_FRM_BTN", 66, 3012, 490, "Clock", "ECM FRM Button")
 defineToggleSwitch("ECM_SPL_BTN", 66, 3013, 495, "Clock", "ECM SPL Button")
 
-------------------------------------------------------------------Externals-----------------------------------------------------------------------------------------
+------------------------------------------------------------------Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
 end, 65535, "External Aircraft Model", "Right Speed Brake")
