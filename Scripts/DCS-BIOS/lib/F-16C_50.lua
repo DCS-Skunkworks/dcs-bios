@@ -1,4 +1,4 @@
--- V1.10a by Warlord (aka BlackLibrary)
+-- V1.10b by Warlord (aka BlackLibrary)
 -- Tested and fixes by BuzzKillington, afewyards & AMVI_Ares
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
@@ -846,6 +846,7 @@ DEDLayout_l2["STN value1"] = {3,5,0,"_inv","I"}
 DEDLayout_l2["STN id lbl5"] = {9,2}
 DEDLayout_l2["STN value5"] = {12,5,0,"_inv","I"}
 DEDLayout_l2["Asterisks on STN1_both"] = {2,1,8,"","I"}
+DEDLayout_l2["Asterisks on STN5_both"] = {11,1,17,"","I"}
 DEDLayout_l2["OWN lbl"] = {18,3}
 DEDLayout_l2["GPS TIME lbl"] = {0,8}
 DEDLayout_l2["GPS TIME status"] = {9,3,0,"_inv","I"}
@@ -1570,16 +1571,16 @@ defineToggleSwitch("SEAT_EJECT_HANDLE", 10, 3006, 0,"Cockpit Mechanics" ,"Ejecti
 define3PosTumb("ECM_PW_SW", 66, 3001, 455, "ECM", "ECM Power Switch")
 definePotentiometer("ECM_DIM_KNB", 66, 3003, 456, nil, "ADI", "ECM DIM Rotary Knob")
 define3PosTumb("ECM_XMIT_SW", 66, 3002, 457, "ECM", "ECM XMIT Switch")
-definePushButton("ECM_RESET_BTN", 66, 3004, 458, "Clock", "ECM Reset Button")
-definePushButton("ECM_BIT_BTN", 66, 3005, 459, "Clock", "ECM Bit Button")
-defineToggleSwitch("ECM_1_BTN", 66, 3006, 460, "Clock", "ECM 1 Button")
-defineToggleSwitch("ECM_2_BTN", 66, 3007, 465, "Clock", "ECM 2 Button")
-defineToggleSwitch("ECM_3_BTN", 66, 3008, 470, "Clock", "ECM 3 Button")
-defineToggleSwitch("ECM_4_BTN", 66, 3009, 475, "Clock", "ECM 4 Button")
-defineToggleSwitch("ECM_5_BTN", 66, 3010, 480, "Clock", "ECM 5 Button")
-defineToggleSwitch("ECM_6_BTN", 66, 3011, 485, "Clock", "ECM 6 Button")
-defineToggleSwitch("ECM_FRM_BTN", 66, 3012, 490, "Clock", "ECM FRM Button")
-defineToggleSwitch("ECM_SPL_BTN", 66, 3013, 495, "Clock", "ECM SPL Button")
+definePushButton("ECM_RESET_BTN", 66, 3004, 458, "ECM", "ECM Reset Button")
+definePushButton("ECM_BIT_BTN", 66, 3005, 459, "ECM", "ECM Bit Button")
+defineToggleSwitch("ECM_1_BTN", 66, 3006, 460, "ECM", "ECM 1 Button")
+defineToggleSwitch("ECM_2_BTN", 66, 3007, 465, "ECM", "ECM 2 Button")
+defineToggleSwitch("ECM_3_BTN", 66, 3008, 470, "ECM", "ECM 3 Button")
+defineToggleSwitch("ECM_4_BTN", 66, 3009, 475, "ECM", "ECM 4 Button")
+defineToggleSwitch("ECM_5_BTN", 66, 3010, 480, "ECM", "ECM 5 Button")
+defineToggleSwitch("ECM_6_BTN", 66, 3011, 485, "ECM", "ECM 6 Button")
+defineToggleSwitch("ECM_FRM_BTN", 66, 3012, 490, "ECM", "ECM FRM Button")
+defineToggleSwitch("ECM_SPL_BTN", 66, 3013, 495, "ECM", "ECM SPL Button")
 
 ------------------------------------------------------------------Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
