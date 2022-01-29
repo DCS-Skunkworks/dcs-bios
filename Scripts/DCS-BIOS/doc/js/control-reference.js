@@ -61,8 +61,9 @@ $(function() {
 	headerDiv.append($('<span> </span>'));
 	
 	var button3 = $("<button>").text("?");
-	button3.on("click", function test() {
-		window.open('Start.html');
+	button3.on("click", function() {
+		window.open('../Start.html');
+		//chrome.browser.openTab({url: "Start.html"});
 	});
 	headerDiv.append(button3);
 	
