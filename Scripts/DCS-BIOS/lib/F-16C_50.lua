@@ -1,6 +1,6 @@
--- V1.10b by Warlord (aka BlackLibrary)
--- Tested and fixes by BuzzKillington, afewyards & AMVI_Ares
--- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick
+-- V1.10d by Warlord (aka BlackLibrary)
+-- Tested and fixes by BuzzKillington, afewyards
+-- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
 
@@ -635,7 +635,7 @@ local DEDLayout_l4={}
 local DEDLayout_l5={}
 
 --CNI
-DEDLayout_l1["UHF Mode Rotary"]={1,3}
+DEDLayout_l1["UHF Mode Rotary"]={1,3,0,"_inv","I"}
 DEDLayout_l1["UHF IncDecSymbol"]={5,1}
 DEDLayout_l1["Selected UHF Frequency"]={6,6}
 DEDLayout_l1["Steerpoint Use"]={14,4}
@@ -682,7 +682,7 @@ DEDLayout_l1["ALOW Selected Steerpoint"] = {19,2}
 DEDLayout_l1["ALOW WPT IncDecSymbol"] = {23,1}
 --STPT
 DEDLayout_l1["STEERPOINT LABEL"] = {6,4}
-DEDLayout_l1["STEERPOINT NUMBER"] = {12,2,0,"_inv","I"}
+DEDLayout_l1["STEERPOINT NUMBER"] = {12,3,0,"_inv","I"}
 DEDLayout_l1["STEERPOINT IncDecSymbol"] = {16,1}
 DEDLayout_l1["STEERPOINT SEQUENCE"] = {18,4}
 DEDLayout_l1["STEERPOINT NUMBER Asteriscs_both"] = {11,1,15,"","I"}
@@ -906,7 +906,7 @@ DEDLayout_l2["MARK Latitude Value"] = {6,12,0,"_inv","I"}
 DEDLayout_l2["MARK Latitude Asteriscs_both"] = {5,1,18,"","I"} 
 --DEDLayout_l2[""] = {,}
 --CNI
-DEDLayout_l3["VHF Label"]={1,3}
+DEDLayout_l3["VHF Label"]={1,3,0,"_inv","I"}
 DEDLayout_l3["VHF IncDecSymbol"]={5,1}
 DEDLayout_l3["Selected VHF Frequency"]={6,6}
 DEDLayout_l3["System Time"]={15,8}
@@ -1019,7 +1019,7 @@ DEDLayout_l3["Asterisks on STN2_both"] = {2,1,8,"","I"}
 DEDLayout_l3["STN id lbl6"] = {9,2}
 DEDLayout_l3["STN value6"] = {12,5,0,"","_inv"}
 DEDLayout_l3["Asterisks on STN6_both"] = {11,1,17,"","I"}
-DEDLayout_l3["OWN lbl"] = {3,3}
+-- DEDLayout_l3["OWN lbl"] = {3,3} --frk
 DEDLayout_l3["OWN value"] = {7,2}
 DEDLayout_l3["DATA lbl"] = {12,4}
 DEDLayout_l3["DATA value"] = {7,3}
@@ -1069,7 +1069,7 @@ DEDLayout_l3["Target bearing Asteriscs_both"] = {8,1,15,"","I"}
 DEDLayout_l3["HMCS DISPLAY HMCS_CKPT_BLANK"] = {3,9,0,"_inv","I"}
 DEDLayout_l3["HMCS DISPLAY Asterisks_CKPT_BLANK_both"] = {2,1,12,"","I"}
 DEDLayout_l3["HMCS ALIGN HMCS_AZ_EL"] = {2,5,0,"_inv","I"}
-DEDLayout_l3["HMCS ALIGN Asterisks_AZ_EL_both"] = {1,1,7,"","I"}
+DEDLayout_l3["HMCS ALIGN Asterisks_AZ_ELAZ_EL_both"] = {1,1,7,"","I"}
 --MARK
 DEDLayout_l3["MARK Longitude"] = {2,3}
 DEDLayout_l3["MARK Longitude Value"] = {6,12,0,"_inv","I"}
@@ -1406,7 +1406,33 @@ local function mergeString(original_string, new_data, location)
 	end
 	return before..table.concat(merged)..after
 end
----------------------------- DED Display Main Function
+
+function IntToByteString(intval)
+	assert(intval >= 0)
+	assert(intval <= 0xFFFFFFFF) --- (2^32 -1) ::4294967295
+	-- convert value (a float from 0.0 to 1.0) to a 16-bit signed integer from 0 to 65535
+	local retBytes = {0,0,0,0}
+	local i = 1 -- unsigned long start from low couple of byte
+
+	while intval > 0 do
+		retBytes[i] = intval % 256
+		intval = (intval-retBytes[i]) / 256
+		i = i+1
+	end
+	return string.char(retBytes[1], retBytes[2], retBytes[3], retBytes[4])
+end
+
+OR, XOR, AND = 1, 3, 4
+
+function bitoper(a, b, oper)
+   local r, m, s = 0, 2^31
+   repeat
+      s,a,b = a+b+m, a%m, b%m
+      r,m = r + m*oper%(s-a-b), m/2
+   until m < 1
+   return r
+end
+
 local function buildDEDLine(line)
 -- Get Layout Information for line being built
 	local DEDLayoutLine = DEDLayout[line]
@@ -1415,9 +1441,9 @@ local function buildDEDLine(line)
 	local layout
 	local label
 	local value
-
+	local inverse = 0
 -- Base Output String
-	local dataLine ="                         "
+	local dataLine ="                             "
 
 -- Check for present of Objects that indicate Duplicate Key Names that need resolving
 	local guard = DED_fields["Guard Label"]
@@ -1478,7 +1504,30 @@ local function buildDEDLine(line)
 			else
 				value = v
 			end
-			
+
+			-- Compute inverse fields by position -- Frk
+			if label:find("_inv") ~= nil or (layout[5]=="I" and layout[4] == "" and label:find("_inv") == nil) then
+				local wInverse = 0
+				-- layout[1]-1 because POS 1 is Bit 0, (layout[1]+layout[2]-2) END is start + step -1
+				local inizio, fine
+				inizio = layout[1]
+				fine = inizio+layout[2]-1
+
+				for i=inizio, fine  do
+					wInverse = wInverse + 2^i
+				end
+				inverse = bitoper(inverse, wInverse, OR)
+				if layout[3] > 0 then
+					inizio = layout[3]
+					fine = inizio+layout[2]-1 
+					for i=inizio, fine  do
+						wInverse = wInverse + 2^i
+					end
+				end
+				inverse = bitoper(inverse, wInverse, OR)
+
+			end
+
 -- Add Value to dataLine using mergeString because some values are are supposed to fit within others
 			dataLine = mergeString(dataLine, value, layout[1])
 
@@ -1488,6 +1537,8 @@ local function buildDEDLine(line)
 			end
 		end
 	end
+	local inverseBitMap = IntToByteString(inverse)
+	dataLine = mergeString(dataLine, inverseBitMap , 25)
     return dataLine
 end
 
@@ -1507,11 +1558,11 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 end
 
 -- Add DED Display Lines to data sent across
-defineString("DED_LINE_1", function() return DEDLine1 end, 25, "DED Output Data", "DED Display Line 1")
-defineString("DED_LINE_2", function() return DEDLine2 end, 25, "DED Output Data", "DED Display Line 2")
-defineString("DED_LINE_3", function() return DEDLine3 end, 25, "DED Output Data", "DED Display Line 3")
-defineString("DED_LINE_4", function() return DEDLine4 end, 25, "DED Output Data", "DED Display Line 4")
-defineString("DED_LINE_5", function() return DEDLine5 end, 25, "DED Output Data", "DED Display Line 5")
+defineString("DED_LINE_1", function() return DEDLine1 end, 29, "DED Output Data", "DED Display Line 1")
+defineString("DED_LINE_2", function() return DEDLine2 end, 29, "DED Output Data", "DED Display Line 2")
+defineString("DED_LINE_3", function() return DEDLine3 end, 29, "DED Output Data", "DED Display Line 3")
+defineString("DED_LINE_4", function() return DEDLine4 end, 29, "DED Output Data", "DED Display Line 4")
+defineString("DED_LINE_5", function() return DEDLine5 end, 29, "DED Output Data", "DED Display Line 5")
 
 ---------------------------- CMDS Display
 local CMDS_O1_Amount
@@ -1562,9 +1613,9 @@ local function get_UHF_FREQUENCY()
     end
 end
 
-defineString("UHF_FREQ_DISP", get_UHF_FREQUENCY, 7, "UHF", "UHF Manual Frequency Display")  
+defineString("UHF_FREQ_DISP", get_UHF_FREQUENCY, 7, "UHF", "UHF Manual Frequency Display")
 
-defineFloat("SAI_BANK_ARROW", 72, {-1, 1}, "SAI", "SAI Bank Arrow")	   
+defineFloat("SAI_BANK_ARROW", 72, {-1, 1}, "SAI", "SAI Bank Arrow")
 defineToggleSwitch("SEAT_EJECT_HANDLE", 10, 3006, 0,"Cockpit Mechanics" ,"Ejection Handle, PULL/STOW")
 
 -- ECM
