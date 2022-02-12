@@ -218,7 +218,7 @@ docdata["F-16C_50"] =
                                                                                           "suggested_step": 3200
                                                                                       } ],
                                                                            "outputs": [ {
-                                                                                              "address": 17822,
+                                                                                              "address": 17842,
                                                                                           "description": "position of the potentiometer",
                                                                                                  "mask": 65535,
                                                                                             "max_value": 65535,
@@ -1224,7 +1224,7 @@ docdata["F-16C_50"] =
                                                                              "identifier": "CMDS_CH_Amount",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 17802,
+                                                                                                   "address": 17822,
                                                                                                "description": "CMDS CH Amount Display",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -1297,7 +1297,7 @@ docdata["F-16C_50"] =
                                                                              "identifier": "CMDS_FL_Amount",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 17806,
+                                                                                                   "address": 17826,
                                                                                                "description": "CMDS FL Amount Display",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -1452,7 +1452,7 @@ docdata["F-16C_50"] =
                                                                              "identifier": "CMDS_O1_Amount",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 17794,
+                                                                                                   "address": 17814,
                                                                                                "description": "CMDS O1 Amount Display",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -1466,7 +1466,7 @@ docdata["F-16C_50"] =
                                                                              "identifier": "CMDS_O2_Amount",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                   "address": 17798,
+                                                                                                   "address": 17818,
                                                                                                "description": "CMDS O2 Amount Display",
                                                                                                 "max_length": 4,
                                                                                                     "suffix": "",
@@ -1674,298 +1674,6 @@ docdata["F-16C_50"] =
                                                                                                        "suffix": "_KNOB_POS",
                                                                                                          "type": "integer"
                                                                                               } ]
-                                                                          },
-                                                             "ECM_1_BTN": {
-                                                                                         "category": "Clock",
-                                                                                     "control_type": "selector",
-                                                                                      "description": "ECM 1 Button",
-                                                                                       "identifier": "ECM_1_BTN",
-                                                                                           "inputs": [ {
-                                                                                                         "description": "switch to previous or next state",
-                                                                                                           "interface": "fixed_step"
-                                                                                                     }, {
-                                                                                                         "description": "set position",
-                                                                                                           "interface": "set_state",
-                                                                                                           "max_value": 1
-                                                                                                     }, {
-                                                                                                            "argument": "TOGGLE",
-                                                                                                         "description": "Toggle switch state",
-                                                                                                           "interface": "action"
-                                                                                                     } ],
-                                                                              "momentary_positions": "none",
-                                                                                          "outputs": [ {
-                                                                                                             "address": 17688,
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 512,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 9,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                                     } ],
-                                                                                 "physical_variant": "toggle_switch"
-                                                                          },
-                                                             "ECM_2_BTN": {
-                                                                                         "category": "Clock",
-                                                                                     "control_type": "selector",
-                                                                                      "description": "ECM 2 Button",
-                                                                                       "identifier": "ECM_2_BTN",
-                                                                                           "inputs": [ {
-                                                                                                         "description": "switch to previous or next state",
-                                                                                                           "interface": "fixed_step"
-                                                                                                     }, {
-                                                                                                         "description": "set position",
-                                                                                                           "interface": "set_state",
-                                                                                                           "max_value": 1
-                                                                                                     }, {
-                                                                                                            "argument": "TOGGLE",
-                                                                                                         "description": "Toggle switch state",
-                                                                                                           "interface": "action"
-                                                                                                     } ],
-                                                                              "momentary_positions": "none",
-                                                                                          "outputs": [ {
-                                                                                                             "address": 17688,
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 1024,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 10,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                                     } ],
-                                                                                 "physical_variant": "toggle_switch"
-                                                                          },
-                                                             "ECM_3_BTN": {
-                                                                                         "category": "Clock",
-                                                                                     "control_type": "selector",
-                                                                                      "description": "ECM 3 Button",
-                                                                                       "identifier": "ECM_3_BTN",
-                                                                                           "inputs": [ {
-                                                                                                         "description": "switch to previous or next state",
-                                                                                                           "interface": "fixed_step"
-                                                                                                     }, {
-                                                                                                         "description": "set position",
-                                                                                                           "interface": "set_state",
-                                                                                                           "max_value": 1
-                                                                                                     }, {
-                                                                                                            "argument": "TOGGLE",
-                                                                                                         "description": "Toggle switch state",
-                                                                                                           "interface": "action"
-                                                                                                     } ],
-                                                                              "momentary_positions": "none",
-                                                                                          "outputs": [ {
-                                                                                                             "address": 17688,
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 2048,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 11,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                                     } ],
-                                                                                 "physical_variant": "toggle_switch"
-                                                                          },
-                                                             "ECM_4_BTN": {
-                                                                                         "category": "Clock",
-                                                                                     "control_type": "selector",
-                                                                                      "description": "ECM 4 Button",
-                                                                                       "identifier": "ECM_4_BTN",
-                                                                                           "inputs": [ {
-                                                                                                         "description": "switch to previous or next state",
-                                                                                                           "interface": "fixed_step"
-                                                                                                     }, {
-                                                                                                         "description": "set position",
-                                                                                                           "interface": "set_state",
-                                                                                                           "max_value": 1
-                                                                                                     }, {
-                                                                                                            "argument": "TOGGLE",
-                                                                                                         "description": "Toggle switch state",
-                                                                                                           "interface": "action"
-                                                                                                     } ],
-                                                                              "momentary_positions": "none",
-                                                                                          "outputs": [ {
-                                                                                                             "address": 17688,
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 4096,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 12,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                                     } ],
-                                                                                 "physical_variant": "toggle_switch"
-                                                                          },
-                                                             "ECM_5_BTN": {
-                                                                                         "category": "Clock",
-                                                                                     "control_type": "selector",
-                                                                                      "description": "ECM 5 Button",
-                                                                                       "identifier": "ECM_5_BTN",
-                                                                                           "inputs": [ {
-                                                                                                         "description": "switch to previous or next state",
-                                                                                                           "interface": "fixed_step"
-                                                                                                     }, {
-                                                                                                         "description": "set position",
-                                                                                                           "interface": "set_state",
-                                                                                                           "max_value": 1
-                                                                                                     }, {
-                                                                                                            "argument": "TOGGLE",
-                                                                                                         "description": "Toggle switch state",
-                                                                                                           "interface": "action"
-                                                                                                     } ],
-                                                                              "momentary_positions": "none",
-                                                                                          "outputs": [ {
-                                                                                                             "address": 17688,
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 8192,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 13,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                                     } ],
-                                                                                 "physical_variant": "toggle_switch"
-                                                                          },
-                                                             "ECM_6_BTN": {
-                                                                                         "category": "Clock",
-                                                                                     "control_type": "selector",
-                                                                                      "description": "ECM 6 Button",
-                                                                                       "identifier": "ECM_6_BTN",
-                                                                                           "inputs": [ {
-                                                                                                         "description": "switch to previous or next state",
-                                                                                                           "interface": "fixed_step"
-                                                                                                     }, {
-                                                                                                         "description": "set position",
-                                                                                                           "interface": "set_state",
-                                                                                                           "max_value": 1
-                                                                                                     }, {
-                                                                                                            "argument": "TOGGLE",
-                                                                                                         "description": "Toggle switch state",
-                                                                                                           "interface": "action"
-                                                                                                     } ],
-                                                                              "momentary_positions": "none",
-                                                                                          "outputs": [ {
-                                                                                                             "address": 17688,
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 16384,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 14,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                                     } ],
-                                                                                 "physical_variant": "toggle_switch"
-                                                                          },
-                                                           "ECM_BIT_BTN": {
-                                                                                      "api_variant": "momentary_last_position",
-                                                                                         "category": "Clock",
-                                                                                     "control_type": "selector",
-                                                                                      "description": "ECM Bit Button",
-                                                                                       "identifier": "ECM_BIT_BTN",
-                                                                                           "inputs": [ {
-                                                                                                         "description": "switch to previous or next state",
-                                                                                                           "interface": "fixed_step"
-                                                                                                     }, {
-                                                                                                         "description": "set position",
-                                                                                                           "interface": "set_state",
-                                                                                                           "max_value": 1
-                                                                                                     }, {
-                                                                                                            "argument": "TOGGLE",
-                                                                                                         "description": "Toggle switch state",
-                                                                                                           "interface": "action"
-                                                                                                     } ],
-                                                                              "momentary_positions": "none",
-                                                                                          "outputs": [ {
-                                                                                                             "address": 17688,
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 256,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 8,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                                     } ],
-                                                                                 "physical_variant": "push_button"
-                                                                          },
-                                                           "ECM_FRM_BTN": {
-                                                                                         "category": "Clock",
-                                                                                     "control_type": "selector",
-                                                                                      "description": "ECM FRM Button",
-                                                                                       "identifier": "ECM_FRM_BTN",
-                                                                                           "inputs": [ {
-                                                                                                         "description": "switch to previous or next state",
-                                                                                                           "interface": "fixed_step"
-                                                                                                     }, {
-                                                                                                         "description": "set position",
-                                                                                                           "interface": "set_state",
-                                                                                                           "max_value": 1
-                                                                                                     }, {
-                                                                                                            "argument": "TOGGLE",
-                                                                                                         "description": "Toggle switch state",
-                                                                                                           "interface": "action"
-                                                                                                     } ],
-                                                                              "momentary_positions": "none",
-                                                                                          "outputs": [ {
-                                                                                                             "address": 17688,
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 32768,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 15,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                                     } ],
-                                                                                 "physical_variant": "toggle_switch"
-                                                                          },
-                                                         "ECM_RESET_BTN": {
-                                                                                      "api_variant": "momentary_last_position",
-                                                                                         "category": "Clock",
-                                                                                     "control_type": "selector",
-                                                                                      "description": "ECM Reset Button",
-                                                                                       "identifier": "ECM_RESET_BTN",
-                                                                                           "inputs": [ {
-                                                                                                         "description": "switch to previous or next state",
-                                                                                                           "interface": "fixed_step"
-                                                                                                     }, {
-                                                                                                         "description": "set position",
-                                                                                                           "interface": "set_state",
-                                                                                                           "max_value": 1
-                                                                                                     }, {
-                                                                                                            "argument": "TOGGLE",
-                                                                                                         "description": "Toggle switch state",
-                                                                                                           "interface": "action"
-                                                                                                     } ],
-                                                                              "momentary_positions": "none",
-                                                                                          "outputs": [ {
-                                                                                                             "address": 17538,
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 32768,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 15,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                                     } ],
-                                                                                 "physical_variant": "push_button"
-                                                                          },
-                                                           "ECM_SPL_BTN": {
-                                                                                         "category": "Clock",
-                                                                                     "control_type": "selector",
-                                                                                      "description": "ECM SPL Button",
-                                                                                       "identifier": "ECM_SPL_BTN",
-                                                                                           "inputs": [ {
-                                                                                                         "description": "switch to previous or next state",
-                                                                                                           "interface": "fixed_step"
-                                                                                                     }, {
-                                                                                                         "description": "set position",
-                                                                                                           "interface": "set_state",
-                                                                                                           "max_value": 1
-                                                                                                     }, {
-                                                                                                            "argument": "TOGGLE",
-                                                                                                         "description": "Toggle switch state",
-                                                                                                           "interface": "action"
-                                                                                                     } ],
-                                                                              "momentary_positions": "none",
-                                                                                          "outputs": [ {
-                                                                                                             "address": 17714,
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 256,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 8,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                                     } ],
-                                                                                 "physical_variant": "toggle_switch"
                                                                           }
                                             },
                        "Cockpit Mechanics": {
@@ -2609,7 +2317,7 @@ docdata["F-16C_50"] =
                                                                        "outputs": [ {
                                                                                           "address": 17664,
                                                                                       "description": "DED Display Line 1",
-                                                                                       "max_length": 25,
+                                                                                       "max_length": 29,
                                                                                            "suffix": "",
                                                                                              "type": "string"
                                                                                   } ]
@@ -2621,9 +2329,9 @@ docdata["F-16C_50"] =
                                                                     "identifier": "DED_LINE_2",
                                                                         "inputs": [  ],
                                                                        "outputs": [ {
-                                                                                          "address": 17690,
+                                                                                          "address": 17694,
                                                                                       "description": "DED Display Line 2",
-                                                                                       "max_length": 25,
+                                                                                       "max_length": 29,
                                                                                            "suffix": "",
                                                                                              "type": "string"
                                                                                   } ]
@@ -2635,9 +2343,9 @@ docdata["F-16C_50"] =
                                                                     "identifier": "DED_LINE_3",
                                                                         "inputs": [  ],
                                                                        "outputs": [ {
-                                                                                          "address": 17716,
+                                                                                          "address": 17724,
                                                                                       "description": "DED Display Line 3",
-                                                                                       "max_length": 25,
+                                                                                       "max_length": 29,
                                                                                            "suffix": "",
                                                                                              "type": "string"
                                                                                   } ]
@@ -2649,9 +2357,9 @@ docdata["F-16C_50"] =
                                                                     "identifier": "DED_LINE_4",
                                                                         "inputs": [  ],
                                                                        "outputs": [ {
-                                                                                          "address": 17742,
+                                                                                          "address": 17754,
                                                                                       "description": "DED Display Line 4",
-                                                                                       "max_length": 25,
+                                                                                       "max_length": 29,
                                                                                            "suffix": "",
                                                                                              "type": "string"
                                                                                   } ]
@@ -2663,65 +2371,357 @@ docdata["F-16C_50"] =
                                                                     "identifier": "DED_LINE_5",
                                                                         "inputs": [  ],
                                                                        "outputs": [ {
-                                                                                          "address": 17768,
+                                                                                          "address": 17784,
                                                                                       "description": "DED Display Line 5",
-                                                                                       "max_length": 25,
+                                                                                       "max_length": 29,
                                                                                            "suffix": "",
                                                                                              "type": "string"
                                                                                   } ]
                                                               }
                                             },
                                      "ECM": {
-                                                  "ECM_PW_SW": {
-                                                                              "category": "ECM",
-                                                                          "control_type": "selector",
-                                                                           "description": "ECM Power Switch",
-                                                                            "identifier": "ECM_PW_SW",
-                                                                                "inputs": [ {
-                                                                                              "description": "switch to previous or next state",
-                                                                                                "interface": "fixed_step"
-                                                                                          }, {
-                                                                                              "description": "set position",
-                                                                                                "interface": "set_state",
-                                                                                                "max_value": 2
-                                                                                          } ],
-                                                                   "momentary_positions": "none",
-                                                                               "outputs": [ {
-                                                                                                  "address": 17538,
-                                                                                              "description": "selector position",
-                                                                                                     "mask": 6144,
-                                                                                                "max_value": 2,
-                                                                                                 "shift_by": 11,
-                                                                                                   "suffix": "",
-                                                                                                     "type": "integer"
-                                                                                          } ],
-                                                                      "physical_variant": "3_position_switch"
-                                                               },
-                                                "ECM_XMIT_SW": {
-                                                                              "category": "ECM",
-                                                                          "control_type": "selector",
-                                                                           "description": "ECM XMIT Switch",
-                                                                            "identifier": "ECM_XMIT_SW",
-                                                                                "inputs": [ {
-                                                                                              "description": "switch to previous or next state",
-                                                                                                "interface": "fixed_step"
-                                                                                          }, {
-                                                                                              "description": "set position",
-                                                                                                "interface": "set_state",
-                                                                                                "max_value": 2
-                                                                                          } ],
-                                                                   "momentary_positions": "none",
-                                                                               "outputs": [ {
-                                                                                                  "address": 17538,
-                                                                                              "description": "selector position",
-                                                                                                     "mask": 24576,
-                                                                                                "max_value": 2,
-                                                                                                 "shift_by": 13,
-                                                                                                   "suffix": "",
-                                                                                                     "type": "integer"
-                                                                                          } ],
-                                                                      "physical_variant": "3_position_switch"
-                                                               }
+                                                    "ECM_1_BTN": {
+                                                                                "category": "ECM",
+                                                                            "control_type": "selector",
+                                                                             "description": "ECM 1 Button",
+                                                                              "identifier": "ECM_1_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17692,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 512,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 9,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                    "ECM_2_BTN": {
+                                                                                "category": "ECM",
+                                                                            "control_type": "selector",
+                                                                             "description": "ECM 2 Button",
+                                                                              "identifier": "ECM_2_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17692,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 1024,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 10,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                    "ECM_3_BTN": {
+                                                                                "category": "ECM",
+                                                                            "control_type": "selector",
+                                                                             "description": "ECM 3 Button",
+                                                                              "identifier": "ECM_3_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17692,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 2048,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 11,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                    "ECM_4_BTN": {
+                                                                                "category": "ECM",
+                                                                            "control_type": "selector",
+                                                                             "description": "ECM 4 Button",
+                                                                              "identifier": "ECM_4_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17692,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 4096,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 12,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                    "ECM_5_BTN": {
+                                                                                "category": "ECM",
+                                                                            "control_type": "selector",
+                                                                             "description": "ECM 5 Button",
+                                                                              "identifier": "ECM_5_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17692,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 8192,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 13,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                    "ECM_6_BTN": {
+                                                                                "category": "ECM",
+                                                                            "control_type": "selector",
+                                                                             "description": "ECM 6 Button",
+                                                                              "identifier": "ECM_6_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17692,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 16384,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 14,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                  "ECM_BIT_BTN": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ECM",
+                                                                            "control_type": "selector",
+                                                                             "description": "ECM Bit Button",
+                                                                              "identifier": "ECM_BIT_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17692,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 256,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 8,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                  "ECM_FRM_BTN": {
+                                                                                "category": "ECM",
+                                                                            "control_type": "selector",
+                                                                             "description": "ECM FRM Button",
+                                                                              "identifier": "ECM_FRM_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17692,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 32768,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 15,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                    "ECM_PW_SW": {
+                                                                                "category": "ECM",
+                                                                            "control_type": "selector",
+                                                                             "description": "ECM Power Switch",
+                                                                              "identifier": "ECM_PW_SW",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 2
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17538,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 6144,
+                                                                                                  "max_value": 2,
+                                                                                                   "shift_by": 11,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "3_position_switch"
+                                                                 },
+                                                "ECM_RESET_BTN": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ECM",
+                                                                            "control_type": "selector",
+                                                                             "description": "ECM Reset Button",
+                                                                              "identifier": "ECM_RESET_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17538,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 32768,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 15,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                  "ECM_SPL_BTN": {
+                                                                                "category": "ECM",
+                                                                            "control_type": "selector",
+                                                                             "description": "ECM SPL Button",
+                                                                              "identifier": "ECM_SPL_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17722,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 256,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 8,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                  "ECM_XMIT_SW": {
+                                                                                "category": "ECM",
+                                                                            "control_type": "selector",
+                                                                             "description": "ECM XMIT Switch",
+                                                                              "identifier": "ECM_XMIT_SW",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 2
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 17538,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 24576,
+                                                                                                  "max_value": 2,
+                                                                                                   "shift_by": 13,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "3_position_switch"
+                                                                 }
                                             },
                                      "ECS": {
                                                 "AIR_SOURCE_KNB": {
@@ -3423,7 +3423,7 @@ docdata["F-16C_50"] =
                                                                                      "identifier": "EXT_FORMATION_LIGHTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17828,
+                                                                                                           "address": 17848,
                                                                                                        "description": "Formation Lights",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -3439,7 +3439,7 @@ docdata["F-16C_50"] =
                                                                                      "identifier": "EXT_POSITION_LIGHTS_WING",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17714,
+                                                                                                           "address": 17722,
                                                                                                        "description": "Wing Position Lights (L-red; R-green)",
                                                                                                               "mask": 512,
                                                                                                          "max_value": 1,
@@ -3455,7 +3455,7 @@ docdata["F-16C_50"] =
                                                                                      "identifier": "EXT_POSITION_LIGHT_FUSELAGE",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17714,
+                                                                                                           "address": 17722,
                                                                                                        "description": "Fuselage Position Lights (L-red; R-green;Back-white)",
                                                                                                               "mask": 1024,
                                                                                                          "max_value": 1,
@@ -3471,7 +3471,7 @@ docdata["F-16C_50"] =
                                                                                      "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17826,
+                                                                                                           "address": 17846,
                                                                                                        "description": "Left Speed Brake",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -3487,7 +3487,7 @@ docdata["F-16C_50"] =
                                                                                      "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17824,
+                                                                                                           "address": 17844,
                                                                                                        "description": "Right Speed Brake",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -3503,7 +3503,7 @@ docdata["F-16C_50"] =
                                                                                      "identifier": "EXT_STROBE_TAIL",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17714,
+                                                                                                           "address": 17722,
                                                                                                        "description": "Tail Strobe Light",
                                                                                                               "mask": 2048,
                                                                                                          "max_value": 1,
@@ -3519,7 +3519,7 @@ docdata["F-16C_50"] =
                                                                                      "identifier": "EXT_TAIL_LIGHT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17830,
+                                                                                                           "address": 17850,
                                                                                                        "description": "Tail Lights",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -3535,7 +3535,7 @@ docdata["F-16C_50"] =
                                                                                      "identifier": "EXT_WOW_LEFT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17714,
+                                                                                                           "address": 17722,
                                                                                                        "description": "Weight ON Wheels Left Gear",
                                                                                                               "mask": 16384,
                                                                                                          "max_value": 1,
@@ -3551,7 +3551,7 @@ docdata["F-16C_50"] =
                                                                                      "identifier": "EXT_WOW_NOSE",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17714,
+                                                                                                           "address": 17722,
                                                                                                        "description": "Weight ON Wheels Nose Gear",
                                                                                                               "mask": 4096,
                                                                                                          "max_value": 1,
@@ -3567,7 +3567,7 @@ docdata["F-16C_50"] =
                                                                                      "identifier": "EXT_WOW_RIGHT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17714,
+                                                                                                           "address": 17722,
                                                                                                        "description": "Weight ON Wheels Right Gear",
                                                                                                               "mask": 8192,
                                                                                                          "max_value": 1,
@@ -7432,7 +7432,7 @@ docdata["F-16C_50"] =
                                                                                      "identifier": "SAI_BANK_ARROW",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17820,
+                                                                                                           "address": 17840,
                                                                                                        "description": "gauge position",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
@@ -8598,7 +8598,7 @@ docdata["F-16C_50"] =
                                                                            "identifier": "UHF_CHAN_DISP",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 17810,
+                                                                                                 "address": 17830,
                                                                                              "description": "UHF CHAN Display",
                                                                                               "max_length": 2,
                                                                                                   "suffix": "",
@@ -8791,7 +8791,7 @@ docdata["F-16C_50"] =
                                                                            "identifier": "UHF_FREQ_DISP",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 17812,
+                                                                                                 "address": 17832,
                                                                                              "description": "UHF Manual Frequency Display",
                                                                                               "max_length": 7,
                                                                                                   "suffix": "",
