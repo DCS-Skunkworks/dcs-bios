@@ -917,7 +917,7 @@ defineIndicatorLight("RAD_PSIC", 505, "RADAR", "O - RAD - PSIC Button Light")
 
 --RIGHT CONSOLE
 defineToggleSwitch("AUDIO_WARN_SW", 16, 3658, 658, "RIGHT CONSOLE", "I - AL - Audio Warning Switch")
-defineToggleSwitch("EMER_HYD_PUMP_SW", 3, 3657, 657, "RIGHT CONSOLE", "I - Emergency Hydraulic Pump Switch")
+defineTumb("EMER_HYD_PUMP_SW", 3, 3657, 657, 0.5, {0, 1}, nil, false, "RIGHT CONSOLE", "I - Emergency Hydraulic Pump Switch")
 defineToggleSwitch("PITOT_HEAT_COV", 22, 3659, 659, "RIGHT CONSOLE", "I - Pitot Heat Cover")
 defineToggleSwitch("PITOT_HEAT_SW", 22, 3660, 660, "RIGHT CONSOLE", "I - Pitot Heat Switch")
 defineToggleSwitch("PKG_BRAKE_LEV", 22, 3666, 666, "RIGHT CONSOLE", "I - Parking Brake Lever")
