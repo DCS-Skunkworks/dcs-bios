@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-4E-C", 0x8400)
 BIOS.protocol.setExportModuleAircrafts({"A-4E-C"})
---v 2.1 by WarLord (aka BlackLibrary) (v1.0 by Dehuman)
+--v 2.1a by WarLord (aka BlackLibrary) & Dehuman
 
 local documentation = moduleBeingDefined.documentation
 
@@ -347,7 +347,7 @@ defineMultipositionSwitch("LIGHT_INT_BRIGHT", 25, 3084, 108, 3, 1, "Lights", "Co
 definePotentiometer("LIGHT_INT_FLOOD_WHT", 1, 3081, 110, {0, 1}, "Lights", "White FloodLight Control")
 
 --UHF Radio
-defineMultipositionSwitch("ARC51_FREQ_PRE", 28, 3101, 361, 20, 0.05, "UHF Radio", "ARC-51 UHF Preset Channel")
+defineMultipositionSwitch("ARC51_FREQ_PRE", 28, 3101, 361, 20, 0.05, "UHF Radio", "ARC-51 UHF Preset Channel Selector")
 definePotentiometer("ARC51_VOL", 28, 3099, 365, {0, 1}, "UHF Radio", "ARC-51 UHF Volume")
 defineMultipositionSwitch("ARC51_XMIT_MODE", 28, 3098, 366, 3, 1, "UHF Radio", "ARC-51 UHF Frequency Mode")
 defineMultipositionSwitch("ARC51_FREQ_10MHZ", 28, 3102, 367, 18, 0.05, "UHF Radio", "ARC-51 UHF Manual Frequency 10 MHz")
