@@ -1,4 +1,4 @@
--- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.5f
+-- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.6
 -- Many thanks to Capt Zeen for the pointers on analog and Radio outputs and UFC/IFEI export
 
 BIOS.protocol.beginModule("FA-18C_hornet", 0x7400)
@@ -20,6 +20,7 @@ local defineTumb = BIOS.util.defineTumb
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineToggleSwitchToggleOnly = BIOS.util.defineToggleSwitchToggleOnly
+local defineFixedStepInput = BIOS.util.defineFixedStepInput
 local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineFloat = BIOS.util.defineFloat
@@ -380,59 +381,59 @@ defineFloatFromUFCChannel("COMM2_CHANNEL_NUMERIC", 2, "Comms frequency", "Comm 2
 
 ---- INSTRUMENT PANEL
 -- 1. Lock/Shoot Lights
-defineIndicatorLight("LS_LOCK", 1, "Lock Shoot Lights", "LOCK")
-defineIndicatorLight("LS_SHOOT", 2, "Lock Shoot Lights", "SHOOT")
-defineIndicatorLight("LS_SHOOT_STROBE", 3, "Lock Shoot Lights", "SHOOT STROBE")
+defineIndicatorLight("LS_LOCK", 1, "Lock Shoot Lights", "LOCK (green)")
+defineIndicatorLight("LS_SHOOT", 2, "Lock Shoot Lights", "SHOOT (green)")
+defineIndicatorLight("LS_SHOOT_STROBE", 3, "Lock Shoot Lights", "SHOOT STROBE (green)")
 
 -- 3. Angle of Attack Indexer Lights
-defineIndicatorLight("AOA_INDEXER_HIGH", 4, "Angle of Attack Indexer Lights", "AOA Indexer High")
-defineIndicatorLight("AOA_INDEXER_NORMAL", 5, "Angle of Attack Indexer Lights", "AOA Indexer Normal")
-defineIndicatorLight("AOA_INDEXER_LOW", 6, "Angle of Attack Indexer Lights", "AOA Indexer Low")
+defineIndicatorLight("AOA_INDEXER_HIGH", 4, "Angle of Attack Indexer Lights", "AOA Indexer High (green)")
+defineIndicatorLight("AOA_INDEXER_NORMAL", 5, "Angle of Attack Indexer Lights", "AOA Indexer Normal (yellow)")
+defineIndicatorLight("AOA_INDEXER_LOW", 6, "Angle of Attack Indexer Lights", "AOA Indexer Low (red)")
 
 -- 4. Left Engine Fire Warning / Extinguisher Light
-defineIndicatorLight("FIRE_LEFT_LT", 10, "Left Engine Fire Warning Extinguisher Light", "FIRE LEFT")
+defineIndicatorLight("FIRE_LEFT_LT", 10, "Left Engine Fire Warning Extinguisher Light", "FIRE LEFT (red)")
 definePushButton("LEFT_FIRE_BTN", 12, 3010, 11, "Left Engine Fire Warning Extinguisher Light", "Left Engine/AMAD Fire Warning/Extinguisher Light")
 defineToggleSwitch("LEFT_FIRE_BTN_COVER", 12, 3012, 12, "Left Engine Fire Warning Extinguisher Light", "Left Engine/AMAD Fire Warning Cover")
 
 -- 5. Master Caution Light
-defineIndicatorLight("MASTER_CAUTION_LT", 13, "Master Caution Light", "MASTER CAUTION")
+defineIndicatorLight("MASTER_CAUTION_LT", 13, "Master Caution Light", "MASTER CAUTION (yellow)")
 defineToggleSwitch("MASTER_CAUTION_RESET_SW", 9, 3008, 14, "Master Caution Light", "MASTER CAUTION Reset Button - Press to reset")
 
 -- 6. LH Advisory and Threat Warning Indicator Panel
-defineIndicatorLight("LH_ADV_L_BLEED", 17, "LH Advisory Panel", "L BLEED")
-defineIndicatorLight("LH_ADV_R_BLEED", 18, "LH Advisory Panel", "R BLEED")
-defineIndicatorLight("LH_ADV_SPD_BRK", 19, "LH Advisory Panel", "SPD BRK")
-defineIndicatorLight("LH_ADV_STBY", 20, "LH Advisory Panel", "STBY")
-defineIndicatorLight("LH_ADV_L_BAR_RED", 21, "LH Advisory Panel", "L BAR RED")
-defineIndicatorLight("LH_ADV_REC", 22, "LH Advisory Panel", "REC")
-defineIndicatorLight("LH_ADV_L_BAR_GREEN", 23, "LH Advisory Panel", "L BAR GREEN")
-defineIndicatorLight("LH_ADV_XMIT", 24, "LH Advisory Panel", "XMIT")
-defineIndicatorLight("LH_ADV_ASPJ_OH", 25, "LH Advisory Panel", "ASPJ OH")
-defineIndicatorLight("LH_ADV_GO", 15, "LH Advisory Panel", "GO")
-defineIndicatorLight("LH_ADV_NO_GO", 16, "LH Advisory Panel", "NO GO")
+defineIndicatorLight("LH_ADV_L_BLEED", 17, "LH Advisory Panel", "L BLEED (red)")
+defineIndicatorLight("LH_ADV_R_BLEED", 18, "LH Advisory Panel", "R BLEED (red)")
+defineIndicatorLight("LH_ADV_SPD_BRK", 19, "LH Advisory Panel", "SPD BRK (green)")
+defineIndicatorLight("LH_ADV_STBY", 20, "LH Advisory Panel", "STBY (green)")
+defineIndicatorLight("LH_ADV_L_BAR_RED", 21, "LH Advisory Panel", "L BAR (red)")
+defineIndicatorLight("LH_ADV_REC", 22, "LH Advisory Panel", "REC (green)")
+defineIndicatorLight("LH_ADV_L_BAR_GREEN", 23, "LH Advisory Panel", "L BAR (green)")
+defineIndicatorLight("LH_ADV_XMIT", 24, "LH Advisory Panel", "XMIT (green)")
+defineIndicatorLight("LH_ADV_ASPJ_OH", 25, "LH Advisory Panel", "ASPJ OH (yellow)")
+defineIndicatorLight("LH_ADV_GO", 15, "LH Advisory Panel", "GO (green)")
+defineIndicatorLight("LH_ADV_NO_GO", 16, "LH Advisory Panel", "NO GO (yellow)")
 
 -- 7. HUD Video Bit Panel
 definePushButton("HUD_VIDEO_BIT", 0, 3107, 7, "HUD Video Bit Panel", "HUD Video BIT Initiate Pushbutton - Push to initiate BIT")
 
 -- 8. RH Advisory and Threat Warning Indicator Panel
-defineIndicatorLight("RH_ADV_RCDR_ON", 31, "RH Advisory Panel", "RCDR ON")
-defineIndicatorLight("RH_ADV_DISP", 32, "RH Advisory Panel", "DISP")
-defineIndicatorLight("RH_ADV_SAM", 38, "RH Advisory Panel", "SAM")
-defineIndicatorLight("RH_ADV_AI", 39, "RH Advisory Panel", "AI")
-defineIndicatorLight("RH_ADV_AAA", 40, "RH Advisory Panel", "AAA")
-defineIndicatorLight("RH_ADV_CW", 41, "RH Advisory Panel", "CW")
-defineIndicatorLight("RH_ADV_SPARE_RH1", 33, "RH Advisory Panel", "SPARE RH1")
-defineIndicatorLight("RH_ADV_SPARE_RH2", 34, "RH Advisory Panel", "SPARE RH2")
-defineIndicatorLight("RH_ADV_SPARE_RH3", 35, "RH Advisory Panel", "SPARE RH3")
-defineIndicatorLight("RH_ADV_SPARE_RH4", 36, "RH Advisory Panel", "SPARE RH4")
-defineIndicatorLight("RH_ADV_SPARE_RH5", 37, "RH Advisory Panel", "SPARE RH5")
+defineIndicatorLight("RH_ADV_RCDR_ON", 31, "RH Advisory Panel", "RCDR ON (green)")
+defineIndicatorLight("RH_ADV_DISP", 32, "RH Advisory Panel", "DISP (green)")
+defineIndicatorLight("RH_ADV_SAM", 38, "RH Advisory Panel", "SAM (green)")
+defineIndicatorLight("RH_ADV_AI", 39, "RH Advisory Panel", "AI (green)")
+defineIndicatorLight("RH_ADV_AAA", 40, "RH Advisory Panel", "AAA (green)")
+defineIndicatorLight("RH_ADV_CW", 41, "RH Advisory Panel", "CW (green)")
+defineIndicatorLight("RH_ADV_SPARE_RH1", 33, "RH Advisory Panel", "SPARE RH1 (green)")
+defineIndicatorLight("RH_ADV_SPARE_RH2", 34, "RH Advisory Panel", "SPARE RH2 (green)")
+defineIndicatorLight("RH_ADV_SPARE_RH3", 35, "RH Advisory Panel", "SPARE RH3 (green)")
+defineIndicatorLight("RH_ADV_SPARE_RH4", 36, "RH Advisory Panel", "SPARE RH4 (green)")
+defineIndicatorLight("RH_ADV_SPARE_RH5", 37, "RH Advisory Panel", "SPARE RH5 (green)")
 
 -- 9. APU Fire Warning / Extinguisher Light
-defineIndicatorLight("FIRE_APU_LT", 29, "APU Fire Warning Extinguisher Light", "FIRE APU")
+defineIndicatorLight("FIRE_APU_LT", 29, "APU Fire Warning Extinguisher Light", "FIRE APU (red)")
 definePushButton("APU_FIRE_BTN", 12, 3009, 30, "APU Fire Warning Extinguisher Light", "APU Fire Warning/Extinguisher Light")
 
 -- 10. Right Engine Fire Warning / Extinguisher Light
-defineIndicatorLight("FIRE_RIGHT_LT", 26, "Right Engine Fire Warning Extinguisher Light", "FIRE RIGHT")
+defineIndicatorLight("FIRE_RIGHT_LT", 26, "Right Engine Fire Warning Extinguisher Light", "FIRE RIGHT (red)")
 definePushButton("RIGHT_FIRE_BTN", 12, 3011, 27, "Right Engine Fire Warning Extinguisher Light", "Right Engine/AMAD Fire Warning/Extinguisher Light")
 defineToggleSwitch("RIGHT_FIRE_BTN_COVER", 12, 3013, 28, "Right Engine Fire Warning Extinguisher Light", "Right Engine/AMAD Fire Warning Cover")
 
@@ -441,13 +442,13 @@ defineToggleSwitch("CANOPY_JETT_HANDLE_UNLOCK", 7, 3004, 43, "Canopy Internal Je
 defineToggleSwitch("CANOPY_JETT_HANDLE_PULL", 7, 3003, 42, "Canopy Internal Jettison Handle", "Canopy Jettison Handle Unlock Button - Press to jettison")
 
 -- 12. Master Arm Panel
-defineIndicatorLight("MASTER_MODE_AA_LT", 47, "Master Arm Panel", "AA Light")
-defineIndicatorLight("MASTER_MODE_AG_LT", 48, "Master Arm Panel", "AG Light")
+defineIndicatorLight("MASTER_MODE_AA_LT", 47, "Master Arm Panel", "AA Light (green)")
+defineIndicatorLight("MASTER_MODE_AG_LT", 48, "Master Arm Panel", "AG Light (green)")
 definePushButton("MASTER_MODE_AA", 23, 3001, 458, "Master Arm Panel", "Master Mode Button, A/A")
 definePushButton("MASTER_MODE_AG", 23, 3002, 459, "Master Arm Panel", "Master Mode Button, A/G")
 defineToggleSwitch("MASTER_ARM_SW", 23, 3003, 49, "Master Arm Panel", "Master Arm Switch, ARM/SAFE")
-defineIndicatorLight("MC_DISCH", 45, "Master Arm Panel", "DISCH Light")
-defineIndicatorLight("MC_READY", 44, "Master Arm Panel", "READY Light")
+defineIndicatorLight("MC_DISCH", 45, "Master Arm Panel", "DISCH Light (green)")
+defineIndicatorLight("MC_READY", 44, "Master Arm Panel", "READY Light (yellow)")
 definePushButton("FIRE_EXT_BTN", 12, 3008, 46, "Fire Systems", "Fire Extinguisher Pushbutton")
 
 -- 13. Left DDI
@@ -511,8 +512,8 @@ definePotentiometer("UFC_BRT", 25, 3032, 109, {0, 1}, "Up Front Controller (UFC)
 
 defineRotary("UFC_COMM1_CHANNEL_SELECT", 25, 3033, 124, "Up Front Controller (UFC)", "COMM 1 Channel Select Knob")
 defineRotary("UFC_COMM2_CHANNEL_SELECT", 25, 3034, 126, "Up Front Controller (UFC)", "COMM 2 Channel Select Knob")
-BIOS.util.defineFixedStepInput("UFC_COMM1_CHANNEL_SELECT", 25, 3033, {-0.03, 0.03}, "Up Front Controller (UFC)", "COMM 1 Channel Select Knob")
-BIOS.util.defineFixedStepInput("UFC_COMM2_CHANNEL_SELECT", 25, 3034, {-0.03, 0.03}, "Up Front Controller (UFC)", "COMM 2 Channel Select Knob")
+defineFixedStepInput("UFC_COMM1_CHANNEL_SELECT", 25, 3033, {-0.03, 0.03}, "Up Front Controller (UFC)", "COMM 1 Channel Select Knob")
+defineFixedStepInput("UFC_COMM2_CHANNEL_SELECT", 25, 3034, {-0.03, 0.03}, "Up Front Controller (UFC)", "COMM 2 Channel Select Knob")
 
 local UFC_Comm1Display = ""
 local UFC_Comm2Display = ""
@@ -626,10 +627,10 @@ definePushButton("RIGHT_DDI_PB_19", 36, 3029, 97, "Right DDI", "Pushbutton 19")
 definePushButton("RIGHT_DDI_PB_20", 36, 3030, 98, "Right DDI", "Pushbutton 20")
 
 -- 16. Map Gain/Spin Recovery Panel
-defineIndicatorLight("SPIN_LT", 137, "Map Gain/Spin Recovery Panel", "Spin Light")
+defineIndicatorLight("SPIN_LT", 137, "Map Gain/Spin Recovery Panel", "Spin Light (yellow)")
 defineToggleSwitch("SPIN_RECOVERY_COVER", 2, 3008, 139, "Map Gain/Spin Recovery Panel", "Spin Recovery Switch Cover, OPEN/CLOSE")
 defineToggleSwitch("SPIN_RECOVERY_SW", 2, 3009, 138, "Map Gain/Spin Recovery Panel", "Spin Recovery Switch, RCVY/NORM")
-definePotentiometer("HMD_OFF_BRT", 58, 3001, 136, {0, 0.75}, "Map Gain/Spin Recovery Panel", "HMD OFF/BRT Knob") -- From TODO, will change
+definePotentiometer("HMD_OFF_BRT", 58, 3001, 136, {0, 0.75}, "Map Gain/Spin Recovery Panel", "HMD OFF/BRT Knob")
 defineTumb("IR_COOL_SW", 23, 3013, 135, 0.1, {0, 0.2}, nil, false, "Map Gain/Spin Recovery Panel", "IR Cooling Switch, ORIDE/NORM/OFF")
 
 -- 17. Emergency Jettison Button
@@ -657,19 +658,19 @@ definePushButton("SJ_LI", 23, 3006, 155, "Station Jettison Select", "Station Jet
 definePushButton("SJ_LO", 23, 3007, 157, "Station Jettison Select", "Station Jettison Select Button, LEFT OUT")
 definePushButton("SJ_RI", 23, 3008, 159, "Station Jettison Select", "Station Jettison Select Button, RIGHT IN")
 definePushButton("SJ_RO", 23, 3009, 161, "Station Jettison Select", "Station Jettison Select Button, RIGHT OUT")
-defineIndicatorLight("SJ_CTR_LT", 152, "Station Jettison Select", "CTR Light")
-defineIndicatorLight("SJ_LI_LT", 154, "Station Jettison Select", "LI Light")
-defineIndicatorLight("SJ_LO_LT", 156, "Station Jettison Select", "LO Light")
-defineIndicatorLight("SJ_RI_LT", 158, "Station Jettison Select", "RI Light")
-defineIndicatorLight("SJ_RO_LT", 160, "Station Jettison Select", "RO Light")
+defineIndicatorLight("SJ_CTR_LT", 152, "Station Jettison Select", "CTR Light (green)")
+defineIndicatorLight("SJ_LI_LT", 154, "Station Jettison Select", "LI Light (green)")
+defineIndicatorLight("SJ_LO_LT", 156, "Station Jettison Select", "LO Light (green)")
+defineIndicatorLight("SJ_RI_LT", 158, "Station Jettison Select", "RI Light (green)")
+defineIndicatorLight("SJ_RO_LT", 160, "Station Jettison Select", "RO Light (green)")
 
 -- 21. Flaps, Landing Gear and Stores Indicator Panel
-defineIndicatorLight("FLP_LG_NOSE_GEAR_LT", 166, "Flaps, Landing Gear, Stores Indicator Panel", "NOSE GEAR")
-defineIndicatorLight("FLP_LG_LEFT_GEAR_LT", 165, "Flaps, Landing Gear, Stores Indicator Panel", "LEFT GEAR")
-defineIndicatorLight("FLP_LG_RIGHT_GEAR_LT", 167, "Flaps, Landing Gear, Stores Indicator Panel", "RIGHT GEAR")
-defineIndicatorLight("FLP_LG_HALF_FLAPS_LT", 163, "Flaps, Landing Gear, Stores Indicator Panel", "HALF FLAPS")
-defineIndicatorLight("FLP_LG_FULL_FLAPS_LT", 164, "Flaps, Landing Gear, Stores Indicator Panel", "FULL FLAPS")
-defineIndicatorLight("FLP_LG_FLAPS_LT", 162, "Flaps, Landing Gear, Stores Indicator Panel", "FLAPS")
+defineIndicatorLight("FLP_LG_NOSE_GEAR_LT", 166, "Flaps, Landing Gear, Stores Indicator Panel", "NOSE GEAR (green)")
+defineIndicatorLight("FLP_LG_LEFT_GEAR_LT", 165, "Flaps, Landing Gear, Stores Indicator Panel", "LEFT GEAR (green)")
+defineIndicatorLight("FLP_LG_RIGHT_GEAR_LT", 167, "Flaps, Landing Gear, Stores Indicator Panel", "RIGHT GEAR (green)")
+defineIndicatorLight("FLP_LG_HALF_FLAPS_LT", 163, "Flaps, Landing Gear, Stores Indicator Panel", "HALF FLAPS (green)")
+defineIndicatorLight("FLP_LG_FULL_FLAPS_LT", 164, "Flaps, Landing Gear, Stores Indicator Panel", "FULL FLAPS (green)")
+defineIndicatorLight("FLP_LG_FLAPS_LT", 162, "Flaps, Landing Gear, Stores Indicator Panel", "FLAPS (yellow)")
 
 -- 22. Integrated Fuel/Engine Indicator (IFEI)
 definePushButton("IFEI_MODE_BTN", 33, 3001, 168, "Integrated Fuel/Engine Indicator (IFEI)", "Mode Button")
@@ -984,11 +985,11 @@ defineFloat("PRESSURE_ALT", 285, {0, 1}, "Cockpit Altimeter", "Pressure Altitude
 -- 41. Radar Altimeter
 definePushButton("RADALT_TEST_SW", 30, 3001, 292, "Radar Altimeter", "Push to Test Switch")
 defineRotary("RADALT_HEIGHT", 30, 3002, 291, "Radar Altimeter", "Set low altitude pointer")
-defineIndicatorLight("LOW_ALT_WARN_LT", 290, "Radar Altimeter", "Low Alt Warning")
+defineIndicatorLight("LOW_ALT_WARN_LT", 290, "Radar Altimeter", "Low Alt Warning (red)")
 defineFloat("RADALT_MIN_HEIGHT_PTR", 287, {0, 1}, "Radar Altimeter", "Min Height Pointer")
 defineFloat("RADALT_ALT_PTR", 286, {0, 1}, "Radar Altimeter", "Altitude Pointer")
 defineFloat("RADALT_OFF_FLAG", 288, {0, 1}, "Radar Altimeter", "OFF Flag")
-defineIndicatorLight("RADALT_GREEN_LAMP", 289, "Radar Altimeter", "Green Lamp")
+defineIndicatorLight("RADALT_GREEN_LAMP", 289, "Radar Altimeter", "Radar Altimeter Green Lamp (green)")
 
 -- 43. Arresting Hook Handle and Light
 defineToggleSwitch("HOOK_LEVER", 5, 3009, 293, "Arresting Hook Handle and Light", "Hook Lever")
@@ -1002,18 +1003,18 @@ define3PosTumb("WING_FOLD_ROTATE", 2, 3011, 295, "Wing Fold Switch", "Wing Fold 
 defineToggleSwitch("AV_COOL_SW", 11, 3008, 297, "Flight Computer Cool Switch", "AV COOL Switch, NORM/EMERG")
 
 -- 46. Caution Lights Panel
-defineIndicatorLight("CLIP_CK_SEAT_LT", 298, "Caution Light Panel", "CK SEAT")
-defineIndicatorLight("CLIP_APU_ACC_LT", 299, "Caution Light Panel", "APU ACC")
-defineIndicatorLight("CLIP_BATT_SW_LT", 300, "Caution Light Panel", "BATT SW")
-defineIndicatorLight("CLIP_FCS_HOT_LT", 301, "Caution Light Panel", "FCS HOT")
-defineIndicatorLight("CLIP_GEN_TIE_LT", 302, "Caution Light Panel", "GEN TIE")
-defineIndicatorLight("CLIP_SPARE_CTN1_LT", 303, "Caution Light Panel", "SPARE CTN1")
-defineIndicatorLight("CLIP_FUEL_LO_LT", 304, "Caution Light Panel", "FUEL LO")
-defineIndicatorLight("CLIP_FCES_LT", 305, "Caution Light Panel", "FCES")
-defineIndicatorLight("CLIP_SPARE_CTN2_LT", 306, "Caution Light Panel", "SPARE CTN2")
-defineIndicatorLight("CLIP_L_GEN_LT", 307, "Caution Light Panel", "L GEN")
-defineIndicatorLight("CLIP_R_GEN_LT", 308, "Caution Light Panel", "R GEN")
-defineIndicatorLight("CLIP_SPARE_CTN3_LT", 309, "Caution Light Panel", "SPARE CTN3")
+defineIndicatorLight("CLIP_CK_SEAT_LT", 298, "Caution Light Panel", "CK SEAT (yellow)")
+defineIndicatorLight("CLIP_APU_ACC_LT", 299, "Caution Light Panel", "APU ACC (yellow)")
+defineIndicatorLight("CLIP_BATT_SW_LT", 300, "Caution Light Panel", "BATT SW (yellow)")
+defineIndicatorLight("CLIP_FCS_HOT_LT", 301, "Caution Light Panel", "FCS HOT (yellow)")
+defineIndicatorLight("CLIP_GEN_TIE_LT", 302, "Caution Light Panel", "GEN TIE (yellow)")
+defineIndicatorLight("CLIP_SPARE_CTN1_LT", 303, "Caution Light Panel", "SPARE CTN1 (yellow)")
+defineIndicatorLight("CLIP_FUEL_LO_LT", 304, "Caution Light Panel", "FUEL LO (yellow)")
+defineIndicatorLight("CLIP_FCES_LT", 305, "Caution Light Panel", "FCES (yellow)")
+defineIndicatorLight("CLIP_SPARE_CTN2_LT", 306, "Caution Light Panel", "SPARE CTN2 (yellow)")
+defineIndicatorLight("CLIP_L_GEN_LT", 307, "Caution Light Panel", "L GEN (yellow)")
+defineIndicatorLight("CLIP_R_GEN_LT", 308, "Caution Light Panel", "R GEN (yellow)")
+defineIndicatorLight("CLIP_SPARE_CTN3_LT", 309, "Caution Light Panel", "SPARE CTN3 (yellow)")
 
 -- 47. HYD 1 and HYD Pressure Indicator
 defineFloat("HYD_IND_LEFT", 310, {0, 1}, "HYD 1 and HYD Pressure Indicator", "HYD Indicator Left")
@@ -1088,7 +1089,7 @@ define3PosTumb("IFF_ANT_SELECT_SW", 50, 3002, 374, "Antenna Select Panel", "IFF 
 -- 14. Auxiliary Power Unit Panel
 defineToggleSwitchToggleOnly2("APU_CONTROL_SW", 12, 3001, 375, "Auxiliary Power Unit Panel", "APU Control Switch, ON/OFF")
 defineRockerSwitch("ENGINE_CRANK_SW", 12, 3003, 3003, 3002, 3002, 377, "Auxiliary Power Unit Panel", "Engine Crank Switch, LEFT/OFF/RIGHT")
-defineIndicatorLight("APU_READY_LT", 376, "Auxiliary Power Unit Panel", "APU Ready Light")
+defineIndicatorLight("APU_READY_LT", 376, "Auxiliary Power Unit Panel", "APU Ready Light (green)")
 
 -- 15. Generator Tie Control Switch
 defineToggleSwitch("GEN_TIE_COVER", 3, 3007, 379, "Generator Tie Control Switch", "Generator TIE Control Switch Cover, OPEN/CLOSE")
@@ -1266,5 +1267,8 @@ end, 65535, "External Aircraft Model", "Hook")
 
 defineFloat("INT_THROTTLE_LEFT", 104, {0, 1}, "Throttle Quadrant", "Left Throttle Position")
 defineFloat("INT_THROTTLE_RIGHT", 105, {0, 1}, "Throttle Quadrant", "Right Throttle Position")
+defineFloat("AOA_INDEXER_HIGH_F", 4, {0, 1}, "Angle of Attack Indexer Lights", "AOA Indexer High as Float (green)")
+defineFloat("AOA_INDEXER_NORMAL_F", 5, {0, 1}, "Angle of Attack Indexer Lights", "AOA Indexer Normal as Float (yellow)")
+defineFloat("AOA_INDEXER_LOW_F", 6, {0, 1}, "Angle of Attack Indexer Lights", "AOA Indexer Low as Float (red)")
 
 BIOS.protocol.endModule()
