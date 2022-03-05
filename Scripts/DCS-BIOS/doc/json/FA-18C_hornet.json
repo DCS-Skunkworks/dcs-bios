@@ -760,7 +760,7 @@
                                                          "FIRE_APU_LT": {
                                                                                 "category": "APU Fire Warning Extinguisher Light",
                                                                             "control_type": "led",
-                                                                             "description": "FIRE APU",
+                                                                             "description": "FIRE APU (red)",
                                                                               "identifier": "FIRE_APU_LT",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
@@ -775,54 +775,102 @@
                                                                         }
                                                     },
                   "Angle of Attack Indexer Lights": {
-                                                          "AOA_INDEXER_HIGH": {
-                                                                                      "category": "Angle of Attack Indexer Lights",
-                                                                                  "control_type": "led",
-                                                                                   "description": "AOA Indexer High",
-                                                                                    "identifier": "AOA_INDEXER_HIGH",
-                                                                                        "inputs": [  ],
-                                                                                       "outputs": [ {
-                                                                                                          "address": 29704,
-                                                                                                      "description": "0 if light is off, 1 if light is on",
-                                                                                                             "mask": 8,
-                                                                                                        "max_value": 1,
-                                                                                                         "shift_by": 3,
-                                                                                                           "suffix": "",
-                                                                                                             "type": "integer"
-                                                                                                  } ]
-                                                                              },
-                                                           "AOA_INDEXER_LOW": {
-                                                                                      "category": "Angle of Attack Indexer Lights",
-                                                                                  "control_type": "led",
-                                                                                   "description": "AOA Indexer Low",
-                                                                                    "identifier": "AOA_INDEXER_LOW",
-                                                                                        "inputs": [  ],
-                                                                                       "outputs": [ {
-                                                                                                          "address": 29704,
-                                                                                                      "description": "0 if light is off, 1 if light is on",
-                                                                                                             "mask": 32,
-                                                                                                        "max_value": 1,
-                                                                                                         "shift_by": 5,
-                                                                                                           "suffix": "",
-                                                                                                             "type": "integer"
-                                                                                                  } ]
-                                                                              },
-                                                        "AOA_INDEXER_NORMAL": {
-                                                                                      "category": "Angle of Attack Indexer Lights",
-                                                                                  "control_type": "led",
-                                                                                   "description": "AOA Indexer Normal",
-                                                                                    "identifier": "AOA_INDEXER_NORMAL",
-                                                                                        "inputs": [  ],
-                                                                                       "outputs": [ {
-                                                                                                          "address": 29704,
-                                                                                                      "description": "0 if light is off, 1 if light is on",
-                                                                                                             "mask": 16,
-                                                                                                        "max_value": 1,
-                                                                                                         "shift_by": 4,
-                                                                                                           "suffix": "",
-                                                                                                             "type": "integer"
-                                                                                                  } ]
-                                                                              }
+                                                            "AOA_INDEXER_HIGH": {
+                                                                                        "category": "Angle of Attack Indexer Lights",
+                                                                                    "control_type": "led",
+                                                                                     "description": "AOA Indexer High (green)",
+                                                                                      "identifier": "AOA_INDEXER_HIGH",
+                                                                                          "inputs": [  ],
+                                                                                         "outputs": [ {
+                                                                                                            "address": 29704,
+                                                                                                        "description": "0 if light is off, 1 if light is on",
+                                                                                                               "mask": 8,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 3,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ]
+                                                                                },
+                                                          "AOA_INDEXER_HIGH_F": {
+                                                                                        "category": "Angle of Attack Indexer Lights",
+                                                                                    "control_type": "analog_gauge",
+                                                                                     "description": "AOA Indexer High as Float (green)",
+                                                                                      "identifier": "AOA_INDEXER_HIGH_F",
+                                                                                          "inputs": [  ],
+                                                                                         "outputs": [ {
+                                                                                                            "address": 30092,
+                                                                                                        "description": "gauge position",
+                                                                                                               "mask": 65535,
+                                                                                                          "max_value": 65535,
+                                                                                                           "shift_by": 0,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ]
+                                                                                },
+                                                             "AOA_INDEXER_LOW": {
+                                                                                        "category": "Angle of Attack Indexer Lights",
+                                                                                    "control_type": "led",
+                                                                                     "description": "AOA Indexer Low (red)",
+                                                                                      "identifier": "AOA_INDEXER_LOW",
+                                                                                          "inputs": [  ],
+                                                                                         "outputs": [ {
+                                                                                                            "address": 29704,
+                                                                                                        "description": "0 if light is off, 1 if light is on",
+                                                                                                               "mask": 32,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 5,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ]
+                                                                                },
+                                                           "AOA_INDEXER_LOW_F": {
+                                                                                        "category": "Angle of Attack Indexer Lights",
+                                                                                    "control_type": "analog_gauge",
+                                                                                     "description": "AOA Indexer Low as Float (red)",
+                                                                                      "identifier": "AOA_INDEXER_LOW_F",
+                                                                                          "inputs": [  ],
+                                                                                         "outputs": [ {
+                                                                                                            "address": 30096,
+                                                                                                        "description": "gauge position",
+                                                                                                               "mask": 65535,
+                                                                                                          "max_value": 65535,
+                                                                                                           "shift_by": 0,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ]
+                                                                                },
+                                                          "AOA_INDEXER_NORMAL": {
+                                                                                        "category": "Angle of Attack Indexer Lights",
+                                                                                    "control_type": "led",
+                                                                                     "description": "AOA Indexer Normal (yellow)",
+                                                                                      "identifier": "AOA_INDEXER_NORMAL",
+                                                                                          "inputs": [  ],
+                                                                                         "outputs": [ {
+                                                                                                            "address": 29704,
+                                                                                                        "description": "0 if light is off, 1 if light is on",
+                                                                                                               "mask": 16,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 4,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ]
+                                                                                },
+                                                        "AOA_INDEXER_NORMAL_F": {
+                                                                                        "category": "Angle of Attack Indexer Lights",
+                                                                                    "control_type": "analog_gauge",
+                                                                                     "description": "AOA Indexer Normal as Float (yellow)",
+                                                                                      "identifier": "AOA_INDEXER_NORMAL_F",
+                                                                                          "inputs": [  ],
+                                                                                         "outputs": [ {
+                                                                                                            "address": 30094,
+                                                                                                        "description": "gauge position",
+                                                                                                               "mask": 65535,
+                                                                                                          "max_value": 65535,
+                                                                                                           "shift_by": 0,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ]
+                                                                                }
                                                     },
                             "Antenna Select Panel": {
                                                         "COMM1_ANT_SELECT_SW": {
@@ -947,7 +995,7 @@
                                                            "APU_READY_LT": {
                                                                                    "category": "Auxiliary Power Unit Panel",
                                                                                "control_type": "led",
-                                                                                "description": "APU Ready Light",
+                                                                                "description": "APU Ready Light (green)",
                                                                                  "identifier": "APU_READY_LT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
@@ -1050,7 +1098,7 @@
                                                            "CLIP_APU_ACC_LT": {
                                                                                       "category": "Caution Light Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "APU ACC",
+                                                                                   "description": "APU ACC (yellow)",
                                                                                     "identifier": "CLIP_APU_ACC_LT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1066,7 +1114,7 @@
                                                            "CLIP_BATT_SW_LT": {
                                                                                       "category": "Caution Light Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "BATT SW",
+                                                                                   "description": "BATT SW (yellow)",
                                                                                     "identifier": "CLIP_BATT_SW_LT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1082,7 +1130,7 @@
                                                            "CLIP_CK_SEAT_LT": {
                                                                                       "category": "Caution Light Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "CK SEAT",
+                                                                                   "description": "CK SEAT (yellow)",
                                                                                     "identifier": "CLIP_CK_SEAT_LT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1098,7 +1146,7 @@
                                                               "CLIP_FCES_LT": {
                                                                                       "category": "Caution Light Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "FCES",
+                                                                                   "description": "FCES (yellow)",
                                                                                     "identifier": "CLIP_FCES_LT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1114,7 +1162,7 @@
                                                            "CLIP_FCS_HOT_LT": {
                                                                                       "category": "Caution Light Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "FCS HOT",
+                                                                                   "description": "FCS HOT (yellow)",
                                                                                     "identifier": "CLIP_FCS_HOT_LT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1130,7 +1178,7 @@
                                                            "CLIP_FUEL_LO_LT": {
                                                                                       "category": "Caution Light Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "FUEL LO",
+                                                                                   "description": "FUEL LO (yellow)",
                                                                                     "identifier": "CLIP_FUEL_LO_LT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1146,7 +1194,7 @@
                                                            "CLIP_GEN_TIE_LT": {
                                                                                       "category": "Caution Light Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "GEN TIE",
+                                                                                   "description": "GEN TIE (yellow)",
                                                                                     "identifier": "CLIP_GEN_TIE_LT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1162,7 +1210,7 @@
                                                              "CLIP_L_GEN_LT": {
                                                                                       "category": "Caution Light Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "L GEN",
+                                                                                   "description": "L GEN (yellow)",
                                                                                     "identifier": "CLIP_L_GEN_LT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1178,7 +1226,7 @@
                                                              "CLIP_R_GEN_LT": {
                                                                                       "category": "Caution Light Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "R GEN",
+                                                                                   "description": "R GEN (yellow)",
                                                                                     "identifier": "CLIP_R_GEN_LT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1194,7 +1242,7 @@
                                                         "CLIP_SPARE_CTN1_LT": {
                                                                                       "category": "Caution Light Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "SPARE CTN1",
+                                                                                   "description": "SPARE CTN1 (yellow)",
                                                                                     "identifier": "CLIP_SPARE_CTN1_LT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1210,7 +1258,7 @@
                                                         "CLIP_SPARE_CTN2_LT": {
                                                                                       "category": "Caution Light Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "SPARE CTN2",
+                                                                                   "description": "SPARE CTN2 (yellow)",
                                                                                     "identifier": "CLIP_SPARE_CTN2_LT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1226,7 +1274,7 @@
                                                         "CLIP_SPARE_CTN3_LT": {
                                                                                       "category": "Caution Light Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "SPARE CTN3",
+                                                                                   "description": "SPARE CTN3 (yellow)",
                                                                                     "identifier": "CLIP_SPARE_CTN3_LT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -3029,7 +3077,7 @@
                                                              "FLP_LG_FLAPS_LT": {
                                                                                         "category": "Flaps, Landing Gear, Stores Indicator Panel",
                                                                                     "control_type": "led",
-                                                                                     "description": "FLAPS",
+                                                                                     "description": "FLAPS (yellow)",
                                                                                       "identifier": "FLP_LG_FLAPS_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -3045,7 +3093,7 @@
                                                         "FLP_LG_FULL_FLAPS_LT": {
                                                                                         "category": "Flaps, Landing Gear, Stores Indicator Panel",
                                                                                     "control_type": "led",
-                                                                                     "description": "FULL FLAPS",
+                                                                                     "description": "FULL FLAPS (green)",
                                                                                       "identifier": "FLP_LG_FULL_FLAPS_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -3061,7 +3109,7 @@
                                                         "FLP_LG_HALF_FLAPS_LT": {
                                                                                         "category": "Flaps, Landing Gear, Stores Indicator Panel",
                                                                                     "control_type": "led",
-                                                                                     "description": "HALF FLAPS",
+                                                                                     "description": "HALF FLAPS (green)",
                                                                                       "identifier": "FLP_LG_HALF_FLAPS_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -3077,7 +3125,7 @@
                                                          "FLP_LG_LEFT_GEAR_LT": {
                                                                                         "category": "Flaps, Landing Gear, Stores Indicator Panel",
                                                                                     "control_type": "led",
-                                                                                     "description": "LEFT GEAR",
+                                                                                     "description": "LEFT GEAR (green)",
                                                                                       "identifier": "FLP_LG_LEFT_GEAR_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -3093,7 +3141,7 @@
                                                          "FLP_LG_NOSE_GEAR_LT": {
                                                                                         "category": "Flaps, Landing Gear, Stores Indicator Panel",
                                                                                     "control_type": "led",
-                                                                                     "description": "NOSE GEAR",
+                                                                                     "description": "NOSE GEAR (green)",
                                                                                       "identifier": "FLP_LG_NOSE_GEAR_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -3109,7 +3157,7 @@
                                                         "FLP_LG_RIGHT_GEAR_LT": {
                                                                                         "category": "Flaps, Landing Gear, Stores Indicator Panel",
                                                                                     "control_type": "led",
-                                                                                     "description": "RIGHT GEAR",
+                                                                                     "description": "RIGHT GEAR (green)",
                                                                                       "identifier": "FLP_LG_RIGHT_GEAR_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -5326,7 +5374,7 @@
                                                             "LH_ADV_ASPJ_OH": {
                                                                                       "category": "LH Advisory Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "ASPJ OH",
+                                                                                   "description": "ASPJ OH (yellow)",
                                                                                     "identifier": "LH_ADV_ASPJ_OH",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -5342,7 +5390,7 @@
                                                                  "LH_ADV_GO": {
                                                                                       "category": "LH Advisory Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "GO",
+                                                                                   "description": "GO (green)",
                                                                                     "identifier": "LH_ADV_GO",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -5358,7 +5406,7 @@
                                                         "LH_ADV_L_BAR_GREEN": {
                                                                                       "category": "LH Advisory Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "L BAR GREEN",
+                                                                                   "description": "L BAR (green)",
                                                                                     "identifier": "LH_ADV_L_BAR_GREEN",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -5374,7 +5422,7 @@
                                                           "LH_ADV_L_BAR_RED": {
                                                                                       "category": "LH Advisory Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "L BAR RED",
+                                                                                   "description": "L BAR (red)",
                                                                                     "identifier": "LH_ADV_L_BAR_RED",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -5390,7 +5438,7 @@
                                                             "LH_ADV_L_BLEED": {
                                                                                       "category": "LH Advisory Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "L BLEED",
+                                                                                   "description": "L BLEED (red)",
                                                                                     "identifier": "LH_ADV_L_BLEED",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -5406,7 +5454,7 @@
                                                               "LH_ADV_NO_GO": {
                                                                                       "category": "LH Advisory Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "NO GO",
+                                                                                   "description": "NO GO (yellow)",
                                                                                     "identifier": "LH_ADV_NO_GO",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -5422,7 +5470,7 @@
                                                                 "LH_ADV_REC": {
                                                                                       "category": "LH Advisory Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "REC",
+                                                                                   "description": "REC (green)",
                                                                                     "identifier": "LH_ADV_REC",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -5438,7 +5486,7 @@
                                                             "LH_ADV_R_BLEED": {
                                                                                       "category": "LH Advisory Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "R BLEED",
+                                                                                   "description": "R BLEED (red)",
                                                                                     "identifier": "LH_ADV_R_BLEED",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -5454,7 +5502,7 @@
                                                             "LH_ADV_SPD_BRK": {
                                                                                       "category": "LH Advisory Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "SPD BRK",
+                                                                                   "description": "SPD BRK (green)",
                                                                                     "identifier": "LH_ADV_SPD_BRK",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -5470,7 +5518,7 @@
                                                                "LH_ADV_STBY": {
                                                                                       "category": "LH Advisory Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "STBY",
+                                                                                   "description": "STBY (green)",
                                                                                     "identifier": "LH_ADV_STBY",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -5486,7 +5534,7 @@
                                                                "LH_ADV_XMIT": {
                                                                                       "category": "LH Advisory Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "XMIT",
+                                                                                   "description": "XMIT (green)",
                                                                                     "identifier": "LH_ADV_XMIT",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -6373,7 +6421,7 @@
                                                                "FIRE_LEFT_LT": {
                                                                                        "category": "Left Engine Fire Warning Extinguisher Light",
                                                                                    "control_type": "led",
-                                                                                    "description": "FIRE LEFT",
+                                                                                    "description": "FIRE LEFT (red)",
                                                                                      "identifier": "FIRE_LEFT_LT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -6572,7 +6620,7 @@
                                                                 "LS_LOCK": {
                                                                                    "category": "Lock Shoot Lights",
                                                                                "control_type": "led",
-                                                                                "description": "LOCK",
+                                                                                "description": "LOCK (green)",
                                                                                  "identifier": "LS_LOCK",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
@@ -6588,7 +6636,7 @@
                                                                "LS_SHOOT": {
                                                                                    "category": "Lock Shoot Lights",
                                                                                "control_type": "led",
-                                                                                "description": "SHOOT",
+                                                                                "description": "SHOOT (green)",
                                                                                  "identifier": "LS_SHOOT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
@@ -6604,7 +6652,7 @@
                                                         "LS_SHOOT_STROBE": {
                                                                                    "category": "Lock Shoot Lights",
                                                                                "control_type": "led",
-                                                                                "description": "SHOOT STROBE",
+                                                                                "description": "SHOOT STROBE (green)",
                                                                                  "identifier": "LS_SHOOT_STROBE",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
@@ -6672,7 +6720,7 @@
                                                                     "SPIN_LT": {
                                                                                        "category": "Map Gain/Spin Recovery Panel",
                                                                                    "control_type": "led",
-                                                                                    "description": "Spin Light",
+                                                                                    "description": "Spin Light (yellow)",
                                                                                      "identifier": "SPIN_LT",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -6807,7 +6855,7 @@
                                                         "MASTER_MODE_AA_LT": {
                                                                                      "category": "Master Arm Panel",
                                                                                  "control_type": "led",
-                                                                                  "description": "AA Light",
+                                                                                  "description": "AA Light (green)",
                                                                                    "identifier": "MASTER_MODE_AA_LT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
@@ -6853,7 +6901,7 @@
                                                         "MASTER_MODE_AG_LT": {
                                                                                      "category": "Master Arm Panel",
                                                                                  "control_type": "led",
-                                                                                  "description": "AG Light",
+                                                                                  "description": "AG Light (green)",
                                                                                    "identifier": "MASTER_MODE_AG_LT",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
@@ -6869,7 +6917,7 @@
                                                                  "MC_DISCH": {
                                                                                      "category": "Master Arm Panel",
                                                                                  "control_type": "led",
-                                                                                  "description": "DISCH Light",
+                                                                                  "description": "DISCH Light (green)",
                                                                                    "identifier": "MC_DISCH",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
@@ -6885,7 +6933,7 @@
                                                                  "MC_READY": {
                                                                                      "category": "Master Arm Panel",
                                                                                  "control_type": "led",
-                                                                                  "description": "READY Light",
+                                                                                  "description": "READY Light (yellow)",
                                                                                    "identifier": "MC_READY",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
@@ -6903,7 +6951,7 @@
                                                               "MASTER_CAUTION_LT": {
                                                                                            "category": "Master Caution Light",
                                                                                        "control_type": "led",
-                                                                                        "description": "MASTER CAUTION",
+                                                                                        "description": "MASTER CAUTION (yellow)",
                                                                                          "identifier": "MASTER_CAUTION_LT",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
@@ -7001,7 +7049,7 @@
                                                               "RH_ADV_AAA": {
                                                                                     "category": "RH Advisory Panel",
                                                                                 "control_type": "led",
-                                                                                 "description": "AAA",
+                                                                                 "description": "AAA (green)",
                                                                                   "identifier": "RH_ADV_AAA",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7017,7 +7065,7 @@
                                                                "RH_ADV_AI": {
                                                                                     "category": "RH Advisory Panel",
                                                                                 "control_type": "led",
-                                                                                 "description": "AI",
+                                                                                 "description": "AI (green)",
                                                                                   "identifier": "RH_ADV_AI",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7033,7 +7081,7 @@
                                                                "RH_ADV_CW": {
                                                                                     "category": "RH Advisory Panel",
                                                                                 "control_type": "led",
-                                                                                 "description": "CW",
+                                                                                 "description": "CW (green)",
                                                                                   "identifier": "RH_ADV_CW",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7049,7 +7097,7 @@
                                                              "RH_ADV_DISP": {
                                                                                     "category": "RH Advisory Panel",
                                                                                 "control_type": "led",
-                                                                                 "description": "DISP",
+                                                                                 "description": "DISP (green)",
                                                                                   "identifier": "RH_ADV_DISP",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7065,7 +7113,7 @@
                                                           "RH_ADV_RCDR_ON": {
                                                                                     "category": "RH Advisory Panel",
                                                                                 "control_type": "led",
-                                                                                 "description": "RCDR ON",
+                                                                                 "description": "RCDR ON (green)",
                                                                                   "identifier": "RH_ADV_RCDR_ON",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7081,7 +7129,7 @@
                                                               "RH_ADV_SAM": {
                                                                                     "category": "RH Advisory Panel",
                                                                                 "control_type": "led",
-                                                                                 "description": "SAM",
+                                                                                 "description": "SAM (green)",
                                                                                   "identifier": "RH_ADV_SAM",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7097,7 +7145,7 @@
                                                         "RH_ADV_SPARE_RH1": {
                                                                                     "category": "RH Advisory Panel",
                                                                                 "control_type": "led",
-                                                                                 "description": "SPARE RH1",
+                                                                                 "description": "SPARE RH1 (green)",
                                                                                   "identifier": "RH_ADV_SPARE_RH1",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7113,7 +7161,7 @@
                                                         "RH_ADV_SPARE_RH2": {
                                                                                     "category": "RH Advisory Panel",
                                                                                 "control_type": "led",
-                                                                                 "description": "SPARE RH2",
+                                                                                 "description": "SPARE RH2 (green)",
                                                                                   "identifier": "RH_ADV_SPARE_RH2",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7129,7 +7177,7 @@
                                                         "RH_ADV_SPARE_RH3": {
                                                                                     "category": "RH Advisory Panel",
                                                                                 "control_type": "led",
-                                                                                 "description": "SPARE RH3",
+                                                                                 "description": "SPARE RH3 (green)",
                                                                                   "identifier": "RH_ADV_SPARE_RH3",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7145,7 +7193,7 @@
                                                         "RH_ADV_SPARE_RH4": {
                                                                                     "category": "RH Advisory Panel",
                                                                                 "control_type": "led",
-                                                                                 "description": "SPARE RH4",
+                                                                                 "description": "SPARE RH4 (green)",
                                                                                   "identifier": "RH_ADV_SPARE_RH4",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7161,7 +7209,7 @@
                                                         "RH_ADV_SPARE_RH5": {
                                                                                     "category": "RH Advisory Panel",
                                                                                 "control_type": "led",
-                                                                                 "description": "SPARE RH5",
+                                                                                 "description": "SPARE RH5 (green)",
                                                                                   "identifier": "RH_ADV_SPARE_RH5",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7591,7 +7639,7 @@
                                                               "LOW_ALT_WARN_LT": {
                                                                                          "category": "Radar Altimeter",
                                                                                      "control_type": "led",
-                                                                                      "description": "Low Alt Warning",
+                                                                                      "description": "Low Alt Warning (red)",
                                                                                        "identifier": "LOW_ALT_WARN_LT",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -7623,7 +7671,7 @@
                                                             "RADALT_GREEN_LAMP": {
                                                                                          "category": "Radar Altimeter",
                                                                                      "control_type": "led",
-                                                                                      "description": "Green Lamp",
+                                                                                      "description": "Radar Altimeter Green Lamp (green)",
                                                                                        "identifier": "RADALT_GREEN_LAMP",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -8402,7 +8450,7 @@
                                                                "FIRE_RIGHT_LT": {
                                                                                         "category": "Right Engine Fire Warning Extinguisher Light",
                                                                                     "control_type": "led",
-                                                                                     "description": "FIRE RIGHT",
+                                                                                     "description": "FIRE RIGHT (red)",
                                                                                       "identifier": "FIRE_RIGHT_LT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -9486,7 +9534,7 @@
                                                         "SJ_CTR_LT": {
                                                                              "category": "Station Jettison Select",
                                                                          "control_type": "led",
-                                                                          "description": "CTR Light",
+                                                                          "description": "CTR Light (green)",
                                                                            "identifier": "SJ_CTR_LT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
@@ -9532,7 +9580,7 @@
                                                          "SJ_LI_LT": {
                                                                              "category": "Station Jettison Select",
                                                                          "control_type": "led",
-                                                                          "description": "LI Light",
+                                                                          "description": "LI Light (green)",
                                                                            "identifier": "SJ_LI_LT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
@@ -9578,7 +9626,7 @@
                                                          "SJ_LO_LT": {
                                                                              "category": "Station Jettison Select",
                                                                          "control_type": "led",
-                                                                          "description": "LO Light",
+                                                                          "description": "LO Light (green)",
                                                                            "identifier": "SJ_LO_LT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
@@ -9624,7 +9672,7 @@
                                                          "SJ_RI_LT": {
                                                                              "category": "Station Jettison Select",
                                                                          "control_type": "led",
-                                                                          "description": "RI Light",
+                                                                          "description": "RI Light (green)",
                                                                            "identifier": "SJ_RI_LT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
@@ -9670,7 +9718,7 @@
                                                          "SJ_RO_LT": {
                                                                              "category": "Station Jettison Select",
                                                                          "control_type": "led",
-                                                                          "description": "RO Light",
+                                                                          "description": "RO Light (green)",
                                                                            "identifier": "SJ_RO_LT",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
