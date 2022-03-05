@@ -319,7 +319,7 @@ function BIOS.util.defineIndicatorLightInverted(msg, arg_number, category, descr
 	}
 	assert(value.shiftBy ~= nil)
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		if dev0:get_argument_value(arg_number) > 0.5 then
+		if dev0:get_argument_value(arg_number) > 0.3 then
 			value:setValue(0)
 		else
 			value:setValue(1)
