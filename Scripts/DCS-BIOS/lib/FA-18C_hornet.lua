@@ -48,14 +48,6 @@ local slope = {}
 	return final_value
 end
 
-local function coerce_nil_to_string(value)
-	if value == nil then
-		return ""
-	else
-		return value
-	end
-end
-
 local function parse_indication(indicator_id)  -- Thanks to [FSF]Ian code
 	local ret = {}
 	local li = list_indication(indicator_id)

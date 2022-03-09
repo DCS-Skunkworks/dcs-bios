@@ -81,7 +81,13 @@ function BIOS.util.MemoryMapEntry:allocate(args)
 	self.allocations[#self.allocations+1] = alloc
 	return alloc
 end
-
+function coerce_nil_to_string(value)
+	if value == nil then
+		return ""
+	else
+		return value
+	end
+end
 BIOS.util.MemoryAllocation = {
 	value = nil,
 	memoryMapEntry = nil,
@@ -788,12 +794,12 @@ function BIOS.util.defineString(msg, getter, maxLength, category, description)
     --moduleBeingDefined.lowFrequencyMap[msg] = getter
     local alloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = maxLength }
     moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
---------------ammo
-        local value = getter(dev0)
+
+        local value = getter(dev0)--ammo
         if value == nil then 
             error("function " .. msg .. " is sending a nil value from its getter")
         end
---------------	
+		
         alloc:setValue(value)
     end
 

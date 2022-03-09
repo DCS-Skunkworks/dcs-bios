@@ -583,14 +583,6 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
-local function coerce_nil_to_string(value)
-	if value == nil then
-		return ""
-	else
-		return value
-	end
-end
-
 -------------------------------------------------------------------------------------------------------------------------------
 local function processUFCPLine(ufcpLine, lineNum)
 	local temp_txt_win    = ufcpLine["txt_win"..lineNum]

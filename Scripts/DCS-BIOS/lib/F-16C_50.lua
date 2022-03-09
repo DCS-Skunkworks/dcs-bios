@@ -29,15 +29,6 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local define3Pos2CommandSwitch = BIOS.util.define3Pos2CommandSwitch
 local defineSpringloaded_3_pos_tumb = BIOS.util.defineSpringloaded_3_pos_tumb
 
---Functions
-local function coerce_nil_to_string(value)
-	if value == nil then
-		return ""
-	else
-		return value
-	end
-end
-
 ------------------------------------------------------------------Switches, Buttons
 --Control Interface
 defineToggleSwitch("DIGI_BAK_SW", 2, 3001, 566, "Control Interface", "DIGITAL BACKUP Switch, OFF/BACKUP")
