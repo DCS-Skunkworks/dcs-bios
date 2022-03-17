@@ -475,7 +475,7 @@ defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
 end, 1, "External Aircraft Model", "Right Position Light (green)")
 defineIntegerFromGetter("EXT_STROBE", function()
 	if LoGetAircraftDrawArgumentValue(193) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Strobe Light")
+end, 1, "External Aircraft Model", "Strobe Light (red)")
 defineIntegerFromGetter("EXT_WOW_SKID", function()
 	if LoGetAircraftDrawArgumentValue(104) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Skids")
@@ -532,5 +532,14 @@ defineToggleSwitch("CARGO_REL_SAFE", 52, 3003, 228, "Overhead Panel", "Cargo Saf
 defineIntegerFromGetter("EXT_ROTOR", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(40)*65535)
 end, 65535, "External Aircraft Model", "Rotor Move")
+defineIntegerFromGetter("EXT_LAND_LIGHT_F", function()
+	if LoGetAircraftDrawArgumentValue(208) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Landing Light Front (white)")
+defineIntegerFromGetter("EXT_LAND_LIGHT_M", function()
+	if LoGetAircraftDrawArgumentValue(209) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Landing Light Mid (white)")
+defineIntegerFromGetter("EXT_LIGHT_TAIL", function()
+	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Tail Light (white)")
 
 BIOS.protocol.endModule()

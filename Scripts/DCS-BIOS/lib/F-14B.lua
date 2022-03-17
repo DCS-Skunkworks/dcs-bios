@@ -1628,47 +1628,36 @@ defineToggleSwitch("PLT_GEAR_DN_LK_OVER", 18, 3017, 633, "Gear", "PILOT Gear Dow
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(402)*65535)
 end, 65535, "External Aircraft Model", "Bottom Right Speed Brake")
-
 defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(401)*65535)
 end, 65535, "External Aircraft Model", "Bottom Left Speed Brake")
-
 defineIntegerFromGetter("EXT_SPEED_BRAKE_TOP", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(400)*65535)
 end, 65535, "External Aircraft Model", "Top Speed Brake")
-
 defineIntegerFromGetter("EXT_REFUEL_PROBE", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(22)*65535)
 end, 65535, "External Aircraft Model", "Fuel Probe")
-
 defineIntegerFromGetter("EXT_REFUEL_PROBE_LIGHT", function()
 	if LoGetAircraftDrawArgumentValue(610) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Refuel Probe Light (red)")
-
 defineIntegerFromGetter("EXT_POSITION_LIGHTS_WINGS", function()
 	if LoGetAircraftDrawArgumentValue(611) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Position Lights Wings (red/green)")
-
 defineIntegerFromGetter("EXT_POSITION_LIGHTS_BODY", function()
 	if LoGetAircraftDrawArgumentValue(612) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Position Lights Body (red/green)")
-
 defineIntegerFromGetter("EXT_POSITION_LIGHT_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(613) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Tail Position Light (white)")
-
 defineIntegerFromGetter("EXT_POSITION_LIGHT_CHIN", function()
 	if LoGetAircraftDrawArgumentValue(614) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Chinpod Position Light (red)")
-
 defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
 end, 65535, "External Aircraft Model", "Formation Lights (yellow green)")
-
 defineIntegerFromGetter("EXT_ANTI_COL", function()
 	if LoGetAircraftDrawArgumentValue(620) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Anticollision Lights")
-
 defineIntegerFromGetter("EXT_WOW_NOSE", function()
 	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
@@ -1678,18 +1667,15 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
-
 defineIntegerFromGetter("EXT_YAW_STRING_LR", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(2500)*65535)
 end, 65535, "External Aircraft Model", "YAW String Left/Right")
 defineIntegerFromGetter("EXT_YAW_STRING_UD", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(2501)*65535)
 end, 65535, "External Aircraft Model", "YAW String Up/Down")
-
 defineIntegerFromGetter("EXT_POSITION_LIGHTS_BODY_D", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(612)*65535)
 end, 65535, "External Aircraft Model", "Position Lights Body Dimmer (red/green)")
-
 defineIntegerFromGetter("EXT_POSITION_LIGHTS_WINGS_D", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(611)*65535)
 end, 65535, "External Aircraft Model", "Position Lights Wings Dimmer (red/green)")
