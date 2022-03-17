@@ -33,13 +33,13 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-4E-C.lua]]) -- ID = 6, ProperNam
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-29B.lua]]) -- ID = 41, ProperName = A-29B Super Tucano
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AH-6J.lua]]) -- ID = 7, ProperName = AH-6J Littlebird
---dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AH-64D.lua]]) -- ID = 46, ProperName = AH-64D Apache
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AH-64D.lua]]) -- ID = 46, ProperName = AH-64D Apache
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AJS37.lua]]) -- ID = 8, ProperName = AJS-37 Viggen
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Alphajet.lua]]) -- ID = 9, ProperName = Alphajet
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AV8BNA.lua]]) -- ID = 10, ProperName = AV-8B Night Attack
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Bf-109K-4.lua]]) -- ID = 11, ProperName = Bf 109 K-4 Kurfurst
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\C-101CC.lua]]) -- ID = 12, ProperName = C-101 Aviojet
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Hercules.lua]]) -- ID = 13, ProperName = C-130 Hercules
+--dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Hercules.lua]]) -- ID = 13, ProperName = C-130 Hercules
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Christen Eagle II.lua]]) -- ID = 14, ProperName = Christen Eagle II
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Edge540.lua]]) -- ID = 15, ProperName = Edge 540
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-14B.lua]]) -- ID = 16, ProperName = F-14A/B Tomcat
