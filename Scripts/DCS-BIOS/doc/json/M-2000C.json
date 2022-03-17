@@ -1188,7 +1188,7 @@
                                           "CNPY_HAND1": {
                                                                        "category": "CANOPY",
                                                                    "control_type": "selector",
-                                                                    "description": "I - Canopy Handle",
+                                                                    "description": "I - Canopy Handle 1",
                                                                      "identifier": "CNPY_HAND1",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1217,7 +1217,7 @@
                                           "CNPY_HAND2": {
                                                                        "category": "CANOPY",
                                                                    "control_type": "selector",
-                                                                    "description": "I - Canopy Handle",
+                                                                    "description": "I - Canopy Handle 2",
                                                                      "identifier": "CNPY_HAND2",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1321,6 +1321,35 @@
                                                                                               "type": "integer"
                                                                                    } ],
                                                                "physical_variant": "limited_rotary"
+                                                        },
+                                       "MIRROR_TOGGLE": {
+                                                                       "category": "CANOPY",
+                                                                   "control_type": "selector",
+                                                                    "description": "I - Mirror Rendering Toggle",
+                                                                     "identifier": "MIRROR_TOGGLE",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 29362,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 16384,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 14,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
                                                         }
                                },
         "CAUTION LIGHT PANEL": {
@@ -3376,7 +3405,7 @@
                                                                        "identifier": "EXT_FORMATION_LIGHTS_AFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29536,
+                                                                                             "address": 29540,
                                                                                          "description": "Aft Formation Lights",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3392,7 +3421,7 @@
                                                                        "identifier": "EXT_FORMATION_LIGHTS_FRONT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29534,
+                                                                                             "address": 29538,
                                                                                          "description": "Front Formation Lights",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3410,9 +3439,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 29506,
                                                                                          "description": "Left Position Light (red)",
-                                                                                                "mask": 512,
+                                                                                                "mask": 1024,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 9,
+                                                                                            "shift_by": 10,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3426,9 +3455,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 29506,
                                                                                          "description": "Right Position Light (green)",
-                                                                                                "mask": 1024,
+                                                                                                "mask": 2048,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 10,
+                                                                                            "shift_by": 11,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3440,7 +3469,7 @@
                                                                        "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29532,
+                                                                                             "address": 29536,
                                                                                          "description": "Left Speed Brake",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3456,7 +3485,7 @@
                                                                        "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29530,
+                                                                                             "address": 29534,
                                                                                          "description": "Right Speed Brake",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3474,9 +3503,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 29506,
                                                                                          "description": "Bottom Strobe Light",
-                                                                                                "mask": 4096,
+                                                                                                "mask": 8192,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 12,
+                                                                                            "shift_by": 13,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3490,9 +3519,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 29506,
                                                                                          "description": "Top Strobe Light",
-                                                                                                "mask": 2048,
+                                                                                                "mask": 4096,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 11,
+                                                                                            "shift_by": 12,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3504,11 +3533,11 @@
                                                                        "identifier": "EXT_WOW_LEFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29506,
+                                                                                             "address": 29542,
                                                                                          "description": "Weight ON Wheels Left Gear",
-                                                                                                "mask": 32768,
+                                                                                                "mask": 1,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 15,
+                                                                                            "shift_by": 0,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3522,9 +3551,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 29506,
                                                                                          "description": "Weight ON Wheels Nose Gear",
-                                                                                                "mask": 8192,
+                                                                                                "mask": 16384,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 13,
+                                                                                            "shift_by": 14,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3538,9 +3567,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 29506,
                                                                                          "description": "Weight ON Wheels Right Gear",
-                                                                                                "mask": 16384,
+                                                                                                "mask": 32768,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 14,
+                                                                                            "shift_by": 15,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -4937,7 +4966,7 @@
                                    "LGT_BRIGHT_CTRL_TEST": {
                                                                    "category": "INT LIGHTS",
                                                                "control_type": "limited_dial",
-                                                                "description": "I - Light Brightnes Control/Test",
+                                                                "description": "I - PCN Brightnes/Test",
                                                                  "identifier": "LGT_BRIGHT_CTRL_TEST",
                                                                      "inputs": [ {
                                                                                    "description": "set the position of the dial",
@@ -6083,35 +6112,6 @@
                                                                                                "mask": 32,
                                                                                           "max_value": 1,
                                                                                            "shift_by": 5,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
-                                        "MIRROR_TOGGLE": {
-                                                                        "category": "MISCELANEOUS",
-                                                                    "control_type": "selector",
-                                                                     "description": "I - Mirror Rendering Toggle",
-                                                                      "identifier": "MIRROR_TOGGLE",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 29362,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 16384,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 14,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -8564,6 +8564,38 @@
                                                           }
                                },
                         "PSM": {
+                                   "DTC_CART_MOVE": {
+                                                            "category": "PSM",
+                                                        "control_type": "analog_gauge",
+                                                         "description": "DTC Cartridge Position",
+                                                          "identifier": "DTC_CART_MOVE",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 29532,
+                                                                            "description": "gauge position",
+                                                                                   "mask": 65535,
+                                                                              "max_value": 65535,
+                                                                               "shift_by": 0,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                    "DTC_CART_PRE": {
+                                                            "category": "PSM",
+                                                        "control_type": "analog_gauge",
+                                                         "description": "DTC Cartridge Presence",
+                                                          "identifier": "DTC_CART_PRE",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 29530,
+                                                                            "description": "gauge position",
+                                                                                   "mask": 65535,
+                                                                              "max_value": 65535,
+                                                                               "shift_by": 0,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
                                     "INS_MODE_SEL": {
                                                                    "category": "PSM",
                                                                "control_type": "selector",
@@ -8613,6 +8645,35 @@
                                                                                           "type": "integer"
                                                                                } ],
                                                            "physical_variant": "limited_rotary"
+                                                    },
+                                   "MIP_DATA_SLOT": {
+                                                                   "category": "PSM",
+                                                               "control_type": "selector",
+                                                                "description": "I - PSM - MIP Datacartridge Slot",
+                                                                 "identifier": "MIP_DATA_SLOT",
+                                                                     "inputs": [ {
+                                                                                   "description": "switch to previous or next state",
+                                                                                     "interface": "fixed_step"
+                                                                               }, {
+                                                                                   "description": "set position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 1
+                                                                               }, {
+                                                                                      "argument": "TOGGLE",
+                                                                                   "description": "Toggle switch state",
+                                                                                     "interface": "action"
+                                                                               } ],
+                                                        "momentary_positions": "none",
+                                                                    "outputs": [ {
+                                                                                       "address": 29506,
+                                                                                   "description": "selector position",
+                                                                                          "mask": 512,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 9,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ],
+                                                           "physical_variant": "toggle_switch"
                                                     }
                                },
                       "RADAR": {

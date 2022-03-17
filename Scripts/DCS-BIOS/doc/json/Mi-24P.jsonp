@@ -8819,6 +8819,22 @@ docdata["Mi-24P"] =
                                                                                                           "type": "integer"
                                                                                                } ]
                                                                            },
+                                                              "EXT_ROTOR": {
+                                                                                   "category": "External Aircraft Model",
+                                                                               "control_type": "metadata",
+                                                                                "description": "Rotor Move",
+                                                                                 "identifier": "EXT_ROTOR",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 27232,
+                                                                                                   "description": "Rotor Move",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
                                                               "EXT_TIP_L": {
                                                                                    "category": "External Aircraft Model",
                                                                                "control_type": "metadata",
@@ -11039,7 +11055,7 @@ docdata["Mi-24P"] =
                                                                                          "api_variant": "momentary_last_position",
                                                                                             "category": "I9K113",
                                                                                         "control_type": "selector",
-                                                                                         "description": "OPERATOR SHTV Lamps Check",
+                                                                                         "description": "OPERATOR SHTV Display Lamps Check",
                                                                                           "identifier": "OP_SHTV_L_CHECK",
                                                                                               "inputs": [ {
                                                                                                             "description": "switch to previous or next state",

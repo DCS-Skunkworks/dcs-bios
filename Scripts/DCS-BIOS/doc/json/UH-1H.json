@@ -4539,6 +4539,54 @@
                                                         }
                                    },
         "External Aircraft Model": {
+                                               "EXT_LAND_LIGHT_F": {
+                                                                           "category": "External Aircraft Model",
+                                                                       "control_type": "metadata",
+                                                                        "description": "Landing Light Front (white)",
+                                                                         "identifier": "EXT_LAND_LIGHT_F",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 5432,
+                                                                                           "description": "Landing Light Front (white)",
+                                                                                                  "mask": 1024,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 10,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                               "EXT_LAND_LIGHT_M": {
+                                                                           "category": "External Aircraft Model",
+                                                                       "control_type": "metadata",
+                                                                        "description": "Landing Light Mid (white)",
+                                                                         "identifier": "EXT_LAND_LIGHT_M",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 5432,
+                                                                                           "description": "Landing Light Mid (white)",
+                                                                                                  "mask": 2048,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 11,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                                 "EXT_LIGHT_TAIL": {
+                                                                           "category": "External Aircraft Model",
+                                                                       "control_type": "metadata",
+                                                                        "description": "Tail Light (white)",
+                                                                         "identifier": "EXT_LIGHT_TAIL",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 5432,
+                                                                                           "description": "Tail Light (white)",
+                                                                                                  "mask": 4096,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 12,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
                                         "EXT_POSITION_LIGHT_LEFT": {
                                                                            "category": "External Aircraft Model",
                                                                        "control_type": "metadata",
@@ -4571,15 +4619,31 @@
                                                                                                   "type": "integer"
                                                                                        } ]
                                                                    },
+                                                      "EXT_ROTOR": {
+                                                                           "category": "External Aircraft Model",
+                                                                       "control_type": "metadata",
+                                                                        "description": "Rotor Move",
+                                                                         "identifier": "EXT_ROTOR",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 5440,
+                                                                                           "description": "Rotor Move",
+                                                                                                  "mask": 65535,
+                                                                                             "max_value": 65535,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
                                                      "EXT_STROBE": {
                                                                            "category": "External Aircraft Model",
                                                                        "control_type": "metadata",
-                                                                        "description": "Strobe Light",
+                                                                        "description": "Strobe Light (red)",
                                                                          "identifier": "EXT_STROBE",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
                                                                                                "address": 5418,
-                                                                                           "description": "Strobe Light",
+                                                                                           "description": "Strobe Light (red)",
                                                                                                   "mask": 2,
                                                                                              "max_value": 1,
                                                                                               "shift_by": 1,
