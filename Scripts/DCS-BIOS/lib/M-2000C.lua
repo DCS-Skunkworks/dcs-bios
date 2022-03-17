@@ -577,7 +577,7 @@ defineIndicatorLight("CONF_AUX", 418, "CONFIGURATION PANEL", "O - CONF - Aux Lan
 defineIndicatorLight("CONF_D", 419, "CONFIGURATION PANEL", "O - CONF - Right Landing Gear Light")
 
 --ECM BOX
-definePushButton("ECM_BOX_BLT_SW", 13, 3990, 990, "ECM BOX", "I - ECM Box Clear Button")
+definePushButton("ECM_BOX_BLT_SW", 28, 3990, 990, "ECM BOX", "I - ECM Box Clear Button")
 defineIndicatorLight("ECM_BOX_LL", 991, "ECM BOX", "O - ECM Box LL Light (green)")
 defineIndicatorLight("ECM_BOX_EM", 992, "ECM BOX", "O - ECM Box EM EM Light (yellow)")
 defineIndicatorLight("ECM_BOX_IR", 993, "ECM BOX", "O - ECM Box IR Light (yellow)")
@@ -701,7 +701,7 @@ defineIndicatorLight("IFF_RED", 388, "IFF", "O - IFF_REP - Red Light")
 defineIndicatorLight("IFF_FAULT", 394, "IFF", "O - IFF_REP - Fault Light")
 
 --INTERIOR LIGHTS
-definePotentiometer("LGT_BRIGHT_CTRL_TEST", 9, 3575, 575, {0, 1}, "INT LIGHTS", "I - Light Brightnes Control/Test")
+definePotentiometer("LGT_BRIGHT_CTRL_TEST", 9, 3575, 575, {0, 1}, "INT LIGHTS", "I - PCN Brightnes/Test")
 definePotentiometer("DASH_U.V._LGT_KNOB", 16, 3639, 639, {0, 1}, "INT LIGHTS", "I - Dashboard U.V. Lights Knob")
 definePotentiometer("DASH_PANEL_LGT_KNOB", 16, 3640, 640, {0, 1}, "INT LIGHTS", "I - Dashboard Panel Lights Knob")
 definePotentiometer("RED_FLOOD_LGT_KNOB", 16, 3641, 641, {0, 1}, "INT LIGHTS", "I - Red Flood Lights Knob")
@@ -766,9 +766,9 @@ defineMultipositionSwitch("CNPY_LK_N_LOW_LEV", 40, 3656, 656, 3, 0.5, "CANOPY", 
 defineToggleSwitch("PEDAL_ADJUST_LEV", 14, 3396, 396, "MISCELANEOUS", "I - Pedal Adjustment Lever")
 defineToggleSwitch("CNPY_JETT", 40, 3456, 456, "CANOPY", "I - Canopy Jettison")
 defineToggleSwitch("DRAG_CHUTE_LEV", 22, 3457, 457, "MISCELANEOUS", "I - Drag Chute Lever")
-defineToggleSwitch("CNPY_HAND1", 40, 3907, 907, "CANOPY", "I - Canopy Handle")
-defineToggleSwitch("CNPY_HAND2", 40, 3908, 908, "CANOPY", "I - Canopy Handle")
-defineToggleSwitch("MIRROR_TOGGLE", 22, 3909, 909, "MISCELANEOUS", "I - Mirror Rendering Toggle")
+defineToggleSwitch("CNPY_HAND1", 40, 3907, 907, "CANOPY", "I - Canopy Handle 1")
+defineToggleSwitch("CNPY_HAND2", 40, 3908, 908, "CANOPY", "I - Canopy Handle 2")
+defineToggleSwitch("MIRROR_TOGGLE", 40, 3909, 909, "CANOPY", "I - Mirror Rendering Toggle")
 defineTumb("CNPY_REST", 40, 3655, 655, 1, {-1, 1}, nil, false, "CANOPY", "I - Canopy Rest")
 defineTumb("SEAT_ADJUST_SW", 22, 3900, 900, 1, {-1, 1}, nil, false, "MISCELANEOUS", "I - Seat Adjustment Switch")
 
@@ -1056,6 +1056,9 @@ defineTumb("EVF_CHAN_SEL", 39, 3968, 1004, 0.05, {0, 0.95}, {" 1", " 2", " 3", "
 definePushButton("EVF_TEST_BTN", 39, 3970, 1006, "EVF", "I - EVF - Panel Test")
 
 defineIntegerFromGetter("RAD_VTB_RANGE", function() return parse_indication(1)["vtb-rdr-range"] end, 65535, "RADAR", "O - VTB Display Radar Range") 
+defineToggleSwitch("MIP_DATA_SLOT", 9, 3629, 628, "PSM", "I - PSM - MIP Datacartridge Slot")
+defineFloat("DTC_CART_PRE", 674, {0, 1}, "PSM", "DTC Cartridge Presence")
+defineFloat("DTC_CART_MOVE", 673, {-1, 1}, "PSM", "DTC Cartridge Position")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
