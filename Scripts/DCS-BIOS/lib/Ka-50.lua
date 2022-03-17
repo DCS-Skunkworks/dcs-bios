@@ -879,5 +879,8 @@ defineIndicatorLight("PLAFOND_LAMP", 1000, "Lighting Control Panel", "Plafond La
 defineToggleSwitch("LIGHT_CPT_INT", 51, 3009, 1001, "Lighting Control Panel", "Lighting cockpit interior lamp switch")
 defineToggleSwitch("REDU_GEAR_OIL_PRESS", 4, 3024, 258, "Right Panel", "Reducing gear box oil pressure indication selector")---action=3024, stop_action=3025
 defineToggleSwitch("SLING_AUT_MAN", 41, 3004, 259, "Right Panel", "Sling load Auto/Manual")
+defineIntegerFromGetter("EXT_ROTORS", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(40)*65535)
+end, 65535, "External Aircraft Model", "Rotors Move")
 
 BIOS.protocol.endModule()

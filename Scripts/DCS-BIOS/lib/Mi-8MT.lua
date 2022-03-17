@@ -933,5 +933,8 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+defineIntegerFromGetter("EXT_ROTOR", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(40)*65535)
+end, 65535, "External Aircraft Model", "Rotor Move")
 
 BIOS.protocol.endModule()

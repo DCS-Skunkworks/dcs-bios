@@ -501,5 +501,8 @@ end, 1, "External Aircraft Model", "Right Position Light (green)")
 defineIntegerFromGetter("EXT_STROBE", function()
 	if LoGetAircraftDrawArgumentValue(193) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Strobe Light")
+defineIntegerFromGetter("EXT_ROTOR", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(37)*65535)
+end, 65535, "External Aircraft Model", "Rotor Move")
 
 BIOS.protocol.endModule()

@@ -628,7 +628,7 @@ defineToggleSwitch("OP_SHTV_SW_IN_OUT", 7, 3012, 934, "I9K113", "OPERATOR SHTV S
 defineToggleSwitch("OP_SHTV_SW_CODE", 7, 3013, 935, "I9K113", "OPERATOR SHTV Switcher CODE1-CODE2")
 definePushButton("OP_SHTV_CHECK", 7, 3015, 931, "I9K113", "OPERATOR SHTV Checking")
 definePushButton("OP_SHTV_HIGH_K", 7, 3016, 875, "I9K113", "OPERATOR SHTV High K")
-definePushButton("OP_SHTV_L_CHECK", 7, 3017, 932, "I9K113", "OPERATOR SHTV Lamps Check")
+definePushButton("OP_SHTV_L_CHECK", 7, 3017, 932, "I9K113", "OPERATOR SHTV Display Lamps Check")
 definePushButton("OP_SHTV_RAD_RESET", 7, 3029, 882, "I9K113", "OPERATOR SHTV Radiation Reset")
 
 defineFloat("OP_SIGHT_AZI", 874, {-1, 1}, "I9K113 Gauges", "OPERATOR Sight Azimuth")
@@ -1219,5 +1219,9 @@ definePotentiometer("OP_PKI_BRIGHT", 17, 3004, 136, {0, 1}, "PKI", "OPERATOR PKI
 defineToggleSwitch("OP_PKI_LOCK", 17, 3006, 15, "PKI", "OPERATOR PKI Lock/Unlock")
 
 defineFloat("OP_AIM_REF_MARKER", 1028, {0, 1}, "Gauges OP", "OPERATOR Aiming Reference Marker")
+
+defineIntegerFromGetter("EXT_ROTOR", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(40)*65535)
+end, 65535, "External Aircraft Model", "Rotor Move")
 
 BIOS.protocol.endModule()
