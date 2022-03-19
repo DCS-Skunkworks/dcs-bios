@@ -461,6 +461,10 @@ defineIndicatorLight("PLT_MASTER_ARM_ARM_L", 413, "PLT Internal Lights", "PLT Ma
 defineIndicatorLight("PLT_MASTER_ARM_SAFE_L", 414, "PLT Internal Lights", "PLT Master Arm Safe Indicator (green)")
 defineIndicatorLight("PLT_GROUND_OVERRIDE_L", 415, "PLT Internal Lights", "PLT Ground Override Indicator (green)")
 defineIndicatorLight("PLT_APU_L", 406, "PLT Internal Lights", "PLT APU On Indicator (green)")
+defineFloat("PLT_INT_PANEL_L", 788, {0, 1}, "PLT Internal Lights", "Pilot Panel Lightning (light green)")
+defineFloat("PLT_INT_FLOOD_L", 790, {0, 1}, "PLT Internal Lights", "Pilot Flood Lightning (light green)")
+defineFloat("PLT_INT_GAUGES_L", 787, {0, 1}, "PLT Internal Lights", "Pilot Gauges Lightning (light green)")
+defineIndicatorLight("PLT_SIGNAL_L", 793, "PLT Internal Lights", "Pilot Signal Light (color)")
 
 defineIndicatorLight("CPG_MASTER_WARNING_L", 806, "CPG Internal Lights", "CPG Master Warning Indicator (yellow)")
 defineIndicatorLight("CPG_MASTER_CAUTION_L", 808, "CPG Internal Lights", "CPG Master Caution Indicator (green)")
@@ -487,6 +491,9 @@ defineIndicatorLight("CPG_MASTER_ARM_SAFE_L", 439, "CPG Internal Lights", "CPG M
 defineIndicatorLight("CPG_GROUND_OVERRIDE_L", 440, "CPG Internal Lights", "CPG Ground Override Indicator (green)")
 defineIndicatorLight("CPG_PROCESSOR_SP_1_L", 436, "CPG Internal Lights", "CPG Processor Select SP 1 Indicator (green)")
 defineIndicatorLight("CPG_PROCESSOR_SP_2_L", 437, "CPG Internal Lights", "CPG Processor Select SP 2 Indicator (green)")
+defineFloat("CPG_INT_PANEL_L", 789, {0, 1}, "CPG Internal Lights", "Gunner Panel Lightning (light green)")
+defineFloat("CPG_INT_FLOOD_L", 791, {0, 1}, "CPG Internal Lights", "Gunner Flood Lightning (light green)")
+defineIndicatorLight("CPG_SIGNAL_L", 794, "CPG Internal Lights", "Gunner Signal Light (color)")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
