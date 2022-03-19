@@ -14,7 +14,7 @@ local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
-local defineRockerSwitch = BIOS.util.defineRockerSwitch
+local defineSpringloaded_3_pos_tumb = BIOS.util.defineSpringloaded_3_pos_tumb
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
@@ -74,7 +74,7 @@ definePushButton("CPG_MPD_L_R5", 44, 3011, 100, "CPG MPD Left", "Gunner Left MPD
 definePushButton("CPG_MPD_L_R6", 44, 3012, 101, "CPG MPD Left", "Gunner Left MPD R6 Button")
 definePushButton("CPG_MPD_L_B1", 44, 3018, 110, "CPG MPD Left", "Gunner Left MPD B1/M(Menu) Button")
 definePushButton("CPG_MPD_L_B2", 44, 3017, 109, "CPG MPD Left", "Gunner Left MPD B2 Button")
-definePushButton("CPG_MPD_L_B3", 44, 3016, 108 "CPG MPD Left", "Gunner Left MPD B3 Button")
+definePushButton("CPG_MPD_L_B3", 44, 3016, 108, "CPG MPD Left", "Gunner Left MPD B3 Button")
 definePushButton("CPG_MPD_L_B4", 44, 3015, 107, "CPG MPD Left", "Gunner Left MPD B4 Button")
 definePushButton("CPG_MPD_L_B5", 44, 3014, 106, "CPG MPD Left", "Gunner Left MPD B5 Button")
 definePushButton("CPG_MPD_L_B6", 44, 3013, 105, "CPG MPD Left", "Gunner Left MPD B6 Button")
@@ -248,7 +248,20 @@ defineToggleSwitch("CPG_COM_FM2_SQL", 63, 3016, 383, "CPG COMM Panel", "Gunner F
 defineToggleSwitch("CPG_COM_HF_SQL", 63, 3017, 384, "CPG COMM Panel", "Gunner HF Squelch Switch, ON/OFF")
 define3PosTumb("CPG_COM_ICS_MODE", 63, 3018, 387, "CPG COMM Panel", "Gunner ICS Mode Switch, HOT MIC/VOX/PTT")
 definePushButton("CPG_COM_IDENT_BTN", 63, 3019, 388, "CPG COMM Panel", "Gunner IDENT Button")
-----------------------
+
+--Emergency Panel
+definePushButton("PLT_EMERG_GUARD_BTN", 56, 3001, 310, "PLT Emergency Panel", "Pilot Guard Button, ON/OFF")
+definePushButton("PLT_EMERG_XPNDR_BTN", 56, 3003, 311, "PLT Emergency Panel", "Pilot XPNDR Button, ON/OFF")
+defineToggleSwitch("PLT_EMERG_ZERO_SW", 56, 3005, 312, "PLT Emergency Panel", "Pilot Zeroize Switch, ON/OFF")
+defineToggleSwitch("PLT_INST_MZERO_CVR", 56, 3008, 803, "PLT Emergency Panel", "Pilot Master Zeroize Switch Cover, OPEN/CLOSE")
+defineToggleSwitch("PLT_INST_MZERO_SW", 56, 3007, 804, "PLT Emergency Panel", "Pilot Master Zeroize Switch, ON/OFF")
+
+definePushButton("CPG_EMERG_GUARD_BTN", 56, 3002, 358, "CPG Emergency Panel", "Gunner Guard Button, ON/OFF")
+definePushButton("CPG_EMERG_XPNDR_BTN", 56, 3004, 359, "CPG Emergency Panel", "Gunner XPNDR Button, ON/OFF")
+defineToggleSwitch("CPG_EMERG_ZERO_SW", 56, 3006, 360, "CPG Emergency Panel", "Gunner Zeroize Switch, ON/OFF")
+defineToggleSwitch("CPG_INST_MZERO_CVR", 56, 3010, 801, "CPG Emergency Panel", "Gunner Master Zeroize Switch Cover, OPEN/CLOSE")
+defineToggleSwitch("CPG_INST_MZERO_SW", 56, 3009, 802, "CPG Emergency Panel", "Gunner Master Zeroize Switch, ON/OFF")
+
 --Keyboard Unit
 definePushButton("PLT_KU_A", 29, 3007, 213, "PLT Keyboard Unit", "Pilot Keyboard Unit A Key")
 definePushButton("PLT_KU_B", 29, 3008, 214, "PLT Keyboard Unit", "Pilot Keyboard Unit B Key")
@@ -351,17 +364,49 @@ definePushButton("CPG_KU_LEFT", 30, 3004, 210, "CPG Keyboard Unit", "Gunner Keyb
 definePushButton("CPG_KU_RIGHT", 30, 3005, 211, "CPG Keyboard Unit", "Gunner Keyboard Unit Right Key")
 definePushButton("CPG_KU_ENT", 30, 3006, 212, "CPG Keyboard Unit", "Gunner Keyboard Unit ENTER Key")
 definePotentiometer("CPG_KU_BRIGHT", 30, 3050, 621, {0, 1}, "CPG Keyboard Unit", "Gunner Scratchpad Keyboard Brightness Knob")
+
+-- Enhanced Up-Front Display
+defineSpringloaded_3_pos_tumb("PLT_EUFD_WCA", 48, 3002, 3001, 271, "PLT Up-Front Display", "Pilot Up-Front Display WCA Rocker Switch")
+defineSpringloaded_3_pos_tumb("PLT_EUFD_IDM", 48, 3004, 3003, 270, "PLT Up-Front Display", "Pilot Up-Front Display IDM Rocker Switch")
+defineSpringloaded_3_pos_tumb("PLT_EUFD_RTS", 48, 3006, 3005, 272, "PLT Up-Front Display", "Pilot Up-Front Display RTS Rocker Switch")
+definePotentiometer("PLT_EUFD_BRIGHT", 48, 3011, 273, {0, 1}, "PLT Up-Front Display", "Pilot Up-Front Display Brightness Knob")
+definePushButton("PLT_EUFD_ENT", 48, 3008, 275, "PLT Up-Front Display", "Pilot Up-Front Display ENTER Button")
+definePushButton("PLT_EUFD_SWAP", 48, 3010, 277, "PLT Up-Front Display", "Pilot Up-Front Display Swap Button")
+definePushButton("PLT_EUFD_PRESET", 48, 3007, 274, "PLT Up-Front Display", "Pilot Up-Front Display Preset Button")
+definePushButton("PLT_EUFD_STOPWATCH", 48, 3009, 276, "PLT Up-Front Display", "Pilot Up-Front Display Stopwatch Button - Press to start/stop, Hold to reset")
+
+defineSpringloaded_3_pos_tumb("CPG_EUFD_WCA", 48, 3002, 3001, 263, "CPG Up-Front Display", "Gunner Up-Front Display WCA Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_EUFD_IDM", 48, 3004, 3003, 262, "CPG Up-Front Display", "Gunner Up-Front Display IDM Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_EUFD_RTS", 48, 3006, 3005, 264, "CPG Up-Front Display", "Gunner Up-Front Display RTS Rocker Switch")
+definePotentiometer("CPG_EUFD_BRIGHT", 48, 3011, 265, {0, 1}, "CPG Up-Front Display", "Gunner Up-Front Display Brightness Knob")
+definePushButton("CPG_EUFD_ENT", 48, 3008, 267, "CPG Up-Front Display", "Gunner Up-Front Display ENTER Button")
+definePushButton("CPG_EUFD_SWAP", 48, 3010, 269, "CPG Up-Front Display", "Gunner Up-Front Display Swap Button")
+definePushButton("CPG_EUFD_PRESET", 48, 3007, 266, "CPG Up-Front Display", "Gunner Up-Front Display Preset Button")
+definePushButton("CPG_EUFD_STOPWATCH", 48, 3009, 268, "CPG Up-Front Display", "Gunner Up-Front Display Stopwatch Button - Press to start/stop, Hold to reset")
+
+-- TEDAC Display
+definePushButton("CPG_TEDAC_TAD_SEL", 51, 3005, 150, "CPG TEDAC Display", "Gunner TEDAC Display TAD Video Select Button")
+definePushButton("CPG_TEDAC_FCR_SEL", 51, 3006, 151, "CPG TEDAC Display", "Gunner TEDAC Display FCR Video Select Button")
+definePushButton("CPG_TEDAC_PNV_SEL", 51, 3007, 152, "CPG TEDAC Display", "Gunner TEDAC Display PNV Video Select Button")
+definePushButton("CPG_TEDAC_GS_SEL", 51, 3008, 153, "CPG TEDAC Display", "Gunner TEDAC Display G/S Video Select Button")
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_SYM", 48, 3010, 3009, 155, "CPG TEDAC Display", "Gunner TEDAC Display SYM Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_BRT", 48, 3012, 3011, 156, "CPG TEDAC Display", "Gunner TEDAC Display BRT Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_CON", 48, 3014, 3013, 157, "CPG TEDAC Display", "Gunner TEDAC Display CON Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_RF", 48, 3020, 3019, 147, "CPG TEDAC Display", "Gunner TEDAC Display R/F Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_EL", 48, 3018, 3017, 146, "CPG TEDAC Display", "Gunner TEDAC Display EL Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_AZ", 48, 3016, 3015, 163, "CPG TEDAC Display", "Gunner TEDAC Display AZ Rocker Switch")
 --------------
 --Cockpit
 defineToggleSwitch("PLT_PARK_BRAKE", 7, 3001, 634, "PLT Cockpit", "Pilot Parking Brake Handle, Pull/Stow")
 defineToggleSwitch("PLT_CANOPY", 9, 3005, 796, "PLT Cockpit", "Pilot Canopy, OPEN/CLOSE")
-defineToggleSwitch("CPG_CANOPY", 9, 3006, 799, "CPG Cockpit", "Gunner Canopy, OPEN/CLOSE")
 definePushButton("PLT_M4_TRIGGER", 9, 3009, 827, "PLT Cockpit", "Pilot M4 Trigger")
 define3PosTumb("PLT_M4_SAVE", 9, 3007, 828, "PLT Cockpit", "Pilot M4 Safety")
-definePushButton("CPG_M4_TRIGGER", 9, 3010, 825, "CPG Cockpit", "Gunner M4 Trigger")
-define3PosTumb("CPG_M4_SAVE", 9, 3008, 826, "CPG Cockpit", "Gunner M4 Safety")
 definePushButton("PLT_DEFOG_BTN", 9, 3001, 356, "PLT Cockpit", "Pilot Defog Button")
 defineTumb("PLT_WIPER_SW", 9, 3002, 357, 0.1, {0, 0.3}, nil, false, "PLT MPD Right", "Pilot Wiper Control Switch, PARK/OFF/LO/HI")
+
+defineToggleSwitch("CPG_CANOPY", 9, 3006, 799, "CPG Cockpit", "Gunner Canopy, OPEN/CLOSE")
+definePushButton("CPG_M4_TRIGGER", 9, 3010, 825, "CPG Cockpit", "Gunner M4 Trigger")
+define3PosTumb("CPG_M4_SAVE", 9, 3008, 826, "CPG Cockpit", "Gunner M4 Safety")
 definePushButton("CPG_DEFOG_BTN", 9, 3003, 394, "CPG Cockpit", "Gunner Defog Button")
 defineTumb("CPG_WIPER_SW", 9, 3004, 395, 0.1, {0, 0.3}, nil, false, "CPG MPD Right", "Gunner Wiper Control Switch, PARK/OFF/LO/HI")
 
