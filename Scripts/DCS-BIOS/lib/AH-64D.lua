@@ -8,20 +8,16 @@ local document = BIOS.util.document
 
 local parse_indication = BIOS.util.parse_indication
 
-local defineFixedStepInput = BIOS.util.defineFixedStepInput
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
-local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineSpringloaded_3_pos_tumb = BIOS.util.defineSpringloaded_3_pos_tumb
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
-local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
-local define3Pos2CommandSwitch = BIOS.util.define3Pos2CommandSwitch
 local define3PosTumb = BIOS.util.define3PosTumb
 
 --MPD Left
@@ -417,6 +413,9 @@ definePushButton("CPG_TEDAC_FILTER", 51, 3024, 159, "CPG TEDAC Display", "Gunner
 definePotentiometer("CPG_TEDAC_FLIR_GAIN", 51, 3002, 148, {0, 1}, "CPG TEDAC Display", "Gunner TEDAC Display FLIR GAIN Control Knob")
 definePotentiometer("CPG_TEDAC_FLIR_LEV", 51, 3003, 149, {0, 1}, "CPG TEDAC Display", "Gunner TEDAC Display FLIR LEV Control Knob")
 defineTumb("CPG_TEDAC_DISP_MODE", 51, 3001, 154, 0.5, {0, 1}, nil, false, "CPG TEDAC Display", "Gunner TEDAC Display Mode Knob, DAY/NT/OFF")
+
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_L_IAT", 51, 3031, 3030, 491, "CPG TEDAC Left Handgrip", "Gunner TEDAC LHG Image AutoTrack/Offset Switch, OFS/IAT")
+defineSpringloaded_3_pos_tumb("CPG_TADS_FOV_ZM", 51, 3033, 3032, 492, "CPG TEDAC Left Handgrip", "Gunner TADS FOV Select Switch, Z (Zoom)/M (Medium)")
 --------------
 --Video Control Panel
 definePotentiometer("PLT_VIDEO_IHADSS_BRT", 3, 3011, 278, {0, 1}, "PLT Video Control Panel", "Pilot IHADSS BRT Control Knob")
@@ -430,7 +429,44 @@ defineToggleSwitch("PLT_VIDEO_AUTO_CON", 3, 3009, 281, "PLT Video Control Panel"
 define3PosTumb("PLT_NVS_MODE", 3, 3005, 309, "PLT NVS Panel", "Pilot NVS MODE Switch, FIXED/NORM/OFF")
 define3PosTumb("CPG_NVS_MODE", 3, 3006, 363, "CPG NVS Panel", "Gunner NVS MODE Switch, FIXED/NORM/OFF")
 
----------------
+--Generator Reset PANEL
+defineSpringloaded_3_pos_tumb("PLT_GEN_RESET", 3, 3002, 3001, 355, "PLT Generator Panel", "Pilot Generator Reset Switch, GEN 1/GEN 2")
+defineSpringloaded_3_pos_tumb("PLT_CHK_OSPD_ENG_A", 6, 3008, 3007, 353, "PLT Generator Panel", "Pilot CKT A Check Overspeed Test Switch, ENG 2/ENG 1")
+defineSpringloaded_3_pos_tumb("PLT_CHK_OSPD_ENG_B", 6, 3010, 3009, 354, "PLT Generator Panel", "Pilot CKT B Check Overspeed Test Switch, ENG 2/ENG 1")
+
+--ARMAMENT PANEL
+definePushButton("PLT_MASTER_ARM_BTN", 3, 3014, 306, "PLT Armament Panel", "Pilot A/S Pushbutton, ARM/SAFE")
+definePushButton("PLT_GROUND_OVERRIDE_BTN", 3, 3013, 307, "PLT Armament Panel", "Pilot GND ORIDE Pushbutton, ON/OFF")
+definePushButton("CPG_MASTER_ARM_BTN", 3, 3016, 293, "CPG Armament Panel", "Gunner A/S Pushbutton, ARM/SAFE")
+definePushButton("CPG_GROUND_OVERRIDE_BTN", 3, 3015, 294, "CPG Armament Panel", "Gunner GND ORIDE Pushbutton, ON/OFF")
+
+--Left Console
+definePushButton("PLT_JETT_STORE_LO", 75, 3001, 319, "PLT Left Console", "Pilot L OUTBD Station Select Pushbutton, ARM/SAFE")
+definePushButton("PLT_JETT_STORE_LI", 75, 3002, 320, "PLT Left Console", "Pilot L INBD Station Select Pushbutton, ARM/SAFE")
+definePushButton("PLT_JETT_STORE_RI", 75, 3003, 321, "PLT Left Console", "Pilot R INBD Station Select Pushbutton, ARM/SAFE")
+definePushButton("PLT_JETT_STORE_RO", 75, 3004, 322, "PLT Left Console", "Pilot R OUTBD Station Select Pushbutton, ARM/SAFE")
+definePushButton("PLT_JETT_STORE_LW", 75, 3005, 323, "PLT Left Console", "Pilot L TIP Station Select Pushbutton, ARM/SAFE")
+definePushButton("PLT_JETT_STORE_RW", 75, 3006, 325, "PLT Left Console", "Pilot R TIP Station Select Pushbutton, ARM/SAFE")
+definePushButton("PLT_JETT_BTN", 75, 3007, 324, "PLT Left Console", "Pilot JETT Pushbutton")
+definePushButton("PLT_EMERG_HYD_BTN", 5, 3002, 313, "PLT Left Console", "Pilot EMERG HYD Pushbutton, ON/OFF")
+definePushButton("PLT_T_WHEEL_UNLOCK_BTN", 5, 3003, 308, "PLT Left Console", "Pilot TAIL WHEEL Pushbutton, LOCK/UNLOCK")
+define3PosTumb("PLT_ROTOR_BRK", 5, 3001, 314, "PLT Left Console", "Pilot Rotor Brake Switch, OFF/BRK/LOCK")
+definePushButton("PLT_APU_BTN", 6, 3001, 400, "PLT Left Console", "Pilot APU Pushbutton")
+defineToggleSwitch("PLT_APU_BTN_CVR", 6, 3002, 4001, "PLT Left Console", "Pilot APU Pushbutton Cover, OPEN/CLOSE")
+definePotentiometer("PLT_PW_LVR_FRIC", 2, 3001, 633, {0, 1}, "PLT Left Console", "Pilot Power Lever Friction Adjustment Lever")
+defineSpringloaded_3_pos_tumb("PLT_ENG1_START", 6, 3004, 3003, 317, "PLT Up-Front Display", "Pilot No.1 Engine Start Switch, IGN ORIDE/START")
+defineSpringloaded_3_pos_tumb("PLT_ENG2_START", 6, 3006, 3005, 318, "PLT Up-Front Display", "Pilot No.2 Engine Start Switch, IGN ORIDE/START")
+
+definePushButton("CPG_JETT_STORE_LO", 75, 3001, 368, "CPG Left Console", "Gunner L OUTBD Station Select Pushbutton, ARM/SAFE")
+definePushButton("CPG_JETT_STORE_LI", 75, 3002, 369, "CPG Left Console", "Gunner L INBD Station Select Pushbutton, ARM/SAFE")
+definePushButton("CPG_JETT_STORE_RI", 75, 3003, 370, "CPG Left Console", "Gunner R INBD Station Select Pushbutton, ARM/SAFE")
+definePushButton("CPG_JETT_STORE_RO", 75, 3004, 371, "CPG Left Console", "Gunner R OUTBD Station Select Pushbutton, ARM/SAFE")
+definePushButton("CPG_JETT_STORE_LW", 75, 3005, 372, "CPG Left Console", "Gunner L TIP Station Select Pushbutton, ARM/SAFE")
+definePushButton("CPG_JETT_STORE_RW", 75, 3006, 374, "CPG Left Console", "Gunner R TIP Station Select Pushbutton, ARM/SAFE")
+definePushButton("CPG_JETT_BTN", 75, 3007, 373, "CPG Left Console", "Gunner JETT Pushbutton")
+definePushButton("CPG_EMERG_HYD_BTN", 5, 3004, 361, "CPG Left Console", "Gunner EMERG HYD Pushbutton, ON/OFF")
+definePushButton("CPG_T_WHEEL_UNLOCK_BTN", 5, 3005, 362, "CPG Left Console", "Gunner TAIL WHEEL Pushbutton, LOCK/UNLOCK")
+
 --FIRE Control Panel
 definePushButton("PLT_FIRE_ENG1_BTN", 6, 3011, 295, "PLT Fire Control Panel", "Pilot ENG 1 Fire Pushbutton")
 defineToggleSwitch("PLT_FIRE_ENG1_CVR", 6, 3012, 296, "PLT Fire Control Panel", "Pilot ENG 1 Fire Pushbutton Cover, OPEN/CLOSE")
@@ -461,6 +497,7 @@ definePushButton("PLT_DEFOG_BTN", 9, 3001, 356, "PLT Cockpit", "Pilot Defog Butt
 defineTumb("PLT_WIPER_SW", 9, 3002, 357, 0.1, {0, 0.3}, nil, false, "PLT MPD Right", "Pilot Wiper Control Switch, PARK/OFF/LO/HI")
 definePotentiometer("PLT_ENG_L_PW_LVR", 6, 3031, 398, {0, 1}, "PLT Cockpit", "Pilot Power Lever Smoothly (Left)")
 definePotentiometer("PLT_ENG_R_PW_LVR", 6, 3032, 399, {0, 1}, "PLT Cockpit", "Pilot Power Lever Smoothly (Right)")
+defineTumb("PLT_MASTER_IGN_SW", 3, 3003, 315, 0.5, {0, 1}, nil, false, "PLT Cockpit", "Pilot Master Ignition Switch, OFF/BATT/EXT PWR")
 
 defineToggleSwitch("CPG_CANOPY", 9, 3006, 799, "CPG Cockpit", "Gunner Canopy, OPEN/CLOSE")
 definePushButton("CPG_M4_TRIGGER", 9, 3010, 825, "CPG Cockpit", "Gunner M4 Trigger")
@@ -470,9 +507,21 @@ defineTumb("CPG_WIPER_SW", 9, 3004, 395, 0.1, {0, 0.3}, nil, false, "CPG MPD Rig
 definePotentiometer("CPG_ENG_L_PW_LVR", 6, 3031, 398, {0, 1}, "CPG Cockpit", "Gunner Power Lever Smoothly (Left)")
 definePotentiometer("CPG_ENG_R_PW_LVR", 6, 3032, 399, {0, 1}, "CPG Cockpit", "Gunner Power Lever Smoothly (Right)")
 defineToggleSwitch("CPG_STICK_FOLD", 87, 3007, 809, "CPG Cockpit", "Gunner Stick Folding, UP/DOWN")
+define3PosTumb("CPG_PROC_SEL_SW", 3, 3004, 397, "CPG Cockpit", "Gunner Processor Select Switch, SP 1/AUTO/SP 2")
 
 defineFloat("PLT_CANOPY_POS", 795, {0, 1}, "Cockpit Gauges", "Pilot Canopy Position")
 defineFloat("CPG_CANOPY_POS", 798, {0, 1}, "Cockpit Gauges", "Gunner Canopy Position")
+
+--CMWS
+defineTumb("PLT_CMWS_PW", 80, 3001, 610, 1, {-1, 0}, nil, false, "PLT CMWS", "Pilot CMWS PWR Switch, OFF/ON")
+definePushButton("PLT_CMWS_PW_TEST", 80, 3002, 610, "PLT CMWS", "Pilot CMWS PWR Switch, TEST")
+definePotentiometer("PLT_CMWS_VOL", 80, 3003, 611, {0, 1}, "PLT CMWS", "Pilot CMWS Audio Volume Knob")
+definePotentiometer("PLT_CMWS_LAMP", 80, 3004, 612, {0, 1}, "PLT CMWS", "Pilot CMWS Lamp Knob")
+defineToggleSwitch("PLT_CMWS_ARM", 80, 3005, 614, "PLT CMWS", "Pilot CMWS Flare Squibs Switch, ARM/SAFE")
+defineToggleSwitch("PLT_CMWS_MODE", 80, 3006, 615, "PLT CMWS", "Pilot CMWS Mode Switch, CMWS/NAV")
+defineToggleSwitch("PLT_CMWS_BYPASS", 80, 3007, 616, "PLT CMWS", "Pilot CMWS Operation Switch, BYPASS/AUTO")
+defineToggleSwitch("PLT_CMWS_JETT_CVR", 80, 3008, 617, "PLT CMWS", "Pilot CMWS Flare Jettison Switch Cover, OPEN/CLOSE")
+defineToggleSwitch("PLT_CMWS_JETT", 80, 3009, 618, "PLT CMWS", "Pilot CMWS Flare Jettison Switch")
 
 --Gauges
 defineFloat("PLT_IAS_NEEDLE", 469, {0, 1}, "Cockpit Gauges", "Pilot Standby Airspeed Indicator Needle")
@@ -497,7 +546,7 @@ defineIndicatorLight("PLT_FIRE_EXT_DISCH_RES_L", 423, "PLT Internal Lights", "Pi
 defineIndicatorLight("PLT_EMERG_GUARD_L", 403, "PLT Internal Lights", "Pilot Emergency Guard Indicator (green)")
 defineIndicatorLight("PLT_EMERG_XPNDR_L", 404, "PLT Internal Lights", "Pilot Emergency Transponder Indicator (green)")
 defineIndicatorLight("PLT_EMERG_HYD_L", 405, "PLT Internal Lights", "Pilot Emergency Hydraulics Indicator (green)")
-defineIndicatorLight("PLT_TAIL_WHEEL_UNLOCK_L", 402, "PLT Internal Lights", "Pilot Tail Wheel Unlock Indicator (green)")
+defineIndicatorLight("PLT_T_WHEEL_UNLOCK_L", 402, "PLT Internal Lights", "Pilot Tail Wheel Unlock Indicator (green)")
 defineIndicatorLight("PLT_JETT_L_TIP_L", 411, "PLT Internal Lights", "Pilot Jettison Left Tip Indicator (green)")
 defineIndicatorLight("PLT_JETT_L_OUTBOARD_L", 407, "PLT Internal Lights", "Pilot Jettison Left Outboard Indicator (green)")
 defineIndicatorLight("PLT_JETT_L_INBOARD_L", 408, "PLT Internal Lights", "Pilot Jettison Left Inboard Indicator (green)")
@@ -526,7 +575,7 @@ defineIndicatorLight("CPG_FIRE_EXT_DISCH_RES_L", 448, "CPG Internal Lights", "Gu
 defineIndicatorLight("CPG_EMERG_GUARD_L", 427, "CPG Internal Lights", "Gunner Emergency Guard Indicator (green)")
 defineIndicatorLight("CPG_EMERG_XPNDR_L", 428, "CPG Internal Lights", "Gunner Emergency Transponder Indicator (green)")
 defineIndicatorLight("CPG_EMERG_HYD_L", 429, "CPG Internal Lights", "Gunner Emergency Hydraulics Indicator (green)")
-defineIndicatorLight("CPG_TAIL_WHEEL_UNLOCK_L", 426, "CPG Internal Lights", "Gunner Tail Wheel Unlock Indicator (green)")
+defineIndicatorLight("CPG_T_WHEEL_UNLOCK_L", 426, "CPG Internal Lights", "Gunner Tail Wheel Unlock Indicator (green)")
 defineIndicatorLight("CPG_JETT_L_TIP_L", 434, "CPG Internal Lights", "Gunner Jettison Left Tip Indicator (green)")
 defineIndicatorLight("CPG_JETT_L_OUTBOARD_L", 430, "CPG Internal Lights", "Gunner Jettison Left Outboard Indicator (green)")
 defineIndicatorLight("CPG_JETT_L_INBOARD_L", 431, "CPG Internal Lights", "Gunner Jettison Left Inboard Indicator (green)")
