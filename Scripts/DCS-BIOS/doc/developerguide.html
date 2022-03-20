@@ -531,6 +531,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_integer_values">Integer Values</a></li>
 <li><a href="#_string_values">String Values</a></li>
 <li><a href="#_synchronization_sequence">Synchronization sequence</a></li>
+<li><a href="#_beginning_and_end_of_mission">Beggining and End of Mission</a></li>
 </ul>
 </li>
 <li><a href="#_an_in_depth_look_at_the_arduino_library">An In-Depth Look at the Arduino Library</a>
@@ -706,6 +707,12 @@ Instead, they are used by consumers of the data stream to find the start of a wr
 <div class="paragraph">
 <p>DCS-BIOS ensures that this byte sequence cannot appear in the normal data stream.
 In the event that the byte sequence <code>0x55 0x55 0x55 0x55</code> would appear in a single write access, DCS-BIOS will avoid that by splitting it up into two separate writes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_beginning_and_end_of_mission">Beggining and End of Mission</h3>
+<div class="paragraph">
+<p>At the beginning of every mission DCS-BIOS will publish the active aircraft module, <code>_ACFT_NAME</code>, in the MetaDataStart module, and at the end of a mission, DCS-BIOS will publish one final message with an empty string for the <code>_ACFT_NAME</code>.</p>
 </div>
 </div>
 </div>

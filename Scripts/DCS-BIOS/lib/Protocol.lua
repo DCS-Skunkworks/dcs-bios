@@ -191,3 +191,24 @@ function BIOS.protocol.step()
 	end
 	
 end
+
+function BIOS.protocol.shutdown()
+	-- Nullify the aircraft name and publish one last frame to identify end of mission.
+	metadataStartModule.data.acftName = ""
+
+	-- send frame sync sequence
+	BIOS.protocol_io.queue(string.char(0x55, 0x55, 0x55, 0x55))
+
+	-- export aircraft-independent data: MetadataStart
+	for k, v in pairs(metadataStartModule.exportHooks) do v() end
+	metadataStartModule.memoryMap:autosyncStep()
+	local data = metadataStartModule.memoryMap:flushData()
+	BIOS.protocol_io.queue(data)
+
+	-- export aircraft-independent data: MetadataEnd
+	for k, v in pairs(metadataEndModule.exportHooks) do v() end
+	metadataEndModule.memoryMap:autosyncStep()
+	local data = metadataEndModule.memoryMap:flushData()
+	BIOS.protocol_io.queue(data)
+end
+
