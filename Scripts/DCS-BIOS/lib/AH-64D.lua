@@ -273,6 +273,29 @@ defineToggleSwitch("CPG_INST_MZERO_CVR", 56, 3010, 801, "CPG Emergency Panel", "
 defineToggleSwitch("CPG_INST_MZERO_SW", 56, 3009, 802, "CPG Emergency Panel", "Gunner Master Zeroize Switch, ON/OFF")
 
 --Keyboard Unit
+local function parse_ku(indicator_id)
+	local ku = parse_indication(indicator_id)
+	if not ku then
+		return "                      " -- 22 characters
+	end
+	return coerce_nil_to_string(ku.Standby_text)
+end
+
+local txt_PLT_KU = ""
+local txt_CPG_KU = ""
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	txt_PLT_KU = parse_ku(15)
+end
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	txt_CPG_KU = parse_ku(14)
+end
+
+
+defineString("PLT_KU_DISPLAY", function() return txt_PLT_KU end, 22, "PLT Keyboard Unit", "Pilot Keyboard Unit Display")
+defineString("CPG_KU_DISPLAY", function() return txt_CPG_KU end, 22, "CPG Keyboard Unit", "Gunner Keyboard Unit Display")
+
 definePushButton("PLT_KU_A", 29, 3007, 213, "PLT Keyboard Unit", "Pilot Keyboard Unit A Key")
 definePushButton("PLT_KU_B", 29, 3008, 214, "PLT Keyboard Unit", "Pilot Keyboard Unit B Key")
 definePushButton("PLT_KU_C", 29, 3009, 215, "PLT Keyboard Unit", "Pilot Keyboard Unit C Key")
