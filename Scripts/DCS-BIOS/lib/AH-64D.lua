@@ -20,6 +20,26 @@ local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local define3PosTumb = BIOS.util.define3PosTumb
 
+--Functions
+local function parse_ku(indicator_id)
+	local ku = parse_indication(indicator_id)
+	if not ku then
+		return "                      " -- 22 characters
+	end
+	return coerce_nil_to_string(ku.Standby_text)
+end
+
+local txt_PLT_KU = ""
+local txt_CPG_KU = ""
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	txt_PLT_KU = parse_ku(15)
+end
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	txt_CPG_KU = parse_ku(14)
+end
+
 --MPD Left
 definePushButton("PLT_MPD_L_T1", 42, 3001, 20, "PLT MPD Left", "Pilot Left MPD T1 Button")
 definePushButton("PLT_MPD_L_T2", 42, 3002, 21, "PLT MPD Left", "Pilot Left MPD T2 Button")
@@ -273,28 +293,6 @@ defineToggleSwitch("CPG_INST_MZERO_CVR", 56, 3010, 801, "CPG Emergency Panel", "
 defineToggleSwitch("CPG_INST_MZERO_SW", 56, 3009, 802, "CPG Emergency Panel", "Gunner Master Zeroize Switch, ON/OFF")
 
 --Keyboard Unit
-local function parse_ku(indicator_id)
-	local ku = parse_indication(indicator_id)
-	if not ku then
-		return "                      " -- 22 characters
-	end
-	return coerce_nil_to_string(ku.Standby_text)
-end
-
-local txt_PLT_KU = ""
-local txt_CPG_KU = ""
-
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	txt_PLT_KU = parse_ku(15)
-end
-
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	txt_CPG_KU = parse_ku(14)
-end
-
-
-defineString("PLT_KU_DISPLAY", function() return txt_PLT_KU end, 22, "PLT Keyboard Unit", "Pilot Keyboard Unit Display")
-defineString("CPG_KU_DISPLAY", function() return txt_CPG_KU end, 22, "CPG Keyboard Unit", "Gunner Keyboard Unit Display")
 
 definePushButton("PLT_KU_A", 29, 3007, 213, "PLT Keyboard Unit", "Pilot Keyboard Unit A Key")
 definePushButton("PLT_KU_B", 29, 3008, 214, "PLT Keyboard Unit", "Pilot Keyboard Unit B Key")
@@ -397,7 +395,7 @@ definePushButton("CPG_KU_LEFT", 30, 3004, 210, "CPG Keyboard Unit", "Gunner Keyb
 definePushButton("CPG_KU_RIGHT", 30, 3005, 211, "CPG Keyboard Unit", "Gunner Keyboard Unit Right Key")
 definePushButton("CPG_KU_ENT", 30, 3006, 212, "CPG Keyboard Unit", "Gunner Keyboard Unit ENTER Key")
 definePotentiometer("CPG_KU_BRT", 30, 3050, 621, {0, 1}, "CPG Keyboard Unit", "Gunner Scratchpad Keyboard Brightness Knob")
-
+   
 -- Enhanced Up-Front Display
 defineSpringloaded_3_pos_tumb("PLT_EUFD_WCA", 48, 3002, 3001, 271, "PLT Up-Front Display", "Pilot Up-Front Display WCA Rocker Switch")
 defineSpringloaded_3_pos_tumb("PLT_EUFD_IDM", 48, 3004, 3003, 270, "PLT Up-Front Display", "Pilot Up-Front Display IDM Rocker Switch")
@@ -690,5 +688,8 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 defineIntegerFromGetter("EXT_ROTOR", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(40)*65535)
 end, 65535, "External Aircraft Model", "Rotor Move")
+
+defineString("PLT_KU_DISPLAY", function() return txt_PLT_KU end, 22, "PLT Keyboard Unit", "Pilot Keyboard Unit Display")
+defineString("CPG_KU_DISPLAY", function() return txt_CPG_KU end, 22, "CPG Keyboard Unit", "Gunner Keyboard Unit Display")
 
 BIOS.protocol.endModule()
