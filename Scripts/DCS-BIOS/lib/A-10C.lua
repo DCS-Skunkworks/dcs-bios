@@ -28,8 +28,6 @@ local define8BitFloat = BIOS.util.define8BitFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineRadioWheel = BIOS.util.defineRadioWheel
 
-local getDisplayLines = TextDisplay.GetDisplayLines
-
 local function define3PosTumb1(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 0.1, {0, 0.2}, nil, false, category, description)
 end
@@ -523,14 +521,12 @@ defineCMSPSwitch("CMSP_RWR", 4, 3014, 3015, 362, "CMSP", "Radar Warning Receiver
 defineCMSPSwitch("CMSP_DISP", 4, 3016, 3017, 363, "CMSP", "Countermeasure Dispenser OFF - ON - (MENU)")
 defineTumb("CMSP_MODE", 4, 3018, 364, 0.1, {0, 0.4}, nil, false, "CMSP", "CMSP Mode Select")
 
-
 definePushButton("CMSC_JMR", 5, 3001, 365, "CMSC", "Select Jammer Program")
 definePushButton("CMSC_MWS", 5, 3002, 366, "CMSC", "Select MWS Programs (No Function)")
 definePushButton("CMSC_PRI", 5, 3003, 369, "CMSC", "Toggle between 5 and 16 Priority Threats Displayed")
 definePushButton("CMSC_SEP", 5, 3004, 370, "CMSC", "Separate RWR Symbols")
 definePotentiometer("CMSC_BRT", 5, 3006, 367, {0.15, 0.85}, "CMSC", "Adjust Display Brightness")
 definePotentiometer("CMSC_RWR_VOL", 5, 3007, 368, nil, "CMSC", "Adjust RWR Volume")
-
 
 defineTumb("AHCP_MASTER_ARM", 7, 3001, 375, 0.1, {0, 0.2}, nil, false, "AHCP", "Master Arm TRAIN - SAFE - ARM")
 defineTumb("AHCP_GUNPAC", 7, 3002, 376, 0.1, {0, 0.2}, nil, false, "AHCP", "GUN/PAC GUNARM - SAFE - ARM")
@@ -542,7 +538,6 @@ defineToggleSwitch("AHCP_HUD_MODE", 7, 3007, 381, "AHCP", "Hud Mode STBY - NORM"
 defineToggleSwitch("AHCP_CICU", 7, 3008, 382, "AHCP", "CICU OFF - ON")
 defineToggleSwitch("AHCP_JTRS", 7, 3009, 383, "AHCP", "JTRS OFF - ON")
 defineTumb("AHCP_IFFCC", 7, 3010, 384, 0.1, {0, 0.2}, nil, false, "AHCP", "IFFCC OFF - TEST - ON")
-
 
 definePushButton("UFC_1", 8, 3001, 385, "UFC", "1")
 definePushButton("UFC_2", 8, 3002, 386, "UFC", "2")
@@ -753,7 +748,6 @@ defineTumb("EFCP_ELEVATOR_EMER_DISENGAGE", 38, 3022, 180, 1, {-1, 1}, nil, false
 defineToggleSwitch("EFCP_FLAPS_EMER_RETR", 38, 3023, 183, "Emergency Flight Control Panel", "Flaps Emergency Retract")
 defineToggleSwitch("EFCP_MRFCS", 38, 3024, 184, "Emergency Flight Control Panel", "Manual Reversion Flight Control System MAN REVERSION - NORM")
 
-
 defineToggleSwitch("EPP_APU_GEN_PWR", 1, 3001, 241, "Electrical Power Panel", "APU GEN PWR")
 defineTumb("EPP_INVERTER", 1, 3002, 242, 1, {-1, 1}, nil, false, "Electrical Power Panel", "Inverter TEST - OFF - STBY")
 defineToggleSwitch("EPP_AC_GEN_PWR_L", 1, 3004, 244, "Electrical Power Panel", "AC GEN PWR Left")
@@ -765,7 +759,6 @@ defineToggleSwitch("GEAR_LEVER", 39, 3001, 716, "Landing Gear and Flap Control P
 definePushButton("DOWNLOCK_OVERRIDE", 39, 3003, 651, "Landing Gear and Flap Control Panel", "Downlock Override Button")
 defineTumb("FLAPS_SWITCH", 39, 3002, 773, 0.5, {0, 1}, nil, false, "Throttle", "Flaps Setting DN - MVR - UP")
 defineElectricallyHeldSwitch("ANTI_SKID_SWITCH", 38, 3028, 3029, 654, "Landing Gear and Flap Control Panel", "Anti-Skid Switch")
-
 
 definePushButton("NMSP_HARS_BTN", 46, 3001, 605, "NMSP", "HARS Button")
 defineIndicatorLight("NMSP_HARS_LED", 606, "NMSP", "HARS Button LED (green)")
@@ -782,7 +775,6 @@ defineIndicatorLight("NMSP_TCN_LED", 616, "NMSP", "TCN Button LED (green)")
 definePushButton("NMSP_ILS_BTN", 46, 3007, 617, "NMSP", "ILS Button")
 defineIndicatorLight("NMSP_ILS_LED", 618, "NMSP", "ILS Button LED (green)")
 defineToggleSwitch("NMSP_ABLE_STOW", 46, 3008, 621, "NMSP", "Able/Stow Localizer Bars")
-
 
 defineTumb("TISL_MODE", 57, 3001, 622, 0.1, {0, 0.4}, nil, false, "TISL Panel", "TISL Mode")
 defineTumb("TISL_SLANT_RANGE", 57, 3002, 623, 1, {-1, 1}, nil, false, "TISL Panel", "Slant Range UNDER 5 - 5 - 10")
@@ -823,7 +815,6 @@ definePushButton("IFF_REPLY_TEST", 43, 3017, 795, "IFF", "REPLY Push to Test")
 definePotentiometer("IFF_REPLY_DIM", 43, 3020, 900, {0, 1}, "IFF", "IFF Reply Dim")
 definePushButton("IFF_TEST_TEST", 43, 3018, 796, "IFF", "TEST Push to Test")
 definePotentiometer("IFF_TEST_DIM", 43, 3021, 901, {0, 1}, "IFF", "TEST Reply Dim")
-
 
 defineTumb("OXY_EMERGENCY", 40, 3003, 601, 1, {-1, 1}, nil, false, "Oxygen Regulator Panel", "Oxygen Flow: Emergency / Normal / Test")
 defineToggleSwitch("OXY_DILUTER", 40, 3002, 602, "Oxygen Regulator Panel", "Oxygen Normal/100%")
@@ -899,7 +890,6 @@ end
 defineRotary("ALT_SET_PRESSURE", 35, 3001, 62, "Altimeter", "Set Pressure")
 defineRockerSwitch("ALT_ELECT_PNEU", 62, 3002, 3002, 3001, 3001, 60, "Altimeter", "ELECT / PNEU")
 
-
 defineTumb("LCP_POSITION", 49, 3008, 287, 1, {-1, 1}, nil, false, "Light System Control Panel", "Position Lights FLASH/OFF/STEADY")
 -- skip 3 bits in the memory map to preserve backwards compatibility:
 local dummyAlloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 7 }
@@ -922,7 +912,6 @@ define3PosTumb1("ALCP_NVIS_LTS", 49, 3017, 194, "Auxiliary Light Control Panel",
 definePotentiometer("ALCP_RCVR_LTS", 49, 3018, 116, {0, 1}, "Auxiliary Light Control Panel", "Refueling Lighting Dial")
 defineToggleSwitch("ALCP_HARSSAS", 38, 3031, 196, "Auxiliary Light Control Panel", "HARS-SAS Override/Norm")
 definePushButton("ALCP_FDBA_TEST", 24, 3004, 198, "Auxiliary Light Control Panel", "Fire Detect Bleed Air Test")
-
 
 defineToggleSwitch("FIRE_LENG_PULL", 50, 3001, 102, "Glare Shield", "Left Engine Fire T-Handle")
 defineToggleSwitch("FIRE_APU_PULL", 50, 3002, 103, "Glare Shield", "APU Fire T-Handle")
@@ -962,10 +951,8 @@ end
 
 defineTumb("TACAN_MODE", 74, 3006, 262, 0.1, {0, 0.4}, nil, false, "TACAN Panel", "TACAN Mode Dial")
 
-
 definePotentiometer("STALL_VOL", 52, 3001, 704, nil, "Stall System Volume Controls", "Stall Volume")
 definePotentiometer("STALL_PEAK_VOL", 52, 3002, 705, nil, "Stall System Volume Controls", "Peak Volume")
-
 
 defineToggleSwitch("ILS_PWR", 53, 3001, 247, "ILS Panel", "ILS Power")
 defineSetCommandTumb("ILS_MHZ", 53, 3002, 248, 0.1, {0, 0.3}, {"108", "109", "110", "111"}, false, "ILS Panel", "ILS Frequency MHz")
@@ -1072,7 +1059,6 @@ definePotentiometer("HARS_LATITUDE", 44, 3005, 271, {0, 1}, "HARS", "HARS Latitu
 definePotentiometer("HARS_HDG", 44, 3007, 268, {0, 1}, "HARS", "HARS Heading")
 definePushButton("HARS_PTS", 44, 3006, 267, "HARS", "HARS Push-to-Sync")
 
-
 defineToggleSwitch("KY58_ZEROIZE_COVER", 69, 3001, 778, "Secure Voice Comms Panel", "Zeroize Switch Cover")
 defineToggleSwitch("KY58_ZEROIZE", 69, 3002, 779, "Secure Voice Comms Panel", "Zeroize Switch")
 defineToggleSwitch("KY58_DELAY", 69, 3003, 780, "Secure Voice Comms Panel", "Delay Switch")
@@ -1080,7 +1066,6 @@ defineMultipositionSwitch("KY58_PLAIN", 69, 3004, 781, 3, 0.1, "Secure Voice Com
 defineMultipositionSwitch("KY58_1TO5", 69, 3005, 782, 6, 0.1, "Secure Voice Comms Panel", "Full Switch")
 defineMultipositionSwitch("KY58_MODE", 69, 3006, 783, 3, 0.1, "Secure Voice Comms Panel", "Mode Switch")
 defineToggleSwitch("KY58_PWR", 69, 3007, 784, "Secure Voice Comms Panel", "Power Switch")
-
 
 defineToggleSwitch("AUX_GEAR", 39, 3008, 718, "Misc", "Auxiliary Landing Gear Handle")
 defineToggleSwitch("AUX_GEAR_LOCK", 39, 3009, 722, "Misc", "Auxiliary Landing Gear Handle Lock Button")
@@ -1109,7 +1094,7 @@ defineToggleSwitch("ANT_EGIHQTOD", 54, 3017, 708, "Antenna Panel", "EGI HQ TOD S
 definePotentiometer("RWR_BRT", 29, 3001, 16, {0.15, 0.85}, "RWR", "Display Brightness")
 
 local JSON = loadfile([[Scripts\JSON.lua]])()
-local cdu_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CDU.json]], "r")
+local cdu_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\A-10C_CDU.json]], "r")
 local cdu_indicator_data = JSON:decode(cdu_indicator_data_file:read("*a"))
 cdu_indicator_data_file:close()
 cdu_indicator_data_file = nil
@@ -1143,55 +1128,111 @@ cdu_indicator_data["PAGE_NUM"] = {
 	}
 }
 
+local symbols = {
+ BRANCH_L	= string.char(26),
+BRANCH_R	= string.char(27),
+ROTARY		= string.char(18),
+DATA_ENTRY	= string.char(20),
+SYS_ACTION	= "©",
+DEGREE		= "°",
+FILLED 		= "ю",
+INC_DEC		= "я"
+}
+local function replace_symbols(s)
+	s = s:gsub(symbols.BRANCH_L, string.char(0xBB))
+	s = s:gsub(symbols.BRANCH_R, string.char(0xAB))
+	s = s:gsub(symbols.ROTARY, string.char(0xAE))
+	s = s:gsub(symbols.DATA_ENTRY, string.char(0xA1))
+	s = s:gsub(symbols.SYS_ACTION, string.char(0xA9))
+	s = s:gsub(symbols.DEGREE, string.char(0xB0))
+	s = s:gsub(symbols.FILLED, string.char(0xB6))
+	s = s:gsub(symbols.INC_DEC, string.char(0xB1))
+	return s
+end
 local cdu_lines = {}
 BIOS.dbg_cdu_lines = cdu_lines
-
-local replaceMap = {
-    [string.char(26)] = string.char(0xBB),
-    [string.char(27)] = string.char(0xAB),
-    [string.char(18)] = string.char(0xAE),
-    [string.char(20)] = string.char(0xA1),
-    ["©"] = string.char(0xA9),
-    ["°"] = string.char(0xB0),
-    ["ю"] = string.char(0xB6),
-    ["я"] = string.char(0xB1),
-}
-
-local function getPageName()
-	return list_cockpit_params():match('CDU_PAGE:"([0-9A-Za-z_]+)"'):sub(5)
-end
-
-local CDU_LINE_LEN = 24
-
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local cdu = parse_indication(3)
-
-	if cdu then
-		local cursor_pos = 2
-		if cdu.ScratchString then cursor_pos = cdu.ScratchString:len()+2 end
-		--cdu.Cursor = "X"
-		cdu_indicator_data["Cursor"] = {
-			[1] = {
-				alignment = "LFT",
-				x = cursor_pos,
-				y = 10
-			}
-		}
+	local empty_line = "                        " -- 24 spaces
+	cdu_lines[1] = empty_line
+	cdu_lines[2] = empty_line
+	cdu_lines[3] = empty_line
+	cdu_lines[4] = empty_line
+	cdu_lines[5] = empty_line
+	cdu_lines[6] = empty_line
+	cdu_lines[7] = empty_line
+	cdu_lines[8] = empty_line
+	cdu_lines[9] = empty_line
+	cdu_lines[10] = empty_line
+	if not cdu then
+		return
 	end
-
-	cdu_lines = getDisplayLines(cdu, CDU_LINE_LEN, 10, cdu_indicator_data, getPageName, replaceMap)
+	
+	local cdu_page = list_cockpit_params():match('CDU_PAGE:"([0-9A-Za-z_]+)"')
+	local cursor_pos = 2
+	if cdu.ScratchString then cursor_pos = cdu.ScratchString:len()+2 end
+	--cdu.Cursor = "X"
+	cdu_indicator_data["Cursor"] = {
+		[1] = {
+			alignment = "LFT",
+			x = cursor_pos,
+			y = 10
+		}
+	}
+	
+	for k, v in pairs(cdu) do
+		local candidates = cdu_indicator_data[k]
+		if candidates then
+			v = replace_symbols(v) -- make sure that 1 char == 1 byte
+			local render_instructions = nil
+			if #candidates == 1 then
+				render_instructions = candidates[1]
+			else
+				for _, ri in pairs(candidates) do
+					for _, page in pairs(ri.cdu_pages) do
+						if cdu_page == "CDU_"..page then
+							render_instructions = ri
+							break
+						end
+					end
+				end
+			end
+			if render_instructions then
+				local i
+				local ri = render_instructions
+				local old_line = cdu_lines[ri.y]
+				local replacements = {}
+				if ri.alignment == "LFT" then
+					for i = 1, v:len(), 1 do
+						local c = v:sub(i,i)
+						if c ~= " " then replacements[ri.x + i - 1] = c end
+					end
+				elseif ri.alignment == "RGHT" then
+					for i = 1, v:len(), 1 do
+						local c = v:sub(i,i)
+						if c ~= " " then replacements[ri.x - (v:len() - i)] = c end
+					end
+				end
+				local new_line = ""
+				for i = 1, 24, 1 do
+					new_line = new_line .. (replacements[i] or old_line:sub(i,i))
+				end
+				cdu_lines[ri.y] = new_line
+			end
+		end
+	end
 end
 
-defineString("CDU_LINE0", function() return cdu_lines[1] end, CDU_LINE_LEN, "CDU Display", "CDU Line 1")
-defineString("CDU_LINE1", function() return cdu_lines[2] end, CDU_LINE_LEN, "CDU Display", "CDU Line 2")
-defineString("CDU_LINE2", function() return cdu_lines[3] end, CDU_LINE_LEN, "CDU Display", "CDU Line 3")
-defineString("CDU_LINE3", function() return cdu_lines[4] end, CDU_LINE_LEN, "CDU Display", "CDU Line 4")
-defineString("CDU_LINE4", function() return cdu_lines[5] end, CDU_LINE_LEN, "CDU Display", "CDU Line 5")
-defineString("CDU_LINE5", function() return cdu_lines[6] end, CDU_LINE_LEN, "CDU Display", "CDU Line 6")
-defineString("CDU_LINE6", function() return cdu_lines[7] end, CDU_LINE_LEN, "CDU Display", "CDU Line 7")
-defineString("CDU_LINE7", function() return cdu_lines[8] end, CDU_LINE_LEN, "CDU Display", "CDU Line 8")
-defineString("CDU_LINE8", function() return cdu_lines[9] end, CDU_LINE_LEN, "CDU Display", "CDU Line 9")
-defineString("CDU_LINE9", function() return cdu_lines[10] end, CDU_LINE_LEN, "CDU Display", "CDU Line 10")
+defineString("CDU_LINE0", function() return cdu_lines[1] end, 24, "CDU Display", "CDU Line 1")
+defineString("CDU_LINE1", function() return cdu_lines[2] end, 24, "CDU Display", "CDU Line 2")
+defineString("CDU_LINE2", function() return cdu_lines[3] end, 24, "CDU Display", "CDU Line 3")
+defineString("CDU_LINE3", function() return cdu_lines[4] end, 24, "CDU Display", "CDU Line 4")
+defineString("CDU_LINE4", function() return cdu_lines[5] end, 24, "CDU Display", "CDU Line 5")
+defineString("CDU_LINE5", function() return cdu_lines[6] end, 24, "CDU Display", "CDU Line 6")
+defineString("CDU_LINE6", function() return cdu_lines[7] end, 24, "CDU Display", "CDU Line 7")
+defineString("CDU_LINE7", function() return cdu_lines[8] end, 24, "CDU Display", "CDU Line 8")
+defineString("CDU_LINE8", function() return cdu_lines[9] end, 24, "CDU Display", "CDU Line 9")
+defineString("CDU_LINE9", function() return cdu_lines[10] end, 24, "CDU Display", "CDU Line 10")
 
 local function getCmscMws()
 	if not cmscData then return "        " end
