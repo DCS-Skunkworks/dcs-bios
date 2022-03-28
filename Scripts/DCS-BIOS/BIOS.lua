@@ -24,6 +24,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Protocol.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataEnd.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataStart.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CommonData.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\TextDisplay.lua]])
 ----------------------------------------------------------------------------Modules Start------------------------------------
 -- Following text : Example (case sensitive!) : -- ID = x, ProperName = <pretty name>
 -- is used by DCSFlightpanels GUI to pick up DCS-BIOS modules
