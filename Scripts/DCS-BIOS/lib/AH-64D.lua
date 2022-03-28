@@ -20,6 +20,8 @@ local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local define3PosTumb = BIOS.util.define3PosTumb
 
+local getDisplayLines = TextDisplay.GetDisplayLines
+
 --Functions
 local function parse_ku(indicator_id)
 	local ku = parse_indication(indicator_id)
@@ -397,6 +399,61 @@ definePushButton("CPG_KU_ENT", 30, 3006, 212, "CPG Keyboard Unit", "Gunner Keybo
 definePotentiometer("CPG_KU_BRT", 30, 3050, 621, {0, 1}, "CPG Keyboard Unit", "Gunner Scratchpad Keyboard Brightness Knob")
    
 -- Enhanced Up-Front Display
+local JSON = loadfile([[Scripts\JSON.lua]])()
+local eufd_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\lib\EUFD.json]], "r")
+local eufd_indicator_data = JSON:decode(eufd_indicator_data_file:read("*a"))
+eufd_indicator_data_file:close()
+eufd_indicator_data_file = nil
+
+local LINE_LEN = 56
+
+local function parse_eufd(indicator_id)
+	local dcs_eufd = parse_indication(indicator_id)
+	-- todo: return different page based on the actual page
+	return getDisplayLines(dcs_eufd, LINE_LEN, 14, eufd_indicator_data, function() return "MAIN" end)
+end
+
+local plt_EUFD = {}
+local cpg_EUFD = {}
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	plt_EUFD = parse_eufd(17)
+end
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	cpg_EUFD = parse_eufd(18)
+end
+
+defineString("PLT_EUFD_LINE1", function() return plt_EUFD[1] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 1")
+defineString("PLT_EUFD_LINE2", function() return plt_EUFD[2] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 2")
+defineString("PLT_EUFD_LINE3", function() return plt_EUFD[3] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 3")
+defineString("PLT_EUFD_LINE4", function() return plt_EUFD[4] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 4")
+defineString("PLT_EUFD_LINE5", function() return plt_EUFD[5] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 5")
+defineString("PLT_EUFD_LINE6", function() return plt_EUFD[6] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 6")
+defineString("PLT_EUFD_LINE7", function() return plt_EUFD[7] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 7")
+defineString("PLT_EUFD_LINE8", function() return plt_EUFD[8] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 8")
+defineString("PLT_EUFD_LINE9", function() return plt_EUFD[9] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 9")
+defineString("PLT_EUFD_LINE10", function() return plt_EUFD[10] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 10")
+defineString("PLT_EUFD_LINE11", function() return plt_EUFD[11] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 11")
+defineString("PLT_EUFD_LINE12", function() return plt_EUFD[12] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 12")
+defineString("PLT_EUFD_LINE13", function() return plt_EUFD[13] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 13")
+defineString("PLT_EUFD_LINE14", function() return plt_EUFD[14] end, LINE_LEN, "PLT Up-Front Display", "Pilot Up-Front Display Line 14")
+
+defineString("CPG_EUFD_LINE1", function() return cpg_EUFD[1] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 1")
+defineString("CPG_EUFD_LINE2", function() return cpg_EUFD[2] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 2")
+defineString("CPG_EUFD_LINE3", function() return cpg_EUFD[3] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 3")
+defineString("CPG_EUFD_LINE4", function() return cpg_EUFD[4] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 4")
+defineString("CPG_EUFD_LINE5", function() return cpg_EUFD[5] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 5")
+defineString("CPG_EUFD_LINE6", function() return cpg_EUFD[6] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 6")
+defineString("CPG_EUFD_LINE7", function() return cpg_EUFD[7] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 7")
+defineString("CPG_EUFD_LINE8", function() return cpg_EUFD[8] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 8")
+defineString("CPG_EUFD_LINE9", function() return cpg_EUFD[9] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 9")
+defineString("CPG_EUFD_LINE10", function() return cpg_EUFD[10] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 10")
+defineString("CPG_EUFD_LINE11", function() return cpg_EUFD[11] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 11")
+defineString("CPG_EUFD_LINE12", function() return cpg_EUFD[12] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 12")
+defineString("CPG_EUFD_LINE13", function() return cpg_EUFD[13] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 13")
+defineString("CPG_EUFD_LINE14", function() return cpg_EUFD[14] end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 14")
+
 defineSpringloaded_3_pos_tumb("PLT_EUFD_WCA", 48, 3002, 3001, 271, "PLT Up-Front Display", "Pilot Up-Front Display WCA Rocker Switch")
 defineSpringloaded_3_pos_tumb("PLT_EUFD_IDM", 48, 3004, 3003, 270, "PLT Up-Front Display", "Pilot Up-Front Display IDM Rocker Switch")
 defineSpringloaded_3_pos_tumb("PLT_EUFD_RTS", 48, 3006, 3005, 272, "PLT Up-Front Display", "Pilot Up-Front Display RTS Rocker Switch")
