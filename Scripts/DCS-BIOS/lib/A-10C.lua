@@ -28,6 +28,8 @@ local define8BitFloat = BIOS.util.define8BitFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineRadioWheel = BIOS.util.defineRadioWheel
 
+local getDisplayLines = TextDisplay.GetDisplayLines
+
 local function define3PosTumb1(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 0.1, {0, 0.2}, nil, false, category, description)
 end
@@ -1141,111 +1143,55 @@ cdu_indicator_data["PAGE_NUM"] = {
 	}
 }
 
-local symbols = {
- BRANCH_L	= string.char(26),
-BRANCH_R	= string.char(27),
-ROTARY		= string.char(18),
-DATA_ENTRY	= string.char(20),
-SYS_ACTION	= "©",
-DEGREE		= "°",
-FILLED 		= "ю",
-INC_DEC		= "я"
-}
-local function replace_symbols(s)
-	s = s:gsub(symbols.BRANCH_L, string.char(0xBB))
-	s = s:gsub(symbols.BRANCH_R, string.char(0xAB))
-	s = s:gsub(symbols.ROTARY, string.char(0xAE))
-	s = s:gsub(symbols.DATA_ENTRY, string.char(0xA1))
-	s = s:gsub(symbols.SYS_ACTION, string.char(0xA9))
-	s = s:gsub(symbols.DEGREE, string.char(0xB0))
-	s = s:gsub(symbols.FILLED, string.char(0xB6))
-	s = s:gsub(symbols.INC_DEC, string.char(0xB1))
-	return s
-end
 local cdu_lines = {}
 BIOS.dbg_cdu_lines = cdu_lines
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	local cdu = parse_indication(3)
-	local empty_line = "                        " -- 24 spaces
-	cdu_lines[1] = empty_line
-	cdu_lines[2] = empty_line
-	cdu_lines[3] = empty_line
-	cdu_lines[4] = empty_line
-	cdu_lines[5] = empty_line
-	cdu_lines[6] = empty_line
-	cdu_lines[7] = empty_line
-	cdu_lines[8] = empty_line
-	cdu_lines[9] = empty_line
-	cdu_lines[10] = empty_line
-	if not cdu then
-		return
-	end
-	
-	local cdu_page = list_cockpit_params():match('CDU_PAGE:"([0-9A-Za-z_]+)"')
-	local cursor_pos = 2
-	if cdu.ScratchString then cursor_pos = cdu.ScratchString:len()+2 end
-	--cdu.Cursor = "X"
-	cdu_indicator_data["Cursor"] = {
-		[1] = {
-			alignment = "LFT",
-			x = cursor_pos,
-			y = 10
-		}
-	}
-	
-	for k, v in pairs(cdu) do
-		local candidates = cdu_indicator_data[k]
-		if candidates then
-			v = replace_symbols(v) -- make sure that 1 char == 1 byte
-			local render_instructions = nil
-			if #candidates == 1 then
-				render_instructions = candidates[1]
-			else
-				for _, ri in pairs(candidates) do
-					for _, page in pairs(ri.cdu_pages) do
-						if cdu_page == "CDU_"..page then
-							render_instructions = ri
-							break
-						end
-					end
-				end
-			end
-			if render_instructions then
-				local i
-				local ri = render_instructions
-				local old_line = cdu_lines[ri.y]
-				local replacements = {}
-				if ri.alignment == "LFT" then
-					for i = 1, v:len(), 1 do
-						local c = v:sub(i,i)
-						if c ~= " " then replacements[ri.x + i - 1] = c end
-					end
-				elseif ri.alignment == "RGHT" then
-					for i = 1, v:len(), 1 do
-						local c = v:sub(i,i)
-						if c ~= " " then replacements[ri.x - (v:len() - i)] = c end
-					end
-				end
-				local new_line = ""
-				for i = 1, 24, 1 do
-					new_line = new_line .. (replacements[i] or old_line:sub(i,i))
-				end
-				cdu_lines[ri.y] = new_line
-			end
-		end
-	end
+
+local replaceMap = {
+    [string.char(26)] = string.char(0xBB),
+    [string.char(27)] = string.char(0xAB),
+    [string.char(18)] = string.char(0xAE),
+    [string.char(20)] = string.char(0xA1),
+    ["©"] = string.char(0xA9),
+    ["°"] = string.char(0xB0),
+    ["ю"] = string.char(0xB6),
+    ["я"] = string.char(0xB1),
+}
+
+local function getPageName()
+	return list_cockpit_params():match('CDU_PAGE:"([0-9A-Za-z_]+)"'):sub(5)
 end
 
-defineString("CDU_LINE0", function() return cdu_lines[1] end, 24, "CDU Display", "CDU Line 1")
-defineString("CDU_LINE1", function() return cdu_lines[2] end, 24, "CDU Display", "CDU Line 2")
-defineString("CDU_LINE2", function() return cdu_lines[3] end, 24, "CDU Display", "CDU Line 3")
-defineString("CDU_LINE3", function() return cdu_lines[4] end, 24, "CDU Display", "CDU Line 4")
-defineString("CDU_LINE4", function() return cdu_lines[5] end, 24, "CDU Display", "CDU Line 5")
-defineString("CDU_LINE5", function() return cdu_lines[6] end, 24, "CDU Display", "CDU Line 6")
-defineString("CDU_LINE6", function() return cdu_lines[7] end, 24, "CDU Display", "CDU Line 7")
-defineString("CDU_LINE7", function() return cdu_lines[8] end, 24, "CDU Display", "CDU Line 8")
-defineString("CDU_LINE8", function() return cdu_lines[9] end, 24, "CDU Display", "CDU Line 9")
-defineString("CDU_LINE9", function() return cdu_lines[10] end, 24, "CDU Display", "CDU Line 10")
+local CDU_LINE_LEN = 24
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local cdu = parse_indication(3)
+
+	if cdu then
+		local cursor_pos = 2
+		if cdu.ScratchString then cursor_pos = cdu.ScratchString:len()+2 end
+		--cdu.Cursor = "X"
+		cdu_indicator_data["Cursor"] = {
+			[1] = {
+				alignment = "LFT",
+				x = cursor_pos,
+				y = 10
+			}
+		}
+	end
+
+	cdu_lines = getDisplayLines(cdu, CDU_LINE_LEN, 10, cdu_indicator_data, getPageName, replaceMap)
+end
+
+defineString("CDU_LINE0", function() return cdu_lines[1] end, CDU_LINE_LEN, "CDU Display", "CDU Line 1")
+defineString("CDU_LINE1", function() return cdu_lines[2] end, CDU_LINE_LEN, "CDU Display", "CDU Line 2")
+defineString("CDU_LINE2", function() return cdu_lines[3] end, CDU_LINE_LEN, "CDU Display", "CDU Line 3")
+defineString("CDU_LINE3", function() return cdu_lines[4] end, CDU_LINE_LEN, "CDU Display", "CDU Line 4")
+defineString("CDU_LINE4", function() return cdu_lines[5] end, CDU_LINE_LEN, "CDU Display", "CDU Line 5")
+defineString("CDU_LINE5", function() return cdu_lines[6] end, CDU_LINE_LEN, "CDU Display", "CDU Line 6")
+defineString("CDU_LINE6", function() return cdu_lines[7] end, CDU_LINE_LEN, "CDU Display", "CDU Line 7")
+defineString("CDU_LINE7", function() return cdu_lines[8] end, CDU_LINE_LEN, "CDU Display", "CDU Line 8")
+defineString("CDU_LINE8", function() return cdu_lines[9] end, CDU_LINE_LEN, "CDU Display", "CDU Line 9")
+defineString("CDU_LINE9", function() return cdu_lines[10] end, CDU_LINE_LEN, "CDU Display", "CDU Line 10")
 
 local function getCmscMws()
 	if not cmscData then return "        " end
