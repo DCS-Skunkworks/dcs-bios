@@ -1,0 +1,632 @@
+{
+     "Gauges": {
+                      "CLOCK_H": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Clock Hour",
+                                       "identifier": "CLOCK_H",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1292,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                      "CLOCK_M": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Clock Minutes",
+                                       "identifier": "CLOCK_M",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1294,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                      "CLOCK_S": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Clock Seconds",
+                                       "identifier": "CLOCK_S",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1296,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                         "FAN1": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Fan 1 Spin",
+                                       "identifier": "FAN1",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1284,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                         "FAN2": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Fan 2 Spin",
+                                       "identifier": "FAN2",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1286,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                         "FAN3": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Fan 3 Spin",
+                                       "identifier": "FAN3",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1288,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                         "FAN4": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Fan 4 Spin",
+                                       "identifier": "FAN4",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1290,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                   "INSTRUCTOR": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Instructor",
+                                       "identifier": "INSTRUCTOR",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1300,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                   "LIGHTS_INT": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Lights Intensity",
+                                       "identifier": "LIGHTS_INT",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1298,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_01": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 01",
+                                       "identifier": "PILOT_01",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1302,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_02": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 02",
+                                       "identifier": "PILOT_02",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1304,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_03": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 03",
+                                       "identifier": "PILOT_03",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1306,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_04": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 04",
+                                       "identifier": "PILOT_04",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1308,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_05": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 05",
+                                       "identifier": "PILOT_05",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1310,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_06": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 06",
+                                       "identifier": "PILOT_06",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1312,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_07": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 07",
+                                       "identifier": "PILOT_07",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1314,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_08": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 08",
+                                       "identifier": "PILOT_08",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1316,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_09": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 09",
+                                       "identifier": "PILOT_09",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1318,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_10": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 10",
+                                       "identifier": "PILOT_10",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1320,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_11": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 11",
+                                       "identifier": "PILOT_11",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1322,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_12": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 12",
+                                       "identifier": "PILOT_12",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1324,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_13": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 13",
+                                       "identifier": "PILOT_13",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1326,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_14": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 14",
+                                       "identifier": "PILOT_14",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1328,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_15": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 15",
+                                       "identifier": "PILOT_15",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1330,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_16": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 16",
+                                       "identifier": "PILOT_16",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1332,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_17": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 17",
+                                       "identifier": "PILOT_17",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1334,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_18": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 18",
+                                       "identifier": "PILOT_18",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1336,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_19": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 19",
+                                       "identifier": "PILOT_19",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1338,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_20": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 20",
+                                       "identifier": "PILOT_20",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1340,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_21": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 21",
+                                       "identifier": "PILOT_21",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1342,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_22": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 22",
+                                       "identifier": "PILOT_22",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1344,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                     "PILOT_23": {
+                                         "category": "Gauges",
+                                     "control_type": "analog_gauge",
+                                      "description": "Pilot 23",
+                                       "identifier": "PILOT_23",
+                                           "inputs": [  ],
+                                          "outputs": [ {
+                                                             "address": 1346,
+                                                         "description": "gauge position",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 }
+               },
+    "Systems": {
+                       "LIGHTS": {
+                                                "category": "Systems",
+                                            "control_type": "selector",
+                                             "description": "Light Switch",
+                                              "identifier": "LIGHTS",
+                                                  "inputs": [ {
+                                                                "description": "switch to previous or next state",
+                                                                  "interface": "fixed_step"
+                                                            }, {
+                                                                "description": "set position",
+                                                                  "interface": "set_state",
+                                                                  "max_value": 1
+                                                            }, {
+                                                                   "argument": "TOGGLE",
+                                                                "description": "Toggle switch state",
+                                                                  "interface": "action"
+                                                            } ],
+                                     "momentary_positions": "none",
+                                                 "outputs": [ {
+                                                                    "address": 1280,
+                                                                "description": "selector position",
+                                                                       "mask": 4,
+                                                                  "max_value": 1,
+                                                                   "shift_by": 2,
+                                                                     "suffix": "",
+                                                                       "type": "integer"
+                                                            } ],
+                                        "physical_variant": "toggle_switch"
+                                 },
+                    "LIGHT_DIM": {
+                                         "category": "Systems",
+                                     "control_type": "limited_dial",
+                                      "description": "Light Dimming",
+                                       "identifier": "LIGHT_DIM",
+                                           "inputs": [ {
+                                                         "description": "set the position of the dial",
+                                                           "interface": "set_state",
+                                                           "max_value": 65535
+                                                     }, {
+                                                            "description": "turn the dial left or right",
+                                                              "interface": "variable_step",
+                                                              "max_value": 65535,
+                                                         "suggested_step": 3200
+                                                     } ],
+                                          "outputs": [ {
+                                                             "address": 1282,
+                                                         "description": "position of the potentiometer",
+                                                                "mask": 65535,
+                                                           "max_value": 65535,
+                                                            "shift_by": 0,
+                                                              "suffix": "",
+                                                                "type": "integer"
+                                                     } ]
+                                 },
+                   "SLIDE_NEXT": {
+                                             "api_variant": "momentary_last_position",
+                                                "category": "Systems",
+                                            "control_type": "selector",
+                                             "description": "Next Slide",
+                                              "identifier": "SLIDE_NEXT",
+                                                  "inputs": [ {
+                                                                "description": "switch to previous or next state",
+                                                                  "interface": "fixed_step"
+                                                            }, {
+                                                                "description": "set position",
+                                                                  "interface": "set_state",
+                                                                  "max_value": 1
+                                                            }, {
+                                                                   "argument": "TOGGLE",
+                                                                "description": "Toggle switch state",
+                                                                  "interface": "action"
+                                                            } ],
+                                     "momentary_positions": "none",
+                                                 "outputs": [ {
+                                                                    "address": 1280,
+                                                                "description": "selector position",
+                                                                       "mask": 2,
+                                                                  "max_value": 1,
+                                                                   "shift_by": 1,
+                                                                     "suffix": "",
+                                                                       "type": "integer"
+                                                            } ],
+                                        "physical_variant": "push_button"
+                                 },
+                   "SLIDE_PREV": {
+                                             "api_variant": "momentary_last_position",
+                                                "category": "Systems",
+                                            "control_type": "selector",
+                                             "description": "Previous Slide",
+                                              "identifier": "SLIDE_PREV",
+                                                  "inputs": [ {
+                                                                "description": "switch to previous or next state",
+                                                                  "interface": "fixed_step"
+                                                            }, {
+                                                                "description": "set position",
+                                                                  "interface": "set_state",
+                                                                  "max_value": 1
+                                                            }, {
+                                                                   "argument": "TOGGLE",
+                                                                "description": "Toggle switch state",
+                                                                  "interface": "action"
+                                                            } ],
+                                     "momentary_positions": "none",
+                                                 "outputs": [ {
+                                                                    "address": 1280,
+                                                                "description": "selector position",
+                                                                       "mask": 1,
+                                                                  "max_value": 1,
+                                                                   "shift_by": 0,
+                                                                     "suffix": "",
+                                                                       "type": "integer"
+                                                            } ],
+                                        "physical_variant": "push_button"
+                                 }
+               }
+}

@@ -1,0 +1,857 @@
+{
+                   "Avionics": {
+                                       "ADI_ADJ_KNB": {
+                                                              "category": "Avionics",
+                                                          "control_type": "limited_dial",
+                                                           "description": "ADI Adjustment Knob",
+                                                            "identifier": "ADI_ADJ_KNB",
+                                                                "inputs": [ {
+                                                                              "description": "set the position of the dial",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 65535
+                                                                          }, {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 25094,
+                                                                              "description": "position of the potentiometer",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                   "ALT_HI_FLAG_KNB": {
+                                                              "category": "Avionics",
+                                                          "control_type": "limited_dial",
+                                                           "description": "Altimeter HI Flag Setting Knob",
+                                                            "identifier": "ALT_HI_FLAG_KNB",
+                                                                "inputs": [ {
+                                                                              "description": "set the position of the dial",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 65535
+                                                                          }, {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 25098,
+                                                                              "description": "position of the potentiometer",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                   "ALT_LO_FLAG_KNB": {
+                                                              "category": "Avionics",
+                                                          "control_type": "limited_dial",
+                                                           "description": "Altimeter LO Flag Setting Knob",
+                                                            "identifier": "ALT_LO_FLAG_KNB",
+                                                                "inputs": [ {
+                                                                              "description": "set the position of the dial",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 65535
+                                                                          }, {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 25096,
+                                                                              "description": "position of the potentiometer",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                       "ALT_SET_KNB": {
+                                                           "api_variant": "multiturn",
+                                                              "category": "Avionics",
+                                                          "control_type": "analog_dial",
+                                                           "description": "Altimeter Setting Knob",
+                                                            "identifier": "ALT_SET_KNB",
+                                                                "inputs": [ {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 25092,
+                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "_KNOB_POS",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      }
+                               },
+            "Electric System": {
+                                   "GEN_SWITCH": {
+                                                                "category": "Electric System",
+                                                            "control_type": "selector",
+                                                             "description": "Generator Switch, ON/OFF",
+                                                              "identifier": "GEN_SWITCH",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                     "momentary_positions": "none",
+                                                                 "outputs": [ {
+                                                                                    "address": 25088,
+                                                                                "description": "selector position",
+                                                                                       "mask": 4,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 2,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ],
+                                                        "physical_variant": "toggle_switch"
+                                                 },
+                                   "INV_SWITCH": {
+                                                                "category": "Electric System",
+                                                            "control_type": "selector",
+                                                             "description": "Inverter Switch, ON/OFF",
+                                                              "identifier": "INV_SWITCH",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                     "momentary_positions": "none",
+                                                                 "outputs": [ {
+                                                                                    "address": 25088,
+                                                                                "description": "selector position",
+                                                                                       "mask": 8,
+                                                                                  "max_value": 1,
+                                                                                   "shift_by": 3,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ],
+                                                        "physical_variant": "toggle_switch"
+                                                 },
+                                    "PW_SEL_SW": {
+                                                                "category": "Electric System",
+                                                            "control_type": "selector",
+                                                             "description": "Power Selector Switch, BATT/OFF/EXT",
+                                                              "identifier": "PW_SEL_SW",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 2
+                                                                            } ],
+                                                     "momentary_positions": "none",
+                                                                 "outputs": [ {
+                                                                                    "address": 25088,
+                                                                                "description": "selector position",
+                                                                                       "mask": 3,
+                                                                                  "max_value": 2,
+                                                                                   "shift_by": 0,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ],
+                                                        "physical_variant": "3_position_switch"
+                                                 }
+                               },
+                    "Engines": {
+                                   "THROTTLE_CUTOFF": {
+                                                                     "category": "Engines",
+                                                                 "control_type": "selector",
+                                                                  "description": "Throttle Cutoff",
+                                                                   "identifier": "THROTTLE_CUTOFF",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 25088,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 16,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 4,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      }
+                               },
+    "External Aircraft Model": {
+                                        "EXT_LAND_LIGHT": {
+                                                                  "category": "External Aircraft Model",
+                                                              "control_type": "metadata",
+                                                               "description": "Landing Light (white)",
+                                                                "identifier": "EXT_LAND_LIGHT",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 25138,
+                                                                                  "description": "Landing Light (white)",
+                                                                                         "mask": 2,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 1,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                   "EXT_POSITION_LIGHTS": {
+                                                                  "category": "External Aircraft Model",
+                                                              "control_type": "metadata",
+                                                               "description": "Position Lights (red,Green)",
+                                                                "identifier": "EXT_POSITION_LIGHTS",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 25138,
+                                                                                  "description": "Position Lights (red,Green)",
+                                                                                         "mask": 1,
+                                                                                    "max_value": 1,
+                                                                                     "shift_by": 0,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          },
+                                             "EXT_ROTOR": {
+                                                                  "category": "External Aircraft Model",
+                                                              "control_type": "metadata",
+                                                               "description": "Rotor Move",
+                                                                "identifier": "EXT_ROTOR",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                      "address": 25140,
+                                                                                  "description": "Rotor Move",
+                                                                                         "mask": 65535,
+                                                                                    "max_value": 65535,
+                                                                                     "shift_by": 0,
+                                                                                       "suffix": "",
+                                                                                         "type": "integer"
+                                                                              } ]
+                                                          }
+                               },
+            "External Lights": {
+                                   "LAND_L_SW": {
+                                                               "category": "External Lights",
+                                                           "control_type": "selector",
+                                                            "description": "Landing Light Switch, ON/OFF",
+                                                             "identifier": "LAND_L_SW",
+                                                                 "inputs": [ {
+                                                                               "description": "switch to previous or next state",
+                                                                                 "interface": "fixed_step"
+                                                                           }, {
+                                                                               "description": "set position",
+                                                                                 "interface": "set_state",
+                                                                                 "max_value": 1
+                                                                           }, {
+                                                                                  "argument": "TOGGLE",
+                                                                               "description": "Toggle switch state",
+                                                                                 "interface": "action"
+                                                                           } ],
+                                                    "momentary_positions": "none",
+                                                                "outputs": [ {
+                                                                                   "address": 25088,
+                                                                               "description": "selector position",
+                                                                                      "mask": 32768,
+                                                                                 "max_value": 1,
+                                                                                  "shift_by": 15,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ],
+                                                       "physical_variant": "toggle_switch"
+                                                },
+                                    "POS_L_SW": {
+                                                               "category": "External Lights",
+                                                           "control_type": "selector",
+                                                            "description": "Position Light Switch",
+                                                             "identifier": "POS_L_SW",
+                                                                 "inputs": [ {
+                                                                               "description": "switch to previous or next state",
+                                                                                 "interface": "fixed_step"
+                                                                           }, {
+                                                                               "description": "set position",
+                                                                                 "interface": "set_state",
+                                                                                 "max_value": 1
+                                                                           }, {
+                                                                                  "argument": "TOGGLE",
+                                                                               "description": "Toggle switch state",
+                                                                                 "interface": "action"
+                                                                           } ],
+                                                    "momentary_positions": "none",
+                                                                "outputs": [ {
+                                                                                   "address": 25088,
+                                                                               "description": "selector position",
+                                                                                      "mask": 16384,
+                                                                                 "max_value": 1,
+                                                                                  "shift_by": 14,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ],
+                                                       "physical_variant": "toggle_switch"
+                                                }
+                               },
+                     "Gauges": {
+                                           "ADI_BANK": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "ADI Bank",
+                                                             "identifier": "ADI_BANK",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25112,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                          "ADI_PITCH": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "ADI Pitch",
+                                                             "identifier": "ADI_PITCH",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25110,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                           "ADI_SLIP": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "ADI Slip",
+                                                             "identifier": "ADI_SLIP",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25114,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                         "ALT_NEEDLE": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Altimeter Needle",
+                                                             "identifier": "ALT_NEEDLE",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25102,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                            "COMPASS": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Compass",
+                                                             "identifier": "COMPASS",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25116,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                       "DRUM_ALT_10K": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Altimeter Drum 10000ft",
+                                                             "identifier": "DRUM_ALT_10K",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25120,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                        "DRUM_ALT_1K": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Altimeter Drum 1000ft",
+                                                             "identifier": "DRUM_ALT_1K",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25118,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                   "DRUM_ALT_ADJ_HG1": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Altimeter inHG Drum 1",
+                                                             "identifier": "DRUM_ALT_ADJ_HG1",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25122,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                   "DRUM_ALT_ADJ_HG2": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Altimeter inHG Drum 2",
+                                                             "identifier": "DRUM_ALT_ADJ_HG2",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25124,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                   "DRUM_ALT_ADJ_HG3": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Altimeter inHG Drum 3",
+                                                             "identifier": "DRUM_ALT_ADJ_HG3",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25126,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                   "DRUM_ALT_ADJ_HG4": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Altimeter inHG Drum 4",
+                                                             "identifier": "DRUM_ALT_ADJ_HG4",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25128,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                   "DRUM_ALT_ADJ_MB1": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Altimeter MB Drum 1",
+                                                             "identifier": "DRUM_ALT_ADJ_MB1",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25130,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                   "DRUM_ALT_ADJ_MB2": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Altimeter MB Drum 2",
+                                                             "identifier": "DRUM_ALT_ADJ_MB2",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25132,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                   "DRUM_ALT_ADJ_MB3": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Altimeter MB Drum 3",
+                                                             "identifier": "DRUM_ALT_ADJ_MB3",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25134,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                   "DRUM_ALT_ADJ_MB4": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Altimeter MB Drum 4",
+                                                             "identifier": "DRUM_ALT_ADJ_MB4",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25136,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                         "IAS_NEEDLE": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "IAS Needle",
+                                                             "identifier": "IAS_NEEDLE",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25100,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                   "RADAR_ALT_NEEDLE": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Radar Altimeter Needle",
+                                                             "identifier": "RADAR_ALT_NEEDLE",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25104,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                      "RADAR_ALT_OFF": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Radar Altimeter OFF Flag",
+                                                             "identifier": "RADAR_ALT_OFF",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25106,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                          "VV_NEEDLE": {
+                                                               "category": "Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Vertical Velocity Needle",
+                                                             "identifier": "VV_NEEDLE",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 25108,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       }
+                               },
+                        "RWR": {
+                                   "RWR_DISP_BRIGHT": {
+                                                              "category": "RWR",
+                                                          "control_type": "limited_dial",
+                                                           "description": "RWR Display Brightness Knob",
+                                                            "identifier": "RWR_DISP_BRIGHT",
+                                                                "inputs": [ {
+                                                                              "description": "set the position of the dial",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 65535
+                                                                          }, {
+                                                                                 "description": "turn the dial left or right",
+                                                                                   "interface": "variable_step",
+                                                                                   "max_value": 65535,
+                                                                              "suggested_step": 3200
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                  "address": 25090,
+                                                                              "description": "position of the potentiometer",
+                                                                                     "mask": 65535,
+                                                                                "max_value": 65535,
+                                                                                 "shift_by": 0,
+                                                                                   "suffix": "",
+                                                                                     "type": "integer"
+                                                                          } ]
+                                                      },
+                                         "RWR_PW_SW": {
+                                                                     "category": "RWR",
+                                                                 "control_type": "selector",
+                                                                  "description": "RWR Power Switch, OFF/ON",
+                                                                   "identifier": "RWR_PW_SW",
+                                                                       "inputs": [ {
+                                                                                     "description": "switch to previous or next state",
+                                                                                       "interface": "fixed_step"
+                                                                                 }, {
+                                                                                     "description": "set position",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 1
+                                                                                 }, {
+                                                                                        "argument": "TOGGLE",
+                                                                                     "description": "Toggle switch state",
+                                                                                       "interface": "action"
+                                                                                 } ],
+                                                          "momentary_positions": "none",
+                                                                      "outputs": [ {
+                                                                                         "address": 25088,
+                                                                                     "description": "selector position",
+                                                                                            "mask": 8192,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 13,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "toggle_switch"
+                                                      }
+                               },
+              "Weapons Panel": {
+                                      "GUN_STATION_SEL": {
+                                                                        "category": "Weapons Panel",
+                                                                    "control_type": "selector",
+                                                                     "description": "Gun Station Selector, OFF/LEFT/BOTH/RIGHT",
+                                                                      "identifier": "GUN_STATION_SEL",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 3
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 25088,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 6144,
+                                                                                          "max_value": 3,
+                                                                                           "shift_by": 11,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                        "MASTER_ARM_SW": {
+                                                                        "category": "Weapons Panel",
+                                                                    "control_type": "selector",
+                                                                     "description": "Master Arm Switch, ARM/SAFE",
+                                                                      "identifier": "MASTER_ARM_SW",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 25088,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 32,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 5,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                     "PYLON_JETT_COVER": {
+                                                                        "category": "Weapons Panel",
+                                                                    "control_type": "selector",
+                                                                     "description": "Pylon Jettison Switch Cover",
+                                                                      "identifier": "PYLON_JETT_COVER",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 25088,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 256,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 8,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                        "PYLON_JETT_SW": {
+                                                                        "category": "Weapons Panel",
+                                                                    "control_type": "selector",
+                                                                     "description": "Pylon Jettison Switch, SAFE/JETTISON",
+                                                                      "identifier": "PYLON_JETT_SW",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 25088,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 128,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 7,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                       "ROCKET_MODE_SW": {
+                                                                        "category": "Weapons Panel",
+                                                                    "control_type": "selector",
+                                                                     "description": "Rocket Single/Ripple Mode Switch, SINGLE/RIPPLE",
+                                                                      "identifier": "ROCKET_MODE_SW",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 1
+                                                                                    }, {
+                                                                                           "argument": "TOGGLE",
+                                                                                        "description": "Toggle switch state",
+                                                                                          "interface": "action"
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 25088,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 64,
+                                                                                          "max_value": 1,
+                                                                                           "shift_by": 6,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         },
+                                   "ROCKET_STATION_SEL": {
+                                                                        "category": "Weapons Panel",
+                                                                    "control_type": "selector",
+                                                                     "description": "Rocket Station Selector, OFF/LEFT/BOTH/RIGHT",
+                                                                      "identifier": "ROCKET_STATION_SEL",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 3
+                                                                                    } ],
+                                                             "momentary_positions": "none",
+                                                                         "outputs": [ {
+                                                                                            "address": 25088,
+                                                                                        "description": "selector position",
+                                                                                               "mask": 1536,
+                                                                                          "max_value": 3,
+                                                                                           "shift_by": 9,
+                                                                                             "suffix": "",
+                                                                                               "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "toggle_switch"
+                                                         }
+                               }
+}
