@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("AH-64D", 0x8000)
 BIOS.protocol.setExportModuleAircrafts({"AH-64D_BLK_II"})
---v1.0 by WarLord (aka BlackLibrary)
+--v1.1 by WarLord (aka BlackLibrary) & 
 
 local documentation = moduleBeingDefined.documentation
 
@@ -347,6 +347,8 @@ definePushButton("PLT_KU_RIGHT", 29, 3005, 260, "PLT Keyboard Unit", "Pilot Keyb
 definePushButton("PLT_KU_ENT", 29, 3006, 261, "PLT Keyboard Unit", "Pilot Keyboard Unit ENTER Key")
 definePotentiometer("PLT_KU_BRT", 29, 3050, 316, {0, 1}, "PLT Keyboard Unit", "Pilot Scratchpad Keyboard Brightness Knob")
 
+defineString("PLT_KU_DISPLAY", function() return txt_PLT_KU end, 22, "PLT Keyboard Unit", "Pilot Keyboard Unit Display")
+
 definePushButton("CPG_KU_A", 30, 3007, 164, "CPG Keyboard Unit", "Gunner Keyboard Unit A Key")
 definePushButton("CPG_KU_B", 30, 3008, 165, "CPG Keyboard Unit", "Gunner Keyboard Unit B Key")
 definePushButton("CPG_KU_C", 30, 3009, 166, "CPG Keyboard Unit", "Gunner Keyboard Unit C Key")
@@ -397,7 +399,9 @@ definePushButton("CPG_KU_LEFT", 30, 3004, 210, "CPG Keyboard Unit", "Gunner Keyb
 definePushButton("CPG_KU_RIGHT", 30, 3005, 211, "CPG Keyboard Unit", "Gunner Keyboard Unit Right Key")
 definePushButton("CPG_KU_ENT", 30, 3006, 212, "CPG Keyboard Unit", "Gunner Keyboard Unit ENTER Key")
 definePotentiometer("CPG_KU_BRT", 30, 3050, 621, {0, 1}, "CPG Keyboard Unit", "Gunner Scratchpad Keyboard Brightness Knob")
-   
+
+defineString("CPG_KU_DISPLAY", function() return txt_CPG_KU end, 22, "CPG Keyboard Unit", "Gunner Keyboard Unit Display")
+ 
 -- Enhanced Up-Front Display
 local JSON = loadfile([[Scripts\JSON.lua]])()
 local eufd_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\lib\EUFD.json]], "r")
@@ -745,8 +749,5 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 defineIntegerFromGetter("EXT_ROTOR", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(40)*65535)
 end, 65535, "External Aircraft Model", "Rotor Move")
-
-defineString("PLT_KU_DISPLAY", function() return txt_PLT_KU end, 22, "PLT Keyboard Unit", "Pilot Keyboard Unit Display")
-defineString("CPG_KU_DISPLAY", function() return txt_CPG_KU end, 22, "CPG Keyboard Unit", "Gunner Keyboard Unit Display")
 
 BIOS.protocol.endModule()
