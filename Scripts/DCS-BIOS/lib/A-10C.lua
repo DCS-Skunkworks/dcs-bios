@@ -35,7 +35,7 @@ local function define3PosTumb1(msg, device_id, command, arg_number, category, de
 end
 
 local function getCMSPDisplayLines(dev0)
-	local cmsp = BIOS.util.parse_indication(7)
+	local cmsp = parse_indication(7)
 	if not cmsp then
 		local emptyline = string.format("%19s", "") -- 19 spaces
 		return emptyline, emptyline
