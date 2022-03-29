@@ -1369,18 +1369,6 @@ DEDLayout_l5["MARK MGRS Asteriscs_both"]={5,1,23,"","I"}
 DEDLayout = {DEDLayout_l1, DEDLayout_l2, DEDLayout_l3, DEDLayout_l4, DEDLayout_l5}
 
 ---------------------------- DED Display Utility Functions
-function parse_indication(indicator_id)  -- Thanks to [FSF]Ian code
-	local t = {}
-	local li = list_indication(indicator_id)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-    	local name, value = m()
-    	if not name then break end
-   			t[name]=value
-	end
-	return t
-end
-
 local function mergeString(original_string, new_data, location)
 	local new_data_length = string.len(new_data)
 	local before = string.sub(original_string,1,location)
@@ -1430,7 +1418,7 @@ local function buildDEDLine(line)
 -- Get Layout Information for line being built
 	local DEDLayoutLine = DEDLayout[line]
 -- Get Exported DED Objects
-	local DED_fields = parse_indication(6)
+	local DED_fields = parse_indication(6) or {}
 	local layout
 	local label
 	local value

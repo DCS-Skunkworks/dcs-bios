@@ -48,18 +48,6 @@ local slope = {}
 	return final_value
 end
 
-local function parse_indication(indicator_id)  -- Thanks to [FSF]Ian code
-	local ret = {}
-	local li = list_indication(indicator_id)
-	if li == "" then return nil end
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-	local name, value = m()
-	if not name then break end
-		ret[name] = value
-	end
-	return ret
-end
 --------------------------
 local function defineEmergencyParkingBrake(msg, device_id, emergency_command, park_command, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
