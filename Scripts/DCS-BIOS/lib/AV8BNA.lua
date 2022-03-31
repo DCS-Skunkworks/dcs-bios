@@ -683,166 +683,44 @@ defineString("UFC_COMM2_DISPLAY", getComm2Text, 2, "UFC", "UFC Comm2 Preset Disp
 
 local dummyAlloc = moduleBeingDefined.memoryMap:allocateString { maxLength = 14 }
 
-local function getAV8BNAODU1Select()
-	local li = list_indication(6)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "ODU_Option_1_Slc"
-			then
-			return value:sub(1)
-		end
-    end
-return " "
+-- parse ODU
+local oduOption1Select = ""
+local oduOption1Text = ""
+local oduOption2Select = ""
+local oduOption2Text = ""
+local oduOption3Select = ""
+local oduOption3Text = ""
+local oduOption4Select = ""
+local oduOption4Text = ""
+local oduOption5Select = ""
+local oduOption5Text = ""
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local odu = parse_indication(6)
+
+	if not odu then return end
+
+	oduOption1Select = coerce_nil_to_string(odu["ODU_Option_1_Slc"])
+	oduOption1Text = coerce_nil_to_string(odu["ODU_Option_1_Text"])
+	oduOption2Select = coerce_nil_to_string(odu["ODU_Option_2_Slc"])
+	oduOption2Text = coerce_nil_to_string(odu["ODU_Option_2_Text"])
+	oduOption3Select = coerce_nil_to_string(odu["ODU_Option_3_Slc"])
+	oduOption3Text = coerce_nil_to_string(odu["ODU_Option_3_Text"])
+	oduOption4Select = coerce_nil_to_string(odu["ODU_Option_4_Slc"])
+	oduOption4Text = coerce_nil_to_string(odu["ODU_Option_4_Text"])
+	oduOption5Select = coerce_nil_to_string(odu["ODU_Option_5_Slc"])
+	oduOption5Text = coerce_nil_to_string(odu["ODU_Option_5_Text"])
 end
 
-defineString("AV8BNA_ODU_1_SELECT", getAV8BNAODU1Select, 1, "ODU", "ODU Option 1 Select (string)")
-
-local function getAV8BNAODU1Text()
-	local li = list_indication(6)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "ODU_Option_1_Text"
-			then
-			return value:sub(1,4)
-		end
-    end
-return "    "
-end
-
-defineString("AV8BNA_ODU_1_Text", getAV8BNAODU1Text, 4, "ODU", "ODU Option 1 Text (string)")
-
-local function getAV8BNAODU2Select()
-	local li = list_indication(6)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "ODU_Option_2_Slc"
-			then
-			return value:sub(1)
-		end
-    end
-return " "
-end
-
-defineString("AV8BNA_ODU_2_SELECT", getAV8BNAODU2Select, 1, "ODU", "ODU Option 2 Select (string)")
-
-local function getAV8BNAODU2Text()
-	local li = list_indication(6)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "ODU_Option_2_Text"
-			then
-			return value:sub(1,4)
-		end
-    end
-return "    "
-end
-
-defineString("AV8BNA_ODU_2_Text", getAV8BNAODU2Text, 4, "ODU", "ODU Option 2 Text (string)")
-
-
-local function getAV8BNAODU3Select()
-	local li = list_indication(6)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "ODU_Option_3_Slc"
-			then
-			return value:sub(1)
-		end
-    end
-return " "
-end
-
-defineString("AV8BNA_ODU_3_SELECT", getAV8BNAODU3Select, 1, "ODU", "ODU Option 3 Select (string)")
-
-local function getAV8BNAODU3Text()
-	local li = list_indication(6)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "ODU_Option_3_Text"
-			then
-			return value:sub(1,4)
-		end
-    end
-return "    "
-end
-
-defineString("AV8BNA_ODU_3_Text", getAV8BNAODU3Text, 4, "ODU", "ODU Option 3 Text (string)")
-
-local function getAV8BNAODU4Select()
-	local li = list_indication(6)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "ODU_Option_4_Slc"
-			then
-			return value:sub(1)
-		end
-    end
-return " "
-end
-
-defineString("AV8BNA_ODU_4_SELECT", getAV8BNAODU4Select, 1, "ODU", "ODU Option 4 Select (string)")
-
-local function getAV8BNAODU4Text()
-	local li = list_indication(6)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "ODU_Option_4_Text"
-			then
-			return value:sub(1,4)
-		end
-    end
-return "    "
-end
-
-defineString("AV8BNA_ODU_4_Text", getAV8BNAODU4Text, 4, "ODU", "ODU Option 4 Text (string)")
-
-local function getAV8BNAODU5Select()
-	local li = list_indication(6)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "ODU_Option_5_Slc"
-			then
-			return value:sub(1)
-		end
-    end
-return " "
-end
-
-defineString("AV8BNA_ODU_5_SELECT", getAV8BNAODU5Select, 1, "ODU", "ODU Option 5 Select (string)")
-
-local function getAV8BNAODU5Text()
-	local li = list_indication(6)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "ODU_Option_5_Text"
-			then
-			return value:sub(1,4)
-		end
-    end
-return "    "
-end
-
-defineString("AV8BNA_ODU_5_Text", getAV8BNAODU5Text, 4, "ODU", "ODU Option 5 Text (string)")
+defineString("AV8BNA_ODU_1_SELECT", function() return oduOption1Select end, 1, "ODU", "ODU Option 1 Select (string)")
+defineString("AV8BNA_ODU_1_Text", function() return oduOption1Text end, 4, "ODU", "ODU Option 1 Text (string)")
+defineString("AV8BNA_ODU_2_SELECT", function() return oduOption2Select end, 1, "ODU", "ODU Option 2 Select (string)")
+defineString("AV8BNA_ODU_2_Text", function() return oduOption2Text end, 4, "ODU", "ODU Option 2 Text (string)")
+defineString("AV8BNA_ODU_3_SELECT", function() return oduOption3Select end, 1, "ODU", "ODU Option 3 Select (string)")
+defineString("AV8BNA_ODU_3_Text", function() return oduOption3Text end, 4, "ODU", "ODU Option 3 Text (string)")
+defineString("AV8BNA_ODU_4_SELECT", function() return oduOption4Select end, 1, "ODU", "ODU Option 4 Select (string)")
+defineString("AV8BNA_ODU_4_Text", function() return oduOption4Text end, 4, "ODU", "ODU Option 4 Text (string)")
+defineString("AV8BNA_ODU_5_SELECT", function() return oduOption5Select end, 1, "ODU", "ODU Option 5 Select (string)")
+defineString("AV8BNA_ODU_5_Text", function() return oduOption5Text end, 4, "ODU", "ODU Option 5 Text (string)")
 
 
 local function getUfcText()
