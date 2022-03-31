@@ -1,3 +1,5 @@
+import {docdata} from "./globals.js"
+
 var lastDCSValue = 0;
 
 var hex = function(input) {

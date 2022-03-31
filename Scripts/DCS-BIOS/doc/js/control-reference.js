@@ -1,3 +1,5 @@
+import {docdata} from "./globals.js"
+
 function highlightThis() {
 	var doc = document;
 	if (doc.body.createTextRange) { // ms
