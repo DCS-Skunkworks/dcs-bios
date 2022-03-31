@@ -637,22 +637,8 @@ local radio_sql_light
 local radio_to_light
 local radio_go_light
 
-local function radio_parse_indication(indicator_id)  -- Thanks to [FSF]Ian code
-	local ret = {}
-	local li = list_indication(indicator_id)
-	if li == "" then return nil end
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-		if not name then break end
-			-- there's # characters in one of the radio indicator names which break parsing if it isn't replaced
-			ret[name:gsub("\#","hash")] = value
-		end
-	return ret
-end
-
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	local radioDisplay = radio_parse_indication(7)
+	local radioDisplay = parse_indication(7)
 	radio_line_1 = "        "
 	radio_line_2 = "        "
 	radio_sql_light = 0
@@ -680,9 +666,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		}
 		radio_line_2 = radioDisplay.radio_disp_l2:gsub(".",charReplacements)	
 	end
-	
-	-- original name for field is "#3#"" but this is modified in radio_parse_indication to "hash3hash"
-	if radioDisplay.hash3hash then
+
+	if radioDisplay["#3#"] then
 		local tempString
 		if radioDisplay.radio_cursor and radioDisplay.radio_cursor:len() > 0 then
 			if radioDisplay.radio_disp_l1 and radioDisplay.radio_disp_l1:len() > 1 then
@@ -693,7 +678,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		else
 			tempString = radioDisplay.radio_disp_l1
 		end
-		radio_line_1 = radioDisplay.hash3hash:sub(1,radioDisplay.hash3hash:len() - tempString:len())..tempString
+		radio_line_1 = radioDisplay["#3#"]:sub(1,radioDisplay["#3#"]:len() - tempString:len())..tempString
 	else
 		radio_line_1 = radioDisplay.radio_disp_l1
 	end
